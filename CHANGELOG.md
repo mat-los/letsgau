@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Phase 5 AI readability: schema.org `Event` JSON-LD on every day page
+  (program items as `subEvent`), `llms.txt`, public `data/events.json`,
+  iCalendar feeds per language, `sitemap.xml` with hreflang, `robots.txt`
+  allowing AI crawlers, Open Graph and description per day.
 - Phase 4 website (`letsgau run --job build`): day pages DE/EN for
   `display_days` with coverage sentence, quick links, date bar with counts,
   sections (all day collapsed, morning, afternoon, evening), expandable events

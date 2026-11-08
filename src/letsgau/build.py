@@ -28,6 +28,7 @@ from zoneinfo import ZoneInfo
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
+from letsgau import feeds
 from letsgau.config import DEFAULT_CONFIG_PATH, Config, find_placeholders
 from letsgau.models import Event, EventsFile, EventStatus, PlacesFile
 
@@ -284,6 +285,12 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
         },
         sections=SECTIONS,
         drive_time=site.drive_time,
+        ld=feeds.json_ld(
+            view.rows,
+            lang,
+            ctx["base_url"] + page_path(lang, day),
+            ZoneInfo(site.config.site.timezone),
+        ),
     )
     return env.get_template("day.html").render(**ctx)
 
@@ -321,7 +328,6 @@ def build(
     data_dir: Path = DATA_DIR,
     site_dir: Path = SITE_DIR,
     now: datetime | None = None,
-    extra: Sequence[Any] = (),
 ) -> Site:
     """Render the whole site into ``site_dir`` (replacing it)."""
     now = (now or datetime.now(UTC)).replace(microsecond=0)
@@ -340,8 +346,6 @@ def build(
     site_dir.mkdir(parents=True)
     shutil.copytree(STATIC_DIR, site_dir / "assets", ignore=shutil.ignore_patterns("*.md"))
 
-    for step in extra:  # later phases add outputs (content pages, feeds, ...)
-        step.prepare(site)
     for lang in config.site.languages:
         for day in site.days:
             write(
@@ -359,8 +363,8 @@ def build(
         ),
     )
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
-    for step in extra:
-        step.write(site, env, site_dir)
+    coverage = {lang: base_context(site, lang, 0)["coverage"] for lang in config.site.languages}
+    feeds.write_all(site, site_dir, coverage)
     return site
 
 

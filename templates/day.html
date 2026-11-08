@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% import "partials/event.html" as ev with context %}
+{% block head %}
+<script type="application/ld+json">{{ ld | tojson }}</script>
+{% endblock %}
 {% block body_attrs %} data-day="{{ day.isoformat() }}" data-lang="{{ lang }}"{% if is_index %} data-index="1"{% endif %} data-root="{{ root }}"{% endblock %}
 {% block header_tools %}
 <label class="search js-only"><span class="sr">{{ t('search') }}</span><input type="search" id="q" placeholder="{{ t('search_placeholder') }}" autocomplete="off"></label>

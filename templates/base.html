@@ -45,6 +45,7 @@
   <p class="updated">{{ t('last_updated') }}: <time datetime="{{ updated_iso }}">{{ updated }}</time></p>
   <nav class="links">
     {% for slug, label in (site.content_pages.get(lang) or {}).items() %}<a href="{{ root }}{{ lang }}/{{ slug }}/">{{ label }}</a>{% endfor %}
+    <a href="{{ root }}data/events.{{ lang }}.ics">{{ t('nav_data') }}</a>
     {% block footer_links %}{% endblock %}
   </nav>
 </footer>

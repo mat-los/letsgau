@@ -78,9 +78,9 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 5 – AI readability
 
-- [ ] [#18](https://github.com/mat-los/letsgau/issues/18) JSON-LD passes the schema.org validator without errors
-- [ ] [#19](https://github.com/mat-los/letsgau/issues/19) llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
-- [ ] [#20](https://github.com/mat-los/letsgau/issues/20) Fetching a day page with curl shows all events in the text
+- [x] [#18](https://github.com/mat-los/letsgau/issues/18) JSON-LD passes the schema.org validator without errors
+- [x] [#19](https://github.com/mat-los/letsgau/issues/19) llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
+- [x] [#20](https://github.com/mat-los/letsgau/issues/20) Fetching a day page with curl shows all events in the text
 
 ### Phase 6 – Scheduler and workflow
 
