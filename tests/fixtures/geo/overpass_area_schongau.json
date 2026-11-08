@@ -205,6 +205,16 @@
         "name": "Raisting",
         "place": "village"
       }
+    },
+    {
+      "type": "node",
+      "id": 240041120,
+      "lat": 47.8394,
+      "lon": 11.1406,
+      "tags": {
+        "name": "Weilheim in Oberbayern",
+        "place": "town"
+      }
     }
   ]
 }

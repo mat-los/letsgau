@@ -172,14 +172,17 @@ def test_schongau_30_minutes_writes_places_json(
     listed = names(result)
     assert listed[0] == "Schongau"
     assert {"Peiting", "Altenstadt", "Peißenberg", "Steingaden"} <= set(listed)
-    assert "Raisting" not in listed  # inside the bounding box but outside the isochrone
+    # Inside the bounding box but outside the isochrone (Prem: 30.2 min, Raisting: 40 min).
+    assert "Prem" not in listed
+    assert "Raisting" not in listed
+    assert "Weilheim in Oberbayern" in listed  # 29.5 min
     assert len(listed) == 19
     times = [p.drive_time_minutes for p in places_file.places]
     assert all(t is not None and 0 < t <= 30 for t in times)
     assert times == sorted(times)
     peiting = next(p for p in places_file.places if p.name == "Peiting")
     assert (peiting.drive_time_minutes, peiting.distance_km, peiting.osm_id) == (
-        7.0,
+        9.6,
         4.2,
         "node/240040702",
     )
@@ -262,7 +265,7 @@ def test_missing_isochrone_file_is_refetched(
 # --- acceptance #6: include_places and exclude_places ------------------------
 
 
-def test_include_places_adds_landsberg_and_weilheim(
+def test_include_places_adds_landsberg_and_keeps_weilheim(
     clients: geo.Clients, http: FakeHttp, tmp_path: Path
 ) -> None:
     include = ["Landsberg am Lech", "Weilheim in Oberbayern"]
@@ -270,13 +273,17 @@ def test_include_places_adds_landsberg_and_weilheim(
 
     assert result.warnings == []
     assert result.places is not None
-    added = {p.name: p for p in result.places.places if p.origin is PlaceOrigin.INCLUDE}
-    assert set(added) == set(include)
-    assert added["Weilheim in Oberbayern"].drive_time_minutes == 26.0
-    assert added["Landsberg am Lech"].drive_time_minutes == 28.0
-    assert added["Landsberg am Lech"].place_type == "town"
+    by_name = {p.name: p for p in result.places.places}
+    # Landsberg (36 min) is outside the isochrone and gets looked up by name.
+    landsberg = by_name["Landsberg am Lech"]
+    assert (landsberg.origin, landsberg.place_type) == (PlaceOrigin.INCLUDE, "town")
+    assert landsberg.drive_time_minutes == 36.2
+    assert result.places.places[-1] is landsberg
+    # Weilheim (29.5 min) is already inside, so it is not looked up again.
+    assert by_name["Weilheim in Oberbayern"].origin is PlaceOrigin.AREA
     include_query = http.calls[2][1]["data"]
     assert '"name"="Landsberg am Lech"' in include_query
+    assert "Weilheim" not in include_query
     assert result.places.include_places == include
 
 
@@ -290,9 +297,9 @@ def test_exclude_places_removes_place(clients: geo.Clients, tmp_path: Path) -> N
 
 
 def test_include_and_exclude_together(clients: geo.Clients, tmp_path: Path) -> None:
-    config = make_config(include_places=["Weilheim in Oberbayern"], exclude_places=["Peiting"])
+    config = make_config(include_places=["Landsberg am Lech"], exclude_places=["Peiting"])
     listed = names(run_geo(config, clients, tmp_path))
-    assert "Weilheim in Oberbayern" in listed
+    assert "Landsberg am Lech" in listed
     assert "Peiting" not in listed
 
 
@@ -344,12 +351,12 @@ def test_matrix_is_chunked(
 def test_unroutable_place_gets_none_and_warning(
     clients: geo.Clients, http: FakeHttp, tmp_path: Path
 ) -> None:
-    http.matrix.pop((10.8, 47.6833))  # Prem
+    http.matrix.pop((10.8, 47.7))  # Lechbruck am See
     result = run_geo(make_config(), clients, tmp_path)
     assert result.places is not None
-    assert result.places.places[-1].name == "Prem"
+    assert result.places.places[-1].name == "Lechbruck am See"
     assert result.places.places[-1].drive_time_minutes is None
-    assert any("Prem" in w for w in result.warnings)
+    assert any("Lechbruck" in w for w in result.warnings)
 
 
 def test_ors_error_raises(clients: geo.Clients, http: FakeHttp, tmp_path: Path) -> None:

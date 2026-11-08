@@ -82,6 +82,10 @@
         47.6833
       ],
       [
+        11.095,
+        47.917
+      ],
+      [
         11.1406,
         47.8394
       ],
@@ -114,7 +118,8 @@
       18,
       19,
       20,
-      21
+      21,
+      22
     ],
     "metrics": [
       "duration",
@@ -123,218 +128,224 @@
     "units": "m"
   },
   "response": {
-    "durations": [
-      [
-        95.0,
-        300.0,
-        420.0,
-        480.0,
-        600.0,
-        660.0,
-        660.0,
-        780.0,
-        840.0,
-        840.0,
-        900.0,
-        960.0,
-        1020.0,
-        1080.0,
-        1080.0,
-        1140.0,
-        1200.0,
-        1260.0,
-        1380.0,
-        1560.0,
-        1680.0
-      ]
+    "destinations": [
+      {
+        "location": [
+          10.896562,
+          47.811596
+        ],
+        "snapped_distance": 2.84
+      },
+      {
+        "location": [
+          10.874285,
+          47.821797
+        ],
+        "snapped_distance": 12.48
+      },
+      {
+        "location": [
+          10.929767,
+          47.795314
+        ],
+        "snapped_distance": 17.5
+      },
+      {
+        "location": [
+          10.897042,
+          47.850032
+        ],
+        "snapped_distance": 4.71
+      },
+      {
+        "location": [
+          10.833326,
+          47.83475
+        ],
+        "snapped_distance": 27.81
+      },
+      {
+        "location": [
+          10.825018,
+          47.776294
+        ],
+        "snapped_distance": 11.86
+      },
+      {
+        "location": [
+          10.883817,
+          47.883469
+        ],
+        "snapped_distance": 42.9
+      },
+      {
+        "location": [
+          10.766317,
+          47.800054
+        ],
+        "snapped_distance": 29.22
+      },
+      {
+        "location": [
+          11.016622,
+          47.800934
+        ],
+        "snapped_distance": 104.04
+      },
+      {
+        "location": [
+          10.933311,
+          47.9
+        ],
+        "snapped_distance": 0.85
+      },
+      {
+        "location": [
+          10.966988,
+          47.733312
+        ],
+        "snapped_distance": 21.57
+      },
+      {
+        "location": [
+          10.778461,
+          47.736891
+        ],
+        "snapped_distance": 10.42
+      },
+      {
+        "location": [
+          11.066551,
+          47.800224
+        ],
+        "snapped_distance": 27.28
+      },
+      {
+        "location": [
+          10.84996,
+          47.916655
+        ],
+        "snapped_distance": 5.86
+      },
+      {
+        "location": [
+          11.009699,
+          47.755796
+        ],
+        "snapped_distance": 131.47
+      },
+      {
+        "location": [
+          10.933036,
+          47.699894
+        ],
+        "snapped_distance": 23.0
+      },
+      {
+        "location": [
+          10.864468,
+          47.701003
+        ],
+        "snapped_distance": 200.83
+      },
+      {
+        "location": [
+          10.797315,
+          47.700707
+        ],
+        "snapped_distance": 215.77
+      },
+      {
+        "location": [
+          10.802352,
+          47.683418
+        ],
+        "snapped_distance": 176.58
+      },
+      {
+        "location": [
+          11.094995,
+          47.916999
+        ],
+        "snapped_distance": 0.37
+      },
+      {
+        "location": [
+          11.140605,
+          47.839399
+        ],
+        "snapped_distance": 0.36
+      },
+      {
+        "location": [
+          10.883041,
+          48.048021
+        ],
+        "snapped_distance": 3.86
+      }
     ],
     "distances": [
       [
-        600.0,
-        2900.0,
-        4200.0,
-        5100.0,
-        7300.0,
-        8500.0,
-        9000.0,
-        10900.0,
-        11500.0,
-        11800.0,
-        14000.0,
-        14600.0,
-        16500.0,
-        15200.0,
-        15900.0,
-        16900.0,
-        18200.0,
-        19800.0,
-        21500.0,
-        26000.0,
-        30500.0
+        639.49,
+        3201.05,
+        4246.81,
+        6452.04,
+        6837.66,
+        11321.67,
+        13398.07,
+        14201.43,
+        13461.95,
+        15216.18,
+        13401.15,
+        16980.99,
+        17391.58,
+        15707.28,
+        19021.4,
+        19502.71,
+        16569.54,
+        21631.29,
+        22764.38,
+        29115.4,
+        26208.77,
+        30551.59
+      ]
+    ],
+    "durations": [
+      [
+        153.47,
+        482.72,
+        574.99,
+        763.7,
+        712.67,
+        1089.64,
+        1270.83,
+        970.25,
+        1213.19,
+        1220.58,
+        1071.74,
+        1425.51,
+        1374.1,
+        1245.11,
+        1626.73,
+        1514.48,
+        1437.8,
+        1773.23,
+        1813.47,
+        2416.01,
+        1767.3,
+        2169.74
       ]
     ],
     "sources": [
       {
         "location": [
-          10.896,
-          47.811
+          10.896184,
+          47.811064
         ],
-        "snapped_distance": 12.3
-      }
-    ],
-    "destinations": [
-      {
-        "location": [
-          10.8966,
-          47.8116
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8742,
-          47.8217
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.93,
-          47.7953
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.897,
-          47.85
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8333,
-          47.835
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.825,
-          47.7764
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8833,
-          47.8833
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.7667,
-          47.8
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          11.0167,
-          47.8
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.9333,
-          47.9
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.9667,
-          47.7333
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.7786,
-          47.7369
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          11.0667,
-          47.8
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.85,
-          47.9167
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          11.011,
-          47.755
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.9333,
-          47.7
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8667,
-          47.7
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8,
-          47.7
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.8,
-          47.6833
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          11.1406,
-          47.8394
-        ],
-        "snapped_distance": 25.0
-      },
-      {
-        "location": [
-          10.883,
-          48.048
-        ],
-        "snapped_distance": 25.0
+        "snapped_distance": 15.49
       }
     ],
     "metadata": {
-      "attribution": "openrouteservice.org | OpenStreetMap contributors",
-      "service": "matrix",
-      "timestamp": 1794100001000,
       "query": {
         "locations": [
           [
@@ -418,6 +429,10 @@
             47.6833
           ],
           [
+            11.095,
+            47.917
+          ],
+          [
             11.1406,
             47.8394
           ],
@@ -425,12 +440,6 @@
             10.883,
             48.048
           ]
-        ],
-        "profile": "driving-car",
-        "profileName": "driving-car",
-        "responseType": "json",
-        "sources": [
-          "0"
         ],
         "destinations": [
           "1",
@@ -453,19 +462,31 @@
           "18",
           "19",
           "20",
-          "21"
+          "21",
+          "22"
         ],
         "metrics": [
           "duration",
           "distance"
         ],
+        "profile": "driving-car",
+        "profileName": "driving-car",
+        "responseType": "json",
+        "sources": [
+          "0"
+        ],
         "units": "m"
       },
+      "attribution": "openrouteservice.org | OpenStreetMap contributors",
       "engine": {
-        "version": "9.x",
-        "build_date": "2026-10-01T00:00:00Z",
-        "graph_date": "2026-10-20T00:00:00Z"
-      }
+        "build_date": "2026-10-14T07:31:58Z",
+        "graph_date": "2026-10-17T02:03:58Z",
+        "osm_date": "2026-10-11T00:00:00Z",
+        "version": "10.1.0"
+      },
+      "service": "matrix",
+      "system_message": "Please note that the URL api.openrouteservice.org has been deprecated. All information available at ask.openrouteservice.org",
+      "timestamp": 1794156603164
     }
   }
 }
