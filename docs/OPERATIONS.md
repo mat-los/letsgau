@@ -119,6 +119,28 @@ computes the places for the instance config and runs the crawl as a dry run
 with `ORS_API_KEY` and `CLAUDE_CODE_OAUTH_TOKEN`. It also runs on pull requests
 that change `prompts/events.md`, so every prompt change gets a dry run.
 
+## Build the website
+
+```bash
+python -m letsgau run --job build
+```
+
+- Renders `site/` from `data/events.json` (and `data/places.json` for grouping
+  by distance): `/<lang>/` (today) and `/<lang>/<YYYY-MM-DD>/` for
+  `display_days` days in every language, plus `/` (language redirect).
+  "Today" is the date in `site.timezone`.
+- Links are relative, so the folder works on a custom domain and on
+  `<owner>.github.io/<repo>/`; canonical and hreflang use `site.base_url`.
+- Aborts if `config.yaml` still has placeholders or, in GitHub Actions,
+  `site.owner` differs from the repository owner.
+- `--dry-run` builds into a temporary folder instead of `site/`.
+- Preview locally: `python -m http.server --directory site` and open
+  `http://localhost:8000/de/`.
+
+The *Site check* workflow builds the fixture day with 100 events and runs
+Lighthouse (mobile; performance and accessibility must be ≥ 90) and a `curl`
+check that every event is in the HTML.
+
 ## Run on GitHub (Phase 6)
 
 *Actions → Run → Run workflow*, choose the job. The button is also available in

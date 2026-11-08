@@ -18,6 +18,7 @@ from pathlib import Path
 from letsgau import __version__, build, crawl, discovery, geo
 from letsgau import init as init_cmd
 from letsgau.ai_runner import AiError
+from letsgau.build import BuildError
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
 from letsgau.crawl import CrawlError
 from letsgau.geo import GeoError
@@ -125,13 +126,17 @@ def _cmd_run(
     stages = STAGES if job == "all" else (job,)
     for stage in stages:
         for module in STAGE_MODULES[stage]:
-            kwargs = {"force": force} if module is geo else {}
+            kwargs: dict[str, object] = {}
+            if module is geo:
+                kwargs["force"] = force
+            elif module is build:
+                kwargs["config_path"] = config_path
             try:
                 module.run(config, dry_run=dry_run, limit_places=limit_places, **kwargs)
             except NotImplementedError as exc:
                 print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
                 return 2
-            except (GeoError, CrawlError, AiError) as exc:
+            except (GeoError, CrawlError, AiError, BuildError) as exc:
                 print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
                 return 1
     return 0

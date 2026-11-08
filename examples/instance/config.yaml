@@ -9,6 +9,7 @@ site:
   owner: "{{GITHUB_OWNER}}"             # must match the GitHub repo owner, else build aborts
   contact_email: "{{CONTACT_EMAIL}}"    # for source suggestions and feedback
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
+  timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
 
 region:
   label: "{{REGION_LABEL}}"             # name of the center, used in the coverage sentence

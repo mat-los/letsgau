@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Phase 4 website (`letsgau run --job build`): day pages DE/EN for
+  `display_days` with coverage sentence, quick links, date bar with counts,
+  sections (all day collapsed, morning, afternoon, evening), expandable events
+  with sources, opening hours, program items and status; tag chips with
+  include/exclude, search, grouping by time/category/place, swipe, sliding
+  header, settings in `localStorage`; everything readable without JavaScript.
+  New option `site.timezone`. Workflow `site-check.yml` (Lighthouse, curl).
 - Phase 3 merge and status: fuzzy matching of crawled and stored events (dates,
   municipality, start time, normalized titles), one Haiku call per run for
   unclear pairs and the topic check of new events (`prompts/merge.md`),

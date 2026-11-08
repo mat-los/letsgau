@@ -1,0 +1,86 @@
+# Website quality check: builds the site from the fixture with 100 events on one
+# day (tests/fixtures/site/events.json), serves it locally and runs Lighthouse
+# (mobile) on that day page. Fails if performance or accessibility is below 90.
+# Also checks that a plain `curl` of the page contains every event title.
+name: Site check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/site-check.yml"
+      - "templates/**"
+      - "static/**"
+      - "i18n/**"
+      - "src/letsgau/build.py"
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        run: pip install -e '.[dev]'
+      - name: Build the fixture site
+        run: |
+          mkdir -p /tmp/demo/data
+          cp tests/fixtures/site/events.json /tmp/demo/data/
+          python - <<'PY'
+          from datetime import UTC, datetime
+          from pathlib import Path
+          from letsgau import build
+          from letsgau.config import load_config
+          build.build(load_config("instance/config.yaml"), data_dir=Path("/tmp/demo/data"),
+                      site_dir=Path("/tmp/demo/site"), now=datetime(2026, 11, 13, 20, tzinfo=UTC))
+          PY
+      - name: Serve
+        run: |
+          python -m http.server 8080 --directory /tmp/demo/site >/tmp/http.log 2>&1 &
+          sleep 2
+      - name: curl shows every event
+        run: |
+          curl -fsS http://localhost:8080/de/2026-11-14/ > page.html
+          python - <<'PY'
+          import json, html
+          page = html.unescape(open("page.html", encoding="utf-8").read())
+          events = json.load(open("tests/fixtures/site/events.json", encoding="utf-8"))["events"]
+          missing = [e["title"]["de"] for e in events if e["title"]["de"] not in page]
+          print(f"{len(events) - len(missing)} of {len(events)} event titles in the HTML")
+          assert not missing, missing
+          PY
+      - name: Lighthouse (mobile)
+        run: |
+          npx --yes lighthouse@12 http://localhost:8080/de/2026-11-14/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --chrome-flags="--headless=new --no-sandbox" \
+            --output=json --output=html --output-path=./lighthouse --quiet
+          python - <<'PY'
+          import json, os
+          report = json.load(open("lighthouse.report.json"))
+          scores = {k: round(v["score"] * 100) for k, v in report["categories"].items()}
+          lines = [f"| {k} | {v} |" for k, v in scores.items()]
+          summary = "### Lighthouse (mobile, 100 events)\n\n| Category | Score |\n| --- | --- |\n" + "\n".join(lines)
+          print(summary)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+              f.write(summary + "\n")
+          for audit in report["audits"].values():
+              if audit.get("score") is not None and audit["score"] < 0.9 and audit.get("scoreDisplayMode") in ("binary", "numeric"):
+                  print(f"  {audit['id']}: {audit['score']} {audit.get('displayValue', '')}")
+          assert scores["performance"] >= 90 and scores["accessibility"] >= 90, scores
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-report
+          path: lighthouse.report.*

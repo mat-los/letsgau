@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% import "partials/event.html" as ev with context %}
+{% block body_attrs %} data-day="{{ day.isoformat() }}" data-lang="{{ lang }}"{% if is_index %} data-index="1"{% endif %} data-root="{{ root }}"{% endblock %}
+{% block header_tools %}
+<label class="search js-only"><span class="sr">{{ t('search') }}</span><input type="search" id="q" placeholder="{{ t('search_placeholder') }}" autocomplete="off"></label>
+{% endblock %}
+{% block header_more %}
+<nav class="quick" aria-label="{{ t('date_bar') }}">
+  <a href="{{ root }}{{ lang }}/{{ quick.today.isoformat() }}/"{% if day == quick.today %} aria-current="page"{% endif %}>{{ t('today') }}</a>
+  <a href="{{ root }}{{ lang }}/{{ quick.tomorrow.isoformat() }}/"{% if day == quick.tomorrow %} aria-current="page"{% endif %}>{{ t('tomorrow') }}</a>
+  {% if quick.weekend %}<a href="{{ root }}{{ lang }}/{{ quick.weekend.isoformat() }}/"{% if day == quick.weekend %} aria-current="page"{% endif %}>{{ t('weekend') }}</a>{% endif %}
+</nav>
+<nav class="dates" aria-label="{{ t('date_bar') }}">
+  {% for d, count in date_bar %}
+  <a href="{{ root }}{{ lang }}/{{ d.isoformat() }}/" class="d{% if d.weekday() >= 5 %} we{% endif %}"{% if d == day %} aria-current="page"{% endif %}><span class="wd">{{ t['weekdays_short'][d.weekday()] }}</span><span class="dn">{{ d.day }}</span><span class="n">{{ count }}</span></a>
+  {% endfor %}
+</nav>
+<div class="tools js-only">
+  <div class="chips" role="group" aria-label="{{ t('filters') }}" title="{{ t('filter_hint') }}">
+    {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
+    <button type="button" class="chip reset" id="reset" hidden>{{ t('reset') }}</button>
+  </div>
+  <div class="group" role="group" aria-label="{{ t('group_by') }}">
+    <span>{{ t('group_by') }}:</span>
+    <button type="button" data-group="time" aria-pressed="true">{{ t('group_time') }}</button>
+    <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
+    <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
+  </div>
+</div>
+{% endblock %}
+{% block main %}
+<h1 class="day">{{ fmt(day) }} <small>{{ t('events_count', count=view.count) }}</small></h1>
+<div id="list" data-labels='{{ {"all_day": t("section_all_day"), "morning": t("section_morning"), "afternoon": t("section_afternoon"), "evening": t("section_evening"), "no_match": t("no_match"), "tags": tag_label} | tojson_compact }}'>
+{% if not view.rows %}
+<p class="empty">{{ t('no_events') }}</p>
+{% endif %}
+{% for name in sections %}
+{% set rows = view.section(name) %}
+{% if rows %}
+{% if name == 'all_day' %}
+<details class="sec all-day"><summary><h2>{{ t('section_all_day') }} <span class="n">({{ rows | rejectattr('standalone_copy_of') | list | length }})</span></h2></summary>
+{% for r in rows %}{{ ev.row(r, day) }}{% endfor %}
+</details>
+{% else %}
+<section class="sec" data-section="{{ name }}"><h2>{{ t('section_' ~ name) }}</h2>
+{% for r in rows %}{{ ev.row(r, day) }}{% endfor %}
+</section>
+{% endif %}
+{% endif %}
+{% endfor %}
+<p class="empty nomatch" hidden>{{ t('no_match') }}</p>
+</div>
+<nav class="pager">
+  {% if prev_day %}<a rel="prev" href="{{ root }}{{ lang }}/{{ prev_day.isoformat() }}/">← {{ t('prev_day') }}</a>{% else %}<span></span>{% endif %}
+  {% if next_day %}<a rel="next" href="{{ root }}{{ lang }}/{{ next_day.isoformat() }}/">{{ t('next_day') }} →</a>{% endif %}
+</nav>
+{% endblock %}
+{% block scripts %}
+<script src="{{ root }}assets/app.js" defer></script>
+{% endblock %}

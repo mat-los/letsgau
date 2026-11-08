@@ -22,6 +22,7 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | `owner` | string | must equal the GitHub repo owner, else the build aborts |
 | `contact_email` | string | address for source suggestions and feedback |
 | `feedback_form_endpoint` | URL or `""` | form service; empty = `mailto:` fallback |
+| `timezone` | IANA name | time zone of the region (default `Europe/Berlin`); the website's "today" and the dates in `events.ics` use it |
 
 ## `region`
 

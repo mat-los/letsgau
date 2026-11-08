@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ default }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.config.site.name }}</title>
+<meta http-equiv="refresh" content="0; url={{ default }}/">
+<link rel="canonical" href="{{ site.config.site.base_url.rstrip('/') }}/{{ default }}/">
+<script>
+(function () {
+  var langs = {{ langs | tojson }}, lang = "{{ default }}";
+  try { var saved = localStorage.getItem("lg.lang"); if (langs.indexOf(saved) >= 0) lang = saved; } catch (e) {}
+  location.replace(lang + "/");
+})();
+</script>
+</head>
+<body><p><a href="{{ default }}/">{{ site.config.site.name }}</a></p></body>
+</html>

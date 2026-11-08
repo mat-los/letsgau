@@ -71,9 +71,9 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 4 – Website
 
-- [ ] [#14](https://github.com/mat-los/letsgau/issues/14) Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
-- [ ] [#15](https://github.com/mat-los/letsgau/issues/15) Filters with include/exclude, search, grouping, swipe; settings persist while browsing
-- [ ] [#16](https://github.com/mat-los/letsgau/issues/16) A fixture day with 100 events is clear on a 375 px wide screen
+- [x] [#14](https://github.com/mat-los/letsgau/issues/14) Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
+- [x] [#15](https://github.com/mat-los/letsgau/issues/15) Filters with include/exclude, search, grouping, swipe; settings persist while browsing
+- [x] [#16](https://github.com/mat-los/letsgau/issues/16) A fixture day with 100 events is clear on a 375 px wide screen
 - [ ] [#17](https://github.com/mat-los/letsgau/issues/17) All events visible without JavaScript; Lighthouse mobile >= 90 for performance and accessibility
 
 ### Phase 5 – AI readability

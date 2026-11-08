@@ -21,7 +21,7 @@ repo is English.
 | `prompts/` | `discovery.md`, `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |
-| `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |
+| `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` / `site-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |
 
 Generated: `site/` (gitignored), `data/` and `geo/` (bot-only `data` branch).
 

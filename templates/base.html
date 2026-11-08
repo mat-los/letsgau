@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · {{ config.site.name }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ base_url }}{{ canonical }}">
+{% for other in langs %}
+<link rel="alternate" hreflang="{{ other }}" href="{{ base_url }}{{ canonical | replace(lang ~ '/', other ~ '/', 1) }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ canonical | replace(lang ~ '/', langs[0] ~ '/', 1) }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ config.site.name }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ base_url }}{{ canonical }}">
+<meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
+<meta name="theme-color" content="#1f5f4a">
+<link rel="stylesheet" href="{{ root }}assets/style.css">
+<link rel="icon" href="{{ root }}assets/icon.svg" type="image/svg+xml">
+{% block head %}{% endblock %}
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body{% block body_attrs %}{% endblock %}>
+<a class="skip" href="#main">{{ t('skip') }}</a>
+<header class="top" id="top">
+  <div class="bar">
+    <a class="brand" href="{{ root }}{{ lang }}/">{{ config.site.name }}</a>
+    {% block header_tools %}{% endblock %}
+    <nav class="langs" aria-label="Language">
+      {% for other in langs %}
+      {% if other == lang %}<span aria-current="true">{{ other | upper }}</span>{% else %}<a href="{{ root }}{{ canonical | replace(lang ~ '/', other ~ '/', 1) }}" hreflang="{{ other }}" lang="{{ other }}" data-lang="{{ other }}">{{ other | upper }}</a>{% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+  <p class="coverage">{{ coverage }}</p>
+  {% block header_more %}{% endblock %}
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="foot">
+  <p class="notice">{{ t('ai_notice') }}</p>
+  <p class="updated">{{ t('last_updated') }}: <time datetime="{{ updated_iso }}">{{ updated }}</time></p>
+  <nav class="links">
+    {% for slug, label in (site.content_pages.get(lang) or {}).items() %}<a href="{{ root }}{{ lang }}/{{ slug }}/">{{ label }}</a>{% endfor %}
+    {% block footer_links %}{% endblock %}
+  </nav>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>
