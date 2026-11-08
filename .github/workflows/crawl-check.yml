@@ -1,0 +1,90 @@
+# Live check of the event crawl with the real AI (subscription mode).
+# Runs on demand (Actions -> Crawl check -> Run workflow) and on pull requests
+# that change this file or prompts/events.md (CLAUDE.md: every prompt change
+# needs a --dry-run test). Computes the places for the instance config, then
+# runs `letsgau run --job events --dry-run --limit-places N`. Writes nothing to
+# the repository; prints the events and uploads the raw AI answers as an
+# artifact for test fixtures. Needs the ORS_API_KEY and CLAUDE_CODE_OAUTH_TOKEN
+# secrets; ANTHROPIC_API_KEY must not be set, or Claude Code would bill it.
+name: Crawl check
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit_places:
+        description: "Number of places to crawl (nearest first)"
+        default: "3"
+  pull_request:
+    paths:
+      - ".github/workflows/crawl-check.yml"
+      - "prompts/events.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crawl-check
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      LIMIT_PLACES: ${{ inputs.limit_places || '3' }}
+      LETSGAU_RECORD_DIR: ${{ github.workspace }}/recordings
+      DISABLE_AUTOUPDATER: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        run: |
+          pip install -e '.[dev]'
+          npm install -g @anthropic-ai/claude-code
+          claude --version
+      - name: Require secrets
+        run: |
+          missing=0
+          for name in ORS_API_KEY CLAUDE_CODE_OAUTH_TOKEN; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Secret $name is missing (Settings -> Secrets and variables -> Actions)"
+              missing=1
+            fi
+          done
+          exit $missing
+      - name: Geo (places for the instance config)
+        timeout-minutes: 6
+        run: python -m letsgau run --job geo
+      - name: Event crawl (dry run, ${{ env.LIMIT_PLACES }} places)
+        timeout-minutes: 35
+        run: |
+          python -m letsgau run --job events --dry-run --limit-places "$LIMIT_PLACES" | tee crawl.txt
+          {
+            echo "### Crawl check ($LIMIT_PLACES places)"
+            echo '```text'
+            cat crawl.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Print raw AI answers
+        if: always()
+        run: |
+          for f in recordings/*.json; do
+            [ -e "$f" ] || continue
+            echo "=== $f"
+            python -c "import json,sys; print(json.dumps(json.load(open(sys.argv[1])), ensure_ascii=False, separators=(',', ':')))" "$f"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: crawl-recordings
+          path: recordings/
+          if-no-files-found: ignore

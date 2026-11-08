@@ -59,6 +59,7 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 | `geo_fingerprint` | fingerprint of the last geo computation |
 | `force_discovery` | set to `true` when the geo fingerprint changes; the discovery stage clears it (Phase 7) |
 | `last_run` | map job name → UTC timestamp of the last successful run |
+| `last_usage` | map job name → AI usage of the last run: `requests`, `web_searches`, `web_fetches`, `input_tokens`, `output_tokens`, `cost_usd` (estimate, 0 in subscription mode), `duration_s` (Phase 2) |
 
 ## Event
 
@@ -84,11 +85,13 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 }
 ```
 
-The example is invented and only shows the shape.
+The example is invented and only shows the shape. The file itself is
+`{"schema_version": 1, "updated_at": "<UTC>", "events": [...]}`, sorted by
+start date, start time and id.
 
 | Field | Rule |
 | --- | --- |
-| `id` | stable: start date + slug of title and place; never changes on merge |
+| `id` | stable: start date + slug of the German title and the place (umlauts as `ae`/`oe`/`ue`/`ss`; the place is left out if the title already contains it), e.g. `2026-11-28-weihnachtsmarkt-schongau`; never changes on merge |
 | `parent_id` | set for program items (e.g. a band at a medieval market); venue is inherited from the parent |
 | `title`, `description` | always DE and EN; proper names unchanged; description ≤ `description_max_chars`, own words |
 | `schedule.start_time` | `null` if unknown; never guessed |

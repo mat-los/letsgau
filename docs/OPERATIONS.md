@@ -1,7 +1,7 @@
 # Operations
 
-> Phase 1: `check` and the `geo` stage work. The other stages, the workflow and
-> cost reporting are added in later phases; this page grows with them.
+> Phase 2: `check`, `geo` and `events` work. Discovery, the website, the workflow
+> and cost reporting are added in later phases; this page grows with them.
 
 ## Validate the configuration
 
@@ -69,6 +69,35 @@ limit answers `403`, the per-minute limit `429` (retried with back-off). Very
 long drive times may exceed the isochrone range allowed by the free plan; ORS
 then returns an error that the stage prints.
 
+## Event crawl
+
+```bash
+python -m letsgau run --job events --dry-run --limit-places 3
+```
+
+- Needs `data/places.json` (run `--job geo` first) and the secret of the
+  configured `ai.auth` mode.
+- Prints every event and writes `data/events.json` and the usage to
+  `data/state.json` (not with `--dry-run`). `--limit-places N` crawls only the
+  N nearest places.
+- Warnings name dropped events with the reason (schema, window, place, tags,
+  source), failed batches and whitelist sources that were not checked.
+- Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g
+  @anthropic-ai/claude-code`) in a temporary directory with only WebSearch and
+  WebFetch. `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` are removed from its
+  environment so it never bills an API key. Runs count against the plan's usage
+  limits; the cost shown is 0.
+- API mode needs `ANTHROPIC_API_KEY`; the cost shown is an estimate from token
+  prices and $10 per 1,000 searches.
+- `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
+
+### Live check on GitHub
+
+*Actions → Crawl check → Run workflow* (input: number of places, default 3)
+computes the places for the instance config and runs the crawl as a dry run
+with `ORS_API_KEY` and `CLAUDE_CODE_OAUTH_TOKEN`. It also runs on pull requests
+that change `prompts/events.md`, so every prompt change gets a dry run.
+
 ## Run on GitHub (Phase 6)
 
 *Actions → Run → Run workflow*, choose the job. The button is also available in
@@ -78,7 +107,7 @@ the GitHub mobile app. A `concurrency` group prevents overlapping runs.
 
 | Secret | Needed for |
 | --- | --- |
-| `CLAUDE_CODE_OAUTH_TOKEN` | `ai.auth: subscription` (create with `claude setup-token`) |
+| `CLAUDE_CODE_OAUTH_TOKEN` | `ai.auth: subscription` (create with `claude setup-token`); must not be combined with `ANTHROPIC_API_KEY` in the same environment |
 | `ANTHROPIC_API_KEY` | `ai.auth: api_key` |
 | `ORS_API_KEY` | geo stage (OpenRouteService); free key from [account.heigit.org](https://account.heigit.org) |
 

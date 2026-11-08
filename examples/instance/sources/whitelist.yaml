@@ -1,3 +1,5 @@
 # Whitelist: sources that are always checked explicitly on every event run.
-# Format: list of { url, note }.
+# Format: list of { url, note, places }. `places` (optional) assigns the source
+# to the batch that contains those places; without it the source is checked in
+# the first batch (regional calendars).
 []

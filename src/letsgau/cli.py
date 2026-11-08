@@ -15,17 +15,19 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from letsgau import __version__, build, crawl, discovery, geo, merge
+from letsgau import __version__, build, crawl, discovery, geo
 from letsgau import init as init_cmd
+from letsgau.ai_runner import AiError
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
+from letsgau.crawl import CrawlError
 from letsgau.geo import GeoError
 from letsgau.scheduler import JOBS, STAGES
 
-# Each stage runs one or more modules in order; "events" = crawl + merge.
+# Each stage runs one or more modules in order; "events" = crawl (which calls merge).
 STAGE_MODULES = {
     "geo": (geo,),
     "discovery": (discovery,),
-    "events": (crawl, merge),
+    "events": (crawl,),
     "build": (build,),
 }
 
@@ -118,7 +120,7 @@ def _cmd_run(
             except NotImplementedError as exc:
                 print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
                 return 2
-            except GeoError as exc:
+            except (GeoError, CrawlError, AiError) as exc:
                 print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
                 return 1
     return 0
