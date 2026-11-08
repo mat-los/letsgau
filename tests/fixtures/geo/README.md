@@ -10,15 +10,17 @@ Responses from OpenRouteService (isochrones, matrix) and the Overpass API that
 | `overpass_include.json` | Overpass: lookup of `Weilheim in Oberbayern` and `Landsberg am Lech` |
 | `ors_matrix_schongau.json` | `POST {ORS_BASE_URL}/v2/matrix/driving-car`, stored as `{request, response}` |
 
-The two ORS files are live recordings from `api.heigit.org/openrouteservice`
-(2026-11-08, 30 min around 47.811, 10.896). The isochrone is the real polygon;
-the matrix holds the real drive times to the places in the Overpass fixtures.
+All four files are real responses from 2026-11-08, 30 minutes around Schongau
+(47.811, 10.896) with `include_places: [Weilheim in Oberbayern, Landsberg am Lech]`:
 
-The two Overpass files were written by hand in the documented response format,
-because Overpass was not reachable from the development container. Their
-coordinates are approximately right. `Weilheim in Oberbayern` is in the area
-fixture because it lies inside the real isochrone (29.5 min); `Prem` (30.2 min)
-and `Raisting` (40 min) are inside the bounding box but outside the isochrone.
+- ORS isochrone and matrix were recorded from `api.heigit.org/openrouteservice`.
+- The Overpass responses come from overpass-api.de, captured by the *Geo check*
+  workflow on GitHub Actions (Overpass was not reachable from the development
+  container). Weilheim lies inside the isochrone (29.7 min), so the include
+  lookup only asked for Landsberg am Lech (34.2 min).
+
+Result: 105 places in the area plus Landsberg. Overpass also returns places in
+the bounding box that are outside the isochrone (e.g. Prem, Raisting, Buchloe).
 
 To re-record everything, run (needs
 `ORS_API_KEY` and network access):

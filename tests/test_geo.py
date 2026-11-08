@@ -172,19 +172,20 @@ def test_schongau_30_minutes_writes_places_json(
     listed = names(result)
     assert listed[0] == "Schongau"
     assert {"Peiting", "Altenstadt", "Peißenberg", "Steingaden"} <= set(listed)
-    # Inside the bounding box but outside the isochrone (Prem: 30.2 min, Raisting: 40 min).
-    assert "Prem" not in listed
-    assert "Raisting" not in listed
-    assert "Weilheim in Oberbayern" in listed  # 29.5 min
-    assert len(listed) == 19
+    # Returned by Overpass (bounding box) but outside the isochrone.
+    for outside in ("Prem", "Raisting", "Buchloe", "Dießen am Ammersee"):
+        assert outside not in listed
+    assert "Weilheim in Oberbayern" in listed  # 29.7 min
+    assert len(listed) == 105
     times = [p.drive_time_minutes for p in places_file.places]
-    assert all(t is not None and 0 < t <= 30 for t in times)
+    # The matrix can exceed the isochrone limit slightly at the edge (max. 31.2 min).
+    assert all(t is not None and 0 < t < 32 for t in times)
     assert times == sorted(times)
     peiting = next(p for p in places_file.places if p.name == "Peiting")
     assert (peiting.drive_time_minutes, peiting.distance_km, peiting.osm_id) == (
-        9.6,
-        4.2,
-        "node/240040702",
+        8.2,
+        3.6,
+        "node/889285957",
     )
     assert all(p.origin is PlaceOrigin.AREA for p in places_file.places)
 
@@ -274,12 +275,12 @@ def test_include_places_adds_landsberg_and_keeps_weilheim(
     assert result.warnings == []
     assert result.places is not None
     by_name = {p.name: p for p in result.places.places}
-    # Landsberg (36 min) is outside the isochrone and gets looked up by name.
+    # Landsberg (34 min) is outside the isochrone and gets looked up by name.
     landsberg = by_name["Landsberg am Lech"]
     assert (landsberg.origin, landsberg.place_type) == (PlaceOrigin.INCLUDE, "town")
-    assert landsberg.drive_time_minutes == 36.2
+    assert landsberg.drive_time_minutes == 34.2
     assert result.places.places[-1] is landsberg
-    # Weilheim (29.5 min) is already inside, so it is not looked up again.
+    # Weilheim (29.7 min) is already inside, so it is not looked up again.
     assert by_name["Weilheim in Oberbayern"].origin is PlaceOrigin.AREA
     include_query = http.calls[2][1]["data"]
     assert '"name"="Landsberg am Lech"' in include_query
@@ -292,7 +293,7 @@ def test_exclude_places_removes_place(clients: geo.Clients, tmp_path: Path) -> N
     listed = names(result)
     assert "Peiting" not in listed
     assert "Peißenberg" not in listed  # case-insensitive
-    assert len(listed) == 17
+    assert len(listed) == 103
     assert result.warnings == []
 
 
@@ -324,7 +325,7 @@ def test_changing_filters_reuses_isochrone_and_does_not_force_discovery(
 def test_unknown_include_and_exclude_names_warn(clients: geo.Clients, tmp_path: Path) -> None:
     config = make_config(include_places=["Atlantis"], exclude_places=["Nowhere"])
     result = run_geo(config, clients, tmp_path)
-    assert len(names(result)) == 19
+    assert len(names(result)) == 105
     assert any("'Atlantis' not found" in w for w in result.warnings)
     assert any("'Nowhere' is not in the place list" in w for w in result.warnings)
 
@@ -334,7 +335,7 @@ def test_unknown_include_and_exclude_names_warn(clients: geo.Clients, tmp_path: 
 
 def test_dry_run_writes_nothing(clients: geo.Clients, tmp_path: Path) -> None:
     result = run_geo(make_config(), clients, tmp_path, dry_run=True)
-    assert len(names(result)) == 19
+    assert len(names(result)) == 105
     assert not (tmp_path / "data").exists()
     assert not (tmp_path / "geo").exists()
 
@@ -344,19 +345,19 @@ def test_matrix_is_chunked(
 ) -> None:
     monkeypatch.setattr(geo, "MATRIX_CHUNK", 5)
     result = run_geo(make_config(), clients, tmp_path)
-    assert sum("/matrix/" in url for url in http.urls()) == 4  # 19 places / 5
+    assert sum("/matrix/" in url for url in http.urls()) == 21  # 105 places / 5
     assert all(p.drive_time_minutes is not None for p in result.places.places)  # type: ignore[union-attr]
 
 
 def test_unroutable_place_gets_none_and_warning(
     clients: geo.Clients, http: FakeHttp, tmp_path: Path
 ) -> None:
-    http.matrix.pop((10.8, 47.7))  # Lechbruck am See
+    http.matrix.pop((10.9575899, 47.9738378))  # Thaining
     result = run_geo(make_config(), clients, tmp_path)
     assert result.places is not None
-    assert result.places.places[-1].name == "Lechbruck am See"
+    assert result.places.places[-1].name == "Thaining"
     assert result.places.places[-1].drive_time_minutes is None
-    assert any("Lechbruck" in w for w in result.warnings)
+    assert any("Thaining" in w for w in result.warnings)
 
 
 def test_ors_error_raises(clients: geo.Clients, http: FakeHttp, tmp_path: Path) -> None:
@@ -488,7 +489,7 @@ def test_overpass_falls_back_to_next_instance(
 
     http.post_form = flaky  # type: ignore[method-assign]
     result = run_geo(make_config(), clients, tmp_path)
-    assert len(names(result)) == 19
+    assert len(names(result)) == 105
     assert http.urls()[1:3] == list(geo.OVERPASS_URLS[:2])
 
 

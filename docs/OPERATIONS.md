@@ -39,8 +39,12 @@ python -m letsgau run --job geo
   `include_places` or `exclude_places` reuses the stored isochrone.
 - Warnings name `include_places` that were not found and `exclude_places` that
   were not in the list. Check the printed list for plausibility after a change.
+- Membership comes from the isochrone, drive times from the matrix; at the
+  edge a place can show slightly more than `drive_time_minutes` (e.g. 31 min
+  for 30). For Schongau, 30 minutes give about 105 places, 5 minutes only
+  Schongau itself (live check 2026-11-08).
 - Requests per recomputation: 1 isochrone, 1–2 Overpass queries, 1 matrix
-  request per 500 places.
+  request per 500 places. Overpass queries take about 30–40 s.
 
 ### Live check on GitHub
 
