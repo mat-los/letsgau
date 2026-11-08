@@ -1,0 +1,5254 @@
+{
+ "schema_version": 1,
+ "updated_at": "2026-11-12T04:00:00Z",
+ "events": [
+  {
+   "id": "2026-11-12-ev0",
+   "parent_id": null,
+   "title": {
+    "de": "Vortrag: Geschichte des Lechrains #0",
+    "en": "Vortrag: Geschichte des Lechrains #0 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e0",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e0",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev1",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #1",
+    "en": "Basteln für Kinder #1 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e1",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e1",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev2",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #2",
+    "en": "Basteln für Kinder #2 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e2",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e2",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev3",
+   "parent_id": null,
+   "title": {
+    "de": "Bauernmarkt #3",
+    "en": "Bauernmarkt #3 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "art-culture",
+   "tags": [
+    "art-culture",
+    "party",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e3",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e3",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev4",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #4",
+    "en": "Konzert der Stadtkapelle #4 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "concert",
+    "family-kids"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e4",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e4",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev5",
+   "parent_id": null,
+   "title": {
+    "de": "Theater: Der Brandner Kaspar #5",
+    "en": "Theater: Der Brandner Kaspar #5 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "food-drink",
+    "art-culture"
+   ],
+   "status": "cancelled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e5",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e5",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev6",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #6",
+    "en": "Basteln für Kinder #6 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e6",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e6",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev7",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #7",
+    "en": "Kinoabend #7 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "family-kids"
+   ],
+   "status": "postponed",
+   "postponed_to": "2026-11-21-ev7b",
+   "sources": [
+    {
+     "url": "https://example.org/e7",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e7",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev8",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #8",
+    "en": "Malabend im Café #8 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "party",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e8",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e8",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev9",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #9",
+    "en": "Orgelkonzert #9 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "art-culture",
+   "tags": [
+    "art-culture",
+    "theatre-cinema",
+    "food-drink"
+   ],
+   "status": "unconfirmed",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e9",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e9",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev10",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #10",
+    "en": "Basteln für Kinder #10 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop",
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e10",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e10",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev11",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #11",
+    "en": "Kinoabend #11 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e11",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e11",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev12",
+   "parent_id": null,
+   "title": {
+    "de": "Party im Reaktor #12",
+    "en": "Party im Reaktor #12 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e12",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e12",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev13",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #13",
+    "en": "Wanderung zum Hohen Peißenberg #13 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e13",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e13",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev14",
+   "parent_id": null,
+   "title": {
+    "de": "Weinprobe #14",
+    "en": "Weinprobe #14 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop",
+    "family-kids",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e14",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e14",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev15",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #15",
+    "en": "Kinoabend #15 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e15",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e15",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev16",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #16",
+    "en": "Kinoabend #16 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor",
+    "talk-workshop",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e16",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e16",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev17",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #17",
+    "en": "Konzert der Stadtkapelle #17 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "sports",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e17",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e17",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev18",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #18",
+    "en": "Kinderflohmarkt #18 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e18",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e18",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev19",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #19",
+    "en": "Orgelkonzert #19 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e19",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e19",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev20",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #20",
+    "en": "Lesung in der Bücherei #20 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "art-culture",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e20",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e20",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev21",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #21",
+    "en": "Adventsmarkt #21 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "concert",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e21",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e21",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev22",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #22",
+    "en": "Konzert der Stadtkapelle #22 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e22",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e22",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev23",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #23",
+    "en": "Yoga im Park #23 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "outdoor",
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e23",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e23",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev24",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #24",
+    "en": "Adventsmarkt #24 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e24",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e24",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev25",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #25",
+    "en": "Yoga im Park #25 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e25",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e25",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev26",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #26",
+    "en": "Malabend im Café #26 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e26",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e26",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev27",
+   "parent_id": null,
+   "title": {
+    "de": "Theater: Der Brandner Kaspar #27",
+    "en": "Theater: Der Brandner Kaspar #27 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e27",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e27",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev28",
+   "parent_id": null,
+   "title": {
+    "de": "Theater: Der Brandner Kaspar #28",
+    "en": "Theater: Der Brandner Kaspar #28 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e28",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e28",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev29",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #29",
+    "en": "Wanderung zum Hohen Peißenberg #29 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e29",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e29",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev30",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #30",
+    "en": "Orgelkonzert #30 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e30",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e30",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev31",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #31",
+    "en": "Kinoabend #31 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "family-kids",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e31",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e31",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev32",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #32",
+    "en": "Orgelkonzert #32 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "sports",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e32",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e32",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev33",
+   "parent_id": null,
+   "title": {
+    "de": "Weinprobe #33",
+    "en": "Weinprobe #33 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e33",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e33",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev34",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #34",
+    "en": "Adventsmarkt #34 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "sports",
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e34",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e34",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev35",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #35",
+    "en": "Kinderflohmarkt #35 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e35",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e35",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev36",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #36",
+    "en": "Adventsmarkt #36 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "family-kids",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e36",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e36",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev37",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #37",
+    "en": "Malabend im Café #37 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "art-culture",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e37",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e37",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev38",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #38",
+    "en": "Wanderung zum Hohen Peißenberg #38 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "market-festival",
+   "tags": [
+    "market-festival",
+    "concert",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e38",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e38",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev39",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #39",
+    "en": "Wanderung zum Hohen Peißenberg #39 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e39",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e39",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev40",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #40",
+    "en": "Lesung in der Bücherei #40 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e40",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e40",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev41",
+   "parent_id": null,
+   "title": {
+    "de": "Theater: Der Brandner Kaspar #41",
+    "en": "Theater: Der Brandner Kaspar #41 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "family-kids",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e41",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e41",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev42",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #42",
+    "en": "Basteln für Kinder #42 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e42",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e42",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev43",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #43",
+    "en": "Kinderflohmarkt #43 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e43",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e43",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev44",
+   "parent_id": null,
+   "title": {
+    "de": "Theater: Der Brandner Kaspar #44",
+    "en": "Theater: Der Brandner Kaspar #44 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e44",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e44",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev45",
+   "parent_id": null,
+   "title": {
+    "de": "Party im Reaktor #45",
+    "en": "Party im Reaktor #45 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e45",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e45",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev46",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #46",
+    "en": "Basteln für Kinder #46 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "party",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e46",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e46",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev47",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #47",
+    "en": "Orgelkonzert #47 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "15:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e47",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e47",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev48",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #48",
+    "en": "Malabend im Café #48 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "party",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e48",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e48",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev49",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #49",
+    "en": "Eishockey: EC Peiting – EV Füssen #49 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e49",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e49",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev50",
+   "parent_id": null,
+   "title": {
+    "de": "Bauernmarkt #50",
+    "en": "Bauernmarkt #50 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e50",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e50",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev51",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #51",
+    "en": "Konzert der Stadtkapelle #51 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "party",
+    "family-kids"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e51",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e51",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev52",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #52",
+    "en": "Kinderflohmarkt #52 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e52",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e52",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev53",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #53",
+    "en": "Adventsmarkt #53 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e53",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e53",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev54",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #54",
+    "en": "Malabend im Café #54 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e54",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e54",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev55",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #55",
+    "en": "Yoga im Park #55 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e55",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e55",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev56",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #56",
+    "en": "Lesung in der Bücherei #56 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e56",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e56",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev57",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #57",
+    "en": "Lesung in der Bücherei #57 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor",
+    "family-kids"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e57",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e57",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev58",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #58",
+    "en": "Eishockey: EC Peiting – EV Füssen #58 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "market-festival",
+   "tags": [
+    "market-festival",
+    "party",
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e58",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e58",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev59",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #59",
+    "en": "Basteln für Kinder #59 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e59",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e59",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev60",
+   "parent_id": null,
+   "title": {
+    "de": "Weinprobe #60",
+    "en": "Weinprobe #60 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e60",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e60",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev61",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #61",
+    "en": "Yoga im Park #61 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e61",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e61",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev62",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #62",
+    "en": "Wanderung zum Hohen Peißenberg #62 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e62",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e62",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev63",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #63",
+    "en": "Lesung in der Bücherei #63 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "art-culture",
+   "tags": [
+    "art-culture",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e63",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e63",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev64",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #64",
+    "en": "Eishockey: EC Peiting – EV Füssen #64 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e64",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e64",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev65",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #65",
+    "en": "Wanderung zum Hohen Peißenberg #65 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e65",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e65",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev66",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #66",
+    "en": "Eishockey: EC Peiting – EV Füssen #66 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "theatre-cinema",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e66",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e66",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev67",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #67",
+    "en": "Basteln für Kinder #67 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "15:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e67",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e67",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev68",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #68",
+    "en": "Eishockey: EC Peiting – EV Füssen #68 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "talk-workshop",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e68",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e68",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev69",
+   "parent_id": null,
+   "title": {
+    "de": "Lesung in der Bücherei #69",
+    "en": "Lesung in der Bücherei #69 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e69",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e69",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev70",
+   "parent_id": null,
+   "title": {
+    "de": "Weinprobe #70",
+    "en": "Weinprobe #70 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e70",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e70",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev71",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #71",
+    "en": "Kinderflohmarkt #71 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "art-culture",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e71",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e71",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev72",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #72",
+    "en": "Orgelkonzert #72 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e72",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e72",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev73",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #73",
+    "en": "Kinoabend #73 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "market-festival",
+   "tags": [
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e73",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e73",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev74",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #74",
+    "en": "Yoga im Park #74 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e74",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e74",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev75",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #75",
+    "en": "Wanderung zum Hohen Peißenberg #75 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Steingaden",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e75",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e75",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev76",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #76",
+    "en": "Konzert der Stadtkapelle #76 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "talk-workshop",
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e76",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e76",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev77",
+   "parent_id": null,
+   "title": {
+    "de": "Vortrag: Geschichte des Lechrains #77",
+    "en": "Vortrag: Geschichte des Lechrains #77 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Lechbruck am See",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e77",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e77",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev78",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #78",
+    "en": "Yoga im Park #78 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "11:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "sports",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e78",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e78",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev79",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #79",
+    "en": "Basteln für Kinder #79 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "15:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e79",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e79",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev80",
+   "parent_id": null,
+   "title": {
+    "de": "Bauernmarkt #80",
+    "en": "Bauernmarkt #80 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "outdoor",
+   "tags": [
+    "outdoor"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e80",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e80",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev81",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #81",
+    "en": "Basteln für Kinder #81 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "outdoor",
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e81",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e81",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev82",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #82",
+    "en": "Kinoabend #82 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Schongau",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e82",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e82",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev83",
+   "parent_id": null,
+   "title": {
+    "de": "Party im Reaktor #83",
+    "en": "Party im Reaktor #83 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "art-culture",
+   "tags": [
+    "art-culture",
+    "theatre-cinema",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e83",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e83",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev84",
+   "parent_id": null,
+   "title": {
+    "de": "Weinprobe #84",
+    "en": "Weinprobe #84 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "market-festival"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e84",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e84",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev85",
+   "parent_id": null,
+   "title": {
+    "de": "Eishockey: EC Peiting – EV Füssen #85",
+    "en": "Eishockey: EC Peiting – EV Füssen #85 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "10:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink",
+    "family-kids",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e85",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e85",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev86",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #86",
+    "en": "Yoga im Park #86 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "21:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "talk-workshop",
+   "tags": [
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e86",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e86",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev87",
+   "parent_id": null,
+   "title": {
+    "de": "Kinderflohmarkt #87",
+    "en": "Kinderflohmarkt #87 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "outdoor",
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e87",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e87",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev88",
+   "parent_id": null,
+   "title": {
+    "de": "Adventsmarkt #88",
+    "en": "Adventsmarkt #88 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert",
+    "food-drink",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e88",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e88",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev89",
+   "parent_id": null,
+   "title": {
+    "de": "Malabend im Café #89",
+    "en": "Malabend im Café #89 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "18:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "sports",
+    "talk-workshop"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e89",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e89",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev90",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #90",
+    "en": "Kinoabend #90 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "15:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "family-kids",
+   "tags": [
+    "family-kids",
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e90",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e90",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev91",
+   "parent_id": null,
+   "title": {
+    "de": "Bauernmarkt #91",
+    "en": "Bauernmarkt #91 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Altenstadt",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "market-festival",
+   "tags": [
+    "market-festival",
+    "art-culture",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e91",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e91",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev92",
+   "parent_id": null,
+   "title": {
+    "de": "Orgelkonzert #92",
+    "en": "Orgelkonzert #92 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peiting",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema",
+    "talk-workshop",
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e92",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e92",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev93",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #93",
+    "en": "Konzert der Stadtkapelle #93 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "20:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "market-festival",
+   "tags": [
+    "market-festival",
+    "concert",
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e93",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e93",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev94",
+   "parent_id": null,
+   "title": {
+    "de": "Kinoabend #94",
+    "en": "Kinoabend #94 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Peißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e94",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e94",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev95",
+   "parent_id": null,
+   "title": {
+    "de": "Vortrag: Geschichte des Lechrains #95",
+    "en": "Vortrag: Geschichte des Lechrains #95 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "14:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "theatre-cinema",
+   "tags": [
+    "theatre-cinema"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e95",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e95",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-12-ev96",
+   "parent_id": null,
+   "title": {
+    "de": "Yoga im Park #96",
+    "en": "Yoga im Park #96 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-19",
+    "start_time": null,
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": [
+     {
+      "days": "mon-fri",
+      "from": "16:00",
+      "to": "20:00"
+     },
+     {
+      "days": "sat,sun",
+      "from": "11:00",
+      "to": "21:00"
+     }
+    ]
+   },
+   "primary_tag": "food-drink",
+   "tags": [
+    "food-drink"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e96",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e96",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev97",
+   "parent_id": null,
+   "title": {
+    "de": "Basteln für Kinder #97",
+    "en": "Basteln für Kinder #97 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Rottenbuch",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "art-culture",
+   "tags": [
+    "art-culture"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e97",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e97",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev98",
+   "parent_id": null,
+   "title": {
+    "de": "Wanderung zum Hohen Peißenberg #98",
+    "en": "Wanderung zum Hohen Peißenberg #98 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Hohenpeißenberg",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "09:30",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "party",
+   "tags": [
+    "party",
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e98",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e98",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-ev99",
+   "parent_id": null,
+   "title": {
+    "de": "Konzert der Stadtkapelle #99",
+    "en": "Konzert der Stadtkapelle #99 (EN)"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": null,
+    "place": "Denklingen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "19:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "sports",
+   "tags": [
+    "sports",
+    "party"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e99",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e99",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-prog0",
+   "parent_id": "2026-11-14-ev1",
+   "title": {
+    "de": "Programmpunkt 0",
+    "en": "Program item 0"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "15:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e1",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e1",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-prog1",
+   "parent_id": "2026-11-14-ev1",
+   "title": {
+    "de": "Programmpunkt 1",
+    "en": "Program item 1"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "16:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e1",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e1",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  },
+  {
+   "id": "2026-11-14-prog2",
+   "parent_id": "2026-11-14-ev1",
+   "title": {
+    "de": "Programmpunkt 2",
+    "en": "Program item 2"
+   },
+   "description": {
+    "de": "Kurze Beschreibung des Events in eigenen Worten, nicht kopiert.",
+    "en": "Short description of the event in our own words."
+   },
+   "venue": {
+    "name": "Marienplatz",
+    "place": "Burggen",
+    "address": null
+   },
+   "schedule": {
+    "start_date": "2026-11-14",
+    "end_date": null,
+    "start_time": "17:00",
+    "end_time": null,
+    "all_day": false,
+    "dates": null,
+    "opening_hours": null
+   },
+   "primary_tag": "concert",
+   "tags": [
+    "concert"
+   ],
+   "status": "scheduled",
+   "postponed_to": null,
+   "sources": [
+    {
+     "url": "https://example.org/e1",
+     "primary": true,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    },
+    {
+     "url": "https://kreisbote.example/e1",
+     "primary": false,
+     "first_seen": "2026-11-09",
+     "last_seen": "2026-11-12"
+    }
+   ],
+   "first_seen": "2026-11-09",
+   "last_verified": "2026-11-12",
+   "misses": 0
+  }
+ ]
+}
