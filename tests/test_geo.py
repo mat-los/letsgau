@@ -188,6 +188,12 @@ def test_schongau_30_minutes_writes_places_json(
         "node/889285957",
     )
     assert all(p.origin is PlaceOrigin.AREA for p in places_file.places)
+    # Municipalities from the same Overpass answer (recorded with admin_level=8 areas).
+    municipality = {p.name: p.municipality for p in places_file.places}
+    assert municipality["Herzogsägmühle"] == municipality["Birkland"] == "Peiting"
+    assert municipality["Leeder"] == "Fuchstal"
+    assert municipality["Schongau"] == "Schongau"
+    assert len(set(municipality.values())) == 44  # 45 with Landsberg via include_places
 
     iso = json.loads((tmp_path / "geo" / "isochrone.geojson").read_text(encoding="utf-8"))
     assert iso["type"] == "FeatureCollection"

@@ -70,7 +70,10 @@ matching status.
 - Only events with a concrete date in one of the municipalities above. Invent nothing.
 - If the start time is not stated, use null. Never guess a time. Use 24-hour "HH:MM".
 - An event that spans several days is one event with start_date and end_date, not one per day.
-  If it only runs on some days (e.g. Advent weekends), list those days in "dates". Use
+  Always give its real start and end date, even if it continues after {{ window_end }}.
+  If it only runs on some days (e.g. Advent weekends), list those days in "dates".
+- A recurring event (weekly market, regular club evening) is one entry: start_date is the first
+  and end_date the last occurrence until {{ window_end }}, and "dates" lists every occurrence. Use
   "opening_hours" (days like "mon-fri" or "sat,sun", times "HH:MM") for markets and exhibitions.
 - Parts of a larger event (a band at a medieval market, a fire-eater, a children's choir) are
   separate entries with "parent_ref" set to the "ref" of the main event, not events of their own.
