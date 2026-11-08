@@ -1,0 +1,67 @@
+# Let's Gau instance configuration (Schongau).
+# Every option is documented in docs/CONFIGURATION.md.
+# The file is validated on startup; typos abort with file, line and field.
+
+site:
+  name: "Let's Gau"                     # site name shown in the header
+  base_url: "https://letsgau.de"        # public URL; domain not registered yet
+  languages: [de, en]                   # first entry = default language
+  owner: "mat-los"                      # must match the GitHub repo owner, else build aborts
+  contact_email: "hallo@letsgau.de"     # for source suggestions and feedback
+  feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
+
+region:
+  label: "Schongau"                     # name of the center, used in the coverage sentence
+  center: { lat: 47.811, lon: 10.896 }  # approx. Schongau old town
+  drive_time_minutes: 5                 # TESTING value (target: 30); change triggers geo + discovery
+  place_types: [city, town, village]    # OSM place types, hamlets ignored
+  include_places: []                    # e.g. ["Landsberg am Lech", "Weilheim in Oberbayern"]
+  exclude_places: []                    # places deliberately left out
+
+window:
+  display_days: 21                      # how far ahead the website shows
+  crawl_days: 28                        # how far ahead we search (1 week buffer)
+  deep_check_days: 7                    # period that gets thorough re-checks
+
+jobs:                                   # format: off | daily | weekly:mon,thu | monthly:1
+  discovery: "monthly:1"                # find and rate new sources
+  events: "weekly:mon,thu"              # crawl events
+  build: "daily"                        # rebuild daily so "today" is correct
+
+models:                                 # Claude model IDs per step
+  discovery: "claude-opus-5-5"
+  events: "claude-sonnet-5-5"
+  merge: "claude-haiku-5-5"
+
+ai:
+  auth: "subscription"                  # subscription (Claude Code + plan) | api_key (Claude API)
+
+limits:
+  max_web_searches_per_run: 150         # cost brake per run
+  places_per_request: 6                 # places per Claude request
+  max_runtime_minutes: 45               # hard stop for a single run
+
+events:
+  unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"
+  description_max_chars: 200            # max length of an event description
+
+sources:
+  whitelist_file: "instance/sources/whitelist.yaml"   # always checked on every event run
+  blacklist_file: "instance/sources/blacklist.yaml"   # never used as a source
+
+excluded_topics:                        # topic blacklist: never include such events
+  - "First-aid courses and similar mandatory courses"
+  - "Events in strip clubs, swinger clubs and erotic events"
+  - "Events by far-right parties and groups"
+
+tags:                                   # fixed list, the AI must not invent new ones
+  - { id: concert,         de: "Konzert",            en: "Concert" }
+  - { id: party,           de: "Party",              en: "Party" }
+  - { id: sports,          de: "Sport",              en: "Sports" }
+  - { id: art-culture,     de: "Kunst & Kultur",     en: "Art & Culture" }
+  - { id: theatre-cinema,  de: "Theater & Kino",     en: "Theatre & Cinema" }
+  - { id: outdoor,         de: "Outdoor",            en: "Outdoor" }
+  - { id: family-kids,     de: "Familie & Kinder",   en: "Family & Kids" }
+  - { id: market-festival, de: "Markt & Fest",       en: "Market & Festival" }
+  - { id: food-drink,      de: "Kulinarik",          en: "Food & Drink" }
+  - { id: talk-workshop,   de: "Vortrag & Workshop", en: "Talk & Workshop" }

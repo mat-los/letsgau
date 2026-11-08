@@ -1,0 +1,4 @@
+# Whitelist: sources that are always checked explicitly on every event run.
+# Format: list of { url, note }. URLs must be verified on the first run.
+- url: "https://www.schongau.de/veranstaltungen"
+  note: "City of Schongau"

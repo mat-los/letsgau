@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Generated output (never edit by hand)
+site/
+
+# Generated data lives on the `data` branch, never on `main`
+/data/
+/geo/

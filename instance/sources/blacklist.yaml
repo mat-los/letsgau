@@ -1,0 +1,4 @@
+# Blacklist: domains that are never used as a source (passed as blocked_domains).
+# Format: list of { domain, reason }. Always wins over discovery results.
+- domain: "example-spam.de"
+  reason: "outdated dates"

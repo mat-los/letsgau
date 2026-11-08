@@ -1,0 +1,8 @@
+# Fixed UI strings (German). Event texts come bilingual from the pipeline.
+# Keys are completed in Phase 4.
+coverage: "Bis {minutes} Fahrminuten um {label} · {days} Tage im Voraus"
+today: "Heute"
+tomorrow: "Morgen"
+weekend: "Wochenende"
+last_updated: "Zuletzt aktualisiert"
+ai_notice: "Events werden automatisch per KI gesammelt und können falsch oder veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen."

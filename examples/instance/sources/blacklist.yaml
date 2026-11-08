@@ -1,0 +1,3 @@
+# Blacklist: domains that are never used as a source.
+# Format: list of { domain, reason }.
+[]
