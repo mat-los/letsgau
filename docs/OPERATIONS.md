@@ -96,6 +96,11 @@ python -m letsgau run --job events --dry-run --limit-places 3
 - API mode needs `ANTHROPIC_API_KEY`; the cost shown is an estimate from token
   prices and $10 per 1,000 searches.
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
+- The merge runs in the same stage (also with `--dry-run`, which then only
+  prints its summary): `merge: N new, N updated (N by similarity), N cancelled,
+  N postponed, N now unconfirmed, N excluded by topic, N past deleted`.
+  Unclear duplicates and the topic check of new events cost one call to the
+  merge model (Haiku) per run; if that call fails, unclear pairs stay separate.
 
 ### Check the sources
 

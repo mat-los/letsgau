@@ -106,6 +106,25 @@ start date, start time and id.
 
 Status lifecycle: see [ARCHITECTURE.md](ARCHITECTURE.md#event-status-lifecycle).
 
+Merge rules (Phase 3, `src/letsgau/merge.py`):
+
+- **Same event:** equal `id`, or overlapping dates, same municipality, start
+  times at most 2 h apart (when both are known) and similar titles (normalized:
+  lower case, umlauts, without filler words, place names and years). Similarity
+  ≥ 0.85 merges directly, 0.5–0.85 is decided by the merge model. A program item
+  never matches a main event.
+- **On a match** the stored `id` and `first_seen` stay, texts, schedule, tags
+  and status come from the crawl (a single day of a known multi-day event keeps
+  the full range), sources are appended, `misses` is reset, `unconfirmed`
+  becomes `scheduled`.
+- **Not found again:** an event in the deep-check window (`deep_check_days`)
+  whose municipality was crawled successfully gets `misses + 1`; at
+  `unconfirmed_after_misses` it becomes `unconfirmed`. Cancelled and postponed
+  events are not counted.
+- **Topic check:** new events matching `excluded_topics` (judged by the merge
+  model) are dropped and logged.
+- **Cleanup:** events whose last day is before yesterday are deleted.
+
 ## Source
 
 | Field | Rule |

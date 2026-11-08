@@ -553,6 +553,12 @@ class CrawlResult:
     warnings: list[str]
     skipped_places: list[str] = field(default_factory=list)
     """Municipalities left out by ``--limit-places``."""
+    covered_places: set[str] = field(default_factory=set)
+    """Places and municipalities of the batches that ran without error."""
+    municipality_of: dict[str, str] = field(default_factory=dict)
+    """Place name -> municipality, for matching in the merge."""
+    merge: merge.MergeReport | None = None
+    """What the merge did (set by :func:`run`)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -663,12 +669,20 @@ def crawl(
             warnings.append(f"batch {report.number}: {report.error}")
     if batches and all(r.error and not r.error.startswith("skipped") for r in reports):
         raise CrawlError("every batch failed: " + "; ".join(r.error or "" for r in reports))
+    covered: set[str] = set()
+    for batch, report in zip(batches, reports, strict=True):
+        if report.error is None:
+            covered.update(p.name for p in batch.places)
+            covered.update(g.name for g in batch.groups)
+    municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
     return CrawlResult(
         events=sorted(events.values(), key=_sort_key),
         batches=reports,
         usage=usage,
         warnings=warnings,
         skipped_places=skipped,
+        covered_places=covered,
+        municipality_of=municipality_of,
     )
 
 
@@ -705,9 +719,10 @@ def run(
 ) -> CrawlResult:
     """CLI entry point for ``--job events``: crawl, merge, write (unless ``dry_run``)."""
     today = today or date.today()
+    runner = runner or make_runner(config)
     result = crawl(
         config,
-        runner or make_runner(config),
+        runner,
         data_dir=data_dir,
         limit_places=limit_places,
         today=today,
@@ -739,10 +754,28 @@ def run(
         flag = "" if event.status is EventStatus.SCHEDULED else f" [{event.status}]"
         print(f"  {when}{time_}  {event.title.de} ({event.venue.place}){flag}")
 
+    events_path = data_dir / "events.json"
+    existing = _load(events_path, EventsFile)
+    report = merge.MergeReport()
+    merged = merge.apply(
+        existing,
+        result.events,
+        today=today,
+        covered_places=result.covered_places,
+        municipality_of=result.municipality_of,
+        deep_check_days=config.window.deep_check_days,
+        unconfirmed_after=config.events.unconfirmed_after_misses,
+        decide=merge.ai_decider(runner, config.models.merge, config.excluded_topics),
+        report=report,
+    )
+    result.merge = report
+    print(
+        f"merge: {len(report.added)} new, {len(report.updated)} updated "
+        f"({len(report.merged_fuzzy)} by similarity), {len(report.cancelled)} cancelled, "
+        f"{len(report.postponed)} postponed, {len(report.unconfirmed)} now unconfirmed, "
+        f"{len(report.excluded)} excluded by topic, {len(report.deleted)} past deleted"
+    )
     if not dry_run:
-        events_path = data_dir / "events.json"
-        existing = _load(events_path, EventsFile)
-        merged = merge.apply(existing, result.events, today=today)
         _write_json(events_path, merged.model_dump(mode="json", by_alias=True))
         state_path = data_dir / "state.json"
         state = _load(state_path, State) or State()

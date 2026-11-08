@@ -58,16 +58,16 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 2 – Event crawl
 
-- [ ] [#7](https://github.com/mat-los/letsgau/issues/7) A run returns events for 28 days; all pass schema validation
-- [ ] [#8](https://github.com/mat-los/letsgau/issues/8) No source comes from a blacklisted domain; every whitelist source was queried
-- [ ] [#9](https://github.com/mat-los/letsgau/issues/9) Every event has DE and EN texts, tags only from the list, exactly one primary_tag
-- [ ] [#10](https://github.com/mat-los/letsgau/issues/10) `--dry-run` and `--limit-places` work
+- [x] [#7](https://github.com/mat-los/letsgau/issues/7) A run returns events for 28 days; all pass schema validation
+- [x] [#8](https://github.com/mat-los/letsgau/issues/8) No source comes from a blacklisted domain; every whitelist source was queried
+- [x] [#9](https://github.com/mat-los/letsgau/issues/9) Every event has DE and EN texts, tags only from the list, exactly one primary_tag
+- [x] [#10](https://github.com/mat-los/letsgau/issues/10) `--dry-run` and `--limit-places` work
 
 ### Phase 3 – Merge and status
 
-- [ ] [#11](https://github.com/mat-los/letsgau/issues/11) Two consecutive runs create no duplicates; sources are appended
-- [ ] [#12](https://github.com/mat-los/letsgau/issues/12) Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
-- [ ] [#13](https://github.com/mat-los/letsgau/issues/13) Multi-day events stored once in events.json; past events are deleted
+- [x] [#11](https://github.com/mat-los/letsgau/issues/11) Two consecutive runs create no duplicates; sources are appended
+- [x] [#12](https://github.com/mat-los/letsgau/issues/12) Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
+- [x] [#13](https://github.com/mat-los/letsgau/issues/13) Multi-day events stored once in events.json; past events are deleted
 
 ### Phase 4 – Website
 

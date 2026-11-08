@@ -97,14 +97,20 @@ class FakeRunner:
         fail: set[int] | None = None,
         searches: int = 5,
         fetched: list[str] | None = None,
+        merge_answer: dict[str, Any] | None = None,
     ) -> None:
         self.answers = answers
         self.fail = fail or set()
         self.searches = searches
         self.fetched = fetched or []
         self.requests: list[AiRequest] = []
+        self.merge_requests: list[AiRequest] = []
+        self.merge_answer = merge_answer or {"pairs": [], "excluded": []}
 
     def run(self, request: AiRequest) -> AiResult:
+        if request.step == "merge":
+            self.merge_requests.append(request)
+            return AiResult(data=copy.deepcopy(self.merge_answer), usage=Usage(requests=1))
         self.requests.append(request)
         n = len(self.requests)
         if n in self.fail:

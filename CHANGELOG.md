@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Phase 3 merge and status: fuzzy matching of crawled and stored events (dates,
+  municipality, start time, normalized titles), one Haiku call per run for
+  unclear pairs and the topic check of new events (`prompts/merge.md`),
+  `misses`/`unconfirmed` for events not found again in crawled municipalities,
+  cancellations and postponements from the crawl, cleanup; merge summary in the
+  log (also with `--dry-run`). AI steps can run without web tools.
 - Whitelist URL templates with `{municipality_slug}` (one URL per municipality)
   and `letsgau sources [--check]`; the Pfaffenwinkel tourism calendar is added
   for every municipality, Reaktor is removed (events only as flyer images).
