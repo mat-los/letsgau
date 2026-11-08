@@ -1,0 +1,21 @@
+name: Source suggestion / missing event
+description: An event or an event source (website, calendar) is missing.
+labels: [source-suggestion]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Website with the events
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: place
+    attributes:
+      label: Place
+      placeholder: e.g. Peiting
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Which event is missing? Who publishes it?

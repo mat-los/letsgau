@@ -1,0 +1,8 @@
+# Fixed UI strings (English). Event texts come bilingual from the pipeline.
+# Keys are completed in Phase 4.
+coverage: "Within a {minutes}-minute drive of {label} · {days} days ahead"
+today: "Today"
+tomorrow: "Tomorrow"
+weekend: "Weekend"
+last_updated: "Last updated"
+ai_notice: "Events are collected automatically by AI and may be wrong or outdated. Please check with the organizer before you go."

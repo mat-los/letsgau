@@ -1,0 +1,254 @@
+"""Load and validate ``instance/config.yaml``.
+
+The configuration is parsed with PyYAML and validated with Pydantic. Unknown
+keys are rejected, so a typo such as ``drive_time_minuts`` fails loudly. Every
+validation error is reported with the file, the line number and the dotted
+path of the offending field, e.g.::
+
+    instance/config.yaml:16: region.drive_time_minuts: unknown field
+"""
+
+from __future__ import annotations
+
+import re
+from pathlib import Path
+from typing import Annotated, Any, Literal
+
+import yaml
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
+
+DEFAULT_CONFIG_PATH = Path("instance/config.yaml")
+
+WEEKDAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+_SCHEDULE_RE = re.compile(
+    r"^(off|daily|weekly:(mon|tue|wed|thu|fri|sat|sun)(,(mon|tue|wed|thu|fri|sat|sun))*"
+    r"|monthly:([1-9]|[12][0-9]|3[01]))$"
+)
+_PLACEHOLDER_RE = re.compile(r"\{\{[A-Z0-9_]+\}\}|<github-owner>")
+
+TagId = Annotated[str, Field(pattern=r"^[a-z0-9]+(-[a-z0-9]+)*$")]
+Language = Literal["de", "en"]
+
+
+class ConfigError(Exception):
+    """Raised when the configuration file is missing, malformed or invalid.
+
+    ``problems`` holds one human-readable line per error.
+    """
+
+    def __init__(self, path: Path, problems: list[str]) -> None:
+        self.path = path
+        self.problems = problems
+        super().__init__(f"Invalid configuration in {path}:\n" + "\n".join(problems))
+
+
+class _Strict(BaseModel):
+    """Base model: unknown keys are errors, values are immutable."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+
+class SiteConfig(_Strict):
+    name: str = Field(min_length=1)
+    base_url: str = Field(pattern=r"^(https?://\S+|\{\{[A-Z_]+\}\})$")
+    languages: list[Language] = Field(min_length=1)
+    owner: str = Field(min_length=1)
+    contact_email: str = Field(min_length=3)
+    feedback_form_endpoint: str = ""
+
+    @field_validator("languages")
+    @classmethod
+    def _unique_languages(cls, value: list[str]) -> list[str]:
+        if len(set(value)) != len(value):
+            raise ValueError("languages must not contain duplicates")
+        return value
+
+
+class Coordinates(_Strict):
+    lat: float = Field(ge=-90, le=90)
+    lon: float = Field(ge=-180, le=180)
+
+
+class RegionConfig(_Strict):
+    label: str = Field(min_length=1)
+    center: Coordinates
+    drive_time_minutes: int = Field(ge=1, le=180)
+    place_types: list[Literal["city", "town", "village", "hamlet", "suburb"]] = Field(min_length=1)
+    include_places: list[str] = []
+    exclude_places: list[str] = []
+
+
+class WindowConfig(_Strict):
+    display_days: int = Field(ge=1, le=90)
+    crawl_days: int = Field(ge=1, le=90)
+    deep_check_days: int = Field(ge=0, le=90)
+
+    @model_validator(mode="after")
+    def _consistent(self) -> WindowConfig:
+        if self.crawl_days < self.display_days:
+            raise ValueError("crawl_days must be >= display_days")
+        if self.deep_check_days > self.crawl_days:
+            raise ValueError("deep_check_days must be <= crawl_days")
+        return self
+
+
+class JobsConfig(_Strict):
+    """Job frequencies. Format: ``off | daily | weekly:mon,thu | monthly:1``."""
+
+    discovery: str
+    events: str
+    build: str
+
+    @field_validator("discovery", "events", "build")
+    @classmethod
+    def _valid_schedule(cls, value: str) -> str:
+        if not _SCHEDULE_RE.match(value):
+            raise ValueError(
+                f"invalid schedule {value!r}; expected off, daily, "
+                "weekly:<day>[,<day>...] (mon..sun) or monthly:<1-31>"
+            )
+        return value
+
+
+class ModelsConfig(_Strict):
+    discovery: str = Field(min_length=1)
+    events: str = Field(min_length=1)
+    merge: str = Field(min_length=1)
+
+
+class AiConfig(_Strict):
+    auth: Literal["subscription", "api_key"]
+
+
+class LimitsConfig(_Strict):
+    max_web_searches_per_run: int = Field(ge=1)
+    places_per_request: int = Field(ge=1, le=50)
+    max_runtime_minutes: int = Field(ge=1, le=360)
+
+
+class EventsConfig(_Strict):
+    unconfirmed_after_misses: int = Field(ge=1)
+    description_max_chars: int = Field(ge=20, le=2000)
+
+
+class SourcesConfig(_Strict):
+    whitelist_file: str
+    blacklist_file: str
+
+
+class Tag(_Strict):
+    id: TagId
+    de: str = Field(min_length=1)
+    en: str = Field(min_length=1)
+
+
+class Config(_Strict):
+    """Root of ``config.yaml``."""
+
+    site: SiteConfig
+    region: RegionConfig
+    window: WindowConfig
+    jobs: JobsConfig
+    models: ModelsConfig
+    ai: AiConfig
+    limits: LimitsConfig
+    events: EventsConfig
+    sources: SourcesConfig
+    excluded_topics: list[str] = []
+    tags: list[Tag] = Field(min_length=1)
+
+    @field_validator("tags")
+    @classmethod
+    def _unique_tags(cls, value: list[Tag]) -> list[Tag]:
+        ids = [tag.id for tag in value]
+        duplicates = sorted({i for i in ids if ids.count(i) > 1})
+        if duplicates:
+            raise ValueError(f"duplicate tag ids: {', '.join(duplicates)}")
+        return value
+
+    @property
+    def default_language(self) -> str:
+        """First entry of ``site.languages``."""
+        return self.site.languages[0]
+
+    @property
+    def tag_ids(self) -> list[str]:
+        return [tag.id for tag in self.tags]
+
+
+def _node_for_path(root: yaml.Node | None, loc: tuple[int | str, ...]) -> yaml.Node | None:
+    """Return the deepest YAML node along ``loc`` (key node for the last mapping key)."""
+    node = root
+    best = root
+    for part in loc:
+        if isinstance(node, yaml.MappingNode):
+            for key_node, value_node in node.value:
+                if key_node.value == part:
+                    best = key_node
+                    node = value_node
+                    break
+            else:
+                return best
+        elif isinstance(node, yaml.SequenceNode) and isinstance(part, int):
+            if part >= len(node.value):
+                return best
+            node = node.value[part]
+            best = node
+        else:
+            return best
+    # Prefer pointing at the value for scalars, at the key otherwise.
+    return node if isinstance(node, yaml.ScalarNode) else best
+
+
+def _format_error(err: dict[str, Any], root: yaml.Node | None, path: Path) -> str:
+    loc = tuple(err["loc"])
+    field = ".".join(str(p) for p in loc) or "<root>"
+    node = _node_for_path(root, loc)
+    line = node.start_mark.line + 1 if node is not None else 1
+    kind = err["type"]
+    if kind == "extra_forbidden":
+        message = "unknown field (typo?)"
+    elif kind == "missing":
+        message = "required field is missing"
+    else:
+        message = err["msg"].removeprefix("Value error, ")
+    return f"{path}:{line}: {field}: {message}"
+
+
+def parse_config(text: str, path: Path = DEFAULT_CONFIG_PATH) -> Config:
+    """Parse and validate configuration text. Raises :class:`ConfigError`."""
+    try:
+        root = yaml.compose(text, Loader=yaml.SafeLoader)
+        data = yaml.safe_load(text)
+    except yaml.YAMLError as exc:
+        mark = getattr(exc, "problem_mark", None)
+        line = mark.line + 1 if mark is not None else 1
+        problem = getattr(exc, "problem", None) or str(exc)
+        raise ConfigError(path, [f"{path}:{line}: YAML syntax error: {problem}"]) from exc
+
+    if not isinstance(data, dict):
+        raise ConfigError(path, [f"{path}:1: top level must be a mapping"])
+
+    try:
+        return Config.model_validate(data)
+    except ValidationError as exc:
+        problems = [_format_error(e, root, path) for e in exc.errors()]
+        raise ConfigError(path, problems) from exc
+
+
+def load_config(path: Path | str = DEFAULT_CONFIG_PATH) -> Config:
+    """Load and validate the configuration file at ``path``."""
+    path = Path(path)
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError as exc:
+        raise ConfigError(path, [f"{path}: file not found"]) from exc
+    return parse_config(text, path)
+
+
+def find_placeholders(text: str) -> list[tuple[int, str]]:
+    """Return ``(line, placeholder)`` pairs for unfilled template placeholders."""
+    hits: list[tuple[int, str]] = []
+    for number, line in enumerate(text.splitlines(), start=1):
+        hits.extend((number, m.group(0)) for m in _PLACEHOLDER_RE.finditer(line))
+    return hits

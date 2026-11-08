@@ -1,0 +1,3 @@
+# Whitelist: sources that are always checked explicitly on every event run.
+# Format: list of { url, note }.
+[]
