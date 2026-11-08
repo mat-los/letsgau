@@ -374,7 +374,7 @@ def run(
     dry_run: bool = False,
     limit_places: int | None = None,
     config_path: Path = DEFAULT_CONFIG_PATH,
-) -> None:
+) -> Site:
     """CLI entry point for ``--job build``."""
     text = config_path.read_text(encoding="utf-8") if config_path.exists() else ""
     guard(config, text, config_path)
@@ -385,3 +385,4 @@ def run(
         f"build: {pages} day pages, {len(site.events)} events, today {site.today} "
         f"({config.site.timezone}) -> {target}" + ("; dry run" if dry_run else "")
     )
+    return site

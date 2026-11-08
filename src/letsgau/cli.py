@@ -15,22 +15,14 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from letsgau import __version__, build, crawl, discovery, geo
+from letsgau import __version__, build, crawl, discovery, geo, scheduler
 from letsgau import init as init_cmd
 from letsgau.ai_runner import AiError
 from letsgau.build import BuildError
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
 from letsgau.crawl import CrawlError
 from letsgau.geo import GeoError
-from letsgau.scheduler import JOBS, STAGES
-
-# Each stage runs one or more modules in order; "events" = crawl (which calls merge).
-STAGE_MODULES = {
-    "geo": (geo,),
-    "discovery": (discovery,),
-    "events": (crawl,),
-    "build": (build,),
-}
+from letsgau.scheduler import JOBS
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -120,25 +112,26 @@ def _cmd_run(
 ) -> int:
     config = load_config(config_path)
     load_dotenv()
-    if job == "auto":
-        print("Scheduler not implemented yet (Phase 6): no jobs run.")
-        return 0
-    stages = STAGES if job == "all" else (job,)
-    for stage in stages:
-        for module in STAGE_MODULES[stage]:
-            kwargs: dict[str, object] = {}
-            if module is geo:
-                kwargs["force"] = force
-            elif module is build:
-                kwargs["config_path"] = config_path
-            try:
-                module.run(config, dry_run=dry_run, limit_places=limit_places, **kwargs)
-            except NotImplementedError as exc:
-                print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
-                return 2
-            except (GeoError, CrawlError, AiError, BuildError) as exc:
-                print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
-                return 1
+    runners = {
+        "geo": lambda cfg, dry_run: geo.run(cfg, dry_run=dry_run, force=force),
+        "discovery": lambda cfg, dry_run: discovery.run(
+            cfg, dry_run=dry_run, limit_places=limit_places
+        ),
+        "events": lambda cfg, dry_run: crawl.run(cfg, dry_run=dry_run, limit_places=limit_places),
+        "build": lambda cfg, dry_run: build.run(cfg, dry_run=dry_run, config_path=config_path),
+    }
+    report = scheduler.execute(
+        config,
+        job,
+        runners,
+        dry_run=dry_run,
+        errors=(GeoError, CrawlError, AiError, BuildError),
+    )
+    if report.failed:
+        return 1
+    if job not in ("auto", "all") and report.stages and report.stages[0].status == "skipped":
+        print(f"error: stage {job!r}: {report.stages[0].reason}", file=sys.stderr)
+        return 2
     return 0
 
 

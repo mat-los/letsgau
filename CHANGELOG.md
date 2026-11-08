@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Phase 6 scheduler and workflow: `--job auto` runs only due jobs (catch-up
+  of missed runs, frequency changes apply at once, discovery forced after a
+  geo change, build after every events run), a failing stage does not stop the
+  build; `last_run` in `state.json`; job summary with event changes and AI
+  usage. Workflow `run.yml`: daily cron, "Run workflow" button with job choice
+  and dry run, concurrency group, `data` branch worktree and bot commit, Pages
+  deploy.
 - Phase 5 AI readability: schema.org `Event` JSON-LD on every day page
   (program items as `subEvent`), `llms.txt`, public `data/events.json`,
   iCalendar feeds per language, `sitemap.xml` with hreflang, `robots.txt`

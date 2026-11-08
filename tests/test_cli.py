@@ -58,7 +58,3 @@ def test_check_reports_typo(tmp_path: Path, capsys: pytest.CaptureFixture[str]) 
 def test_unimplemented_stage_exits_2(capsys: pytest.CaptureFixture[str]) -> None:
     assert main(["--config", CONFIG, "run", "--job", "discovery", "--dry-run"]) == 2
     assert "Phase 7" in capsys.readouterr().err
-
-
-def test_auto_run_is_noop_for_now() -> None:
-    assert main(["--config", CONFIG, "run"]) == 0

@@ -1,7 +1,6 @@
 # Operations
 
-> Phase 2: `check`, `geo` and `events` work. Discovery, the website, the workflow
-> and cost reporting are added in later phases; this page grows with them.
+> How to run, check and debug the pipeline.
 
 ## Validate the configuration
 
@@ -152,10 +151,35 @@ The *Site check* workflow builds the fixture day with 100 events and runs
 Lighthouse (mobile; performance and accessibility must be ≥ 90) and a `curl`
 check that every event is in the HTML.
 
-## Run on GitHub (Phase 6)
+## Run on GitHub
 
-*Actions → Run → Run workflow*, choose the job. The button is also available in
-the GitHub mobile app. A `concurrency` group prevents overlapping runs.
+The workflow `.github/workflows/run.yml` runs daily at 04:17 UTC and can be
+started by hand: *Actions → Run → Run workflow* (also in the GitHub mobile app),
+with the job (`auto`, `geo`, `discovery`, `events`, `build`, `all`) and an
+optional dry run. A `concurrency` group prevents overlapping runs.
+
+What `--job auto` does (`src/letsgau/scheduler.py`):
+
+| Stage | When |
+| --- | --- |
+| `geo` | always; does nothing unless center, drive time or place filters changed |
+| `discovery` | when its schedule is due, or forced after a geo change (`force_discovery`) |
+| `events` | when its schedule is due |
+| `build` | when its schedule is due (default daily) and after every events run |
+
+"Due" means: the most recent scheduled day up to today is after the job's last
+successful run (`last_run` in `state.json`). A missed run is caught up the next
+day, and a changed frequency in `config.yaml` applies on the next run. A failing
+stage does not stop the build; the run then ends with exit code 1.
+
+The workflow checks out the `data` branch as a worktree (created on the first
+run), links `data/` and `geo/` into the checkout, runs the pipeline, commits the
+changes to `data` as `letsgau-bot` and deploys `site/` with the official Pages
+actions. The job summary lists the stages, event changes (new, updated,
+cancelled, postponed, unconfirmed, excluded, deleted) and the AI usage.
+
+One-time setup: *Settings → Pages → Source: GitHub Actions*, and the secrets
+below.
 
 ## Secrets
 
@@ -170,5 +194,6 @@ spend limit in the Anthropic Console.
 
 ## Costs
 
-Every run will write tokens, searches and estimated costs to the GitHub job
-summary (Phase 6).
+Every run writes requests, searches, tokens, the estimated cost and the AI time
+to the GitHub job summary; the usage of the last events run is also in
+`data/state.json` (`last_usage`).

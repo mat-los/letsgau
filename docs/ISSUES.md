@@ -84,7 +84,7 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 6 – Scheduler and workflow
 
-- [ ] [#21](https://github.com/mat-los/letsgau/issues/21) Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
+- [x] [#21](https://github.com/mat-los/letsgau/issues/21) Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
 - [ ] [#22](https://github.com/mat-los/letsgau/issues/22) "Run workflow" button with job selection works
 - [ ] [#23](https://github.com/mat-los/letsgau/issues/23) Data is committed, Pages is deployed, job summary shows changes and costs
 

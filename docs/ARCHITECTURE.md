@@ -64,7 +64,7 @@ flowchart LR
 | --- | --- | --- |
 | `config` | load and validate `config.yaml` | 0 |
 | `cli` | command-line entry point | 0 |
-| `scheduler` | decide which jobs are due, run them in order | 0 (parser), 6 |
+| `scheduler` | decide which jobs are due, run them in order, job summary | 6 ✓ |
 | `geo` | isochrone (ORS), places (Overpass), drive times (ORS matrix) | 1 ✓ |
 | `ai_runner` | Claude Code headless (subscription) or Claude API (api_key) | 2 ✓ |
 | `crawl` | event crawl per batch of places, validation | 2 ✓ |
