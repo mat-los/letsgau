@@ -78,16 +78,20 @@ Claude model IDs per step: `discovery`, `events`, `merge`.
 
 | Key | Meaning |
 | --- | --- |
-| `max_web_searches_per_run` | cost brake per run |
-| `places_per_request` | places per Claude request |
-| `max_runtime_minutes` | hard stop for a run |
+| `max_web_searches_per_run` | cost brake per run; spread evenly over the remaining batches (3–40 per batch), batches are skipped once it is used up |
+| `places_per_request` | municipalities per Claude request (batch size); the places of a municipality (e.g. Peiting with Herzogsägmühle and Birkland) are always crawled together |
+| `max_runtime_minutes` | no new batch starts after this time |
+
+In API mode the search limit per batch is enforced (`max_uses`); in
+subscription mode Claude Code has no such switch, so the limit is given in the
+prompt and the reported searches count against the budget.
 
 ## `events`
 
 | Key | Meaning |
 | --- | --- |
 | `unconfirmed_after_misses` | consecutive runs without a hit before `unconfirmed` |
-| `description_max_chars` | maximum description length |
+| `description_max_chars` | maximum description length; longer descriptions are cut at a word boundary |
 
 ## `sources`
 
@@ -97,11 +101,17 @@ Paths of `whitelist_file` and `blacklist_file`.
 # whitelist.yaml – always checked explicitly on every event run
 - url: "https://www.schongau.de/veranstaltungen"
   note: "City of Schongau"
+  places: ["Schongau"]        # optional: checked in the batch with these places;
+                              # without it, in the first batch (regional sources)
 
 # blacklist.yaml – never used as a source
 - domain: "example-spam.de"
   reason: "outdated dates"
 ```
+
+The blacklist applies to the domain and all its subdomains. It is passed to the
+AI (API: `blocked_domains`; Claude Code: WebFetch deny rules) and every source
+from it is removed afterwards; an event without any other source is dropped.
 
 ## `excluded_topics`
 

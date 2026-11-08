@@ -188,6 +188,12 @@ def test_schongau_30_minutes_writes_places_json(
         "node/889285957",
     )
     assert all(p.origin is PlaceOrigin.AREA for p in places_file.places)
+    # Municipalities from the same Overpass answer (recorded with admin_level=8 areas).
+    municipality = {p.name: p.municipality for p in places_file.places}
+    assert municipality["Herzogsägmühle"] == municipality["Birkland"] == "Peiting"
+    assert municipality["Leeder"] == "Fuchstal"
+    assert municipality["Schongau"] == "Schongau"
+    assert len(set(municipality.values())) == 44  # 45 with Landsberg via include_places
 
     iso = json.loads((tmp_path / "geo" / "isochrone.geojson").read_text(encoding="utf-8"))
     assert iso["type"] == "FeatureCollection"
@@ -500,3 +506,77 @@ def test_overpass_all_instances_fail(clients: geo.Clients, tmp_path: Path) -> No
     clients.http.post_form = broken  # type: ignore[method-assign]
     with pytest.raises(geo.GeoError, match="all Overpass instances failed"):
         run_geo(make_config(), clients, tmp_path)
+
+
+# --- municipalities (Phase 2) ------------------------------------------------------
+
+
+def test_queries_ask_for_municipalities() -> None:
+    for query in (
+        geo.area_query(["village"], (1, 2, 3, 4)),
+        geo.include_query(["Landsberg am Lech"], (1, 2, 3, 4)),
+    ):
+        assert "->.places;" in query
+        assert "foreach.places->.p(" in query
+        assert ".p is_in->.a;" in query
+        assert 'area.a["boundary"="administrative"]["admin_level"="8"]["name"];' in query
+
+
+def test_parse_places_assigns_following_area_as_municipality() -> None:
+    elements = [
+        {
+            "type": "node",
+            "id": 1,
+            "lat": 47.79,
+            "lon": 10.92,
+            "tags": {"name": "Peiting", "place": "town"},
+        },
+        {"type": "area", "id": 3600001, "tags": {"name": "Peiting", "admin_level": "8"}},
+        {
+            "type": "node",
+            "id": 2,
+            "lat": 47.80,
+            "lon": 10.93,
+            "tags": {"name": "Herzogsägmühle", "place": "village"},
+        },
+        {"type": "area", "id": 3600001, "tags": {"name": "Peiting", "admin_level": "8"}},
+        {"type": "area", "id": 3600002, "tags": {"name": "Other", "admin_level": "8"}},
+        {
+            "type": "node",
+            "id": 3,
+            "lat": 47.7,
+            "lon": 10.8,
+            "tags": {"name": "Gemeindefrei", "place": "village"},
+        },
+    ]
+    places = geo.parse_places(elements, geo.PlaceOrigin.AREA)
+    assert [(p.name, p.municipality) for p in places] == [
+        ("Peiting", "Peiting"),
+        ("Herzogsägmühle", "Peiting"),  # first area wins
+        ("Gemeindefrei", "Gemeindefrei"),  # in no municipality: its own name
+    ]
+
+
+def test_places_without_municipality_are_refreshed_once(
+    clients: geo.Clients, http: FakeHttp, tmp_path: Path
+) -> None:
+    run_geo(make_config(), clients, tmp_path)
+    path = tmp_path / "data" / "places.json"
+    old = json.loads(path.read_text(encoding="utf-8"))
+    for place in old["places"]:
+        del place["municipality"]  # as written before Phase 2
+    path.write_text(json.dumps(old), encoding="utf-8")
+    state_path = tmp_path / "data" / "state.json"
+    state = State.model_validate_json(state_path.read_text("utf-8"))
+    state.force_discovery = False
+    state_path.write_text(state.model_dump_json(), encoding="utf-8")
+    http.calls.clear()
+
+    result = run_geo(make_config(), clients, tmp_path)
+
+    assert result.recomputed and not result.fingerprint_changed
+    assert not any("/isochrones/" in url for url in http.urls())  # stored isochrone reused
+    assert all(p.municipality for p in result.places.places)  # type: ignore[union-attr]
+    assert State.model_validate_json(state_path.read_text("utf-8")).force_discovery is False
+    http.calls.clear()
+    assert not run_geo(make_config(), clients, tmp_path).recomputed

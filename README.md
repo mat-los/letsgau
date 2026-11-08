@@ -10,8 +10,9 @@ searches the web, results are stored as JSON and rendered to static HTML on
 GitHub Pages. The site is equally usable by people on their phones, by search
 engines and by AI assistants.
 
-> **Status:** Phase 1 (geo). The geo stage computes the places within the drive
-> time; the AI stages and the website are not implemented yet.
+> **Status:** Phase 2 (event crawl). The geo stage computes the places within
+> the drive time, the event crawl collects events with Claude into
+> `data/events.json`; the website is not implemented yet.
 > See [docs/CONCEPT.md](docs/CONCEPT.md) (German) for the full specification and
 > the phase plan, and [docs/ISSUES.md](docs/ISSUES.md) for the task list.
 
@@ -79,7 +80,9 @@ Compute the places within the drive time (needs `ORS_API_KEY` in `.env`):
 python -m letsgau run --job geo --dry-run
 ```
 
-Planned once the other stages exist:
+Crawl events for the three nearest places without writing anything (needs
+`data/places.json` and `CLAUDE_CODE_OAUTH_TOKEN` or, with `ai.auth: api_key`,
+`ANTHROPIC_API_KEY`):
 
 ```bash
 python -m letsgau run --job events --dry-run --limit-places 3

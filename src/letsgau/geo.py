@@ -325,24 +325,54 @@ def _quote(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+MUNICIPALITY_FILTER = '["boundary"="administrative"]["admin_level"="8"]["name"]'
+"""OSM municipalities (in Germany: Gemeinde, Markt, Stadt)."""
+
+_WITH_MUNICIPALITY = (
+    "foreach.places->.p(\n"
+    "  .p out;\n"
+    "  .p is_in->.a;\n"
+    f"  area.a{MUNICIPALITY_FILTER};\n"
+    "  out tags;\n"
+    ");"
+)
+"""Outputs each place node followed by the municipality area(s) it lies in."""
+
+
 def area_query(place_types: Sequence[str], box: tuple[float, float, float, float]) -> str:
-    """Overpass QL: all place nodes of the given types in a bounding box."""
+    """Overpass QL: place nodes of the given types in a bounding box, with municipalities."""
     s, w, n, e = box
     return (
-        f"[out:json][timeout:90];\n"
-        f'node["place"~"{_type_regex(place_types)}"]["name"]({s:.5f},{w:.5f},{n:.5f},{e:.5f});\n'
-        f"out;"
+        f"[out:json][timeout:180];\n"
+        f'node["place"~"{_type_regex(place_types)}"]["name"]({s:.5f},{w:.5f},{n:.5f},{e:.5f})'
+        f"->.places;\n{_WITH_MUNICIPALITY}"
     )
 
 
 def include_query(names: Sequence[str], box: tuple[float, float, float, float]) -> str:
-    """Overpass QL: place nodes (any type) with one of the given names in a bounding box."""
+    """Overpass QL: place nodes (any type) with one of the given names, with municipalities."""
     s, w, n, e = box
     lines = "".join(
         f'  node["place"]["name"={_quote(name)}]({s:.5f},{w:.5f},{n:.5f},{e:.5f});\n'
         for name in names
     )
-    return f"[out:json][timeout:90];\n(\n{lines});\nout;"
+    return f"[out:json][timeout:180];\n(\n{lines})->.places;\n{_WITH_MUNICIPALITY}"
+
+
+def parse_places(elements: Sequence[Json], origin: PlaceOrigin) -> list[Place]:
+    """Place nodes from an Overpass answer; an ``area`` after a node is its municipality."""
+    places: list[Place] = []
+    for element in elements:
+        kind = element.get("type")
+        tags = element.get("tags", {})
+        if kind == "node" and "name" in tags:
+            places.append(_to_place(element, origin))
+        elif kind == "area" and places and places[-1].municipality is None and "name" in tags:
+            places[-1].municipality = tags["name"]
+    for place in places:
+        if place.municipality is None:
+            place.municipality = place.name
+    return places
 
 
 def _to_place(element: Json, origin: PlaceOrigin) -> Place:
@@ -400,7 +430,9 @@ def compute(
     fingerprint_changed = previous is None or previous.fingerprint != fp
     need_isochrone = force or fingerprint_changed or not iso_path.exists()
 
-    if not need_isochrone and _filters_unchanged(region, previous):
+    # Files from before the municipality lookup are refreshed once (no new isochrone).
+    outdated = previous is not None and any(p.municipality is None for p in previous.places)
+    if not need_isochrone and not outdated and _filters_unchanged(region, previous):
         return GeoResult(False, False, previous, [])
 
     clients = clients or Clients.from_env()
@@ -415,10 +447,8 @@ def compute(
 
     # Places inside the isochrone.
     found: dict[str, Place] = {}
-    for element in clients.overpass(area_query(region.place_types, bbox(polygons))):
-        if "name" not in element.get("tags", {}):
-            continue
-        place = _to_place(element, PlaceOrigin.AREA)
+    elements = clients.overpass(area_query(region.place_types, bbox(polygons)))
+    for place in parse_places(elements, PlaceOrigin.AREA):
         if place.place_type in region.place_types and point_in_polygons(
             place.lon, place.lat, polygons
         ):
@@ -429,8 +459,8 @@ def compute(
     if missing:
         radius = max(INCLUDE_SEARCH_MIN_KM, region.drive_time_minutes * 2.0)
         candidates: dict[str, Place] = {}
-        for element in clients.overpass(include_query(missing, _bbox_around(lat, lon, radius))):
-            place = _to_place(element, PlaceOrigin.INCLUDE)
+        elements = clients.overpass(include_query(missing, _bbox_around(lat, lon, radius)))
+        for place in parse_places(elements, PlaceOrigin.INCLUDE):
             key = place.name.casefold()
             if key not in candidates or _distance2(place, lat, lon) < _distance2(
                 candidates[key], lat, lon
@@ -524,7 +554,10 @@ def run(
         + ("; discovery will be forced" if result.fingerprint_changed else "")
         + ("; dry run, nothing written" if dry_run else "")
     )
+    municipalities = {p.municipality or p.name for p in result.places.places}
+    print(f"geo: {len(municipalities)} municipalities")
     for place in result.places.places:
         minutes = "?" if place.drive_time_minutes is None else f"{place.drive_time_minutes:g}"
-        print(f"  {minutes:>5} min  {place.name} ({place.place_type}, {place.origin})")
+        where = "" if place.municipality in (None, place.name) else f", {place.municipality}"
+        print(f"  {minutes:>5} min  {place.name} ({place.place_type}{where}, {place.origin})")
     return result

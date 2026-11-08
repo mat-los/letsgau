@@ -1,0 +1,3 @@
+# Test blacklist (independent of instance/sources/blacklist.yaml).
+- domain: "example-spam.de"
+  reason: "test"

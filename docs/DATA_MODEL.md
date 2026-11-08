@@ -32,7 +32,7 @@ computed from, so the next run can tell whether anything changed.
   "places": [
     { "name": "Schongau", "osm_id": "node/240040710", "place_type": "town",
       "lat": 47.8116, "lon": 10.8966, "drive_time_minutes": 1.6, "distance_km": 0.6,
-      "origin": "area" }
+      "origin": "area", "municipality": "Schongau" }
   ]
 }
 ```
@@ -44,6 +44,7 @@ computed from, so the next run can tell whether anything changed.
 | `places[].osm_id` | OpenStreetMap element, e.g. `node/240040710` |
 | `places[].drive_time_minutes`, `distance_km` | by car from the center (ORS matrix), 1 decimal; `null` if not routable |
 | `places[].origin` | `area` (inside the isochrone) or `include` (from `include_places`) |
+| `places[].municipality` | municipality (OSM `admin_level=8`), e.g. `Peiting` for Herzogsägmühle; the place's own name if it lies in none (Phase 2, optional field; older files are refreshed once by the geo stage) |
 | order | by drive time, then name; places without drive time last |
 
 The isochrone itself is stored unchanged as the ORS GeoJSON response in
@@ -59,6 +60,7 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 | `geo_fingerprint` | fingerprint of the last geo computation |
 | `force_discovery` | set to `true` when the geo fingerprint changes; the discovery stage clears it (Phase 7) |
 | `last_run` | map job name → UTC timestamp of the last successful run |
+| `last_usage` | map job name → AI usage of the last run: `requests`, `web_searches`, `web_fetches`, `input_tokens`, `output_tokens`, `cost_usd` (estimate, 0 in subscription mode), `duration_s` (Phase 2) |
 
 ## Event
 
@@ -84,11 +86,13 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 }
 ```
 
-The example is invented and only shows the shape.
+The example is invented and only shows the shape. The file itself is
+`{"schema_version": 1, "updated_at": "<UTC>", "events": [...]}`, sorted by
+start date, start time and id.
 
 | Field | Rule |
 | --- | --- |
-| `id` | stable: start date + slug of title and place; never changes on merge |
+| `id` | stable: start date + slug of the German title and the place (umlauts as `ae`/`oe`/`ue`/`ss`; the place is left out if the title already contains it), e.g. `2026-11-28-weihnachtsmarkt-schongau`; never changes on merge |
 | `parent_id` | set for program items (e.g. a band at a medieval market); venue is inherited from the parent |
 | `title`, `description` | always DE and EN; proper names unchanged; description ≤ `description_max_chars`, own words |
 | `schedule.start_time` | `null` if unknown; never guessed |

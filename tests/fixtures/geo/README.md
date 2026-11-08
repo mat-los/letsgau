@@ -16,7 +16,8 @@ All four files are real responses from 2026-11-08, 30 minutes around Schongau
 - ORS isochrone and matrix were recorded from `api.heigit.org/openrouteservice`.
 - The Overpass responses come from overpass-api.de, captured by the *Geo check*
   workflow on GitHub Actions (Overpass was not reachable from the development
-  container). Weilheim lies inside the isochrone (29.7 min), so the include
+  container). Each place node is followed by its municipality (`area`,
+  `admin_level=8`): 44 municipalities in the area, 45 with Landsberg. Weilheim lies inside the isochrone (29.7 min), so the include
   lookup only asked for Landsberg am Lech (34.2 min).
 
 Result: 105 places in the area plus Landsberg. Overpass also returns places in

@@ -1,0 +1,432 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "duration_ms": 184233,
+  "duration_api_ms": 171002,
+  "num_turns": 23,
+  "result": "Done. Found 10 candidate events.",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "total_cost_usd": 1.2345,
+  "usage": {
+    "input_tokens": 2311,
+    "cache_creation_input_tokens": 40211,
+    "cache_read_input_tokens": 310544,
+    "output_tokens": 9876,
+    "server_tool_use": {
+      "web_search_requests": 12,
+      "web_fetch_requests": 9
+    }
+  },
+  "permission_denials": [],
+  "structured_output": {
+    "events": [
+      {
+        "ref": "e1",
+        "parent_ref": null,
+        "title": {
+          "de": "Schongauer Christkindlmarkt",
+          "en": "Schongau Christmas Market"
+        },
+        "description": {
+          "de": "Buden, Glühwein und Musik in der Altstadt.",
+          "en": "Stalls, mulled wine and music in the old town."
+        },
+        "venue": {
+          "name": "Marienplatz",
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-27",
+          "end_date": "2026-12-13",
+          "start_time": null,
+          "end_time": null,
+          "all_day": true,
+          "dates": null,
+          "opening_hours": [
+            {
+              "days": "mon-fri",
+              "from": "16:00",
+              "to": "20:00"
+            },
+            {
+              "days": "sat,sun",
+              "from": "12:00",
+              "to": "20:00"
+            }
+          ]
+        },
+        "primary_tag": "market-festival",
+        "tags": [
+          "market-festival",
+          "food-drink"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://www.schongau.de/veranstaltungen/christkindlmarkt",
+            "primary": true
+          },
+          {
+            "url": "https://www.kreisbote.de/lokales/schongau/christkindlmarkt",
+            "primary": false
+          }
+        ]
+      },
+      {
+        "ref": "e2",
+        "parent_ref": "e1",
+        "title": {
+          "de": "Kinderchor am Christkindlmarkt",
+          "en": "Children's choir at the Christmas market"
+        },
+        "description": {
+          "de": "Der Kinderchor singt Adventslieder.",
+          "en": "The children's choir sings Advent songs."
+        },
+        "venue": {
+          "name": null,
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-28",
+          "end_date": null,
+          "start_time": "17:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "concert",
+        "tags": [
+          "concert",
+          "family-kids"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://www.schongau.de/veranstaltungen/christkindlmarkt",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e3",
+        "parent_ref": null,
+        "title": {
+          "de": "EC Peiting – EV Füssen",
+          "en": "EC Peiting vs. EV Füssen"
+        },
+        "description": {
+          "de": "Eishockey-Derby in der Oberliga.",
+          "en": "Ice hockey derby in the Oberliga."
+        },
+        "venue": {
+          "name": "Eisstadion Peiting",
+          "place": "Peiting",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-13",
+          "end_date": null,
+          "start_time": "20:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "sports",
+        "tags": [
+          "sports"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://www.ecpeiting.de/spielplan",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e4",
+        "parent_ref": null,
+        "title": {
+          "de": "Malabend im Café",
+          "en": "Painting evening at the café"
+        },
+        "description": {
+          "de": "Gemeinsames Malen mit Acryl, Material wird gestellt.",
+          "en": "Painting together with acrylics, materials provided."
+        },
+        "venue": {
+          "name": "Café am Bach",
+          "place": "Altenstadt",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-18",
+          "end_date": null,
+          "start_time": "19:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "art-culture",
+        "tags": [
+          "art-culture",
+          "talk-workshop"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://cafe-beispiel.de/termine",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e5",
+        "parent_ref": null,
+        "title": {
+          "de": "Leonhardiritt",
+          "en": "Leonhardi ride"
+        },
+        "description": {
+          "de": "Traditioneller Umritt mit geschmückten Pferden.",
+          "en": "Traditional procession with decorated horses."
+        },
+        "venue": {
+          "name": null,
+          "place": "Hohenpeißenberg",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-15",
+          "end_date": null,
+          "start_time": "10:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "market-festival",
+        "tags": [
+          "market-festival",
+          "outdoor"
+        ],
+        "status": "cancelled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://www.hohenpeissenberg.de/termine",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e6",
+        "parent_ref": null,
+        "title": {
+          "de": "Kabarett im Ballenhaus",
+          "en": "Cabaret at the Ballenhaus"
+        },
+        "description": {
+          "de": "Bayerisches Kabarett mit neuem Programm.",
+          "en": "Bavarian cabaret with a new programme."
+        },
+        "venue": {
+          "name": null,
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-20",
+          "end_date": null,
+          "start_time": "20:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "theatre-cinema",
+        "tags": [
+          "theatre-cinema"
+        ],
+        "status": "postponed",
+        "postponed_to_date": "2027-01-15",
+        "sources": [
+          {
+            "url": "https://www.schongau.de/veranstaltungen/kabarett",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e7",
+        "parent_ref": null,
+        "title": {
+          "de": "Weit entfernter Markt",
+          "en": "Far away market"
+        },
+        "description": {
+          "de": "Liegt nach dem Zeitfenster.",
+          "en": "After the window."
+        },
+        "venue": {
+          "name": null,
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2027-03-01",
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "market-festival",
+        "tags": [
+          "market-festival"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://www.schongau.de/x",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e8",
+        "parent_ref": null,
+        "title": {
+          "de": "Spam-Event",
+          "en": "Spam event"
+        },
+        "description": {
+          "de": "Nur auf Spam-Seite.",
+          "en": "Only on a spam site."
+        },
+        "venue": {
+          "name": null,
+          "place": "Peiting",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-21",
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "party",
+        "tags": [
+          "party"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://example-spam.de/peiting",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e9",
+        "parent_ref": null,
+        "title": {
+          "de": "Konzert in München",
+          "en": "Concert in Munich"
+        },
+        "description": {
+          "de": "Außerhalb des Gebiets.",
+          "en": "Outside the area."
+        },
+        "venue": {
+          "name": null,
+          "place": "München",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-22",
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "concert",
+        "tags": [
+          "concert"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://example.org/muc",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e10",
+        "parent_ref": null,
+        "title": {
+          "de": "Falsches Tag",
+          "en": "Wrong tag"
+        },
+        "description": {
+          "de": "Tag nicht in der Liste.",
+          "en": "Tag not in list."
+        },
+        "venue": {
+          "name": null,
+          "place": "Peiting",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-23",
+          "end_date": null,
+          "start_time": null,
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "ice-hockey",
+        "tags": [
+          "ice-hockey"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://example.org/tag",
+            "primary": true
+          }
+        ]
+      }
+    ],
+    "checked_sources": [
+      {
+        "url": "https://www.schongau.de/veranstaltungen",
+        "result": "events_found"
+      }
+    ],
+    "notes": ""
+  }
+}
