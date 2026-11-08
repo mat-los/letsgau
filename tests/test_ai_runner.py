@@ -262,3 +262,17 @@ def test_record_dir_saves_raw_answers(tmp_path: Path, monkeypatch: pytest.Monkey
         "events-batch-1-1-3.json",
     ]
     assert json.loads((tmp_path / "rec" / files[0]).read_text("utf-8")) == fixture
+
+
+def test_cli_recorded_run_counts_helper_model_searches() -> None:
+    """Real answer of `claude -p` (Crawl check, 2026-11-08, Schongau): WebSearch runs on Haiku."""
+    fixture = _fixture("claude_cli_recorded_schongau.json")
+    result = ClaudeCodeRunner(run=_fake_run(json.dumps(fixture))).run(_request())
+    assert result.usage.web_searches == 5  # from modelUsage, top-level usage says 0
+    assert result.usage.input_tokens == 14 + 59797 + 18227 + 156354
+    assert result.usage.output_tokens == 2394 + 9598
+    assert result.usage.duration_s == 57.9
+    assert [e["title"]["de"] for e in result.data["events"]] == [
+        "Singkreis",
+        "Ökumenische Fahrzeugsegnung der neuen RVO-Busse",
+    ]

@@ -17,16 +17,26 @@ Only report events that take place in one of these places. Write the place name 
 
 ## How to search
 
-- You have at most {{ max_searches }} web searches for this batch. Fetching pages does not count.
+Be thorough: the calendar is only useful if it is close to complete. A small town usually has
+many events in four weeks (club evenings, church concerts, markets, home matches, talks, children's
+events). If you have found only a few, keep looking; do not stop after the first calendar.
+
+- You have at most {{ max_searches }} web searches for this batch; use most of them. Fetching pages
+  does not count, so open every promising page.
 {%- if whitelist %}
-- First fetch each of these trusted sources and take every matching event from them:
+- First fetch each of these trusted sources and take every matching event from them. If one shows
+  no events or has moved, look for its current calendar page and say so in "notes":
 {%- for entry in whitelist %}
   - {{ entry.url }}{% if entry.note %} ({{ entry.note }}){% endif %}
 {%- endfor %}
 {%- endif %}
-- Then search per place, in German, e.g. "<place> Veranstaltungen", "<place> Veranstaltungskalender",
-  "<place> Termine dieses Wochenende", "<place> Konzert", and look at municipal event calendars,
-  clubs, venues, cinemas, cafés, sports clubs, parishes, regional calendars and local press.
+- Then search each place separately, in German: "<place> Veranstaltungen", "<place>
+  Veranstaltungskalender", "<place> Veranstaltungen <month> <year>" for every month in the window,
+  and by category ("<place> Konzert", "Markt", "Theater", "Kino", "Heimspiel", "Kinder",
+  "Vortrag", "Ausstellung", "Pfarrei"). Look at municipal and tourist-office calendars, clubs,
+  venues, cinemas, cafés, sports clubs, parishes, regional calendars and local press.
+- Event calendars are often paginated or filtered by month: open the next pages or months until the
+  end of the window instead of reading only the first page.
 - Prefer the organizer's own page. Open pages to read the actual date, time and place.
 {%- if blocked_domains %}
 - Never use or cite these domains: {{ blocked_domains | join(", ") }}.

@@ -226,29 +226,54 @@ class ClaudeCodeRunner:
             data = _json_from_text(result.get("result") or "")
         if not isinstance(data, dict):
             raise AiError("claude returned no structured output")
-        usage_raw = result.get("usage") or {}
-        server = usage_raw.get("server_tool_use") or {}
-        input_tokens = (
-            int(usage_raw.get("input_tokens") or 0)
-            + int(usage_raw.get("cache_read_input_tokens") or 0)
-            + int(usage_raw.get("cache_creation_input_tokens") or 0)
-        )
-        usage = Usage(
-            requests=1,
-            web_searches=int(server.get("web_search_requests") or 0),
-            web_fetches=int(server.get("web_fetch_requests") or 0),
-            input_tokens=input_tokens,
-            output_tokens=int(usage_raw.get("output_tokens") or 0),
-            cost_usd=0.0,  # subscription: no per-token billing (total_cost_usd is notional)
-            duration_s=round(
-                (result.get("duration_ms") or (time.monotonic() - started) * 1000) / 1000, 1
-            ),
+        usage = _cli_usage(result).model_copy(
+            update={
+                "duration_s": round(
+                    (result.get("duration_ms") or (time.monotonic() - started) * 1000) / 1000, 1
+                )
+            }
         )
         _log(
             f"{request.step}: {result.get('num_turns')} turns, {usage.duration_s}s, "
             f"notional cost ${result.get('total_cost_usd') or 0:.2f}"
         )
         return AiResult(data=data, usage=usage, raw=result)
+
+
+def _cli_usage(result: dict[str, Any]) -> Usage:
+    """Usage of a CLI run, summed over all models.
+
+    Claude Code runs WebSearch/WebFetch on a helper model, so searches and most
+    tokens appear in ``modelUsage`` (per model), not in the top-level ``usage``.
+    """
+    top = result.get("usage") or {}
+    server = top.get("server_tool_use") or {}
+    per_model = list((result.get("modelUsage") or {}).values())
+    if per_model:
+
+        def total(key: str) -> int:
+            return sum(int(m.get(key) or 0) for m in per_model)
+
+        searches = total("webSearchRequests")
+        input_tokens = (
+            total("inputTokens") + total("cacheReadInputTokens") + total("cacheCreationInputTokens")
+        )
+        output_tokens = total("outputTokens")
+    else:
+        searches = int(server.get("web_search_requests") or 0)
+        input_tokens = sum(
+            int(top.get(k) or 0)
+            for k in ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens")
+        )
+        output_tokens = int(top.get("output_tokens") or 0)
+    return Usage(
+        requests=1,
+        web_searches=searches,
+        web_fetches=int(server.get("web_fetch_requests") or 0),
+        input_tokens=input_tokens,
+        output_tokens=output_tokens,
+        cost_usd=0.0,  # subscription: no per-token billing (total_cost_usd is notional)
+    )
 
 
 def _json_from_text(text: str) -> Any:

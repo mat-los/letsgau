@@ -1,0 +1,171 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "api_error_status": null,
+  "duration_ms": 57910,
+  "duration_api_ms": 67624,
+  "num_turns": 12,
+  "stop_reason": "tool_use",
+  "terminal_reason": "completed",
+  "session_id": "92c977f9-4799-4293-af9d-60173f97a825",
+  "total_cost_usd": 0.17329009999999997,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 18227,
+    "cache_read_input_tokens": 59797,
+    "output_tokens": 2394,
+    "output_tokens_details": {
+      "thinking_tokens": 63
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 18227,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 14,
+      "outputTokens": 2394,
+      "cacheReadInputTokens": 59797,
+      "cacheCreationInputTokens": 18227,
+      "webSearchRequests": 0,
+      "costUSD": 0.10285570000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 63,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 156354,
+      "outputTokens": 9598,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 5,
+      "costUSD": 0.0704344,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4382,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "safety_stops": 0,
+  "result": "{\"events\":[{\"ref\":\"e1\",\"parent_ref\":null,\"title\":{\"de\":\"Singkreis\",\"en\":\"Singing Circle\"},\"description\":{\"de\":\"Offener Singkreis im Saal des Evangelischen Gemeindehauses in Schongau.\",\"en\":\"Singing circle held in the hall of the Protestant parish house in Schongau.\"},\"venue\":{\"name\":\"Evang. Gemeindehaus (Saal)\",\"place\":\"Schongau\",\"address\":null},\"schedule\":{\"start_date\":\"2026-11-10\",\"end_date\":null,\"start_time\":\"18:30\",\"end_time\":null,\"all_day\":false,\"dates\":null,\"opening_hours\":null},\"primary_tag\":\"art-culture\",\"tags\":[\"art-culture\",\"concert\"],\"status\":\"scheduled\",\"postponed_to_date\":null,\"sources\":[{\"url\":\"https://veranstaltungen.meinestadt.de/schongau/event-detail/42563975/156253575\",\"primary\":true}]},{\"ref\":\"e2\",\"parent_ref\":null,\"title\":{\"de\":\"Ökumenische Fahrzeugsegnung der neuen RVO-Busse\",\"en\":\"Ecumenical blessing of the new RVO buses\"},\"description\":{\"de\":\"Ökumenische Segnung der neuen Busse des RVO auf dem Marienplatz in Schongau.\",\"en\":\"Ecumenical blessing of the new RVO buses on Marienplatz in Schongau.\"},\"venue\":{\"name\":\"Marienplatz\",\"place\":\"Schongau\",\"address\":null},\"schedule\":{\"start_date\":\"2026-11-11\",\"end_date\":null,\"start_time\":\"10:00\",\"end_time\":null,\"all_day\":false,\"dates\":null,\"opening_hours\":null},\"primary_tag\":\"talk-workshop\",\"tags\":[\"talk-workshop\"],\"status\":\"scheduled\",\"postponed_to_date\":null,\"sources\":[{\"url\":\"https://veranstaltungen.meinestadt.de/schongau/event-detail/42566251/156258551\",\"primary\":true}]}],\"checked_sources\":[{\"url\":\"https://www.schongau.de/veranstaltungen\",\"result\":\"no_events\"},{\"url\":\"https://www.schongau.de/de/Schongau-erleben/Veranstaltungskalender\",\"result\":\"no_events\"},{\"url\":\"https://www.schongau.de/de/Aktuelles/Veranstaltungskalender\",\"result\":\"no_events\"},{\"url\":\"https://www.eventfinder.de/veranstaltungen-schongau.php\",\"result\":\"unreachable\"},{\"url\":\"https://veranstaltungen.meinestadt.de/schongau/alle/alle\",\"result\":\"events_found\"}],\"notes\":\"The city of Schongau pages showed no event listings. The Schongau tourist office page only had contact details. Eventfinder returned 403. The meinestadt.de list loaded only the first 20 entries, up to 11 Nov, so later dates were not checked and the list is very likely incomplete. Krashkarma at Reaktor was on 7 Nov, which is before the window. A Hypebot listing for Eisregen on 20 Nov in \\\"Schongau\\\" is almost certainly Oberhausen, so it was not reported. No Christmas market date for Schongau 2026 was found. Reaktor (reaktor-sog.de) and the Schongau tourist office should be checked directly.\"}",
+  "structured_output": {
+    "events": [
+      {
+        "ref": "e1",
+        "parent_ref": null,
+        "title": {
+          "de": "Singkreis",
+          "en": "Singing Circle"
+        },
+        "description": {
+          "de": "Offener Singkreis im Saal des Evangelischen Gemeindehauses in Schongau.",
+          "en": "Singing circle held in the hall of the Protestant parish house in Schongau."
+        },
+        "venue": {
+          "name": "Evang. Gemeindehaus (Saal)",
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-10",
+          "end_date": null,
+          "start_time": "18:30",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "art-culture",
+        "tags": [
+          "art-culture",
+          "concert"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://veranstaltungen.meinestadt.de/schongau/event-detail/42563975/156253575",
+            "primary": true
+          }
+        ]
+      },
+      {
+        "ref": "e2",
+        "parent_ref": null,
+        "title": {
+          "de": "Ökumenische Fahrzeugsegnung der neuen RVO-Busse",
+          "en": "Ecumenical blessing of the new RVO buses"
+        },
+        "description": {
+          "de": "Ökumenische Segnung der neuen Busse des RVO auf dem Marienplatz in Schongau.",
+          "en": "Ecumenical blessing of the new RVO buses on Marienplatz in Schongau."
+        },
+        "venue": {
+          "name": "Marienplatz",
+          "place": "Schongau",
+          "address": null
+        },
+        "schedule": {
+          "start_date": "2026-11-11",
+          "end_date": null,
+          "start_time": "10:00",
+          "end_time": null,
+          "all_day": false,
+          "dates": null,
+          "opening_hours": null
+        },
+        "primary_tag": "talk-workshop",
+        "tags": [
+          "talk-workshop"
+        ],
+        "status": "scheduled",
+        "postponed_to_date": null,
+        "sources": [
+          {
+            "url": "https://veranstaltungen.meinestadt.de/schongau/event-detail/42566251/156258551",
+            "primary": true
+          }
+        ]
+      }
+    ],
+    "checked_sources": [
+      {
+        "url": "https://www.schongau.de/veranstaltungen",
+        "result": "no_events"
+      },
+      {
+        "url": "https://www.schongau.de/de/Schongau-erleben/Veranstaltungskalender",
+        "result": "no_events"
+      },
+      {
+        "url": "https://www.schongau.de/de/Aktuelles/Veranstaltungskalender",
+        "result": "no_events"
+      },
+      {
+        "url": "https://www.eventfinder.de/veranstaltungen-schongau.php",
+        "result": "unreachable"
+      },
+      {
+        "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
+        "result": "events_found"
+      }
+    ],
+    "notes": "The city of Schongau pages showed no event listings. The Schongau tourist office page only had contact details. Eventfinder returned 403. The meinestadt.de list loaded only the first 20 entries, up to 11 Nov, so later dates were not checked and the list is very likely incomplete. Krashkarma at Reaktor was on 7 Nov, which is before the window. A Hypebot listing for Eisregen on 20 Nov in \"Schongau\" is almost certainly Oberhausen, so it was not reported. No Christmas market date for Schongau 2026 was found. Reaktor (reaktor-sog.de) and the Schongau tourist office should be checked directly."
+  }
+}

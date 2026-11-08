@@ -536,3 +536,24 @@ def test_cli_events_without_places_fails_cleanly(
     monkeypatch.chdir(tmp_path)
     assert main(["--config", str(CONFIG_PATH), "run", "--job", "events", "--dry-run"]) == 1
     assert "run `letsgau run --job geo` first" in capsys.readouterr().err
+
+
+def test_recorded_answer_passes_validation(
+    config: Config, data_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """The real answer from the Crawl check run validates completely; notes are printed."""
+    recorded = json.loads((FIXTURES / "claude_cli_recorded_schongau.json").read_text("utf-8"))
+    answer = recorded["structured_output"]
+    runner = FakeRunner(answers=[answer, {"events": [], "checked_sources": [], "notes": ""}])
+    result = crawl.run(
+        config, runner=runner, data_dir=data_dir, today=date(2026, 11, 8), dry_run=True
+    )
+    assert [e.id for e in result.events] == [
+        "2026-11-10-singkreis-schongau",
+        "2026-11-11-oekumenische-fahrzeugsegnung-der-neuen-rvo-busse-schongau",
+    ]
+    assert result.batches[0].rejected == []
+    assert result.batches[0].whitelist_missing == []
+    assert "note from batch 1: The city of Schongau pages showed no event listings" in (
+        capsys.readouterr().out
+    )

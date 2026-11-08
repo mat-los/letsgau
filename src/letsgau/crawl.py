@@ -466,6 +466,8 @@ class BatchReport:
     events: int = 0
     rejected: list[Rejected] = field(default_factory=list)
     whitelist_missing: list[str] = field(default_factory=list)
+    notes: str = ""
+    """Free-text remarks of the AI (moved sources, unreachable pages, ...)."""
     error: str | None = None
     usage: Usage = field(default_factory=Usage)
 
@@ -560,6 +562,7 @@ def crawl(
             _log(f"batch {batch.number}: {exc}")
             continue
         report.usage = result.usage
+        report.notes = str(result.data.get("notes") or "").strip()
         usage = usage.add(result.usage)
         found, rejected = events_from_answer(
             result.data, config=config, places=index, blocked=blocked, today=today
@@ -646,6 +649,9 @@ def run(
         + (f"; {len(result.skipped_places)} places skipped" if result.skipped_places else "")
         + ("; dry run, nothing written" if dry_run else "")
     )
+    for report in result.batches:
+        if report.notes:
+            print(f"crawl: note from batch {report.number}: {report.notes}")
     for event in result.events:
         s = event.schedule
         when = s.start_date.isoformat()
