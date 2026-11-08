@@ -1,0 +1,4 @@
+# Test whitelist (independent of instance/sources/whitelist.yaml).
+- url: "https://www.schongau.de/veranstaltungen"
+  note: "City of Schongau"
+  places: ["Schongau"]

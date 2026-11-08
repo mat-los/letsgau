@@ -51,8 +51,8 @@ def make_config(tmp_path: Path, **limits: Any) -> Config:
     config = load_config(CONFIG_PATH)
     sources = config.sources.model_copy(
         update={
-            "whitelist_file": str(REPO_ROOT / "instance/sources/whitelist.yaml"),
-            "blacklist_file": str(REPO_ROOT / "instance/sources/blacklist.yaml"),
+            "whitelist_file": str(FIXTURES / "whitelist.yaml"),
+            "blacklist_file": str(FIXTURES / "blacklist.yaml"),
         }
     )
     return config.model_copy(
@@ -510,7 +510,7 @@ def test_cli_events_dry_run(
     for name in ("whitelist.yaml", "blacklist.yaml"):
         target = tmp_path / "instance" / "sources" / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text((REPO_ROOT / "instance" / "sources" / name).read_text("utf-8"), "utf-8")
+        target.write_text((FIXTURES / name).read_text("utf-8"), "utf-8")
     runner = FakeRunner()
     monkeypatch.setattr(crawl, "make_runner", lambda _config: runner)
     args = [
