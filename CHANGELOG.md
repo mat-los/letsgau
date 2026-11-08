@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Whitelist URL templates with `{municipality_slug}` (one URL per municipality)
+  and `letsgau sources [--check]`; the Pfaffenwinkel tourism calendar is added
+  for every municipality, Reaktor is removed (events only as flyer images).
+
 - Phase 2 event crawl (`letsgau run --job events`): places in batches of
   `places_per_request`, one AI call per batch with `prompts/events.md`, answers
   forced into a JSON schema and validated with Pydantic (28-day window, places

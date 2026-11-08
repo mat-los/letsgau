@@ -97,6 +97,16 @@ python -m letsgau run --job events --dry-run --limit-places 3
   prices and $10 per 1,000 searches.
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
 
+### Check the sources
+
+```bash
+python -m letsgau sources --check
+```
+
+Lists every whitelist URL (templates expanded for the municipalities in
+`data/places.json`) with its HTTP status. The *Crawl check* workflow runs it for
+the 30-minute area and shows the result in the job summary.
+
 ### Live check on GitHub
 
 *Actions → Crawl check → Run workflow* (input: number of places, default 3)

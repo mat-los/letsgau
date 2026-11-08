@@ -610,3 +610,64 @@ def test_recorded_answer_passes_validation(
     assert "note from batch 1: The city of Schongau pages showed no event listings" in (
         capsys.readouterr().out
     )
+
+
+# --- whitelist templates and source check -------------------------------------------------
+
+
+def test_whitelist_template_expands_per_municipality(config: Config, tmp_path: Path) -> None:
+    template = WhitelistEntry(url="https://cal.example/{municipality_slug}/", note="regional")
+    limited = WhitelistEntry(url="https://x.example/{municipality_slug}", places=["Peiting"])
+    assert template.is_template
+    assert [e.url for e in template.expand(["Schongau", "Hohenpeißenberg"])] == [
+        "https://cal.example/schongau/",
+        "https://cal.example/hohenpeissenberg/",
+    ]
+    assert [e.places for e in template.expand(["Schongau"])] == [["Schongau"]]
+    assert [e.url for e in limited.expand(["Schongau", "Peiting"])] == ["https://x.example/peiting"]
+
+    places = [_place(n, i * 5.0) for i, n in enumerate(PLACE_NAMES)]
+    batches = make_batches(crawl.group_places(places), 6, [template], [])
+    assert [w.url for w in batches[1].whitelist] == [
+        "https://cal.example/rottenbuch/",
+        "https://cal.example/burggen/",
+    ]
+
+
+def test_cli_sources_lists_expanded_urls(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    write_places(tmp_path / "data", ["Schongau", "Peiting"])
+    assert (
+        main(
+            [
+                "--config",
+                str(CONFIG_PATH),
+                "sources",
+                "--places",
+                str(tmp_path / "data" / "places.json"),
+            ]
+        )
+        == 0
+    )
+    out = capsys.readouterr().out
+    assert "https://veranstaltungen.pfaffen-winkel.de/peiting/  (Peiting)" in out
+    assert "reaktor" not in out
+
+    monkeypatch.setattr(crawl, "check_url", lambda url: "404" if "peiting" in url else "200")
+    assert (
+        main(
+            [
+                "--config",
+                str(CONFIG_PATH),
+                "sources",
+                "--check",
+                "--places",
+                str(tmp_path / "data" / "places.json"),
+            ]
+        )
+        == 0
+    )
+    out = capsys.readouterr().out
+    assert "  404  https://veranstaltungen.pfaffen-winkel.de/peiting/" in out
+    assert "3 of 4 sources reachable" in out

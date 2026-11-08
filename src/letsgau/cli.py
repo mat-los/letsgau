@@ -72,6 +72,17 @@ def _build_parser() -> argparse.ArgumentParser:
         help="recompute geo even if center, drive time and place filters are unchanged",
     )
 
+    sources = sub.add_parser(
+        "sources", help="list whitelist sources (templates expanded per municipality)"
+    )
+    sources.add_argument("--check", action="store_true", help="fetch every URL, show status")
+    sources.add_argument(
+        "--places",
+        type=Path,
+        default=Path("data/places.json"),
+        help="places file used to expand templates (default: data/places.json)",
+    )
+
     sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
     return parser
 
@@ -126,6 +137,20 @@ def _cmd_run(
     return 0
 
 
+def _cmd_sources(config_path: Path, places: Path, check: bool) -> int:
+    config = load_config(config_path)
+    entries = crawl.list_sources(config, places)
+    ok = 0
+    for entry in entries:
+        status = crawl.check_url(entry.url) if check else ""
+        ok += status.startswith("2")
+        where = ", ".join(entry.places) or "first batch"
+        print(f"{status:>5}  {entry.url}  ({where})" if check else f"{entry.url}  ({where})")
+    if check:
+        print(f"{ok} of {len(entries)} sources reachable")
+    return 0
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """CLI entry point. Returns the process exit code."""
     args = _build_parser().parse_args(argv)
@@ -134,6 +159,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             return _cmd_check(args.config)
         if args.command == "run":
             return _cmd_run(args.config, args.job, args.dry_run, args.limit_places, args.force)
+        if args.command == "sources":
+            return _cmd_sources(args.config, args.places, args.check)
         if args.command == "init":
             init_cmd.run()
             return 0
@@ -145,6 +172,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     except NotImplementedError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+    except CrawlError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     return 1  # pragma: no cover - argparse enforces a command
 
 

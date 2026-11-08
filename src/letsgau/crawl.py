@@ -72,11 +72,44 @@ class _Strict(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
 
+MUNICIPALITY_SLUG = "{municipality_slug}"
+
+
 class WhitelistEntry(_Strict):
     url: str = Field(pattern=r"^https?://\S+$")
     note: str = ""
     places: list[str] = []
-    """Places the source covers; empty = regional, checked in the first batch."""
+    """Places the source covers; empty = regional, checked in the first batch.
+
+    A URL containing ``{municipality_slug}`` is a template: it is expanded once per
+    municipality (restricted to ``places`` if given), e.g. ``.../{municipality_slug}/``
+    becomes ``.../hohenpeissenberg/``.
+    """
+
+    @property
+    def is_template(self) -> bool:
+        return MUNICIPALITY_SLUG in self.url
+
+    def expand(self, municipalities: Sequence[str]) -> list[WhitelistEntry]:
+        """Concrete entries, one per municipality (only for templates)."""
+        if not self.is_template:
+            return [self]
+        wanted = {p.casefold() for p in self.places}
+        return [
+            WhitelistEntry(
+                url=self.url.replace(MUNICIPALITY_SLUG, slugify(name, 80)),
+                note=self.note,
+                places=[name],
+            )
+            for name in municipalities
+            if not wanted or name.casefold() in wanted
+        ]
+
+
+def expand_whitelist(
+    whitelist: Sequence[WhitelistEntry], municipalities: Sequence[str]
+) -> list[WhitelistEntry]:
+    return [e for entry in whitelist for e in entry.expand(municipalities)]
 
 
 class BlacklistEntry(_Strict):
@@ -449,7 +482,7 @@ def make_batches(
         return []
     index = {p.name.casefold(): b for b in batches for p in b.places}
     index.update({g.name.casefold(): b for b in batches for g in b.groups})
-    for entry in whitelist:
+    for entry in expand_whitelist(whitelist, [g.name for b in batches for g in b.groups]):
         target = next(
             (index[n.casefold()] for n in entry.places if n.casefold() in index), batches[0]
         )
@@ -719,3 +752,31 @@ def run(
         _write_json(state_path, state.model_dump(mode="json"))
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
+
+
+# --- source check (letsgau sources) -----------------------------------------------------
+
+
+def list_sources(
+    config: Config, places_path: Path = DATA_DIR / "places.json"
+) -> list[WhitelistEntry]:
+    """Whitelist with templates expanded for the municipalities in ``places_path``."""
+    whitelist = _load_list(Path(config.sources.whitelist_file), WhitelistEntry)
+    places_file = _load(places_path, PlacesFile)
+    municipalities = [g.name for g in group_places(places_file.places)] if places_file else []
+    return expand_whitelist(whitelist, municipalities)
+
+
+def check_url(url: str, timeout: float = 20.0) -> str:
+    """HTTP status of ``url`` as text (``200``, ``404``, ``error: ...``)."""
+    import urllib.error
+    import urllib.request
+
+    request = urllib.request.Request(url, headers={"User-Agent": "letsgau source check"})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return str(response.status)
+    except urllib.error.HTTPError as exc:
+        return str(exc.code)
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        return f"error: {exc}"

@@ -103,11 +103,17 @@ Paths of `whitelist_file` and `blacklist_file`.
   note: "City of Schongau"
   places: ["Schongau"]        # optional: checked in the batch with these places;
                               # without it, in the first batch (regional sources)
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/"
+  note: "regional calendar"   # template: one URL per municipality in the area
 
 # blacklist.yaml – never used as a source
 - domain: "example-spam.de"
   reason: "outdated dates"
 ```
+
+`{municipality_slug}` is replaced by the slug of each municipality (lower case,
+umlauts as `ae`/`oe`/`ue`/`ss`, spaces as `-`), restricted to `places` if given.
+`python -m letsgau sources --check` lists all URLs with their HTTP status.
 
 The blacklist applies to the domain and all its subdomains. It is passed to the
 AI (API: `blocked_domains`; Claude Code: WebFetch deny rules) and every source
