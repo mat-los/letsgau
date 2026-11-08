@@ -31,6 +31,7 @@ Generated: `site/` (gitignored), `data/` and `geo/` (bot-only `data` branch).
 pip install -e '.[dev]'
 python -m letsgau --help
 python -m letsgau check                     # validate instance/config.yaml
+python -m letsgau run --job geo --dry-run   # places + drive times (needs ORS_API_KEY)
 python -m letsgau run --job events --dry-run --limit-places 3
 ruff check . && ruff format --check . && pytest
 ```

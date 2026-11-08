@@ -52,9 +52,9 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 1 – Geo
 
-- [ ] [#4](https://github.com/mat-los/letsgau/issues/4) Plausible place list with drive times in data/places.json for Schongau and 30 minutes
-- [ ] [#5](https://github.com/mat-los/letsgau/issues/5) Changing drive time or center triggers recomputation; a second run without change does not
-- [ ] [#6](https://github.com/mat-los/letsgau/issues/6) include_places and exclude_places work (e.g. Landsberg and Weilheim)
+- [x] [#4](https://github.com/mat-los/letsgau/issues/4) Plausible place list with drive times in data/places.json for Schongau and 30 minutes
+- [x] [#5](https://github.com/mat-los/letsgau/issues/5) Changing drive time or center triggers recomputation; a second run without change does not
+- [x] [#6](https://github.com/mat-los/letsgau/issues/6) include_places and exclude_places work (e.g. Landsberg and Weilheim)
 
 ### Phase 2 – Event crawl
 

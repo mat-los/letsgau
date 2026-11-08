@@ -10,6 +10,7 @@ Commands:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from collections.abc import Sequence
 from pathlib import Path
@@ -17,6 +18,7 @@ from pathlib import Path
 from letsgau import __version__, build, crawl, discovery, geo, merge
 from letsgau import init as init_cmd
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
+from letsgau.geo import GeoError
 from letsgau.scheduler import JOBS, STAGES
 
 # Each stage runs one or more modules in order; "events" = crawl + merge.
@@ -60,7 +62,12 @@ def _build_parser() -> argparse.ArgumentParser:
         "--limit-places",
         type=int,
         metavar="N",
-        help="only process the first N places (for local testing)",
+        help="only process the first N places (for local testing; geo always lists all)",
+    )
+    run.add_argument(
+        "--force",
+        action="store_true",
+        help="recompute geo even if center, drive time and place filters are unchanged",
     )
 
     sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
@@ -80,19 +87,40 @@ def _cmd_check(config_path: Path) -> int:
     return 0
 
 
-def _cmd_run(config_path: Path, job: str, dry_run: bool, limit_places: int | None) -> int:
+def load_dotenv(path: Path = Path(".env")) -> None:
+    """Load ``KEY=value`` lines from ``.env`` without overriding existing variables."""
+    if not path.is_file():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.removeprefix("export ").partition("=")
+        value = value.strip().strip('"').strip("'")
+        if value:
+            os.environ.setdefault(key.strip(), value)
+
+
+def _cmd_run(
+    config_path: Path, job: str, dry_run: bool, limit_places: int | None, force: bool
+) -> int:
     config = load_config(config_path)
+    load_dotenv()
     if job == "auto":
         print("Scheduler not implemented yet (Phase 6): no jobs run.")
         return 0
     stages = STAGES if job == "all" else (job,)
     for stage in stages:
         for module in STAGE_MODULES[stage]:
+            kwargs = {"force": force} if module is geo else {}
             try:
-                module.run(config, dry_run=dry_run, limit_places=limit_places)
+                module.run(config, dry_run=dry_run, limit_places=limit_places, **kwargs)
             except NotImplementedError as exc:
                 print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
                 return 2
+            except GeoError as exc:
+                print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
+                return 1
     return 0
 
 
@@ -103,7 +131,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.command == "check":
             return _cmd_check(args.config)
         if args.command == "run":
-            return _cmd_run(args.config, args.job, args.dry_run, args.limit_places)
+            return _cmd_run(args.config, args.job, args.dry_run, args.limit_places, args.force)
         if args.command == "init":
             init_cmd.run()
             return 0

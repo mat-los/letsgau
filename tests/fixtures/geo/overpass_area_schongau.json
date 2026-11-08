@@ -1,0 +1,210 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.7 375dc00a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-08T10:00:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 240040710,
+      "lat": 47.8116,
+      "lon": 10.8966,
+      "tags": {
+        "name": "Schongau",
+        "place": "town"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040733,
+      "lat": 47.8217,
+      "lon": 10.8742,
+      "tags": {
+        "name": "Altenstadt",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040702,
+      "lat": 47.7953,
+      "lon": 10.93,
+      "tags": {
+        "name": "Peiting",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040761,
+      "lat": 47.85,
+      "lon": 10.897,
+      "tags": {
+        "name": "Hohenfurch",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040778,
+      "lat": 47.835,
+      "lon": 10.8333,
+      "tags": {
+        "name": "Schwabsoien",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040791,
+      "lat": 47.7764,
+      "lon": 10.825,
+      "tags": {
+        "name": "Burggen",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040806,
+      "lat": 47.8833,
+      "lon": 10.8833,
+      "tags": {
+        "name": "Kinsau",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040815,
+      "lat": 47.8,
+      "lon": 10.7667,
+      "tags": {
+        "name": "Ingenried",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040829,
+      "lat": 47.8,
+      "lon": 11.0167,
+      "tags": {
+        "name": "Hohenpeißenberg",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040837,
+      "lat": 47.9,
+      "lon": 10.9333,
+      "tags": {
+        "name": "Apfeldorf",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040844,
+      "lat": 47.7333,
+      "lon": 10.9667,
+      "tags": {
+        "name": "Rottenbuch",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040856,
+      "lat": 47.7369,
+      "lon": 10.7786,
+      "tags": {
+        "name": "Bernbeuren",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040863,
+      "lat": 47.8,
+      "lon": 11.0667,
+      "tags": {
+        "name": "Peißenberg",
+        "place": "town"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040871,
+      "lat": 47.9167,
+      "lon": 10.85,
+      "tags": {
+        "name": "Denklingen",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040888,
+      "lat": 47.755,
+      "lon": 11.011,
+      "tags": {
+        "name": "Böbing",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040894,
+      "lat": 47.7,
+      "lon": 10.9333,
+      "tags": {
+        "name": "Wildsteig",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040902,
+      "lat": 47.7,
+      "lon": 10.8667,
+      "tags": {
+        "name": "Steingaden",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040917,
+      "lat": 47.7,
+      "lon": 10.8,
+      "tags": {
+        "name": "Lechbruck am See",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240040925,
+      "lat": 47.6833,
+      "lon": 10.8,
+      "tags": {
+        "name": "Prem",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 240041003,
+      "lat": 47.917,
+      "lon": 11.095,
+      "tags": {
+        "name": "Raisting",
+        "place": "village"
+      }
+    }
+  ]
+}

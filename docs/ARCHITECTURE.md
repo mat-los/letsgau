@@ -38,7 +38,7 @@ flowchart LR
     DATA[("data/*.json<br/>branch: data")]
     SITE["site/<br/>generated HTML"]
   end
-  ORS["OpenRouteService<br/>isochrone"]
+  ORS["OpenRouteService (HeiGIT)<br/>isochrone + matrix"]
   OSM["OpenStreetMap Overpass<br/>places in area"]
   CL["Claude<br/>Opus, Sonnet, Haiku<br/>web search + fetch"]
   WEB["Public websites<br/>municipalities, clubs, venues"]
@@ -65,7 +65,7 @@ flowchart LR
 | `config` | load and validate `config.yaml` | 0 |
 | `cli` | command-line entry point | 0 |
 | `scheduler` | decide which jobs are due, run them in order | 0 (parser), 6 |
-| `geo` | isochrone, places, drive times | 1 |
+| `geo` | isochrone (ORS), places (Overpass), drive times (ORS matrix) | 1 ✓ |
 | `ai_runner` | Claude Code headless (subscription) or Claude API (api_key) | 2 |
 | `crawl` | event crawl per batch of places | 2 |
 | `models` | Pydantic models for `data/*.json` | 2–3 |

@@ -34,6 +34,17 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | `include_places` | list | places added even if outside the isochrone |
 | `exclude_places` | list | places removed from the result |
 
+Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
+
+- Only a change of `center` or `drive_time_minutes` fetches a new isochrone and
+  forces discovery. Changing `place_types`, `include_places` or
+  `exclude_places` recomputes the place list with the stored isochrone.
+- `include_places` names must match the OpenStreetMap `name` exactly (case is
+  ignored), e.g. `Landsberg am Lech`, `Weilheim in Oberbayern`. They are looked
+  up within max(50 km, 2 km × drive time) of the center, any place type; with
+  several hits the closest wins. Unknown names produce a warning.
+- `exclude_places` compares names case-insensitively with the computed list.
+
 ## `window`
 
 | Key | Meaning |
