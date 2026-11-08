@@ -1,9 +1,10 @@
 # GitHub issues, milestones and labels
 
 Project organisation as described in `docs/CONCEPT.md` (section "Projektorganisation in GitHub").
-The Phase 0 session could not create these on GitHub (the integration has no permission to write
-issues, labels or milestones), so they are listed here. Run the script at the end once with the
-[GitHub CLI](https://cli.github.com/) to create everything, then delete or shorten this file.
+The issues and labels exist on GitHub (labels were auto-created without color or description).
+Milestones cannot be created with the tools available to Claude Code, so run the script at the
+end once with the [GitHub CLI](https://cli.github.com/): it creates the milestones, sets label
+colors and descriptions, adds the two unused labels and assigns every issue to its milestone.
 
 ## Milestones
 
@@ -45,62 +46,62 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 0 – Scaffold
 
-- [x] Repo structure, pyproject.toml, Ruff, pytest; ci.yml runs green
-- [x] config.yaml loaded with Pydantic; a typo gives a clear message with line and field
-- [x] `python -m letsgau --help` lists all commands; first versions of README.md, CLAUDE.md, docs/ARCHITECTURE.md
+- [x] [#1](https://github.com/mat-los/letsgau/issues/1) Repo structure, pyproject.toml, Ruff, pytest; ci.yml runs green
+- [x] [#2](https://github.com/mat-los/letsgau/issues/2) config.yaml loaded with Pydantic; a typo gives a clear message with line and field
+- [x] [#3](https://github.com/mat-los/letsgau/issues/3) `python -m letsgau --help` lists all commands; first versions of README.md, CLAUDE.md, docs/ARCHITECTURE.md
 
 ### Phase 1 – Geo
 
-- [ ] Plausible place list with drive times in data/places.json for Schongau and 30 minutes
-- [ ] Changing drive time or center triggers recomputation; a second run without change does not
-- [ ] include_places and exclude_places work (e.g. Landsberg and Weilheim)
+- [ ] [#4](https://github.com/mat-los/letsgau/issues/4) Plausible place list with drive times in data/places.json for Schongau and 30 minutes
+- [ ] [#5](https://github.com/mat-los/letsgau/issues/5) Changing drive time or center triggers recomputation; a second run without change does not
+- [ ] [#6](https://github.com/mat-los/letsgau/issues/6) include_places and exclude_places work (e.g. Landsberg and Weilheim)
 
 ### Phase 2 – Event crawl
 
-- [ ] A run returns events for 28 days; all pass schema validation
-- [ ] No source comes from a blacklisted domain; every whitelist source was queried
-- [ ] Every event has DE and EN texts, tags only from the list, exactly one primary_tag
-- [ ] `--dry-run` and `--limit-places` work
+- [ ] [#7](https://github.com/mat-los/letsgau/issues/7) A run returns events for 28 days; all pass schema validation
+- [ ] [#8](https://github.com/mat-los/letsgau/issues/8) No source comes from a blacklisted domain; every whitelist source was queried
+- [ ] [#9](https://github.com/mat-los/letsgau/issues/9) Every event has DE and EN texts, tags only from the list, exactly one primary_tag
+- [ ] [#10](https://github.com/mat-los/letsgau/issues/10) `--dry-run` and `--limit-places` work
 
 ### Phase 3 – Merge and status
 
-- [ ] Two consecutive runs create no duplicates; sources are appended
-- [ ] Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
-- [ ] Multi-day events stored once in events.json; past events are deleted
+- [ ] [#11](https://github.com/mat-los/letsgau/issues/11) Two consecutive runs create no duplicates; sources are appended
+- [ ] [#12](https://github.com/mat-los/letsgau/issues/12) Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
+- [ ] [#13](https://github.com/mat-los/letsgau/issues/13) Multi-day events stored once in events.json; past events are deleted
 
 ### Phase 4 – Website
 
-- [ ] Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
-- [ ] Filters with include/exclude, search, grouping, swipe; settings persist while browsing
-- [ ] A fixture day with 100 events is clear on a 375 px wide screen
-- [ ] All events visible without JavaScript; Lighthouse mobile >= 90 for performance and accessibility
+- [ ] [#14](https://github.com/mat-los/letsgau/issues/14) Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
+- [ ] [#15](https://github.com/mat-los/letsgau/issues/15) Filters with include/exclude, search, grouping, swipe; settings persist while browsing
+- [ ] [#16](https://github.com/mat-los/letsgau/issues/16) A fixture day with 100 events is clear on a 375 px wide screen
+- [ ] [#17](https://github.com/mat-los/letsgau/issues/17) All events visible without JavaScript; Lighthouse mobile >= 90 for performance and accessibility
 
 ### Phase 5 – AI readability
 
-- [ ] JSON-LD passes the schema.org validator without errors
-- [ ] llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
-- [ ] Fetching a day page with curl shows all events in the text
+- [ ] [#18](https://github.com/mat-los/letsgau/issues/18) JSON-LD passes the schema.org validator without errors
+- [ ] [#19](https://github.com/mat-los/letsgau/issues/19) llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
+- [ ] [#20](https://github.com/mat-los/letsgau/issues/20) Fetching a day page with curl shows all events in the text
 
 ### Phase 6 – Scheduler and workflow
 
-- [ ] Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
-- [ ] "Run workflow" button with job selection works
-- [ ] Data is committed, Pages is deployed, job summary shows changes and costs
+- [ ] [#21](https://github.com/mat-los/letsgau/issues/21) Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
+- [ ] [#22](https://github.com/mat-los/letsgau/issues/22) "Run workflow" button with job selection works
+- [ ] [#23](https://github.com/mat-los/letsgau/issues/23) Data is committed, Pages is deployed, job summary shows changes and costs
 
 ### Phase 7 – Discovery
 
-- [ ] Opus run extends sources.json and writes sources/suggested.md with rated candidates
-- [ ] Triggered automatically after a geo change
+- [ ] [#24](https://github.com/mat-los/letsgau/issues/24) Opus run extends sources.json and writes sources/suggested.md with rated candidates
+- [ ] [#25](https://github.com/mat-los/letsgau/issues/25) Triggered automatically after a geo change
 
 ### Phase 8 – Content, domain, wrap-up
 
-- [ ] About, "Why is my event not here?", imprint and privacy as DE and EN templates
-- [ ] Custom domain described in README.md; CNAME generated from base_url
-- [ ] A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
+- [ ] [#26](https://github.com/mat-los/letsgau/issues/26) About, "Why is my event not here?", imprint and privacy as DE and EN templates
+- [ ] [#27](https://github.com/mat-los/letsgau/issues/27) Custom domain described in README.md; CNAME generated from base_url
+- [ ] [#28](https://github.com/mat-los/letsgau/issues/28) A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
 
 ### Backlog (label `backlog`, no milestone)
 
-- [ ] **Crawler report as GitHub issue:** Each run opens an issue "Crawler report YYYY-MM-DD" with label `crawler-report`: new, changed and cancelled events; failed fetches; discarded entries with reason (schema, topic blacklist); new sources as whitelist/blacklist candidates to tick off; searches, tokens and estimated costs. The previous report is closed automatically. Needs `issues: write` in the workflow and eventually replaces `sources/suggested.md`.
+- [ ] [#29](https://github.com/mat-los/letsgau/issues/29) **Crawler report as GitHub issue:** Each run opens an issue "Crawler report YYYY-MM-DD" with label `crawler-report`: new, changed and cancelled events; failed fetches; discarded entries with reason (schema, topic blacklist); new sources as whitelist/blacklist candidates to tick off; searches, tokens and estimated costs. The previous report is closed automatically. Needs `issues: write` in the workflow and eventually replaces `sources/suggested.md`.
 
 ## Project board
 
@@ -108,10 +109,9 @@ Create a GitHub Project (board layout) with the columns **Todo**, **In progress*
 and link it to the repository (*Projects → New project → Board*). Enable the built-in workflows
 "Item closed → Done" and "Pull request merged → Done" so that `Closes #N` moves the card.
 
-## Create everything with `gh`
+## Milestones and label colors with `gh`
 
-Run from a checkout of the repository after `gh auth login`. The script is idempotent for labels
-(`--force`); run the milestone and issue parts only once.
+Run after `gh auth login`. Labels use `--force` and are safe to rerun; run the milestone part once.
 
 ```bash
 #!/usr/bin/env bash
@@ -145,91 +145,14 @@ gh api "repos/$REPO/milestones" -f title="Phase 6 – Scheduler and workflow" -f
 gh api "repos/$REPO/milestones" -f title="Phase 7 – Discovery" -f description="Find and rate sources with Opus (release v0.8.0)" >/dev/null
 gh api "repos/$REPO/milestones" -f title="Phase 8 – Content, domain, wrap-up" -f description="Content pages, custom domain, fork test (release v1.0.0)" >/dev/null
 
-# Issues (one per acceptance criterion)
-gh issue create --repo "$REPO" --label "phase-0" --milestone "Phase 0 – Scaffold" \
-  --title "Phase 0: Repo structure, pyproject.toml, Ruff, pytest; ci.yml runs green" \
-  --body "Acceptance criterion of Phase 0 – Scaffold. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-0" --milestone "Phase 0 – Scaffold" \
-  --title "Phase 0: config.yaml loaded with Pydantic; a typo gives a clear message with line and field" \
-  --body "Acceptance criterion of Phase 0 – Scaffold. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-0" --milestone "Phase 0 – Scaffold" \
-  --title "Phase 0: python -m letsgau --help lists all commands; first versions of README.md, CLAUDE.md, docs/ARCHITECTURE.md" \
-  --body "Acceptance criterion of Phase 0 – Scaffold. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-1" --milestone "Phase 1 – Geo" \
-  --title "Phase 1: Plausible place list with drive times in data/places.json for Schongau and 30 minutes" \
-  --body "Acceptance criterion of Phase 1 – Geo. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-1" --milestone "Phase 1 – Geo" \
-  --title "Phase 1: Changing drive time or center triggers recomputation; a second run without change does not" \
-  --body "Acceptance criterion of Phase 1 – Geo. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-1" --milestone "Phase 1 – Geo" \
-  --title "Phase 1: include_places and exclude_places work (e.g. Landsberg and Weilheim)" \
-  --body "Acceptance criterion of Phase 1 – Geo. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-2" --milestone "Phase 2 – Event crawl" \
-  --title "Phase 2: A run returns events for 28 days; all pass schema validation" \
-  --body "Acceptance criterion of Phase 2 – Event crawl. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-2" --milestone "Phase 2 – Event crawl" \
-  --title "Phase 2: No source comes from a blacklisted domain; every whitelist source was queried" \
-  --body "Acceptance criterion of Phase 2 – Event crawl. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-2" --milestone "Phase 2 – Event crawl" \
-  --title "Phase 2: Every event has DE and EN texts, tags only from the list, exactly one primary_tag" \
-  --body "Acceptance criterion of Phase 2 – Event crawl. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-2" --milestone "Phase 2 – Event crawl" \
-  --title "Phase 2: --dry-run and --limit-places work" \
-  --body "Acceptance criterion of Phase 2 – Event crawl. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-3" --milestone "Phase 3 – Merge and status" \
-  --title "Phase 3: Two consecutive runs create no duplicates; sources are appended" \
-  --body "Acceptance criterion of Phase 3 – Merge and status. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-3" --milestone "Phase 3 – Merge and status" \
-  --title "Phase 3: Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id" \
-  --body "Acceptance criterion of Phase 3 – Merge and status. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-3" --milestone "Phase 3 – Merge and status" \
-  --title "Phase 3: Multi-day events stored once in events.json; past events are deleted" \
-  --body "Acceptance criterion of Phase 3 – Merge and status. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-4" --milestone "Phase 4 – Website" \
-  --title "Phase 4: Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display" \
-  --body "Acceptance criterion of Phase 4 – Website. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-4" --milestone "Phase 4 – Website" \
-  --title "Phase 4: Filters with include/exclude, search, grouping, swipe; settings persist while browsing" \
-  --body "Acceptance criterion of Phase 4 – Website. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-4" --milestone "Phase 4 – Website" \
-  --title "Phase 4: A fixture day with 100 events is clear on a 375 px wide screen" \
-  --body "Acceptance criterion of Phase 4 – Website. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-4" --milestone "Phase 4 – Website" \
-  --title "Phase 4: All events visible without JavaScript; Lighthouse mobile >= 90 for performance and accessibility" \
-  --body "Acceptance criterion of Phase 4 – Website. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-5" --milestone "Phase 5 – AI readability" \
-  --title "Phase 5: JSON-LD passes the schema.org validator without errors" \
-  --body "Acceptance criterion of Phase 5 – AI readability. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-5" --milestone "Phase 5 – AI readability" \
-  --title "Phase 5: llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated" \
-  --body "Acceptance criterion of Phase 5 – AI readability. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-5" --milestone "Phase 5 – AI readability" \
-  --title "Phase 5: Fetching a day page with curl shows all events in the text" \
-  --body "Acceptance criterion of Phase 5 – AI readability. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-6" --milestone "Phase 6 – Scheduler and workflow" \
-  --title "Phase 6: Daily run executes only due jobs; frequency changes in config.yaml apply on the next run" \
-  --body "Acceptance criterion of Phase 6 – Scheduler and workflow. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-6" --milestone "Phase 6 – Scheduler and workflow" \
-  --title "Phase 6: \"Run workflow\" button with job selection works" \
-  --body "Acceptance criterion of Phase 6 – Scheduler and workflow. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-6" --milestone "Phase 6 – Scheduler and workflow" \
-  --title "Phase 6: Data is committed, Pages is deployed, job summary shows changes and costs" \
-  --body "Acceptance criterion of Phase 6 – Scheduler and workflow. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-7" --milestone "Phase 7 – Discovery" \
-  --title "Phase 7: Opus run extends sources.json and writes sources/suggested.md with rated candidates" \
-  --body "Acceptance criterion of Phase 7 – Discovery. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-7" --milestone "Phase 7 – Discovery" \
-  --title "Phase 7: Triggered automatically after a geo change" \
-  --body "Acceptance criterion of Phase 7 – Discovery. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-8" --milestone "Phase 8 – Content, domain, wrap-up" \
-  --title "Phase 8: About, \"Why is my event not here?\", imprint and privacy as DE and EN templates" \
-  --body "Acceptance criterion of Phase 8 – Content, domain, wrap-up. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-8" --milestone "Phase 8 – Content, domain, wrap-up" \
-  --title "Phase 8: Custom domain described in README.md; CNAME generated from base_url" \
-  --body "Acceptance criterion of Phase 8 – Content, domain, wrap-up. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label "phase-8" --milestone "Phase 8 – Content, domain, wrap-up" \
-  --title "Phase 8: A fresh fork with another center (e.g. Murnau) runs through with only the README steps after letsgau init and contains no Schongau data" \
-  --body "Acceptance criterion of Phase 8 – Content, domain, wrap-up. See docs/CONCEPT.md, section Umsetzungsplan."
-gh issue create --repo "$REPO" --label backlog --title "Crawler report as GitHub issue" \
-  --body "Each run opens an issue 'Crawler report YYYY-MM-DD' with label crawler-report: new, changed and cancelled events; failed fetches; discarded entries with reason (schema, topic blacklist); new sources as whitelist/blacklist candidates to tick off; searches, tokens and estimated costs. The previous report is closed automatically. Needs issues: write in the workflow and eventually replaces sources/suggested.md."
+# Assign issues to milestones
+for i in 1 2 3; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 0 – Scaffold"; done
+for i in 4 5 6; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 1 – Geo"; done
+for i in 7 8 9 10; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 2 – Event crawl"; done
+for i in 11 12 13; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 3 – Merge and status"; done
+for i in 14 15 16 17; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 4 – Website"; done
+for i in 18 19 20; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 5 – AI readability"; done
+for i in 21 22 23; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 6 – Scheduler and workflow"; done
+for i in 24 25; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 7 – Discovery"; done
+for i in 26 27 28; do gh issue edit "$i" --repo "$REPO" --milestone "Phase 8 – Content, domain, wrap-up"; done
 ```
