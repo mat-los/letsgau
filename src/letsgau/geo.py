@@ -15,8 +15,9 @@ Steps (see docs/CONCEPT.md, "Pipeline", step 2):
 
 OpenRouteService is hosted by HeiGIT. The old host ``api.openrouteservice.org`` was
 deprecated in 2026 in favour of ``api.heigit.org/openrouteservice``; the key is sent
-in the ``Authorization`` header. Both base URLs can be overridden with the
-``ORS_BASE_URL`` and ``OVERPASS_URL`` environment variables.
+in the ``Authorization`` header. Both can be overridden with the ``ORS_BASE_URL``
+and ``OVERPASS_URL`` environment variables; ``OVERPASS_URL`` may list several
+instances separated by commas, which are tried in order.
 """
 
 from __future__ import annotations
@@ -41,7 +42,12 @@ from letsgau.config import Config, RegionConfig
 from letsgau.models import Place, PlaceOrigin, PlacesFile, State
 
 ORS_BASE_URL = "https://api.heigit.org/openrouteservice"
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+OVERPASS_URLS = (
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+)
+"""Public Overpass instances, tried in order until one answers."""
 ORS_PROFILE = "driving-car"
 USER_AGENT = f"letsgau/{__version__} (+https://github.com/mat-los/letsgau)"
 
@@ -75,8 +81,8 @@ class UrllibHttp:
 
     def __init__(
         self,
-        retries: int = 3,
-        timeout: float = 120.0,
+        retries: int = 2,
+        timeout: float = 60.0,
         sleep: Callable[[float], None] = time.sleep,
     ) -> None:
         self.retries = retries
@@ -100,16 +106,22 @@ class UrllibHttp:
         headers = {"User-Agent": USER_AGENT, **headers}
         for attempt in range(self.retries + 1):
             request = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+            started = time.monotonic()
+            _log(f"POST {_redact(url)} ({len(payload)} B, attempt {attempt + 1})")
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                    return json.loads(response.read().decode("utf-8"))
+                    body = response.read()
+                    _log(f"  -> {response.status}, {len(body)} B in {_since(started)}")
+                    return json.loads(body.decode("utf-8"))
             except urllib.error.HTTPError as exc:
+                _log(f"  -> HTTP {exc.code} in {_since(started)}")
                 if exc.code in self.RETRY_STATUS and attempt < self.retries:
                     self.sleep(5 * 2**attempt)
                     continue
                 detail = exc.read().decode("utf-8", errors="replace")[:500]
                 raise GeoError(f"POST {_redact(url)} failed: HTTP {exc.code}: {detail}") from exc
-            except (urllib.error.URLError, TimeoutError) as exc:
+            except (urllib.error.URLError, TimeoutError, OSError) as exc:
+                _log(f"  -> {type(exc).__name__}: {exc} after {_since(started)}")
                 if attempt < self.retries:
                     self.sleep(5 * 2**attempt)
                     continue
@@ -121,6 +133,14 @@ class UrllibHttp:
 
 def _redact(url: str) -> str:
     return url.split("?", 1)[0]
+
+
+def _since(started: float) -> str:
+    return f"{time.monotonic() - started:.1f}s"
+
+
+def _log(message: str) -> None:
+    print(f"geo: {message}", file=sys.stderr, flush=True)
 
 
 # --- fingerprint -------------------------------------------------------------
@@ -220,7 +240,7 @@ class Clients:
     http: Http
     ors_api_key: str
     ors_base_url: str = ORS_BASE_URL
-    overpass_url: str = OVERPASS_URL
+    overpass_urls: tuple[str, ...] = OVERPASS_URLS
 
     @classmethod
     def from_env(cls, http: Http | None = None) -> Clients:
@@ -234,7 +254,7 @@ class Clients:
             http=http or UrllibHttp(),
             ors_api_key=key,
             ors_base_url=os.environ.get("ORS_BASE_URL", ORS_BASE_URL).rstrip("/"),
-            overpass_url=os.environ.get("OVERPASS_URL", OVERPASS_URL),
+            overpass_urls=_url_list(os.environ.get("OVERPASS_URL", "")) or OVERPASS_URLS,
         )
 
     def _ors(self, endpoint: str, body: Json) -> Json:
@@ -278,10 +298,23 @@ class Clients:
         return result
 
     def overpass(self, query: str) -> list[Json]:
-        response = self.http.post_form(self.overpass_url, {"data": query})
-        if "elements" not in response:
-            raise GeoError(f"Overpass response has no elements: {response.get('remark', '')}")
-        return response["elements"]
+        """Run a query on the first Overpass instance that answers."""
+        errors: list[str] = []
+        for url in self.overpass_urls:
+            try:
+                response = self.http.post_form(url, {"data": query})
+            except GeoError as exc:
+                errors.append(str(exc))
+                _log(f"Overpass instance failed, trying the next one: {exc}")
+                continue
+            if "elements" in response:
+                return response["elements"]
+            errors.append(f"{url}: no elements: {response.get('remark', '')}")
+        raise GeoError("all Overpass instances failed:\n  " + "\n  ".join(errors))
+
+
+def _url_list(value: str) -> tuple[str, ...]:
+    return tuple(u.strip() for u in value.split(",") if u.strip())
 
 
 def _type_regex(place_types: Sequence[str]) -> str:

@@ -16,7 +16,8 @@ API. In 2026 HeiGIT deprecated the old ORS host `api.openrouteservice.org`
 - ORS calls go to `https://api.heigit.org/openrouteservice/v2/{isochrones,matrix}/driving-car`
   with the key in the `Authorization` header. The base URL can be overridden
   with `ORS_BASE_URL` (e.g. a self-hosted ORS, whose paths are the same).
-- Places come from Overpass (`OVERPASS_URL`): place nodes in the isochrone's
+- Places come from Overpass: overpass-api.de first, then other public instances
+  if one fails or hangs (`OVERPASS_URL` takes a comma-separated list). Place nodes in the isochrone's
   bounding box, then a point-in-polygon test in Python. This keeps the query
   short regardless of the polygon's vertex count.
 - HTTP uses the standard library (`urllib`), no extra dependency; tests replay

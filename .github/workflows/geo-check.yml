@@ -28,6 +28,7 @@ jobs:
     env:
       ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
       MINUTES: ${{ inputs.minutes || '30' }}
+      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,9 +43,22 @@ jobs:
             echo "::error::Secret ORS_API_KEY is missing (Settings -> Secrets and variables -> Actions)"
             exit 1
           fi
+      - name: Connectivity (informational)
+        continue-on-error: true
+        timeout-minutes: 3
+        run: |
+          for url in \
+            https://api.heigit.org/openrouteservice/v2/health \
+            https://overpass-api.de/api/status \
+            https://overpass.private.coffee/api/status \
+            https://maps.mail.ru/osm/tools/overpass/api/status; do
+            curl -sS -m 20 -o /dev/null -w "%{http_code} %{time_total}s $url\n" "$url" || true
+          done
       - name: Geo stage with instance config (dry run)
+        timeout-minutes: 6
         run: python -m letsgau run --job geo --dry-run
       - name: Record fixtures (${{ env.MINUTES }} min, include Landsberg and Weilheim)
+        timeout-minutes: 8
         run: |
           python tests/fixtures/geo/record.py --minutes "$MINUTES" | tee places.txt
           {

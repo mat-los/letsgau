@@ -156,7 +156,7 @@ def test_schongau_30_minutes_writes_places_json(
     assert iso_url == "https://api.heigit.org/openrouteservice/v2/isochrones/driving-car"
     assert iso_headers == {"Authorization": KEY}
     assert iso_body == {"locations": [[10.896, 47.811]], "range": [1800], "range_type": "time"}
-    assert http.urls()[1] == geo.OVERPASS_URL
+    assert http.urls()[1] == geo.OVERPASS_URLS[0]
     matrix_url, matrix_body, _ = http.calls[2]
     assert matrix_url.endswith("/v2/matrix/driving-car")
     assert matrix_body["locations"][0] == [10.896, 47.811]
@@ -378,7 +378,12 @@ def test_clients_from_env_overrides(monkeypatch: pytest.MonkeyPatch) -> None:
     clients = geo.Clients.from_env(http=FakeHttp())
     assert clients.ors_api_key == "abc"
     assert clients.ors_base_url == "http://localhost:8080/ors"
-    assert clients.overpass_url == geo.OVERPASS_URL
+    assert clients.overpass_urls == geo.OVERPASS_URLS
+    monkeypatch.setenv("OVERPASS_URL", "https://a/api/interpreter, https://b/api/interpreter")
+    assert geo.Clients.from_env(http=FakeHttp()).overpass_urls == (
+        "https://a/api/interpreter",
+        "https://b/api/interpreter",
+    )
 
 
 # --- CLI -------------------------------------------------------------------------
@@ -468,3 +473,29 @@ def test_urllib_http_retries_and_reports_errors(monkeypatch: pytest.MonkeyPatch)
         assert "secret" not in str(info.value)
     finally:
         server.shutdown()
+
+
+def test_overpass_falls_back_to_next_instance(
+    clients: geo.Clients, http: FakeHttp, tmp_path: Path
+) -> None:
+    original = http.post_form
+
+    def flaky(url: str, data: dict[str, str]) -> dict[str, Any]:
+        if url == geo.OVERPASS_URLS[0]:
+            http.calls.append((url, data, {}))
+            raise geo.GeoError("POST overpass-api.de failed: timed out")
+        return original(url, data)
+
+    http.post_form = flaky  # type: ignore[method-assign]
+    result = run_geo(make_config(), clients, tmp_path)
+    assert len(names(result)) == 19
+    assert http.urls()[1:3] == list(geo.OVERPASS_URLS[:2])
+
+
+def test_overpass_all_instances_fail(clients: geo.Clients, tmp_path: Path) -> None:
+    def broken(url: str, data: dict[str, str]) -> dict[str, Any]:
+        return {"remark": "runtime error: timeout"}
+
+    clients.http.post_form = broken  # type: ignore[method-assign]
+    with pytest.raises(geo.GeoError, match="all Overpass instances failed"):
+        run_geo(make_config(), clients, tmp_path)

@@ -54,12 +54,13 @@ artifact). It also runs on pull requests that change the workflow file.
 | Service | Default URL | Override |
 | --- | --- | --- |
 | OpenRouteService (HeiGIT) | `https://api.heigit.org/openrouteservice` (`/v2/isochrones/driving-car`, `/v2/matrix/driving-car`) | `ORS_BASE_URL` |
-| Overpass API | `https://overpass-api.de/api/interpreter` | `OVERPASS_URL` |
+| Overpass API | `https://overpass-api.de/api/interpreter`, then `overpass.private.coffee`, then `maps.mail.ru` (first that answers) | `OVERPASS_URL` (comma-separated list) |
 
 The ORS key goes into the `Authorization` header. HeiGIT deprecated the old host
 `api.openrouteservice.org` in 2026 and moved key management to
 [account.heigit.org](https://account.heigit.org); existing keys work on the new
-host. Daily and per-minute quotas are shown in the HeiGIT dashboard; a daily
+host. Every request is logged to stderr with status and duration (`geo: POST ...`).
+Daily and per-minute quotas are shown in the HeiGIT dashboard; a daily
 limit answers `403`, the per-minute limit `429` (retried with back-off). Very
 long drive times may exceed the isochrone range allowed by the free plan; ORS
 then returns an error that the stage prints.
