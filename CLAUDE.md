@@ -21,7 +21,7 @@ repo is English.
 | `prompts/` | `discovery.md`, `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |
-| `.github/workflows/` | `ci.yml` (lint + tests), `run.yml` (pipeline, Phase 6) |
+| `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` (live geo check), `run.yml` (pipeline, Phase 6) |
 
 Generated: `site/` (gitignored), `data/` and `geo/` (bot-only `data` branch).
 
@@ -31,6 +31,7 @@ Generated: `site/` (gitignored), `data/` and `geo/` (bot-only `data` branch).
 pip install -e '.[dev]'
 python -m letsgau --help
 python -m letsgau check                     # validate instance/config.yaml
+python -m letsgau run --job geo --dry-run   # places + drive times (needs ORS_API_KEY)
 python -m letsgau run --job events --dry-run --limit-places 3
 ruff check . && ruff format --check . && pytest
 ```

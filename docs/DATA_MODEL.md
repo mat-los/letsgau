@@ -12,7 +12,53 @@ several pages. Past events are deleted during merge; Git history is the record.
 | `data/state.json` | last run per job, geo fingerprint, usage of the last run |
 
 Pydantic models live in `src/letsgau/models.py` and are completed in the
-phases that write each file.
+phases that write each file. Data models reject unknown keys.
+
+## Places (`data/places.json`)
+
+Written by the geo stage. Besides the place list it stores the inputs it was
+computed from, so the next run can tell whether anything changed.
+
+```json
+{
+  "schema_version": 1,
+  "fingerprint": "sha256:3f1c0a9b2d4e5f60",
+  "generated_at": "2026-11-08T04:00:00Z",
+  "center": { "lat": 47.811, "lon": 10.896 },
+  "drive_time_minutes": 30,
+  "place_types": ["city", "town", "village"],
+  "include_places": ["Landsberg am Lech"],
+  "exclude_places": [],
+  "places": [
+    { "name": "Schongau", "osm_id": "node/240040710", "place_type": "town",
+      "lat": 47.8116, "lon": 10.8966, "drive_time_minutes": 1.6, "distance_km": 0.6,
+      "origin": "area" }
+  ]
+}
+```
+
+| Field | Rule |
+| --- | --- |
+| `fingerprint` | `sha256:` + first 16 hex chars of the hash of `center` (6 decimals) and `drive_time_minutes` |
+| `place_types`, `include_places`, `exclude_places` | copy of the config; a change recomputes the list with the stored isochrone |
+| `places[].osm_id` | OpenStreetMap element, e.g. `node/240040710` |
+| `places[].drive_time_minutes`, `distance_km` | by car from the center (ORS matrix), 1 decimal; `null` if not routable |
+| `places[].origin` | `area` (inside the isochrone) or `include` (from `include_places`) |
+| order | by drive time, then name; places without drive time last |
+
+The isochrone itself is stored unchanged as the ORS GeoJSON response in
+`geo/isochrone.geojson`.
+
+## State (`data/state.json`)
+
+Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
+
+| Field | Rule |
+| --- | --- |
+| `schema_version` | `1` |
+| `geo_fingerprint` | fingerprint of the last geo computation |
+| `force_discovery` | set to `true` when the geo fingerprint changes; the discovery stage clears it (Phase 7) |
+| `last_run` | map job name → UTC timestamp of the last successful run |
 
 ## Event
 

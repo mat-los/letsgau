@@ -10,7 +10,8 @@ searches the web, results are stored as JSON and rendered to static HTML on
 GitHub Pages. The site is equally usable by people on their phones, by search
 engines and by AI assistants.
 
-> **Status:** Phase 0 (scaffold). The pipeline stages are not implemented yet.
+> **Status:** Phase 1 (geo). The geo stage computes the places within the drive
+> time; the AI stages and the website are not implemented yet.
 > See [docs/CONCEPT.md](docs/CONCEPT.md) (German) for the full specification and
 > the phase plan, and [docs/ISSUES.md](docs/ISSUES.md) for the task list.
 
@@ -36,7 +37,8 @@ The full step-by-step guide is completed in Phase 8. The intended flow is:
 
 1. **Fork** this repository.
 2. **Secrets:** add `CLAUDE_CODE_OAUTH_TOKEN` (or `ANTHROPIC_API_KEY` with
-   `ai.auth: api_key`) and `ORS_API_KEY` under *Settings → Secrets and
+   `ai.auth: api_key`) and `ORS_API_KEY` (free key from
+   [account.heigit.org](https://account.heigit.org)) under *Settings → Secrets and
    variables → Actions*.
 3. **Configure:** run `letsgau init` (or edit `instance/config.yaml`) with your
    center, drive time, name, domain, contact and GitHub owner.
@@ -71,7 +73,13 @@ python -m letsgau check
 ruff check . && ruff format --check . && pytest
 ```
 
-Planned once the stages exist:
+Compute the places within the drive time (needs `ORS_API_KEY` in `.env`):
+
+```bash
+python -m letsgau run --job geo --dry-run
+```
+
+Planned once the other stages exist:
 
 ```bash
 python -m letsgau run --job events --dry-run --limit-places 3
