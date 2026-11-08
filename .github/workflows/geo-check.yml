@@ -1,0 +1,68 @@
+# Live check of the geo stage against OpenRouteService and Overpass.
+# Runs on demand (Actions -> Geo check -> Run workflow) and on pull requests that
+# change this file. Writes nothing to data/; prints the place list and uploads
+# freshly recorded test fixtures as an artifact. Needs the ORS_API_KEY secret.
+name: Geo check
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Drive time in minutes for the recorded check"
+        default: "30"
+  pull_request:
+    paths:
+      - ".github/workflows/geo-check.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geo-check
+  cancel-in-progress: false
+
+jobs:
+  geo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
+      MINUTES: ${{ inputs.minutes || '30' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e '.[dev]'
+      - name: Require ORS_API_KEY
+        run: |
+          if [ -z "$ORS_API_KEY" ]; then
+            echo "::error::Secret ORS_API_KEY is missing (Settings -> Secrets and variables -> Actions)"
+            exit 1
+          fi
+      - name: Geo stage with instance config (dry run)
+        run: python -m letsgau run --job geo --dry-run
+      - name: Record fixtures (${{ env.MINUTES }} min, include Landsberg and Weilheim)
+        run: |
+          python tests/fixtures/geo/record.py --minutes "$MINUTES" | tee places.txt
+          {
+            echo "### Places within $MINUTES min"
+            echo '```text'
+            cat places.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Tests against the recorded fixtures (informational)
+        continue-on-error: true
+        run: pytest tests/test_geo.py -q
+      - name: Print recorded Overpass fixtures
+        run: |
+          for f in tests/fixtures/geo/overpass_*.json; do
+            echo "=== $f"
+            python -c "import json,sys; print(json.dumps(json.load(open(sys.argv[1])), ensure_ascii=False, separators=(',', ':')))" "$f"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: geo-fixtures
+          path: tests/fixtures/geo/*.json

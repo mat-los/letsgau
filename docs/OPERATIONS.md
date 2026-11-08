@@ -42,6 +42,13 @@ python -m letsgau run --job geo
 - Requests per recomputation: 1 isochrone, 1–2 Overpass queries, 1 matrix
   request per 500 places.
 
+### Live check on GitHub
+
+*Actions → Geo check → Run workflow* (input: drive time, default 30) runs the
+geo stage as a dry run with the `ORS_API_KEY` secret, prints the place list in
+the job summary and uploads freshly recorded fixtures (`geo-fixtures`
+artifact). It also runs on pull requests that change the workflow file.
+
 ### External services
 
 | Service | Default URL | Override |

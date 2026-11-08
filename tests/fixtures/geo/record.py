@@ -2,14 +2,16 @@
 
 Usage (from the repository root, with ``ORS_API_KEY`` in the environment or ``.env``)::
 
-    python tests/fixtures/geo/record.py
+    python tests/fixtures/geo/record.py [--minutes 30]
 
-Runs the geo stage as a dry run for 30 minutes around Schongau with two
-``include_places`` and writes every response next to this file.
+Runs the geo stage as a dry run around the instance center (30 minutes by
+default) with two ``include_places``, writes every response next to this file
+and prints the place list. Also used by ``.github/workflows/geo-check.yml``.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import tempfile
@@ -48,11 +50,14 @@ def _save(name: str, data: dict[str, Any]) -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--minutes", type=int, default=30, help="drive time (default: 30)")
+    args = parser.parse_args()
     load_dotenv(ROOT / ".env")
     config = load_config(ROOT / "instance" / "config.yaml")
     region = config.region.model_copy(
         update={
-            "drive_time_minutes": 30,
+            "drive_time_minutes": args.minutes,
             "include_places": ["Weilheim in Oberbayern", "Landsberg am Lech"],
             "exclude_places": [],
         }
@@ -68,8 +73,12 @@ def main() -> int:
             force=True,
         )
     assert result.places is not None
+    for warning in result.warnings:
+        print(f"warning: {warning}")
+    print(f"{len(result.places.places)} places within {args.minutes} min of {region.label}:")
     for place in result.places.places:
-        print(f"  {place.drive_time_minutes} min  {place.name} ({place.place_type})")
+        minutes = "?" if place.drive_time_minutes is None else f"{place.drive_time_minutes:g}"
+        print(f"  {minutes:>5} min  {place.name} ({place.place_type}, {place.origin})")
     return 0
 
 
