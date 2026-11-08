@@ -9,6 +9,6 @@ but enforced by a JSON schema (`crawl.answer_schema`).
 
 | File | Step | Phase |
 | --- | --- | --- |
-| `discovery.md` | find and rate sources (Opus) | 7 |
+| `discovery.md` | find and rate sources per batch of municipalities (Opus) | 7 ✓ |
 | `events.md` | crawl events (Sonnet); Jinja2 template rendered per batch | 2 ✓ |
 | `merge.md` | duplicate tie-break and topic filter (Haiku), one call per run | 3 ✓ |

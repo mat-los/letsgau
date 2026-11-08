@@ -21,6 +21,7 @@ from letsgau.ai_runner import AiError
 from letsgau.build import BuildError
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
 from letsgau.crawl import CrawlError
+from letsgau.discovery import DiscoveryError
 from letsgau.geo import GeoError
 from letsgau.scheduler import JOBS
 
@@ -125,7 +126,7 @@ def _cmd_run(
         job,
         runners,
         dry_run=dry_run,
-        errors=(GeoError, CrawlError, AiError, BuildError),
+        errors=(GeoError, CrawlError, AiError, BuildError, DiscoveryError),
     )
     if report.failed:
         return 1

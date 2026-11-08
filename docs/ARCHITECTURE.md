@@ -71,7 +71,7 @@ flowchart LR
 | `models` | Pydantic models for `data/*.json` | 2–3 |
 | `merge` | fuzzy dedupe, Haiku tie-break and topic check, status lifecycle, cleanup | 3 ✓ |
 | `build`, `feeds` | HTML DE/EN, JSON-LD, JSON, ICS, llms.txt, sitemap, robots | 4–5 ✓ |
-| `discovery` | find and rate sources | 7 |
+| `discovery` | find and rate sources, `sources.json`, suggestions, hit statistics | 7 ✓ |
 | `init` | set up a fresh instance | 8 |
 
 ## Sequence of a run

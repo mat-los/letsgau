@@ -221,3 +221,36 @@ class EventsFile(_DataModel):
     schema_version: Literal[1] = 1
     updated_at: datetime
     events: list[Event] = []
+
+
+# --- sources (Phase 7) --------------------------------------------------------------------
+
+
+class Source(_DataModel):
+    """One known event source in ``data/sources.json``; rules in docs/DATA_MODEL.md."""
+
+    url: str = Field(pattern=r"^https?://\S+$")
+    domain: str
+    name: str = ""
+    kind: SourceKind = SourceKind.OTHER
+    places: list[str] = []
+    """Municipalities the source covers."""
+    origin: SourceOrigin
+    status: SourceStatus = SourceStatus.ACTIVE
+    rating: int | None = Field(default=None, ge=1, le=5)
+    """Discovery rating: 5 = current dates as text, updated often; 1 = useless."""
+    update_frequency: Literal["weekly", "monthly", "rare", "unknown"] = "unknown"
+    note: str = ""
+    first_seen: date
+    last_checked: date | None = None
+    hits: int = Field(default=0, ge=0)
+    """Events found on this source in total (counted by the events stage)."""
+    last_hit: date | None = None
+
+
+class SourcesFile(_DataModel):
+    """``data/sources.json``."""
+
+    schema_version: Literal[1] = 1
+    updated_at: datetime
+    sources: list[Source] = []

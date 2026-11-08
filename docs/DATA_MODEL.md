@@ -125,16 +125,23 @@ Merge rules (Phase 3, `src/letsgau/merge.py`):
   model) are dropped and logged.
 - **Cleanup:** events whose last day is before yesterday are deleted.
 
-## Source
+## Source (`data/sources.json`)
+
+`{"schema_version": 1, "updated_at": "<UTC>", "sources": [...]}`, written by
+discovery and updated by every events run (ADR-004).
 
 | Field | Rule |
 | --- | --- |
-| `url`, `domain` | entry page of the source |
+| `url`, `domain` | page that lists the events; `domain` without `www.` |
+| `name`, `note` | short name and remark from discovery (e.g. "paginated with ?page=2") |
 | `kind` | `municipality`, `club`, `venue`, `calendar`, `press`, `other` |
-| `places` | places the source is relevant for |
+| `places` | municipalities the source covers |
 | `origin` | `whitelist`, `discovery` or `crawl` (found incidentally during an event run) |
 | `status` | `active` or `blacklisted`; the blacklist file always wins |
-| `hits`, `last_hit` | how many events recently came from here; basis for whitelist suggestions |
+| `rating` | 1–5 from discovery (5: current dates as text, updated often), `null` if not rated |
+| `update_frequency` | `weekly`, `monthly`, `rare`, `unknown` |
+| `first_seen`, `last_checked` | first time known, last discovery check |
+| `hits`, `last_hit` | events found on this source in total; basis for whitelist suggestions (≥ 3 hits) |
 
 ## Schema changes
 

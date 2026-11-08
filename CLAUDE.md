@@ -12,7 +12,7 @@ repo is English.
 | `docs/ISSUES.md` | milestones, labels and issues per phase |
 | `docs/ARCHITECTURE.md` | Mermaid diagrams: context, container, sequence, status |
 | `docs/DATA_MODEL.md`, `docs/CONFIGURATION.md`, `docs/OPERATIONS.md` | reference docs |
-| `docs/decisions/` | ADRs (`ADR-001-...md`) |
+| `docs/decisions/` | ADRs (`ADR-001` … `ADR-004`) |
 | `instance/config.yaml` | the Schongau instance config, validated by `src/letsgau/config.py` |
 | `instance/sources/` | `whitelist.yaml`, `blacklist.yaml`, `suggested.md` |
 | `instance/content/` | Markdown content pages (`*.de.md`, `*.en.md`) |

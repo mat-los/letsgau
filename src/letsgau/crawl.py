@@ -461,6 +461,8 @@ class Batch:
     groups: list[PlaceGroup]
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     known: list[Event] = field(default_factory=list)
+    sources: list[Any] = field(default_factory=list)
+    """Known, well-rated sources of the batch's municipalities (from discovery)."""
 
     @property
     def places(self) -> list[Place]:
@@ -520,6 +522,7 @@ def render_prompt(
         whitelist=batch.whitelist,
         deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
         later_events=[e for e in batch.known if e.schedule.start_date > deep_end],
+        sources=batch.sources,
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -597,6 +600,13 @@ def crawl(
         groups = groups[:limit_places]
     index = PlaceIndex(places_file.places)
     batches = make_batches(groups, config.limits.places_per_request, whitelist, known)
+    from letsgau import discovery  # late import: discovery imports this module
+
+    sources_file = discovery.load_sources(data_dir)
+    for batch in batches:
+        batch.sources = discovery.known_sources_for(
+            sources_file, [g.name for g in batch.groups], [w.url for w in batch.whitelist]
+        )
 
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
@@ -783,6 +793,17 @@ def run(
         state.last_run["events"] = now
         state.last_usage["events"] = result.usage
         _write_json(state_path, state.model_dump(mode="json"))
+        from letsgau import discovery
+
+        blacklist = _load_list(Path(config.sources.blacklist_file), BlacklistEntry)
+        sources = discovery.record_hits(
+            discovery.load_sources(data_dir),
+            result.events,
+            result.municipality_of,
+            sorted({e.domain for e in blacklist}),
+            today,
+        )
+        discovery.save_sources(sources, data_dir)
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
 

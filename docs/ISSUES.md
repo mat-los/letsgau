@@ -90,8 +90,8 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 7 – Discovery
 
-- [ ] [#24](https://github.com/mat-los/letsgau/issues/24) Opus run extends sources.json and writes sources/suggested.md with rated candidates
-- [ ] [#25](https://github.com/mat-los/letsgau/issues/25) Triggered automatically after a geo change
+- [x] [#24](https://github.com/mat-los/letsgau/issues/24) Opus run extends sources.json and writes sources/suggested.md with rated candidates
+- [x] [#25](https://github.com/mat-los/letsgau/issues/25) Triggered automatically after a geo change
 
 ### Phase 8 – Content, domain, wrap-up
 

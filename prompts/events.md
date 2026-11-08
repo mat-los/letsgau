@@ -32,6 +32,12 @@ events). If you have found only a few, keep looking; do not stop after the first
   - {{ entry.url }}{% if entry.note %} ({{ entry.note }}){% endif %}
 {%- endfor %}
 {%- endif %}
+{%- if sources %}
+- These sources are known to list events here; check them too:
+{%- for source in sources %}
+  - {{ source.url }}{% if source.name %} ({{ source.name }}){% endif %}{% if source.note %}: {{ source.note }}{% endif %}
+{%- endfor %}
+{%- endif %}
 - Then search each municipality separately, in German: "<municipality> Veranstaltungen",
   "<municipality> Veranstaltungskalender", "<municipality> Veranstaltungen <month> <year>" for every
   month in the window, and by category ("<municipality> Konzert", "Markt", "Theater", "Kino",

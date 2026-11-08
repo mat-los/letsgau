@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Phase 7 discovery: Opus finds and rates sources per batch of
+  municipalities (`prompts/discovery.md`), `data/sources.json` with origin,
+  rating, update frequency and hits, whitelist synced in, blacklist enforced,
+  `data/suggested.md` with whitelist and blacklist candidates (ADR-004); the
+  events stage uses known good sources per batch and counts hits; forced after
+  a geo change.
 - Phase 6 scheduler and workflow: `--job auto` runs only due jobs (catch-up
   of missed runs, frequency changes apply at once, discovery forced after a
   geo change, build after every events run), a failing stage does not stop the

@@ -118,6 +118,21 @@ computes the places for the instance config and runs the crawl as a dry run
 with `ORS_API_KEY` and `CLAUDE_CODE_OAUTH_TOKEN`. It also runs on pull requests
 that change `prompts/events.md`, so every prompt change gets a dry run.
 
+## Discovery
+
+```bash
+python -m letsgau run --job discovery --dry-run --limit-places 2
+```
+
+- Runs monthly (`jobs.discovery`) and after every geo change; one call to the
+  discovery model (Opus) per batch of `places_per_request` municipalities.
+- Adds new sources to `data/sources.json` (`origin: discovery`), re-rates known
+  ones, syncs the whitelist in and marks blacklisted domains.
+- Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
+  hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
+- The events stage gives each batch the active sources of its municipalities
+  (rating ≥ 3 or ≥ 2 hits) and counts hits per source after every run.
+
 ## Build the website
 
 ```bash
