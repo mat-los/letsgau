@@ -8,3 +8,6 @@
 - url: "https://reaktor-sog.de/"
   note: "Reaktor, club and concert venue (suggested by the first crawl; check the events page)"
   places: ["Schongau"]
+- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo"
+  note: "Event calendar print list (RCE event, id 1246); session parameter RCEID removed"
+  places: ["Schongau"]

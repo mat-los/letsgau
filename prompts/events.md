@@ -8,12 +8,14 @@ festivals. Small events matter as much as big ones.
 
 Today is {{ today }}.
 
-## Places in this batch
+## Municipalities in this batch
 
-{% for place in places -%}
-- {{ place.name }}{% if place.drive_time_minutes is not none %} ({{ place.drive_time_minutes | round | int }} min from {{ region.label }}){% endif %}
+{% for group in groups -%}
+- {{ group.name }}{% if group.drive_time_minutes is not none %} ({{ group.drive_time_minutes | round | int }} min from {{ region.label }}){% endif %}{% if group.districts %}, including {{ group.districts | join(", ") }}{% endif %}
 {% endfor %}
-Only report events that take place in one of these places. Write the place name exactly as listed.
+Search per municipality; event calendars usually cover all its districts. Only report events in
+these municipalities. As "place", write the district where the event takes place if it is listed
+above, otherwise the municipality, exactly as written here.
 
 ## How to search
 
@@ -30,10 +32,10 @@ events). If you have found only a few, keep looking; do not stop after the first
   - {{ entry.url }}{% if entry.note %} ({{ entry.note }}){% endif %}
 {%- endfor %}
 {%- endif %}
-- Then search each place separately, in German: "<place> Veranstaltungen", "<place>
-  Veranstaltungskalender", "<place> Veranstaltungen <month> <year>" for every month in the window,
-  and by category ("<place> Konzert", "Markt", "Theater", "Kino", "Heimspiel", "Kinder",
-  "Vortrag", "Ausstellung", "Pfarrei"). Look at municipal and tourist-office calendars, clubs,
+- Then search each municipality separately, in German: "<municipality> Veranstaltungen",
+  "<municipality> Veranstaltungskalender", "<municipality> Veranstaltungen <month> <year>" for every
+  month in the window, and by category ("<municipality> Konzert", "Markt", "Theater", "Kino",
+  "Heimspiel", "Kinder", "Vortrag", "Ausstellung", "Pfarrei"). Look at municipal and tourist-office calendars, clubs,
   venues, cinemas, cafés, sports clubs, parishes, regional calendars and local press.
 - Event calendars are often paginated or filtered by month: open the next pages or months until the
   end of the window instead of reading only the first page.
@@ -65,7 +67,7 @@ matching status.
 
 ## Rules
 
-- Only events with a concrete date and a place from the list above. Invent nothing.
+- Only events with a concrete date in one of the municipalities above. Invent nothing.
 - If the start time is not stated, use null. Never guess a time. Use 24-hour "HH:MM".
 - An event that spans several days is one event with start_date and end_date, not one per day.
   If it only runs on some days (e.g. Advent weekends), list those days in "dates". Use

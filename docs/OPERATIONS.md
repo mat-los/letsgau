@@ -39,6 +39,9 @@ python -m letsgau run --job geo
   `include_places` or `exclude_places` reuses the stored isochrone.
 - Warnings name `include_places` that were not found and `exclude_places` that
   were not in the list. Check the printed list for plausibility after a change.
+- Each place gets its municipality (OSM `admin_level=8`) from the same Overpass
+  query; the event crawl batches by municipality. A `places.json` without
+  municipalities is refreshed once with the stored isochrone.
 - Membership comes from the isochrone, drive times from the matrix; at the
   edge a place can show slightly more than `drive_time_minutes` (e.g. 31 min
   for 30). For Schongau, 30 minutes give about 105 places, 5 minutes only
@@ -79,7 +82,10 @@ python -m letsgau run --job events --dry-run --limit-places 3
   configured `ai.auth` mode.
 - Prints every event and writes `data/events.json` and the usage to
   `data/state.json` (not with `--dry-run`). `--limit-places N` crawls only the
-  N nearest places.
+  N nearest municipalities.
+- Places are grouped by municipality (`municipality` in `places.json`); the
+  prompt lists each municipality with its districts, and events keep the exact
+  district as their place.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g

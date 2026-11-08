@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Models `Event` and `EventsFile`; id-based merge into `data/events.json`
   (sources appended, past events deleted); fuzzy matching follows in Phase 3.
 - `whitelist.yaml` entries take optional `places`.
+- Places get their `municipality` (OSM `admin_level=8`) in the geo stage; the
+  crawl batches by municipality (districts like Herzogsägmühle are searched
+  with Peiting), `--limit-places` counts municipalities.
+- Whitelist: Reaktor (reaktor-sog.de) and the RCE event print list for Schongau.
 - Workflow `crawl-check.yml`: live dry run of the crawl on GitHub Actions with
   the `CLAUDE_CODE_OAUTH_TOKEN` secret; `LETSGAU_RECORD_DIR` saves raw answers.
 

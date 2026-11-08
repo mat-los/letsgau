@@ -76,9 +76,12 @@ def main() -> int:
     for warning in result.warnings:
         print(f"warning: {warning}")
     print(f"{len(result.places.places)} places within {args.minutes} min of {region.label}:")
+    municipalities = sorted({p.municipality or p.name for p in result.places.places})
+    print(f"{len(municipalities)} municipalities: {', '.join(municipalities)}")
     for place in result.places.places:
         minutes = "?" if place.drive_time_minutes is None else f"{place.drive_time_minutes:g}"
-        print(f"  {minutes:>5} min  {place.name} ({place.place_type}, {place.origin})")
+        where = "" if place.municipality in (None, place.name) else f", {place.municipality}"
+        print(f"  {minutes:>5} min  {place.name} ({place.place_type}{where}, {place.origin})")
     return 0
 
 

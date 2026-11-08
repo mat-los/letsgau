@@ -70,6 +70,9 @@ class Place(_DataModel):
     distance_km: float | None = Field(default=None, ge=0)
     """Road distance from the center in km; ``None`` if not routable."""
     origin: PlaceOrigin = PlaceOrigin.AREA
+    municipality: str | None = None
+    """Municipality (OSM ``admin_level=8``, e.g. Peiting for Herzogsägmühle); the place's own
+    name if it lies in none. ``None`` only in files written before Phase 2."""
 
 
 class PlacesFile(_DataModel):

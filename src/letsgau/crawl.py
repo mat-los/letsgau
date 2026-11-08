@@ -2,9 +2,11 @@
 
 1. Load the places (``data/places.json``), whitelist, blacklist and the known
    events (``data/events.json``).
-2. Split the places into batches of ``limits.places_per_request``; each batch
-   gets the whitelist sources assigned to its places (entries without
-   ``places`` go to the first batch) and its known events in short form.
+2. Group the places by municipality (``Place.municipality``: Herzogsägmühle and
+   Birkland are searched together with Peiting) and split the municipalities
+   into batches of ``limits.places_per_request``; each batch gets the
+   whitelist sources assigned to its places (entries without ``places`` go to
+   the first batch) and its known events in short form.
 3. One AI call per batch (``prompts/events.md``, JSON schema from
    :func:`answer_schema`). The blacklist is passed as blocked domains and hard
    filtered afterwards. The search budget ``limits.max_web_searches_per_run``
@@ -135,6 +137,10 @@ class PlaceIndex:
 
     def __init__(self, places: Sequence[Place]) -> None:
         self.names = {p.name.casefold(): p.name for p in places}
+        # Municipality names are valid places too (e.g. Fuchstal has no place node).
+        for place in places:
+            if place.municipality:
+                self.names.setdefault(place.municipality.casefold(), place.municipality)
 
     def resolve(self, name: str | None) -> str | None:
         if not name:
@@ -390,26 +396,59 @@ def events_from_answer(
 
 
 @dataclass
+class PlaceGroup:
+    """A municipality with the places (districts) that belong to it."""
+
+    name: str
+    places: list[Place]
+
+    @property
+    def drive_time_minutes(self) -> float | None:
+        times = [p.drive_time_minutes for p in self.places if p.drive_time_minutes is not None]
+        return min(times) if times else None
+
+    @property
+    def districts(self) -> list[str]:
+        """Place names other than the municipality itself."""
+        return [p.name for p in self.places if p.name != self.name]
+
+
+def group_places(places: Sequence[Place]) -> list[PlaceGroup]:
+    """Group places by municipality, in order of the nearest place of each group."""
+    groups: dict[str, PlaceGroup] = {}
+    for place in places:
+        name = place.municipality or place.name
+        groups.setdefault(name, PlaceGroup(name=name, places=[])).places.append(place)
+    return list(groups.values())
+
+
+@dataclass
 class Batch:
     number: int
-    places: list[Place]
+    groups: list[PlaceGroup]
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     known: list[Event] = field(default_factory=list)
 
+    @property
+    def places(self) -> list[Place]:
+        return [p for g in self.groups for p in g.places]
+
 
 def make_batches(
-    places: Sequence[Place],
+    groups: Sequence[PlaceGroup],
     size: int,
     whitelist: Sequence[WhitelistEntry],
     known: Sequence[Event],
 ) -> list[Batch]:
+    """Batches of ``size`` municipalities with their whitelist sources and known events."""
     batches = [
-        Batch(number=i // size + 1, places=list(places[i : i + size]))
-        for i in range(0, len(places), size)
+        Batch(number=i // size + 1, groups=list(groups[i : i + size]))
+        for i in range(0, len(groups), size)
     ]
     if not batches:
         return []
     index = {p.name.casefold(): b for b in batches for p in b.places}
+    index.update({g.name.casefold(): b for b in batches for g in b.groups})
     for entry in whitelist:
         target = next(
             (index[n.casefold()] for n in entry.places if n.casefold() in index), batches[0]
@@ -441,7 +480,7 @@ def render_prompt(
     deep_end = today + timedelta(days=config.window.deep_check_days)
     return template.render(
         region=config.region,
-        places=batch.places,
+        groups=batch.groups,
         today=today,
         window_end=today + timedelta(days=config.window.crawl_days),
         deep_check_end=deep_end,
@@ -463,6 +502,7 @@ def render_prompt(
 class BatchReport:
     number: int
     places: list[str]
+    """Municipalities of the batch."""
     events: int = 0
     rejected: list[Rejected] = field(default_factory=list)
     whitelist_missing: list[str] = field(default_factory=list)
@@ -479,6 +519,7 @@ class CrawlResult:
     usage: Usage
     warnings: list[str]
     skipped_places: list[str] = field(default_factory=list)
+    """Municipalities left out by ``--limit-places``."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -510,13 +551,13 @@ def crawl(
     existing = _load(data_dir / "events.json", EventsFile)
     known = [e for e in (existing.events if existing else []) if e.parent_id is None]
 
-    places = list(places_file.places)
+    groups = group_places(places_file.places)
     skipped: list[str] = []
     if limit_places is not None:
-        skipped = [p.name for p in places[limit_places:]]
-        places = places[:limit_places]
+        skipped = [g.name for g in groups[limit_places:]]
+        groups = groups[:limit_places]
     index = PlaceIndex(places_file.places)
-    batches = make_batches(places, config.limits.places_per_request, whitelist, known)
+    batches = make_batches(groups, config.limits.places_per_request, whitelist, known)
 
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
@@ -526,7 +567,7 @@ def crawl(
     warnings: list[str] = []
 
     for position, batch in enumerate(batches):
-        report = BatchReport(batch.number, [p.name for p in batch.places])
+        report = BatchReport(batch.number, [g.name for g in batch.groups])
         reports.append(report)
         remaining = budget - usage.web_searches
         if clock() > deadline:
@@ -643,10 +684,14 @@ def run(
     u = result.usage
     print(
         f"crawl: {len(result.events)} events from {len(result.batches)} batches "
-        f"({sum(len(r.places) for r in result.batches)} places); "
+        f"({sum(len(r.places) for r in result.batches)} municipalities); "
         f"{u.web_searches} searches, {u.input_tokens + u.output_tokens} tokens, "
         f"~${u.cost_usd:.2f}, {u.duration_s:.0f}s"
-        + (f"; {len(result.skipped_places)} places skipped" if result.skipped_places else "")
+        + (
+            f"; {len(result.skipped_places)} municipalities skipped"
+            if result.skipped_places
+            else ""
+        )
         + ("; dry run, nothing written" if dry_run else "")
     )
     for report in result.batches:

@@ -62,7 +62,7 @@ jobs:
         run: |
           python tests/fixtures/geo/record.py --minutes "$MINUTES" | tee places.txt
           {
-            echo "### Places within $MINUTES min"
+            echo "### Places and municipalities within $MINUTES min"
             echo '```text'
             cat places.txt
             echo '```'

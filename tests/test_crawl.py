@@ -60,7 +60,10 @@ def make_config(tmp_path: Path, **limits: Any) -> Config:
     )
 
 
-def write_places(data_dir: Path, names: list[str] = PLACE_NAMES) -> None:
+def write_places(
+    data_dir: Path, names: list[str] = PLACE_NAMES, municipalities: dict[str, str] | None = None
+) -> None:
+    municipalities = municipalities or {}
     places = [
         Place(
             name=n,
@@ -69,6 +72,7 @@ def write_places(data_dir: Path, names: list[str] = PLACE_NAMES) -> None:
             lat=47.8,
             lon=10.9,
             drive_time_minutes=float(i * 3 + 2),
+            municipality=municipalities.get(n, n),
         )
         for i, n in enumerate(names)
     ]
@@ -176,10 +180,59 @@ def test_batches_assign_whitelist_and_known_events() -> None:
         WhitelistEntry(url="https://a.de", places=["Rottenbuch"]),
         WhitelistEntry(url="https://regional.de"),
     ]
-    batches = make_batches(places, 6, whitelist, [])
-    assert [len(b.places) for b in batches] == [6, 2]
+    batches = make_batches(crawl.group_places(places), 6, whitelist, [])
+    assert [len(b.groups) for b in batches] == [6, 2]
     assert [w.url for w in batches[0].whitelist] == ["https://regional.de"]
     assert [w.url for w in batches[1].whitelist] == ["https://a.de"]
+
+
+def _place(name: str, minutes: float, municipality: str | None = None) -> Place:
+    return Place(
+        name=name,
+        osm_id="node/1",
+        place_type="village",
+        lat=0,
+        lon=0,
+        drive_time_minutes=minutes,
+        municipality=municipality or name,
+    )
+
+
+def test_places_are_grouped_by_municipality() -> None:
+    places = [
+        _place("Schongau", 2.6),
+        _place("Altenstadt", 7.8),
+        _place("Peiting", 8.2),
+        _place("Herzogsägmühle", 10.2, "Peiting"),
+        _place("Hausen", 10.4, "Altenstadt"),
+        _place("Birkland", 12.3, "Peiting"),
+        _place("Leeder", 24.8, "Fuchstal"),  # municipality without a place node
+    ]
+    groups = crawl.group_places(places)
+    assert [g.name for g in groups] == ["Schongau", "Altenstadt", "Peiting", "Fuchstal"]
+    peiting = groups[2]
+    assert peiting.districts == ["Herzogsägmühle", "Birkland"]
+    assert peiting.drive_time_minutes == 8.2
+    assert groups[3].districts == ["Leeder"]
+    index = PlaceIndex(places)
+    assert index.resolve("Fuchstal") == "Fuchstal"
+    assert index.resolve("herzogsägmühle") == "Herzogsägmühle"
+
+
+def test_prompt_lists_municipalities_with_districts(config: Config, tmp_path: Path) -> None:
+    data_dir = tmp_path / "data"
+    write_places(
+        data_dir,
+        ["Schongau", "Peiting", "Herzogsägmühle", "Birkland", "Altenstadt"],
+        municipalities={"Herzogsägmühle": "Peiting", "Birkland": "Peiting"},
+    )
+    runner = FakeRunner()
+    result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY, limit_places=2)
+    prompt = runner.requests[0].prompt
+    assert "- Peiting (5 min from Schongau), including Herzogsägmühle, Birkland" in prompt
+    assert "Altenstadt" not in prompt
+    assert result.batches[0].places == ["Schongau", "Peiting"]
+    assert result.skipped_places == ["Altenstadt"]
 
 
 # --- validation of single candidates ----------------------------------------------------
@@ -399,7 +452,7 @@ def test_dry_run_and_limit_places(
     assert not (data_dir / "events.json").exists()
     assert not (data_dir / "state.json").exists()
     out = capsys.readouterr().out
-    assert "dry run, nothing written" in out and "5 places skipped" in out
+    assert "dry run, nothing written" in out and "5 municipalities skipped" in out
 
 
 def test_search_budget_is_spread_and_enforced(tmp_path: Path, data_dir: Path) -> None:

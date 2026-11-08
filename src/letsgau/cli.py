@@ -64,7 +64,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--limit-places",
         type=int,
         metavar="N",
-        help="only process the first N places (for local testing; geo always lists all)",
+        help="events: only crawl the N nearest municipalities (for testing; geo lists all)",
     )
     run.add_argument(
         "--force",

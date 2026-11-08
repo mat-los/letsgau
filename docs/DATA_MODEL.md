@@ -32,7 +32,7 @@ computed from, so the next run can tell whether anything changed.
   "places": [
     { "name": "Schongau", "osm_id": "node/240040710", "place_type": "town",
       "lat": 47.8116, "lon": 10.8966, "drive_time_minutes": 1.6, "distance_km": 0.6,
-      "origin": "area" }
+      "origin": "area", "municipality": "Schongau" }
   ]
 }
 ```
@@ -44,6 +44,7 @@ computed from, so the next run can tell whether anything changed.
 | `places[].osm_id` | OpenStreetMap element, e.g. `node/240040710` |
 | `places[].drive_time_minutes`, `distance_km` | by car from the center (ORS matrix), 1 decimal; `null` if not routable |
 | `places[].origin` | `area` (inside the isochrone) or `include` (from `include_places`) |
+| `places[].municipality` | municipality (OSM `admin_level=8`), e.g. `Peiting` for Herzogsägmühle; the place's own name if it lies in none (Phase 2, optional field; older files are refreshed once by the geo stage) |
 | order | by drive time, then name; places without drive time last |
 
 The isochrone itself is stored unchanged as the ORS GeoJSON response in

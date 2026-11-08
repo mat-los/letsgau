@@ -79,7 +79,7 @@ Claude model IDs per step: `discovery`, `events`, `merge`.
 | Key | Meaning |
 | --- | --- |
 | `max_web_searches_per_run` | cost brake per run; spread evenly over the remaining batches (3–40 per batch), batches are skipped once it is used up |
-| `places_per_request` | places per Claude request (batch size) |
+| `places_per_request` | municipalities per Claude request (batch size); the places of a municipality (e.g. Peiting with Herzogsägmühle and Birkland) are always crawled together |
 | `max_runtime_minutes` | no new batch starts after this time |
 
 In API mode the search limit per batch is enforced (`max_uses`); in
