@@ -41,7 +41,11 @@ jobs:
           from pathlib import Path
           from letsgau import build
           from letsgau.config import load_config
-          build.build(load_config("instance/config.yaml"), data_dir=Path("/tmp/demo/data"),
+          config = load_config("instance/config.yaml")
+          # Measure the public site: noindex (site.indexing false) would cost SEO points.
+          config = config.model_copy(
+              update={"site": config.site.model_copy(update={"indexing": True})})
+          build.build(config, data_dir=Path("/tmp/demo/data"),
                       site_dir=Path("/tmp/demo/site"), now=datetime(2026, 11, 13, 20, tzinfo=UTC))
           PY
       - name: Serve

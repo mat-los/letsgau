@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title }} · {{ config.site.name }}</title>
 <meta name="description" content="{{ description }}">
-<link rel="canonical" href="{{ base_url }}{{ canonical }}">
+{% if not config.site.indexing %}<meta name="robots" content="noindex">
+{% endif %}<link rel="canonical" href="{{ base_url }}{{ canonical }}">
 {% set alt = alternates if alternates is defined else {} %}
 {% macro other_url(other) %}{{ alt[other] if other in alt else canonical | replace(lang ~ '/', other ~ '/', 1) }}{% endmacro %}
 {% for other in langs %}

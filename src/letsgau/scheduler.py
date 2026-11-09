@@ -270,7 +270,8 @@ def _details(stage: StageResult) -> str:
             f"{len(result.events)} events from {len(result.batches)} batches, {stage.seconds:.0f} s"
         )
     if stage.name == "build":
-        return f"{len(result.days)} days, {len(result.events)} events, today {result.today}"
+        hidden = "" if result.config.site.indexing else ", noindex (hidden from search)"
+        return f"{len(result.days)} days, {len(result.events)} events, today {result.today}{hidden}"
     return stage.reason
 
 

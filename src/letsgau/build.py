@@ -405,6 +405,8 @@ def build(
     extra = [paths for paths in by_name.values() if len(paths) == len(config.site.languages)]
     extra.append({lang: f"{FEEDBACK_PATH}/" for lang in config.site.languages})
     feeds.write_all(site, site_dir, coverage, extra)
+    if not config.site.indexing:
+        site.warnings.append("site.indexing is false: pages carry noindex (hidden from search)")
     for warning in site.warnings:
         print(f"warning: build: {warning}", file=sys.stderr)
     return site

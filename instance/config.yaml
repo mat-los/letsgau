@@ -10,6 +10,7 @@ site:
   contact_email: "hallo@letsgau.de"     # for source suggestions and feedback
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
+  indexing: false                       # false = noindex on every page (not in search results yet)
 
 region:
   label: "Schongau"                     # name of the center, used in the coverage sentence

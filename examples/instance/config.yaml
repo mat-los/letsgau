@@ -10,6 +10,7 @@ site:
   contact_email: "{{CONTACT_EMAIL}}"    # for source suggestions and feedback
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
+  indexing: true                        # false = noindex on every page (hidden from search engines)
 
 region:
   label: "{{REGION_LABEL}}"             # name of the center, used in the coverage sentence

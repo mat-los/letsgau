@@ -252,6 +252,9 @@ def sitemap(site: Site, extra_pages: Sequence[dict[str, str]] = ()) -> str:
 
 def robots_txt(site: Site) -> str:
     base = site.config.site.base_url.rstrip("/")
+    if not site.config.site.indexing:
+        # Crawling stays allowed: a crawler must fetch a page to see its noindex tag.
+        return "# site.indexing is false: every page carries noindex\nUser-agent: *\nAllow: /\n"
     blocks = ["User-agent: *\nAllow: /"]
     blocks += [f"User-agent: {bot}\nAllow: /" for bot in AI_CRAWLERS]
     return "\n\n".join(blocks) + f"\n\nSitemap: {base}/sitemap.xml\n"
