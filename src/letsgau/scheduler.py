@@ -233,7 +233,8 @@ def summary_markdown(report: RunReport, dry_run: bool = False) -> str:
             f"| Requests | {usage.requests} |",
             f"| Web searches / fetches | {usage.web_searches} / {usage.web_fetches} |",
             f"| Tokens in / out | {usage.input_tokens:,} / {usage.output_tokens:,} |",
-            f"| Estimated cost | ${usage.cost_usd:.2f} (0 in subscription mode) |",
+            f"| Cost at API prices | ${usage.cost_usd:.2f} (subscription: not billed, "
+            "counts against the plan's usage limits) |",
             f"| AI time | {usage.duration_s:.0f} s |",
         ]
     merge = getattr(_result(report, "events"), "merge", None)

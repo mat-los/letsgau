@@ -114,7 +114,7 @@ def test_cli_run_parses_structured_output_and_usage() -> None:
     assert result.usage.web_fetches == 9
     assert result.usage.input_tokens == 2311 + 40211 + 310544
     assert result.usage.output_tokens == 9876
-    assert result.usage.cost_usd == 0.0  # subscription
+    assert result.usage.cost_usd == 1.2345  # API-equivalent, not billed in subscription mode
     assert result.usage.duration_s == 184.2
     call = run.calls[0]
     assert call["input"] == "Find events."

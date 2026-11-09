@@ -60,7 +60,7 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 | `geo_fingerprint` | fingerprint of the last geo computation |
 | `force_discovery` | set to `true` when the geo fingerprint changes; the discovery stage clears it (Phase 7) |
 | `last_run` | map job name → UTC timestamp of the last successful run |
-| `last_usage` | map job name → AI usage of the last run: `requests`, `web_searches`, `web_fetches`, `input_tokens`, `output_tokens`, `cost_usd` (estimate, 0 in subscription mode), `duration_s` (Phase 2) |
+| `last_usage` | map job name → AI usage of the last run: `requests`, `web_searches`, `web_fetches`, `input_tokens`, `output_tokens`, `cost_usd` (cost at API prices; in subscription mode the CLI's `total_cost_usd`, not billed), `duration_s` (Phase 2) |
 
 ## Event
 

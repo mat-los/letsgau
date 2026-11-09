@@ -39,9 +39,16 @@ ai:
   auth: "subscription"                  # subscription (Claude Code + plan) | api_key (Claude API)
 
 limits:
-  max_web_searches_per_run: 150         # cost brake per run
+  max_web_searches_per_run: 250         # cost brake per run and stage
   places_per_request: 6                 # places per Claude request
-  max_runtime_minutes: 45               # hard stop for a single run
+  max_runtime_minutes: 60               # no new AI call starts after this (per stage)
+
+depth:                                  # thoroughness: more AI calls, more complete results
+  discovery_focus_passes: true          # 3 calls per batch: official, clubs, venues
+  discovery_places_per_request: 2       # municipalities per discovery call
+  discovery_searches_per_request: 30    # search limit per discovery call
+  crawl_sources_per_request: 4          # known sources per "source sweep" call; 0 = one combined call
+  crawl_searches_per_request: 40        # search limit of the open-search call
 
 events:
   unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"

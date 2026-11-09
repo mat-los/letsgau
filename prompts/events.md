@@ -18,6 +18,45 @@ these municipalities. As "place", write the district where the event takes place
 above, otherwise the municipality, exactly as written here.
 
 ## How to search
+{%- if mode == "sources" %}
+
+You are one of several researchers working on this calendar. Your job: read the sources below
+completely and take every event between {{ today }} and {{ window_end }} from them. Other
+researchers handle the remaining sources and a general web search.
+
+- Open each source. Follow pagination ("weiter", page numbers, "?page=", "?os="), month views and
+  category filters until the end of the window: a calendar showing 10 or 12 entries per page
+  usually has several pages. Open detail pages when the list lacks the time or the place.
+- Report every event you find there, also ones that may be known already.
+- If a source has moved or shows no events, search for its current calendar page (at most
+  {{ max_searches }} web searches in total) and say so in "notes".
+- Fetching pages does not count against the search limit.
+{%- for entry in whitelist %}
+- {{ entry.url }}{% if entry.note %} ({{ entry.note }}){% endif %}
+{%- endfor %}
+{%- for source in sources %}
+- {{ source.url }}{% if source.name %} ({{ source.name }}){% endif %}{% if source.note %}: {{ source.note }}{% endif %}
+{%- endfor %}
+{%- elif mode == "search" %}
+
+Be thorough: the calendar is only useful if it is close to complete. Other researchers read these
+known sources completely, so do not read them again:
+{%- for url in covered_sources %}
+- {{ url }}
+{%- endfor %}
+
+Your job is to find the events that are NOT on those pages: clubs, parishes, venues, cafés, sports
+clubs, organisers and press reports. You have at most {{ max_searches }} web searches; use most of
+them. Fetching pages does not count, so open every promising result and read it.
+
+Run every query of this checklist (in German), then follow up on every lead (a club mentioned in
+an article, a venue's own programme page):
+{%- for group, items in queries %}
+- {{ group }}:{% for query in items %} "{{ query }}"{% if not loop.last %},{% endif %}{% endfor %}
+{%- endfor %}
+
+- Prefer the organizer's own page. Open pages to read the actual date, time and place.
+{%- else %}
 
 Be thorough: the calendar is only useful if it is close to complete. A small town usually has
 many events in four weeks (club evenings, church concerts, markets, home matches, talks, children's
@@ -46,11 +85,12 @@ events). If you have found only a few, keep looking; do not stop after the first
 - Event calendars are often paginated or filtered by month: open the next pages or months until the
   end of the window instead of reading only the first page.
 - Prefer the organizer's own page. Open pages to read the actual date, time and place.
+{%- endif %}
 {%- if blocked_domains %}
 - Never use or cite these domains: {{ blocked_domains | join(", ") }}.
 {%- endif %}
 
-{%- if deep_check_events %}
+{%- if deep_check_events and mode != "sources" %}
 
 ## Known events to re-check (until {{ deep_check_end }})
 
@@ -63,7 +103,7 @@ matching status.
 {%- endfor %}
 {%- endif %}
 
-{%- if later_events %}
+{%- if later_events and mode != "sources" %}
 
 ## Already known later events (do not re-check, do not report again unless details changed)
 {% for event in later_events %}
@@ -101,7 +141,7 @@ matching status.
   - {{ topic }}
 {%- endfor %}
 {%- endif %}
-- In "checked_sources" list every trusted source above and every calendar page you opened, with
+- In "checked_sources" list every source named above and every calendar page you opened, with
   "events_found", "no_events" or "unreachable".
 - Use "notes" for anything the operator should know (e.g. a source that moved), otherwise "".
 

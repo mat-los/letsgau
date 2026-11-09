@@ -80,13 +80,27 @@ Claude model IDs per step: `discovery`, `events`, `merge`.
 
 | Key | Meaning |
 | --- | --- |
-| `max_web_searches_per_run` | cost brake per run; spread evenly over the remaining batches (3–40 per batch), batches are skipped once it is used up |
-| `places_per_request` | municipalities per Claude request (batch size); the places of a municipality (e.g. Peiting with Herzogsägmühle and Birkland) are always crawled together |
-| `max_runtime_minutes` | no new batch starts after this time |
+| `max_web_searches_per_run` | cost brake per run and stage; spread evenly over the remaining AI calls (at least 3 each, at most the call's own limit), calls are skipped once it is used up |
+| `places_per_request` | municipalities per event-crawl batch; the places of a municipality (e.g. Peiting with Herzogsägmühle and Birkland) are always crawled together |
+| `max_runtime_minutes` | no new AI call starts after this time (counted per stage) |
 
 In API mode the search limit per batch is enforced (`max_uses`); in
 subscription mode Claude Code has no such switch, so the limit is given in the
 prompt and the reported searches count against the budget.
+
+## `depth`
+
+How thorough discovery and the event crawl are. More calls find more sources
+and events but use more of the plan (or cost more in API mode). All keys are
+optional; the defaults are the thorough settings.
+
+| Key | Default | Meaning |
+| --- | --- | --- |
+| `discovery_focus_passes` | `true` | three discovery calls per batch (official calendars, clubs, venues), each with a query checklist and a coverage report; `false` = one general call |
+| `discovery_places_per_request` | `2` | municipalities per discovery call |
+| `discovery_searches_per_request` | `30` | search limit per discovery call |
+| `crawl_sources_per_request` | `4` | known sources per *source sweep* call of the event crawl; every batch then ends with one *open search* call. `0` = one combined call per batch |
+| `crawl_searches_per_request` | `40` | search limit of the open-search call (or of the combined call) |
 
 ## `events`
 
