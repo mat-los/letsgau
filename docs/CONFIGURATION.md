@@ -111,7 +111,7 @@ optional; the defaults are the thorough settings.
 
 ## `sources`
 
-Paths of `whitelist_file` and `blacklist_file`.
+Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file`.
 
 ```yaml
 # whitelist.yaml – always checked explicitly on every event run
@@ -125,7 +125,20 @@ Paths of `whitelist_file` and `blacklist_file`.
 # blacklist.yaml – never used as a source
 - domain: "example-spam.de"
   reason: "outdated dates"
+
+# flyers.yaml – pages whose programme is in images or PDFs (posters, brochures)
+- url: "https://www.reaktor-sog.de/"
+  note: "concerts only as poster images"
+  places: ["Schongau"]
+  max_files: 20               # optional, default 15, at most 40 images/PDFs per run
 ```
+
+Only pages on the flyer list are read as images: the crawl downloads the page,
+takes the large images (`<img>`, `srcset`, `og:image`) and linked images/PDFs in
+page order (no logos, icons, SVG/GIF or images under 20 KB; robots.txt is
+respected), and one AI call per page, without web access, reads them and
+extracts the events. The URL may also point straight to an image or PDF. An
+empty `flyers_file` or a missing file means no flyer pages (the crawl warns).
 
 `{municipality_slug}` is replaced by the slug of each municipality (lower case,
 umlauts as `ae`/`oe`/`ue`/`ss`, spaces as `-`), restricted to `places` if given.

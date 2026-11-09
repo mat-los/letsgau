@@ -40,6 +40,7 @@ def config() -> Config:
         update={
             "whitelist_file": str(FIXTURES / "crawl" / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "crawl" / "blacklist.yaml"),
+            "flyers_file": "",
         }
     )
     single_pass = config.depth.model_copy(

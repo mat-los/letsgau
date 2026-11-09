@@ -29,6 +29,7 @@ import tempfile
 import time
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any, Protocol
 
 from letsgau.config import Config
@@ -46,6 +47,8 @@ API_MAX_ROUNDS = 12
 """Upper bound of API round trips per request (pause_turn resumes, reminders)."""
 API_MAX_TOKENS = 64000
 SUBMIT_TOOL = "submit_result"
+FILES_DIR = "files"
+"""Subfolder of the CLI's working directory that holds ``AiRequest.files``."""
 
 # Estimates for the job summary (USD per million tokens), see docs/OPERATIONS.md.
 PRICES_PER_MTOK = {
@@ -78,6 +81,10 @@ class AiRequest:
     max_searches: int = 20
     web: bool = True
     """Allow web search and fetch; ``False`` for pure reasoning steps (merge)."""
+    files: Sequence[Path] = ()
+    """Local images/PDFs the model should look at (flyers). Subscription mode copies
+    them to ``files/`` in the working directory and allows Read there; API mode
+    attaches them to the message."""
 
 
 @dataclass
@@ -141,6 +148,11 @@ class ClaudeCodeRunner:
         self._run = run
 
     def command(self, request: AiRequest) -> list[str]:
+        tools = ["WebSearch", "WebFetch"] if request.web else []
+        allowed = list(tools)
+        if request.files:
+            tools.append("Read")
+            allowed.append(f"Read(./{FILES_DIR}/**)")
         cmd = [
             self.binary,
             "-p",
@@ -151,12 +163,12 @@ class ClaudeCodeRunner:
             "--json-schema",
             json.dumps(request.schema, separators=(",", ":")),
             "--tools",
-            "WebSearch,WebFetch" if request.web else "",
-            *(["--allowedTools", "WebSearch", "WebFetch"] if request.web else []),
+            ",".join(tools),
+            *(["--allowedTools", *allowed] if allowed else []),
             "--permission-mode",
             "dontAsk",
             "--max-turns",
-            str(CLAUDE_MAX_TURNS if request.web else 4),
+            str(CLAUDE_MAX_TURNS if request.web else 4 + 2 * len(request.files)),
             "--no-session-persistence",
             "--strict-mcp-config",
             "--setting-sources",
@@ -191,6 +203,11 @@ class ClaudeCodeRunner:
         _log(f"{request.step}: claude -p --model {request.model}")
         # Run outside the repository so its CLAUDE.md and settings are not loaded.
         with tempfile.TemporaryDirectory(prefix="letsgau-") as workdir:
+            if request.files:
+                target = Path(workdir) / FILES_DIR
+                target.mkdir()
+                for file in request.files:
+                    shutil.copyfile(file, target / Path(file).name)
             try:
                 proc = self._run(
                     self.command(request),
@@ -335,7 +352,7 @@ class ApiRunner:
 
     def run(self, request: AiRequest) -> AiResult:
         started = time.monotonic()
-        messages: list[dict[str, Any]] = [{"role": "user", "content": request.prompt}]
+        messages: list[dict[str, Any]] = [{"role": "user", "content": _content(request)}]
         usage = Usage()
         fetched: list[str] = []
         _log(f"{request.step}: Claude API --model {request.model}")
@@ -372,6 +389,36 @@ class ApiRunner:
                     {"role": "user", "content": f"Now call {SUBMIT_TOOL} with your result."}
                 )
         raise AiError(f"{request.step}: no {SUBMIT_TOOL} call after {API_MAX_ROUNDS} rounds")
+
+
+MEDIA_TYPES = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
+
+
+def _content(request: AiRequest) -> str | list[dict[str, Any]]:
+    """The user message: the prompt, followed by the attached files (API mode)."""
+    if not request.files:
+        return request.prompt
+    import base64
+
+    blocks: list[dict[str, Any]] = [{"type": "text", "text": request.prompt}]
+    for file in request.files:
+        path = Path(file)
+        data = base64.standard_b64encode(path.read_bytes()).decode("ascii")
+        blocks.append({"type": "text", "text": f"{FILES_DIR}/{path.name}:"})
+        if path.suffix.lower() == ".pdf":
+            source = {"type": "base64", "media_type": "application/pdf", "data": data}
+            blocks.append({"type": "document", "source": source})
+        else:
+            media = MEDIA_TYPES.get(path.suffix.lower(), "image/jpeg")
+            blocks.append(
+                {"type": "image", "source": {"type": "base64", "media_type": media, "data": data}}
+            )
+    return blocks
 
 
 def _api_usage(message: Any, model: str) -> Usage:

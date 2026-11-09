@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Flyer pages: `instance/sources/flyers.yaml` (`sources.flyers_file`) lists pages
+  whose programme is only in posters, brochure images or PDFs. The crawl
+  downloads their images/PDFs (robots.txt respected, logos and icons skipped)
+  and one AI call per page reads them without web access. Starts with Reaktor,
+  Brauhaus, the parish newsletter and the Schlossbergler club calendar.
 - New website look: green header band with brand icon, date cards and search,
   one colour per category (chips, card stripe, tags; mapped from the configured
   tags), events as cards with place pin, section icons, nicer pager, footer and

@@ -12,7 +12,9 @@
    ``depth.crawl_sources_per_request`` > 0, *source sweeps* that each read a few
    known sources (whitelist, then discovered ones) completely, then one *open
    search* with a query checklist (:func:`search_queries`); with 0, one
-   combined call. The blacklist is passed as blocked domains and hard filtered
+   combined call. Every page on the flyer list (``sources.flyers_file``) gets
+   its own call: :mod:`letsgau.flyers` downloads its posters/PDFs and the model
+   reads them without web access. The blacklist is passed as blocked domains and hard filtered
    afterwards. The search budget ``limits.max_web_searches_per_run`` is spread
    over the calls; ``limits.max_runtime_minutes`` stops starting new calls.
 4. Every candidate is validated (:func:`to_event`): dates in the crawl window,
@@ -27,6 +29,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import tempfile
 import time
 import unicodedata
 from collections.abc import Iterable, Sequence
@@ -40,8 +43,8 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from letsgau import merge
-from letsgau.ai_runner import AiError, AiRequest, Runner, make_runner
+from letsgau import flyers, merge
+from letsgau.ai_runner import FILES_DIR, AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
     Event,
@@ -99,10 +102,11 @@ class WhitelistEntry(_Strict):
             return [self]
         wanted = {p.casefold() for p in self.places}
         return [
-            WhitelistEntry(
-                url=self.url.replace(MUNICIPALITY_SLUG, slugify(name, 80)),
-                note=self.note,
-                places=[name],
+            self.model_copy(
+                update={
+                    "url": self.url.replace(MUNICIPALITY_SLUG, slugify(name, 80)),
+                    "places": [name],
+                }
             )
             for name in municipalities
             if not wanted or name.casefold() in wanted
@@ -115,12 +119,21 @@ def expand_whitelist(
     return [e for entry in whitelist for e in entry.expand(municipalities)]
 
 
+class FlyerEntry(WhitelistEntry):
+    """A page whose programme is in images or PDFs (``instance/sources/flyers.yaml``)."""
+
+    max_files: int = Field(default=15, ge=1, le=40)
+    """Images/PDFs downloaded from the page per run (in page order)."""
+
+
 class BlacklistEntry(_Strict):
     domain: str = Field(pattern=r"^[a-z0-9.-]+\.[a-z]{2,}$")
     reason: str = ""
 
 
-def _load_list[T: (WhitelistEntry, BlacklistEntry)](path: Path, model: type[T]) -> list[T]:
+def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry)](
+    path: Path, model: type[T]
+) -> list[T]:
     if not path.exists():
         raise CrawlError(f"{path} not found")
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or []
@@ -466,6 +479,8 @@ class Batch:
     known: list[Event] = field(default_factory=list)
     sources: list[Any] = field(default_factory=list)
     """Known, well-rated sources of the batch's municipalities (from discovery)."""
+    flyers: list[FlyerEntry] = field(default_factory=list)
+    """Pages whose images/PDFs are downloaded and read (``flyers.yaml``)."""
 
     @property
     def places(self) -> list[Place]:
@@ -477,8 +492,9 @@ def make_batches(
     size: int,
     whitelist: Sequence[WhitelistEntry],
     known: Sequence[Event],
+    flyers: Sequence[FlyerEntry] = (),
 ) -> list[Batch]:
-    """Batches of ``size`` municipalities with their whitelist sources and known events."""
+    """Batches of ``size`` municipalities with their whitelist/flyer sources and known events."""
     batches = [
         Batch(number=i // size + 1, groups=list(groups[i : i + size]))
         for i in range(0, len(groups), size)
@@ -487,11 +503,17 @@ def make_batches(
         return []
     index = {p.name.casefold(): b for b in batches for p in b.places}
     index.update({g.name.casefold(): b for b in batches for g in b.groups})
-    for entry in expand_whitelist(whitelist, [g.name for b in batches for g in b.groups]):
+    municipalities = [g.name for b in batches for g in b.groups]
+    for entry in expand_whitelist(whitelist, municipalities):
         target = next(
             (index[n.casefold()] for n in entry.places if n.casefold() in index), batches[0]
         )
         target.whitelist.append(entry)
+    for flyer in (e for entry in flyers for e in entry.expand(municipalities)):
+        target = next(
+            (index[n.casefold()] for n in flyer.places if n.casefold() in index), batches[0]
+        )
+        target.flyers.append(flyer)  # type: ignore[arg-type]
     for event in known:
         batch = index.get(event.venue.place.casefold())
         if batch is not None:
@@ -546,18 +568,23 @@ def search_queries(
 class CrawlCall:
     """One AI call of a batch: a combined call, a sweep over known sources, or the open search."""
 
-    mode: str  # "all" | "sources" | "search"
+    mode: str  # "all" | "sources" | "search" | "flyers"
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     sources: list[Any] = field(default_factory=list)
+    flyer: FlyerEntry | None = None
+    """The page of a ``flyers`` call."""
 
 
 def plan_calls(batch: Batch, sources_per_request: int) -> list[CrawlCall]:
-    """Split a batch into source sweeps (``sources_per_request`` sources each) and one search.
+    """Split a batch into source sweeps (``sources_per_request`` sources each), one call per
+    flyer page and one search.
 
-    With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``).
+    With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``) plus
+    the flyer calls.
     """
+    flyer_calls = [CrawlCall("flyers", flyer=f) for f in batch.flyers]
     if sources_per_request <= 0:
-        return [CrawlCall("all", list(batch.whitelist), list(batch.sources))]
+        return [CrawlCall("all", list(batch.whitelist), list(batch.sources)), *flyer_calls]
     items: list[Any] = [*batch.whitelist, *batch.sources]
     calls = []
     for start in range(0, len(items), sources_per_request):
@@ -569,6 +596,7 @@ def plan_calls(batch: Batch, sources_per_request: int) -> list[CrawlCall]:
                 sources=[i for i in chunk if not isinstance(i, WhitelistEntry)],
             )
         )
+    calls += flyer_calls
     calls.append(CrawlCall("search"))
     return calls
 
@@ -582,6 +610,7 @@ def render_prompt(
     max_searches: int,
     prompts_dir: Path = PROMPTS_DIR,
     call: CrawlCall | None = None,
+    files: Sequence[Any] = (),
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(prompts_dir),
@@ -604,7 +633,11 @@ def render_prompt(
         deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
         later_events=[e for e in batch.known if e.schedule.start_date > deep_end],
         sources=call.sources,
-        covered_sources=[w.url for w in batch.whitelist] + [s.url for s in batch.sources],
+        covered_sources=[w.url for w in batch.whitelist]
+        + [s.url for s in batch.sources]
+        + [f.url for f in batch.flyers],
+        flyer=call.flyer,
+        files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
         queries=search_queries(batch.groups, today, window_end),
         tags=config.tags,
         excluded_topics=config.excluded_topics,
@@ -631,6 +664,8 @@ class BatchReport:
     usage: Usage = field(default_factory=Usage)
     calls: int = 0
     """AI calls of the batch that returned an answer."""
+    last_usage: Usage = field(default_factory=Usage)
+    """Usage of the most recent flyer call (added to the run total by the caller)."""
 
 
 @dataclass
@@ -666,6 +701,7 @@ def crawl(
     today: date | None = None,
     prompts_dir: Path = PROMPTS_DIR,
     clock: Any = time.monotonic,
+    fetch: flyers.Fetch | None = None,
 ) -> CrawlResult:
     """Run the AI over all batches and return validated events (writes nothing)."""
     today = today or date.today()
@@ -684,7 +720,8 @@ def crawl(
         skipped = [g.name for g in groups[limit_places:]]
         groups = groups[:limit_places]
     index = PlaceIndex(places_file.places)
-    batches = make_batches(groups, config.limits.places_per_request, whitelist, known)
+    flyer_list = load_flyers(config)
+    batches = make_batches(groups, config.limits.places_per_request, whitelist, known, flyer_list)
     from letsgau import discovery  # late import: discovery imports this module
 
     sources_file = discovery.load_sources(data_dir)
@@ -703,6 +740,10 @@ def crawl(
     events: dict[str, Event] = {}
     reports: list[BatchReport] = []
     warnings: list[str] = []
+    if config.sources.flyers_file and not Path(config.sources.flyers_file).exists():
+        warnings.append(f"{config.sources.flyers_file} not found; no flyer pages are read")
+    fetch = fetch or flyers.http_fetch
+    robots = flyers.Robots(fetch)
 
     plan = [(batch, call) for batch in batches for call in plan_calls(batch, sweeps)]
     by_batch: dict[int, BatchReport] = {}
@@ -721,6 +762,25 @@ def crawl(
         remaining = budget - usage.web_searches
         if clock() > deadline:
             _skip(report, prefix + "skipped: max_runtime_minutes reached")
+            continue
+        if call.mode == "flyers":
+            _run_flyer_call(
+                config,
+                runner,
+                batch,
+                call,
+                report,
+                events,
+                today=today,
+                blocked=blocked,
+                prompts_dir=prompts_dir,
+                index=index,
+                fetch=fetch,
+                robots=robots,
+                warnings=warnings,
+                step=f"events batch {batch.number}/{len(batches)} (flyers {call.flyer.url})",
+            )
+            usage = usage.add(report.last_usage)
             continue
         if remaining < MIN_SEARCHES_PER_BATCH:
             _skip(report, prefix + "skipped: max_web_searches_per_run used up")
@@ -807,6 +867,83 @@ def crawl(
         covered_places=covered,
         municipality_of=municipality_of,
     )
+
+
+def load_flyers(config: Config) -> list[FlyerEntry]:
+    """The flyer list; empty if ``sources.flyers_file`` is unset or the file is missing."""
+    path = Path(config.sources.flyers_file) if config.sources.flyers_file else None
+    if path is None or not path.exists():
+        return []
+    return _load_list(path, FlyerEntry)
+
+
+def _run_flyer_call(
+    config: Config,
+    runner: Runner,
+    batch: Batch,
+    call: CrawlCall,
+    report: BatchReport,
+    events: dict[str, Event],
+    *,
+    today: date,
+    blocked: Sequence[str],
+    prompts_dir: Path,
+    index: PlaceIndex,
+    fetch: flyers.Fetch,
+    robots: flyers.Robots,
+    warnings: list[str],
+    step: str,
+) -> None:
+    """Download the flyers of one page and let the AI read them (no web access)."""
+    flyer = call.flyer
+    assert flyer is not None
+    report.last_usage = Usage()
+    with tempfile.TemporaryDirectory(prefix="letsgau-flyers-") as tmp:
+        files, problems = flyers.collect(
+            flyer.url, Path(tmp), max_files=flyer.max_files, fetch=fetch, robots=robots
+        )
+        warnings.extend(f"flyers: {p}" for p in problems)
+        if not files:
+            return
+        _log(f"batch {batch.number}: {len(files)} flyer file(s) from {flyer.url}")
+        request = AiRequest(
+            step=step,
+            model=config.models.events,
+            prompt=render_prompt(
+                config,
+                batch,
+                today=today,
+                blocked=blocked,
+                max_searches=0,
+                prompts_dir=prompts_dir,
+                call=call,
+                files=files,
+            ),
+            schema=answer_schema(config.tag_ids),
+            blocked_domains=blocked,
+            max_searches=0,
+            web=False,
+            files=[f.path for f in files],
+        )
+        try:
+            result = runner.run(request)
+        except AiError as exc:
+            _skip(report, f"[flyers {flyer.url}] {exc}")
+            _log(f"batch {batch.number}: [flyers] {exc}")
+            return
+    report.calls += 1
+    report.last_usage = result.usage
+    report.usage = report.usage.add(result.usage)
+    note = str(result.data.get("notes") or "").strip()
+    if note:
+        report.notes = "\n".join(filter(None, [report.notes, f"[flyers] {note}"]))
+    found, rejected = events_from_answer(
+        result.data, config=config, places=index, blocked=blocked, today=today
+    )
+    report.rejected += rejected
+    for event in found:
+        events[event.id] = merge.combine(events[event.id], event) if event.id in events else event
+    report.events += len(found)
 
 
 def _skip(report: BatchReport, reason: str) -> None:

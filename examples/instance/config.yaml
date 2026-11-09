@@ -57,6 +57,7 @@ events:
 sources:
   whitelist_file: "instance/sources/whitelist.yaml"   # always checked on every event run
   blacklist_file: "instance/sources/blacklist.yaml"   # never used as a source
+  flyers_file: "instance/sources/flyers.yaml"         # pages read as images/PDFs (posters, flyers)
 
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"

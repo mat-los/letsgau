@@ -162,6 +162,8 @@ class EventsConfig(_Strict):
 class SourcesConfig(_Strict):
     whitelist_file: str
     blacklist_file: str
+    flyers_file: str = ""
+    """Pages whose images/PDFs are downloaded and read by the AI; empty = none."""
 
 
 class Tag(_Strict):

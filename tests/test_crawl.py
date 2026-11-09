@@ -57,6 +57,7 @@ def make_config(tmp_path: Path, sweeps: int = 0, **limits: Any) -> Config:
         update={
             "whitelist_file": str(FIXTURES / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "blacklist.yaml"),
+            "flyers_file": "",
         }
     )
     return config.model_copy(
