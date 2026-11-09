@@ -145,9 +145,19 @@
     if (want !== compact) setCompact(want);
     last = y;
   }, { passive: true });
-  setCompact(false);
-  var current = document.querySelector('.dates [aria-current]');
-  if (current) current.scrollIntoView({ inline: "center", block: "nearest" });
-
-  group(state.group);
+  /* layout reads and the initial filter pass happen after the first paint */
+  function init() {
+    setCompact(false);
+    var current = document.querySelector(".dates [aria-current]");
+    if (current) {
+      var bar = current.parentNode;
+      bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
+    }
+    var filtered = false;
+    for (var t in state.tags) if (state.tags[t]) filtered = true;
+    if (state.group !== "time") group(state.group);
+    else if (filtered) apply();
+  }
+  if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(init, 0); });
+  else setTimeout(init, 0);
 })();

@@ -35,7 +35,7 @@ a { color: var(--accent); }
 .quick a, .group button, .chip { font: inherit; font-size: .85rem; padding: 6px 12px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--chip); color: var(--fg); text-decoration: none; min-height: 32px; }
 .quick a[aria-current] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
-.dates { display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px;
+.dates { position: relative; display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px;
   scrollbar-width: thin; }
 .dates .d { flex: 0 0 auto; display: grid; justify-items: center; width: 46px; padding: 4px 0; border-radius: 8px;
   text-decoration: none; color: var(--fg); scroll-snap-align: start; border: 1px solid transparent; }
@@ -77,7 +77,7 @@ details.sec > summary h2::before { content: "▸ "; } details.sec[open] > summar
 .badge.unconfirmed { border: 1px dashed var(--muted); background: transparent; }
 .prog { background: transparent; border: 1px solid var(--line); }
 .st-cancelled .title { text-decoration: line-through; }
-.st-unconfirmed > summary { opacity: .6; }
+.st-unconfirmed .title, .st-unconfirmed .time { color: var(--muted); font-weight: 500; }
 .ev .body { padding: 0 0 10px 3.4rem; font-size: .92rem; }
 .ev .body p { margin: 0 0 4px; }
 .ev .venue, .ev .until { color: var(--muted); }

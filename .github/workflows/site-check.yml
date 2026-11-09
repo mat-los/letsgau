@@ -59,22 +59,27 @@ jobs:
           print(f"{len(events) - len(missing)} of {len(events)} event titles in the HTML")
           assert not missing, missing
           PY
-      - name: Lighthouse (mobile)
+      - name: Lighthouse (mobile, median of 3 runs)
         run: |
-          npx --yes lighthouse@12 http://localhost:8080/de/2026-11-14/ \
-            --only-categories=performance,accessibility,best-practices,seo \
-            --chrome-flags="--headless=new --no-sandbox" \
-            --output=json --output=html --output-path=./lighthouse --quiet
+          for i in 1 2 3; do
+            npx --yes lighthouse@12 http://localhost:8080/de/2026-11-14/ \
+              --only-categories=performance,accessibility,best-practices,seo \
+              --chrome-flags="--headless=new --no-sandbox" \
+              --output=json --output=html --output-path=./lighthouse-$i --quiet
+          done
           python - <<'PY'
-          import json, os
-          report = json.load(open("lighthouse.report.json"))
-          scores = {k: round(v["score"] * 100) for k, v in report["categories"].items()}
-          lines = [f"| {k} | {v} |" for k, v in scores.items()]
-          summary = "### Lighthouse (mobile, 100 events)\n\n| Category | Score |\n| --- | --- |\n" + "\n".join(lines)
+          import json, os, statistics
+          reports = [json.load(open(f"lighthouse-{i}.report.json")) for i in (1, 2, 3)]
+          cats = reports[0]["categories"].keys()
+          runs = {k: [round(r["categories"][k]["score"] * 100) for r in reports] for k in cats}
+          scores = {k: statistics.median(v) for k, v in runs.items()}
+          rows = [f"| {k} | {scores[k]} | {', '.join(map(str, runs[k]))} |" for k in cats]
+          summary = ("### Lighthouse (mobile, 100 events)\n\n| Category | Median | Runs |\n"
+                     "| --- | --- | --- |\n" + "\n".join(rows))
           print(summary)
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
               f.write(summary + "\n")
-          for audit in report["audits"].values():
+          for audit in reports[0]["audits"].values():
               if audit.get("score") is not None and audit["score"] < 0.9 and audit.get("scoreDisplayMode") in ("binary", "numeric"):
                   print(f"  {audit['id']}: {audit['score']} {audit.get('displayValue', '')}")
           assert scores["performance"] >= 90 and scores["accessibility"] >= 90, scores
@@ -83,4 +88,4 @@ jobs:
         if: always()
         with:
           name: lighthouse-report
-          path: lighthouse.report.*
+          path: lighthouse-*.report.*
