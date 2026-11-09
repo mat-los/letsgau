@@ -3,20 +3,29 @@
   "geo_fingerprint": "sha256:89db14d8b1ab7bc7",
   "force_discovery": false,
   "last_run": {
-    "geo": "2026-11-09T07:32:33Z",
-    "discovery": "2026-11-09T07:32:33Z",
-    "events": "2026-11-09T07:32:33Z",
-    "build": "2026-11-09T07:32:33Z"
+    "geo": "2026-11-09T08:27:18Z",
+    "discovery": "2026-11-09T08:27:18Z",
+    "events": "2026-11-09T08:27:18Z",
+    "build": "2026-11-09T08:27:18Z"
   },
   "last_usage": {
     "events": {
-      "requests": 1,
-      "web_searches": 3,
+      "requests": 4,
+      "web_searches": 0,
       "web_fetches": 0,
-      "input_tokens": 260694,
-      "output_tokens": 36242,
-      "cost_usd": 0.0,
-      "duration_s": 97.8
+      "input_tokens": 445598,
+      "output_tokens": 105911,
+      "cost_usd": 0.7614000000000001,
+      "duration_s": 327.2
+    },
+    "discovery": {
+      "requests": 3,
+      "web_searches": 82,
+      "web_fetches": 0,
+      "input_tokens": 6332086,
+      "output_tokens": 234855,
+      "cost_usd": 4.7605,
+      "duration_s": 873.9
     }
   }
 }

@@ -7,33 +7,145 @@ accept a suggestion.
 ## Whitelist candidates
 
 ```yaml
-- url: "https://lagerhauskino.pfaffenwinkel.net"
-  note: "Lagerhaus-Kino Schongau – Programm (0 hits, rated 5/5)"
+- url: "https://www.plantsch.de/service/veranstaltungen/"
+  note: "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen (5 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
-  note: "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de) (0 hits, rated 5/5)"
+  note: "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de) (4 hits, rated 5/5)"
+  places: ["Schongau"]
+- url: "https://lagerhauskino.pfaffenwinkel.net"
+  note: "Lagerhaus-Kino Schongau – Programm (1 hits, rated 5/5)"
   places: ["Schongau"]
 - url: "https://www.pg-schongau.com/"
-  note: "Pfarreiengemeinschaft Schongau (kath.) (0 hits, rated 4/5)"
+  note: "Pfarreiengemeinschaft Schongau (kath.) (1 hits, rated 4/5)"
   places: ["Schongau"]
-- url: "https://www.plantsch.de/service/veranstaltungen/"
-  note: "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen (0 hits, rated 4/5)"
+- url: "http://www.kolpingsfamilie-schongau.de/termine"
+  note: "Kolpingsfamilie Schongau – Termine (0 hits, rated 5/5)"
+  places: ["Schongau"]
+- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo"
+  note: "Stadt Schongau Veranstaltungskalender (RCE-Event backend, print list) (0 hits, rated 5/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+  note: "EA Schongau Mammuts – 1. Mannschaft Spielplan (Bayernliga 2026/27) (0 hits, rated 5/5)"
+  places: ["Schongau"]
+- url: "http://veranstaltungen.pfaffen-winkel.de/region/"
+  note: "Tourismusverband Pfaffenwinkel – regional calendar (0 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://seniorenbeirat-schongau.de/"
+  note: "Seniorenbeirat Schongau (0 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
+  note: "Stadt Schongau – Themenführungen (Tourist Information) (0 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen"
+  note: "Stadt Schongau – Museumsführungen Stadtmuseum (0 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://www.schwarz-gelb-schongau.de"
+  note: "SKK Schwarz-Gelb Schongau (Kegeln) (0 hits, rated 4/5)"
   places: ["Schongau"]
 ```
 
 ## Blacklist candidates
 
 ```yaml
+- domain: "altlandkreis.biz"
+  reason: "Calendar widget showed no events; same magazine as the known altlandkreis.de (rated 1)."
+- domain: "altlandkreis.de"
+  reason: "SSL error on both http and https. The magazine once had a two-month event calendar, but only 2015–2017 issues were found (on yumpu)."
+- domain: "ausflugsziele.jetzt"
+  reason: "Generic aggregator with contradictory opening hours and nothing specific to Schongau events."
+- domain: "brk-schongau.de"
+  reason: "Self-signed certificate, not readable."
+- domain: "deutsche-weihnachtsmaerkte.de"
+  reason: "Fetch returned a 307 redirect; aggregator with unverified dates."
+- domain: "developer.songkick.com"
+  reason: "Mirror of songkick.com, which is already rated 1; duplicate, thin listings."
+- domain: "eltern-aktuell.de"
+  reason: "Linked in the schongau.de directory as Eltern-Treff Schongau, but it is a generic parenting magazine with no local events."
+- domain: "eventbrite.de"
+  reason: "Returns HTTP 405, and search results point to mostly unrelated or online events."
+- domain: "fcg-schongau.de"
+  reason: "Certificate error, not readable; search snippet says the church is still being founded (Schongau/Peiting)."
+- domain: "fotoclub-schongau.de"
+  reason: "Only weekly club evenings (in Peiting); no public dated events."
+- domain: "historischer-verein-schongau.de"
+  reason: "Latest entry 14.12.2025; no current events."
 - domain: "kino.de"
-  reason: "Lagerhauskino page lists no showtimes, which is misleading for this small cinema."
-- domain: "liccambra.org"
-  reason: "Unrelated domain that showed up in searches with a 'Stadtfest Schongau 2026' page; looks like copied/SEO content; the page could not be opened (403)."
+  reason: "No showtimes, only general film teasers; use the cinema's own page instead."
+- domain: "lechscouts.de"
+  reason: "TLS certificate mismatch, not readable."
+- domain: "lechwaerts.de"
+  reason: "Placeholder page 'coming soon'."
+- domain: "localcities.ch"
+  reason: "Covers Schongau LU (Switzerland), not Schongau in Bavaria; it is a frequent false hit."
+- domain: "messen.de"
+  reason: "Only lists the Ausbildungsmesse (March 2027)."
+- domain: "mvp.de"
+  reason: "Generic Bavaria list with no Schongau events on page 1."
+- domain: "news.de"
+  reason: "Auto-generated 'Veranstaltungen im Landkreis' articles that mix in events from other regions (Oberhausen NRW) and have no real Schongau events."
+- domain: "opac.winbiap.net"
+  reason: "buecherei-muenztor.de redirects here; the page is behind a BunkerWeb bot challenge and no event listing could be seen."
+- domain: "ov-schongau.thw.de"
+  reason: "Blocked by Anubis bot protection; only internal duty plans seen as PDF."
+- domain: "pg-schongau.com"
+  reason: "Kirchenchor, orchestra, Turmbläser described; no dates."
+- domain: "romantischestrasse.de"
+  reason: "Only a generic Weihnachtsmarkt Schongau entry without a date."
 - domain: "schongau.ch"
-  reason: "Swiss municipality Schongau (LU) with the same name; its events are not in Bavaria. Do not mix the two up."
+  reason: "Swiss municipality of the same name; not relevant."
+- domain: "schongau.de"
+  reason: "A fetch shows only Tourist-Info contact details and no events, because the embed loads with JavaScript. /de/Schongau-erleben/Veranstaltungskalender is likewise only an intro text with a poster."
+- domain: "schongauer-sommer.de"
+  reason: "Historischer Markt discontinued; no dates, © 2025."
 - domain: "songkick.com"
-  reason: "Very incomplete aggregator; mixes venues and dates, including past ones."
+  reason: "Shows 0 upcoming events."
 - domain: "stadtkapelle-schongau.de"
-  reason: "Termine page shows 'Keine Veranstaltungen'; has an iCal link."
+  reason: "Rating confirmed: 'Keine Veranstaltungen'; has an iCal feed that might hold entries."
+- domain: "stadtmuseum-sog.de"
+  reason: "No events; newest item from August 2024."
+- domain: "stellenmarkt.de"
+  reason: "Job listings that show up for event searches. No events."
+- domain: "swissactivities.com"
+  reason: "Its 'Schongau' events refer to the Swiss Schongau."
+- domain: "tc-schongau.de"
+  reason: "News only (Sommerfest, Hallenabos); no event calendar."
 - domain: "theaterverein-treibhaus.de"
   reason: "Overview of past productions only; festival play planned for summer 2027 but no dates yet."
+- domain: "wasserwacht-schongau.de"
+  reason: "TLS certificate mismatch, not readable."
+- domain: "weihnachtsmarkt-magazin.de"
+  reason: "Copied template listings with content from another town (Altenburg photos and labels on the Schongau page); dates cannot be trusted."
+- domain: "weilheim-schongau.bund-naturschutz.de"
+  reason: "Meetings 'bei Bedarf'; no dates."
+- domain: "weilheim-schongau.de"
+  reason: "Fetch returns only the page title, so it is probably a JavaScript embed of the Pfaffenwinkel RCE calendar. Use pfaffen-winkel instead."
 ```
+
+## Coverage
+
+What the discovery passes searched for, per municipality. `nothing_found` and `not_checked` are the gaps worth a manual look.
+
+### Schongau
+
+| Pass | Category | Result | Note |
+| --- | --- | --- | --- |
+| official | event calendar of the municipality | found | City calendar on schongau.de is loaded with JavaScript. The usable URL is the RCE-Event output id=1246 (current, text). |
+| official | tourist office and regional tourism calendars | found | Tourismusverband Pfaffenwinkel (veranstaltungen.pfaffen-winkel.de/schongau/ and /region/) is current and rated 5. Romantische Straße has nothing usable. |
+| official | regional event calendars and aggregators | found | erlebe.bayern mirrors the RCE data. meinestadt, eventfinder, regioactive, mvp, songkick and news.de are weak or blocked. freizeitmonster is only useful for Christmas markets. |
+| official | local newspapers and their event pages | found | Merkur/Schongauer Nachrichten is blocked and Kreisbote has no calendar, so both are rated 2. The altlandkreis magazine site is unreachable. |
+| official | club directory | found | schongau.de/de/Mein-Schongau/Vereine has about 74 clubs A–Z. The Landkreis has only 'Vereinsporträts'. |
+| clubs | sports clubs | found | EA Mammuts ice hockey schedule (5) and SKK Kegeln (4) are good; TSV, its football department, Ski-Club, DAV, TC and Segelclub are weak. |
+| clubs | music: brass bands, choirs, music societies | found | Vivace (3), Wieskonzerte (3), Musikschule (3); Chor der Stadt and Stadtkapelle have no dates. |
+| clubs | traditional costume, marksmen and folk clubs | found | Schlossbergler PDF calendar only (2); no website found for the marksmen clubs. |
+| clubs | fire brigade and charitable organisations | found | Lions (2) is weak; BRK, Wasserwacht and THW sites unreadable; the fire brigade source is already known (2). |
+| clubs | Catholic and Protestant parishes, free churches | found | Kolping (5); PG dates in PDFs; FeG calendar didn't render; the Protestant sources are already known. |
+| clubs | youth centre, youth and senior groups, family centres | found | Seniorenbeirat (4); Juze has no events; no family centre found. |
+| clubs | theatre groups, culture and history societies | found | Schongau belebt (3); Historischer Verein outdated, Lechwärts a placeholder, Theaterstadl has no website, LiccAmbra blocked. |
+| venues | cultural centres, stages, music clubs and concert venues | found | Ballenhaus has no programme of its own (organisers LiccAmbra, Lechwärts, Tango Oberland, Tropfen); Reaktor already known; Brauhaus programme only as images. |
+| venues | cinema and theatre programmes | found | Lagerhauskino already known (5/5); kinofans copy is weak; Treibhaus festival play 2027 via tickets.item-events.de. |
+| venues | museums, library, vhs, music school | found | The city's museum-tour page has dates as text; Stadtmuseum site has no events; library has no event page; vhs and Musikschule already known. |
+| venues | swimming pools, ice rinks and leisure facilities | found | Plantsch already known (4/5); no stadium event page found; city guided tours are a usable leisure source. |
+| venues | inns, breweries, cafés, bars and farms with events | found | Schongauer Brauhaus is active (images plus Reservix shop); no other café or bar with an event listing found (Café Alte Post, Evis Treff have none). |
+| venues | annual events: Christmas market, carnival, folk and town festivals | found | Christmas market only via aggregators (4.–20.12.2026); city Advent tours listed; nothing found for carnival or a town festival; Historischer Markt already known. |
+| venues | markets: weekly market, flea markets, craft markets | **nothing found** | City Feste-Märkte page returns 404; no weekly-market or flea-market organiser page found; one flea market (Festplatz, Oct 2026) only on eventfinder. |
