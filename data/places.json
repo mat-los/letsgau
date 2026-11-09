@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fingerprint": "sha256:89db14d8b1ab7bc7",
+  "generated_at": "2026-11-09T07:33:12Z",
+  "center": {
+    "lat": 47.811,
+    "lon": 10.896
+  },
+  "drive_time_minutes": 5,
+  "place_types": [
+    "city",
+    "town",
+    "village"
+  ],
+  "include_places": [],
+  "exclude_places": [],
+  "places": [
+    {
+      "name": "Schongau",
+      "osm_id": "node/2664960796",
+      "place_type": "town",
+      "lat": 47.8118973,
+      "lon": 10.8972133,
+      "drive_time_minutes": 2.6,
+      "distance_km": 0.6,
+      "origin": "area",
+      "municipality": "Schongau"
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-09T07:38:06Z",
+  "sources": [
+    {
+      "url": "https://eeb-oberland.de/programm/evang-luth-kirchengemeinde-schongau",
+      "domain": "eeb-oberland.de",
+      "name": "Evang. Erwachsenenbildung Oberland – Programm KG Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Only one event listed (Gemeindenachmittag 26.11.); entries have no year.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+      "domain": "evangelische-termine.de",
+      "name": "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 5,
+      "update_frequency": "weekly",
+      "note": "Full parish calendar as text with date, time and room; also includes ecumenical dates in Peiting/Altenstadt; shows only about two weeks ahead.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 4,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://feuerwehr-schongau.de/aktuelles/",
+      "domain": "feuerwehr-schongau.de",
+      "name": "Freiwillige Feuerwehr Schongau – Aktuelles",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Reports and callouts; occasionally announces public dates (e.g. anniversary, taster training); no Termine page.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kino.de/kinoprogramm/stadt/schongau/kino/das-lagerhauskino/",
+      "domain": "kino.de",
+      "name": "kino.de – Lagerhauskino",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "No showtimes, only general film teasers; use the cinema's own page instead.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kreisbote.de/lokales/schongau/",
+      "domain": "kreisbote.de",
+      "name": "Kreisbote – Lokales Schongau",
+      "kind": "press",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Local news with occasional event previews, often without exact dates in the teaser; no events page.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://lagerhauskino.pfaffenwinkel.net",
+      "domain": "lagerhauskino.pfaffenwinkel.net",
+      "name": "Lagerhaus-Kino Schongau – Programm",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 5,
+      "update_frequency": "weekly",
+      "note": "Cinema's own schedule as text, running 9.11.–2.12.2026 (also available as a PDF); lagerhauskino.de fails with an SSL error.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.pg-schongau.com/",
+      "domain": "pg-schongau.com",
+      "name": "Pfarreiengemeinschaft Schongau (kath.)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "weekly",
+      "note": "Front-page news posts carry dates as text; the weekly Kirchenanzeiger and the 'Termine' page are PDFs only; /aktuelles-termine/ is empty ('erscheinen demnächst').",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.plantsch.de/service/veranstaltungen/",
+      "domain": "plantsch.de",
+      "name": "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Pool/sauna events as text through Dec 2026 (sauna nights, ice-skating school, 25th anniversary on 6.12.); many repeating entries.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 5,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
+      "domain": "rce-event.de",
+      "name": "Event calendar print list (RCE event, id 1246); session parameter RCEID removed",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "whitelist",
+      "status": "active",
+      "rating": null,
+      "update_frequency": "unknown",
+      "note": "",
+      "first_seen": "2026-11-09",
+      "last_checked": null,
+      "hits": 8,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.reaktor-sog.de/",
+      "domain": "reaktor-sog.de",
+      "name": "Reaktor Schongau (Kulturzentrum/Club)",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Concerts and parties listed, but dates only in poster images or via ticket links.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://schlossbergler.de/aktuelles/",
+      "domain": "schlossbergler.de",
+      "name": "Trachtenverein Schloßbergler Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Mostly reports after events (latest 27.10.2026); the club's dates are only in the PDF Vereinstermine2026.pdf.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau-evangelisch.de/",
+      "domain": "schongau-evangelisch.de",
+      "name": "Ev.-Luth. Kirchengemeinde Schongau – Website",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "No events page; dates appear only inside individual posts. The evangelische-termine.de feed covers the same dates better.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/veranstaltungen",
+      "domain": "schongau.de",
+      "name": "City of Schongau (calendar is loaded with JavaScript; kept for its links)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "whitelist",
+      "status": "active",
+      "rating": null,
+      "update_frequency": "unknown",
+      "note": "",
+      "first_seen": "2026-11-09",
+      "last_checked": null,
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.stadtkapelle-schongau.de/stadtkapelle-schongau/termine/",
+      "domain": "stadtkapelle-schongau.de",
+      "name": "Stadtkapelle Schongau – Termine",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Termine page shows 'Keine Veranstaltungen'; has an iCal link.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.theaterverein-treibhaus.de/theateruebersicht",
+      "domain": "theaterverein-treibhaus.de",
+      "name": "Theaterverein Treibhaus Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Overview of past productions only; festival play planned for summer 2027 but no dates yet.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://veranstaltungen.erlebe.bayern/schongau/",
+      "domain": "veranstaltungen.erlebe.bayern",
+      "name": "erlebe.bayern Veranstaltungskalender – Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Paginated with os=20, runs on RCE-Event; very likely the same data as the known schongau.de/rce-event calendar, so use it only as a fallback.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Veranstaltungen Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Current, but mostly events from the wider region (Kaufbeuren, Herrsching, Füssen); Schongau entries are rare and mostly copied from evangelische-termine.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+      "domain": "veranstaltungen.pfaffen-winkel.de",
+      "name": "Pfaffenwinkel tourism calendar, one page per municipality, paginated with ?os=12, ?os=24",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "whitelist",
+      "status": "active",
+      "rating": null,
+      "update_frequency": "unknown",
+      "note": "",
+      "first_seen": "2026-11-09",
+      "last_checked": null,
+      "hits": 10,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.vhs-pfaffenwinkel.de/vhs-schongau",
+      "domain": "vhs-pfaffenwinkel.de",
+      "name": "vhs Pfaffenwinkel – Außenstelle Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "Course list paginated over 4 pages, mostly courses rather than one-off events; vhs-schongau.de redirects here.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    }
+  ]
+}

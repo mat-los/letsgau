@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "geo_fingerprint": "sha256:89db14d8b1ab7bc7",
+  "force_discovery": false,
+  "last_run": {
+    "geo": "2026-11-09T07:32:33Z",
+    "discovery": "2026-11-09T07:32:33Z",
+    "events": "2026-11-09T07:32:33Z",
+    "build": "2026-11-09T07:32:33Z"
+  },
+  "last_usage": {
+    "events": {
+      "requests": 1,
+      "web_searches": 3,
+      "web_fetches": 0,
+      "input_tokens": 260694,
+      "output_tokens": 36242,
+      "cost_usd": 0.0,
+      "duration_s": 97.8
+    }
+  }
+}
