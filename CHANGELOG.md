@@ -26,6 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (program items as `subEvent`), `llms.txt`, public `data/events.json`,
   iCalendar feeds per language, `sitemap.xml` with hreflang, `robots.txt`
   allowing AI crawlers, Open Graph and description per day.
+- Phase 8 content and wrap-up: content pages from `instance/content/`
+  (about, "Why is my event not here?", imprint, privacy) in DE and EN with
+  values filled from the config and `[TODO]` markers listed by `letsgau check`;
+  feedback page (form service or `mailto:` fallback, honeypot, link to the issue
+  forms); changelog page; `CNAME` from `base_url`; `letsgau init` creates a
+  fresh instance from `examples/instance/` (interactive or with options).
 - Phase 4 website (`letsgau run --job build`): day pages DE/EN for
   `display_days` with coverage sentence, quick links, date bar with counts,
   sections (all day collapsed, morning, afternoon, evening), expandable events
@@ -40,8 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   cancellations and postponements from the crawl, cleanup; merge summary in the
   log (also with `--dry-run`). AI steps can run without web tools.
 - Whitelist URL templates with `{municipality_slug}` (one URL per municipality)
-  and `letsgau sources [--check]`; the Pfaffenwinkel tourism calendar is added
-  for every municipality, Reaktor is removed (events only as flyer images).
+  and `letsgau sources [--check]` (instance whitelist updated accordingly).
 
 - Phase 2 event crawl (`letsgau run --job events`): places in batches of
   `places_per_request`, one AI call per batch with `prompts/events.md`, answers
@@ -60,7 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Places get their `municipality` (OSM `admin_level=8`) in the geo stage; the
   crawl batches by municipality (districts like Herzogsägmühle are searched
   with Peiting), `--limit-places` counts municipalities.
-- Whitelist: Reaktor (reaktor-sog.de) and the RCE event print list for Schongau.
 - Workflow `crawl-check.yml`: live dry run of the crawl on GitHub Actions with
   the `CLAUDE_CODE_OAUTH_TOKEN` secret; `LETSGAU_RECORD_DIR` saves raw answers.
 

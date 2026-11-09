@@ -10,8 +10,9 @@ searches the web, results are stored as JSON and rendered to static HTML on
 GitHub Pages. The site is equally usable by people on their phones, by search
 engines and by AI assistants.
 
-> **Status:** all pipeline stages exist: geo, event crawl, merge and the static
-> website; see [docs/ISSUES.md](docs/ISSUES.md) for what is done.
+> **Status:** all phases of version 1 are implemented (geo, event crawl, merge,
+> website, AI readability, scheduler and workflow, discovery, content pages);
+> see [docs/ISSUES.md](docs/ISSUES.md).
 > See [docs/CONCEPT.md](docs/CONCEPT.md) (German) for the full specification and
 > the phase plan, and [docs/ISSUES.md](docs/ISSUES.md) for the task list.
 
@@ -33,17 +34,58 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Set up your own region
 
-The full step-by-step guide is completed in Phase 8. The intended flow is:
+1. **Fork** this repository on GitHub (only `main` is copied; the original
+   region's data stays on its `data` branch).
+2. **Configure** your region on your computer (Python 3.12+):
 
-1. **Fork** this repository.
-2. **Secrets:** add `CLAUDE_CODE_OAUTH_TOKEN` (or `ANTHROPIC_API_KEY` with
-   `ai.auth: api_key`) and `ORS_API_KEY` (free key from
-   [account.heigit.org](https://account.heigit.org)) under *Settings → Secrets and
-   variables → Actions*.
-3. **Configure:** run `letsgau init` (or edit `instance/config.yaml`) with your
-   center, drive time, name, domain, contact and GitHub owner.
-4. **Enable GitHub Pages** with source *GitHub Actions*.
-5. **Start the first run** via *Actions → Run → Run workflow*.
+   ```bash
+   git clone https://github.com/<you>/letsgau && cd letsgau
+   ```
+
+   ```bash
+   pip install -e .
+   ```
+
+   ```bash
+   python -m letsgau init
+   ```
+
+   `init` asks for the center (name, latitude, longitude), drive time, site
+   name, public URL, contact email and your GitHub user name, and replaces
+   `instance/` with fresh files. Then fill the `[TODO]` markers in
+   `instance/content/` (about text, imprint) and check everything:
+
+   ```bash
+   python -m letsgau check
+   ```
+
+   Commit and push `instance/`.
+3. **Secrets:** under *Settings → Secrets and variables → Actions* add
+   `ORS_API_KEY` (free key from [account.heigit.org](https://account.heigit.org))
+   and `CLAUDE_CODE_OAUTH_TOKEN` (create it with `claude setup-token`; needs a
+   Claude subscription). Without a subscription set `ai.auth: api_key` and add
+   `ANTHROPIC_API_KEY` instead.
+4. **Enable GitHub Pages:** *Settings → Pages → Source: GitHub Actions*.
+5. **Start the first run:** *Actions → Run → Run workflow*, job `all`. It
+   computes the places, discovers sources, crawls the events and publishes the
+   site. From then on the workflow runs every morning and does only what is due.
+
+### Start a job by hand
+
+*Actions → Run → Run workflow* lets you pick `auto`, `geo`, `discovery`,
+`events`, `build` or `all` (also from the GitHub mobile app). Details, costs and
+debugging: [docs/OPERATIONS.md](docs/OPERATIONS.md).
+
+### Use your own domain
+
+1. Set `site.base_url` in `instance/config.yaml` to your domain, e.g.
+   `https://events.example.org`. The build then writes `site/CNAME`
+   automatically (not for `*.github.io` addresses).
+2. At your DNS provider create a `CNAME` record for `events.example.org`
+   pointing to `<you>.github.io` (for an apex domain like `example.org`, use
+   the GitHub Pages `A`/`AAAA` records instead).
+3. In *Settings → Pages* enter the domain under *Custom domain* and enable
+   *Enforce HTTPS* once the certificate is ready.
 
 ## Local development
 
@@ -79,12 +121,22 @@ Compute the places within the drive time (needs `ORS_API_KEY` in `.env`):
 python -m letsgau run --job geo --dry-run
 ```
 
-Crawl events for the three nearest places without writing anything (needs
+Crawl events for the three nearest municipalities without writing anything (needs
 `data/places.json` and `CLAUDE_CODE_OAUTH_TOKEN` or, with `ai.auth: api_key`,
 `ANTHROPIC_API_KEY`):
 
 ```bash
 python -m letsgau run --job events --dry-run --limit-places 3
+```
+
+Build the website from `data/` and look at it:
+
+```bash
+python -m letsgau run --job build
+```
+
+```bash
+python -m http.server --directory site
 ```
 
 ## Repository layout

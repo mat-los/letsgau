@@ -107,7 +107,9 @@ def test_ics_feed(site: Path) -> None:
 
 def test_sitemap_and_robots(site: Path) -> None:
     sitemap = (site / "sitemap.xml").read_text(encoding="utf-8")
-    assert sitemap.count("<url>") == 42  # 21 days x 2 languages
+    assert sitemap.count("<url>") == 52  # (21 days + 4 content pages + feedback) x 2 languages
+    assert "<loc>https://letsgau.de/de/impressum/</loc>" in sitemap
+    assert 'hreflang="en" href="https://letsgau.de/en/imprint/"' in sitemap
     assert (
         '<xhtml:link rel="alternate" hreflang="en" href="https://letsgau.de/en/2026-11-14/"/>'
         in sitemap

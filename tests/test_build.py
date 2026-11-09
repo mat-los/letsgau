@@ -120,7 +120,7 @@ def test_day_view_nests_program_items(events: list[Event]) -> None:
 
 def test_pages_for_21_days_in_both_languages(site: Path) -> None:
     for lang in ("de", "en"):
-        days = sorted(p.name for p in (site / lang).iterdir() if p.is_dir())
+        days = sorted(p.name for p in (site / lang).iterdir() if p.is_dir() and p.name[0] == "2")
         assert len(days) == 21
         assert days[0] == "2026-11-13" and days[-1] == "2026-12-03"
         assert (site / lang / "index.html").exists()

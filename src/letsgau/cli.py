@@ -77,7 +77,17 @@ def _build_parser() -> argparse.ArgumentParser:
         help="places file used to expand templates (default: data/places.json)",
     )
 
-    sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
+    init = sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
+    init.add_argument("--label", help="name of the center, e.g. Murnau")
+    init.add_argument("--lat", type=float, help="latitude of the center")
+    init.add_argument("--lon", type=float, help="longitude of the center")
+    init.add_argument("--minutes", type=int, help="drive time in minutes (default 30)")
+    init.add_argument("--name", help="site name")
+    init.add_argument("--base-url", help="public URL of the site")
+    init.add_argument("--contact", help="contact email")
+    init.add_argument("--owner", help="GitHub owner of the repository")
+    init.add_argument("--target", type=Path, default=Path("instance"), help=argparse.SUPPRESS)
+    init.add_argument("--yes", action="store_true", help="replace instance/ without asking")
     return parser
 
 
@@ -86,6 +96,10 @@ def _cmd_check(config_path: Path) -> int:
     placeholders = find_placeholders(config_path.read_text(encoding="utf-8"))
     for line, token in placeholders:
         print(f"warning: {config_path}:{line}: unfilled placeholder {token}", file=sys.stderr)
+    content_dir = config_path.parent / "content"
+    if content_dir.is_dir():
+        for name, todo in build.content_todos(config, content_dir):
+            print(f"warning: {content_dir / name}: {todo}", file=sys.stderr)
     print(
         f"OK: {config_path} is valid ({config.region.label}, "
         f"{config.region.drive_time_minutes} min drive time, "
@@ -161,7 +175,24 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.command == "sources":
             return _cmd_sources(args.config, args.places, args.check)
         if args.command == "init":
-            init_cmd.run()
+            values = {
+                key: getattr(args, key)
+                for key in (
+                    "label",
+                    "lat",
+                    "lon",
+                    "minutes",
+                    "name",
+                    "base_url",
+                    "contact",
+                    "owner",
+                )
+            }
+            try:
+                init_cmd.run(values, target=args.target, yes=args.yes)
+            except init_cmd.InitError as exc:
+                print(f"error: init: {exc}", file=sys.stderr)
+                return 1
             return 0
     except ConfigError as exc:
         print(f"error: invalid configuration in {exc.path}", file=sys.stderr)

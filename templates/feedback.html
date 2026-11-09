@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="page">
+<h1>{{ title }}</h1>
+{{ intro | safe }}
+{% if endpoint %}
+<form method="post" action="{{ endpoint }}" accept-charset="utf-8">
+  <label for="kind">{{ t('fb_kind') }}</label>
+  <select id="kind" name="kind" required>
+    {% for kind in kinds %}<option value="{{ kind }}">{{ t('fb_' ~ kind) }}</option>{% endfor %}
+  </select>
+  <label for="message">{{ t('fb_message') }}</label>
+  <textarea id="message" name="message" rows="6" required></textarea>
+  <label for="email">{{ t('fb_email') }}</label>
+  <input id="email" name="email" type="email" autocomplete="email">
+  <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+  <input type="hidden" name="page" value="{{ lang }}/feedback">
+  <button type="submit">{{ t('fb_send') }}</button>
+</form>
+{% else %}
+<ul>
+  {% for kind in kinds %}<li><a href="mailto:{{ config.site.contact_email }}?subject={{ (config.site.name ~ ': ' ~ t('fb_' ~ kind)) | urlencode }}">{{ t('fb_' ~ kind) }}</a></li>{% endfor %}
+</ul>
+{% endif %}
+<p>{{ t('fb_github') }} <a href="{{ repo_url }}/issues/new/choose" rel="noopener">GitHub</a></p>
+</article>
+{% endblock %}

@@ -226,23 +226,24 @@ wrong or outdated. Please check with the organizer before you go.
 """
 
 
-def sitemap(site: Site, extra_paths: Sequence[str] = ()) -> str:
+def sitemap(site: Site, extra_pages: Sequence[dict[str, str]] = ()) -> str:
+    """All day pages plus ``extra_pages`` (lang -> path below the language, e.g. ``impressum/``)."""
     base = site.config.site.base_url.rstrip("/")
     langs = site.config.site.languages
-    paths = [f"{d.isoformat()}/" for d in site.days] + list(extra_paths)
+    days = [{lang: f"{d.isoformat()}/" for lang in langs} for d in site.days]
+    pages = days + list(extra_pages)
     out = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         'xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
     lastmod = site.generated_at.date().isoformat()
-    for path in paths:
+    for page in pages:
         for lang in langs:
-            out.append(
-                f"  <url><loc>{escape(f'{base}/{lang}/{path}')}</loc><lastmod>{lastmod}</lastmod>"
-            )
+            loc = escape(f"{base}/{lang}/{page[lang]}")
+            out.append(f"  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod>")
             for other in langs:
-                href = escape(f"{base}/{other}/{path}")
+                href = escape(f"{base}/{other}/{page[other]}")
                 out.append(f'    <xhtml:link rel="alternate" hreflang="{other}" href="{href}"/>')
             out.append("  </url>")
     out.append("</urlset>")
@@ -257,7 +258,10 @@ def robots_txt(site: Site) -> str:
 
 
 def write_all(
-    site: Site, site_dir: Path, coverage: dict[str, str], extra_paths: Sequence[str] = ()
+    site: Site,
+    site_dir: Path,
+    coverage: dict[str, str],
+    extra_pages: Sequence[dict[str, str]] = (),
 ) -> None:
     data_dir = site_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
@@ -272,5 +276,5 @@ def write_all(
         ics(site, site.config.default_language), encoding="utf-8", newline=""
     )
     (site_dir / "llms.txt").write_text(llms_txt(site, coverage), encoding="utf-8")
-    (site_dir / "sitemap.xml").write_text(sitemap(site, extra_paths), encoding="utf-8")
+    (site_dir / "sitemap.xml").write_text(sitemap(site, extra_pages), encoding="utf-8")
     (site_dir / "robots.txt").write_text(robots_txt(site), encoding="utf-8")

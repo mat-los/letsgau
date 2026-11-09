@@ -17,7 +17,9 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
+import sys
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
@@ -200,7 +202,8 @@ class Site:
     days: list[date]
     generated_at: datetime
     content_pages: dict[str, dict[str, str]] = field(default_factory=dict)
-    """lang -> slug -> title of the content pages (Phase 8)."""
+    """lang -> path -> title of the content pages, in footer order."""
+    warnings: list[str] = field(default_factory=list)
 
     def drive_time(self, place: str) -> float | None:
         if not self.places:
@@ -328,8 +331,11 @@ def build(
     data_dir: Path = DATA_DIR,
     site_dir: Path = SITE_DIR,
     now: datetime | None = None,
+    content_dir: Path | None = None,
+    changelog: Path | None = None,
 ) -> Site:
     """Render the whole site into ``site_dir`` (replacing it)."""
+    content_dir = content_dir or CONTENT_DIR
     now = (now or datetime.now(UTC)).replace(microsecond=0)
     today = local_today(config, now)
     site = Site(
@@ -341,6 +347,20 @@ def build(
         generated_at=now,
     )
     env = make_env()
+    pages = load_content(config, content_dir)
+    nav = {
+        "about": "nav_about",
+        "missing-event": "nav_missing",
+        "imprint": "nav_imprint",
+        "privacy": "nav_privacy",
+    }
+    for page in pages:
+        label = Texts(load_i18n(page.lang))(nav[page.name]) if page.name in nav else page.title
+        site.content_pages.setdefault(page.lang, {})[page.path] = label
+    for lang in config.site.languages:
+        t = Texts(load_i18n(lang))
+        site.content_pages.setdefault(lang, {})[FEEDBACK_PATH] = t("nav_feedback")
+        site.content_pages[lang]["changelog"] = t("nav_changelog")
     if site_dir.exists():
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True)
@@ -362,10 +382,175 @@ def build(
             langs=config.site.languages, default=config.default_language, site=site
         ),
     )
+    for page in pages:
+        write(site_dir / page.lang / page.path / "index.html", render_content(env, site, page))
+    intros = {p.lang: p for p in load_content(config, content_dir, only=("feedback",))}
+    for lang in config.site.languages:
+        write(
+            site_dir / lang / FEEDBACK_PATH / "index.html",
+            render_feedback(env, site, lang, intros.get(lang)),
+        )
+        write(
+            site_dir / lang / "changelog" / "index.html",
+            render_changelog(env, site, lang, changelog or REPO_ROOT / "CHANGELOG.md"),
+        )
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
+    cname = custom_domain(config.site.base_url)
+    if cname:
+        (site_dir / "CNAME").write_text(cname + "\n", encoding="utf-8")
     coverage = {lang: base_context(site, lang, 0)["coverage"] for lang in config.site.languages}
-    feeds.write_all(site, site_dir, coverage)
+    by_name: dict[str, dict[str, str]] = {}
+    for page in pages:
+        by_name.setdefault(page.name, {})[page.lang] = f"{page.path}/"
+    extra = [paths for paths in by_name.values() if len(paths) == len(config.site.languages)]
+    extra.append({lang: f"{FEEDBACK_PATH}/" for lang in config.site.languages})
+    feeds.write_all(site, site_dir, coverage, extra)
+    for warning in site.warnings:
+        print(f"warning: build: {warning}", file=sys.stderr)
     return site
+
+
+# --- content pages (Phase 8) -------------------------------------------------------------
+
+CONTENT_DIR = Path("instance/content")
+CONTENT_PAGES = {  # page name -> path per language
+    "about": {"de": "about", "en": "about"},
+    "missing-event": {"de": "fehlt-mein-event", "en": "missing-event"},
+    "imprint": {"de": "impressum", "en": "imprint"},
+    "privacy": {"de": "datenschutz", "en": "privacy"},
+}
+FEEDBACK_PATH = "feedback"
+TODO_RE = re.compile(r"\[TODO:[^\]]*\]")
+
+
+@dataclass
+class ContentPage:
+    name: str
+    lang: str
+    path: str
+    title: str
+    html: str
+    todos: list[str]
+
+
+def content_context(config: Config) -> dict[str, Any]:
+    repo = os.environ.get("GITHUB_REPOSITORY") or f"{config.site.owner}/letsgau"
+    return {
+        "site_name": config.site.name,
+        "region_label": config.region.label,
+        "drive_time_minutes": config.region.drive_time_minutes,
+        "display_days": config.window.display_days,
+        "contact_email": config.site.contact_email,
+        "base_url": config.site.base_url.rstrip("/"),
+        "repo_url": f"https://github.com/{repo}",
+        "feedback_endpoint": config.site.feedback_form_endpoint,
+    }
+
+
+def render_markdown(text: str, config: Config) -> tuple[str, str, list[str]]:
+    """Fill config values (Jinja) and convert to HTML; returns (title, html, todos)."""
+    import markdown
+
+    filled = Environment(undefined=StrictUndefined, autoescape=False).from_string(text)
+    body = filled.render(**content_context(config)).strip()
+    title = ""
+    if body.startswith("# "):
+        first, _, body = body.partition("\n")
+        title = first[2:].strip()
+    html = markdown.markdown(body, extensions=["extra", "sane_lists"], output_format="html")
+    return title, html, TODO_RE.findall(body)
+
+
+def load_content(
+    config: Config, content_dir: Path, only: Sequence[str] | None = None
+) -> list[ContentPage]:
+    """Content pages that exist for the configured languages."""
+    names = only or list(CONTENT_PAGES)
+    pages: list[ContentPage] = []
+    for name in names:
+        for lang in config.site.languages:
+            path = content_dir / f"{name}.{lang}.md"
+            if not path.exists():
+                continue
+            text = path.read_text(encoding="utf-8")
+            title, html, todos = render_markdown(text, config)
+            slug = CONTENT_PAGES.get(name, {}).get(lang, name)
+            pages.append(ContentPage(name, lang, slug, title or name, html, todos))
+    return pages
+
+
+def content_todos(config: Config, content_dir: Path = CONTENT_DIR) -> list[tuple[str, str]]:
+    """``[TODO: ...]`` markers left in the rendered content pages: (file name, marker)."""
+    names = [*CONTENT_PAGES, "feedback"]
+    return [
+        (f"{page.name}.{page.lang}.md", todo)
+        for page in load_content(config, content_dir, only=names)
+        for todo in page.todos
+    ]
+
+
+def custom_domain(base_url: str) -> str | None:
+    """Host for ``CNAME``, or ``None`` for ``*.github.io`` addresses."""
+    host = base_url.split("://", 1)[-1].split("/", 1)[0].lower()
+    if not host or host.endswith(".github.io") or "{" in host:
+        return None
+    return host
+
+
+def render_content(env: Environment, site: Site, page: ContentPage) -> str:
+    ctx = base_context(site, page.lang, depth=2)
+    if page.todos:
+        site.warnings.append(
+            f"{page.name}.{page.lang}.md still has {len(page.todos)} [TODO] marker(s)"
+        )
+    alternates = {
+        lang: CONTENT_PAGES.get(page.name, {}).get(lang, page.name)
+        for lang in site.config.site.languages
+    }
+    ctx.update(
+        title=page.title,
+        description=ctx["coverage"],
+        canonical=f"{page.lang}/{page.path}/",
+        alternates={lang: f"{lang}/{path}/" for lang, path in alternates.items()},
+        content=page.html,
+    )
+    return env.get_template("page.html").render(**ctx)
+
+
+FEEDBACK_KINDS = ("missing", "error", "idea")
+
+
+def render_feedback(env: Environment, site: Site, lang: str, intro: ContentPage | None) -> str:
+    ctx = base_context(site, lang, depth=2)
+    t: Texts = ctx["t"]
+    ctx.update(
+        title=intro.title if intro else t("nav_feedback"),
+        description=ctx["coverage"],
+        canonical=f"{lang}/{FEEDBACK_PATH}/",
+        alternates={other: f"{other}/{FEEDBACK_PATH}/" for other in site.config.site.languages},
+        intro=intro.html if intro else "",
+        endpoint=site.config.site.feedback_form_endpoint,
+        kinds=FEEDBACK_KINDS,
+        repo_url=content_context(site.config)["repo_url"],
+    )
+    return env.get_template("feedback.html").render(**ctx)
+
+
+def render_changelog(env: Environment, site: Site, lang: str, path: Path) -> str:
+    import markdown
+
+    ctx = base_context(site, lang, depth=2)
+    text = path.read_text(encoding="utf-8") if path.exists() else ""
+    text = re.sub(r"^# .*\n", "", text, count=1)
+    ctx.update(
+        title=ctx["t"]("nav_changelog"),
+        description=ctx["coverage"],
+        canonical=f"{lang}/changelog/",
+        alternates={other: f"{other}/changelog/" for other in site.config.site.languages},
+        intro=ctx["t"]("changelog_intro"),
+        content=markdown.markdown(text, extensions=["extra"], output_format="html"),
+    )
+    return env.get_template("page.html").render(**ctx)
 
 
 def run(

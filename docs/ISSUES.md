@@ -95,9 +95,9 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 8 – Content, domain, wrap-up
 
-- [ ] [#26](https://github.com/mat-los/letsgau/issues/26) About, "Why is my event not here?", imprint and privacy as DE and EN templates
-- [ ] [#27](https://github.com/mat-los/letsgau/issues/27) Custom domain described in README.md; CNAME generated from base_url
-- [ ] [#28](https://github.com/mat-los/letsgau/issues/28) A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
+- [x] [#26](https://github.com/mat-los/letsgau/issues/26) About, "Why is my event not here?", imprint and privacy as DE and EN templates
+- [x] [#27](https://github.com/mat-los/letsgau/issues/27) Custom domain described in README.md; CNAME generated from base_url
+- [x] [#28](https://github.com/mat-los/letsgau/issues/28) A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
 
 ### Backlog (label `backlog`, no milestone)
 
