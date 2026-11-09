@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `window.store_days` (default 180): events the AI sees anyway up to this far
+  ahead are kept instead of dropped; searching still stops at `crawl_days`,
+  the website still shows `display_days`, the feeds contain all events.
+- Flyer cache `data/flyers.json`: flyer files are fingerprinted (SHA-256) and
+  read by the AI only once; unchanged files reuse their stored events.
 - Merge: events with the same day, start time and place always go to the AI
   duplicate check (also when the titles share few words), including pairs
   already stored, which cleans up existing duplicates.

@@ -16,6 +16,7 @@ event crawl downloads the files here and lets the AI look at them
 
 from __future__ import annotations
 
+import hashlib
 import re
 import sys
 import urllib.error
@@ -50,6 +51,8 @@ class FlyerFile:
     path: Path
     url: str
     kind: str  # "image" | "pdf"
+    sha256: str = ""
+    """Fingerprint of the file contents (key of the flyer cache)."""
 
 
 def http_fetch(url: str, max_bytes: int) -> tuple[bytes, str]:
@@ -200,6 +203,8 @@ def collect(
                 warnings.append(f"{link}: {exc}")
                 continue
             file_kind = _kind(data, ctype, link)
+            if any(data == t[1] for t in targets):
+                continue  # the same file under another URL (e.g. og:image and <img>)
             if (file_kind == "image" and len(data) >= MIN_IMAGE_BYTES) or file_kind == "pdf":
                 targets.append((link, data, file_kind))
     else:
@@ -208,7 +213,8 @@ def collect(
     for number, (link, data, file_kind) in enumerate(targets[:max_files], 1):
         path = dest / f"{number:02d}{_ext(data, file_kind)}"
         path.write_bytes(data)
-        files.append(FlyerFile(path=path, url=link, kind=file_kind))
+        digest = hashlib.sha256(data).hexdigest()
+        files.append(FlyerFile(path=path, url=link, kind=file_kind, sha256=digest))
     if not files:
         warnings.append(f"{url}: no flyer images or PDFs found")
     return files, warnings

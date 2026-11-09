@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Annotated, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -216,11 +216,37 @@ class Event(_DataModel):
 
 
 class EventsFile(_DataModel):
-    """``data/events.json``: every event exactly once, from yesterday to ``crawl_days`` ahead."""
+    """``data/events.json``: every event exactly once, from yesterday to ``store_days`` ahead."""
 
     schema_version: Literal[1] = 1
     updated_at: datetime
     events: list[Event] = []
+
+
+# --- flyer cache -----------------------------------------------------------------------------
+
+
+class FlyerCacheEntry(_DataModel):
+    """What the AI read from one flyer file (image/PDF), keyed by the file's SHA-256."""
+
+    page_url: str
+    file_url: str
+    kind: Literal["image", "pdf"]
+    version: int
+    """Extraction version; entries of an older version are read again."""
+    first_seen: date
+    last_seen: date
+    """Last run in which the file was still on its page; old entries are dropped."""
+    events: list[dict[str, Any]] = []
+    """Raw event candidates as the AI answered them (validated again on every use)."""
+
+
+class FlyerCacheFile(_DataModel):
+    """``data/flyers.json``: flyer files already read, so unchanged files cost no AI call."""
+
+    schema_version: Literal[1] = 1
+    updated_at: datetime
+    files: dict[str, FlyerCacheEntry] = {}
 
 
 # --- sources (Phase 7) --------------------------------------------------------------------

@@ -51,6 +51,8 @@ from letsgau.models import (
     EventsFile,
     EventSource,
     EventStatus,
+    FlyerCacheEntry,
+    FlyerCacheFile,
     LocalizedText,
     Place,
     PlacesFile,
@@ -220,8 +222,11 @@ def _obj(properties: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def answer_schema(tag_ids: Sequence[str]) -> dict[str, Any]:
-    """JSON schema of one batch answer (strict: every field required, nulls allowed)."""
+def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str, Any]:
+    """JSON schema of one batch answer (strict: every field required, nulls allowed).
+
+    With ``files`` (flyer calls) every event also names the file it is printed on.
+    """
     text = _obj({"de": {"type": "string"}, "en": {"type": "string"}})
     day = {"type": "string", "format": "date"}
     tag = {"type": "string", "enum": list(tag_ids)}
@@ -268,6 +273,7 @@ def answer_schema(tag_ids: Sequence[str]) -> dict[str, Any]:
                 "type": "array",
                 "items": _obj({"url": {"type": "string"}, "primary": {"type": "boolean"}}),
             },
+            **({"file": {"type": "string", "enum": list(files)}} if files else {}),
         }
     )
     checked = _obj(
@@ -335,12 +341,12 @@ def to_event(
 
     Raises ``ValueError`` with the reason if the candidate must be dropped.
     """
-    window_end = today + timedelta(days=config.window.crawl_days)
+    store_end = today + timedelta(days=config.window.store_days)
     schedule = candidate.schedule
     if schedule.last_date < today:
         raise ValueError(f"already over ({schedule.last_date})")
-    if schedule.start_date > window_end:
-        raise ValueError(f"starts after the crawl window ({schedule.start_date})")
+    if schedule.start_date > store_end:
+        raise ValueError(f"starts after store_days ({schedule.start_date})")
 
     place = places.resolve(candidate.venue.place)
     if place is None and parent is not None:
@@ -628,10 +634,11 @@ def render_prompt(
         groups=batch.groups,
         today=today,
         window_end=window_end,
+        store_end=today + timedelta(days=config.window.store_days),
         deep_check_end=deep_end,
         whitelist=call.whitelist,
         deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
-        later_events=[e for e in batch.known if e.schedule.start_date > deep_end],
+        later_events=[e for e in batch.known if deep_end < e.schedule.start_date <= window_end],
         sources=call.sources,
         covered_sources=[w.url for w in batch.whitelist]
         + [s.url for s in batch.sources]
@@ -682,6 +689,8 @@ class CrawlResult:
     """Place name -> municipality, for matching in the merge."""
     merge: merge.MergeReport | None = None
     """What the merge did (set by :func:`run`)."""
+    flyer_cache: FlyerCacheFile | None = None
+    """Updated flyer cache (written by :func:`run` unless it is a dry run)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -744,6 +753,9 @@ def crawl(
         warnings.append(f"{config.sources.flyers_file} not found; no flyer pages are read")
     fetch = fetch or flyers.http_fetch
     robots = flyers.Robots(fetch)
+    flyer_cache = _load(data_dir / "flyers.json", FlyerCacheFile) or FlyerCacheFile(
+        updated_at=datetime.now(UTC).replace(microsecond=0)
+    )
 
     plan = [(batch, call) for batch in batches for call in plan_calls(batch, sweeps)]
     by_batch: dict[int, BatchReport] = {}
@@ -779,6 +791,7 @@ def crawl(
                 robots=robots,
                 warnings=warnings,
                 step=f"events batch {batch.number}/{len(batches)} (flyers {call.flyer.url})",
+                cache=flyer_cache,
             )
             usage = usage.add(report.last_usage)
             continue
@@ -858,6 +871,13 @@ def crawl(
             covered.update(p.name for p in batch.places)
             covered.update(g.name for g in batch.groups)
     municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
+    keep_after = today - timedelta(days=FLYER_CACHE_KEEP_DAYS)
+    flyer_cache = flyer_cache.model_copy(
+        update={
+            "updated_at": datetime.now(UTC).replace(microsecond=0),
+            "files": {k: v for k, v in flyer_cache.files.items() if v.last_seen >= keep_after},
+        }
+    )
     return CrawlResult(
         events=sorted(events.values(), key=_sort_key),
         batches=reports,
@@ -866,6 +886,7 @@ def crawl(
         skipped_places=skipped,
         covered_places=covered,
         municipality_of=municipality_of,
+        flyer_cache=flyer_cache,
     )
 
 
@@ -875,6 +896,21 @@ def load_flyers(config: Config) -> list[FlyerEntry]:
     if path is None or not path.exists():
         return []
     return _load_list(path, FlyerEntry)
+
+
+FLYER_CACHE_VERSION = 1
+"""Bump when the flyer extraction changes, so cached files are read again."""
+FLYER_CACHE_KEEP_DAYS = 30
+"""Cache entries of files not seen on their page for this long are dropped."""
+
+
+def _rekey(item: dict[str, Any], sha: str) -> dict[str, Any]:
+    """Make ``ref``/``parent_ref`` unique across files that are combined into one answer."""
+    item = {k: v for k, v in item.items() if k != "file"}
+    item["ref"] = f"{sha[:10]}-{item.get('ref', '')}"
+    if item.get("parent_ref"):
+        item["parent_ref"] = f"{sha[:10]}-{item['parent_ref']}"
+    return item
 
 
 def _run_flyer_call(
@@ -893,11 +929,13 @@ def _run_flyer_call(
     robots: flyers.Robots,
     warnings: list[str],
     step: str,
+    cache: FlyerCacheFile,
 ) -> None:
-    """Download the flyers of one page and let the AI read them (no web access)."""
+    """Download the flyers of one page; the AI reads only files not in ``cache``."""
     flyer = call.flyer
     assert flyer is not None
     report.last_usage = Usage()
+    items: list[dict[str, Any]] = []
     with tempfile.TemporaryDirectory(prefix="letsgau-flyers-") as tmp:
         files, problems = flyers.collect(
             flyer.url, Path(tmp), max_files=flyer.max_files, fetch=fetch, robots=robots
@@ -905,40 +943,75 @@ def _run_flyer_call(
         warnings.extend(f"flyers: {p}" for p in problems)
         if not files:
             return
-        _log(f"batch {batch.number}: {len(files)} flyer file(s) from {flyer.url}")
-        request = AiRequest(
-            step=step,
-            model=config.models.events,
-            prompt=render_prompt(
-                config,
-                batch,
-                today=today,
-                blocked=blocked,
-                max_searches=0,
-                prompts_dir=prompts_dir,
-                call=call,
-                files=files,
-            ),
-            schema=answer_schema(config.tag_ids),
-            blocked_domains=blocked,
-            max_searches=0,
-            web=False,
-            files=[f.path for f in files],
+        fresh = []
+        for f in files:
+            entry = cache.files.get(f.sha256)
+            if entry is not None and entry.version == FLYER_CACHE_VERSION:
+                cache.files[f.sha256] = entry.model_copy(update={"last_seen": today})
+                items += [_rekey(item, f.sha256) for item in entry.events]
+            else:
+                fresh.append(f)
+        _log(
+            f"batch {batch.number}: {len(files)} flyer file(s) from {flyer.url}, "
+            f"{len(files) - len(fresh)} already read, {len(fresh)} new"
         )
-        try:
-            result = runner.run(request)
-        except AiError as exc:
-            _skip(report, f"[flyers {flyer.url}] {exc}")
-            _log(f"batch {batch.number}: [flyers] {exc}")
-            return
-    report.calls += 1
-    report.last_usage = result.usage
-    report.usage = report.usage.add(result.usage)
-    note = str(result.data.get("notes") or "").strip()
-    if note:
-        report.notes = "\n".join(filter(None, [report.notes, f"[flyers] {note}"]))
+        if fresh:
+            names = [f"{FILES_DIR}/{f.path.name}" for f in fresh]
+            request = AiRequest(
+                step=step,
+                model=config.models.events,
+                prompt=render_prompt(
+                    config,
+                    batch,
+                    today=today,
+                    blocked=blocked,
+                    max_searches=0,
+                    prompts_dir=prompts_dir,
+                    call=call,
+                    files=fresh,
+                ),
+                schema=answer_schema(config.tag_ids, files=names),
+                blocked_domains=blocked,
+                max_searches=0,
+                web=False,
+                files=[f.path for f in fresh],
+            )
+            try:
+                result = runner.run(request)
+            except AiError as exc:
+                _skip(report, f"[flyers {flyer.url}] {exc}")
+                _log(f"batch {batch.number}: [flyers] {exc}")
+                result = None
+            if result is not None:
+                report.calls += 1
+                report.last_usage = result.usage
+                report.usage = report.usage.add(result.usage)
+                note = str(result.data.get("notes") or "").strip()
+                if note:
+                    report.notes = "\n".join(filter(None, [report.notes, f"[flyers] {note}"]))
+                by_file: dict[str, list[dict[str, Any]]] = {f.sha256: [] for f in fresh}
+                for item in result.data.get("events") or []:
+                    if not isinstance(item, dict):
+                        continue
+                    urls = {str(s.get("url", "")) for s in item.get("sources") or []}
+                    owner = next(
+                        (f for f in fresh if f"{FILES_DIR}/{f.path.name}" == item.get("file")),
+                        next((f for f in fresh if f.url in urls), fresh[0]),
+                    )
+                    by_file[owner.sha256].append({k: v for k, v in item.items() if k != "file"})
+                for f in fresh:
+                    cache.files[f.sha256] = FlyerCacheEntry(
+                        page_url=flyer.url,
+                        file_url=f.url,
+                        kind="pdf" if f.kind == "pdf" else "image",
+                        version=FLYER_CACHE_VERSION,
+                        first_seen=today,
+                        last_seen=today,
+                        events=by_file[f.sha256],
+                    )
+                    items += [_rekey(item, f.sha256) for item in by_file[f.sha256]]
     found, rejected = events_from_answer(
-        result.data, config=config, places=index, blocked=blocked, today=today
+        {"events": items}, config=config, places=index, blocked=blocked, today=today
     )
     report.rejected += rejected
     for event in found:
@@ -954,7 +1027,9 @@ def _sort_key(event: Event) -> tuple[date, str, str]:
     return (event.schedule.start_date, event.schedule.start_time or "", event.id)
 
 
-def _load[T: (PlacesFile, EventsFile, State)](path: Path, model: type[T]) -> T | None:
+def _load[T: (PlacesFile, EventsFile, State, FlyerCacheFile)](
+    path: Path, model: type[T]
+) -> T | None:
     if not path.exists():
         return None
     try:
@@ -980,6 +1055,7 @@ def run(
     runner: Runner | None = None,
     data_dir: Path = DATA_DIR,
     today: date | None = None,
+    fetch: flyers.Fetch | None = None,
 ) -> CrawlResult:
     """CLI entry point for ``--job events``: crawl, merge, write (unless ``dry_run``)."""
     today = today or date.today()
@@ -990,6 +1066,7 @@ def run(
         data_dir=data_dir,
         limit_places=limit_places,
         today=today,
+        fetch=fetch,
     )
     for warning in result.warnings:
         print(f"warning: crawl: {warning}", file=sys.stderr)
@@ -1041,6 +1118,8 @@ def run(
     )
     if not dry_run:
         _write_json(events_path, merged.model_dump(mode="json", by_alias=True))
+        if result.flyer_cache is not None and result.flyer_cache.files:
+            _write_json(data_dir / "flyers.json", result.flyer_cache.model_dump(mode="json"))
         state_path = data_dir / "state.json"
         state = _load(state_path, State) or State()
         now = datetime.now(UTC).replace(microsecond=0)

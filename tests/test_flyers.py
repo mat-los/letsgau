@@ -55,7 +55,7 @@ def site() -> FakeWeb:
         {
             "https://venue.example/": (PAGE.encode(), "text/html; charset=utf-8"),
             "https://venue.example/media/poster-dec.jpg": (JPEG, "image/jpeg"),
-            "https://venue.example/img/big-poster.jpg": (JPEG, "image/jpeg"),
+            "https://venue.example/img/big-poster.jpg": (JPEG + b"2", "image/jpeg"),
             "https://cdn.example.org/flyer2.webp": (
                 b"RIFF\x00\x00\x00\x00WEBP" + b"z" * 30_000,
                 "",
@@ -87,6 +87,11 @@ def test_collect_downloads_images_and_pdfs(tmp_path: Path) -> None:
     assert files[3].url == "https://venue.example/files/programm.pdf"
     assert files[0].path.read_bytes() == JPEG
     assert warnings == []
+    # the same bytes under a second URL are taken once
+    web = site()
+    web.pages["https://venue.example/img/big-poster.jpg"] = (JPEG, "image/jpeg")
+    files, _ = flyers.collect("https://venue.example/", tmp_path / "d", max_files=10, fetch=web)
+    assert len(files) == 3 and len({f.sha256 for f in files}) == 3
 
 
 def test_collect_respects_max_files_and_robots(tmp_path: Path) -> None:
@@ -294,3 +299,77 @@ def test_flyer_entry_template_expands_and_keeps_max_files(url: str) -> None:
     assert one.url.startswith("https://hohenpeissenberg.example/") and one.places == [
         "Hohenpeißenberg"
     ]
+
+
+# --- flyer cache (fingerprints) ------------------------------------------------------------
+
+
+class CachingRunner:
+    """Answers flyer calls with one event on 02.jpg and a far-future one on the PDF."""
+
+    def __init__(self) -> None:
+        self.flyer_requests: list[AiRequest] = []
+
+    def run(self, request: AiRequest) -> AiResult:
+        events: list[dict[str, Any]] = []
+        if request.files:
+            self.flyer_requests.append(request)
+            names = [f"files/{Path(f).name}" for f in request.files]
+            assert (
+                request.schema["properties"]["events"]["items"]["properties"]["file"]["enum"]
+                == names
+            )
+            if "files/02.jpg" in names:
+                events.append({**poster_event(), "file": "files/02.jpg"})
+            if "files/04.pdf" in names:
+                spring = poster_event()
+                spring["ref"] = "e2"
+                spring["title"] = {"de": "Frühlingskonzert", "en": "Spring concert"}
+                spring["schedule"] = {**spring["schedule"], "start_date": "2027-03-20"}
+                events.append({**spring, "file": "files/04.pdf"})
+        return AiResult(
+            data={"events": events, "checked_sources": [], "notes": ""},
+            usage=Usage(requests=1),
+        )
+
+
+def test_flyer_files_are_read_once_and_reused(tmp_path: Path) -> None:
+    config = make_config(tmp_path, [{"url": "https://venue.example/", "places": ["Schongau"]}])
+    data_dir = tmp_path / "data"
+    write_places(data_dir)
+    web, runner = site(), CachingRunner()
+
+    first = crawl.run(config, runner=runner, data_dir=data_dir, today=TODAY, fetch=web)
+    assert len(runner.flyer_requests) == 1 and len(runner.flyer_requests[0].files) == 4
+    assert {"Punk-Abend", "Frühlingskonzert"} <= {e.title.de for e in first.events}
+    cache = json.loads((data_dir / "flyers.json").read_text(encoding="utf-8"))
+    entries = cache["files"].values()
+    assert len(entries) == 4 and sorted(len(e["events"]) for e in entries) == [0, 0, 1, 1]
+    assert all("file" not in item for e in entries for item in e["events"])
+
+    # unchanged files: no AI call, the cached events are used again
+    second = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY, fetch=web)
+    assert len(runner.flyer_requests) == 1
+    assert {"Punk-Abend", "Frühlingskonzert"} <= {e.title.de for e in second.events}
+
+    # one changed poster: only that file is read
+    web.pages["https://venue.example/img/big-poster.jpg"] = (JPEG + b"new", "image/jpeg")
+    crawl.crawl(config, runner, data_dir=data_dir, today=TODAY, fetch=web)
+    assert [Path(f).name for f in runner.flyer_requests[1].files] == ["02.jpg"]
+
+
+def test_flyer_cache_dry_run_and_expiry(tmp_path: Path) -> None:
+    config = make_config(tmp_path, [{"url": "https://venue.example/files/programm.pdf"}])
+    data_dir = tmp_path / "data"
+    write_places(data_dir)
+    runner = CachingRunner()
+    crawl.run(config, runner=runner, data_dir=data_dir, today=TODAY, fetch=site(), dry_run=True)
+    assert not (data_dir / "flyers.json").exists()
+
+    crawl.run(config, runner=runner, data_dir=data_dir, today=TODAY, fetch=site())
+    assert len(json.loads((data_dir / "flyers.json").read_text())["files"]) == 1
+    # 31 days later the page no longer offers the file: its entry is dropped
+    later = date(2026, 12, 10)
+    gone = FakeWeb({})
+    result = crawl.crawl(config, runner, data_dir=data_dir, today=later, fetch=gone)
+    assert result.flyer_cache is not None and result.flyer_cache.files == {}
