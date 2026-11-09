@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `site.indexing` switch: `false` puts `noindex` on every page and stops inviting
+  crawlers in robots.txt, to keep a site out of search results until it is ready.
 - Geo retries the whole Overpass instance list up to three times (waiting 60 s,
   then 120 s) when every public instance is at capacity.
 - Phase 7 discovery: Opus finds and rates sources per batch of

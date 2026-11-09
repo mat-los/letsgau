@@ -22,6 +22,7 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | `owner` | string | must equal the GitHub repo owner, else the build aborts |
 | `contact_email` | string | address for source suggestions and feedback |
 | `feedback_form_endpoint` | URL or `""` | form service; empty = `mailto:` fallback |
+| `indexing` | bool | `true` (default): search engines and AI crawlers are welcome. `false`: every page gets `<meta name="robots" content="noindex">`, robots.txt no longer lists the sitemap or invites AI crawlers (crawling stays allowed so the `noindex` is seen), and the build warns. Use it until the site is ready to go public |
 | `timezone` | IANA name | time zone of the region (default `Europe/Berlin`); the website's "today" and the dates in `events.ics` use it |
 
 ## `region`

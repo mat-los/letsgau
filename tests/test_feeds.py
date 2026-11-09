@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 from letsgau import build
-from letsgau.config import load_config
+from letsgau.config import Config, load_config
 from letsgau.models import EventsFile
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -21,12 +21,19 @@ FIXTURE = REPO_ROOT / "tests" / "fixtures" / "site" / "events.json"
 NOW = datetime(2026, 11, 13, 20, 0, tzinfo=UTC)
 
 
+def public_config(indexing: bool = True) -> Config:
+    """The instance config with ``site.indexing`` set explicitly."""
+    config = load_config(CONFIG_PATH)
+    site = config.site.model_copy(update={"indexing": indexing})
+    return config.model_copy(update={"site": site})
+
+
 @pytest.fixture(scope="module")
 def site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     root = tmp_path_factory.mktemp("feeds")
     (root / "data").mkdir()
     shutil.copy(FIXTURE, root / "data" / "events.json")
-    build.build(load_config(CONFIG_PATH), data_dir=root / "data", site_dir=root / "site", now=NOW)
+    build.build(public_config(), data_dir=root / "data", site_dir=root / "site", now=NOW)
     return root / "site"
 
 
@@ -118,6 +125,21 @@ def test_sitemap_and_robots(site: Path) -> None:
     for bot in ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"):
         assert f"User-agent: {bot}\nAllow: /" in robots
     assert "Sitemap: https://letsgau.de/sitemap.xml" in robots
+    assert 'name="robots"' not in (site / "de" / "2026-11-14" / "index.html").read_text()
+
+
+def test_indexing_false_hides_the_site(tmp_path: Path) -> None:
+    built = build.build(
+        public_config(indexing=False), data_dir=tmp_path / "none", site_dir=tmp_path, now=NOW
+    )
+    noindex = '<meta name="robots" content="noindex">'
+    pages = ("index.html", "de/index.html", "de/2026-11-14/index.html", "en/imprint/index.html")
+    for page in pages:
+        assert noindex in (tmp_path / page).read_text(encoding="utf-8"), page
+    robots = (tmp_path / "robots.txt").read_text(encoding="utf-8")
+    assert "Allow: /" in robots  # crawlers must still see the noindex tag
+    assert "Sitemap" not in robots and "GPTBot" not in robots
+    assert any("noindex" in warning for warning in built.warnings)
 
 
 # --- acceptance #20: plain HTML contains every event ---------------------------------------

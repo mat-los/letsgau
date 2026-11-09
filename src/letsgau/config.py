@@ -57,6 +57,8 @@ class SiteConfig(_Strict):
     feedback_form_endpoint: str = ""
     timezone: str = "Europe/Berlin"
     """IANA time zone of the region; decides what "today" is on the website."""
+    indexing: bool = True
+    """False adds ``noindex`` to every page and stops inviting crawlers in robots.txt."""
 
     @field_validator("timezone")
     @classmethod
