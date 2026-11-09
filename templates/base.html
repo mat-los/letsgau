@@ -21,6 +21,7 @@
 <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
 <meta name="theme-color" content="#1f5f4a">
 <link rel="stylesheet" href="{{ root }}assets/style.css">
+<style>{% for tag in config.tags %}.t-{{ tag.id }},[data-primary="{{ tag.id }}"]{--c:var(--p{{ loop.index0 % 10 + 1 }})}{% endfor %}</style>
 <link rel="icon" href="{{ root }}assets/icon.svg" type="image/svg+xml">
 {% block head %}{% endblock %}
 <script>document.documentElement.classList.add("js")</script>
@@ -29,7 +30,7 @@
 <a class="skip" href="#main">{{ t('skip') }}</a>
 <header class="top" id="top">
   <div class="bar">
-    <a class="brand" href="{{ root }}{{ lang }}/">{{ config.site.name }}</a>
+    <a class="brand" href="{{ root }}{{ lang }}/"><img src="{{ root }}assets/icon.svg" alt="" width="28" height="28">{{ config.site.name }}</a>
     {% block header_tools %}{% endblock %}
     <nav class="langs" aria-label="Language">
       {% for other in langs %}

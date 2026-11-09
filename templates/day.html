@@ -15,7 +15,7 @@
 </nav>
 <nav class="dates" aria-label="{{ t('date_bar') }}">
   {% for d, count in date_bar %}
-  <a href="{{ root }}{{ lang }}/{{ d.isoformat() }}/" class="d{% if d.weekday() >= 5 %} we{% endif %}"{% if d == day %} aria-current="page"{% endif %}><span class="wd">{{ t['weekdays_short'][d.weekday()] }}</span><span class="dn">{{ d.day }}</span><span class="n">{{ count }}</span></a>
+  <a href="{{ root }}{{ lang }}/{{ d.isoformat() }}/" class="d{% if d.weekday() >= 5 %} we{% endif %}"{% if not count %} data-empty{% endif %}{% if d == day %} aria-current="page"{% endif %}><span class="wd">{{ t['weekdays_short'][d.weekday()] }}</span><span class="dn">{{ d.day }}</span><span class="n">{{ count }}</span></a>
   {% endfor %}
 </nav>
 <div class="tools js-only">

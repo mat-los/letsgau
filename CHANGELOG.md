@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- New website look: green header band with brand icon, date cards and search,
+  one colour per category (chips, card stripe, tags; mapped from the configured
+  tags), events as cards with place pin, section icons, nicer pager, footer and
+  content pages, refined dark mode. Days without events are dimmed in the date bar.
 - `depth` config section for more thorough runs. Discovery makes three focused
   passes per batch (official calendars, clubs, venues), each with a German
   query checklist per municipality and a coverage report per category, which
