@@ -1,10 +1,11 @@
-# Live check of the event crawl with the real AI (subscription mode).
-# Runs on demand (Actions -> Crawl check -> Run workflow) and on pull requests
-# that change this file or prompts/events.md (CLAUDE.md: every prompt change
-# needs a --dry-run test). Computes the places for the instance config, then
-# runs `letsgau run --job events --dry-run --limit-places N`. Writes nothing to
-# the repository; prints the events and uploads the raw AI answers as an
-# artifact for test fixtures. Needs the ORS_API_KEY and CLAUDE_CODE_OAUTH_TOKEN
+# Live check of discovery and the event crawl with the real AI (subscription
+# mode). Runs on demand (Actions -> Crawl check -> Run workflow) and on pull
+# requests that change this file or a prompt (CLAUDE.md: every prompt change
+# needs a --dry-run test). Computes the places for the instance config, runs
+# discovery into the runner's throwaway data/ directory (so the crawl sees its
+# sources), then `letsgau run --job events --dry-run --limit-places N`. Writes
+# nothing to the repository; prints sources, coverage and events and uploads the
+# raw AI answers as an artifact for test fixtures. Needs the ORS_API_KEY and CLAUDE_CODE_OAUTH_TOKEN
 # secrets; ANTHROPIC_API_KEY must not be set, or Claude Code would bill it.
 name: Crawl check
 
@@ -18,6 +19,7 @@ on:
     paths:
       - ".github/workflows/crawl-check.yml"
       - "prompts/events.md"
+      - "prompts/discovery.md"
 
 permissions:
   contents: read
@@ -29,7 +31,7 @@ concurrency:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     env:
       ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -64,9 +66,23 @@ jobs:
       - name: Geo (places for the instance config)
         timeout-minutes: 6
         run: python -m letsgau run --job geo
-      - name: Event crawl (dry run, ${{ env.LIMIT_PLACES }} places)
+      - name: Discovery (${{ env.LIMIT_PLACES }} places, throwaway data/)
         timeout-minutes: 35
         run: |
+          set -o pipefail
+          python -m letsgau run --job discovery --limit-places "$LIMIT_PLACES" | tee discovery.txt
+          {
+            echo "### Discovery check ($LIMIT_PLACES places)"
+            echo '```text'
+            cat discovery.txt
+            echo '```'
+            echo
+            cat data/suggested.md
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Event crawl (dry run, ${{ env.LIMIT_PLACES }} places)
+        timeout-minutes: 40
+        run: |
+          set -o pipefail
           python -m letsgau run --job events --dry-run --limit-places "$LIMIT_PLACES" | tee crawl.txt
           {
             echo "### Crawl check ($LIMIT_PLACES places)"

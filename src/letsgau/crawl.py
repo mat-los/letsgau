@@ -7,11 +7,14 @@
    into batches of ``limits.places_per_request``; each batch gets the
    whitelist sources assigned to its places (entries without ``places`` go to
    the first batch) and its known events in short form.
-3. One AI call per batch (``prompts/events.md``, JSON schema from
-   :func:`answer_schema`). The blacklist is passed as blocked domains and hard
-   filtered afterwards. The search budget ``limits.max_web_searches_per_run``
-   is spread over the batches; ``limits.max_runtime_minutes`` stops starting
-   new batches.
+3. AI calls per batch (``prompts/events.md``, JSON schema from
+   :func:`answer_schema`), planned by :func:`plan_calls`: with
+   ``depth.crawl_sources_per_request`` > 0, *source sweeps* that each read a few
+   known sources (whitelist, then discovered ones) completely, then one *open
+   search* with a query checklist (:func:`search_queries`); with 0, one
+   combined call. The blacklist is passed as blocked domains and hard filtered
+   afterwards. The search budget ``limits.max_web_searches_per_run`` is spread
+   over the calls; ``limits.max_runtime_minutes`` stops starting new calls.
 4. Every candidate is validated (:func:`to_event`): dates in the crawl window,
    place in the area, tags from the list, exactly one primary tag and source,
    no blacklisted source. Invalid entries are dropped and logged.
@@ -496,6 +499,80 @@ def make_batches(
     return batches
 
 
+MONTHS_DE = (
+    "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember",
+)  # fmt: skip
+SEARCH_TOPICS = (
+    "Konzert",
+    "Party",
+    "Markt",
+    "Theater OR Kabarett",
+    "Kino",
+    "Ausstellung",
+    "Vortrag OR Lesung",
+    "Führung",
+    "Kinder Familie",
+    "Heimspiel OR Turnier",
+    "Pfarrei Kirche",
+    "Verein Fest",
+    "Advent OR Weihnachten",
+)
+SWEEP_MAX_SEARCHES = 8
+"""Searches for a source-sweep call (only to find moved calendar pages)."""
+
+
+def search_queries(
+    groups: Sequence[PlaceGroup], today: date, window_end: date
+) -> list[tuple[str, list[str]]]:
+    """The fixed query checklist of the open-search call, per municipality."""
+    months: list[str] = []
+    day = today.replace(day=1)
+    while day <= window_end:
+        months.append(f"{MONTHS_DE[day.month - 1]} {day.year}")
+        day = (day + timedelta(days=32)).replace(day=1)
+    plan = []
+    for group in groups:
+        m = group.name
+        queries = [f"{m} Veranstaltungen", f"{m} Veranstaltungskalender"]
+        queries += [f"{m} Veranstaltungen {month}" for month in months]
+        queries += [f"{m} {topic}" for topic in SEARCH_TOPICS]
+        queries += [f"{d} Veranstaltungen" for d in group.districts]
+        plan.append((m, queries))
+    return plan
+
+
+@dataclass
+class CrawlCall:
+    """One AI call of a batch: a combined call, a sweep over known sources, or the open search."""
+
+    mode: str  # "all" | "sources" | "search"
+    whitelist: list[WhitelistEntry] = field(default_factory=list)
+    sources: list[Any] = field(default_factory=list)
+
+
+def plan_calls(batch: Batch, sources_per_request: int) -> list[CrawlCall]:
+    """Split a batch into source sweeps (``sources_per_request`` sources each) and one search.
+
+    With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``).
+    """
+    if sources_per_request <= 0:
+        return [CrawlCall("all", list(batch.whitelist), list(batch.sources))]
+    items: list[Any] = [*batch.whitelist, *batch.sources]
+    calls = []
+    for start in range(0, len(items), sources_per_request):
+        chunk = items[start : start + sources_per_request]
+        calls.append(
+            CrawlCall(
+                "sources",
+                whitelist=[i for i in chunk if isinstance(i, WhitelistEntry)],
+                sources=[i for i in chunk if not isinstance(i, WhitelistEntry)],
+            )
+        )
+    calls.append(CrawlCall("search"))
+    return calls
+
+
 def render_prompt(
     config: Config,
     batch: Batch,
@@ -504,6 +581,7 @@ def render_prompt(
     blocked: Sequence[str],
     max_searches: int,
     prompts_dir: Path = PROMPTS_DIR,
+    call: CrawlCall | None = None,
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(prompts_dir),
@@ -513,16 +591,21 @@ def render_prompt(
     )
     template = env.get_template(PROMPT_FILE)
     deep_end = today + timedelta(days=config.window.deep_check_days)
+    window_end = today + timedelta(days=config.window.crawl_days)
+    call = call or CrawlCall("all", list(batch.whitelist), list(batch.sources))
     return template.render(
+        mode=call.mode,
         region=config.region,
         groups=batch.groups,
         today=today,
-        window_end=today + timedelta(days=config.window.crawl_days),
+        window_end=window_end,
         deep_check_end=deep_end,
-        whitelist=batch.whitelist,
+        whitelist=call.whitelist,
         deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
         later_events=[e for e in batch.known if e.schedule.start_date > deep_end],
-        sources=batch.sources,
+        sources=call.sources,
+        covered_sources=[w.url for w in batch.whitelist] + [s.url for s in batch.sources],
+        queries=search_queries(batch.groups, today, window_end),
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -546,6 +629,8 @@ class BatchReport:
     """Free-text remarks of the AI (moved sources, unreachable pages, ...)."""
     error: str | None = None
     usage: Usage = field(default_factory=Usage)
+    calls: int = 0
+    """AI calls of the batch that returned an answer."""
 
 
 @dataclass
@@ -603,9 +688,13 @@ def crawl(
     from letsgau import discovery  # late import: discovery imports this module
 
     sources_file = discovery.load_sources(data_dir)
+    sweeps = config.depth.crawl_sources_per_request
     for batch in batches:
         batch.sources = discovery.known_sources_for(
-            sources_file, [g.name for g in batch.groups], [w.url for w in batch.whitelist]
+            sources_file,
+            [g.name for g in batch.groups],
+            [w.url for w in batch.whitelist],
+            limit=None if sweeps else discovery.MAX_KNOWN_PER_BATCH,
         )
 
     budget = config.limits.max_web_searches_per_run
@@ -615,69 +704,93 @@ def crawl(
     reports: list[BatchReport] = []
     warnings: list[str] = []
 
-    for position, batch in enumerate(batches):
-        report = BatchReport(batch.number, [g.name for g in batch.groups])
-        reports.append(report)
+    plan = [(batch, call) for batch in batches for call in plan_calls(batch, sweeps)]
+    by_batch: dict[int, BatchReport] = {}
+    checked_by_batch: dict[int, list[str]] = {}
+    for position, (batch, call) in enumerate(plan):
+        report = by_batch.get(batch.number)
+        if report is None:
+            report = by_batch[batch.number] = BatchReport(
+                batch.number, [g.name for g in batch.groups]
+            )
+            reports.append(report)
+        several = sweeps > 0
+        sweep_no = sum(1 for b, c in plan[: position + 1] if b is batch and c.mode == "sources")
+        tag = f"sources {sweep_no}" if call.mode == "sources" else call.mode
+        prefix = f"[{tag}] " if several else ""
         remaining = budget - usage.web_searches
         if clock() > deadline:
-            report.error = "skipped: max_runtime_minutes reached"
+            _skip(report, prefix + "skipped: max_runtime_minutes reached")
             continue
         if remaining < MIN_SEARCHES_PER_BATCH:
-            report.error = "skipped: max_web_searches_per_run used up"
+            _skip(report, prefix + "skipped: max_web_searches_per_run used up")
             continue
-        per_batch = min(
-            MAX_SEARCHES_PER_BATCH,
-            max(MIN_SEARCHES_PER_BATCH, remaining // (len(batches) - position)),
+        cap = (
+            SWEEP_MAX_SEARCHES
+            if call.mode == "sources"
+            else config.depth.crawl_searches_per_request
         )
+        cap = min(cap, MAX_SEARCHES_PER_BATCH) if not several else cap
+        per_call = min(cap, max(MIN_SEARCHES_PER_BATCH, remaining // (len(plan) - position)))
         prompt = render_prompt(
             config,
             batch,
             today=today,
             blocked=blocked,
-            max_searches=per_batch,
+            max_searches=per_call,
             prompts_dir=prompts_dir,
+            call=call,
         )
+        step = f"events batch {batch.number}/{len(batches)}"
         request = AiRequest(
-            step=f"events batch {batch.number}/{len(batches)}",
+            step=step + (f" ({tag})" if several else ""),
             model=config.models.events,
             prompt=prompt,
             schema=answer_schema(config.tag_ids),
             blocked_domains=blocked,
-            max_searches=per_batch,
+            max_searches=per_call,
         )
         try:
             result = runner.run(request)
         except AiError as exc:
-            report.error = str(exc)
-            _log(f"batch {batch.number}: {exc}")
+            _skip(report, prefix + str(exc))
+            _log(f"batch {batch.number}: {prefix}{exc}")
             continue
-        report.usage = result.usage
-        report.notes = str(result.data.get("notes") or "").strip()
+        report.calls += 1
+        report.usage = report.usage.add(result.usage)
+        note = str(result.data.get("notes") or "").strip()
+        if note:
+            report.notes = "\n".join(filter(None, [report.notes, prefix + note]))
         usage = usage.add(result.usage)
         found, rejected = events_from_answer(
             result.data, config=config, places=index, blocked=blocked, today=today
         )
-        report.rejected = rejected
+        report.rejected += rejected
         for event in found:
             if event.id in events:
                 events[event.id] = merge.combine(events[event.id], event)
             else:
                 events[event.id] = event
-        report.events = len(found)
-        checked = [c.get("url", "") for c in result.data.get("checked_sources") or []]
+        report.events += len(found)
+        checked = checked_by_batch.setdefault(batch.number, [])
+        checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls
-        report.whitelist_missing = [
-            w.url for w in batch.whitelist if not any(_same_source(w.url, c) for c in checked)
-        ]
         for title_reason in rejected:
             _log(f"batch {batch.number}: dropped {title_reason.title!r}: {title_reason.reason}")
+
+    for batch, report in zip(batches, reports, strict=True):
+        if report.calls:
+            checked = checked_by_batch.get(batch.number, [])
+            report.whitelist_missing = [
+                w.url for w in batch.whitelist if not any(_same_source(w.url, c) for c in checked)
+            ]
 
     for report in reports:
         for url in report.whitelist_missing:
             warnings.append(f"whitelist source not checked in batch {report.number}: {url}")
         if report.error:
             warnings.append(f"batch {report.number}: {report.error}")
-    if batches and all(r.error and not r.error.startswith("skipped") for r in reports):
+    if batches and all(r.error and not r.calls and "skipped:" not in r.error for r in reports):
         raise CrawlError("every batch failed: " + "; ".join(r.error or "" for r in reports))
     covered: set[str] = set()
     for batch, report in zip(batches, reports, strict=True):
@@ -694,6 +807,10 @@ def crawl(
         covered_places=covered,
         municipality_of=municipality_of,
     )
+
+
+def _skip(report: BatchReport, reason: str) -> None:
+    report.error = "; ".join(filter(None, [report.error, reason]))
 
 
 def _sort_key(event: Event) -> tuple[date, str, str]:
@@ -744,7 +861,7 @@ def run(
         f"crawl: {len(result.events)} events from {len(result.batches)} batches "
         f"({sum(len(r.places) for r in result.batches)} municipalities); "
         f"{u.web_searches} searches, {u.input_tokens + u.output_tokens} tokens, "
-        f"~${u.cost_usd:.2f}, {u.duration_s:.0f}s"
+        f"~${u.cost_usd:.2f} at API prices, {u.duration_s:.0f}s"
         + (
             f"; {len(result.skipped_places)} municipalities skipped"
             if result.skipped_places

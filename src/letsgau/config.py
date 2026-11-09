@@ -141,6 +141,19 @@ class LimitsConfig(_Strict):
     max_runtime_minutes: int = Field(ge=1, le=360)
 
 
+class DepthConfig(_Strict):
+    """How thorough discovery and the event crawl are (more AI calls = more complete)."""
+
+    discovery_focus_passes: bool = True
+    """Three focused discovery calls per batch (official, clubs, venues) instead of one."""
+    discovery_places_per_request: int = Field(default=2, ge=1, le=50)
+    discovery_searches_per_request: int = Field(default=30, ge=3, le=100)
+    crawl_sources_per_request: int = Field(default=4, ge=0, le=50)
+    """Known sources per "source sweep" call; 0 = one combined call per batch."""
+    crawl_searches_per_request: int = Field(default=40, ge=3, le=100)
+    """Search limit of the open-search call (and of the combined call)."""
+
+
 class EventsConfig(_Strict):
     unconfirmed_after_misses: int = Field(ge=1)
     description_max_chars: int = Field(ge=20, le=2000)
@@ -167,6 +180,7 @@ class Config(_Strict):
     models: ModelsConfig
     ai: AiConfig
     limits: LimitsConfig
+    depth: DepthConfig = DepthConfig()
     events: EventsConfig
     sources: SourcesConfig
     excluded_topics: list[str] = []

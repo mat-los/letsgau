@@ -47,8 +47,12 @@ def _answer() -> dict[str, Any]:
     return data["structured_output"]
 
 
-def make_config(tmp_path: Path, **limits: Any) -> Config:
+def make_config(tmp_path: Path, sweeps: int = 0, **limits: Any) -> Config:
+    """Instance config with fixture lists; ``sweeps=0`` is one combined call per batch."""
     config = load_config(CONFIG_PATH)
+    config = config.model_copy(
+        update={"depth": config.depth.model_copy(update={"crawl_sources_per_request": sweeps})}
+    )
     sources = config.sources.model_copy(
         update={
             "whitelist_file": str(FIXTURES / "whitelist.yaml"),
@@ -521,6 +525,89 @@ def test_known_events_go_into_the_prompt(config: Config, data_dir: Path) -> None
     assert "Schongauer Christkindlmarkt" in prompt
 
 
+# --- source sweeps and open search (depth.crawl_sources_per_request) --------------------
+
+
+def _sources_file(data_dir: Path, urls: list[str]) -> None:
+    from letsgau.models import Source, SourceOrigin, SourcesFile
+
+    sources = [
+        Source(
+            url=url,
+            domain=crawl.domain_of(url),
+            name=f"source {i}",
+            places=["Schongau"],
+            origin=SourceOrigin.DISCOVERY,
+            rating=4,
+            first_seen=TODAY,
+        )
+        for i, url in enumerate(urls)
+    ]
+    file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=sources)
+    (data_dir / "sources.json").write_text(file.model_dump_json(), encoding="utf-8")
+
+
+def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_dir: Path) -> None:
+    config = make_config(tmp_path, sweeps=2, places_per_request=8)
+    urls = [f"https://club{i}.example/termine" for i in range(14)]  # more than the old cap of 12
+    _sources_file(data_dir, urls)
+    crawl.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)  # known events
+    runner = FakeRunner()
+    result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+
+    # 1 whitelist entry + 14 known sources in sweeps of 2 -> 8 sweeps, then the search
+    steps = [r.step for r in runner.requests]
+    assert steps[0] == "events batch 1/1 (sources 1)" and steps[7] == "events batch 1/1 (sources 8)"
+    assert steps[8:] == ["events batch 1/1 (search)"]
+    first, search = runner.requests[0].prompt, runner.requests[-1].prompt
+    assert "read the sources below\ncompletely" in first
+    assert "- https://www.schongau.de/veranstaltungen" in first
+    assert "- https://club0.example/termine (source 0)" in first
+    assert "club1.example" not in first
+    assert "Known events to re-check" not in first  # sweeps report everything they see
+    assert all(r.max_searches == crawl.SWEEP_MAX_SEARCHES for r in runner.requests[:8])
+
+    assert "do not read them again:\n- https://www.schongau.de/veranstaltungen" in search
+    assert "- https://club13.example/termine" in search
+    assert '"Schongau Veranstaltungen November 2026", "Schongau Veranstaltungen Dezember 2026"' in (
+        search
+    )
+    assert '"Schongau Heimspiel OR Turnier"' in search
+    assert "Known events to re-check (until 2026-11-16)" in search
+    assert result.batches[0].calls == 9 and result.batches[0].error is None
+    assert "Schongau" in result.covered_places
+
+
+def test_failed_sweep_keeps_other_events_but_not_coverage(tmp_path: Path, data_dir: Path) -> None:
+    config = make_config(tmp_path, sweeps=4, places_per_request=8)
+    search = _answer()
+    search["notes"] = "search done"
+    runner = FakeRunner(answers=[{}, search], fail={1})  # 1 sweep (fails), then the search
+    result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    assert len(result.events) == 6  # from the search call
+    report = result.batches[0]
+    assert report.calls == 1 and report.error.startswith("[sources 1] claude failed")
+    assert report.notes == "[search] search done"
+    assert result.covered_places == set()  # nothing is "missed" after a partial failure
+    assert any("batch 1: [sources 1] claude failed" in w for w in result.warnings)
+
+
+def test_search_queries_cover_every_month_and_district() -> None:
+    group = crawl.PlaceGroup(
+        name="Peiting",
+        places=[
+            Place(name="Peiting", osm_id="node/1", place_type="town", lat=0, lon=0),
+            Place(name="Birkland", osm_id="node/2", place_type="village", lat=0, lon=0),
+        ],
+    )
+    [(name, queries)] = crawl.search_queries([group], date(2026, 12, 20), date(2027, 1, 17))
+    assert name == "Peiting"
+    assert "Peiting Veranstaltungen Dezember 2026" in queries
+    assert "Peiting Veranstaltungen Januar 2027" in queries
+    assert "Birkland Veranstaltungen" in queries
+    assert len(queries) == 2 + 2 + len(crawl.SEARCH_TOPICS) + 1
+
+
 # --- merge (Phase 2) ----------------------------------------------------------------------
 
 
@@ -585,7 +672,11 @@ def test_cli_events_dry_run(
     assert main(args) == 0
     out = capsys.readouterr().out
     assert "crawl: " in out and "dry run" in out
-    assert len(runner.requests) == 1
+    # instance depth: one source sweep over the fixture whitelist, then the open search
+    assert [r.step for r in runner.requests] == [
+        "events batch 1/1 (sources 1)",
+        "events batch 1/1 (search)",
+    ]
     assert not (tmp_path / "data" / "events.json").exists()
 
 

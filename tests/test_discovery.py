@@ -20,6 +20,7 @@ from letsgau.models import (
     SourceOrigin,
     SourcesFile,
     SourceStatus,
+    State,
     Usage,
 )
 
@@ -41,7 +42,21 @@ def config() -> Config:
             "blacklist_file": str(FIXTURES / "crawl" / "blacklist.yaml"),
         }
     )
-    return config.model_copy(update={"sources": sources})
+    single_pass = config.depth.model_copy(
+        update={
+            "discovery_focus_passes": False,
+            "discovery_places_per_request": 6,
+            "crawl_sources_per_request": 0,
+        }
+    )
+    return config.model_copy(update={"sources": sources, "depth": single_pass})
+
+
+@pytest.fixture
+def thorough(config: Config) -> Config:
+    """The instance's depth settings: three focus passes, two municipalities per call."""
+    depth = load_config(REPO_ROOT / "instance" / "config.yaml").depth
+    return config.model_copy(update={"depth": depth})
 
 
 @pytest.fixture
@@ -126,6 +141,8 @@ def test_discovery_extends_sources_and_writes_suggestions(
     assert not any("example-spam.de" in u for u in by_url)  # blacklist wins
     assert not any(u == "not a url" for u in by_url)
     assert len(result.added) == 3
+    state = State.model_validate_json((data_dir / "state.json").read_text("utf-8"))
+    assert state.last_usage["discovery"].requests == 2
 
     suggested = (data_dir / "suggested.md").read_text(encoding="utf-8")
     assert "## Whitelist candidates" in suggested
@@ -182,6 +199,83 @@ def test_blacklisted_existing_source_is_marked(config: Config, data_dir: Path) -
     result = discovery.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)
     marked = next(s for s in result.sources.sources if "example-spam" in s.url)
     assert marked.status is SourceStatus.BLACKLISTED
+
+
+# --- focus passes (thorough discovery) ---------------------------------------------------------
+
+
+def coverage_answer(municipality: str, focus: str) -> dict[str, Any]:
+    data = {"sources": [], "blacklist_candidates": [], "notes": ""}
+    data["coverage"] = [
+        {"municipality": municipality, "category": f"{focus} a", "status": "found", "note": ""},
+        {
+            "municipality": municipality,
+            "category": f"{focus} b",
+            "status": "nothing_found",
+            "note": "searched 3 queries",
+        },
+    ]
+    return data
+
+
+def test_focus_passes_run_three_calls_per_batch(
+    thorough: Config, data_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    first = answer()
+    first["coverage"] = []
+    answers = [first] + [coverage_answer("Peiting", f.id) for f in discovery.FOCUSES[1:]]
+    answers += [coverage_answer("Altenstadt", "x")] * 9
+    runner = FakeRunner(answers=answers)
+    result = discovery.run(thorough, runner=runner, data_dir=data_dir, today=TODAY)
+
+    # 7 municipalities in batches of 2 -> 4 batches x 3 passes
+    assert len(runner.requests) == 12
+    official, clubs, venues = (r.prompt for r in runner.requests[:3])
+    assert "## Focus of this pass: official and regional calendars" in official
+    assert '- "Schongau Veranstaltungskalender"' in official
+    assert '- "Peiting Vereine Verzeichnis"' in official
+    assert "Herzogsägmühle" in official and "Altenstadt" not in official
+    assert '- "Peiting Feuerwehr Termine"' in clubs
+    assert '- "Schongau Christkindlmarkt OR Weihnachtsmarkt"' in venues
+    # the second pass knows what the first one found
+    assert "https://veranstaltungen.pfaffen-winkel.de/schongau/" in clubs
+    assert "https://veranstaltungen.pfaffen-winkel.de/schongau/" not in official
+    assert "coverage" in runner.requests[0].schema["properties"]
+    assert runner.requests[0].max_searches == 250 // 12  # budget spread over all calls
+
+    assert len(result.coverage) == 2 * 11
+    gaps = [c for c in result.coverage if c.status == "nothing_found"]
+    assert gaps[0].municipality == "Peiting" and gaps[0].focus == "clubs"
+    suggested = (data_dir / "suggested.md").read_text(encoding="utf-8")
+    assert "## Coverage" in suggested and "### Peiting" in suggested
+    assert "| clubs | clubs b | **nothing found** | searched 3 queries |" in suggested
+    assert "coverage: 11 categories found, 11 gaps" in capsys.readouterr().out
+
+
+def test_focus_passes_spread_the_search_budget(thorough: Config, data_dir: Path) -> None:
+    config = thorough.model_copy(
+        update={"limits": thorough.limits.model_copy(update={"max_web_searches_per_run": 40})}
+    )
+    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
+    result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY, limit_places=2)
+    # 1 batch x 3 passes: 40 // 3 = 13, (40 - 6) // 2 = 17, (40 - 12) // 1 = 28
+    assert [r.max_searches for r in runner.requests] == [13, 17, 28]
+    assert not result.warnings
+
+
+def test_runtime_limit_skips_later_passes(thorough: Config, data_dir: Path) -> None:
+    ticks = iter([0, 0, 10_000, 10_000])
+    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
+    result = discovery.run(
+        thorough,
+        runner=runner,
+        data_dir=data_dir,
+        today=TODAY,
+        limit_places=2,
+        clock=lambda: next(ticks, 10_000),
+    )
+    assert len(runner.requests) == 1
+    assert "batch 1 (clubs): skipped, max_runtime_minutes reached" in result.warnings
 
 
 # --- events stage integration -----------------------------------------------------------------

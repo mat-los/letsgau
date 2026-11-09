@@ -39,7 +39,7 @@ REQUIRED_ENV = {
     "api_key": "ANTHROPIC_API_KEY",
 }
 
-CLAUDE_MAX_TURNS = 80
+CLAUDE_MAX_TURNS = 150
 """Upper bound of agent turns per CLI call (search, fetch, answer)."""
 CLAUDE_TIMEOUT_S = 30 * 60
 API_MAX_ROUNDS = 12
@@ -235,7 +235,7 @@ class ClaudeCodeRunner:
         )
         _log(
             f"{request.step}: {result.get('num_turns')} turns, {usage.duration_s}s, "
-            f"notional cost ${result.get('total_cost_usd') or 0:.2f}"
+            f"API-equivalent cost ${usage.cost_usd:.2f}"
         )
         return AiResult(data=data, usage=usage, raw=result)
 
@@ -272,7 +272,9 @@ def _cli_usage(result: dict[str, Any]) -> Usage:
         web_fetches=int(server.get("web_fetch_requests") or 0),
         input_tokens=input_tokens,
         output_tokens=output_tokens,
-        cost_usd=0.0,  # subscription: no per-token billing (total_cost_usd is notional)
+        # What the run would cost at API prices; in subscription mode it is not billed but
+        # counts against the plan's usage limits.
+        cost_usd=round(float(result.get("total_cost_usd") or 0.0), 4),
     )
 
 

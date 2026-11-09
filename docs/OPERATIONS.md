@@ -85,13 +85,26 @@ python -m letsgau run --job events --dry-run --limit-places 3
 - Places are grouped by municipality (`municipality` in `places.json`); the
   prompt lists each municipality with its districts, and events keep the exact
   district as their place.
+- With `depth.crawl_sources_per_request: N` (default 4) every batch is split
+  into *source sweeps* and one *open search*: each sweep reads N known sources
+  (whitelist first, then discovered ones) completely, following pagination to
+  the end of the window, with at most 8 searches to find moved pages; the open
+  search skips those sources and runs a fixed query checklist per municipality
+  (every month of the window, 13 topics, every district) with up to
+  `depth.crawl_searches_per_request` searches, and re-checks the known events of
+  the next `deep_check_days`. All answers go through the same merge, which
+  removes duplicates between the calls. If a call fails, the events of the
+  other calls are kept, but the batch does not count as covered, so no stored
+  event is marked as missed. `0` gives one combined call per batch (cheaper,
+  less complete).
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g
   @anthropic-ai/claude-code`) in a temporary directory with only WebSearch and
   WebFetch. `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` are removed from its
   environment so it never bills an API key. Runs count against the plan's usage
-  limits; the cost shown is 0.
+  limits; the cost shown is what the run would cost at API prices (the CLI's
+  `total_cost_usd`), a measure of how much of the plan a run uses.
 - API mode needs `ANTHROPIC_API_KEY`; the cost shown is an estimate from token
   prices and $10 per 1,000 searches.
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
@@ -124,14 +137,26 @@ that change `prompts/events.md`, so every prompt change gets a dry run.
 python -m letsgau run --job discovery --dry-run --limit-places 2
 ```
 
-- Runs monthly (`jobs.discovery`) and after every geo change; one call to the
-  discovery model (Opus) per batch of `places_per_request` municipalities.
+- Runs monthly (`jobs.discovery`) and after every geo change. Municipalities are
+  batched by `depth.discovery_places_per_request`. With
+  `depth.discovery_focus_passes` (default) each batch gets three calls to the
+  discovery model (Opus), one per focus: official and regional calendars (and
+  the municipality's club directory), clubs and parishes (working through that
+  directory), venues, institutions and annual events. Each pass has a fixed
+  German query checklist per municipality and sees the sources of the earlier
+  passes. Without focus passes it is one general call per batch.
+- Every focus pass also reports coverage per category (`found`,
+  `nothing_found`, `not_checked`); the gaps are printed and listed in the
+  *Coverage* section of `data/suggested.md`.
 - Adds new sources to `data/sources.json` (`origin: discovery`), re-rates known
   ones, syncs the whitelist in and marks blacklisted domains.
 - Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
   hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
 - The events stage gives each batch the active sources of its municipalities
-  (rating ≥ 3 or ≥ 2 hits) and counts hits per source after every run.
+  (rating ≥ 3 or ≥ 2 hits; all of them in sweep mode, at most 12 in combined
+  mode) and counts hits per source after every run.
+- Usage: about $1–1.5 at API prices per pass for one municipality, so roughly
+  $4 for Schongau alone with focus passes.
 
 ## Build the website
 
@@ -226,5 +251,5 @@ spend limit in the Anthropic Console.
 ## Costs
 
 Every run writes requests, searches, tokens, the estimated cost and the AI time
-to the GitHub job summary; the usage of the last events run is also in
-`data/state.json` (`last_usage`).
+to the GitHub job summary; the usage of the last events and discovery runs is
+also in `data/state.json` (`last_usage`).

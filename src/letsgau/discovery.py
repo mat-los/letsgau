@@ -1,8 +1,12 @@
 """Discovery stage (default model: Opus): find and rate event sources per municipality.
 
 * Municipalities from ``data/places.json`` are processed in batches of
-  ``limits.places_per_request``; each batch is one AI call with web search
-  (``prompts/discovery.md``) that returns rated sources and blacklist candidates.
+  ``depth.discovery_places_per_request``. With ``depth.discovery_focus_passes``
+  each batch gets three AI calls with web search (``prompts/discovery.md``),
+  one per focus (:data:`FOCUSES`: official calendars, clubs, venues), each with
+  a fixed query checklist; later passes see the sources of earlier ones. Every
+  call returns rated sources, blacklist candidates and a coverage report per
+  category, which ends up in ``data/suggested.md``.
 * New sources are added to ``data/sources.json`` with ``origin: discovery``;
   known ones get the new rating. Whitelist entries are synced in with
   ``origin: whitelist``; blacklisted domains are never added and existing
@@ -21,7 +25,8 @@ from __future__ import annotations
 
 import json
 import sys
-from collections.abc import Iterable, Mapping, Sequence
+import time
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -41,6 +46,7 @@ from letsgau.models import (
     SourceOrigin,
     SourcesFile,
     SourceStatus,
+    State,
     Usage,
 )
 
@@ -54,6 +60,118 @@ WHITELIST_HITS = 3
 
 class DiscoveryError(Exception):
     """Missing inputs or no usable result."""
+
+
+@dataclass(frozen=True)
+class Focus:
+    """One discovery pass: kinds of sources and the queries to run per municipality."""
+
+    id: str
+    title: str
+    categories: tuple[str, ...]
+    queries: tuple[str, ...]
+    """German search queries; ``{m}`` is replaced by the municipality."""
+    extra: str = ""
+
+
+FOCUSES: tuple[Focus, ...] = (
+    Focus(
+        id="official",
+        title="official and regional calendars",
+        categories=(
+            "event calendar of the municipality",
+            "tourist office and regional tourism calendars",
+            "regional event calendars and aggregators that list this municipality",
+            "local newspapers and their event pages",
+            "the municipality's directory of clubs and institutions (for the next passes)",
+        ),
+        queries=(
+            "{m} Veranstaltungen",
+            "{m} Veranstaltungskalender",
+            "{m} Termine Veranstaltungen Gemeinde",
+            "{m} Tourist Information Veranstaltungen",
+            "{m} Veranstaltungen Wochenende",
+            "{m} Vereine Verzeichnis",
+            "{m} Lokalnachrichten Termine",
+        ),
+        extra=(
+            "If the municipality has a directory of clubs (Vereinsverzeichnis) or institutions, "
+            'report it with kind "municipality" and the note "club directory", even if it '
+            "lists no events itself: the next pass works through it."
+        ),
+    ),
+    Focus(
+        id="clubs",
+        title="clubs, parishes and organisations",
+        categories=(
+            "sports clubs (home matches, tournaments, club festivals)",
+            "music: brass bands, choirs, music societies",
+            "traditional costume, marksmen and folk clubs",
+            "fire brigade and charitable organisations",
+            "Catholic and Protestant parishes, free churches",
+            "youth centre, youth and senior groups, family centres",
+            "theatre groups, culture and history societies",
+        ),
+        queries=(
+            "{m} Vereine",
+            "{m} Sportverein Termine",
+            "{m} TSV OR SV OR FC Spielplan",
+            "{m} Musikverein OR Blaskapelle OR Stadtkapelle Termine",
+            "{m} Chor Konzert",
+            "{m} Trachtenverein OR Schützenverein Termine",
+            "{m} Feuerwehr Termine",
+            "{m} Pfarrei Pfarreiengemeinschaft Termine",
+            "{m} evangelische Kirchengemeinde Veranstaltungen",
+            "{m} Jugendzentrum OR Jugendtreff",
+            "{m} Theaterverein OR Heimatverein",
+            "{m} Kolping OR Frauenbund OR Seniorenclub",
+        ),
+        extra=(
+            "Open the municipality's club directory if it exists (see the known sources) and "
+            "check the website of every club that might hold public events. Report every club "
+            "website you checked, also those without events (rating 1 or 2)."
+        ),
+    ),
+    Focus(
+        id="venues",
+        title="venues, institutions and annual events",
+        categories=(
+            "cultural centres, stages, music clubs and concert venues",
+            "cinema and theatre programmes",
+            "museums, library, adult education centre (vhs), music school",
+            "swimming pools, ice rinks and other leisure facilities with events",
+            "inns, breweries, cafés, bars and farms that hold events",
+            "organisers of annual events: Christmas market, carnival, folk and town festivals",
+            "markets: weekly market, flea markets, craft markets",
+        ),
+        queries=(
+            "{m} Kultur Programm",
+            "{m} Kino Programm",
+            "{m} Museum Führungen",
+            "{m} Bücherei Veranstaltungen",
+            "{m} vhs Kurse Vorträge",
+            "{m} Musikschule Konzert",
+            "{m} Hallenbad OR Eisstadion Veranstaltungen",
+            "{m} Gasthof OR Brauerei Veranstaltungen",
+            "{m} Café Bar Live Musik",
+            "{m} Christkindlmarkt OR Weihnachtsmarkt",
+            "{m} Volksfest OR Stadtfest OR Dorffest",
+            "{m} Markt Flohmarkt Termine",
+        ),
+    ),
+)
+COVERAGE_STATUS = ("found", "nothing_found", "not_checked")
+
+
+@dataclass
+class Coverage:
+    """One line of a coverage report: was a category of sources found for a municipality?"""
+
+    municipality: str
+    focus: str
+    category: str
+    status: str
+    note: str = ""
 
 
 # --- helpers --------------------------------------------------------------------------------
@@ -96,7 +214,7 @@ def save_sources(sources: SourcesFile, data_dir: Path = DATA_DIR) -> None:
 # --- AI answer ------------------------------------------------------------------------------
 
 
-def answer_schema() -> dict[str, Any]:
+def answer_schema(with_coverage: bool = False) -> dict[str, Any]:
     def obj(properties: dict[str, Any]) -> dict[str, Any]:
         return {
             "type": "object",
@@ -122,13 +240,22 @@ def answer_schema() -> dict[str, Any]:
         }
     )
     candidate = obj({"domain": {"type": "string"}, "reason": {"type": "string"}})
-    return obj(
-        {
-            "sources": {"type": "array", "items": source},
-            "blacklist_candidates": {"type": "array", "items": candidate},
-            "notes": {"type": "string"},
-        }
-    )
+    properties: dict[str, Any] = {
+        "sources": {"type": "array", "items": source},
+        "blacklist_candidates": {"type": "array", "items": candidate},
+        "notes": {"type": "string"},
+    }
+    if with_coverage:
+        coverage = obj(
+            {
+                "municipality": {"type": "string"},
+                "category": {"type": "string"},
+                "status": {"type": "string", "enum": list(COVERAGE_STATUS)},
+                "note": {"type": "string"},
+            }
+        )
+        properties["coverage"] = {"type": "array", "items": coverage}
+    return obj(properties)
 
 
 def render_prompt(
@@ -137,6 +264,7 @@ def render_prompt(
     known: Sequence[Source],
     blocked: Sequence[str],
     max_searches: int,
+    focus: Focus | None = None,
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(PROMPTS_DIR),
@@ -150,6 +278,7 @@ def render_prompt(
         known=known,
         blocked_domains=blocked,
         max_searches=max_searches,
+        focus=focus,
     )
 
 
@@ -162,6 +291,7 @@ class DiscoveryResult:
     added: list[str] = field(default_factory=list)
     updated: list[str] = field(default_factory=list)
     blacklist_candidates: dict[str, str] = field(default_factory=dict)
+    coverage: list[Coverage] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     usage: Usage = field(default_factory=Usage)
 
@@ -202,6 +332,7 @@ def merge_answer(
     blocked: Sequence[str],
     today: date,
     result: DiscoveryResult,
+    focus: str = "",
 ) -> None:
     """Add or update the sources of one AI answer."""
     for item in data.get("sources") or []:
@@ -251,13 +382,30 @@ def merge_answer(
         domain = str(candidate.get("domain", "")).lower().removeprefix("www.")
         if domain and domain not in blocked:
             result.blacklist_candidates[domain] = str(candidate.get("reason", ""))
+    for line in data.get("coverage") or []:
+        status = str(line.get("status", ""))
+        if status not in COVERAGE_STATUS:
+            continue
+        name = str(line.get("municipality", ""))
+        result.coverage.append(
+            Coverage(
+                municipality=resolve(name) or name,
+                focus=focus,
+                category=str(line.get("category", "")),
+                status=status,
+                note=str(line.get("note", "")),
+            )
+        )
 
 
 # --- events stage helpers ---------------------------------------------------------------------
 
 
 def known_sources_for(
-    sources: SourcesFile | None, municipalities: Iterable[str], exclude_urls: Iterable[str] = ()
+    sources: SourcesFile | None,
+    municipalities: Iterable[str],
+    exclude_urls: Iterable[str] = (),
+    limit: int | None = MAX_KNOWN_PER_BATCH,
 ) -> list[Source]:
     """Active, well-rated sources of these municipalities (for the crawl prompt)."""
     if sources is None:
@@ -274,7 +422,7 @@ def known_sources_for(
         and ((s.rating or 0) >= MIN_RATING_FOR_CRAWL or s.hits >= 2)
     ]
     picked.sort(key=lambda s: (-(s.rating or 0), -s.hits, s.url))
-    return picked[:MAX_KNOWN_PER_BATCH]
+    return picked if limit is None else picked[:limit]
 
 
 def record_hits(
@@ -327,7 +475,11 @@ def record_hits(
 
 
 def suggestions_markdown(
-    sources: SourcesFile, whitelist_urls: Iterable[str], candidates: Mapping[str, str], today: date
+    sources: SourcesFile,
+    whitelist_urls: Iterable[str],
+    candidates: Mapping[str, str],
+    today: date,
+    coverage: Sequence[Coverage] = (),
 ) -> str:
     on_whitelist = {normalize_url(u) for u in whitelist_urls}
     good = [
@@ -377,6 +529,26 @@ def suggestions_markdown(
         lines.append("```")
     else:
         lines.append("_None._")
+    if coverage:
+        lines += [
+            "",
+            "## Coverage",
+            "",
+            "What the discovery passes searched for, per municipality. "
+            "`nothing_found` and `not_checked` are the gaps worth a manual look.",
+        ]
+        mark = {
+            "found": "found",
+            "nothing_found": "**nothing found**",
+            "not_checked": "**not checked**",
+        }
+        for municipality in dict.fromkeys(c.municipality for c in coverage):
+            lines += ["", f"### {municipality}", "", "| Pass | Category | Result | Note |"]
+            lines.append("| --- | --- | --- | --- |")
+            for c in coverage:
+                if c.municipality == municipality:
+                    note = c.note.replace("|", "/").replace("\n", " ")
+                    lines.append(f"| {c.focus} | {c.category} | {mark[c.status]} | {note} |")
     return "\n".join(lines) + "\n"
 
 
@@ -391,6 +563,7 @@ def run(
     runner: Runner | None = None,
     data_dir: Path = DATA_DIR,
     today: date | None = None,
+    clock: Callable[[], float] = time.monotonic,
 ) -> DiscoveryResult:
     """CLI entry point for ``--job discovery``."""
     from letsgau import crawl  # late import: crawl uses this module too
@@ -422,13 +595,21 @@ def run(
     sync_lists(sources, whitelist, blocked, today)
 
     runner = runner or make_runner(config)
-    size = config.limits.places_per_request
+    depth = config.depth
+    size = depth.discovery_places_per_request
     batches = [groups[i : i + size] for i in range(0, len(groups), size)]
+    focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
+    calls = [(n, batch, focus) for n, batch in enumerate(batches, 1) for focus in focuses]
     budget = config.limits.max_web_searches_per_run
-    for position, batch in enumerate(batches):
+    deadline = clock() + config.limits.max_runtime_minutes * 60
+    for position, (number, batch, focus) in enumerate(calls):
+        label = f"batch {number}" + (f" ({focus.id})" if focus else "")
         remaining = budget - result.usage.web_searches
         if remaining < 3:
-            result.warnings.append(f"batch {position + 1}: skipped, search budget used up")
+            result.warnings.append(f"{label}: skipped, search budget used up")
+            continue
+        if clock() > deadline:
+            result.warnings.append(f"{label}: skipped, max_runtime_minutes reached")
             continue
         names = [g.name for g in batch]
         known = [
@@ -436,19 +617,21 @@ def run(
             for s in sources.values()
             if {p.casefold() for p in s.places} & {n.casefold() for n in names}
         ]
-        per_batch = max(3, min(40, remaining // (len(batches) - position)))
+        per_call = max(
+            3, min(depth.discovery_searches_per_request, remaining // (len(calls) - position))
+        )
         request = AiRequest(
-            step=f"discovery batch {position + 1}/{len(batches)}",
+            step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,
-            prompt=render_prompt(config, batch, known, blocked, per_batch),
-            schema=answer_schema(),
+            prompt=render_prompt(config, batch, known, blocked, per_call, focus),
+            schema=answer_schema(with_coverage=focus is not None),
             blocked_domains=blocked,
-            max_searches=per_batch,
+            max_searches=per_call,
         )
         try:
             answer = runner.run(request)
         except AiError as exc:
-            result.warnings.append(f"batch {position + 1}: {exc}")
+            result.warnings.append(f"{label}: {exc}")
             continue
         result.usage = result.usage.add(answer.usage)
         merge_answer(
@@ -459,11 +642,12 @@ def run(
             blocked=blocked,
             today=today,
             result=result,
+            focus=focus.id if focus else "",
         )
         note = str(answer.data.get("notes") or "").strip()
         if note:
-            print(f"discovery: note from batch {position + 1}: {note}")
-    if batches and not result.usage.requests:
+            print(f"discovery: note from {label}: {note}")
+    if calls and not result.usage.requests:
         raise DiscoveryError("every discovery batch failed: " + "; ".join(result.warnings))
 
     result.sources = SourcesFile(
@@ -476,13 +660,34 @@ def run(
     print(
         f"discovery: {len(result.added)} new, {len(result.updated)} re-rated sources, "
         f"{active} active in total, {len(result.blacklist_candidates)} blacklist candidates; "
-        f"{result.usage.web_searches} searches" + ("; dry run, nothing written" if dry_run else "")
+        f"{result.usage.web_searches} searches, ~${result.usage.cost_usd:.2f} at API prices"
+        + ("; dry run, nothing written" if dry_run else "")
     )
+    gaps = [c for c in result.coverage if c.status != "found"]
+    if result.coverage:
+        print(
+            f"discovery: coverage: {len(result.coverage) - len(gaps)} categories found, "
+            f"{len(gaps)} gaps"
+        )
+        for c in gaps:
+            print(f"  {c.status:13} {c.municipality} / {c.focus} / {c.category}: {c.note}")
     if not dry_run:
         save_sources(result.sources, data_dir)
+        state_path = data_dir / "state.json"
+        state = (
+            State.model_validate_json(state_path.read_text(encoding="utf-8"))
+            if state_path.exists()
+            else State()
+        )
+        state.last_usage["discovery"] = result.usage
+        state_path.write_text(state.model_dump_json(indent=2) + "\n", encoding="utf-8")
         (data_dir / "suggested.md").write_text(
             suggestions_markdown(
-                result.sources, [w.url for w in whitelist], result.blacklist_candidates, today
+                result.sources,
+                [w.url for w in whitelist],
+                result.blacklist_candidates,
+                today,
+                result.coverage,
             ),
             encoding="utf-8",
         )
