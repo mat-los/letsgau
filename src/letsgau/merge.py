@@ -124,6 +124,25 @@ def candidate_score(
     return title_similarity(new.title.de, old.title.de, places)
 
 
+def same_slot(new: Event, old: Event, municipality_of: Mapping[str, str] | None = None) -> bool:
+    """Same day, same start time (both known) and same municipality, same role.
+
+    Such pairs go to the AI tie-break even when their titles share few words
+    ("Fibromyalgiesymposium in Schongau" vs. "Symposium Fibromyalgie").
+    """
+    if (new.parent_id is None) != (old.parent_id is None):
+        return False
+    m = municipality_of or {}
+    a, b = new.schedule, old.schedule
+    return (
+        a.start_date == b.start_date
+        and a.start_time is not None
+        and a.start_time == b.start_time
+        and m.get(new.venue.place, new.venue.place).casefold()
+        == m.get(old.venue.place, old.venue.place).casefold()
+    )
+
+
 # --- combining ----------------------------------------------------------------------
 
 
@@ -304,6 +323,17 @@ def apply(
     stored = {e.id: e for e in (existing.events if existing else [])}
     crawled = list(crawled)
 
+    # 0. Duplicates already in storage (same day, time and place): asked in the same AI call.
+    stored_pairs: list[Pair] = []
+    open_events = [
+        e for e in stored.values() if e.status not in (EventStatus.CANCELLED, EventStatus.POSTPONED)
+    ]
+    for i, old in enumerate(open_events):
+        for new in open_events[i + 1 :]:
+            if same_slot(new, old, municipality_of):
+                score = candidate_score(new, old, municipality_of)
+                stored_pairs.append(Pair(len(stored_pairs) + 1, new, old, score))
+
     # 1. Matching against stored events and earlier crawled events.
     target: dict[int, str | None] = {}  # crawled index -> id it merges into
     pairs: list[Pair] = []
@@ -321,18 +351,46 @@ def apply(
             target[i] = best_id
         else:
             target[i] = None
+            number = len(stored_pairs) + len(pairs) + 1
             if best_id is not None and best >= UNCLEAR:
-                pairs.append(Pair(len(pairs) + 1, event, pool[best_id], best))
+                pairs.append(Pair(number, event, pool[best_id], best))
+            else:
+                slot = [o for o in pool.values() if same_slot(event, o, municipality_of)]
+                if slot:
+                    other = max(slot, key=lambda o: candidate_score(event, o, municipality_of))
+                    score = candidate_score(event, other, municipality_of)
+                    pairs.append(Pair(number, event, other, score))
         if target[i] is None:
             pool[event.id] = event
 
     # 2. One AI call: unclear pairs and the topic check of new events.
     new_events = [e for i, e in enumerate(crawled) if target[i] is None]
-    decisions = decide(pairs, new_events)
+    decisions = decide([*stored_pairs, *pairs], new_events)
+    alias: dict[str, str] = {}  # removed stored duplicate -> kept stored event
+    for pair in stored_pairs:
+        if pair.number not in decisions.same or {pair.new.id, pair.old.id} & alias.keys():
+            continue
+        keep, drop = sorted((pair.old, pair.new), key=lambda e: (e.first_seen, -len(e.sources)))
+        stored[keep.id] = combine(stored[keep.id], stored[drop.id])
+        del stored[drop.id]
+        alias[drop.id] = keep.id
+        report.merged_fuzzy.append((drop.id, keep.id))
+    if alias:
+        for key, event in stored.items():
+            if event.parent_id in alias or event.postponed_to in alias:
+                stored[key] = event.model_copy(
+                    update={
+                        "parent_id": alias.get(event.parent_id, event.parent_id),
+                        "postponed_to": alias.get(event.postponed_to, event.postponed_to),
+                    }
+                )
+        for i, t in target.items():
+            if t in alias:
+                target[i] = alias[t]
     for pair in pairs:
         if pair.number in decisions.same:
             index = next(i for i, e in enumerate(crawled) if e is pair.new)
-            target[index] = pair.old.id
+            target[index] = alias.get(pair.old.id, pair.old.id)
     remap = {crawled[i].id: t for i, t in target.items() if t is not None and t != crawled[i].id}
     report.merged_fuzzy.extend(remap.items())
 

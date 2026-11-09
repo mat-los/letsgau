@@ -148,6 +148,18 @@ def test_failed_stage_still_builds_and_marks_failure(tmp_path: Path) -> None:
     assert "build" in scheduler.load_state(data).last_run
 
 
+def test_events_job_also_rebuilds_the_site(tmp_path: Path) -> None:
+    stages = Stages()
+    report = scheduler.execute(
+        CONFIG, "events", stages.runners(), data_dir=tmp_path / "data", now=at(MONDAY)
+    )
+    assert stages.calls == ["events", "build"]
+    assert [s.status for s in report.stages] == ["ok", "ok"]
+    stages = Stages()
+    scheduler.execute(CONFIG, "build", stages.runners(), data_dir=tmp_path / "d2", now=at(MONDAY))
+    assert stages.calls == ["build"]
+
+
 def test_dry_run_does_not_touch_state(tmp_path: Path) -> None:
     data = tmp_path / "data"
     scheduler.execute(
@@ -198,6 +210,9 @@ def test_run_workflow_matches_the_cli() -> None:
     assert tuple(options) == scheduler.JOBS
     assert workflow["concurrency"]["cancel-in-progress"] is False
     assert workflow["permissions"] == {"contents": "write", "pages": "write", "id-token": "write"}
+    # deploy only when the run job uploaded a site (e.g. not after a failed build)
+    assert "needs.run.outputs.site == 'true'" in workflow["jobs"]["deploy"]["if"]
+    assert workflow["jobs"]["run"]["outputs"]["site"] == "${{ steps.upload.outcome == 'success' }}"
     steps = " ".join(str(s) for s in workflow["jobs"]["run"]["steps"])
     assert "git push origin data" in steps and "upload-pages-artifact" in steps
     assert "ANTHROPIC_API_KEY" in str(workflow["jobs"]["run"]["env"])

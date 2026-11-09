@@ -111,8 +111,9 @@ Merge rules (Phase 3, `src/letsgau/merge.py`):
 - **Same event:** equal `id`, or overlapping dates, same municipality, start
   times at most 2 h apart (when both are known) and similar titles (normalized:
   lower case, umlauts, without filler words, place names and years). Similarity
-  ≥ 0.85 merges directly, 0.5–0.85 is decided by the merge model. A program item
-  never matches a main event.
+  ≥ 0.85 merges directly, 0.5–0.85 is decided by the merge model, and so is any
+  pair with the same day, start time and municipality (also two stored events,
+  so old duplicates get cleaned up). A program item never matches a main event.
 - **On a match** the stored `id` and `first_seen` stay, texts, schedule, tags
   and status come from the crawl (a single day of a known multi-day event keeps
   the full range), sources are appended, `misses` is reset, `unconfirmed`

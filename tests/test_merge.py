@@ -192,6 +192,56 @@ def test_unclear_pair_is_decided_by_the_ai() -> None:
     assert report.added == [crawled[0].id]
 
 
+def test_same_slot_pair_goes_to_the_ai_even_with_other_words() -> None:
+    a = ev("Fibromyalgiesymposium in Schongau", "2026-11-12", time="18:00")
+    b = ev("Symposium Fibromyalgie", "2026-11-12", time="18:00", url="https://other.example/x")
+    other_time = ev("Symposium Fibromyalgie", "2026-11-12", time="19:00")
+    no_time = ev("Symposium Fibromyalgie", "2026-11-12")
+    assert merge.candidate_score(b, a) < merge.CLEAR  # not merged without the AI
+    assert merge.same_slot(b, a)
+    assert not merge.same_slot(other_time, a) and not merge.same_slot(no_time, a)
+    seen: list[Sequence[Pair]] = []
+
+    def decide(pairs: Sequence[Pair], new: Sequence[Event]) -> Decisions:
+        seen.append(pairs)
+        return Decisions(same={p.number for p in pairs})
+
+    merged, _ = run(None, [a, b], DAY1, decide)
+    assert [(p.new.title.de, p.old.title.de) for p in seen[0]] == [
+        ("Symposium Fibromyalgie", "Fibromyalgiesymposium in Schongau")
+    ]
+    assert len(merged.events) == 1
+    assert len(merged.events[0].sources) == 2
+
+
+def test_stored_duplicates_are_cleaned_up_with_the_ai() -> None:
+    old = ev("Handy & Co. – Sprechstunde", "2026-11-20", time="14:00")
+    dup = ev(
+        "Projekt Handy und Co.", "2026-11-20", time="14:00", url="https://b.example/h", seen=DAY2
+    )
+    item = ev("Fragerunde", "2026-11-20", time="14:30", parent_id=dup.id)
+    other = ev("Kino: Alte Liebe", "2026-11-20", time="14:00")  # same slot, different event
+    stored = EventsFile(updated_at="2026-11-10T00:00:00Z", events=[old, dup, item, other])
+    crawled = [ev("Projekt Handy und Co.", "2026-11-20", time="14:00", url="https://c.example")]
+    asked: list[tuple[str, str]] = []
+
+    def decide(pairs: Sequence[Pair], new: Sequence[Event]) -> Decisions:
+        asked.extend((p.new.title.de, p.old.title.de) for p in pairs)
+        handy = {p.number for p in pairs if "Kino" not in p.new.title.de + p.old.title.de}
+        return Decisions(same=handy)
+
+    merged, report = run(stored, crawled, DAY2, decide)
+    assert ("Projekt Handy und Co.", "Handy & Co. – Sprechstunde") in asked
+    assert sorted(e.id for e in merged.events) == sorted([old.id, item.id, other.id])
+    kept = next(e for e in merged.events if e.id == old.id)
+    assert {s.url for s in kept.sources} >= {"https://b.example/h", "https://c.example"}
+    assert next(e for e in merged.events if e.title.de == "Fragerunde").parent_id == old.id
+    assert (dup.id, old.id) in report.merged_fuzzy
+    # without an AI answer nothing is merged
+    untouched, _ = run(stored, [], DAY2)
+    assert len(untouched.events) == 4
+
+
 def test_duplicates_within_one_run_are_merged() -> None:
     merged, _ = run(
         None,

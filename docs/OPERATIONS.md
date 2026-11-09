@@ -15,7 +15,7 @@ python -m letsgau run --job events --dry-run --limit-places 3
 ```
 
 `--job` accepts `auto` (only due jobs), `geo`, `discovery`, `events`, `build`
-or `all`. `--dry-run` writes nothing to `data/`, `geo/` or `site/`.
+or `all`. `events` also runs `build` afterwards, so new events go live at once. `--dry-run` writes nothing to `data/`, `geo/` or `site/`.
 `letsgau run` reads `.env` from the current directory (existing environment
 variables win).
 
@@ -119,6 +119,10 @@ python -m letsgau run --job events --dry-run --limit-places 3
   N postponed, N now unconfirmed, N excluded by topic, N past deleted`.
   Unclear duplicates and the topic check of new events cost one call to the
   merge model (Haiku) per run; if that call fails, unclear pairs stay separate.
+  Besides title similarity 0.5–0.85, every pair with the same day, start time
+  and municipality goes to that call, also two events already stored (which
+  are then combined: the older one stays, sources are joined, links to the
+  removed one are redirected).
 
 ### Check the sources
 
@@ -222,7 +226,9 @@ check that every event is in the HTML.
 The workflow `.github/workflows/run.yml` runs daily at 04:17 UTC and can be
 started by hand: *Actions → Run → Run workflow* (also in the GitHub mobile app),
 with the job (`auto`, `geo`, `discovery`, `events`, `build`, `all`) and an
-optional dry run. A `concurrency` group prevents overlapping runs.
+optional dry run. A `concurrency` group prevents overlapping runs. The deploy
+job runs only when the run job uploaded a site, so a run that builds nothing
+(e.g. `discovery`) is not marked as failed.
 
 What `--job auto` does (`src/letsgau/scheduler.py`):
 

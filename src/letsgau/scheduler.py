@@ -175,7 +175,10 @@ def execute(
     now = (now or datetime.now(UTC)).replace(microsecond=0)
     today = now.astimezone(ZoneInfo(config.site.timezone)).date()
     report = RunReport(job=job, started=now)
-    wanted: Sequence[str] = STAGES if job in ("auto", "all") else (job,)
+    # A manual "events" run also rebuilds the site, so new events go live at once.
+    wanted: Sequence[str] = (
+        STAGES if job in ("auto", "all") else ("events", "build") if job == "events" else (job,)
+    )
     events_ran = False
     failed_before_build = False
     for stage in wanted:
