@@ -47,11 +47,17 @@ def _answer() -> dict[str, Any]:
     return data["structured_output"]
 
 
-def make_config(tmp_path: Path, sweeps: int = 0, **limits: Any) -> Config:
-    """Instance config with fixture lists; ``sweeps=0`` is one combined call per batch."""
+def make_config(tmp_path: Path, sweeps: int = 0, store_days: int = 28, **limits: Any) -> Config:
+    """Instance config with fixture lists; ``sweeps=0`` is one combined call per batch.
+
+    ``store_days`` defaults to the crawl window (28), as these tests were written for it.
+    """
     config = load_config(CONFIG_PATH)
     config = config.model_copy(
-        update={"depth": config.depth.model_copy(update={"crawl_sources_per_request": sweeps})}
+        update={
+            "depth": config.depth.model_copy(update={"crawl_sources_per_request": sweeps}),
+            "window": config.window.model_copy(update={"store_days": store_days}),
+        }
     )
     sources = config.sources.model_copy(
         update={
@@ -283,7 +289,7 @@ def test_valid_candidate_becomes_event(config: Config) -> None:
 @pytest.mark.parametrize(
     ("changes", "reason"),
     [
-        ({"schedule__start_date": "2026-12-08"}, "after the crawl window"),
+        ({"schedule__start_date": "2026-12-08"}, "after store_days"),
         ({"schedule__start_date": "2026-11-01"}, "already over"),
         ({"venue__place": "München"}, "not in the area"),
         ({"tags": ["sports", "ice-hockey"]}, "unknown tags"),
@@ -353,7 +359,7 @@ def test_answer_validation_drops_invalid_and_links_children(config: Config) -> N
         "Kabarett im Ballenhaus",
     }
     reasons = {r.title: r.reason for r in rejected}
-    assert "after the crawl window" in reasons["Weit entfernter Markt"]
+    assert "after store_days" in reasons["Weit entfernter Markt"]
     assert "no valid source" in reasons["Spam-Event"]
     assert "not in the area" in reasons["Konzert in München"]
     assert "unknown tags" in reasons["Falsches Tag"]
@@ -523,6 +529,25 @@ def test_known_events_go_into_the_prompt(config: Config, data_dir: Path) -> None
     assert "Known events to re-check (until 2026-11-16)" in prompt
     assert "2026-11-13 20:00 | EC Peiting – EV Füssen | Peiting" in prompt
     assert "Already known later events" in prompt
+    assert "Schongauer Christkindlmarkt" in prompt
+
+
+# --- store_days: events beyond the crawl window are kept ---------------------------------
+
+
+def test_events_up_to_store_days_are_kept(tmp_path: Path, data_dir: Path) -> None:
+    config = make_config(tmp_path, store_days=180)
+    assert _to_event(config, _candidate(schedule__start_date="2027-05-08"))  # day 180
+    with pytest.raises(ValueError, match="after store_days"):
+        _to_event(config, _candidate(schedule__start_date="2027-05-09"))
+    result = crawl.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)
+    assert "Weit entfernter Markt" in by_title(result.events)  # 2027-03-01, now kept
+    runner = FakeRunner()
+    crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    prompt = runner.requests[0].prompt
+    assert "up to 2027-05-08 that you see on a page you read anyway" in prompt
+    # the prompt lists known events only up to the crawl window (2026-12-07)
+    assert "Weit entfernter Markt" not in prompt
     assert "Schongauer Christkindlmarkt" in prompt
 
 

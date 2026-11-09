@@ -97,11 +97,15 @@ class WindowConfig(_Strict):
     display_days: int = Field(ge=1, le=90)
     crawl_days: int = Field(ge=1, le=90)
     deep_check_days: int = Field(ge=0, le=90)
+    store_days: int = Field(default=180, ge=1, le=400)
+    """Events seen up to this far ahead are kept (searching stops at ``crawl_days``)."""
 
     @model_validator(mode="after")
     def _consistent(self) -> WindowConfig:
         if self.crawl_days < self.display_days:
             raise ValueError("crawl_days must be >= display_days")
+        if self.store_days < self.crawl_days:
+            raise ValueError("store_days must be >= crawl_days")
         if self.deep_check_days > self.crawl_days:
             raise ValueError("deep_check_days must be <= crawl_days")
         return self

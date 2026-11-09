@@ -42,12 +42,13 @@ researchers handle the remaining sources and a general web search.
 The files below were downloaded from {{ flyer.url }}{% if flyer.note %} ({{ flyer.note }}){% endif %}:
 posters, flyers, brochure pages and programme PDFs. You have no web access in this task. Open every
 file (with the Read tool, or as attached) and take every event between {{ today }} and
-{{ window_end }} that is printed on it.
+{{ store_end }} that is printed on it (also the later ones: each file is read only once).
 
 - Posters often omit the year: use the next occurrence of the printed date on or after {{ today }}.
 - Report only what is printed. If no time is printed, use null; never guess a time or a place.
 - Skip files that show no event (logos, photos, sponsors, past events).
 - Sources: {{ flyer.url }} as the primary source; add the file's own URL as a second source.
+- In "file", give the file the event is printed on, exactly as listed below.
 - In "checked_sources", list each file's URL with "events_found" or "no_events".
 {% for name, url, kind in files %}
 - {{ name }} ({{ kind }}, {{ url }})
@@ -129,6 +130,8 @@ matching status.
 ## Rules
 
 - Only events with a concrete date in one of the municipalities above. Invent nothing.
+- Events after {{ window_end }} up to {{ store_end }} that you see on a page you read anyway: report
+  them too (they are kept for later). But do not page, filter or search beyond {{ window_end }}.
 - If the start time is not stated, use null. Never guess a time. Use 24-hour "HH:MM".
 - An event that spans several days is one event with start_date and end_date, not one per day.
   Always give its real start and end date, even if it continues after {{ window_end }}.

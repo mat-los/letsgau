@@ -54,6 +54,7 @@ Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
 | `display_days` | days ahead shown on the website (default 21) |
 | `crawl_days` | days ahead searched (default 28); must be ≥ `display_days` |
 | `deep_check_days` | days that get thorough re-checks (default 7); ≤ `crawl_days` |
+| `store_days` | events up to this many days ahead are kept when the AI sees them anyway, e.g. on a flyer or a calendar page it reads (default 180, ≥ `crawl_days`). Nothing is searched or paged beyond `crawl_days`, and the prompt lists known events only up to `crawl_days`. Kept events appear on the website once they are within `display_days`; the ICS/JSON feeds contain all of them |
 
 ## `jobs`
 

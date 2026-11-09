@@ -8,11 +8,24 @@ several pages. Past events are deleted during merge; Git history is the record.
 | --- | --- |
 | `data/places.json` | places in the area with coordinates and drive time, plus fingerprint of center and drive time |
 | `data/sources.json` | known sources with origin, status and hit statistics |
-| `data/events.json` | all events from yesterday to `crawl_days` ahead |
+| `data/events.json` | all events from yesterday to `store_days` ahead (searched up to `crawl_days`) |
+| `data/flyers.json` | flyer files already read by the AI, by SHA-256 of the file, with the events found on them |
 | `data/state.json` | last run per job, geo fingerprint, usage of the last run |
 
 Pydantic models live in `src/letsgau/models.py` and are completed in the
 phases that write each file. Data models reject unknown keys.
+
+## Flyer cache (`data/flyers.json`)
+
+Written by the events stage for pages on the flyer list. `files` maps the
+SHA-256 of each downloaded image/PDF to `page_url`, `file_url`, `kind`
+(`image`/`pdf`), `version` (extraction version; older entries are read again),
+`first_seen`, `last_seen` and `events`: the raw event candidates the AI read
+from that file, all of them up to `store_days`. On later runs an unchanged file
+is not sent to the AI again; its cached candidates are validated against the
+current date and merged like freshly read ones. Entries whose file has not been
+on its page for 30 days are dropped. Deleting the file only means every flyer
+is read again once.
 
 ## Places (`data/places.json`)
 

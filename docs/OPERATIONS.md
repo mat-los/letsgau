@@ -103,6 +103,11 @@ python -m letsgau run --job events --dry-run --limit-places 3
   `files/` folder; API: attached as image/document blocks). An image costs
   about 1,500 input tokens. If nothing could be downloaded, no AI call is made
   and the crawl warns.
+- Flyer cache (`data/flyers.json`): every downloaded file gets a SHA-256
+  fingerprint. Only new or changed files are sent to the AI, which reports
+  every event on them up to `store_days`; unchanged files reuse the stored
+  events without an AI call. Identical files under two URLs are read once. The
+  log shows `N flyer file(s) from <page>, N already read, N new`.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g

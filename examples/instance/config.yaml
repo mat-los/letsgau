@@ -23,6 +23,7 @@ region:
 window:
   display_days: 21                      # how far ahead the website shows
   crawl_days: 28                        # how far ahead we search (1 week buffer)
+  store_days: 180                       # events seen up to this far ahead are kept (no search)
   deep_check_days: 7                    # period that gets thorough re-checks
 
 jobs:                                   # format: off | daily | weekly:mon,thu | monthly:1
