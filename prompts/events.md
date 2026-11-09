@@ -37,6 +37,21 @@ researchers handle the remaining sources and a general web search.
 {%- for source in sources %}
 - {{ source.url }}{% if source.name %} ({{ source.name }}){% endif %}{% if source.note %}: {{ source.note }}{% endif %}
 {%- endfor %}
+{%- elif mode == "flyers" %}
+
+The files below were downloaded from {{ flyer.url }}{% if flyer.note %} ({{ flyer.note }}){% endif %}:
+posters, flyers, brochure pages and programme PDFs. You have no web access in this task. Open every
+file (with the Read tool, or as attached) and take every event between {{ today }} and
+{{ window_end }} that is printed on it.
+
+- Posters often omit the year: use the next occurrence of the printed date on or after {{ today }}.
+- Report only what is printed. If no time is printed, use null; never guess a time or a place.
+- Skip files that show no event (logos, photos, sponsors, past events).
+- Sources: {{ flyer.url }} as the primary source; add the file's own URL as a second source.
+- In "checked_sources", list each file's URL with "events_found" or "no_events".
+{% for name, url, kind in files %}
+- {{ name }} ({{ kind }}, {{ url }})
+{%- endfor %}
 {%- elif mode == "search" %}
 
 Be thorough: the calendar is only useful if it is close to complete. Other researchers read these
@@ -90,7 +105,7 @@ events). If you have found only a few, keep looking; do not stop after the first
 - Never use or cite these domains: {{ blocked_domains | join(", ") }}.
 {%- endif %}
 
-{%- if deep_check_events and mode != "sources" %}
+{%- if deep_check_events and mode not in ("sources", "flyers") %}
 
 ## Known events to re-check (until {{ deep_check_end }})
 
@@ -103,7 +118,7 @@ matching status.
 {%- endfor %}
 {%- endif %}
 
-{%- if later_events and mode != "sources" %}
+{%- if later_events and mode not in ("sources", "flyers") %}
 
 ## Already known later events (do not re-check, do not report again unless details changed)
 {% for event in later_events %}

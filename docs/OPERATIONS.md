@@ -97,6 +97,12 @@ python -m letsgau run --job events --dry-run --limit-places 3
   other calls are kept, but the batch does not count as covered, so no stored
   event is marked as missed. `0` gives one combined call per batch (cheaper,
   less complete).
+- Flyer pages (`sources.flyers_file`) get one extra call each: the pipeline
+  downloads up to `max_files` posters and PDFs (`src/letsgau/flyers.py`) and the
+  model reads them without web access (Claude Code: Read on a temporary
+  `files/` folder; API: attached as image/document blocks). An image costs
+  about 1,500 input tokens. If nothing could be downloaded, no AI call is made
+  and the crawl warns.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g

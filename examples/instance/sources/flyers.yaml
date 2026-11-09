@@ -1,0 +1,7 @@
+# Flyer pages: sources whose programme is published as posters, brochure images or PDFs.
+# Only pages on this list are downloaded and read as images/PDFs by the event crawl
+# (one AI call per page, no web search). The page may also link straight to an image or PDF.
+# Format: list of { url, note, places, max_files }. `places` assigns the page to the batch of
+# those places; `max_files` (default 15, max 40) caps the images/PDFs taken per run, in page order.
+# `{municipality_slug}` in the URL expands per municipality, as in whitelist.yaml.
+[]

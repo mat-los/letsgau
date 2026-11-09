@@ -1,0 +1,22 @@
+# Flyer pages: sources whose programme is published as posters, brochure images or PDFs.
+# Only pages on this list are downloaded and read as images/PDFs by the event crawl
+# (one AI call per page, no web search). The page may also link straight to an image or PDF.
+# Format: list of { url, note, places, max_files }. `places` assigns the page to the batch of
+# those places; `max_files` (default 15, max 40) caps the images/PDFs taken per run, in page order.
+# `{municipality_slug}` in the URL expands per municipality, as in whitelist.yaml.
+- url: "https://www.reaktor-sog.de/"
+  note: "Reaktor (club/culture centre): concerts and parties only as poster images"
+  places: ["Schongau"]
+  max_files: 20
+- url: "https://brauhaus-schongau.de/veranstaltungen/"
+  note: "Schongauer Brauhaus: programme (Comedy Lounge, Starkbieranstich ...) as brochure images"
+  places: ["Schongau"]
+  max_files: 12
+- url: "https://www.pg-schongau.com/pfarrbrief/"
+  note: "Catholic parishes: weekly Kirchenanzeiger as PDF, newest first"
+  places: ["Schongau"]
+  max_files: 2
+- url: "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf"
+  note: "Trachtenverein Schloßbergler: yearly club calendar PDF (new URL every year)"
+  places: ["Schongau"]
+  max_files: 1
