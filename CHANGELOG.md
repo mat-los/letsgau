@@ -10,9 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Merge: events with the same day, start time and place always go to the AI
-  duplicate check (also when titles differ, e.g. "Symposium Fibromyalgie" vs.
-  "Fibromyalgiesymposium in Schongau"), including pairs already stored, which
-  cleans up existing duplicates.
+  duplicate check (also when the titles share few words), including pairs
+  already stored, which cleans up existing duplicates.
 - A manual `events` run also rebuilds the site; the deploy job is skipped
   instead of failing when no site was built.
 - Flyer pages: `instance/sources/flyers.yaml` (`sources.flyers_file`) lists pages
