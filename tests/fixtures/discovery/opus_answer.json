@@ -1,0 +1,63 @@
+{
+  "sources": [
+    {
+      "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+      "name": "Pfaffenwinkel event calendar",
+      "kind": "calendar",
+      "places": ["Schongau"],
+      "has_current_events": true,
+      "dates_as_text": true,
+      "update_frequency": "weekly",
+      "rating": 5,
+      "note": "paginated with ?os=12, ?os=24"
+    },
+    {
+      "url": "https://www.ecpeiting.de/spielplan",
+      "name": "EC Peiting schedule",
+      "kind": "club",
+      "places": ["Peiting", "Herzogsägmühle"],
+      "has_current_events": true,
+      "dates_as_text": true,
+      "update_frequency": "weekly",
+      "rating": 4,
+      "note": "home matches of the ice hockey club"
+    },
+    {
+      "url": "https://reaktor-sog.de/",
+      "name": "Reaktor",
+      "kind": "venue",
+      "places": ["Schongau"],
+      "has_current_events": true,
+      "dates_as_text": false,
+      "update_frequency": "monthly",
+      "rating": 1,
+      "note": "events only as flyer images"
+    },
+    {
+      "url": "https://example-spam.de/schongau",
+      "name": "Spam listing",
+      "kind": "other",
+      "places": ["Schongau"],
+      "has_current_events": false,
+      "dates_as_text": true,
+      "update_frequency": "rare",
+      "rating": 1,
+      "note": "copied, outdated"
+    },
+    {
+      "url": "not a url",
+      "name": "broken",
+      "kind": "other",
+      "places": [],
+      "has_current_events": false,
+      "dates_as_text": false,
+      "update_frequency": "unknown",
+      "rating": 2,
+      "note": ""
+    }
+  ],
+  "blacklist_candidates": [
+    {"domain": "www.eventfinder-copy.example", "reason": "copies listings from other calendars, outdated"}
+  ],
+  "notes": "The Schongau town calendar is loaded with JavaScript."
+}

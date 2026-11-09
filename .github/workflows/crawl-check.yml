@@ -74,6 +74,20 @@ jobs:
             cat crawl.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Check whitelist URLs for the 30-minute area (informational)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          sed -E 's/^(  drive_time_minutes:) *[0-9]+/\1 30/' instance/config.yaml > /tmp/config-30.yaml
+          python -m letsgau --config /tmp/config-30.yaml run --job geo
+          python -m letsgau --config /tmp/config-30.yaml sources --check | tee sources.txt
+          {
+            echo "### Whitelist URLs (30 min)"
+            echo '```text'
+            cat sources.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Print raw AI answers
         if: always()
         run: |

@@ -79,7 +79,7 @@ def http() -> FakeHttp:
 
 @pytest.fixture
 def clients(http: FakeHttp) -> geo.Clients:
-    return geo.Clients(http=http, ors_api_key=KEY)
+    return geo.Clients(http=http, ors_api_key=KEY, sleep=lambda _: None)
 
 
 def make_config(**region: Any) -> Config:
@@ -503,9 +503,29 @@ def test_overpass_all_instances_fail(clients: geo.Clients, tmp_path: Path) -> No
     def broken(url: str, data: dict[str, str]) -> dict[str, Any]:
         return {"remark": "runtime error: timeout"}
 
+    waits: list[float] = []
+    clients.sleep = waits.append
     clients.http.post_form = broken  # type: ignore[method-assign]
-    with pytest.raises(geo.GeoError, match="all Overpass instances failed"):
+    with pytest.raises(geo.GeoError, match=r"all Overpass instances failed \(3 rounds\)"):
         run_geo(make_config(), clients, tmp_path)
+    assert waits == [60, 120]
+
+
+def test_overpass_retries_a_round_when_all_instances_are_busy(
+    clients: geo.Clients, http: FakeHttp, tmp_path: Path
+) -> None:
+    original = http.post_form
+    waits: list[float] = []
+    clients.sleep = waits.append
+
+    def busy_first_round(url: str, data: dict[str, str]) -> dict[str, Any]:
+        if not waits:
+            raise geo.GeoError(f"POST {url} failed: HTTP 502")
+        return original(url, data)
+
+    http.post_form = busy_first_round  # type: ignore[method-assign]
+    assert len(names(run_geo(make_config(), clients, tmp_path))) == 105
+    assert waits == [60]
 
 
 # --- municipalities (Phase 2) ------------------------------------------------------

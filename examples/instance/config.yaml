@@ -9,13 +9,14 @@ site:
   owner: "{{GITHUB_OWNER}}"             # must match the GitHub repo owner, else build aborts
   contact_email: "{{CONTACT_EMAIL}}"    # for source suggestions and feedback
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
+  timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
 
 region:
   label: "{{REGION_LABEL}}"             # name of the center, used in the coverage sentence
   center: { lat: 0.0, lon: 0.0 }        # {{CENTER}}: set lat/lon of your center
   drive_time_minutes: 30                # change triggers geo + discovery
   place_types: [city, town, village]    # OSM place types, hamlets ignored
-  include_places: []                    # e.g. ["Landsberg am Lech", "Weilheim in Oberbayern"]
+  include_places: []                    # places added even outside the drive time, e.g. ["Town A"]
   exclude_places: []                    # places deliberately left out
 
 window:

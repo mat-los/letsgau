@@ -12,16 +12,16 @@ repo is English.
 | `docs/ISSUES.md` | milestones, labels and issues per phase |
 | `docs/ARCHITECTURE.md` | Mermaid diagrams: context, container, sequence, status |
 | `docs/DATA_MODEL.md`, `docs/CONFIGURATION.md`, `docs/OPERATIONS.md` | reference docs |
-| `docs/decisions/` | ADRs (`ADR-001-...md`) |
+| `docs/decisions/` | ADRs (`ADR-001` … `ADR-004`) |
 | `instance/config.yaml` | the Schongau instance config, validated by `src/letsgau/config.py` |
 | `instance/sources/` | `whitelist.yaml`, `blacklist.yaml`, `suggested.md` |
 | `instance/content/` | Markdown content pages (`*.de.md`, `*.en.md`) |
 | `examples/instance/` | templates with `{{PLACEHOLDER}}`s for `letsgau init` |
-| `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `merge`, `ai_runner`, `build` |
+| `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `merge`, `ai_runner`, `build`, `feeds` |
 | `prompts/` | `discovery.md`, `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |
-| `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |
+| `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` / `site-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |
 
 Generated: `site/` (gitignored), `data/` and `geo/` (bot-only `data` branch).
 

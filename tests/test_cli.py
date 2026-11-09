@@ -55,10 +55,9 @@ def test_check_reports_typo(tmp_path: Path, capsys: pytest.CaptureFixture[str]) 
     assert "window.crawl_dayz: unknown field" in err
 
 
-def test_unimplemented_stage_exits_2(capsys: pytest.CaptureFixture[str]) -> None:
-    assert main(["--config", CONFIG, "run", "--job", "discovery", "--dry-run"]) == 2
-    assert "Phase 7" in capsys.readouterr().err
-
-
-def test_auto_run_is_noop_for_now() -> None:
-    assert main(["--config", CONFIG, "run"]) == 0
+def test_discovery_without_places_fails_cleanly(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    assert main(["--config", CONFIG, "run", "--job", "discovery", "--dry-run"]) == 1
+    assert "run `letsgau run --job geo` first" in capsys.readouterr().err

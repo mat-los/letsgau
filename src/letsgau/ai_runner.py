@@ -76,6 +76,8 @@ class AiRequest:
     system: str = ""
     blocked_domains: Sequence[str] = ()
     max_searches: int = 20
+    web: bool = True
+    """Allow web search and fetch; ``False`` for pure reasoning steps (merge)."""
 
 
 @dataclass
@@ -149,14 +151,12 @@ class ClaudeCodeRunner:
             "--json-schema",
             json.dumps(request.schema, separators=(",", ":")),
             "--tools",
-            "WebSearch,WebFetch",
-            "--allowedTools",
-            "WebSearch",
-            "WebFetch",
+            "WebSearch,WebFetch" if request.web else "",
+            *(["--allowedTools", "WebSearch", "WebFetch"] if request.web else []),
             "--permission-mode",
             "dontAsk",
             "--max-turns",
-            str(CLAUDE_MAX_TURNS),
+            str(CLAUDE_MAX_TURNS if request.web else 4),
             "--no-session-persistence",
             "--strict-mcp-config",
             "--setting-sources",
@@ -309,6 +309,14 @@ class ApiRunner:
 
     @staticmethod
     def tools(request: AiRequest) -> list[dict[str, Any]]:
+        submit = {
+            "name": SUBMIT_TOOL,
+            "description": "Submit the final result. Call exactly once, at the end.",
+            "strict": True,
+            "input_schema": request.schema,
+        }
+        if not request.web:
+            return [submit]
         blocked: dict[str, Any] = {}
         if request.blocked_domains:
             blocked["blocked_domains"] = list(request.blocked_domains)
@@ -320,12 +328,7 @@ class ApiRunner:
                 **blocked,
             },
             {"type": "web_fetch_20260209", "name": "web_fetch", **blocked},
-            {
-                "name": SUBMIT_TOOL,
-                "description": "Submit the final result. Call exactly once, at the end.",
-                "strict": True,
-                "input_schema": request.schema,
-            },
+            submit,
         ]
 
     def run(self, request: AiRequest) -> AiResult:

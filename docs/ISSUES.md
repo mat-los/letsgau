@@ -58,46 +58,46 @@ Phase 0 is implemented in the first pull request.
 
 ### Phase 2 – Event crawl
 
-- [ ] [#7](https://github.com/mat-los/letsgau/issues/7) A run returns events for 28 days; all pass schema validation
-- [ ] [#8](https://github.com/mat-los/letsgau/issues/8) No source comes from a blacklisted domain; every whitelist source was queried
-- [ ] [#9](https://github.com/mat-los/letsgau/issues/9) Every event has DE and EN texts, tags only from the list, exactly one primary_tag
-- [ ] [#10](https://github.com/mat-los/letsgau/issues/10) `--dry-run` and `--limit-places` work
+- [x] [#7](https://github.com/mat-los/letsgau/issues/7) A run returns events for 28 days; all pass schema validation
+- [x] [#8](https://github.com/mat-los/letsgau/issues/8) No source comes from a blacklisted domain; every whitelist source was queried
+- [x] [#9](https://github.com/mat-los/letsgau/issues/9) Every event has DE and EN texts, tags only from the list, exactly one primary_tag
+- [x] [#10](https://github.com/mat-los/letsgau/issues/10) `--dry-run` and `--limit-places` work
 
 ### Phase 3 – Merge and status
 
-- [ ] [#11](https://github.com/mat-los/letsgau/issues/11) Two consecutive runs create no duplicates; sources are appended
-- [ ] [#12](https://github.com/mat-los/letsgau/issues/12) Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
-- [ ] [#13](https://github.com/mat-los/letsgau/issues/13) Multi-day events stored once in events.json; past events are deleted
+- [x] [#11](https://github.com/mat-los/letsgau/issues/11) Two consecutive runs create no duplicates; sources are appended
+- [x] [#12](https://github.com/mat-los/letsgau/issues/12) Fixtures for cancellation, postponement, vanished event and program items yield the right status / parent_id
+- [x] [#13](https://github.com/mat-los/letsgau/issues/13) Multi-day events stored once in events.json; past events are deleted
 
 ### Phase 4 – Website
 
-- [ ] [#14](https://github.com/mat-los/letsgau/issues/14) Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
-- [ ] [#15](https://github.com/mat-los/letsgau/issues/15) Filters with include/exclude, search, grouping, swipe; settings persist while browsing
-- [ ] [#16](https://github.com/mat-los/letsgau/issues/16) A fixture day with 100 events is clear on a 375 px wide screen
+- [x] [#14](https://github.com/mat-los/letsgau/issues/14) Day pages DE and EN for 21 days with coverage note, date bar, sections, expand, program items and status display
+- [x] [#15](https://github.com/mat-los/letsgau/issues/15) Filters with include/exclude, search, grouping, swipe; settings persist while browsing
+- [x] [#16](https://github.com/mat-los/letsgau/issues/16) A fixture day with 100 events is clear on a 375 px wide screen
 - [ ] [#17](https://github.com/mat-los/letsgau/issues/17) All events visible without JavaScript; Lighthouse mobile >= 90 for performance and accessibility
 
 ### Phase 5 – AI readability
 
-- [ ] [#18](https://github.com/mat-los/letsgau/issues/18) JSON-LD passes the schema.org validator without errors
-- [ ] [#19](https://github.com/mat-los/letsgau/issues/19) llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
-- [ ] [#20](https://github.com/mat-los/letsgau/issues/20) Fetching a day page with curl shows all events in the text
+- [x] [#18](https://github.com/mat-los/letsgau/issues/18) JSON-LD passes the schema.org validator without errors
+- [x] [#19](https://github.com/mat-los/letsgau/issues/19) llms.txt, events.json, events.ics, sitemap.xml and robots.txt are generated
+- [x] [#20](https://github.com/mat-los/letsgau/issues/20) Fetching a day page with curl shows all events in the text
 
 ### Phase 6 – Scheduler and workflow
 
-- [ ] [#21](https://github.com/mat-los/letsgau/issues/21) Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
+- [x] [#21](https://github.com/mat-los/letsgau/issues/21) Daily run executes only due jobs; frequency changes in config.yaml apply on the next run
 - [ ] [#22](https://github.com/mat-los/letsgau/issues/22) "Run workflow" button with job selection works
 - [ ] [#23](https://github.com/mat-los/letsgau/issues/23) Data is committed, Pages is deployed, job summary shows changes and costs
 
 ### Phase 7 – Discovery
 
-- [ ] [#24](https://github.com/mat-los/letsgau/issues/24) Opus run extends sources.json and writes sources/suggested.md with rated candidates
-- [ ] [#25](https://github.com/mat-los/letsgau/issues/25) Triggered automatically after a geo change
+- [x] [#24](https://github.com/mat-los/letsgau/issues/24) Opus run extends sources.json and writes sources/suggested.md with rated candidates
+- [x] [#25](https://github.com/mat-los/letsgau/issues/25) Triggered automatically after a geo change
 
 ### Phase 8 – Content, domain, wrap-up
 
-- [ ] [#26](https://github.com/mat-los/letsgau/issues/26) About, "Why is my event not here?", imprint and privacy as DE and EN templates
-- [ ] [#27](https://github.com/mat-los/letsgau/issues/27) Custom domain described in README.md; CNAME generated from base_url
-- [ ] [#28](https://github.com/mat-los/letsgau/issues/28) A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
+- [x] [#26](https://github.com/mat-los/letsgau/issues/26) About, "Why is my event not here?", imprint and privacy as DE and EN templates
+- [x] [#27](https://github.com/mat-los/letsgau/issues/27) Custom domain described in README.md; CNAME generated from base_url
+- [x] [#28](https://github.com/mat-los/letsgau/issues/28) A fresh fork with another center (e.g. Murnau) runs through with only the README steps after `letsgau init` and contains no Schongau data
 
 ### Backlog (label `backlog`, no milestone)
 

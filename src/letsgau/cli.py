@@ -15,21 +15,15 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from letsgau import __version__, build, crawl, discovery, geo
+from letsgau import __version__, build, crawl, discovery, geo, scheduler
 from letsgau import init as init_cmd
 from letsgau.ai_runner import AiError
+from letsgau.build import BuildError
 from letsgau.config import DEFAULT_CONFIG_PATH, ConfigError, find_placeholders, load_config
 from letsgau.crawl import CrawlError
+from letsgau.discovery import DiscoveryError
 from letsgau.geo import GeoError
-from letsgau.scheduler import JOBS, STAGES
-
-# Each stage runs one or more modules in order; "events" = crawl (which calls merge).
-STAGE_MODULES = {
-    "geo": (geo,),
-    "discovery": (discovery,),
-    "events": (crawl,),
-    "build": (build,),
-}
+from letsgau.scheduler import JOBS
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -72,7 +66,28 @@ def _build_parser() -> argparse.ArgumentParser:
         help="recompute geo even if center, drive time and place filters are unchanged",
     )
 
-    sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
+    sources = sub.add_parser(
+        "sources", help="list whitelist sources (templates expanded per municipality)"
+    )
+    sources.add_argument("--check", action="store_true", help="fetch every URL, show status")
+    sources.add_argument(
+        "--places",
+        type=Path,
+        default=Path("data/places.json"),
+        help="places file used to expand templates (default: data/places.json)",
+    )
+
+    init = sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
+    init.add_argument("--label", help="name of the center, e.g. Murnau")
+    init.add_argument("--lat", type=float, help="latitude of the center")
+    init.add_argument("--lon", type=float, help="longitude of the center")
+    init.add_argument("--minutes", type=int, help="drive time in minutes (default 30)")
+    init.add_argument("--name", help="site name")
+    init.add_argument("--base-url", help="public URL of the site")
+    init.add_argument("--contact", help="contact email")
+    init.add_argument("--owner", help="GitHub owner of the repository")
+    init.add_argument("--target", type=Path, default=Path("instance"), help=argparse.SUPPRESS)
+    init.add_argument("--yes", action="store_true", help="replace instance/ without asking")
     return parser
 
 
@@ -81,6 +96,10 @@ def _cmd_check(config_path: Path) -> int:
     placeholders = find_placeholders(config_path.read_text(encoding="utf-8"))
     for line, token in placeholders:
         print(f"warning: {config_path}:{line}: unfilled placeholder {token}", file=sys.stderr)
+    content_dir = config_path.parent / "content"
+    if content_dir.is_dir():
+        for name, todo in build.content_todos(config, content_dir):
+            print(f"warning: {content_dir / name}: {todo}", file=sys.stderr)
     print(
         f"OK: {config_path} is valid ({config.region.label}, "
         f"{config.region.drive_time_minutes} min drive time, "
@@ -108,21 +127,40 @@ def _cmd_run(
 ) -> int:
     config = load_config(config_path)
     load_dotenv()
-    if job == "auto":
-        print("Scheduler not implemented yet (Phase 6): no jobs run.")
-        return 0
-    stages = STAGES if job == "all" else (job,)
-    for stage in stages:
-        for module in STAGE_MODULES[stage]:
-            kwargs = {"force": force} if module is geo else {}
-            try:
-                module.run(config, dry_run=dry_run, limit_places=limit_places, **kwargs)
-            except NotImplementedError as exc:
-                print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
-                return 2
-            except (GeoError, CrawlError, AiError) as exc:
-                print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
-                return 1
+    runners = {
+        "geo": lambda cfg, dry_run: geo.run(cfg, dry_run=dry_run, force=force),
+        "discovery": lambda cfg, dry_run: discovery.run(
+            cfg, dry_run=dry_run, limit_places=limit_places
+        ),
+        "events": lambda cfg, dry_run: crawl.run(cfg, dry_run=dry_run, limit_places=limit_places),
+        "build": lambda cfg, dry_run: build.run(cfg, dry_run=dry_run, config_path=config_path),
+    }
+    report = scheduler.execute(
+        config,
+        job,
+        runners,
+        dry_run=dry_run,
+        errors=(GeoError, CrawlError, AiError, BuildError, DiscoveryError),
+    )
+    if report.failed:
+        return 1
+    if job not in ("auto", "all") and report.stages and report.stages[0].status == "skipped":
+        print(f"error: stage {job!r}: {report.stages[0].reason}", file=sys.stderr)
+        return 2
+    return 0
+
+
+def _cmd_sources(config_path: Path, places: Path, check: bool) -> int:
+    config = load_config(config_path)
+    entries = crawl.list_sources(config, places)
+    ok = 0
+    for entry in entries:
+        status = crawl.check_url(entry.url) if check else ""
+        ok += status.startswith("2")
+        where = ", ".join(entry.places) or "first batch"
+        print(f"{status:>5}  {entry.url}  ({where})" if check else f"{entry.url}  ({where})")
+    if check:
+        print(f"{ok} of {len(entries)} sources reachable")
     return 0
 
 
@@ -134,8 +172,27 @@ def main(argv: Sequence[str] | None = None) -> int:
             return _cmd_check(args.config)
         if args.command == "run":
             return _cmd_run(args.config, args.job, args.dry_run, args.limit_places, args.force)
+        if args.command == "sources":
+            return _cmd_sources(args.config, args.places, args.check)
         if args.command == "init":
-            init_cmd.run()
+            values = {
+                key: getattr(args, key)
+                for key in (
+                    "label",
+                    "lat",
+                    "lon",
+                    "minutes",
+                    "name",
+                    "base_url",
+                    "contact",
+                    "owner",
+                )
+            }
+            try:
+                init_cmd.run(values, target=args.target, yes=args.yes)
+            except init_cmd.InitError as exc:
+                print(f"error: init: {exc}", file=sys.stderr)
+                return 1
             return 0
     except ConfigError as exc:
         print(f"error: invalid configuration in {exc.path}", file=sys.stderr)
@@ -145,6 +202,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     except NotImplementedError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+    except CrawlError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     return 1  # pragma: no cover - argparse enforces a command
 
 

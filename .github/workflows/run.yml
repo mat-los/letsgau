@@ -1,0 +1,100 @@
+# The pipeline: runs daily, decides from config.yaml and data/state.json which
+# jobs are due (geo, discovery, events, build), commits data/ and geo/ to the
+# bot-only `data` branch and deploys site/ to GitHub Pages.
+# Start by hand: Actions -> Run -> Run workflow (also in the GitHub mobile app).
+name: Run
+
+on:
+  schedule:
+    - cron: "17 4 * * *"   # daily, ~05:17 Berlin in winter; jobs decide what is due
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job to run"
+        type: choice
+        default: auto
+        options: [auto, geo, discovery, events, build, all]
+      dry_run:
+        description: "Dry run (no data commit, no deploy)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # commit to the data branch
+  pages: write      # deploy GitHub Pages
+  id-token: write   # required by actions/deploy-pages
+
+concurrency:
+  group: letsgau-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      JOB: ${{ inputs.job || 'auto' }}
+      DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+      ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # only for ai.auth: api_key
+      DISABLE_AUTOUPDATER: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Check out the data branch
+        run: |
+          git config --global user.name "letsgau-bot"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth 1 origin data:data 2>/dev/null; then
+            git worktree add ../data-branch data
+          else
+            git worktree add --orphan -b data ../data-branch
+          fi
+          mkdir -p ../data-branch/data ../data-branch/geo
+          ln -sfn "$(realpath ../data-branch/data)" data
+          ln -sfn "$(realpath ../data-branch/geo)" geo
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        run: |
+          pip install -e .
+          npm install -g @anthropic-ai/claude-code
+      - name: Run
+        id: run
+        run: python -m letsgau run --job "$JOB" $DRY_RUN
+      - name: Commit data
+        if: always() && env.DRY_RUN == ''
+        working-directory: ../data-branch
+        run: |
+          git add -A data geo
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "data: ${JOB} run $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push origin data
+          fi
+      - name: Upload site
+        if: always() && env.DRY_RUN == '' && hashFiles('site/index.html') != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: run
+    if: always() && needs.run.result != 'cancelled' && !inputs.dry_run
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

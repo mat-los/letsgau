@@ -55,6 +55,19 @@ class SiteConfig(_Strict):
     owner: str = Field(min_length=1)
     contact_email: str = Field(min_length=3)
     feedback_form_endpoint: str = ""
+    timezone: str = "Europe/Berlin"
+    """IANA time zone of the region; decides what "today" is on the website."""
+
+    @field_validator("timezone")
+    @classmethod
+    def _known_timezone(cls, value: str) -> str:
+        from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+        try:
+            ZoneInfo(value)
+        except (ZoneInfoNotFoundError, ValueError) as exc:
+            raise ValueError(f"unknown time zone {value!r}") from exc
+        return value
 
     @field_validator("languages")
     @classmethod

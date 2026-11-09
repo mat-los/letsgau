@@ -1,13 +1,14 @@
 # Whitelist: sources that are always checked explicitly on every event run.
 # Format: list of { url, note, places }. `places` (optional) assigns the source
 # to the batch that contains those places; without it the source is checked in
-# the first batch (regional calendars). URLs must be verified on the first run.
+# the first batch (regional calendars). A URL with {municipality_slug} is a
+# template, expanded once per municipality in the area (e.g. "hohenpeissenberg").
+# Check all URLs with: python -m letsgau sources --check
 - url: "https://www.schongau.de/veranstaltungen"
-  note: "City of Schongau"
-  places: ["Schongau"]
-- url: "https://reaktor-sog.de/"
-  note: "Reaktor, club and concert venue (suggested by the first crawl; check the events page)"
+  note: "City of Schongau (calendar is loaded with JavaScript; kept for its links)"
   places: ["Schongau"]
 - url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo"
   note: "Event calendar print list (RCE event, id 1246); session parameter RCEID removed"
   places: ["Schongau"]
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/"
+  note: "Pfaffenwinkel tourism calendar, one page per municipality, paginated with ?os=12, ?os=24"

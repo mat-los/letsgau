@@ -72,11 +72,44 @@ class _Strict(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
 
+MUNICIPALITY_SLUG = "{municipality_slug}"
+
+
 class WhitelistEntry(_Strict):
     url: str = Field(pattern=r"^https?://\S+$")
     note: str = ""
     places: list[str] = []
-    """Places the source covers; empty = regional, checked in the first batch."""
+    """Places the source covers; empty = regional, checked in the first batch.
+
+    A URL containing ``{municipality_slug}`` is a template: it is expanded once per
+    municipality (restricted to ``places`` if given), e.g. ``.../{municipality_slug}/``
+    becomes ``.../hohenpeissenberg/``.
+    """
+
+    @property
+    def is_template(self) -> bool:
+        return MUNICIPALITY_SLUG in self.url
+
+    def expand(self, municipalities: Sequence[str]) -> list[WhitelistEntry]:
+        """Concrete entries, one per municipality (only for templates)."""
+        if not self.is_template:
+            return [self]
+        wanted = {p.casefold() for p in self.places}
+        return [
+            WhitelistEntry(
+                url=self.url.replace(MUNICIPALITY_SLUG, slugify(name, 80)),
+                note=self.note,
+                places=[name],
+            )
+            for name in municipalities
+            if not wanted or name.casefold() in wanted
+        ]
+
+
+def expand_whitelist(
+    whitelist: Sequence[WhitelistEntry], municipalities: Sequence[str]
+) -> list[WhitelistEntry]:
+    return [e for entry in whitelist for e in entry.expand(municipalities)]
 
 
 class BlacklistEntry(_Strict):
@@ -428,6 +461,8 @@ class Batch:
     groups: list[PlaceGroup]
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     known: list[Event] = field(default_factory=list)
+    sources: list[Any] = field(default_factory=list)
+    """Known, well-rated sources of the batch's municipalities (from discovery)."""
 
     @property
     def places(self) -> list[Place]:
@@ -449,7 +484,7 @@ def make_batches(
         return []
     index = {p.name.casefold(): b for b in batches for p in b.places}
     index.update({g.name.casefold(): b for b in batches for g in b.groups})
-    for entry in whitelist:
+    for entry in expand_whitelist(whitelist, [g.name for b in batches for g in b.groups]):
         target = next(
             (index[n.casefold()] for n in entry.places if n.casefold() in index), batches[0]
         )
@@ -487,6 +522,7 @@ def render_prompt(
         whitelist=batch.whitelist,
         deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
         later_events=[e for e in batch.known if e.schedule.start_date > deep_end],
+        sources=batch.sources,
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -520,6 +556,12 @@ class CrawlResult:
     warnings: list[str]
     skipped_places: list[str] = field(default_factory=list)
     """Municipalities left out by ``--limit-places``."""
+    covered_places: set[str] = field(default_factory=set)
+    """Places and municipalities of the batches that ran without error."""
+    municipality_of: dict[str, str] = field(default_factory=dict)
+    """Place name -> municipality, for matching in the merge."""
+    merge: merge.MergeReport | None = None
+    """What the merge did (set by :func:`run`)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -558,6 +600,13 @@ def crawl(
         groups = groups[:limit_places]
     index = PlaceIndex(places_file.places)
     batches = make_batches(groups, config.limits.places_per_request, whitelist, known)
+    from letsgau import discovery  # late import: discovery imports this module
+
+    sources_file = discovery.load_sources(data_dir)
+    for batch in batches:
+        batch.sources = discovery.known_sources_for(
+            sources_file, [g.name for g in batch.groups], [w.url for w in batch.whitelist]
+        )
 
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
@@ -630,12 +679,20 @@ def crawl(
             warnings.append(f"batch {report.number}: {report.error}")
     if batches and all(r.error and not r.error.startswith("skipped") for r in reports):
         raise CrawlError("every batch failed: " + "; ".join(r.error or "" for r in reports))
+    covered: set[str] = set()
+    for batch, report in zip(batches, reports, strict=True):
+        if report.error is None:
+            covered.update(p.name for p in batch.places)
+            covered.update(g.name for g in batch.groups)
+    municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
     return CrawlResult(
         events=sorted(events.values(), key=_sort_key),
         batches=reports,
         usage=usage,
         warnings=warnings,
         skipped_places=skipped,
+        covered_places=covered,
+        municipality_of=municipality_of,
     )
 
 
@@ -672,9 +729,10 @@ def run(
 ) -> CrawlResult:
     """CLI entry point for ``--job events``: crawl, merge, write (unless ``dry_run``)."""
     today = today or date.today()
+    runner = runner or make_runner(config)
     result = crawl(
         config,
-        runner or make_runner(config),
+        runner,
         data_dir=data_dir,
         limit_places=limit_places,
         today=today,
@@ -706,10 +764,28 @@ def run(
         flag = "" if event.status is EventStatus.SCHEDULED else f" [{event.status}]"
         print(f"  {when}{time_}  {event.title.de} ({event.venue.place}){flag}")
 
+    events_path = data_dir / "events.json"
+    existing = _load(events_path, EventsFile)
+    report = merge.MergeReport()
+    merged = merge.apply(
+        existing,
+        result.events,
+        today=today,
+        covered_places=result.covered_places,
+        municipality_of=result.municipality_of,
+        deep_check_days=config.window.deep_check_days,
+        unconfirmed_after=config.events.unconfirmed_after_misses,
+        decide=merge.ai_decider(runner, config.models.merge, config.excluded_topics),
+        report=report,
+    )
+    result.merge = report
+    print(
+        f"merge: {len(report.added)} new, {len(report.updated)} updated "
+        f"({len(report.merged_fuzzy)} by similarity), {len(report.cancelled)} cancelled, "
+        f"{len(report.postponed)} postponed, {len(report.unconfirmed)} now unconfirmed, "
+        f"{len(report.excluded)} excluded by topic, {len(report.deleted)} past deleted"
+    )
     if not dry_run:
-        events_path = data_dir / "events.json"
-        existing = _load(events_path, EventsFile)
-        merged = merge.apply(existing, result.events, today=today)
         _write_json(events_path, merged.model_dump(mode="json", by_alias=True))
         state_path = data_dir / "state.json"
         state = _load(state_path, State) or State()
@@ -717,5 +793,44 @@ def run(
         state.last_run["events"] = now
         state.last_usage["events"] = result.usage
         _write_json(state_path, state.model_dump(mode="json"))
+        from letsgau import discovery
+
+        blacklist = _load_list(Path(config.sources.blacklist_file), BlacklistEntry)
+        sources = discovery.record_hits(
+            discovery.load_sources(data_dir),
+            result.events,
+            result.municipality_of,
+            sorted({e.domain for e in blacklist}),
+            today,
+        )
+        discovery.save_sources(sources, data_dir)
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
+
+
+# --- source check (letsgau sources) -----------------------------------------------------
+
+
+def list_sources(
+    config: Config, places_path: Path = DATA_DIR / "places.json"
+) -> list[WhitelistEntry]:
+    """Whitelist with templates expanded for the municipalities in ``places_path``."""
+    whitelist = _load_list(Path(config.sources.whitelist_file), WhitelistEntry)
+    places_file = _load(places_path, PlacesFile)
+    municipalities = [g.name for g in group_places(places_file.places)] if places_file else []
+    return expand_whitelist(whitelist, municipalities)
+
+
+def check_url(url: str, timeout: float = 20.0) -> str:
+    """HTTP status of ``url`` as text (``200``, ``404``, ``error: ...``)."""
+    import urllib.error
+    import urllib.request
+
+    request = urllib.request.Request(url, headers={"User-Agent": "letsgau source check"})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return str(response.status)
+    except urllib.error.HTTPError as exc:
+        return str(exc.code)
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        return f"error: {exc}"
