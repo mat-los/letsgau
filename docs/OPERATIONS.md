@@ -127,9 +127,13 @@ the 30-minute area and shows the result in the job summary.
 ### Live check on GitHub
 
 *Actions → Crawl check → Run workflow* (input: number of places, default 3)
-computes the places for the instance config and runs the crawl as a dry run
-with `ORS_API_KEY` and `CLAUDE_CODE_OAUTH_TOKEN`. It also runs on pull requests
-that change `prompts/events.md`, so every prompt change gets a dry run.
+computes the places for the instance config, runs discovery into a throwaway
+`data/` and then the crawl as a dry run, with `ORS_API_KEY` and
+`CLAUDE_CODE_OAUTH_TOKEN`. Results appear only in the job summary and the
+`crawl-recordings` artifact. It is manual only: a run uses about as much of the
+plan as a real run (roughly $6 at API prices for one municipality with the
+thorough `depth` settings), so use it for bigger prompt changes before merging;
+for a small test area a real *Run* after merging is the cheaper test.
 
 ## Discovery
 

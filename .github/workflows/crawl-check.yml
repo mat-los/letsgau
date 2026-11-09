@@ -1,12 +1,14 @@
 # Live check of discovery and the event crawl with the real AI (subscription
-# mode). Runs on demand (Actions -> Crawl check -> Run workflow) and on pull
-# requests that change this file or a prompt (CLAUDE.md: every prompt change
-# needs a --dry-run test). Computes the places for the instance config, runs
-# discovery into the runner's throwaway data/ directory (so the crawl sees its
-# sources), then `letsgau run --job events --dry-run --limit-places N`. Writes
-# nothing to the repository; prints sources, coverage and events and uploads the
-# raw AI answers as an artifact for test fixtures. Needs the ORS_API_KEY and CLAUDE_CODE_OAUTH_TOKEN
-# secrets; ANTHROPIC_API_KEY must not be set, or Claude Code would bill it.
+# mode). Manual only (Actions -> Crawl check -> Run workflow): a run uses about
+# as much of the plan as a real pipeline run, and its results are thrown away,
+# so it is meant for trying a bigger prompt change before merging (CLAUDE.md).
+# Computes the places for the instance config, runs discovery into the runner's
+# throwaway data/ directory (so the crawl sees its sources), then
+# `letsgau run --job events --dry-run --limit-places N`. Writes nothing to the
+# repository; prints sources, coverage and events and uploads the raw AI answers
+# as an artifact for test fixtures. Needs the ORS_API_KEY and
+# CLAUDE_CODE_OAUTH_TOKEN secrets; ANTHROPIC_API_KEY must not be set, or Claude
+# Code would bill it.
 name: Crawl check
 
 on:
@@ -15,11 +17,6 @@ on:
       limit_places:
         description: "Number of places to crawl (nearest first)"
         default: "3"
-  pull_request:
-    paths:
-      - ".github/workflows/crawl-check.yml"
-      - "prompts/events.md"
-      - "prompts/discovery.md"
 
 permissions:
   contents: read

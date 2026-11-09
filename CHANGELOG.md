@@ -16,8 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   splits each batch into source sweeps that read every known source completely
   (no cap of 12) and one open search with a query checklist per month, topic
   and district.
-- The *Crawl check* workflow also runs discovery and triggers on
-  `prompts/discovery.md`.
+- The *Crawl check* workflow also runs discovery (into a throwaway `data/`).
 - `site.indexing` switch: `false` puts `noindex` on every page and stops inviting
   crawlers in robots.txt, to keep a site out of search results until it is ready.
 - Geo retries the whole Overpass instance list up to three times (waiting 60 s,
@@ -112,3 +111,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   discovery usage is saved in `state.json` too.
 - `max_runtime_minutes` and the search budget apply per AI call (and stage),
   not per batch.
+- The *Crawl check* workflow runs only on demand, no longer on pull requests that
+  change a prompt: it uses about as much of the plan as a real run.

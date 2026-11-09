@@ -1,9 +1,11 @@
 # Prompts
 
-Versioned AI prompts, editable without code changes. Every change must be
-tested with `python -m letsgau run --job <job> --dry-run` before merging; for
-`discovery.md` and `events.md` the *Crawl check* workflow does that on the pull
-request (discovery into a throwaway `data/`, then the crawl as a dry run).
+Versioned AI prompts, editable without code changes. Every change needs a live
+test: `python -m letsgau run --job <job> --dry-run` locally, the manual *Crawl
+check* workflow (discovery into a throwaway `data/`, then the crawl as a dry
+run), or, while testing a small area, a real *Run* after merging. The check is
+manual because it uses about as much of the plan as a real run and its results
+are thrown away.
 
 Prompts are Jinja2 templates. The answer format is not described in the prompt
 but enforced by a JSON schema (`crawl.answer_schema`).
