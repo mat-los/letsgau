@@ -1,7 +1,43 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09T08:47:32Z",
+  "updated_at": "2026-11-09T12:19:46Z",
   "sources": [
+    {
+      "url": "https://allevents.in/schongau",
+      "domain": "allevents.in",
+      "name": "allevents.in – Schongau (short URL)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Same content as /schongau/all; use that URL.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://allevents.in/schongau/all",
+      "domain": "allevents.in",
+      "name": "allevents.in – Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Only about 6 entries, mixed with neighbouring towns (Peiting, Steingaden, Bad Kohlgrub); does list current Reaktor shows (e.g. 05.12.2026) and Lumora on 14.11.2026.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 2,
+      "last_hit": "2026-11-09"
+    },
     {
       "url": "https://www.alpenverein-schongau.de/programm/veranstaltungen",
       "domain": "alpenverein-schongau.de",
@@ -57,6 +93,42 @@
       "last_hit": null
     },
     {
+      "url": "https://ballenhaus-schongau.de/",
+      "domain": "ballenhaus-schongau.de",
+      "name": "Café & Bistro Ballenhaus – home page",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Lists recurring items (Weißwurstfrühstück every Friday, monthly DJ, Stadtfest at Fronleichnam, Herbstfest first weekend of October, Leonhardiritt) without exact dates; Ballenhaus organises the Stadtfest.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://ballenhaus-schongau.de/veranstaltungen/",
+      "domain": "ballenhaus-schongau.de",
+      "name": "Ballenhaus Schongau – Café & Bistro",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only recurring items (Weißwurstfrühstück on Fridays, monthly DJ night with no dates) and 'Termin folgt'; dates are posted on Instagram instead.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.bayregio-schongau.de/veranstaltungen/",
       "domain": "bayregio-schongau.de",
       "name": "BAYregio Schongau – Veranstaltungen",
@@ -75,6 +147,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.bayregio-wm.de/veranstaltungen/",
+      "domain": "bayregio-wm.de",
+      "name": "Bayregio Landkreis WM / Pfaffenwinkel – Veranstaltungen",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Regional calendar with about 14 events, date/time/address as text; only rarely a Schongau entry (e.g. 20.12. Weihnachtsoratorium, St. Anna); no pagination.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://brauhaus-schongau.de/kalender/",
+      "domain": "brauhaus-schongau.de",
+      "name": "Schongauer Brauhaus – Kalender",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Calendar widget is empty ('keine bevorstehenden Veranstaltungen') and still shows a 2020 postponement notice.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://brauhaus-schongau.de/veranstaltungen/",
       "domain": "brauhaus-schongau.de",
       "name": "Schongauer Brauhaus – Veranstaltungen",
@@ -84,9 +192,9 @@
       ],
       "origin": "discovery",
       "status": "active",
-      "rating": 3,
-      "update_frequency": "monthly",
-      "note": "Active venue (Comedy Lounge, Starkbieranstich, brunch, concerts), but the 2026/27 programme is shown only as brochure images; tickets via brauhaus-schongau.reservix.de (403).",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Re-rated from 3: the 2026/27 programme (Comedy Lounge, Starkbieranstich) is only in brochure images; use the Reservix shop for dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -129,6 +237,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.buecherei-muenztor.de",
+      "domain": "buecherei-muenztor.de",
+      "name": "Bücherei am Münztor",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Redirects (301) to the WinBIAP OPAC webopac.winbiap.net/schongau; there is no event page for the library.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.chor-schongau.de",
       "domain": "chor-schongau.de",
       "name": "Chor der Stadt Schongau",
@@ -147,6 +273,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.deutsche-weihnachtsmaerkte.de/weihnachtsmarkt/in/bayern/weihnachtsmarkt-schongau-266.html",
+      "domain": "deutsche-weihnachtsmaerkte.de",
+      "name": "Deutsche Weihnachtsmärkte – Schongau (alternate URL)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Redirects (307) to the known -170 page; search snippet gives Christkindlmarkt 04.–20.12.2026 at Marienplatz; single event only.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.deutsche-weihnachtsmaerkte.de/weihnachtsmarkt/weihnachtsmarkt-schongau-170",
       "domain": "deutsche-weihnachtsmaerkte.de",
       "name": "Deutsche Weihnachtsmärkte – Weihnachtsmarkt Schongau",
@@ -159,6 +303,24 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Fetch returned a 307 redirect; aggregator with unverified dates.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://developer.songkick.com/venues/4419157-schongauer-brauhaus",
+      "domain": "developer.songkick.com",
+      "name": "Songkick (developer mirror) – Schongauer Brauhaus",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Mirror of Songkick with almost no dates; Songkick is already rated 1.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -197,7 +359,7 @@
       "note": "Full parish calendar as text with date, time and room; also includes ecumenical dates in Peiting/Altenstadt; shows only about two weeks ahead.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 11,
+      "hits": 18,
       "last_hit": "2026-11-09"
     },
     {
@@ -219,6 +381,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.eventfinder.de/schongau/veranstaltungen/",
+      "domain": "eventfinder.de",
+      "name": "Eventfinder – Schongau (new URL)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Returns 403 to the fetcher; same content as the known veranstaltungen-schongau.php page (about 7 events, partly past).",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.eventfinder.de/theater-kultur-schongau.php",
+      "domain": "eventfinder.de",
+      "name": "eventfinder – Theater & Kultur Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Blocked (403); search snippets show only a few generic or past entries.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.eventfinder.de/veranstaltungen-schongau.php",
       "domain": "eventfinder.de",
       "name": "Eventfinder – Veranstaltungen Schongau",
@@ -231,6 +429,42 @@
       "rating": 2,
       "update_frequency": "unknown",
       "note": "Returns HTTP 403. Search snippets show only about 7 events, mostly ticketed concerts (Reaktor) and the flea market, and some are outdated.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://eventfrog.de/de/events/de/bayern/oberbayern/weilheim-schongau/schongau.html",
+      "domain": "eventfrog.de",
+      "name": "Eventfrog – Schongau (Bavaria path)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Generic page with no Schongau events.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://eventfrog.de/de/events/schongau.html",
+      "domain": "eventfrog.de",
+      "name": "Eventfrog – Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "weekly",
+      "note": "Resolves to Schongau in Switzerland (events in Muri, Wohlen and other Swiss towns); only occasional single Bavarian Schongau events (e.g. TSV boxing).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -273,6 +507,24 @@
       "last_hit": null
     },
     {
+      "url": "https://feuerwehr-schongau.de/",
+      "domain": "feuerwehr-schongau.de",
+      "name": "Freiwillige Feuerwehr Schongau – home page",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "monthly",
+      "note": "No events page; only call-outs and news (latest 29 Oct 2026).",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://feuerwehr-schongau.de/aktuelles/",
       "domain": "feuerwehr-schongau.de",
       "name": "Freiwillige Feuerwehr Schongau – Aktuelles",
@@ -303,6 +555,24 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Only weekly club evenings (in Peiting); no public dated events.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://freizeitmonster.de/blog/bars-schongau",
+      "domain": "freizeitmonster.de",
+      "name": "Freizeitmonster – Bars in Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Directory of three bars (Lagerhaus, La Perla, Evis Treff) with no events and no own websites.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -365,16 +635,16 @@
     {
       "url": "https://www.juze-schongau.de/termine/",
       "domain": "juze-schongau.de",
-      "name": "Juze Schongau (Jugendzentrum) – Termine",
-      "kind": "venue",
+      "name": "Jugendzentrum Schongau – Termine",
+      "kind": "club",
       "places": [
         "Schongau"
       ],
       "origin": "discovery",
       "status": "active",
-      "rating": 2,
+      "rating": 1,
       "update_frequency": "rare",
-      "note": "Says 'Derzeit gibt es keine anstehenden Termine'; newest news is from 2023; opening hours Mo–Fr 13–19.",
+      "note": "Rating lowered from 2: the page says 'Derzeit gibt es keine anstehenden Termine'; it lists only opening hours.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -431,7 +701,7 @@
       "note": "Lists about 8 events from 12 Nov to 31 Dec 2026 with date, time and place as text; some sign-up deadlines carry the wrong year (2025).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 4,
+      "hits": 8,
       "last_hit": "2026-11-09"
     },
     {
@@ -453,6 +723,42 @@
       "last_hit": null
     },
     {
+      "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
+      "domain": "krencky24.de",
+      "name": "krencky24 – flea markets postcode area 869",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "Same Flohmarkt-Pfaffenwinkel dates as meine-flohmarkt-termine, mixed with other towns in the postcode area; use as a cross-check only.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://kulturportal-bayern.de/veranstalter/kulturverein-schongauer-land-e-v/",
+      "domain": "kulturportal-bayern.de",
+      "name": "Kulturportal Bayern – Kulturverein Schongauer Land e.V.",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only one event from 2003; the club's work continues as LiccAmbra (already known).",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://lagerhauskino.pfaffenwinkel.net",
       "domain": "lagerhauskino.pfaffenwinkel.net",
       "name": "Lagerhaus-Kino Schongau – Programm",
@@ -467,7 +773,7 @@
       "note": "Cinema's own schedule as text, running 9.11.–2.12.2026 (also available as a PDF); lagerhauskino.de fails with an SSL error.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 8,
+      "hits": 19,
       "last_hit": "2026-11-09"
     },
     {
@@ -537,6 +843,60 @@
       "rating": 2,
       "update_frequency": "rare",
       "note": "Büchermarkt 25.10.2026, Adventskalender sale; Weihnachtsmarkt menu item has no date.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.maerkteheute.de/maerkte/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-3/",
+      "domain": "maerkteheute.de",
+      "name": "MärkteHeute – Flohmarkt Schongau Festplatz",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Returns HTTP 404.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.marktcom.de/veranstaltung/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-in-86956-schongau",
+      "domain": "marktcom.de",
+      "name": "marktcom – Flohmarkt Schongau Festplatz",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Returns HTTP 410 Gone.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://meine-flohmarkt-termine.de/ort/schongau",
+      "domain": "meine-flohmarkt-termine.de",
+      "name": "Meine Flohmarkt Termine – Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Lists all Flohmarkt-Pfaffenwinkel dates (Festplatz Lechuferstr. 4 and Altstadtflohmarkt Marienplatz), already through 2027; start times are on the detail pages.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -687,6 +1047,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.orchester-schongau.de/",
+      "domain": "orchester-schongau.de",
+      "name": "Orchester Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Lists the Herbstkonzert on 14.11.2026 in the Ballenhaussaal (site says 17:00, an aggregator says 18:00).",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.ortsdienst.de/bayern/weilheim-schongau/schongau/kirche/",
+      "domain": "ortsdienst.de",
+      "name": "ortsdienst.de Schongau directory",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Generic address directory with no events.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://ov-schongau.thw.de",
       "domain": "ov-schongau.thw.de",
       "name": "THW Ortsverband Schongau",
@@ -699,6 +1095,24 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Blocked by Anubis bot protection; only internal duty plans seen as PDF.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.pfaffen-winkel.de/kultur/brauchtum/weihnachten",
+      "domain": "pfaffen-winkel.de",
+      "name": "Pfaffenwinkel Tourismus – Weihnachten im Pfaffenwinkel",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Mentions Weihnachtszauber Schongau only with a relative rule (Friday of 2nd Advent to 4th Advent Sunday); Advent concerts are mentioned without any dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -719,7 +1133,7 @@
       "note": "Front-page news posts carry dates as text; the weekly Kirchenanzeiger and the 'Termine' page are PDFs only; /aktuelles-termine/ is empty ('erscheinen demnächst').",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 3,
+      "hits": 5,
       "last_hit": "2026-11-09"
     },
     {
@@ -777,6 +1191,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.pg-schongau.com/pfarrbrief/",
+      "domain": "pg-schongau.com",
+      "name": "PG Schongau – Pfarrbrief & Kirchenanzeiger",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Weekly Kirchenanzeiger PDFs (e.g. /wp-content/uploads/2026/11/46_So-32.pdf) with all services and parish dates, but PDF only; plus Pfarrbrief archive and Kinderkalender PDF.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.plantsch.de/service/veranstaltungen/",
       "domain": "plantsch.de",
       "name": "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen",
@@ -791,8 +1223,26 @@
       "note": "Pool/sauna events as text through Dec 2026 (sauna nights, ice-skating school, 25th anniversary on 6.12.); many repeating entries.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 13,
+      "hits": 23,
       "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.quermania.de/deutschland/weihnachtsmarkt.php?ort=Schongau",
+      "domain": "quermania.de",
+      "name": "Quermania – Weihnachtsmarkt Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Says only that a market happens in 2026, with no dates; refers readers to schongau.de.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -809,7 +1259,7 @@
       "note": "This is the city's own calendar data as plain text, 10 events per page; page through with os=0,10,20…. Best URL to scrape, since schongau.de loads the calendar with JavaScript.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 8,
+      "hits": 18,
       "last_hit": "2026-11-09"
     },
     {
@@ -827,7 +1277,7 @@
       "note": "",
       "first_seen": "2026-11-09",
       "last_checked": null,
-      "hits": 14,
+      "hits": 22,
       "last_hit": "2026-11-09"
     },
     {
@@ -867,6 +1317,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.regioactive.de/markt/flohmarkt-in-schongau-am-festplatz-2026-09-12-ZhPwXswdRY",
+      "domain": "regioactive.de",
+      "name": "regioactive – Flohmarkt Schongau Festplatz",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Single past event page, blocked (403) for automated fetch.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.romantischestrasse.de/veranstaltungen",
       "domain": "romantischestrasse.de",
       "name": "Romantische Straße – Veranstaltungen",
@@ -897,6 +1365,24 @@
       "rating": 3,
       "update_frequency": "rare",
       "note": "Few entries (Jahreshauptversammlung 25.11.2026, Zwergerlrennen); season calendar only as PDF.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://schlossbergler.de/",
+      "domain": "schlossbergler.de",
+      "name": "GTEV Schlossbergler Schongau – home page",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Occasional dated notices (e.g. clubhouse cleanup 21 Nov, Christmas party in December, no exact date); the full year plan is only the known PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -959,20 +1445,38 @@
     {
       "url": "https://www.schongau-evangelisch.de/",
       "domain": "schongau-evangelisch.de",
-      "name": "Ev.-Luth. Kirchengemeinde Schongau – Website",
+      "name": "Ev.-Luth. Kirchengemeinde Schongau",
       "kind": "club",
       "places": [
         "Schongau"
       ],
       "origin": "discovery",
       "status": "active",
-      "rating": 3,
-      "update_frequency": "monthly",
-      "note": "No events page; dates appear only inside individual posts. The evangelische-termine.de feed covers the same dates better.",
+      "rating": 4,
+      "update_frequency": "weekly",
+      "note": "Rating raised from 3: the home page lists current services and groups for November 2026 with date, time and place as text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 0,
-      "last_hit": null
+      "hits": 3,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.schongau-mammuts.de/",
+      "domain": "schongau-mammuts.de",
+      "name": "EA Schongau / Schongau Mammuts (ice hockey) – home page",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "weekly",
+      "note": "The home page has the next games for the first team, 1b, U20 and U15 (dates without year); the known 'bayernliga-2021-22' link is an old season URL that the site still uses.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 5,
+      "last_hit": "2026-11-09"
     },
     {
       "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
@@ -989,8 +1493,44 @@
       "note": "Full 2026/27 home schedule with dates and times as text; the URL slug says 2021-22 but the content is current; the homepage schongau-mammuts.de also lists home games of the 1b, U20 and U15 teams (ea-schongau.de redirects here).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 5,
+      "hits": 10,
       "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.schongau-mammuts.de/verein/termine/",
+      "domain": "schongau-mammuts.de",
+      "name": "EA Schongau Veranstaltungskalender",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Calendar stops in 2023 and is outdated; club events appear only as news posts.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau-triathlon.de/",
+      "domain": "schongau-triathlon.de",
+      "name": "Schongau Triathlon (Tri-Team im TSV Schongau)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "One annual event (26 July 2026, with children's triathlon and Inklusionslauf); no 2027 date yet.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://www.schongau.de/de/Aktuelles/Neuigkeiten",
@@ -1121,7 +1661,7 @@
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Stadtportrait/Feste-Maerkte",
       "domain": "schongau.de",
-      "name": "Stadt Schongau – Feste & Märkte",
+      "name": "Stadt Schongau – Feste & Märkte (old URL)",
       "kind": "municipality",
       "places": [
         "Schongau"
@@ -1129,8 +1669,8 @@
       "origin": "discovery",
       "status": "active",
       "rating": 1,
-      "update_frequency": "unknown",
-      "note": "Linked from the city menu but returns 404.",
+      "update_frequency": "rare",
+      "note": "Now returns HTTP 404; market info moved to /de/Schongau-erleben/Wochenmarkt and the Jahrmärkte service page.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1148,7 +1688,151 @@
       "status": "active",
       "rating": 3,
       "update_frequency": "rare",
-      "note": "Club directory: about 74 clubs listed A–Z. Detail pages follow the pattern Verein?view=publish&item=club&id=…, and external websites are not shown on the list page.",
+      "note": "Club directory: 74 clubs A–W, each with a schongau.de detail page (Verein?view=publish&item=club&id=...), no direct links to club sites; same rating as before, listed again for the next pass.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1010",
+      "domain": "schongau.de",
+      "name": "AWO Ortsverein Schongau (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact entry only; no website.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1032",
+      "domain": "schongau.de",
+      "name": "Eisenbahner-Sportverein Schongau (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact entry only; no website.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1053",
+      "domain": "schongau.de",
+      "name": "Griechisch-deutscher Kulturverein (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact entry only; no website.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1063",
+      "domain": "schongau.de",
+      "name": "KAB Schongau (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact entry only (Altenstadt address); no website.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1125",
+      "domain": "schongau.de",
+      "name": "Support e.V. im Brahmsgarten (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only a Facebook link; no website.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1129",
+      "domain": "schongau.de",
+      "name": "Theaterverein Schongau 'Theaterstadl' e.V. (city club entry)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact entry only (Peter Mahl); no own website found.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-aktiv/Eisstadion",
+      "domain": "schongau.de",
+      "name": "Stadt Schongau – Eisstadion (Schongau aktiv)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Description and TSV ice-skating contact only; no skating times, ice discos or games.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Kraeuterhexe-Ursula-Engelwurz-im-Kasselturm-",
+      "domain": "schongau.de",
+      "name": "Stadt Schongau – Kräuterhexe im Kasselturm",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only seasonal opening hours (May–Oct, Fri–Sun 11–17), no dated events.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1169,7 +1853,7 @@
       "note": "Public dates as text for the night-watchman, torchlight and Advent tours (e.g. 20.11., 27.11., 6.12., 11./18.12.2026); time and price given, meeting point Tourist Info.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 3,
+      "hits": 6,
       "last_hit": "2026-11-09"
     },
     {
@@ -1187,7 +1871,7 @@
       "note": "Public museum tours as text with date, time and price (13.11.2026, 4.1.2027 Rauhnächte, 19.2.2027); meeting point Christophstraße 57.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 1,
+      "hits": 2,
       "last_hit": "2026-11-09"
     },
     {
@@ -1239,6 +1923,42 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Intro page only, links to /de/Aktuelles/Veranstaltungskalender, which showed 0 events in the fetched text (probably loaded by JS).",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt",
+      "domain": "schongau.de",
+      "name": "Stadt Schongau – Wochenmarkt",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Recurring weekly market, Fridays 7:30–13:00 on Marienplatz (moves to Thursday if Friday is a holiday); a static page, but enough to create the recurring entry.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.schongau.de/de/Unser-Rathaus/Was-erledige-ich-wo/Dienstleistung?view=publish&item=service&id=3582",
+      "domain": "schongau.de",
+      "name": "Stadt Schongau – Jahrmärkte / Verkaufsoffene Sonntage",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Gives the rule for the two Altstadt fairs: Frühjahrsmarkt on the 2nd Sunday after Easter and Spätherbstmarkt on the 4th Sunday in October; no concrete dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1299,6 +2019,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.schongauer-weihnachtszauber.com",
+      "domain": "schongauer-weihnachtszauber.com",
+      "name": "Schongauer Weihnachtszauber (Christkindlmarkt Marienplatz)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "rare",
+      "note": "Organiser site (Konrad family, Kinsau): 2026 dates 4–20 Dec, opening hours and family/senior days as text; the day-by-day programme is only a PDF.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
       "url": "https://www.schwarz-gelb-schongau.de",
       "domain": "schwarz-gelb-schongau.de",
       "name": "SKK Schwarz-Gelb Schongau (Kegeln)",
@@ -1313,7 +2051,7 @@
       "note": "Homepage lists upcoming home matches (14., 21., 28.11.26) with times as text; niche sport.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 6,
+      "hits": 14,
       "last_hit": "2026-11-09"
     },
     {
@@ -1349,7 +2087,7 @@
       "note": "Current events for seniors (10.11., 19.11., Mittagessen dates) with place as text; the year is often omitted.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 3,
+      "hits": 7,
       "last_hit": "2026-11-09"
     },
     {
@@ -1365,6 +2103,24 @@
       "rating": 3,
       "update_frequency": "rare",
       "note": "Weekly recurring offers of AWO, parishes, choirs, Repair Café etc. by weekday, time and place; no specific dates.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 2,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://sog-handball.de/",
+      "domain": "sog-handball.de",
+      "name": "SOG Handball (TSV Schongau Handball)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Only match reports (latest 6 Oct 2026); no schedule or home-game list.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1383,6 +2139,42 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Shows 0 upcoming events.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.spin.de/events/location-show?id=36656",
+      "domain": "spin.de",
+      "name": "spin.de – Ballenhaus Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "'Keine Veranstaltungen bekannt'; newest entry is from 2010.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "http://www.stadtkapelle-schongau.de/kategorie/stadtkapelle-schongau/neuigkeiten/",
+      "domain": "stadtkapelle-schongau.de",
+      "name": "Stadtkapelle Schongau – Neuigkeiten",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Root URL redirects here; occasional concert posts (last: children's concert 21 June 2026); the 'nächste Veranstaltungen' box is empty.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1497,6 +2289,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.theaterverein-treibhaus.de/",
+      "domain": "theaterverein-treibhaus.de",
+      "name": "Theaterverein Treibhaus – home page",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "No dates, footer © 2020; header poster 'festspiel27' hints at a 2027 festival play, so check again by hand next year.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.theaterverein-treibhaus.de/theateruebersicht",
       "domain": "theaterverein-treibhaus.de",
       "name": "Theaterverein Treibhaus Schongau",
@@ -1533,10 +2343,10 @@
       "last_hit": null
     },
     {
-      "url": "https://www.tsv-schongau.de/tsv-schongau/termine/",
-      "domain": "tsv-schongau.de",
-      "name": "TSV Schongau 1863 – Termine",
-      "kind": "club",
+      "url": "https://www.tri2b.com/triathlon-termine/21-schongauer-kinder-jugend-crosstriathlon-2026-bayern/",
+      "domain": "tri2b.com",
+      "name": "tri2b – Schongauer Kinder/Jugend Crosstriathlon 2026",
+      "kind": "calendar",
       "places": [
         "Schongau"
       ],
@@ -1544,7 +2354,43 @@
       "status": "active",
       "rating": 2,
       "update_frequency": "rare",
-      "note": "Says 'Derzeit sind keine Termine vorhanden'; the news section occasionally announces tournaments and courses.",
+      "note": "Single-event listing on a triathlon calendar; only useful once a year.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.tsv-schongau.de/",
+      "domain": "tsv-schongau.de",
+      "name": "TSV Schongau 1863 – Aktuelles",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "News posts announce tournaments and courses (e.g. Stockturnier, Doppelturnier) with dates in the article text; the list shows dates garbled.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 1,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://www.tsv-schongau.de/tsv-schongau/termine/",
+      "domain": "tsv-schongau.de",
+      "name": "TSV Schongau Termine",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Rating lowered from 2: the page says 'Derzeit sind keine Termine vorhanden'; the department pages (Fußball, Handball, Stockschießen) have no dates either.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1563,6 +2409,24 @@
       "rating": 3,
       "update_frequency": "weekly",
       "note": "Paginated with os=20, runs on RCE-Event; very likely the same data as the known schongau.de/rce-event calendar, so use it only as a fallback.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 14,
+      "last_hit": "2026-11-09"
+    },
+    {
+      "url": "https://veranstaltungen.erlebe.bayern/schongau/themenfuehrung-romantischer-advent-in-schongau-e874a1ca1aa0cccac3655d8307e3987ab.html",
+      "domain": "veranstaltungen.erlebe.bayern",
+      "name": "erlebe.bayern – Romantischer Advent Führung",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Single event detail page (tours 11. and 18.12.2026, 17:00, Tourist Information Weinstraße 11); covered by the known erlebe.bayern list.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
@@ -1619,7 +2483,7 @@
       "note": "51 Schongau events with date, time and address. Paginated with ?os=12&send=foo (12 per page). Same RCE-Event data as the city calendar.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 29,
+      "hits": 49,
       "last_hit": "2026-11-09"
     },
     {
@@ -1655,8 +2519,8 @@
       "note": "A few dates as text (25.11.2026 service in Verklärung Christi); some dates have no year and several posters have no text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 0,
-      "last_hit": null
+      "hits": 2,
+      "last_hit": "2026-11-09"
     },
     {
       "url": "http://www.wasserwacht-schongau.de",
@@ -1671,6 +2535,42 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "TLS certificate mismatch, not readable.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weihnachtsmaerkte-in-deutschland.de/weihnachtsmarkt-in-schongau.html",
+      "domain": "weihnachtsmaerkte-in-deutschland.de",
+      "name": "weihnachtsmaerkte-in-deutschland.de – Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Generic text with no year and 'next date unknown'; outdated compared with the organiser site.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://weihnachtsmarkt-heute.de/stadt/schongau/",
+      "domain": "weihnachtsmarkt-heute.de",
+      "name": "weihnachtsmarkt-heute.de – Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Latest date shown is from 2017, which is misleading.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
