@@ -60,7 +60,7 @@ artifact). It also runs on pull requests that change the workflow file.
 | Service | Default URL | Override |
 | --- | --- | --- |
 | OpenRouteService (HeiGIT) | `https://api.heigit.org/openrouteservice` (`/v2/isochrones/driving-car`, `/v2/matrix/driving-car`) | `ORS_BASE_URL` |
-| Overpass API | `https://overpass-api.de/api/interpreter`, then `overpass.private.coffee`, then `maps.mail.ru` (first that answers) | `OVERPASS_URL` (comma-separated list) |
+| Overpass API | `https://overpass-api.de/api/interpreter`, then `overpass.private.coffee`, then `maps.mail.ru` (first that answers; if all fail, the list is retried after 60 s and 120 s) | `OVERPASS_URL` (comma-separated list) |
 
 The ORS key goes into the `Authorization` header. HeiGIT deprecated the old host
 `api.openrouteservice.org` in 2026 and moved key management to

@@ -241,6 +241,10 @@ class Clients:
     ors_api_key: str
     ors_base_url: str = ORS_BASE_URL
     overpass_urls: tuple[str, ...] = OVERPASS_URLS
+    # Public Overpass instances are often all at capacity for a few minutes; when every
+    # instance fails, wait and go through the list again (60 s, then 120 s).
+    overpass_rounds: int = 3
+    sleep: Callable[[float], None] = time.sleep
 
     @classmethod
     def from_env(cls, http: Http | None = None) -> Clients:
@@ -298,19 +302,28 @@ class Clients:
         return result
 
     def overpass(self, query: str) -> list[Json]:
-        """Run a query on the first Overpass instance that answers."""
+        """Run a query on the first Overpass instance that answers, in up to ``overpass_rounds``."""
         errors: list[str] = []
-        for url in self.overpass_urls:
-            try:
-                response = self.http.post_form(url, {"data": query})
-            except GeoError as exc:
-                errors.append(str(exc))
-                _log(f"Overpass instance failed, trying the next one: {exc}")
-                continue
-            if "elements" in response:
-                return response["elements"]
-            errors.append(f"{url}: no elements: {response.get('remark', '')}")
-        raise GeoError("all Overpass instances failed:\n  " + "\n  ".join(errors))
+        for round_ in range(self.overpass_rounds):
+            if round_:
+                wait = 60 * 2 ** (round_ - 1)
+                _log(f"all Overpass instances failed, round {round_ + 1} in {wait} s")
+                self.sleep(wait)
+            errors = []
+            for url in self.overpass_urls:
+                try:
+                    response = self.http.post_form(url, {"data": query})
+                except GeoError as exc:
+                    errors.append(str(exc))
+                    _log(f"Overpass instance failed, trying the next one: {exc}")
+                    continue
+                if "elements" in response:
+                    return response["elements"]
+                errors.append(f"{url}: no elements: {response.get('remark', '')}")
+        raise GeoError(
+            f"all Overpass instances failed ({self.overpass_rounds} rounds):\n  "
+            + "\n  ".join(errors)
+        )
 
 
 def _url_list(value: str) -> tuple[str, ...]:
