@@ -76,3 +76,4 @@ tags:                                   # fixed list, the AI must not invent new
   - { id: market-festival, de: "Markt & Fest",       en: "Market & Festival" }
   - { id: food-drink,      de: "Kulinarik",          en: "Food & Drink" }
   - { id: talk-workshop,   de: "Vortrag & Workshop", en: "Talk & Workshop" }
+  - { id: religion,        de: "Religion",           en: "Religion" }

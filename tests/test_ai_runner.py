@@ -294,12 +294,31 @@ def test_transcript_is_copied_and_searches_logged(
             "message": {
                 "content": [
                     {"type": "text", "text": "searching"},
-                    {"type": "tool_use", "name": "WebSearch", "input": {"query": "Juze Schongau"}},
+                    {
+                        "type": "tool_use",
+                        "id": "t1",
+                        "name": "WebSearch",
+                        "input": {"query": "Juze Schongau"},
+                    },
                     {"type": "tool_use", "name": "WebFetch", "input": {"url": "https://x.example"}},
                 ]
             },
         },
         "not json",
+        # the same tool call written again: counted once
+        {
+            "type": "assistant",
+            "message": {
+                "content": [
+                    {
+                        "type": "tool_use",
+                        "id": "t1",
+                        "name": "WebSearch",
+                        "input": {"query": "Juze Schongau"},
+                    }
+                ]
+            },
+        },
         {
             "type": "assistant",
             "message": {

@@ -196,9 +196,10 @@ def test_status_and_program_display(site: Path) -> None:
 
 def test_metadata_and_links(site: Path) -> None:
     html = page(site, "de/2026-11-14")
+    assert "<title>Let&#39;s Gau Schongau</title>" in html  # the same on every page
     assert (
-        "<title>Was ist los in und um Schongau am Samstag, 14. November 2026"
-        " · Let&#39;s Gau</title>" in html
+        '<meta property="og:title" content="Was ist los in und um Schongau am Samstag, '
+        '14. November 2026">' in html
     )
     assert '<link rel="canonical" href="https://letsgau.de/de/2026-11-14/">' in html
     assert '<link rel="alternate" hreflang="en" href="https://letsgau.de/en/2026-11-14/">' in html

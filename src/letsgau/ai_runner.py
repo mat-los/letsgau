@@ -164,8 +164,13 @@ def _transcript(step: str, session_id: str) -> None:
 
 
 def search_queries_in(transcript: str) -> list[str]:
-    """The WebSearch queries of a CLI session log (one JSON object per line)."""
+    """The WebSearch queries of a CLI session log (one JSON object per line).
+
+    The log can contain the same tool call more than once (a message is written again
+    as it grows), so calls are counted once per tool-use id.
+    """
     queries: list[str] = []
+    seen: set[str] = set()
     for line in transcript.splitlines():
         try:
             entry = json.loads(line)
@@ -179,7 +184,9 @@ def search_queries_in(transcript: str) -> list[str]:
                 and block.get("name") == "WebSearch"
             ):
                 query = (block.get("input") or {}).get("query")
-                if query:
+                key = str(block.get("id") or "")
+                if query and (not key or key not in seen):
+                    seen.add(key)
                     queries.append(str(query))
     return queries
 

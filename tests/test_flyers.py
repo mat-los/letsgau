@@ -194,7 +194,7 @@ class Runner:
         events = [poster_event()] if request.files else []
         return AiResult(
             data={"events": events, "checked_sources": [], "notes": ""},
-            usage=Usage(requests=1, input_tokens=5000, web_searches=0 if request.files else 10),
+            usage=Usage(requests=1, input_tokens=5000, web_searches=0 if request.files else 13),
         )
 
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title }} · {{ config.site.name }}</title>
+<title>{{ config.site.name }} {{ config.region.label }}</title>
 <meta name="description" content="{{ description }}">
 {% if not config.site.indexing %}<meta name="robots" content="noindex">
 {% endif %}<link rel="canonical" href="{{ base_url }}{{ canonical }}">
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
 <meta name="theme-color" content="#22211e">
 <link rel="stylesheet" href="{{ root }}assets/style.css">
-<style>{% for tag in config.tags %}.t-{{ tag.id }},[data-primary="{{ tag.id }}"]{--c:var(--p{{ loop.index0 % 10 + 1 }})}{% endfor %}</style>
+<style>{% for tag in config.tags %}.t-{{ tag.id }},[data-primary="{{ tag.id }}"]{--c:var(--p{{ loop.index0 % 12 + 1 }})}{% endfor %}</style>
 <link rel="icon" href="{{ root }}assets/icon.svg" type="image/svg+xml">
 {% block head %}{% endblock %}
 <script>document.documentElement.classList.add("js");try{var c=(JSON.parse(localStorage.getItem("lg.v1"))||{}).cats;if(c===false||c===undefined&&matchMedia("(max-width: 639px)").matches)document.documentElement.classList.add("cats-closed")}catch(e){}</script>
