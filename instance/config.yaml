@@ -7,8 +7,8 @@ site:
   base_url: "https://letsgau.de"        # public URL; domain not registered yet
   languages: [de, en]                   # first entry = default language
   owner: "mat-los"                      # must match the GitHub repo owner, else build aborts
-  contact_email: "hallo@letsgau.de"     # for source suggestions and feedback
-  feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
+  # contact_email: ""                   # optional: shown on the pages if set; here only the form
+  feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"  # contact form (formhook; public, in the page)
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
   indexing: false                       # false = noindex on every page (not in search results yet)
 

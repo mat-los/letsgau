@@ -89,3 +89,17 @@ def test_yaml_syntax_error_reports_line() -> None:
 def test_missing_file(tmp_path: Path) -> None:
     with pytest.raises(ConfigError, match="file not found"):
         load_config(tmp_path / "nope.yaml")
+
+
+def test_contact_email_or_form_is_required(instance_config_text: str) -> None:
+    from letsgau.config import parse_config
+
+    text = instance_config_text.replace(
+        'feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"',
+        'feedback_form_endpoint: ""',
+    )
+    assert 'feedback_form_endpoint: ""' in text
+    (problem,) = _problems(text)
+    assert "set contact_email or feedback_form_endpoint" in problem
+    with_mail = text.replace('feedback_form_endpoint: ""', 'contact_email: "a@b.de"')
+    assert parse_config(with_mail).site.contact_email == "a@b.de"
