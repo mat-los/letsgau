@@ -130,7 +130,7 @@
     if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
   }
   if (toggle) {
-    showCats(state.cats !== false);
+    showCats(state.cats === undefined ? !matchMedia("(max-width: 639px)").matches : state.cats);
     toggle.addEventListener("click", function () {
       state.cats = html.classList.contains("cats-closed"); save(); showCats(state.cats);
     });
@@ -159,10 +159,18 @@
       });
       var box = document.createElement("div"); box.id = "grouped";
       order.forEach(function (key) {
-        var sec = document.createElement("section"), h = document.createElement("h2");
-        sec.className = "sec"; h.textContent = kind === "category" ? (labels.tags[key] || key) : key;
-        sec.appendChild(h);
-        /* rows arrive in page order, which is already sorted; keep it */
+        var sec = document.createElement("section"), h = document.createElement("h2"),
+          b = document.createElement("button"), fk = kind + ":" + key, fold = state.fold = state.fold || {};
+        sec.className = "sec"; b.type = "button"; b.className = "fold";
+        b.textContent = (kind === "category" ? (labels.tags[key] || key) : key) + " (" + groups[key].filter(function (e) { return !e.classList.contains("copy"); }).length + ")";
+        /* a group folds in and out; remembered per grouping and key */
+        function setFold(on) { sec.classList.toggle("folded", on); b.setAttribute("aria-expanded", on ? "false" : "true"); }
+        setFold(!!fold[fk]);
+        b.addEventListener("click", function () {
+          var on = !sec.classList.contains("folded"); if (on) fold[fk] = 1; else delete fold[fk];
+          save(); setFold(on);
+        });
+        h.appendChild(b); sec.appendChild(h);
         groups[key].forEach(function (el) { var c = el.cloneNode(true); c.removeAttribute("id"); sec.appendChild(c); });
         box.appendChild(sec);
       });

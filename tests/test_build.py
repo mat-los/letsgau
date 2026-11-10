@@ -214,7 +214,7 @@ def test_metadata_and_links(site: Path) -> None:
 
 def test_assets_are_small_and_local(site: Path) -> None:
     js = (site / "assets" / "app.js").stat().st_size
-    assert js < 10_000
+    assert js < 12_000  # budget raised from 10 KB for search, folding and the date bar
     html = page(site, "de/2026-11-14")
     assert "https://fonts" not in html and "cdn" not in html.lower()
 

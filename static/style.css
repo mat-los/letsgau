@@ -131,6 +131,12 @@ a { color: var(--accent); text-underline-offset: 2px; }
 .cats-toggle .cnt { min-width: 18px; padding: 0 5px; border-radius: 999px; background: var(--gold); color: var(--on-gold);
   font-size: .7rem; text-align: center; }
 .cats-closed .chips { display: none; }
+/* groups (category / place) fold in and out */
+.sec .fold { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; color: inherit;
+  font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; }
+.sec .fold::before { content: "▾"; transition: transform .15s; }
+.sec.folded .fold::before { transform: rotate(-90deg); }
+.sec.folded .ev { display: none; }
 .group { display: flex; gap: 8px; align-items: center; margin-top: 4px; font-size: .8rem; color: var(--muted); }
 .group button { font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; padding: 4px 10px; border: 0;
   border-radius: 999px; background: transparent; color: var(--muted); }
