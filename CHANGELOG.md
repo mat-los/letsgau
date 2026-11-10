@@ -125,6 +125,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Day pages show one list instead of time-of-day sections: all-day, multi-day
+  and events without a start time come first, then events by start time. The
+  "Group by: Time" option is now "None"; category and place grouping stay.
+- Event crawl prompt: no summary entries such as a cinema's whole programme;
+  each film or event is reported on its own.
 - In subscription mode the usage summary shows the cost at API prices (the
   CLI's `total_cost_usd`) instead of 0, as a measure of plan usage;
   discovery usage is saved in `state.json` too.

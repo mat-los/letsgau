@@ -130,6 +130,11 @@ matching status.
 ## Rules
 
 - Only events with a concrete date in one of the municipalities above. Invent nothing.
+- Only individual events. Never report a summary entry for a venue or a calendar, such as
+  "Kino-Programm", "aktuelle Filme", "Veranstaltungen im November" or "Ausstellungen im Museum".
+  For a cinema, report each film as its own entry with the film in the title; a film shown on
+  several days is one recurring entry with "dates". If the individual events or their dates are
+  not given, report nothing for that venue.
 - Events after {{ window_end }} up to {{ store_end }} that you see on a page you read anyway: report
   them too (they are kept for later). But do not page, filter or search beyond {{ window_end }}.
 - If the start time is not stated, use null. Never guess a time. Use 24-hour "HH:MM".

@@ -25,7 +25,7 @@
   </div>
   <div class="group" role="group" aria-label="{{ t('group_by') }}">
     <span>{{ t('group_by') }}:</span>
-    <button type="button" data-group="time" aria-pressed="true">{{ t('group_time') }}</button>
+    <button type="button" data-group="none" aria-pressed="true">{{ t('group_none') }}</button>
     <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
     <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
   </div>
@@ -33,24 +33,15 @@
 {% endblock %}
 {% block main %}
 <h1 class="day">{{ fmt(day) }} <small>{{ t('events_count', count=view.count) }}</small></h1>
-<div id="list" data-labels='{{ {"all_day": t("section_all_day"), "morning": t("section_morning"), "afternoon": t("section_afternoon"), "evening": t("section_evening"), "no_match": t("no_match"), "tags": tag_label} | tojson_compact }}'>
+<div id="list" data-labels='{{ {"no_match": t("no_match"), "tags": tag_label} | tojson_compact }}'>
 {% if not view.rows %}
 <p class="empty">{{ t('no_events') }}</p>
 {% endif %}
-{% for name in sections %}
-{% set rows = view.section(name) %}
-{% if rows %}
-{% if name == 'all_day' %}
-<details class="sec all-day"><summary><h2>{{ t('section_all_day') }} <span class="n">({{ rows | rejectattr('standalone_copy_of') | list | length }})</span></h2></summary>
-{% for r in rows %}{{ ev.row(r, day) }}{% endfor %}
-</details>
-{% else %}
-<section class="sec" data-section="{{ name }}"><h2>{{ t('section_' ~ name) }}</h2>
-{% for r in rows %}{{ ev.row(r, day) }}{% endfor %}
+{% if view.rows %}
+<section class="sec">
+{% for r in view.rows %}{{ ev.row(r, day) }}{% endfor %}
 </section>
 {% endif %}
-{% endif %}
-{% endfor %}
 <p class="empty nomatch" hidden>{{ t('no_match') }}</p>
 </div>
 <nav class="pager">
