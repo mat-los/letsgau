@@ -347,6 +347,71 @@ def test_multi_day_event_reported_per_day_is_stored_once() -> None:
     assert merged.events[0].schedule.end_date == date(2026, 12, 13)
 
 
+FRI_SAT = ["2026-11-13", "2026-11-14", "2026-11-20", "2026-11-21"]
+SATURDAYS = ["2026-11-14", "2026-11-21"]
+
+
+def test_weekday_split_series_is_stored_once() -> None:
+    """A Friday/Saturday market reported twice, once per weekday, is one event."""
+    whole = ev(
+        "Weibsdeifi-Markt (freitags)",
+        "2026-11-13",
+        end="2026-11-21",
+        schedule={
+            "start_date": "2026-11-13",
+            "end_date": "2026-11-21",
+            "dates": FRI_SAT,
+            "opening_hours": [
+                {"days": "fri", "from": "15:00", "to": "18:00"},
+                {"days": "sat", "from": "10:00", "to": "14:00"},
+            ],
+        },
+    )
+    saturdays = ev(
+        "Weibsdeifi-Markt (samstags)",
+        "2026-11-14",
+        url="https://rce.example/sa",
+        schedule={
+            "start_date": "2026-11-14",
+            "end_date": "2026-11-21",
+            "start_time": "10:00",
+            "dates": SATURDAYS,
+        },
+    )
+    # within one crawl
+    merged, _ = run(None, [whole, saturdays], DAY1)
+    assert len(merged.events) == 1
+    kept = merged.events[0]
+    assert kept.title.de == "Weibsdeifi-Markt (freitags)"
+    assert [d.isoformat() for d in kept.schedule.dates or []] == FRI_SAT
+    assert len(kept.sources) == 2
+    # already stored twice (older runs): cleaned up without asking the AI
+    stored = EventsFile(updated_at="2026-11-10T00:00:00Z", events=[whole, saturdays])
+    cleaned, report = run(stored, [], DAY2)
+    assert [e.id for e in cleaned.events] == [whole.id]
+    assert (saturdays.id, whole.id) in report.merged_fuzzy
+
+
+def test_weekday_series_on_different_days_stay_apart() -> None:
+    fridays = ev(
+        "Stammtisch freitags",
+        "2026-11-13",
+        schedule={
+            "start_date": "2026-11-13",
+            "end_date": "2026-11-20",
+            "dates": ["2026-11-13", "2026-11-20"],
+        },
+    )
+    saturdays = ev(
+        "Stammtisch samstags",
+        "2026-11-14",
+        url="https://b.example/st",
+        schedule={"start_date": "2026-11-14", "end_date": "2026-11-21", "dates": SATURDAYS},
+    )
+    merged, _ = run(None, [fridays, saturdays], DAY1)
+    assert len(merged.events) == 2
+
+
 def test_past_events_are_deleted_ongoing_kept() -> None:
     stored, _ = run(
         None,

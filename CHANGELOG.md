@@ -125,6 +125,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Merge: a series split by weekday ("Market (Fridays)" / "Market (Saturdays)")
+  is one event. Weekday words are ignored when comparing titles, events only
+  match when they share an actual day, an entry covering only part of a stored
+  series keeps the stored schedule and texts, and clear duplicates already in
+  `events.json` are merged without the AI. The crawl prompt asks for one entry
+  per series with the times per weekday in `opening_hours`.
 - Site design in black and yellow: dark header band with a thin yellow line,
   yellow for the selected day, "Today" and buttons; the page itself stays light.
 - Date bar: arrow buttons and mouse-wheel scrolling on desktop, so all 21 days

@@ -33,7 +33,7 @@ from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from letsgau.models import Event, EventsFile, EventSource, EventStatus
+from letsgau.models import Event, EventsFile, EventSource, EventStatus, Schedule
 
 CLEAR = 0.85
 """Title similarity from which a pair is merged without asking the AI."""
@@ -47,6 +47,14 @@ _STOPWORDS = frozenset(
         *("der", "die", "das", "den", "dem", "des", "und", "in", "im", "am", "an", "auf"),
         *("mit", "zum", "zur", "von", "vom", "fuer", "bei", "ein", "eine", "einer"),
         *("the", "a", "of", "and", "at", "on", "for", "with", "to", "by", "vs", "gegen"),
+        # weekday words: "Markt (freitags)" and "Markt (samstags)" are one series; the
+        # dates decide whether two entries overlap (see days_overlap)
+        *("montag", "dienstag", "mittwoch", "donnerstag", "freitag", "samstag", "sonntag"),
+        *("montags", "dienstags", "mittwochs", "donnerstags", "freitags", "samstags"),
+        *("sonntags", "sonnabend", "sonnabends", "wochentags", "werktags", "wochenende"),
+        *("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"),
+        *("mondays", "tuesdays", "wednesdays", "thursdays", "fridays", "saturdays"),
+        *("sundays", "weekdays", "weekend", "weekends"),
     }
 )
 _UMLAUTS = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
@@ -100,6 +108,38 @@ def _minutes(value: str | None) -> int | None:
     return int(hours) * 60 + int(minutes)
 
 
+def _active_days(s: Schedule) -> set[date] | None:
+    """The single days of a schedule with ``dates``; ``None`` for a continuous range."""
+    return set(s.dates) if s.dates else None
+
+
+def days_overlap(a: Schedule, b: Schedule) -> bool:
+    """True if both schedules have at least one actual day in common."""
+    if a.start_date > b.last_date or b.start_date > a.last_date:
+        return False
+    da, db = _active_days(a), _active_days(b)
+    if da is None and db is None:
+        return True
+    if da is not None and db is not None:
+        return bool(da & db)
+    days, other = (da, b) if da is not None else (db, a)
+    return any(other.start_date <= d <= other.last_date for d in days or ())
+
+
+def covers(a: Schedule, b: Schedule) -> bool:
+    """True if every day of ``b`` is a day of ``a`` and ``a`` has more days."""
+
+    def days(s: Schedule) -> set[date]:
+        if s.dates:
+            return set(s.dates)
+        return {
+            s.start_date + timedelta(days=i) for i in range((s.last_date - s.start_date).days + 1)
+        }
+
+    da, db = days(a), days(b)
+    return db < da
+
+
 def candidate_score(
     new: Event, old: Event, municipality_of: Mapping[str, str] | None = None
 ) -> float:
@@ -115,7 +155,7 @@ def candidate_score(
     if place_a != place_b:
         return 0.0
     a, b = new.schedule, old.schedule
-    if a.start_date > b.last_date or b.start_date > a.last_date:
+    if not days_overlap(a, b):
         return 0.0
     ta, tb = _minutes(a.start_time), _minutes(b.start_time)
     if ta is not None and tb is not None and abs(ta - tb) > MAX_TIME_GAP_MINUTES:
@@ -168,17 +208,16 @@ def combine(old: Event, new: Event) -> Event:
     status = new.status
     if status is EventStatus.UNCONFIRMED:  # never set by the crawl, keep it consistent
         status = EventStatus.SCHEDULED
+    texts: dict[str, Any] = {}
     schedule = new.schedule
-    a, b = old.schedule, new.schedule
-    if (
-        a.last_date > a.start_date
-        and a.start_date <= b.start_date
-        and b.last_date <= a.last_date
-        and b.last_date - b.start_date < a.last_date - a.start_date
-    ):
-        schedule = a  # one day of a known multi-day event: keep the full range
+    if covers(old.schedule, new.schedule):
+        # only part of a known multi-day event or series (one day, or the Saturdays of a
+        # Friday/Saturday market): keep the full schedule and its texts
+        schedule = old.schedule
+        texts = {"title": old.title, "description": old.description}
     return new.model_copy(
         update={
+            **texts,
             "id": old.id,
             "status": status,
             "schedule": schedule,
@@ -323,15 +362,19 @@ def apply(
     stored = {e.id: e for e in (existing.events if existing else [])}
     crawled = list(crawled)
 
-    # 0. Duplicates already in storage (same day, time and place): asked in the same AI call.
+    # 0. Duplicates already in storage: clear ones (similar title, shared days, same place)
+    #    are merged directly, same-slot ones are asked in the same AI call.
     stored_pairs: list[Pair] = []
+    clear_stored: list[Pair] = []
     open_events = [
         e for e in stored.values() if e.status not in (EventStatus.CANCELLED, EventStatus.POSTPONED)
     ]
     for i, old in enumerate(open_events):
         for new in open_events[i + 1 :]:
-            if same_slot(new, old, municipality_of):
-                score = candidate_score(new, old, municipality_of)
+            score = candidate_score(new, old, municipality_of)
+            if score >= CLEAR:
+                clear_stored.append(Pair(0, new, old, score))
+            elif same_slot(new, old, municipality_of):
                 stored_pairs.append(Pair(len(stored_pairs) + 1, new, old, score))
 
     # 1. Matching against stored events and earlier crawled events.
@@ -367,8 +410,10 @@ def apply(
     new_events = [e for i, e in enumerate(crawled) if target[i] is None]
     decisions = decide([*stored_pairs, *pairs], new_events)
     alias: dict[str, str] = {}  # removed stored duplicate -> kept stored event
-    for pair in stored_pairs:
-        if pair.number not in decisions.same or {pair.new.id, pair.old.id} & alias.keys():
+    for pair in [*clear_stored, *stored_pairs]:
+        if pair.number and pair.number not in decisions.same:
+            continue
+        if {pair.new.id, pair.old.id} & alias.keys():
             continue
         keep, drop = sorted((pair.old, pair.new), key=lambda e: (e.first_seen, -len(e.sources)))
         stored[keep.id] = combine(stored[keep.id], stored[drop.id])
