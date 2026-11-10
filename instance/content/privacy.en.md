@@ -2,7 +2,7 @@
 
 ## Controller
 
-See [imprint](../imprint/). Contact: [{{ contact_email }}](mailto:{{ contact_email }})
+See [imprint](../imprint/){% if not feedback_endpoint %}. Contact: [{{ contact_email }}](mailto:{{ contact_email }}){% endif %}
 
 ## Hosting
 
@@ -21,7 +21,7 @@ filters, grouping and language; this data never leaves your device.
 ## Feedback
 
 {% if feedback_endpoint %}The feedback form is sent to a form service
-([TODO: name and seat of the service, link to its privacy policy]). The message and,
+(formhook, formhook.app). The message and,
 if given, your email address for questions are stored.
 {% else %}Feedback by email is only used to handle your request.
 {% endif %}

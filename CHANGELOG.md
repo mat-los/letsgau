@@ -129,6 +129,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   read, asks for the title and a short description as text (not only date, time
   and place), and that a public calendar only helps if its dates can be read,
   with a simple web-search test.
+- `site.contact_email` is optional when `site.feedback_form_endpoint` is set
+  (at least one is required). With a form service, the about, missing-event
+  and privacy pages and `llms.txt` link the form instead of showing the
+  address; the imprint shows the address only if one is set, otherwise the
+  form.
 - The search field is on every page, not only on day pages. On content pages
   the results replace the page text and link to the events; category filters
   apply only where the category chips are shown.

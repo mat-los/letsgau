@@ -19,7 +19,9 @@ kommt deine Veranstaltung am sichersten in den Kalender:
    Ein einfacher Test: Findest du deine Veranstaltung mit einer normalen
    Websuche, also mit Titel und Ort, dann findet sie auch {{ site_name }}.
 
-Fehlt sie trotzdem? Schick die Adresse deiner Webseite an
+Fehlt sie trotzdem? {% if feedback_endpoint %}Schick die Adresse deiner Webseite über das
+[Feedback-Formular](../feedback/) (Art: Event oder Quelle fehlt).{% else %}Schick die Adresse
+deiner Webseite an
 [{{ contact_email }}](mailto:{{ contact_email }}?subject=Quelle%20vorschlagen) oder nutze
-das [Feedback-Formular](../feedback/). Nach einer kurzen Prüfung kommt sie auf die
+das [Feedback-Formular](../feedback/).{% endif %} Nach einer kurzen Prüfung kommt sie auf die
 Liste der Quellen, die bei jedem Lauf abgefragt werden.

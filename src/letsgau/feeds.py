@@ -192,6 +192,12 @@ def llms_txt(site: Site, coverage: dict[str, str]) -> str:
     default = c.default_language
     tags = "\n".join(f"- `{t.id}`: {t.de} / {t.en}" for t in c.tags)
     langs = ", ".join(c.site.languages)
+    # with a form service the address stays off the page (it is in the imprint only)
+    contact = (
+        f"{base}/{default}/feedback/ (form)"
+        if c.site.feedback_form_endpoint
+        else c.site.contact_email
+    )
     return f"""# {c.site.name}
 
 > Event calendar for the region around {c.region.label}: {coverage.get("en", "")}.
@@ -204,7 +210,7 @@ wrong or outdated. Please check with the organizer before you go.
   (center {c.region.center.lat}, {c.region.center.lon})
 - Days ahead: {c.window.display_days}
 - Last updated: {site.generated_at.isoformat()}
-- Contact: {c.site.contact_email}
+- Contact: {contact}
 
 ## Pages
 

@@ -70,7 +70,6 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     about = read(site, "de/about")
     assert "<h1>Über Let&#39;s Gau</h1>" in about
     assert "bis\n5 Fahrminuten um Schongau" in about or "5 Fahrminuten um Schongau" in about
-    assert 'href="mailto:hallo@letsgau.de"' in about
     missing = read(site, "de/fehlt-mein-event")
     assert "<strong>Facebook und Instagram</strong> liest sie nicht" in missing
     assert "als Text schreiben" in missing and "Titel, Datum, Uhrzeit, Ort" in missing
@@ -78,7 +77,17 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     assert "Websuche" in missing  # how to tell whether a public calendar can be read
     privacy = read(site, "en/privacy")
     assert "no cookies" in privacy.lower() and "localStorage" in privacy
-    assert "form service" not in privacy  # no feedback endpoint configured
+    # the instance has only a contact form: no email address on any page
+    assert "form service" in privacy and "formhook" in privacy
+    assert 'href="../imprint/"' in privacy
+    for rel in ("de/about", "en/about", "de/fehlt-mein-event", "en/missing-event"):
+        assert 'href="../feedback/"' in read(site, rel), rel
+    assert 'über das <a href="../feedback/">Kontaktformular</a>' in read(site, "de/impressum")
+    assert 'via the <a href="../feedback/">contact form</a>' in read(site, "en/imprint")
+    for path in site.rglob("*"):
+        if path.suffix in (".html", ".txt", ".json", ".ics", ".xml"):
+            text = path.read_text(encoding="utf-8")
+            assert 'href="mailto:' not in text and "@letsgau.de" not in text, path
 
 
 def test_footer_links_every_content_page(site: Path) -> None:
@@ -94,13 +103,34 @@ def test_footer_links_every_content_page(site: Path) -> None:
         assert f">{label}</a>" in day
 
 
-def test_feedback_without_endpoint_uses_mailto(site: Path) -> None:
+def test_feedback_without_endpoint_uses_mailto(tmp_path: Path) -> None:
+    config = load_config(CONFIG_PATH)
+    config = config.model_copy(
+        update={
+            "site": config.site.model_copy(
+                update={"feedback_form_endpoint": "", "contact_email": "hallo@letsgau.de"}
+            )
+        }
+    )
+    build.build(
+        config,
+        data_dir=tmp_path / "none",
+        site_dir=tmp_path / "site",
+        now=NOW,
+        content_dir=REPO_ROOT / "instance" / "content",
+    )
+    site = tmp_path / "site"
     page = read(site, "de/feedback")
     assert (
         "mailto:hallo@letsgau.de?subject=Let%27s%20Gau%3A%20Event%20oder%20Quelle%20fehlt" in page
     )
     assert "<form" not in page
     assert "/issues/new/choose" in page
+    # without a form service the pages show the address (forks without a form)
+    assert 'href="mailto:hallo@letsgau.de"' in read(site, "de/about")
+    assert "Kontakt: <a" in read(site, "de/datenschutz")
+    assert 'href="mailto:hallo@letsgau.de"' in read(site, "de/impressum")
+    assert "- Contact: hallo@letsgau.de" in (site / "llms.txt").read_text(encoding="utf-8")
 
 
 def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
@@ -137,7 +167,7 @@ def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
     todos = build.content_todos(load_config(CONFIG_PATH), REPO_ROOT / "instance" / "content")
     files = {name for name, _ in todos}
     assert {"imprint.de.md", "imprint.en.md", "about.de.md"} <= files
-    assert "privacy.de.md" not in files  # its TODO only applies with a form service
+    assert "privacy.de.md" not in files
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
     assert "imprint.de.md: [TODO: Vor- und Nachname]" in capsys.readouterr().err
 

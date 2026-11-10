@@ -18,7 +18,9 @@ surest way to get your event into the calendar:
    cannot read them. A simple test: if you can find your event with a normal web
    search for its title and place, {{ site_name }} can find it too.
 
-Still missing? Send the address of your website to
+Still missing? {% if feedback_endpoint %}Send the address of your website using the
+[feedback form](../feedback/) (type: event or source missing).{% else %}Send the address of
+your website to
 [{{ contact_email }}](mailto:{{ contact_email }}?subject=Source%20suggestion) or use the
-[feedback form](../feedback/). After a short check it is added to the list of
+[feedback form](../feedback/).{% endif %} After a short check it is added to the list of
 sources that are checked on every run.
