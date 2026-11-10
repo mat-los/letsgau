@@ -42,6 +42,9 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # only for ai.auth: api_key
       DISABLE_AUTOUPDATER: "1"
       PYTHONUNBUFFERED: "1"
+      # every AI answer and (subscription mode) the transcript of each call, kept 7 days
+      # as the artifact "ai-recordings" for checking what the AI searched and read
+      LETSGAU_RECORD_DIR: ${{ github.workspace }}/ai-recordings
     steps:
       - uses: actions/checkout@v4
         with:
@@ -72,6 +75,14 @@ jobs:
       - name: Run
         id: run
         run: python -m letsgau run --job "$JOB" $DRY_RUN
+      - name: Upload AI recordings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-recordings
+          path: ai-recordings
+          retention-days: 7
+          if-no-files-found: ignore
       - name: Commit data
         if: always() && env.DRY_RUN == ''
         working-directory: ../data-branch

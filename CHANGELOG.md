@@ -125,6 +125,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Event crawl: the re-check of the known events of the next days is its own
+  call (up to 20 events each) instead of part of the open search. The open
+  search budget is split into calls of about 13 searches, each with a part of
+  the checklist; a call that used less than half of its searches is asked once
+  more. Checklist topics include youth centres and live music, and press
+  previews count as a source (with the search result when the article is
+  blocked).
+- The Run workflow uploads every AI answer and, in subscription mode, the
+  transcript of each call as the artifact `ai-recordings`; the log lists the
+  search queries of each call.
+- Category chips are folded by default on phones (until the visitor opens
+  them). Grouped by category or place, each group can be folded; the choice is
+  remembered. Size budget of `app.js` raised to 12 KB.
+- About page template: explains that Instagram and Facebook do not allow their
+  pages to be read automatically.
 - Search covers all displayed days instead of the current day: results are
   listed by date (earliest first), 50 at a time with a "Show more" button,
   after at least 3 characters. Cancelled, postponed and unconfirmed events are

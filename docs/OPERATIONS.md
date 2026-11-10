@@ -86,13 +86,21 @@ python -m letsgau run --job events --dry-run --limit-places 3
   prompt lists each municipality with its districts, and events keep the exact
   district as their place.
 - With `depth.crawl_sources_per_request: N` (default 4) every batch is split
-  into *source sweeps* and one *open search*: each sweep reads N known sources
-  (whitelist first, then discovered ones) completely, following pagination to
-  the end of the window, with at most 8 searches to find moved pages; the open
-  search skips those sources and runs a fixed query checklist per municipality
-  (every month of the window, 13 topics, every district) with up to
-  `depth.crawl_searches_per_request` searches, and re-checks the known events of
-  the next `deep_check_days`. All answers go through the same merge, which
+  into *source sweeps*, *re-checks* and the *open search*:
+  - each sweep reads N known sources (whitelist first, then discovered ones)
+    completely, following pagination to the end of the window, with at most 8
+    searches to find moved pages;
+  - each re-check call opens the sources of up to 20 known events of the next
+    `deep_check_days` and reports date, time, cancellation or postponement;
+  - the open search skips the known sources and runs a fixed query checklist
+    per municipality (every month of the window, 15 topics, every district).
+    Its budget, `depth.crawl_searches_per_request`, is split into calls of
+    about 13 searches (40 → 3 calls), each with a part of the checklist. A
+    search call that used less than half of its searches is asked once more
+    ("search 1 again"), with the events it found; if that also stops early,
+    the run prints a warning.
+
+  All answers go through the same merge, which
   removes duplicates between the calls. If a call fails, the events of the
   other calls are kept, but the batch does not count as covered, so no stored
   event is marked as missed. `0` gives one combined call per batch (cheaper,
@@ -255,6 +263,12 @@ run), links `data/` and `geo/` into the checkout, runs the pipeline, commits the
 changes to `data` as `letsgau-bot` and deploys `site/` with the official Pages
 actions. The job summary lists the stages, event changes (new, updated,
 cancelled, postponed, unconfirmed, excluded, deleted) and the AI usage.
+
+Every run also uploads the artifact **ai-recordings** (kept 7 days): the raw
+answer of every AI call and, in subscription mode, the transcript of each call
+(`*.transcript.jsonl`, every search query and fetched page). The log prints the
+search queries of each call as `… N searches: query | query | …`. Use it to see
+why an event was missed.
 
 One-time setup: *Settings → Pages → Source: GitHub Actions*, and the secrets
 below.

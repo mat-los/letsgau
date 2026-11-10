@@ -53,7 +53,30 @@ file (with the Read tool, or as attached) and take every event between {{ today 
 {% for name, url, kind in files %}
 - {{ name }} ({{ kind }}, {{ url }})
 {%- endfor %}
+{%- elif mode == "recheck" %}
+
+You are one of several researchers working on this calendar. Your job: check the known events
+listed below under "Known events to re-check". Other researchers read the known sources and run a
+general web search.
+
+- Open the source page of every event in the list; do not skip any.
+- If a source page has moved or no longer shows the event, search for the event or its organiser
+  (at most {{ max_searches }} web searches in total). Fetching pages does not count.
+- Report only events from that list (and the new date of a postponed one); do not look for others.
 {%- elif mode == "search" %}
+{%- if previous %}
+
+A first attempt at this task ran only {{ previous.searches }} of the {{ max_searches }} allowed web
+searches and stopped before the checklist was done, so events are missing. Do it properly this
+time: run every query of the checklist below, open the promising results and keep going until the
+checklist is done.
+{%- if previous.found %}
+It already found these; do not report them again:
+{%- for title in previous.found %}
+- {{ title }}
+{%- endfor %}
+{%- endif %}
+{%- endif %}
 
 Be thorough: the calendar is only useful if it is close to complete. Other researchers read these
 known sources completely, so do not read them again:
@@ -65,13 +88,17 @@ Your job is to find the events that are NOT on those pages: clubs, parishes, ven
 clubs, organisers and press reports. You have at most {{ max_searches }} web searches; use most of
 them. Fetching pages does not count, so open every promising result and read it.
 
-Run every query of this checklist (in German), then follow up on every lead (a club mentioned in
-an article, a venue's own programme page):
+Run the queries of this checklist (in German) in order, one web search each, until all are done
+or your search limit is reached; do not stop earlier. Then follow up on every lead (a club mentioned in an article, a venue's own
+programme page, a concert in a youth centre or a pub):
 {%- for group, items in queries %}
 - {{ group }}:{% for query in items %} "{{ query }}"{% if not loop.last %},{% endif %}{% endfor %}
 {%- endfor %}
 
 - Prefer the organizer's own page. Open pages to read the actual date, time and place.
+- Press articles count: a newspaper preview with date, time and place is a valid source. If the
+  article page cannot be opened, the date, time and place in the search result are enough, with
+  the article URL as the source.
 {%- else %}
 
 Be thorough: the calendar is only useful if it is close to complete. A small town usually has
@@ -106,7 +133,7 @@ events). If you have found only a few, keep looking; do not stop after the first
 - Never use or cite these domains: {{ blocked_domains | join(", ") }}.
 {%- endif %}
 
-{%- if deep_check_events and mode not in ("sources", "flyers") %}
+{%- if deep_check_events and mode in ("recheck", "all") %}
 
 ## Known events to re-check (until {{ deep_check_end }})
 
@@ -119,7 +146,7 @@ matching status.
 {%- endfor %}
 {%- endif %}
 
-{%- if later_events and mode not in ("sources", "flyers") %}
+{%- if later_events and mode in ("search", "all") %}
 
 ## Already known later events (do not re-check, do not report again unless details changed)
 {% for event in later_events %}

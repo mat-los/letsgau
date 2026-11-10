@@ -21,3 +21,6 @@
 - url: "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
   note: "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de)"
   places: ["Schongau"]
+- url: "https://www.juze-schongau.de/termine/"
+  note: "Jugendzentrum Schongau (Juze), concerts and parties; often empty, so checked on every run"
+  places: ["Schongau"]
