@@ -125,6 +125,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- "Why is my event not here?" page: explains why Facebook and Instagram are not
+  read, asks for the title and a short description as text (not only date, time
+  and place), and that a public calendar only helps if its dates can be read,
+  with a simple web-search test.
 - The search field is on every page, not only on day pages. On content pages
   the results replace the page text and link to the events; category filters
   apply only where the category chips are shown.
