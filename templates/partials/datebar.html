@@ -1,0 +1,14 @@
+{#- Quick links and date bar; in the header of every page, so any page leads back to a day. -#}
+<nav class="quick" aria-label="{{ t('date_bar') }}">
+  <a href="{{ root }}{{ lang }}/{{ quick.today.isoformat() }}/"{% if current_day == quick.today %} aria-current="page"{% endif %}>{{ t('today') }}</a>
+  <a href="{{ root }}{{ lang }}/{{ quick.tomorrow.isoformat() }}/"{% if current_day == quick.tomorrow %} aria-current="page"{% endif %}>{{ t('tomorrow') }}</a>
+</nav>
+<div class="dates-wrap">
+<button type="button" class="dates-nav prev js-only" aria-label="{{ t('dates_earlier') }}" hidden>‹</button>
+<nav class="dates" aria-label="{{ t('date_bar') }}">
+  {% for d, count in date_bar %}
+  <a href="{{ root }}{{ lang }}/{{ d.isoformat() }}/" class="d{% if d.weekday() >= 5 %} we{% endif %}"{% if not count %} data-empty{% endif %}{% if d == current_day %} aria-current="page"{% endif %}><span class="wd">{{ t['weekdays_short'][d.weekday()] }}</span><span class="dn">{{ d.day }}</span><span class="n">{{ count }}</span></a>
+  {% endfor %}
+</nav>
+<button type="button" class="dates-nav next js-only" aria-label="{{ t('dates_later') }}" hidden>›</button>
+</div>

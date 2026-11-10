@@ -23,6 +23,7 @@ import sys
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
+from functools import cached_property
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -197,7 +198,14 @@ class Site:
     generated_at: datetime
     content_pages: dict[str, dict[str, str]] = field(default_factory=dict)
     """lang -> path -> title of the content pages, in footer order."""
+    header_pages: dict[str, dict[str, str]] = field(default_factory=dict)
+    """lang -> path -> title of the pages linked in the header (about, missing event)."""
     warnings: list[str] = field(default_factory=list)
+
+    @cached_property
+    def date_bar(self) -> list[tuple[date, int]]:
+        """(day, number of events) for every displayed day."""
+        return [(d, day_view(self.events, d).count) for d in self.days]
 
     def drive_time(self, place: str) -> float | None:
         if not self.places:
@@ -206,6 +214,10 @@ class Site:
             if place in (p.name, p.municipality):
                 return p.drive_time_minutes
         return None
+
+
+HEADER_PAGES = ("about", "missing-event")
+"""Content pages linked in the header; the others are linked in the footer."""
 
 
 def make_env() -> Environment:
@@ -249,6 +261,9 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "updated_iso": site.generated_at.isoformat(),
         "tag_label": {tag.id: getattr(tag, lang) for tag in config.tags},
         "fmt": lambda d, style="long": format_date(t, d, style),
+        "date_bar": site.date_bar,
+        "quick": {"today": site.today, "tomorrow": site.today + timedelta(days=1)},
+        "current_day": None,
         "hours_today": hours_today,
         "is_multi_day": is_multi_day,
         "Status": EventStatus,
@@ -261,7 +276,6 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
     t: Texts = ctx["t"]
     index = site.days.index(day)
     date_text = format_date(t, day)
-    counts = {d: day_view(site.events, d).count for d in site.days}
     ctx.update(
         view=view,
         day=day,
@@ -273,11 +287,7 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
         ),
         prev_day=site.days[index - 1] if index > 0 else None,
         next_day=site.days[index + 1] if index + 1 < len(site.days) else None,
-        date_bar=[(d, counts[d]) for d in site.days],
-        quick={
-            "today": site.today,
-            "tomorrow": site.today + timedelta(days=1),
-        },
+        current_day=day,
         drive_time=site.drive_time,
         ld=feeds.json_ld(
             view.rows,
@@ -347,7 +357,8 @@ def build(
     }
     for page in pages:
         label = Texts(load_i18n(page.lang))(nav[page.name]) if page.name in nav else page.title
-        site.content_pages.setdefault(page.lang, {})[page.path] = label
+        target = site.header_pages if page.name in HEADER_PAGES else site.content_pages
+        target.setdefault(page.lang, {})[page.path] = label
     for lang in config.site.languages:
         t = Texts(load_i18n(lang))
         site.content_pages.setdefault(lang, {})[FEEDBACK_PATH] = t("nav_feedback")

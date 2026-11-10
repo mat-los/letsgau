@@ -58,7 +58,14 @@ a { color: var(--accent); text-underline-offset: 2px; }
 .langs > * { padding: 4px 7px; border-radius: 999px; text-decoration: none; }
 .langs [aria-current] { background: rgba(255, 255, 255, .2); }
 .langs a { opacity: .8; } .langs a:hover { opacity: 1; }
-.coverage { margin: 6px auto 8px; max-width: 1000px; color: var(--on-brand-muted); font-size: .85rem; }
+/* coverage sentence with the info links: side by side on desktop, links below on a phone */
+.sub { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px;
+  max-width: 1000px; margin: 6px auto 8px; }
+.coverage { margin: 0; color: var(--on-brand-muted); font-size: .85rem; }
+.headlinks { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .85rem; font-weight: 600; }
+.headlinks a { text-decoration: none; opacity: .92; }
+.headlinks a:hover { text-decoration: underline; opacity: 1; }
+.headlinks a[aria-current] { color: var(--gold); opacity: 1; }
 .quick, .dates { max-width: 1000px; margin-left: auto; margin-right: auto; }
 .quick { display: flex; gap: 6px; margin-bottom: 8px; }
 .quick a { font-size: .85rem; font-weight: 600; padding: 5px 14px; border-radius: 999px; text-decoration: none;

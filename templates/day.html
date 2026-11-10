@@ -3,24 +3,11 @@
 {% block head %}
 <script type="application/ld+json">{{ ld | tojson }}</script>
 {% endblock %}
-{% block body_attrs %} data-day="{{ day.isoformat() }}" data-lang="{{ lang }}"{% if is_index %} data-index="1"{% endif %} data-root="{{ root }}"{% endblock %}
+{% block body_attrs %} data-day="{{ day.isoformat() }}"{% if is_index %} data-index="1"{% endif %}{% endblock %}
 {% block header_tools %}
 <label class="search js-only"><span class="sr">{{ t('search') }}</span><input type="search" id="q" placeholder="{{ t('search_placeholder') }}" autocomplete="off"></label>
 {% endblock %}
 {% block header_more %}
-<nav class="quick" aria-label="{{ t('date_bar') }}">
-  <a href="{{ root }}{{ lang }}/{{ quick.today.isoformat() }}/"{% if day == quick.today %} aria-current="page"{% endif %}>{{ t('today') }}</a>
-  <a href="{{ root }}{{ lang }}/{{ quick.tomorrow.isoformat() }}/"{% if day == quick.tomorrow %} aria-current="page"{% endif %}>{{ t('tomorrow') }}</a>
-</nav>
-<div class="dates-wrap">
-<button type="button" class="dates-nav prev js-only" aria-label="{{ t('dates_earlier') }}" hidden>‹</button>
-<nav class="dates" aria-label="{{ t('date_bar') }}">
-  {% for d, count in date_bar %}
-  <a href="{{ root }}{{ lang }}/{{ d.isoformat() }}/" class="d{% if d.weekday() >= 5 %} we{% endif %}"{% if not count %} data-empty{% endif %}{% if d == day %} aria-current="page"{% endif %}><span class="wd">{{ t['weekdays_short'][d.weekday()] }}</span><span class="dn">{{ d.day }}</span><span class="n">{{ count }}</span></a>
-  {% endfor %}
-</nav>
-<button type="button" class="dates-nav next js-only" aria-label="{{ t('dates_later') }}" hidden>›</button>
-</div>
 <div class="tools js-only">
   <div class="chips" role="group" aria-label="{{ t('filters') }}" title="{{ t('filter_hint') }}">
     {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
@@ -51,7 +38,4 @@
   {% if prev_day %}<a rel="prev" href="{{ root }}{{ lang }}/{{ prev_day.isoformat() }}/">← {{ t('prev_day') }}</a>{% else %}<span></span>{% endif %}
   {% if next_day %}<a rel="next" href="{{ root }}{{ lang }}/{{ next_day.isoformat() }}/">{{ t('next_day') }} →</a>{% endif %}
 </nav>
-{% endblock %}
-{% block scripts %}
-<script src="{{ root }}assets/app.js" defer></script>
 {% endblock %}

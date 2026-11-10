@@ -125,6 +125,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Every page (content pages, feedback, changelog) has the quick links and the
+  date bar in the header, so a click on a day leads back to the events.
+- "About" and "Is my event missing?" are linked in the header (next to the
+  coverage sentence on desktop, below it on a phone) instead of the footer.
 - Merge: a series split by weekday ("Market (Fridays)" / "Market (Saturdays)")
   is one event. Weekday words are ignored when comparing titles, events only
   match when they share an actual day, an entry covering only part of a stored
