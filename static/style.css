@@ -55,6 +55,11 @@ a { color: var(--accent); text-underline-offset: 2px; }
   border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; color: var(--on-brand);
   background: rgba(255, 255, 255, .14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 12px center / 15px; }
 .search input::placeholder { color: var(--on-brand-muted); }
+/* the browser's clear button (blue by default) as a white cross on a light circle */
+.search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; width: 20px; height: 20px;
+  margin: 0 -4px 0 6px; border-radius: 50%; cursor: pointer;
+  background: rgba(255, 255, 255, .22) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center / 10px no-repeat; }
+.search input::-webkit-search-cancel-button:hover { background-color: rgba(255, 255, 255, .4); }
 .search input:focus { outline: none; background-color: rgba(255, 255, 255, .24); border-color: rgba(255, 255, 255, .6); }
 /* phone: while the search field has focus it takes the whole row (name and language
    switch step aside); tapping elsewhere restores them */

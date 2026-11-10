@@ -125,6 +125,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The clear button of the search field is a white cross on a light circle
+  instead of the browser's blue default.
 - Search also matches category names in every language: "Konzert" or
   "concert" finds all events of that category, not only those with the word
   in their title.
