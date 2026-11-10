@@ -606,7 +606,7 @@ def render_content(env: Environment, site: Site, page: ContentPage) -> str:
     return env.get_template("page.html").render(**ctx)
 
 
-FEEDBACK_KINDS = ("missing", "error", "idea")
+FEEDBACK_KINDS = ("general", "missing", "error", "idea")
 
 
 def render_feedback(env: Environment, site: Site, lang: str, intro: ContentPage | None) -> str:

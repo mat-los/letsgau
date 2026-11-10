@@ -4,7 +4,7 @@
 <h1>{{ title }}</h1>
 {{ intro | safe }}
 {% if endpoint %}
-<form method="post" action="{{ endpoint }}" accept-charset="utf-8">
+<form id="fb" method="post" action="{{ endpoint }}" accept-charset="utf-8" data-sending="{{ t('fb_sending') }}">
   <label for="kind">{{ t('fb_kind') }}</label>
   <select id="kind" name="kind" required>
     {% for kind in kinds %}<option value="{{ kind }}">{{ t('fb_' ~ kind) }}</option>{% endfor %}
@@ -12,11 +12,16 @@
   <label for="message">{{ t('fb_message') }}</label>
   <textarea id="message" name="message" rows="6" required></textarea>
   <label for="email">{{ t('fb_email') }}</label>
-  <input id="email" name="email" type="email" autocomplete="email">
+  <input id="email" name="email" type="email" autocomplete="email" required>
   <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
   <input type="hidden" name="page" value="{{ lang }}/feedback">
+  <p class="fb-error" id="fb-error" role="alert" hidden>{{ t('fb_send_error') }}</p>
   <button type="submit">{{ t('fb_send') }}</button>
 </form>
+<div class="fb-done" id="fb-done" role="status" tabindex="-1" hidden>
+  <h2>{{ t('fb_sent_title') }}</h2>
+  <p>{{ t('fb_sent_text') }}</p>
+</div>
 {% else %}
 <ul>
   {% for kind in kinds %}<li><a href="mailto:{{ config.site.contact_email }}?subject={{ (config.site.name ~ ': ' ~ t('fb_' ~ kind)) | urlencode }}">{{ t('fb_' ~ kind) }}</a></li>{% endfor %}
@@ -24,4 +29,7 @@
 {% endif %}
 <p>{{ t('fb_github') }} <a href="{{ repo_url }}/issues/new/choose" rel="noopener">GitHub</a></p>
 </article>
+{% endblock %}
+{% block scripts %}
+{% if endpoint %}<script src="{{ root }}assets/feedback.js" defer></script>{% endif %}
 {% endblock %}
