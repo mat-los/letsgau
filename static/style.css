@@ -241,6 +241,11 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .page form button { margin-top: 14px; font: inherit; font-weight: 700; padding: 9px 20px; border: 0; border-radius: 999px;
   background: var(--gold); color: var(--on-gold); cursor: pointer; }
 .hp { position: absolute; left: -9999px; }
+.fb-error { margin: 12px 0 0; color: var(--red); font-weight: 600; }
+.fb-done { padding: 16px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--gold); box-shadow: var(--shadow); outline: none; }
+.fb-done h2 { margin: 0 0 6px; font-size: 1.1rem; }
+.fb-done p { margin: 0; }
 
 @media (min-width: 640px) {
   .top { padding: 12px 20px 0; }

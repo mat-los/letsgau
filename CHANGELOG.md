@@ -125,6 +125,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Contact form: it is sent in the background and a thank-you message replaces
+  the form on the page (the service's raw answer is no longer shown). The email
+  address is mandatory, and there is a new type "General inquiry" (the
+  default). Without JavaScript the form is posted normally.
 - "Why is my event not here?" page: explains why Facebook and Instagram are not
   read, asks for the title and a short description as text (not only date, time
   and place), and that a public calendar only helps if its dates can be read,

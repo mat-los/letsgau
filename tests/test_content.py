@@ -150,9 +150,14 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
         content_dir=REPO_ROOT / "instance" / "content",
     )
     page = read(tmp_path / "site", "en/feedback")
-    assert '<form method="post" action="https://forms.example.eu/f/abc"' in page
+    assert 'action="https://forms.example.eu/f/abc"' in page
     assert 'name="website"' in page  # honeypot
+    assert '<option value="general">General inquiry</option>' in page  # first, the default
+    assert page.index('value="general"') < page.index('value="missing"')
     assert '<option value="missing">Event or source missing</option>' in page
+    assert 'name="email" type="email" autocomplete="email" required' in page  # mandatory
+    assert 'id="fb-done"' in page and "assets/feedback.js" in page  # thank-you without leaving
+    assert (tmp_path / "site" / "assets" / "feedback.js").stat().st_size < 1_500
     privacy = read(tmp_path / "site", "en/privacy")
     assert "form service" in privacy
 
