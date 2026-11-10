@@ -157,6 +157,9 @@ matching status.
 ## Rules
 
 - Only events with a concrete date in one of the municipalities above. Invent nothing.
+- Regular church services (Sunday or weekday masses, regular worship) are not events. Special
+  services and religious occasions are: e.g. St. Martin's procession, Advent or Taizé prayers,
+  pilgrimages, patronal and parish festivals, special services for an occasion.
 - Only individual events. Never report a summary entry for a venue or a calendar, such as
   "Kino-Programm", "aktuelle Filme", "Veranstaltungen im November" or "Ausstellungen im Museum".
   For a cinema, report each film as its own entry with the film in the title; a film shown on
