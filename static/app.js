@@ -81,23 +81,22 @@
     inc.forEach(function (t) { if (tags.indexOf(t) >= 0) any = true; });
     return any;
   }
-  function passText(el, text) { return !text || el.getAttribute("data-search").indexOf(text) >= 0; }
   function container() { return document.getElementById("grouped") || list; }
 
   function apply() {
-    var text = q ? q.value.trim().toLowerCase() : "", active = !!text, shown = 0;
+    var active = !!(q && q.value.trim()), shown = 0;
     for (var t in state.tags) if (state.tags[t]) active = true;
     var box = container(), rows = box.querySelectorAll(".ev");
     var visible = {};
     [].forEach.call(rows, function (el) {
       if (el.classList.contains("copy")) return;
-      var ok = passTags(words(el, "data-tags")) && passText(el, text);
+      var ok = passTags(words(el, "data-tags"));
       el.hidden = !ok; if (ok) { shown++; visible[el.id] = true; }
     });
     [].forEach.call(rows, function (el) {
       if (!el.classList.contains("copy")) return;
       var ok = active && !visible[el.getAttribute("data-parent")] &&
-        passTags(words(el, "data-tags")) && passText(el, text);
+        passTags(words(el, "data-tags"));
       el.classList.toggle("show", ok); el.hidden = !ok; if (ok) shown++;
     });
     [].forEach.call(box.querySelectorAll(".sec"), function (sec) {
@@ -120,7 +119,7 @@
       var t = c.getAttribute("data-tag"), s = state.tags[t];
       state.tags[t] = !s ? "in" : s === "in" ? "out" : undefined;
       if (!state.tags[t]) delete state.tags[t];
-      save(); apply();
+      save(); apply(); document.dispatchEvent(new Event("lg:filter"));
     });
   });
   /* category chips fold in and out (remembered; base.html applies it before paint) */
@@ -136,8 +135,11 @@
       state.cats = html.classList.contains("cats-closed"); save(); showCats(state.cats);
     });
   }
-  if (reset) reset.addEventListener("click", function () { state.tags = {}; if (q) q.value = ""; save(); apply(); });
-  if (q) q.addEventListener("input", apply);
+  if (reset) reset.addEventListener("click", function () {
+    state.tags = {}; save(); apply();
+    if (q && q.value) { q.value = ""; q.dispatchEvent(new Event("input")); }
+  });
+  if (q) q.addEventListener("input", apply);  /* only the reset button; search.js searches */
 
   /* grouping: none = page order (untimed first, then by start time);
      category / place = generated sections of clones in the same order */

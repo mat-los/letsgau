@@ -253,3 +253,28 @@ def test_cli_build(
     monkeypatch.setenv("GITHUB_REPOSITORY_OWNER", "someone-else")
     assert main(["--config", str(CONFIG_PATH), "run", "--job", "build"]) == 1
     assert "someone-else" in capsys.readouterr().err
+
+
+def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[Event]) -> None:
+    import json
+
+    index = json.loads((site / "data" / "search.de.json").read_text(encoding="utf-8"))["events"]
+    days = [e["d"] for e in index]
+    assert days == sorted(days)  # ascending by date
+    assert len(set(days)) > 1  # not only one day
+    assert len({(e["n"], e["d"]) for e in index}) == len(index)
+    shown = {e.id for e in events if any(active_on(e, d) for d in build_days())}
+    assert len(index) == len(shown)  # every displayed event once, multi-day ones too
+    first_day = [e for e in index if e["d"] == days[0]]
+    timed = [e["u"] for e in first_day if re.fullmatch(r"\d\d:\d\d", e["u"])]
+    assert timed == sorted(timed)
+    assert all(e["s"] == build.fold(e["s"]) for e in index)
+    assert build.fold("Füssen Straße") == "fussen strasse"
+    html = page(site, "de/2026-11-14")
+    assert 'id="results"' in html and "assets/search.js" in html
+    assert (site / "assets" / "search.js").stat().st_size < 5_000
+
+
+def build_days() -> list[date]:
+    start = NOW.date()
+    return [date.fromordinal(start.toordinal() + i) for i in range(21)]
