@@ -125,9 +125,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The browser title is the same on every page: site name and region label
-  (e.g. "Let's Gau Schongau"); the day-specific text stays in the
-  description and the Open Graph title for previews when sharing.
+- The browser title is the same on every page: site name and region label;
+  the day-specific text stays in the description and the Open Graph title for
+  previews when sharing.
 - Event crawl prompt: regular church services are not events; special
   services and religious occasions are.
 - New category `religion` (Religion) in the default tag list; the category
