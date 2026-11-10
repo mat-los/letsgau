@@ -314,7 +314,8 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
     Entry keys: ``d`` day, ``u`` time column (start time or "until ..."), ``n`` title,
-    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text.
+    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text, ``x`` status
+    (only when not scheduled: cancelled, postponed, unconfirmed).
     """
     t = Texts(load_i18n(lang))
     by_id = {e.id: e for e in site.events}
@@ -356,6 +357,11 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                     "g": event.tags,
                     "h": anchor,
                     "s": fold(text),
+                    **(
+                        {"x": event.status.value}
+                        if event.status is not EventStatus.SCHEDULED
+                        else {}
+                    ),
                 },
             )
         )

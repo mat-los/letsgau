@@ -2,7 +2,7 @@
    fetched only when a search starts; without JavaScript the field is hidden. */
 (function () {
   "use strict";
-  var MIN = 3, MAX = 50, q = document.getElementById("q"), box = document.getElementById("results");
+  var MIN = 3, MAX = 50, /* results per page */ q = document.getElementById("q"), box = document.getElementById("results");
   if (!q || !box) return;
   var body = document.body, lang = body.getAttribute("data-lang"), root = body.getAttribute("data-root") || "";
   var L = JSON.parse(box.getAttribute("data-labels")), index = null, loading = null, timer = 0;
@@ -41,20 +41,32 @@
     if (!hits.length) return msg(fill(L.none, { q: text }));
     box.textContent = "";
     box.appendChild(el("h1", "day", fill(L.hits, { count: hits.length, q: text })));
-    var last = "", sec;
-    hits.slice(0, MAX).forEach(function (e) {
-      if (e.d !== last) {
-        last = e.d; sec = el("section", "sec");
-        sec.appendChild(el("h2", "", dateFmt.format(new Date(e.d + "T12:00:00"))));
-        box.appendChild(sec);
+    var list = el("div"), foot = el("div", "more-hits"), last = "", sec, shown = 0;
+    box.appendChild(list); box.appendChild(foot);
+    function more() {
+      hits.slice(shown, shown + MAX).forEach(function (e) {
+        if (e.d !== last) {
+          last = e.d; sec = el("section", "sec");
+          sec.appendChild(el("h2", "", dateFmt.format(new Date(e.d + "T12:00:00"))));
+          list.appendChild(sec);
+        }
+        var a = el("a", "hit t-" + e.g[0] + (e.x ? " st-" + e.x : ""));
+        a.href = root + lang + "/" + e.d + "/" + (e.h ? "#" + e.h : "");
+        a.appendChild(el("span", "time", e.u)); a.appendChild(el("span", "title", e.n));
+        var p = el("span", "place", e.p);
+        if (e.x) p.appendChild(el("span", "badge " + e.x, L[e.x]));
+        a.appendChild(p);
+        sec.appendChild(a);
+      });
+      shown = Math.min(hits.length, shown + MAX);
+      foot.textContent = "";
+      if (shown < hits.length) {
+        foot.appendChild(el("p", "", fill(L.more, { shown: shown, count: hits.length })));
+        var b = el("button", "load", fill(L.load, { n: Math.min(MAX, hits.length - shown) }));
+        b.type = "button"; b.addEventListener("click", more); foot.appendChild(b);
       }
-      var a = el("a", "hit t-" + e.g[0]);
-      a.href = root + lang + "/" + e.d + "/" + (e.h ? "#" + e.h : "");
-      a.appendChild(el("span", "time", e.u)); a.appendChild(el("span", "title", e.n));
-      a.appendChild(el("span", "place", e.p));
-      sec.appendChild(a);
-    });
-    if (hits.length > MAX) box.appendChild(el("p", "more-hits", fill(L.more, { max: MAX, count: hits.length })));
+    }
+    more();
     show(true);
   }
 

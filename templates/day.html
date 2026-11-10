@@ -40,7 +40,7 @@
 {% endif %}
 <p class="empty nomatch" hidden>{{ t('no_match') }}</p>
 </div>
-<div id="results" class="results" hidden aria-live="polite" data-labels='{{ {"hits": t("search_hits"), "none": t("search_none"), "more": t("search_more"), "min": t("search_min"), "error": t("search_error")} | tojson_compact }}'></div>
+<div id="results" class="results" hidden aria-live="polite" data-labels='{{ {"hits": t("search_hits"), "none": t("search_none"), "more": t("search_more"), "min": t("search_min"), "error": t("search_error"), "load": t("search_load"), "cancelled": t("status_cancelled"), "postponed": t("status_postponed"), "unconfirmed": t("status_unconfirmed")} | tojson_compact }}'></div>
 <nav class="pager">
   {% if prev_day %}<a rel="prev" href="{{ root }}{{ lang }}/{{ prev_day.isoformat() }}/">← {{ t('prev_day') }}</a>{% else %}<span></span>{% endif %}
   {% if next_day %}<a rel="next" href="{{ root }}{{ lang }}/{{ next_day.isoformat() }}/">{{ t('next_day') }} →</a>{% endif %}

@@ -126,9 +126,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Search covers all displayed days instead of the current day: results are
-  listed by date (earliest first), at most 50, after at least 3 characters.
-  Category filters apply to the results. The index `data/search.<lang>.json`
-  is written by the build and fetched only when a search starts.
+  listed by date (earliest first), 50 at a time with a "Show more" button,
+  after at least 3 characters. Cancelled, postponed and unconfirmed events are
+  marked as on the day pages. Category filters apply to the results. The index
+  `data/search.<lang>.json` is written by the build and fetched only when a
+  search starts.
+- On a phone the search field takes the whole header row while it has focus.
 - The category chips can be folded in and out with a "Categories" button; the
   choice is remembered, and the button shows the number of active filters.
 - Every page (content pages, feedback, changelog) has the quick links and the

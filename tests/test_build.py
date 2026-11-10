@@ -270,6 +270,12 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
     assert timed == sorted(timed)
     assert all(e["s"] == build.fold(e["s"]) for e in index)
     assert build.fold("Füssen Straße") == "fussen strasse"
+    status = {e.id: e.status.value for e in events}
+    by_anchor = {e["h"]: e for e in index if e["h"]}
+    for event_id, value in status.items():
+        if event_id in by_anchor:
+            assert by_anchor[event_id].get("x") == (None if value == "scheduled" else value)
+    assert any(e.get("x") == "cancelled" for e in index)
     html = page(site, "de/2026-11-14")
     assert 'id="results"' in html and "assets/search.js" in html
     assert (site / "assets" / "search.js").stat().st_size < 5_000
