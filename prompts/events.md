@@ -144,6 +144,9 @@ matching status.
 - A recurring event (weekly market, regular club evening) is one entry: start_date is the first
   and end_date the last occurrence until {{ window_end }}, and "dates" lists every occurrence. Use
   "opening_hours" (days like "mon-fri" or "sat,sun", times "HH:MM") for markets and exhibitions.
+- A series on several weekdays with different times (e.g. a market on Fridays 15:00-18:00 and
+  Saturdays 10:00-14:00) is still one entry: every day in "dates", the times per weekday in
+  "opening_hours", start_time null. Never split it by weekday and never put a weekday in the title.
 - Parts of a larger event (a band at a medieval market, a fire-eater, a children's choir) are
   separate entries with "parent_ref" set to the "ref" of the main event, not events of their own.
   Every entry gets a short unique "ref" such as "e1", "e2".
