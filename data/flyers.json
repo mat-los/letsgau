@@ -1,0 +1,1296 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-10T13:38:53Z",
+  "files": {
+    "2444c78005282edc4ca286272d0ce808f5db6c7eac5a56556f52c1de39ed65e7": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Sepp-und-Hubi.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Hard & Heavy mit DJs Sepp & Hubi & Claudio",
+            "en": "Hard & Heavy with DJs Sepp & Hubi & Claudio"
+          },
+          "description": {
+            "de": "Rockabend von der harten Seite mit den DJs Sepp, Hubi und Claudio im Reaktor.",
+            "en": "Hard rock night with DJs Sepp, Hubi and Claudio at Reaktor."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1, Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-11",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Sepp-und-Hubi.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "6e3e2a6d943d189c65c299316ea67ee8bf0c53fc54b124fcfb2e9eec0d4968b9": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Dark-Wave-Gothic.png",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Dunkle Zeiten – Dark Wave Gothic mit DJ A.N.A.",
+            "en": "Dunkle Zeiten – Dark Wave Gothic with DJ A.N.A."
+          },
+          "description": {
+            "de": "Dark-Wave- und Gothic-Abend im Reaktor. Einlass nur schwarz gekleidet oder passend zum Thema (Gothic, Endzeit). Eintritt 6 Euro.",
+            "en": "Dark wave and gothic night at Reaktor. Entry only in black or theme-appropriate dress (gothic, apocalypse). Admission 6 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1, Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": "21:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Dark-Wave-Gothic.png",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "de0c1f41e114052d5a8ced878574f716d2e78818c3d654c1bb121dd0bb63502e": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Queen-Party-2026.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Die große Queen-Party",
+            "en": "The Big Queen Party"
+          },
+          "description": {
+            "de": "Fortsetzung der Queen-Party mit viel Queen und Freddie Mercury sowie passender Musik, aufgelegt von den DJs Sepp & Hubi.",
+            "en": "Follow-up Queen party with lots of Queen and Freddie Mercury plus fitting tracks, played by DJs Sepp & Hubi."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1, Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-26",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Queen-Party-2026.jpg",
+              "primary": false
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Sepp-und-Hubi.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "215d35c7ee8a57f3ccfc606fd6269a4ef1b268971805f9e28508ea9e4a5f8d6b": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
+            "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
+          },
+          "description": {
+            "de": "Konzert von Ton Steine Scherben im Reaktor; der ursprüngliche Termin am 5. Dezember 2026 wurde verschoben.",
+            "en": "Ton Steine Scherben concert at Reaktor; the original date of 5 December 2026 was postponed."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1, Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-05",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "postponed",
+          "postponed_to_date": "2027-03-12",
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
+            "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
+          },
+          "description": {
+            "de": "Nachholtermin des Konzerts von Ton Steine Scherben im Reaktor.",
+            "en": "Rescheduled Ton Steine Scherben concert at Reaktor."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1, Schongau"
+          },
+          "schedule": {
+            "start_date": "2027-03-12",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "3323b591da6d6affbecc9169220dbe4af4bd3091e79a9107f10123ecdd20dd9e": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "https://www.reaktor-sog.de/wp-content/uploads/2024/07/music-venue-4.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "159d64f4bd9fa41b9049659101743b85f820c3377ce8432e0f39db1d4e6e4647": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "https://www.reaktor-sog.de/wp-content/uploads/2024/07/cropped-Reaktor-Schongau.png",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "92e5f7ff4a2320ec69f41879a006bdfa3644c19026e9874110abe23e45949634": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "e601481bbcbe6cd2dd902a9e22cc9bcbacc3af0811dd0b7b48df7408df4a94dd": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu14-1.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e9",
+          "parent_ref": null,
+          "title": {
+            "de": "1. und 2. Weihnachtsfeiertag im Brauhaus",
+            "en": "Christmas Days at the Brauhaus"
+          },
+          "description": {
+            "de": "Festliches Speisen im Brauhaus an beiden Weihnachtsfeiertagen.",
+            "en": "Festive dining at the Brauhaus on both Christmas holidays."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-25",
+            "end_date": "2026-12-26",
+            "start_time": "11:30",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-25",
+              "2026-12-26"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "food-drink",
+          "tags": [
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu14-1.jpg",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e10",
+          "parent_ref": null,
+          "title": {
+            "de": "Silvesterfest 2026 mit RaceCats",
+            "en": "New Year's Eve Party 2026 with RaceCats"
+          },
+          "description": {
+            "de": "Silvesterfest mit Buffet, Live-Band RaceCats, Tanz, Bar, Live-Karaoke und Chill-Lounge.",
+            "en": "New Year's Eve party with buffet, live band RaceCats, dancing, bar, live karaoke and chill lounge."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-31",
+            "end_date": null,
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "concert",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu14-1.jpg",
+              "primary": false
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu8.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "45c1f2f56715c77b502a99bb2e09e624d9cf7f4e3b7b3a62be551f43bf24d157": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/11/Broschuere-2026-27-jpeg2.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "a3d3365a1b91258d5ffc82a07acb1f9d107eea78104a7b91046cd4662980a2f7": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/11/Broschuere-2026-27-jpeg5.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "e4b2ba620bae6475d2e82aa8e97557229c023eed14b876d194676fc9214985e9": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu8.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "089465046e389be5abd8e43e78cf21a7fe2e27de41227e6545de7a076521f35f": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/11/Broschuere-2026-27-jpeg19-1.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "912e689bd4b2ede77745b966c94469c647b29caaf2a7ee0adee40f7c4640c48b": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu9.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Bier-Braukurs mit Braumeister Stephan Albrecht",
+            "en": "Beer Brewing Course with Master Brewer Stephan Albrecht"
+          },
+          "description": {
+            "de": "Vierstündiger Braukurs vom Schroten bis zum Anstellen der Hefe, inklusive Brotzeit. Ab 16 Jahren.",
+            "en": "Four-hour brewing course from milling to pitching the yeast, snack included. Ages 16 and up."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-12-12",
+            "start_time": "11:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2026-11-14",
+              "2026-12-12"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "food-drink",
+          "tags": [
+            "food-drink",
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu9.jpg",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Dine & Crime – Tödliche Familienbande",
+            "en": "Dine & Crime – Tödliche Familienbande"
+          },
+          "description": {
+            "de": "Krimi-Komödie als Live-Beziehungskrimi mit Drei-Gänge-Menü im Brauhaus.",
+            "en": "Comedy crime dinner theatre about a deadly family affair, with a three-course menu."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-12-11",
+            "start_time": "19:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-14",
+              "2026-12-11"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "theatre-cinema",
+          "tags": [
+            "theatre-cinema",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu9.jpg",
+              "primary": false
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu13.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "22e899298812d243bf40ce682e0ff50a477ec0a7200d120a0a07ed201bb3f24d": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu10.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Menü mit Romeo & Julia",
+            "en": "Dinner with Romeo & Juliet"
+          },
+          "description": {
+            "de": "Frei-komische Shakespeare-Parodie als Ein-Mann-Stück mit italienisch angehauchtem 3-Gänge-Menü.",
+            "en": "Comic one-man Shakespeare parody with an Italian-style three-course menu."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-18",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "theatre-cinema",
+          "tags": [
+            "theatre-cinema",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu10.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "8c4cb639077119220b4d6de1217944adb43edeaab15390fb2e2aa794a0f174f8": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu11.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "RaceCats – Rockabilly mit Benzin im Blut",
+            "en": "RaceCats – Rockabilly with Petrol in the Blood"
+          },
+          "description": {
+            "de": "Rockabilly und Rock'n'Roll live, Tanzen ausdrücklich erwünscht.",
+            "en": "Live rockabilly and rock'n'roll with classics and original songs; dancing welcome."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-20",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu11.jpg",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Der singende Stammtisch",
+            "en": "The Singing Regulars' Table"
+          },
+          "description": {
+            "de": "Gemeinsames Singen von Lagerfeuerliedern mit Martin Englmeier an der Gitarre. Eintritt frei, Spenden willkommen.",
+            "en": "Sing-along of campfire songs with Martin Englmeier on guitar. Free entry, donations welcome."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-01",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu11.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "91d5a8917202a3795bb7dc5d0326caad169139a620f27b4495cd8b97cd649d68": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "Comedy Lounge mit Florian Simbeck",
+            "en": "Comedy Lounge with Florian Simbeck"
+          },
+          "description": {
+            "de": "Stand-up-Abend mit Moderator Florian Simbeck und drei Comedians.",
+            "en": "Stand-up comedy night hosted by Florian Simbeck with three comedians."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-04",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "theatre-cinema",
+          "tags": [
+            "theatre-cinema"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": null,
+          "title": {
+            "de": "Brau.HOUSE mit DJ CrisTiano",
+            "en": "Brau.HOUSE with DJ CrisTiano"
+          },
+          "description": {
+            "de": "Party mit Groovy House und Funky Disco Beats, Chill-Lounge im Obergeschoss.",
+            "en": "Party with groovy house and funky disco beats; chill lounge upstairs."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-05",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "ff89fb1e8eb1c6432567bba594cf2707eebaa45f95e1dec0471a9dd933d05402": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu13.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e8",
+          "parent_ref": null,
+          "title": {
+            "de": "Spitz auf Knopf",
+            "en": "Spitz auf Knopf"
+          },
+          "description": {
+            "de": "Authentische, kreative Volksmusik mit Akkordeon, Geige und Kontrabass.",
+            "en": "Authentic, creative folk music with accordion, violin and double bass."
+          },
+          "venue": {
+            "name": "Schongauer Brauhaus",
+            "place": "Schongau",
+            "address": "Altenstadter Str. 13, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-18",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://brauhaus-schongau.de/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu13.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "f0696d573d6cd72246d3a550730f9563cf7e51addea82d91c9d8c6d680001458": {
+      "page_url": "https://brauhaus-schongau.de/veranstaltungen/",
+      "file_url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu15.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "fc2fa6e268b0a1d7a4b70dec3b33e9fb103cecc550c59c8dee44433739946b0c": {
+      "page_url": "https://www.pg-schongau.com/pfarrbrief/",
+      "file_url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Handy & Co. – Sprechstunde „Basisfragen zu digitalen Medien“",
+            "en": "Handy & Co. – Digital Media Basics Consultation"
+          },
+          "description": {
+            "de": "Der Seniorenbeirat bietet interessierten Senioren eine Sprechstunde zu Grundfragen rund um digitale Medien an.",
+            "en": "The seniors' advisory council offers a consultation hour on basic questions about digital media for seniors."
+          },
+          "venue": {
+            "name": "Turmsaal im Münzgebäude",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-10",
+            "end_date": "2026-11-10",
+            "start_time": "14:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Meditatives Tanzen",
+            "en": "Meditative Dancing"
+          },
+          "description": {
+            "de": "Einladung an Jung und Alt zum Meditativen Tanzen im Pfarrsaal Verklärung Christi.",
+            "en": "Young and old are invited to meditative dancing in the parish hall of Verklärung Christi."
+          },
+          "venue": {
+            "name": "Pfarrsaal Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-10",
+            "end_date": "2026-11-10",
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "art-culture",
+          "tags": [
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Martinsfeier / Martinszug der Kinder",
+            "en": "St. Martin's Celebration and Children's Lantern Procession"
+          },
+          "description": {
+            "de": "Martinsfeier für Kinder mit Eltern und Großeltern, Martinszug ab Frauentor.",
+            "en": "St. Martin's celebration for children with parents and grandparents; procession starts at the Frauentor."
+          },
+          "venue": {
+            "name": "Frauentor (Treffpunkt)",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-11",
+            "end_date": "2026-11-11",
+            "start_time": "17:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Tauffamilientreffen mit Familienkirche",
+            "en": "Baptism Families Meeting with Family Church"
+          },
+          "description": {
+            "de": "Einladung an Täuflinge, besonders des Jahrgangs 2025, mit Taufkerzen in die Pfarrkirche Verklärung Christi.",
+            "en": "Invitation to baptised children, especially born 2025, to bring their baptism candles to the parish church."
+          },
+          "venue": {
+            "name": "Pfarrkirche Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-11-14",
+            "start_time": "14:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Totenehrung am Kriegerdenkmal",
+            "en": "Memorial Ceremony at the War Memorial"
+          },
+          "description": {
+            "de": "Totenehrung im Klosterhof am Kriegerdenkmal im Anschluss an den Pfarrgottesdienst.",
+            "en": "Memorial ceremony at the war memorial in the Klosterhof after the parish service."
+          },
+          "venue": {
+            "name": "Klosterhof",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": "2026-11-15",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "art-culture",
+          "tags": [
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "Adventskranzbinden",
+            "en": "Advent Wreath Making"
+          },
+          "description": {
+            "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
+            "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+          },
+          "venue": {
+            "name": "Pfarrsaal Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-16",
+            "end_date": "2026-11-18",
+            "start_time": "14:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-16",
+              "2026-11-17",
+              "2026-11-18"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": null,
+          "title": {
+            "de": "Familien helfen Familien – Weihnachtspäckchen für Notleidende",
+            "en": "Families Help Families – Christmas Parcels"
+          },
+          "description": {
+            "de": "Päckchen-Aktion für Notleidende vor dem Pfarrbüro Verklärung Christi.",
+            "en": "Christmas parcel collection for people in need in front of the Verklärung Christi parish office."
+          },
+          "venue": {
+            "name": "Pfarrbüro Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-20",
+            "end_date": "2026-11-21",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-20",
+              "2026-11-21"
+            ],
+            "opening_hours": [
+              {
+                "days": "fri",
+                "from": "16:00",
+                "to": "18:00"
+              },
+              {
+                "days": "sat",
+                "from": "10:00",
+                "to": "12:00"
+              }
+            ]
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "c4b7427cf3dfaf128c75b7492c1fc9450d5802a84e6f438294bd514c8789eacb": {
+      "page_url": "https://www.pg-schongau.com/pfarrbrief/",
+      "file_url": "https://www.pg-schongau.com/wp-content/uploads/2026/10/45_So-Allerheiligen.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": []
+    },
+    "21f4211c044860c1c3ae69cf5f54b1cd8e056f7f3a834212f391d3ae3e987e51": {
+      "page_url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
+      "file_url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Nikolausfeier der Trachtenjugend",
+            "en": "Nikolaus Celebration of the Costume Youth"
+          },
+          "description": {
+            "de": "Nikolausfeier der Trachtenjugend des Trachtenvereins Schloßbergler im Trachtenheim.",
+            "en": "St. Nicholas celebration of the Schloßbergler costume club's youth group at the Trachtenheim."
+          },
+          "venue": {
+            "name": "Trachtenheim Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-09",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Weihnachtsfeier des Trachtenvereins",
+            "en": "Christmas Party of the Costume Club"
+          },
+          "description": {
+            "de": "Weihnachtsfeier des Trachtenvereins Schloßbergler im Trachtenheim.",
+            "en": "Christmas celebration of the Schloßbergler costume club at the Trachtenheim."
+          },
+          "venue": {
+            "name": "Trachtenheim Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Abendmesse mit dem Trachtenverein",
+            "en": "Evening Mass with the Costume Club"
+          },
+          "description": {
+            "de": "Abendmesse in der Stadtpfarrkirche, vom Trachtenverein gestaltet.",
+            "en": "Evening mass in the town parish church, arranged by the costume club."
+          },
+          "venue": {
+            "name": "Stadtpfarrkirche",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-26",
+            "end_date": null,
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "art-culture",
+          "tags": [
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
