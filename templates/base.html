@@ -30,7 +30,7 @@
 <a class="skip" href="#main">{{ t('skip') }}</a>
 <header class="top" id="top">
   <div class="bar">
-    <a class="brand" href="{{ root }}{{ lang }}/"><img src="{{ root }}assets/icon.svg" alt="" width="28" height="28">{{ config.site.name }}</a>
+    <a class="brand" href="{{ root }}{{ lang }}/"><img src="{{ root }}assets/icon.svg" alt="" width="28" height="28"><span class="brand-name">{{ config.site.name }}</span></a>
     {% block header_tools %}{% endblock %}
     <nav class="langs" aria-label="Language">
       {% for other in langs %}

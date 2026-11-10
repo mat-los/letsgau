@@ -20,6 +20,7 @@ import os
 import re
 import shutil
 import sys
+import unicodedata
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
@@ -299,6 +300,78 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
     return env.get_template("day.html").render(**ctx)
 
 
+SEARCH_PATH = "data/search.{lang}.json"
+"""Search index per language, fetched by static/search.js on the first search."""
+
+
+def fold(text: str) -> str:
+    """Lower case without accents (``Füssen`` -> ``fussen``); search.js folds the same way."""
+    text = unicodedata.normalize("NFD", text.lower().replace("ß", "ss"))
+    return "".join(c for c in text if not unicodedata.combining(c))
+
+
+def search_index(site: Site, lang: str) -> dict[str, Any]:
+    """All events of the displayed days, each once on its first displayed day, sorted.
+
+    Entry keys: ``d`` day, ``u`` time column (start time or "until ..."), ``n`` title,
+    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text, ``x`` status
+    (only when not scheduled: cancelled, postponed, unconfirmed).
+    """
+    t = Texts(load_i18n(lang))
+    by_id = {e.id: e for e in site.events}
+    entries: list[tuple[date, tuple[bool, str, str], dict[str, Any]]] = []
+    for event in site.events:
+        day = next((d for d in site.days if active_on(event, d)), None)
+        if day is None:
+            continue
+        parent = by_id.get(event.parent_id) if event.parent_id else None
+        if is_timed(event):
+            when = event.schedule.start_time or ""
+        elif is_multi_day(event):
+            when = t("until_short", date=format_date(t, event.schedule.last_date, "short"))
+        else:
+            when = ""
+        anchor = event.id
+        if parent is not None and not active_on(parent, day):
+            anchor = ""  # shown as a standalone copy there, which has no anchor
+        text = " ".join(
+            x
+            for x in (
+                getattr(event.title, lang),
+                event.venue.place,
+                event.venue.name or "",
+                getattr(event.description, lang),
+                getattr(parent.title, lang) if parent else "",
+            )
+            if x
+        )
+        entries.append(
+            (
+                day,
+                sort_key(event),
+                {
+                    "d": day.isoformat(),
+                    "u": when,
+                    "n": getattr(event.title, lang),
+                    "p": event.venue.place,
+                    "g": event.tags,
+                    "h": anchor,
+                    "s": fold(text),
+                    **(
+                        {"x": event.status.value}
+                        if event.status is not EventStatus.SCHEDULED
+                        else {}
+                    ),
+                },
+            )
+        )
+    entries.sort(key=lambda e: (e[0], e[1]))
+    return {
+        "generated_at": site.generated_at.isoformat(),
+        "events": [entry for _, _, entry in entries],
+    }
+
+
 def write(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
@@ -407,6 +480,11 @@ def build(
     extra = [paths for paths in by_name.values() if len(paths) == len(config.site.languages)]
     extra.append({lang: f"{FEEDBACK_PATH}/" for lang in config.site.languages})
     feeds.write_all(site, site_dir, coverage, extra)
+    for lang in config.site.languages:
+        write(
+            site_dir / SEARCH_PATH.format(lang=lang),
+            json.dumps(search_index(site, lang), ensure_ascii=False, separators=(",", ":")),
+        )
     if not config.site.indexing:
         site.warnings.append("site.indexing is false: pages carry noindex (hidden from search)")
     for warning in site.warnings:
