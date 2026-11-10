@@ -113,49 +113,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-09-lagerhaus-kino-programm-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Lagerhaus-Kino Programm",
-        "en": "Lagerhaus Cinema Programme"
-      },
-      "description": {
-        "de": "Filme u. a. Sinn und Sinnlichkeit, Heimsuchung, Chopin, Kommissar Jennerwein, Die Blutgräfin; Abendvorstellungen 20:00.",
-        "en": "Films incl. Sense and Sensibility, Heimsuchung, Chopin, Kommissar Jennerwein, Die Blutgräfin; evening shows 20:00."
-      },
-      "venue": {
-        "name": "Lagerhaus-Kino",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-09",
-        "end_date": "2026-12-02",
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "theatre-cinema",
-      "tags": [
-        "theatre-cinema"
-      ],
-      "status": "unconfirmed",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://lagerhauskino.pfaffenwinkel.net",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-09",
-      "misses": 3
-    },
-    {
       "id": "2026-11-10-handy-co-sprechstunde-basisfragen-zu-digitalen-schongau",
       "parent_id": null,
       "title": {
