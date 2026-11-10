@@ -120,6 +120,26 @@
     }
   }
 
+  /* date bar: arrow buttons and the mouse wheel page it on desktop */
+  var bar = document.querySelector(".dates"), prevBtn = document.querySelector(".dates-nav.prev"),
+    nextBtn = document.querySelector(".dates-nav.next");
+  function arrows() {
+    if (!bar || !prevBtn || !nextBtn) return;
+    prevBtn.hidden = bar.scrollLeft <= 2;
+    nextBtn.hidden = bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2;
+  }
+  function page(dir) { bar.scrollBy({ left: dir * bar.clientWidth * 0.8, behavior: "smooth" }); }
+  if (bar && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", function () { page(-1); });
+    nextBtn.addEventListener("click", function () { page(1); });
+    bar.addEventListener("scroll", arrows, { passive: true });
+    window.addEventListener("resize", arrows);
+    bar.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || bar.scrollWidth <= bar.clientWidth) return;
+      e.preventDefault(); bar.scrollLeft += e.deltaY;
+    }, { passive: false });
+  }
+
   /* swipe left/right on the list changes the day */
   var x0 = null, y0 = 0;
   list.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
@@ -150,10 +170,8 @@
   function init() {
     setCompact(false);
     var current = document.querySelector(".dates [aria-current]");
-    if (current) {
-      var bar = current.parentNode;
-      bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
-    }
+    if (current && bar) bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
+    arrows();
     var filtered = false;
     for (var t in state.tags) if (state.tags[t]) filtered = true;
     if (state.group !== "none") group(state.group);

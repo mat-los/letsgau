@@ -125,6 +125,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Site design in black and yellow: dark header band with a thin yellow line,
+  yellow for the selected day, "Today" and buttons; the page itself stays light.
+- Date bar: arrow buttons and mouse-wheel scrolling on desktop, so all 21 days
+  are reachable; a thin scrollbar without JavaScript.
+- Category chips wrap onto several lines instead of scrolling sideways.
+- The "Weekend" quick link is removed.
 - Day pages show one list instead of time-of-day sections: all-day, multi-day
   and events without a start time come first, then events by start time. The
   "Group by: Time" option is now "None"; category and place grouping stay.

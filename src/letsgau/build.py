@@ -260,7 +260,6 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
     ctx = base_context(site, lang, depth=1 if is_index else 2)
     t: Texts = ctx["t"]
     index = site.days.index(day)
-    weekend = site.today + timedelta(days=(5 - site.today.weekday()) % 7)
     date_text = format_date(t, day)
     counts = {d: day_view(site.events, d).count for d in site.days}
     ctx.update(
@@ -278,7 +277,6 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
         quick={
             "today": site.today,
             "tomorrow": site.today + timedelta(days=1),
-            "weekend": weekend if weekend in site.days else None,
         },
         drive_time=site.drive_time,
         ld=feeds.json_ld(
