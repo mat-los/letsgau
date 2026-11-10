@@ -153,6 +153,7 @@ def test_day_page_has_header_elements(site: Path) -> None:
     assert 'class="chip t-concert" data-tag="concert"' in html
     assert 'data-group="place"' in html
     assert 'data-group="none" aria-pressed="true">Keine</button>' in html
+    assert 'id="cats-toggle" aria-controls="chips" aria-expanded="true">Kategorien' in html
     assert "<h2>Vormittag</h2>" not in html and "Ganztägig" not in html
     assert 'rel="prev" href="../../de/2026-11-13/"' in html
     assert 'rel="next" href="../../de/2026-11-15/"' in html

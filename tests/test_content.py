@@ -208,3 +208,16 @@ def test_init_validates_and_aborts(tmp_path: Path) -> None:
     answers = iter(["Murnau", "47.68", "11.2", "", "X", "https://x.github.io", "a@b.c", "x"])
     config = init_cmd.run({}, target=tmp_path / "fresh", prompt=lambda _q: next(answers))
     assert load_config(config).region.drive_time_minutes == 30  # default
+
+
+def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) -> None:
+    for rel in ("de/about", "de/impressum", "de/feedback", "de/changelog", "de/2026-11-14"):
+        html = read(site, rel)
+        header, _, rest = html.partition("</header>")
+        assert header.count('class="d') >= 21, rel  # date bar with all days
+        assert 'href="../../de/2026-11-14/"' in header, rel  # back to a day
+        assert "Über die Seite</a>" in header and "Fehlt mein Event?</a>" in header, rel
+        footer = rest.partition('<footer class="foot">')[2]
+        assert "Über die Seite" not in footer and "Fehlt mein Event?" not in footer, rel
+        assert "Impressum</a>" in footer, rel
+        assert "assets/app.js" in html, rel

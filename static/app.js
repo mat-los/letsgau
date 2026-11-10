@@ -1,5 +1,5 @@
-/* Let's Gau – progressive enhancement for day pages: filters, search, grouping,
-   swipe, compact header. Everything works without it; nothing is loaded. */
+/* Let's Gau – date bar arrows and compact header on every page; filters, search,
+   grouping and swipe on day pages. Everything works without it. */
 (function () {
   "use strict";
   var KEY = "lg.v1", body = document.body, list = document.getElementById("list");
@@ -17,6 +17,53 @@
   if (body.getAttribute("data-index") && body.getAttribute("data-day") < today) {
     location.replace(root + lang + "/" + today + "/" + location.hash); return;
   }
+  /* date bar: arrow buttons and the mouse wheel page it on desktop */
+  var bar = document.querySelector(".dates"), prevBtn = document.querySelector(".dates-nav.prev"),
+    nextBtn = document.querySelector(".dates-nav.next");
+  function arrows() {
+    if (!bar || !prevBtn || !nextBtn) return;
+    prevBtn.hidden = bar.scrollLeft <= 2;
+    nextBtn.hidden = bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2;
+  }
+  function page(dir) { bar.scrollBy({ left: dir * bar.clientWidth * 0.8, behavior: "smooth" }); }
+  if (bar && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", function () { page(-1); });
+    nextBtn.addEventListener("click", function () { page(1); });
+    bar.addEventListener("scroll", arrows, { passive: true });
+    window.addEventListener("resize", arrows);
+    bar.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || bar.scrollWidth <= bar.clientWidth) return;
+      e.preventDefault(); bar.scrollLeft += e.deltaY;
+    }, { passive: false });
+  }
+
+  /* header slides away when scrolling down, back when scrolling up (transform only) */
+  var head = document.getElementById("top"), last = 0, compact = false;
+  function setCompact(on) {
+    compact = on;
+    head.style.transform = on ? "translateY(-100%)" : "";
+    document.documentElement.style.setProperty("--head-h", (on ? 0 : head.offsetHeight) + "px");
+  }
+  window.addEventListener("scroll", function () {
+    var y = window.scrollY;
+    if (Math.abs(y - last) < 12) return;
+    var want = y > 120 && y > last;
+    if (want !== compact) setCompact(want);
+    last = y;
+  }, { passive: true });
+  /* layout reads happen after the first paint */
+  function later(f) {
+    if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(f, 0); });
+    else setTimeout(f, 0);
+  }
+  later(function () {
+    setCompact(false);
+    var current = document.querySelector(".dates [aria-current]");
+    if (current && bar) bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
+    arrows();
+  });
+
+  /* everything below is for day pages only */
   if (!list) return;
   var labels = JSON.parse(list.getAttribute("data-labels"));
   var q = document.getElementById("q"), reset = document.getElementById("reset");
@@ -58,6 +105,10 @@
     });
     var none = list.querySelector(".nomatch"); if (none) none.hidden = shown > 0 || !rows.length;
     if (reset) reset.hidden = !active;
+    if (cnt) {
+      var n = 0; for (var k in state.tags) if (state.tags[k]) n++;
+      cnt.textContent = n ? String(n) : ""; cnt.hidden = !n;
+    }
     chips.forEach(function (c) {
       var s = state.tags[c.getAttribute("data-tag")] || "";
       c.setAttribute("data-state", s); c.setAttribute("aria-pressed", s === "in" ? "true" : s === "out" ? "mixed" : "false");
@@ -72,6 +123,19 @@
       save(); apply();
     });
   });
+  /* category chips fold in and out (remembered; base.html applies it before paint) */
+  var toggle = document.getElementById("cats-toggle"), html = document.documentElement;
+  var cnt = toggle && toggle.querySelector(".cnt");
+  function showCats(open) {
+    html.classList.toggle("cats-closed", !open);
+    if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  if (toggle) {
+    showCats(state.cats !== false);
+    toggle.addEventListener("click", function () {
+      state.cats = html.classList.contains("cats-closed"); save(); showCats(state.cats);
+    });
+  }
   if (reset) reset.addEventListener("click", function () { state.tags = {}; if (q) q.value = ""; save(); apply(); });
   if (q) q.addEventListener("input", apply);
 
@@ -120,26 +184,6 @@
     }
   }
 
-  /* date bar: arrow buttons and the mouse wheel page it on desktop */
-  var bar = document.querySelector(".dates"), prevBtn = document.querySelector(".dates-nav.prev"),
-    nextBtn = document.querySelector(".dates-nav.next");
-  function arrows() {
-    if (!bar || !prevBtn || !nextBtn) return;
-    prevBtn.hidden = bar.scrollLeft <= 2;
-    nextBtn.hidden = bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2;
-  }
-  function page(dir) { bar.scrollBy({ left: dir * bar.clientWidth * 0.8, behavior: "smooth" }); }
-  if (bar && prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", function () { page(-1); });
-    nextBtn.addEventListener("click", function () { page(1); });
-    bar.addEventListener("scroll", arrows, { passive: true });
-    window.addEventListener("resize", arrows);
-    bar.addEventListener("wheel", function (e) {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || bar.scrollWidth <= bar.clientWidth) return;
-      e.preventDefault(); bar.scrollLeft += e.deltaY;
-    }, { passive: false });
-  }
-
   /* swipe left/right on the list changes the day */
   var x0 = null, y0 = 0;
   list.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
@@ -151,32 +195,11 @@
     if (link) location.href = link.href;
   }, { passive: true });
 
-  /* header: slides away when scrolling down and comes back when scrolling up
-     (transform only, so the layout never jumps) */
-  var head = document.getElementById("top"), last = 0, compact = false;
-  function setCompact(on) {
-    compact = on;
-    head.style.transform = on ? "translateY(-100%)" : "";
-    document.documentElement.style.setProperty("--head-h", (on ? 0 : head.offsetHeight) + "px");
-  }
-  window.addEventListener("scroll", function () {
-    var y = window.scrollY;
-    if (Math.abs(y - last) < 12) return;
-    var want = y > 120 && y > last;
-    if (want !== compact) setCompact(want);
-    last = y;
-  }, { passive: true });
-  /* layout reads and the initial filter pass happen after the first paint */
-  function init() {
-    setCompact(false);
-    var current = document.querySelector(".dates [aria-current]");
-    if (current && bar) bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
-    arrows();
+  /* the initial filter pass happens after the first paint */
+  later(function () {
     var filtered = false;
     for (var t in state.tags) if (state.tags[t]) filtered = true;
     if (state.group !== "none") group(state.group);
     else if (filtered) apply();
-  }
-  if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(init, 0); });
-  else setTimeout(init, 0);
+  });
 })();
