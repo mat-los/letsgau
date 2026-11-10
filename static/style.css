@@ -1,5 +1,5 @@
 /* Let's Gau – one stylesheet, mobile first, system fonts, no external resources.
-   Category colours come from the palette --p1..--p10; base.html maps each configured
+   Category colours come from the palette --p1..--p12; base.html maps each configured
    tag (in config order) to one of them as --c. */
 :root {
   /* Schongau town colours: black and yellow. Black only for the header band,
@@ -13,6 +13,7 @@
   --radius: 14px; --head-h: 0px;
   --p1: #7b3fc4; --p2: #c2255c; --p3: #2b7a3b; --p4: #b8460b; --p5: #1864ab;
   --p6: #5c7a0d; --p7: #a35c00; --p8: #b02a2a; --p9: #7d5236; --p10: #0b7285;
+  --p11: #5a55a6; --p12: #8a4a7a;
   --round: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light dark;
@@ -24,7 +25,8 @@
     --red: #ff8a80; --warn: #f2c66d; --chip: #252421; --inc: #ffd23f; --exc: #ff8a80;
     --shadow: 0 1px 2px rgba(0, 0, 0, .4);
     --p1: #c4a1f5; --p2: #f48fb1; --p3: #7fd18f; --p4: #ffa66b; --p5: #8cc4ff;
-    --p6: #b5d96b; --p7: #ffc266; --p8: #ff8f8f; --p9: #d9a98a; --p10: #66d0e0; }
+    --p6: #b5d96b; --p7: #ffc266; --p8: #ff8f8f; --p9: #d9a98a; --p10: #66d0e0;
+    --p11: #aaa6f2; --p12: #e2a6d4; }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }

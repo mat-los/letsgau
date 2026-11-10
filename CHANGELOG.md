@@ -125,6 +125,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- New category `religion` (Religion) in the default tag list; the category
+  palette has 12 colours, so up to 12 categories get distinct colours.
 - Event crawl: the re-check of the known events of the next days is its own
   call (up to 20 events each) instead of part of the open search. The open
   search budget is split into calls of about 13 searches, each with a part of
