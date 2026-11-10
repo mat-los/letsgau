@@ -7,8 +7,17 @@
 - url: "https://www.schongau.de/veranstaltungen"
   note: "City of Schongau (calendar is loaded with JavaScript; kept for its links)"
   places: ["Schongau"]
-- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo"
-  note: "Event calendar print list (RCE event, id 1246); session parameter RCEID removed"
+- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo"
+  note: "Event calendar print list (RCE event, id 1246), from the first page (os=0), paginated in steps of 10; session parameter RCEID removed"
   places: ["Schongau"]
 - url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/"
   note: "Pfaffenwinkel tourism calendar, one page per municipality, paginated with ?os=12, ?os=24"
+- url: "https://lagerhauskino.pfaffenwinkel.net"
+  note: "Lagerhaus-Kino Schongau, film programme (one entry per film)"
+  places: ["Schongau"]
+- url: "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+  note: "EA Schongau Mammuts, first team schedule (Bayernliga 2026/27 despite the URL)"
+  places: ["Schongau"]
+- url: "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+  note: "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de)"
+  places: ["Schongau"]
