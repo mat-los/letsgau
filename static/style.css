@@ -2,11 +2,14 @@
    Category colours come from the palette --p1..--p10; base.html maps each configured
    tag (in config order) to one of them as --c. */
 :root {
-  --bg: #f6f4ef; --fg: #1d2421; --muted: #5b6460; --line: #e4e0d6; --card: #fff;
-  --brand: #1f5f4a; --brand-2: #2c7a5f; --on-brand: #fff; --on-brand-muted: rgba(255, 255, 255, .82);
-  --accent: #1f5f4a; --accent-fg: #fff; --we: #b5462b; --we-on-brand: #ffd2bd;
-  --red: #b3261e; --warn: #8a5a00; --chip: #eef1ee; --inc: #1f5f4a; --exc: #b3261e;
-  --shadow: 0 1px 2px rgba(29, 36, 33, .06), 0 2px 8px rgba(29, 36, 33, .05);
+  /* Schongau town colours: black and yellow. Black only for the header band,
+     yellow only for highlights, so the page itself stays light. */
+  --bg: #f7f6f1; --fg: #1f1e1b; --muted: #5f5d56; --line: #e6e3d9; --card: #fff;
+  --brand: #22211e; --brand-2: #2e2d29; --on-brand: #fff; --on-brand-muted: rgba(255, 255, 255, .78);
+  --gold: #ffcc00; --on-gold: #1f1e1b;
+  --accent: #7a5b00; --accent-fg: #fff; --we: #9a6b00; --we-on-brand: #ffd84d;
+  --red: #b3261e; --warn: #8a5a00; --chip: #f0eee6; --inc: #1f1e1b; --exc: #b3261e;
+  --shadow: 0 1px 2px rgba(30, 30, 27, .06), 0 2px 8px rgba(30, 30, 27, .05);
   --radius: 14px; --head-h: 0px;
   --p1: #7b3fc4; --p2: #c2255c; --p3: #2b7a3b; --p4: #b8460b; --p5: #1864ab;
   --p6: #5c7a0d; --p7: #a35c00; --p8: #b02a2a; --p9: #7d5236; --p10: #0b7285;
@@ -15,10 +18,10 @@
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #121715; --fg: #e8ece9; --muted: #a3ada8; --line: #2a3330; --card: #1a211f;
-    --brand: #173f33; --brand-2: #1f5243; --on-brand-muted: rgba(255, 255, 255, .75);
-    --accent: #6fc3a3; --accent-fg: #0e1412; --we: #ef9a7f; --we-on-brand: #ffbfa3;
-    --red: #ff8a80; --warn: #f2c66d; --chip: #222b28; --inc: #6fc3a3; --exc: #ff8a80;
+  :root { --bg: #131312; --fg: #ecebe6; --muted: #aaa89f; --line: #2c2b27; --card: #1c1c1a;
+    --brand: #0e0e0d; --brand-2: #1a1a18; --on-brand-muted: rgba(255, 255, 255, .75);
+    --accent: #ffd23f; --accent-fg: #131312; --we: #ffd23f; --we-on-brand: #ffd84d;
+    --red: #ff8a80; --warn: #f2c66d; --chip: #252421; --inc: #ffd23f; --exc: #ff8a80;
     --shadow: 0 1px 2px rgba(0, 0, 0, .4);
     --p1: #c4a1f5; --p2: #f48fb1; --p3: #7fd18f; --p4: #ffa66b; --p5: #8cc4ff;
     --p6: #b5d96b; --p7: #ffc266; --p8: #ff8f8f; --p9: #d9a98a; --p10: #66d0e0; }
@@ -37,6 +40,7 @@ a { color: var(--accent); text-underline-offset: 2px; }
 /* --- header: brand band with search, quick links and date bar ------------------------- */
 .top { position: sticky; top: 0; z-index: 5; color: var(--on-brand);
   background: linear-gradient(160deg, var(--brand), var(--brand-2)); padding: 10px 12px 0;
+  border-bottom: 3px solid var(--gold);
   box-shadow: 0 2px 10px rgba(0, 0, 0, .12); transition: transform .2s; will-change: transform; }
 .top a { color: var(--on-brand); }
 .top :focus-visible { outline-color: var(--on-brand); }
@@ -59,7 +63,7 @@ a { color: var(--accent); text-underline-offset: 2px; }
 .quick { display: flex; gap: 6px; margin-bottom: 8px; }
 .quick a { font-size: .85rem; font-weight: 600; padding: 5px 14px; border-radius: 999px; text-decoration: none;
   background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .2); }
-.quick a[aria-current] { background: var(--on-brand); color: var(--brand); border-color: var(--on-brand); }
+.quick a[aria-current] { background: var(--gold); color: var(--on-gold); border-color: var(--gold); }
 .dates { position: relative; display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity;
   padding-bottom: 10px; scrollbar-width: none; }
 .dates::-webkit-scrollbar { display: none; }
@@ -68,22 +72,34 @@ a { color: var(--accent); text-underline-offset: 2px; }
 .dates .d:hover { background: rgba(255, 255, 255, .18); }
 .dates .d.we .wd, .dates .d.we .dn { color: var(--we-on-brand); }
 .dates .d[data-empty] { opacity: .55; }
-.dates .d[aria-current] { background: var(--on-brand); opacity: 1; box-shadow: 0 2px 6px rgba(0, 0, 0, .2); }
-.dates .d[aria-current] * { color: var(--brand) !important; }
+.dates .d[aria-current] { background: var(--gold); opacity: 1; box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
+.dates .d[aria-current] * { color: var(--on-gold) !important; }
 .wd { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; opacity: .9; }
 .dn { font: 800 1.15rem/1.1 var(--round); }
 .dates .n { font-size: .65rem; min-width: 18px; text-align: center; padding: 0 4px; border-radius: 999px;
   background: rgba(255, 255, 255, .18); font-weight: 600; }
-.dates .d[aria-current] .n { background: color-mix(in srgb, var(--brand) 14%, transparent); }
+.dates .d[aria-current] .n { background: color-mix(in srgb, var(--on-gold) 14%, transparent); }
+/* arrows to page the date bar on desktop (shown by app.js only when it overflows) */
+.dates-wrap { position: relative; max-width: 1000px; margin: 0 auto; }
+.dates-nav { position: absolute; top: 0; bottom: 10px; z-index: 1; width: 40px; padding: 0; border: 0;
+  font: 700 1.6rem/1 var(--round); color: var(--gold); cursor: pointer; }
+.js .dates-nav { display: none; }
+.dates-nav.prev { left: 0; background: linear-gradient(90deg, var(--brand) 55%, transparent); text-align: left; }
+.dates-nav.next { right: 0; background: linear-gradient(270deg, var(--brand-2) 55%, transparent); text-align: right; }
+.dates-nav:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) {
+  .js .dates-nav:not([hidden]) { display: block; }
+  html:not(.js) .dates { scrollbar-width: thin; }
+  html:not(.js) .dates::-webkit-scrollbar { display: block; height: 6px; }
+}
 
 /* filter chips and grouping sit on a light strip under the band */
 .tools { margin: 0 -12px; padding: 8px 12px 6px; background: var(--bg); color: var(--fg);
   border-bottom: 1px solid var(--line); }
 .chips, .group { max-width: 1000px; margin: 0 auto; }
-.chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
-.chips::-webkit-scrollbar { display: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 4px; }
 .chip { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font: inherit;
-  font-size: .82rem; font-weight: 600; padding: 5px 12px 5px 10px; min-height: 32px; border-radius: 999px;
+  font-size: .82rem; font-weight: 600; padding: 4px 11px 4px 9px; min-height: 30px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--card); color: var(--fg); box-shadow: var(--shadow); }
 .chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--muted)); }
 .chip.reset::before { display: none; }
@@ -109,7 +125,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 
 .ev { margin: 8px 0; border: 1px solid var(--line); border-left: 4px solid var(--c, var(--line));
   border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); transition: box-shadow .15s; }
-.ev:hover { box-shadow: 0 2px 4px rgba(29, 36, 33, .08), 0 6px 16px rgba(29, 36, 33, .08); }
+.ev:hover { box-shadow: 0 2px 4px rgba(30, 30, 27, .08), 0 6px 16px rgba(30, 30, 27, .08); }
 .ev > summary { display: grid; grid-template-columns: 3.6rem 1fr; grid-template-areas: "time title" ". place" ". meta";
   gap: 2px 10px; padding: 10px 12px; cursor: pointer; list-style: none; align-items: baseline; }
 .ev > summary::-webkit-details-marker { display: none; }
@@ -133,7 +149,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .prog { background: transparent; border: 1px solid var(--line); }
 .st-cancelled { opacity: .85; } .st-cancelled .title { text-decoration: line-through; }
 .st-unconfirmed .title, .st-unconfirmed .time { color: var(--muted); font-weight: 500; }
-.ev[open] { box-shadow: 0 4px 18px rgba(29, 36, 33, .1); }
+.ev[open] { box-shadow: 0 4px 18px rgba(30, 30, 27, .1); }
 .ev[open] > summary .title { color: var(--accent); }
 .ev .body { margin: 0 12px; padding: 10px 0 12px; border-top: 1px dashed var(--line); font-size: .93rem; }
 .ev .body p { margin: 0 0 6px; }
@@ -171,7 +187,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .page form input, .page form select, .page form textarea { width: 100%; font: inherit; padding: 9px 10px;
   border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--fg); }
 .page form button { margin-top: 14px; font: inherit; font-weight: 700; padding: 9px 20px; border: 0; border-radius: 999px;
-  background: var(--accent); color: var(--accent-fg); cursor: pointer; }
+  background: var(--gold); color: var(--on-gold); cursor: pointer; }
 .hp { position: absolute; left: -9999px; }
 
 @media (min-width: 640px) {

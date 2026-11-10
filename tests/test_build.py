@@ -144,7 +144,10 @@ def test_day_page_has_header_elements(site: Path) -> None:
     html = page(site, "de/2026-11-14")
     assert "Bis 5 Fahrminuten um Schongau · 21 Tage im Voraus" in html
     assert '<a href="../../de/2026-11-13/">Heute</a>' in html
-    assert 'aria-current="page">Morgen</a>' in html  # Saturday is tomorrow and weekend
+    assert 'aria-current="page">Morgen</a>' in html  # Saturday is tomorrow
+    assert "Wochenende" not in html  # no weekend button
+    assert 'class="dates-nav prev js-only" aria-label="Frühere Tage"' in html
+    assert 'class="dates-nav next js-only" aria-label="Spätere Tage"' in html
     assert len(re.findall(r'class="d( we)?"', html)) == 21  # date bar
     assert re.search(r'<span class="dn">14</span><span class="n">103</span>', html)
     assert 'class="chip t-concert" data-tag="concert"' in html
