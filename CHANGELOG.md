@@ -125,6 +125,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Search also matches category names in every language: "Konzert" or
+  "concert" finds all events of that category, not only those with the word
+  in their title.
 - Shorter coverage sentence: "Events within N min of <place> · D days ahead".
 - The browser title is the same on every page: site name and region label;
   the day-specific text stays in the description and the Open Graph title for

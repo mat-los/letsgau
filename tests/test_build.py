@@ -271,6 +271,9 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
     assert timed == sorted(timed)
     assert all(e["s"] == build.fold(e["s"]) for e in index)
     assert build.fold("Füssen Straße") == "fussen strasse"
+    by_tag = [e for e in index if "concert" in e["g"]]
+    assert by_tag and all("konzert" in e["s"] and "concert" in e["s"] for e in by_tag)
+    assert any("konzert" not in e["n"].lower() for e in by_tag)  # found by category alone
     status = {e.id: e.status.value for e in events}
     by_anchor = {e["h"]: e for e in index if e["h"]}
     for event_id, value in status.items():

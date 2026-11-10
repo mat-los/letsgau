@@ -314,11 +314,17 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
     Entry keys: ``d`` day, ``u`` time column (start time or "until ..."), ``n`` title,
-    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text, ``x`` status
+    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text (title, place,
+    venue, description, main event and the category names in every language), ``x`` status
     (only when not scheduled: cancelled, postponed, unconfirmed).
     """
     t = Texts(load_i18n(lang))
     by_id = {e.id: e for e in site.events}
+    # category names in every language, so "Konzert" or "concert" finds the whole category
+    tag_names = {
+        tag.id: " ".join(getattr(tag, code) for code in site.config.site.languages)
+        for tag in site.config.tags
+    }
     entries: list[tuple[date, tuple[bool, str, str], dict[str, Any]]] = []
     for event in site.events:
         day = next((d for d in site.days if active_on(event, d)), None)
@@ -342,6 +348,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                 event.venue.name or "",
                 getattr(event.description, lang),
                 getattr(parent.title, lang) if parent else "",
+                *(tag_names.get(tag, "") for tag in event.tags),
             )
             if x
         )
