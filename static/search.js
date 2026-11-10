@@ -1,12 +1,15 @@
-/* Let's Gau – search across all displayed days. The index (data/search.<lang>.json) is
-   fetched only when a search starts; without JavaScript the field is hidden. */
+/* Let's Gau – search across all displayed days, on every page. The index
+   (data/search.<lang>.json) is fetched only when a search starts; without JavaScript
+   the field is hidden. */
 (function () {
   "use strict";
   var MIN = 3, MAX = 50, /* results per page */ q = document.getElementById("q"), box = document.getElementById("results");
   if (!q || !box) return;
   var body = document.body, lang = body.getAttribute("data-lang"), root = body.getAttribute("data-root") || "";
   var L = JSON.parse(box.getAttribute("data-labels")), index = null, loading = null, timer = 0;
-  var day = [].slice.call(document.querySelectorAll("h1.day, #list, .pager"));
+  /* while searching, the results replace the page content (day list or content page) */
+  var day = [].slice.call(box.parentNode.children).filter(function (e) { return e !== box; });
+  var chips = !!document.querySelector(".chip[data-tag]");
   var dateFmt = new Intl.DateTimeFormat(lang, { weekday: "long", day: "numeric", month: "long" });
 
   function fold(s) { return s.toLowerCase().replace(/ß/g, "ss").normalize("NFD").replace(/[̀-ͯ]/g, ""); }
@@ -36,7 +39,7 @@
     var terms = fold(text).split(/\s+/).filter(Boolean), st = tags(), hits = [];
     index.forEach(function (e) {
       for (var i = 0; i < terms.length; i++) if (e.s.indexOf(terms[i]) < 0) return;
-      if (passTags(e.g, st)) hits.push(e);
+      if (!chips || passTags(e.g, st)) hits.push(e);  /* category filters only where shown */
     });
     if (!hits.length) return msg(fill(L.none, { q: text }));
     box.textContent = "";

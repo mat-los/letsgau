@@ -221,3 +221,5 @@ def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) ->
         assert "Über die Seite" not in footer and "Fehlt mein Event?" not in footer, rel
         assert "Impressum</a>" in footer, rel
         assert "assets/app.js" in html, rel
+        assert 'type="search" id="q"' in header, rel  # search on every page
+        assert 'id="results"' in html and "assets/search.js" in html, rel

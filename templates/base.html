@@ -31,7 +31,8 @@
 <header class="top" id="top">
   <div class="bar">
     <a class="brand" href="{{ root }}{{ lang }}/"><img src="{{ root }}assets/icon.svg" alt="" width="28" height="28"><span class="brand-name">{{ config.site.name }}</span></a>
-    {% block header_tools %}{% endblock %}
+    {# search across all days, on every page (results replace the page content) #}
+    <label class="search js-only"><span class="sr">{{ t('search') }}</span><input type="search" id="q" placeholder="{{ t('search_placeholder') }}" autocomplete="off"></label>
     <nav class="langs" aria-label="Language">
       {% for other in langs %}
       {% if other == lang %}<span aria-current="true">{{ other | upper }}</span>{% else %}<a href="{{ root }}{{ other_url(other) }}" hreflang="{{ other }}" lang="{{ other }}" data-lang="{{ other }}">{{ other | upper }}</a>{% endif %}
@@ -52,6 +53,7 @@
 </header>
 <main id="main">
 {% block main %}{% endblock %}
+<div id="results" class="results" hidden aria-live="polite" data-labels='{{ {"hits": t("search_hits"), "none": t("search_none"), "more": t("search_more"), "min": t("search_min"), "error": t("search_error"), "load": t("search_load"), "cancelled": t("status_cancelled"), "postponed": t("status_postponed"), "unconfirmed": t("status_unconfirmed")} | tojson_compact }}'></div>
 </main>
 <footer class="foot">
   <p class="notice">{{ t('ai_notice') }}</p>
@@ -63,6 +65,7 @@
   </nav>
 </footer>
 <script src="{{ root }}assets/app.js" defer></script>
+<script src="{{ root }}assets/search.js" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
