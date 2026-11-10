@@ -556,8 +556,9 @@ SEARCHES_PER_SEARCH_CALL = 13
 part of the checklist; one long call with the whole checklist stopped after a few searches."""
 RECHECK_PER_CALL = 20
 """Known events per re-check call."""
-NUDGE_RATIO = 0.5
-"""A search call that used less than this share of its searches is asked once more."""
+NUDGE_RATIO = 0.75
+"""A search call that used less than this share of its searches is asked once more
+(at 0.5, calls that ran 7 of 14 searches were not asked)."""
 
 
 def search_queries(

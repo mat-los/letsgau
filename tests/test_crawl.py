@@ -109,7 +109,7 @@ class FakeRunner:
         self,
         answers: list[dict[str, Any]] | None = None,
         fail: set[int] | None = None,
-        searches: int = 8,
+        searches: int = 14,
         fetched: list[str] | None = None,
         merge_answer: dict[str, Any] | None = None,
     ) -> None:
@@ -652,9 +652,10 @@ def test_open_search_is_split_and_asked_again_when_it_stops_early(
         update={"depth": config.depth.model_copy(update={"crawl_searches_per_request": 39})}
     )
     first = _answer()
-    # sweep (8 searches), search 1 stops after 2 searches, its second attempt does the work
+    # sweep (8 searches), search 1 stops after 7 of 13 searches (as in the first live run),
+    # its second attempt does the work
     runner = FakeRunner(answers=[{}, first, {}, {}, {}])
-    searches = iter([8, 2, 13, 13, 13])
+    searches = iter([8, 7, 13, 13, 13])
     original = runner.run
 
     def run(request: AiRequest) -> AiResult:
@@ -674,7 +675,7 @@ def test_open_search_is_split_and_asked_again_when_it_stops_early(
     ]
     parts = [r.prompt for r in runner.requests[1:]]
     assert '"Schongau Veranstaltungen"' in parts[0] and '"Schongau Veranstaltungen"' not in parts[2]
-    assert "A first attempt at this task ran only 2 of the" in parts[1]
+    assert "A first attempt at this task ran only 7 of the" in parts[1]
     assert parts[1].count('"Schongau') == parts[0].count('"Schongau')  # same checklist part
     assert "do not report them again:\n- " in parts[1]
     assert not any("open search used only" in w for w in result.warnings)

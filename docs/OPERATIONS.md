@@ -96,7 +96,7 @@ python -m letsgau run --job events --dry-run --limit-places 3
     per municipality (every month of the window, 15 topics, every district).
     Its budget, `depth.crawl_searches_per_request`, is split into calls of
     about 13 searches (40 → 3 calls), each with a part of the checklist. A
-    search call that used less than half of its searches is asked once more
+    search call that used less than three quarters of its searches is asked once more
     ("search 1 again"), with the events it found; if that also stops early,
     the run prints a warning.
 
