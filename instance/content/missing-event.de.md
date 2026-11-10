@@ -13,7 +13,9 @@ kommt deine Veranstaltung am sichersten in den Kalender:
 4. **Ein öffentlicher Kalender hilft:** Trag die Veranstaltung auch in den
    Veranstaltungskalender deiner Gemeinde oder deines Landkreises ein.
 
-Fehlt sie trotzdem? Schick die Adresse deiner Webseite an
+Fehlt sie trotzdem? {% if feedback_endpoint %}Schick die Adresse deiner Webseite über das
+[Feedback-Formular](../feedback/) (Art: Event oder Quelle fehlt).{% else %}Schick die Adresse
+deiner Webseite an
 [{{ contact_email }}](mailto:{{ contact_email }}?subject=Quelle%20vorschlagen) oder nutze
-das [Feedback-Formular](../feedback/). Nach einer kurzen Prüfung kommt sie auf die
+das [Feedback-Formular](../feedback/).{% endif %} Nach einer kurzen Prüfung kommt sie auf die
 Liste der Quellen, die bei jedem Lauf abgefragt werden.

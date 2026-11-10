@@ -7,7 +7,7 @@ site:
   base_url: "{{BASE_URL}}"              # public URL of your site
   languages: [de, en]                   # first entry = default language
   owner: "{{GITHUB_OWNER}}"             # must match the GitHub repo owner, else build aborts
-  contact_email: "{{CONTACT_EMAIL}}"    # for source suggestions and feedback
+  contact_email: "{{CONTACT_EMAIL}}"    # shown on the pages; optional if feedback_form_endpoint is set
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
   indexing: true                        # false = noindex on every page (hidden from search engines)

@@ -2,7 +2,7 @@
 
 ## Controller
 
-See [imprint](../imprint/). Contact: [{{ contact_email }}](mailto:{{ contact_email }})
+See [imprint](../imprint/){% if not feedback_endpoint %}. Contact: [{{ contact_email }}](mailto:{{ contact_email }}){% endif %}
 
 ## Hosting
 

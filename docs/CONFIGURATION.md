@@ -20,7 +20,7 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | `base_url` | URL | public URL; `CNAME` is generated from it (Phase 8) |
 | `languages` | list of `de`, `en` | first entry is the default language |
 | `owner` | string | must equal the GitHub repo owner, else the build aborts |
-| `contact_email` | string | address for source suggestions and feedback |
+| `contact_email` | string, optional | address shown on the pages (imprint; about, missing event and privacy only without a form service). At least one of `contact_email` and `feedback_form_endpoint` must be set |
 | `feedback_form_endpoint` | URL or `""` | form service; empty = `mailto:` fallback |
 | `indexing` | bool | `true` (default): search engines and AI crawlers are welcome. `false`: every page gets `<meta name="robots" content="noindex">`, robots.txt no longer lists the sitemap or invites AI crawlers (crawling stays allowed so the `noindex` is seen), and the build warns. Use it until the site is ready to go public |
 | `timezone` | IANA name | time zone of the region (default `Europe/Berlin`); the website's "today" and the dates in `events.ics` use it |

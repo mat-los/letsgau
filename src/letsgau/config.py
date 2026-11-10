@@ -53,12 +53,21 @@ class SiteConfig(_Strict):
     base_url: str = Field(pattern=r"^(https?://\S+|\{\{[A-Z_]+\}\})$")
     languages: list[Language] = Field(min_length=1)
     owner: str = Field(min_length=1)
-    contact_email: str = Field(min_length=3)
+    contact_email: str = ""
+    """Shown on the pages (imprint, about, ...) only if set; optional with a form service."""
     feedback_form_endpoint: str = ""
     timezone: str = "Europe/Berlin"
     """IANA time zone of the region; decides what "today" is on the website."""
     indexing: bool = True
     """False adds ``noindex`` to every page and stops inviting crawlers in robots.txt."""
+
+    @model_validator(mode="after")
+    def _some_contact(self) -> SiteConfig:
+        if not self.contact_email and not self.feedback_form_endpoint:
+            raise ValueError("set contact_email or feedback_form_endpoint (or both)")
+        if self.contact_email and "@" not in self.contact_email and "{{" not in self.contact_email:
+            raise ValueError("contact_email needs an @")
+        return self
 
     @field_validator("timezone")
     @classmethod

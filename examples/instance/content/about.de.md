@@ -24,7 +24,8 @@ veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen.
 
 ## Kontakt
 
-Fehlt etwas oder stimmt etwas nicht? Schreib an
+Fehlt etwas oder stimmt etwas nicht? {% if feedback_endpoint %}Schreib uns über das
+[Feedback-Formular](../feedback/).{% else %}Schreib an
 [{{ contact_email }}](mailto:{{ contact_email }}) oder nutze das
-[Feedback-Formular](../feedback/). Der Code ist Open Source:
+[Feedback-Formular](../feedback/).{% endif %} Der Code ist Open Source:
 [{{ repo_url }}]({{ repo_url }}).

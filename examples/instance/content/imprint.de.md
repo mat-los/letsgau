@@ -6,7 +6,7 @@ Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):
 [TODO: Straße und Hausnummer]
 [TODO: Postleitzahl und Ort]
 
-**Kontakt:** [{{ contact_email }}](mailto:{{ contact_email }})
+**Kontakt:** {% if contact_email %}[{{ contact_email }}](mailto:{{ contact_email }}){% else %}über das [Kontaktformular](../feedback/){% endif %}
 
 **Verantwortlich für den Inhalt** nach § 18 Abs. 2 MStV: [TODO: Name, Anschrift wie oben]
 
