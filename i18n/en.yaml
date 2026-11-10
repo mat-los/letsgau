@@ -1,7 +1,7 @@
 # Fixed UI strings (English). Event texts come bilingual from the pipeline.
 # Placeholders in {braces} are filled by the build.
 lang_name: "English"
-coverage: "Within a {minutes}-minute drive of {label} · {days} days ahead"
+coverage: "Events within {minutes} min of {label} · {days} days ahead"
 today: "Today"
 tomorrow: "Tomorrow"
 last_updated: "Last updated"

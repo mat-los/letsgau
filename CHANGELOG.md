@@ -125,6 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Shorter coverage sentence: "Events within N min of <place> · D days ahead".
 - The browser title is the same on every page: site name and region label;
   the day-specific text stays in the description and the Open Graph title for
   previews when sharing.
