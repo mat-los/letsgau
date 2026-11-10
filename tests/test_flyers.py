@@ -136,7 +136,9 @@ def make_config(tmp_path: Path, entries: list[dict[str, Any]], sweeps: int = 4) 
             "flyers_file": str(flyer_file),
         }
     )
-    depth = config.depth.model_copy(update={"crawl_sources_per_request": sweeps})
+    depth = config.depth.model_copy(
+        update={"crawl_sources_per_request": sweeps, "crawl_searches_per_request": 13}
+    )
     return config.model_copy(update={"sources": sources, "depth": depth})
 
 
@@ -192,7 +194,7 @@ class Runner:
         events = [poster_event()] if request.files else []
         return AiResult(
             data={"events": events, "checked_sources": [], "notes": ""},
-            usage=Usage(requests=1, input_tokens=5000),
+            usage=Usage(requests=1, input_tokens=5000, web_searches=0 if request.files else 10),
         )
 
 

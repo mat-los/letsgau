@@ -276,3 +276,51 @@ def test_cli_recorded_run_counts_helper_model_searches() -> None:
         "Singkreis",
         "Ökumenische Fahrzeugsegnung der neuen RVO-Busse",
     ]
+
+
+def test_transcript_is_copied_and_searches_logged(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    from letsgau import ai_runner
+
+    monkeypatch.setenv("LETSGAU_RECORD_DIR", str(tmp_path / "rec"))
+    monkeypatch.setenv("CLAUDE_CONFIG_DIR", str(tmp_path / "claude"))
+    session = tmp_path / "claude" / "projects" / "-tmp-letsgau-x" / "abc-123.jsonl"
+    session.parent.mkdir(parents=True)
+    lines = [
+        {"type": "user", "message": {"content": "prompt"}},
+        {
+            "type": "assistant",
+            "message": {
+                "content": [
+                    {"type": "text", "text": "searching"},
+                    {"type": "tool_use", "name": "WebSearch", "input": {"query": "Juze Schongau"}},
+                    {"type": "tool_use", "name": "WebFetch", "input": {"url": "https://x.example"}},
+                ]
+            },
+        },
+        "not json",
+        {
+            "type": "assistant",
+            "message": {
+                "content": [
+                    {
+                        "type": "tool_use",
+                        "name": "WebSearch",
+                        "input": {"query": "Schongau Konzert"},
+                    }
+                ]
+            },
+        },
+    ]
+    session.write_text(
+        "\n".join(x if isinstance(x, str) else json.dumps(x) for x in lines), encoding="utf-8"
+    )
+    fixture = {**_fixture("claude_cli_result.json"), "session_id": "abc-123"}
+    runner = ClaudeCodeRunner(run=_fake_run(json.dumps(fixture)))
+    assert "--no-session-persistence" not in runner.command(_request())  # kept for the copy
+    runner.run(_request())
+    copied = sorted(p.name for p in (tmp_path / "rec").iterdir())
+    assert copied == ["events-batch-1-1-1.json", "events-batch-1-1-2.transcript.jsonl"]
+    assert "2 searches: Juze Schongau | Schongau Konzert" in capsys.readouterr().err
+    assert ai_runner.search_queries_in("") == []

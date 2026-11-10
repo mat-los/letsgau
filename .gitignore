@@ -18,3 +18,7 @@ build/
 # Generated data lives on the `data` branch, never on `main`
 /data/
 /geo/
+
+# AI answers and transcripts (LETSGAU_RECORD_DIR in the workflows)
+ai-recordings/
+recordings/

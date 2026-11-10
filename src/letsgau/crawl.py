@@ -545,9 +545,19 @@ SEARCH_TOPICS = (
     "Pfarrei Kirche",
     "Verein Fest",
     "Advent OR Weihnachten",
+    "Jugendzentrum OR Juze",
+    "Livemusik OR Band live",
 )
 SWEEP_MAX_SEARCHES = 8
-"""Searches for a source-sweep call (only to find moved calendar pages)."""
+"""Searches for a source-sweep or re-check call (only to find moved pages)."""
+SEARCHES_PER_SEARCH_CALL = 13
+"""Target searches per open-search call: the open-search budget of a batch
+(``depth.crawl_searches_per_request``) is split into calls of about this size, each with a
+part of the checklist; one long call with the whole checklist stopped after a few searches."""
+RECHECK_PER_CALL = 20
+"""Known events per re-check call."""
+NUDGE_RATIO = 0.5
+"""A search call that used less than this share of its searches is asked once more."""
 
 
 def search_queries(
@@ -574,16 +584,49 @@ def search_queries(
 class CrawlCall:
     """One AI call of a batch: a combined call, a sweep over known sources, or the open search."""
 
-    mode: str  # "all" | "sources" | "search" | "flyers"
+    mode: str  # "all" | "sources" | "flyers" | "recheck" | "search"
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     sources: list[Any] = field(default_factory=list)
     flyer: FlyerEntry | None = None
     """The page of a ``flyers`` call."""
+    events: list[Event] = field(default_factory=list)
+    """Known events of a ``recheck`` call."""
+    queries: list[tuple[str, list[str]]] = field(default_factory=list)
+    """Checklist part of a ``search`` call: (municipality, queries)."""
+    previous: dict[str, Any] | None = None
+    """Set on the second attempt of a search call that stopped early."""
 
 
-def plan_calls(batch: Batch, sources_per_request: int) -> list[CrawlCall]:
+def split_queries(
+    queries: Sequence[tuple[str, list[str]]], parts: int
+) -> list[list[tuple[str, list[str]]]]:
+    """Cut the checklist into ``parts`` parts of nearly equal size, keeping the grouping."""
+    flat = [(m, q) for m, items in queries for q in items]
+    parts = max(1, min(parts, len(flat)))
+    result: list[list[tuple[str, list[str]]]] = []
+    for i in range(parts):
+        part: list[tuple[str, list[str]]] = []
+        for m, q in flat[len(flat) * i // parts : len(flat) * (i + 1) // parts]:
+            if part and part[-1][0] == m:
+                part[-1][1].append(q)
+            else:
+                part.append((m, [q]))
+        result.append(part)
+    return result
+
+
+def plan_calls(
+    batch: Batch,
+    sources_per_request: int,
+    *,
+    queries: Sequence[tuple[str, list[str]]] = (),
+    recheck: Sequence[Event] = (),
+    search_calls: int = 1,
+) -> list[CrawlCall]:
     """Split a batch into source sweeps (``sources_per_request`` sources each), one call per
-    flyer page and one search.
+    flyer page, re-check calls for the known events of the deep-check window
+    (:data:`RECHECK_PER_CALL` each) and open-search calls with a part of the checklist
+    (``search_calls`` calls, see :data:`SEARCHES_PER_SEARCH_CALL`).
 
     With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``) plus
     the flyer calls.
@@ -603,7 +646,12 @@ def plan_calls(batch: Batch, sources_per_request: int) -> list[CrawlCall]:
             )
         )
     calls += flyer_calls
-    calls.append(CrawlCall("search"))
+    recheck = list(recheck)
+    for start in range(0, len(recheck), RECHECK_PER_CALL):
+        calls.append(CrawlCall("recheck", events=recheck[start : start + RECHECK_PER_CALL]))
+    calls += [CrawlCall("search", queries=p) for p in split_queries(queries, search_calls)] or [
+        CrawlCall("search")
+    ]
     return calls
 
 
@@ -637,7 +685,13 @@ def render_prompt(
         store_end=today + timedelta(days=config.window.store_days),
         deep_check_end=deep_end,
         whitelist=call.whitelist,
-        deep_check_events=[e for e in batch.known if e.schedule.start_date <= deep_end],
+        deep_check_events=(
+            call.events
+            if call.mode == "recheck"
+            else [e for e in batch.known if e.schedule.start_date <= deep_end]
+            if call.mode == "all"
+            else []
+        ),
         later_events=[e for e in batch.known if deep_end < e.schedule.start_date <= window_end],
         sources=call.sources,
         covered_sources=[w.url for w in batch.whitelist]
@@ -645,7 +699,8 @@ def render_prompt(
         + [f.url for f in batch.flyers],
         flyer=call.flyer,
         files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
-        queries=search_queries(batch.groups, today, window_end),
+        queries=call.queries or search_queries(batch.groups, today, window_end),
+        previous=call.previous,
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -757,7 +812,21 @@ def crawl(
         updated_at=datetime.now(UTC).replace(microsecond=0)
     )
 
-    plan = [(batch, call) for batch in batches for call in plan_calls(batch, sweeps)]
+    deep_end = today + timedelta(days=config.window.deep_check_days)
+    window_end = today + timedelta(days=config.window.crawl_days)
+    plan = [
+        (batch, call)
+        for batch in batches
+        for call in plan_calls(
+            batch,
+            sweeps,
+            queries=search_queries(batch.groups, today, window_end),
+            recheck=[e for e in batch.known if e.schedule.start_date <= deep_end],
+            search_calls=max(
+                1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
+            ),
+        )
+    ]
     by_batch: dict[int, BatchReport] = {}
     checked_by_batch: dict[int, list[str]] = {}
     for position, (batch, call) in enumerate(plan):
@@ -768,8 +837,17 @@ def crawl(
             )
             reports.append(report)
         several = sweeps > 0
-        sweep_no = sum(1 for b, c in plan[: position + 1] if b is batch and c.mode == "sources")
-        tag = f"sources {sweep_no}" if call.mode == "sources" else call.mode
+        same_mode = [c for b, c in plan if b is batch and c.mode == call.mode and not c.previous]
+        number = sum(
+            1
+            for b, c in plan[: position + 1]
+            if b is batch and c.mode == call.mode and not c.previous
+        )
+        tag = call.mode
+        if call.mode == "sources" or (len(same_mode) > 1 and call.mode != "flyers"):
+            tag = f"{call.mode} {number}"
+        if call.previous:
+            tag += " again"
         prefix = f"[{tag}] " if several else ""
         remaining = budget - usage.web_searches
         if clock() > deadline:
@@ -798,11 +876,16 @@ def crawl(
         if remaining < MIN_SEARCHES_PER_BATCH:
             _skip(report, prefix + "skipped: max_web_searches_per_run used up")
             continue
-        cap = (
-            SWEEP_MAX_SEARCHES
-            if call.mode == "sources"
-            else config.depth.crawl_searches_per_request
-        )
+        if call.mode in ("sources", "recheck"):
+            cap = SWEEP_MAX_SEARCHES
+        elif call.mode == "search":
+            # the open-search budget of a batch is spread over its search calls
+            cap = max(
+                MIN_SEARCHES_PER_BATCH,
+                -(-config.depth.crawl_searches_per_request // len(same_mode)),
+            )
+        else:
+            cap = config.depth.crawl_searches_per_request
         cap = min(cap, MAX_SEARCHES_PER_BATCH) if not several else cap
         per_call = min(cap, max(MIN_SEARCHES_PER_BATCH, remaining // (len(plan) - position)))
         prompt = render_prompt(
@@ -845,6 +928,24 @@ def crawl(
             else:
                 events[event.id] = event
         report.events += len(found)
+        used = result.usage.web_searches
+        if call.mode == "search" and used < per_call * NUDGE_RATIO:
+            if call.previous is None and clock() <= deadline:
+                _log(
+                    f"batch {batch.number}: {prefix}used {used} of {per_call} searches; "
+                    "asking again"
+                )
+                again = CrawlCall(
+                    "search",
+                    queries=call.queries,
+                    previous={"searches": used, "found": [e.title.de for e in found]},
+                )
+                plan.insert(position + 1, (batch, again))
+            else:
+                warnings.append(
+                    f"batch {batch.number}: {prefix}open search used only {used} of "
+                    f"{per_call} searches"
+                )
         checked = checked_by_batch.setdefault(batch.number, [])
         checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls

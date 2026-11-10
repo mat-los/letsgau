@@ -101,7 +101,7 @@ optional; the defaults are the thorough settings.
 | `discovery_places_per_request` | `2` | municipalities per discovery call |
 | `discovery_searches_per_request` | `30` | search limit per discovery call |
 | `crawl_sources_per_request` | `4` | known sources per *source sweep* call of the event crawl; every batch then ends with one *open search* call. `0` = one combined call per batch |
-| `crawl_searches_per_request` | `40` | search limit of the open-search call (or of the combined call) |
+| `crawl_searches_per_request` | `40` | search budget of the open search per batch, split into calls of about 13 searches (or the limit of the combined call) |
 
 ## `events`
 

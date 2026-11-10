@@ -15,7 +15,10 @@
 Both runners return an :class:`AiResult` with the parsed JSON, the usage and
 the URLs fetched (as far as the mode reports them). Validation of the content
 happens in the calling stage. With ``LETSGAU_RECORD_DIR`` set, every raw answer
-is also saved there (used to record test fixtures).
+is also saved there (used to record test fixtures and, in the Run workflow, as a
+downloadable artifact). In subscription mode the CLI then also keeps its session
+log, which is copied there as ``<step>-<n>.transcript.jsonl`` (every search and
+fetch of the call), and the search queries are printed to the log.
 """
 
 from __future__ import annotations
@@ -135,6 +138,52 @@ def _record(step: str, data: Any) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _transcript(step: str, session_id: str) -> None:
+    """Copy the CLI session log of a call to ``$LETSGAU_RECORD_DIR`` and log its searches.
+
+    Claude Code keeps sessions under ``~/.claude/projects/<dir>/<session_id>.jsonl``
+    (or ``$CLAUDE_CONFIG_DIR``); nothing happens when recording is off or the file is
+    not there.
+    """
+    target = os.environ.get("LETSGAU_RECORD_DIR")
+    if not target or not session_id:
+        return
+    from pathlib import Path
+
+    home = Path(os.environ.get("CLAUDE_CONFIG_DIR") or Path.home() / ".claude")
+    found = sorted((home / "projects").glob(f"*/{session_id}.jsonl"))
+    if not found:
+        return
+    directory = Path(target)
+    directory.mkdir(parents=True, exist_ok=True)
+    name = "".join(c if c.isalnum() else "-" for c in step).strip("-")
+    path = directory / f"{name}-{len(list(directory.iterdir())) + 1}.transcript.jsonl"
+    shutil.copyfile(found[0], path)
+    queries = search_queries_in(found[0].read_text(encoding="utf-8"))
+    _log(f"{step}: {len(queries)} searches: " + " | ".join(queries))
+
+
+def search_queries_in(transcript: str) -> list[str]:
+    """The WebSearch queries of a CLI session log (one JSON object per line)."""
+    queries: list[str] = []
+    for line in transcript.splitlines():
+        try:
+            entry = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        content = (entry.get("message") or {}).get("content") if isinstance(entry, dict) else None
+        for block in content if isinstance(content, list) else []:
+            if (
+                isinstance(block, dict)
+                and block.get("type") == "tool_use"
+                and block.get("name") == "WebSearch"
+            ):
+                query = (block.get("input") or {}).get("query")
+                if query:
+                    queries.append(str(query))
+    return queries
+
+
 # --- subscription: Claude Code headless ---------------------------------------------
 
 RunFn = Callable[..., subprocess.CompletedProcess[str]]
@@ -169,7 +218,8 @@ class ClaudeCodeRunner:
             "dontAsk",
             "--max-turns",
             str(CLAUDE_MAX_TURNS if request.web else 4 + 2 * len(request.files)),
-            "--no-session-persistence",
+            # sessions are kept only when recording, to copy the transcript (see _transcript)
+            *([] if os.environ.get("LETSGAU_RECORD_DIR") else ["--no-session-persistence"]),
             "--strict-mcp-config",
             "--setting-sources",
             "user",
@@ -221,7 +271,10 @@ class ClaudeCodeRunner:
                 )
             except subprocess.TimeoutExpired as exc:
                 raise AiError(f"claude timed out after {CLAUDE_TIMEOUT_S}s") from exc
-        return self.parse(proc.stdout, proc.stderr, proc.returncode, request, started)
+        result = self.parse(proc.stdout, proc.stderr, proc.returncode, request, started)
+        if isinstance(result.raw, dict):
+            _transcript(request.step, str(result.raw.get("session_id") or ""))
+        return result
 
     @staticmethod
     def parse(

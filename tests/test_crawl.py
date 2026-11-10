@@ -55,7 +55,10 @@ def make_config(tmp_path: Path, sweeps: int = 0, store_days: int = 28, **limits:
     config = load_config(CONFIG_PATH)
     config = config.model_copy(
         update={
-            "depth": config.depth.model_copy(update={"crawl_sources_per_request": sweeps}),
+            # one open-search call of 13 searches unless a test sets more
+            "depth": config.depth.model_copy(
+                update={"crawl_sources_per_request": sweeps, "crawl_searches_per_request": 13}
+            ),
             "window": config.window.model_copy(update={"store_days": store_days}),
         }
     )
@@ -106,7 +109,7 @@ class FakeRunner:
         self,
         answers: list[dict[str, Any]] | None = None,
         fail: set[int] | None = None,
-        searches: int = 5,
+        searches: int = 8,
         fetched: list[str] | None = None,
         merge_answer: dict[str, Any] | None = None,
     ) -> None:
@@ -581,11 +584,12 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
     runner = FakeRunner()
     result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
 
-    # 1 whitelist entry + 14 known sources in sweeps of 2 -> 8 sweeps, then the search
+    # 1 whitelist entry + 14 known sources in sweeps of 2 -> 8 sweeps, then the re-check of
+    # the known events of the next 7 days, then the search
     steps = [r.step for r in runner.requests]
     assert steps[0] == "events batch 1/1 (sources 1)" and steps[7] == "events batch 1/1 (sources 8)"
-    assert steps[8:] == ["events batch 1/1 (search)"]
-    first, search = runner.requests[0].prompt, runner.requests[-1].prompt
+    assert steps[8:] == ["events batch 1/1 (recheck)", "events batch 1/1 (search)"]
+    first, recheck, search = (runner.requests[i].prompt for i in (0, 8, 9))
     assert "read the sources below\ncompletely" in first
     assert "- https://www.schongau.de/veranstaltungen" in first
     assert "- https://club0.example/termine (source 0)" in first
@@ -599,8 +603,14 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
         search
     )
     assert '"Schongau Heimspiel OR Turnier"' in search
-    assert "Known events to re-check (until 2026-11-16)" in search
-    assert result.batches[0].calls == 9 and result.batches[0].error is None
+    assert '"Schongau Jugendzentrum OR Juze"' in search
+    assert "Known events to re-check" not in search  # the search has only one job
+    assert "Already known later events" in search
+    assert "Known events to re-check (until 2026-11-16)" in recheck
+    assert "Report only events from that list" in recheck
+    assert "Run the queries of this checklist" not in recheck
+    assert runner.requests[8].max_searches == crawl.SWEEP_MAX_SEARCHES
+    assert result.batches[0].calls == 10 and result.batches[0].error is None
     assert "Schongau" in result.covered_places
 
 
@@ -632,6 +642,51 @@ def test_search_queries_cover_every_month_and_district() -> None:
     assert "Peiting Veranstaltungen Januar 2027" in queries
     assert "Birkland Veranstaltungen" in queries
     assert len(queries) == 2 + 2 + len(crawl.SEARCH_TOPICS) + 1
+
+
+def test_open_search_is_split_and_asked_again_when_it_stops_early(
+    tmp_path: Path, data_dir: Path
+) -> None:
+    config = make_config(tmp_path, sweeps=4, places_per_request=8)
+    config = config.model_copy(
+        update={"depth": config.depth.model_copy(update={"crawl_searches_per_request": 39})}
+    )
+    first = _answer()
+    # sweep (8 searches), search 1 stops after 2 searches, its second attempt does the work
+    runner = FakeRunner(answers=[{}, first, {}, {}, {}])
+    searches = iter([8, 2, 13, 13, 13])
+    original = runner.run
+
+    def run(request: AiRequest) -> AiResult:
+        result = original(request)
+        result.usage = result.usage.model_copy(update={"web_searches": next(searches)})
+        return result
+
+    runner.run = run  # type: ignore[method-assign]
+    result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    steps = [r.step for r in runner.requests]
+    assert steps == [
+        "events batch 1/1 (sources 1)",
+        "events batch 1/1 (search 1)",
+        "events batch 1/1 (search 1 again)",
+        "events batch 1/1 (search 2)",
+        "events batch 1/1 (search 3)",
+    ]
+    parts = [r.prompt for r in runner.requests[1:]]
+    assert '"Schongau Veranstaltungen"' in parts[0] and '"Schongau Veranstaltungen"' not in parts[2]
+    assert "A first attempt at this task ran only 2 of the" in parts[1]
+    assert parts[1].count('"Schongau') == parts[0].count('"Schongau')  # same checklist part
+    assert "do not report them again:\n- " in parts[1]
+    assert not any("open search used only" in w for w in result.warnings)
+
+
+def test_split_queries_keeps_every_query_once() -> None:
+    queries = [("A", [f"a{i}" for i in range(7)]), ("B", [f"b{i}" for i in range(5)])]
+    parts = crawl.split_queries(queries, 3)
+    assert [sum(len(q) for _, q in p) for p in parts] == [4, 4, 4]
+    flat = [q for p in parts for _, items in p for q in items]
+    assert flat == [*queries[0][1], *queries[1][1]]
+    assert parts[1] == [("A", ["a4", "a5", "a6"]), ("B", ["b0"])]
 
 
 # --- merge (Phase 2) ----------------------------------------------------------------------
@@ -699,9 +754,12 @@ def test_cli_events_dry_run(
     out = capsys.readouterr().out
     assert "crawl: " in out and "dry run" in out
     # instance depth: one source sweep over the fixture whitelist, then the open search
+    # (40 searches) in 3 calls with a third of the checklist each
     assert [r.step for r in runner.requests] == [
         "events batch 1/1 (sources 1)",
-        "events batch 1/1 (search)",
+        "events batch 1/1 (search 1)",
+        "events batch 1/1 (search 2)",
+        "events batch 1/1 (search 3)",
     ]
     assert not (tmp_path / "data" / "events.json").exists()
 
