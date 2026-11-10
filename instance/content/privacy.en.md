@@ -21,7 +21,7 @@ filters, grouping and language; this data never leaves your device.
 ## Feedback
 
 {% if feedback_endpoint %}The feedback form is sent to a form service
-(formhook, formhook.app; [TODO: seat of the service and link to its privacy policy]). The message and,
+(formhook, formhook.app). The message and,
 if given, your email address for questions are stored.
 {% else %}Feedback by email is only used to handle your request.
 {% endif %}

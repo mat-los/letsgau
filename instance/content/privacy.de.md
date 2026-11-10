@@ -22,7 +22,7 @@ gespeichert; diese Daten verlassen dein Gerät nicht.
 ## Feedback
 
 {% if feedback_endpoint %}Das Feedback-Formular wird an einen Formular-Dienst übermittelt
-(formhook, formhook.app; [TODO: Sitz des Dienstes und Link zu dessen Datenschutzerklärung]). Gespeichert
+(formhook, formhook.app). Gespeichert
 werden die Nachricht und, falls angegeben, deine E-Mail-Adresse für Rückfragen.
 {% else %}Feedback per E-Mail wird nur zur Bearbeitung deines Anliegens verwendet.
 {% endif %}

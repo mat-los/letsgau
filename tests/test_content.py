@@ -165,7 +165,7 @@ def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
     todos = build.content_todos(load_config(CONFIG_PATH), REPO_ROOT / "instance" / "content")
     files = {name for name, _ in todos}
     assert {"imprint.de.md", "imprint.en.md", "about.de.md"} <= files
-    assert "privacy.de.md" in files  # seat and privacy link of the form service
+    assert "privacy.de.md" not in files
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
     assert "imprint.de.md: [TODO: Vor- und Nachname]" in capsys.readouterr().err
 
