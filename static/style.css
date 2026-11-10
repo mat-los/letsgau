@@ -106,15 +106,6 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   padding: 14px 0 6px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
   background: var(--bg); }
 .sec h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.sec[data-section] h2::before { font-size: 1rem; letter-spacing: 0; }
-.sec[data-section="morning"] h2::before { content: "☀️" / ""; }
-.sec[data-section="afternoon"] h2::before { content: "🌤️" / ""; }
-.sec[data-section="evening"] h2::before { content: "🌙" / ""; }
-details.sec > summary { list-style: none; cursor: pointer; }
-details.sec > summary::-webkit-details-marker { display: none; }
-details.sec > summary h2::before { content: "📅  ▸" / ""; font-size: .9rem; letter-spacing: 0; }
-details.sec[open] > summary h2::before { content: "📅  ▾" / ""; }
-.sec .n { font-weight: 400; }
 
 .ev { margin: 8px 0; border: 1px solid var(--line); border-left: 4px solid var(--c, var(--line));
   border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); transition: box-shadow .15s; }
@@ -123,7 +114,7 @@ details.sec[open] > summary h2::before { content: "📅  ▾" / ""; }
   gap: 2px 10px; padding: 10px 12px; cursor: pointer; list-style: none; align-items: baseline; }
 .ev > summary::-webkit-details-marker { display: none; }
 .ev .time { grid-area: time; font: 700 .95rem/1.3 var(--round); font-variant-numeric: tabular-nums; }
-.all-day .ev .time { font-size: .75rem; font-weight: 600; color: var(--muted); }
+.ev .time.untimed { font-size: .75rem; font-weight: 600; color: var(--muted); }
 .ev .title { grid-area: title; font-weight: 650; font-size: 1.02rem; line-height: 1.3; min-width: 0; overflow-wrap: anywhere; }
 .ev .place { grid-area: place; display: inline-flex; align-items: center; gap: 3px; color: var(--muted);
   font-size: .82rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

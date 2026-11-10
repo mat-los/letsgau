@@ -10,7 +10,15 @@ from pathlib import Path
 import pytest
 
 from letsgau import build
-from letsgau.build import BuildError, active_on, day_view, hours_today, section_of, weekdays_in
+from letsgau.build import (
+    BuildError,
+    active_on,
+    day_view,
+    hours_today,
+    is_timed,
+    sort_key,
+    weekdays_in,
+)
 from letsgau.cli import main
 from letsgau.config import load_config
 from letsgau.models import Event, EventsFile
@@ -82,12 +90,15 @@ def test_active_on_respects_ranges_and_single_dates() -> None:
     assert not active_on(weekends, date(2026, 11, 18))
 
 
-def test_sections_and_opening_hours() -> None:
-    assert section_of(ev(start_time="09:30")) == "morning"
-    assert section_of(ev(start_time="12:00")) == "afternoon"
-    assert section_of(ev(start_time="18:00")) == "evening"
-    assert section_of(ev()) == "all_day"  # no time known
-    assert section_of(ev(start_time="10:00", end_date="2026-11-15")) == "all_day"
+def test_untimed_first_then_by_start_time_and_opening_hours() -> None:
+    assert is_timed(ev(start_time="09:30"))
+    assert not is_timed(ev())  # no time known
+    assert not is_timed(ev(start_time="10:00", end_date="2026-11-15"))  # multi-day
+    evening, morning = ev(start_time="20:00"), ev(start_time="09:30")
+    no_time, multi_day = ev(), ev(start_time="10:00", end_date="2026-11-15")
+    order = sorted([evening, multi_day, morning, no_time], key=sort_key)
+    assert order[:2] in ([no_time, multi_day], [multi_day, no_time])
+    assert order[2:] == [morning, evening]
     hours = ev(
         end_date="2026-11-30",
         opening_hours=[
@@ -112,7 +123,7 @@ def test_day_view_nests_program_items(events: list[Event]) -> None:
     ]
     copies = [r for r in view.rows if r.standalone_copy_of]
     assert len(copies) == 3 and copies[0].standalone_copy_of is parent.event
-    assert len(view.section("all_day")) == 16  # 8 multi-day + events without time
+    assert len([r for r in view.rows if not r.timed]) == 16  # 8 multi-day + events without time
 
 
 # --- pages (acceptance #14, #16, #17) ----------------------------------------------------
@@ -138,10 +149,21 @@ def test_day_page_has_header_elements(site: Path) -> None:
     assert re.search(r'<span class="dn">14</span><span class="n">103</span>', html)
     assert 'class="chip t-concert" data-tag="concert"' in html
     assert 'data-group="place"' in html
-    assert "<h2>Vormittag</h2>" in html and "<h2>Abend</h2>" in html
-    assert 'Ganztägig &amp; mehrtägig <span class="n">(16)</span>' in html
+    assert 'data-group="none" aria-pressed="true">Keine</button>' in html
+    assert "<h2>Vormittag</h2>" not in html and "Ganztägig" not in html
     assert 'rel="prev" href="../../de/2026-11-13/"' in html
     assert 'rel="next" href="../../de/2026-11-15/"' in html
+
+
+def test_day_list_is_one_list_sorted_by_start_time(site: Path) -> None:
+    html = page(site, "de/2026-11-14")
+    times = re.findall(r'<details class="ev [^"]*" id="[^"]+"[^>]* data-time="([^"]*)"', html)
+    assert times, "no event rows found"
+    untimed = [t for t in times if not t]
+    assert times[: len(untimed)] == untimed  # untimed (all-day, multi-day, no time) first
+    timed = times[len(untimed) :]
+    assert timed == sorted(timed) and timed
+    assert html.count('<section class="sec">') == 1
 
 
 def test_every_event_is_in_the_html_without_js(site: Path, events: list[Event]) -> None:
@@ -151,7 +173,7 @@ def test_every_event_is_in_the_html_without_js(site: Path, events: list[Event]) 
         assert f'id="{event.id}"' in html
     english = page(site, "en/2026-11-14")
     assert "Konzert der Stadtkapelle #51 (EN)" in english
-    assert "Morning" in english
+    assert 'data-group="none" aria-pressed="true">None</button>' in english
 
 
 def test_status_and_program_display(site: Path) -> None:

@@ -5,7 +5,7 @@
   var KEY = "lg.v1", body = document.body, list = document.getElementById("list");
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
-  var state = load(); state.tags = state.tags || {}; state.group = state.group || "time";
+  var state = load(); state.tags = state.tags || {}; state.group = state.group && state.group !== "time" ? state.group : "none";
   var lang = body.getAttribute("data-lang"), root = body.getAttribute("data-root") || "";
 
   /* language: remember the choice for the start page */
@@ -75,11 +75,12 @@
   if (reset) reset.addEventListener("click", function () { state.tags = {}; if (q) q.value = ""; save(); apply(); });
   if (q) q.addEventListener("input", apply);
 
-  /* grouping: time = page order; category / place = generated sections of clones */
+  /* grouping: none = page order (untimed first, then by start time);
+     category / place = generated sections of clones in the same order */
   function group(kind) {
     var old = document.getElementById("grouped"); if (old) old.remove();
-    [].forEach.call(list.querySelectorAll(":scope > .sec"), function (s) { s.style.display = kind === "time" ? "" : "none"; });
-    if (kind !== "time") {
+    [].forEach.call(list.querySelectorAll(":scope > .sec"), function (s) { s.style.display = kind === "none" ? "" : "none"; });
+    if (kind !== "none") {
       var rows = [].slice.call(list.querySelectorAll(".ev")), groups = {}, order = [];
       rows.forEach(function (el) {
         var key = kind === "category" ? el.getAttribute("data-primary") : el.getAttribute("data-place");
@@ -95,7 +96,7 @@
         var sec = document.createElement("section"), h = document.createElement("h2");
         sec.className = "sec"; h.textContent = kind === "category" ? (labels.tags[key] || key) : key;
         sec.appendChild(h);
-        groups[key].sort(function (a, b) { return (a.getAttribute("data-time") || "").localeCompare(b.getAttribute("data-time") || ""); });
+        /* rows arrive in page order, which is already sorted; keep it */
         groups[key].forEach(function (el) { var c = el.cloneNode(true); c.removeAttribute("id"); sec.appendChild(c); });
         box.appendChild(sec);
       });
@@ -155,7 +156,7 @@
     }
     var filtered = false;
     for (var t in state.tags) if (state.tags[t]) filtered = true;
-    if (state.group !== "time") group(state.group);
+    if (state.group !== "none") group(state.group);
     else if (filtered) apply();
   }
   if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(init, 0); });

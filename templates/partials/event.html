@@ -41,9 +41,9 @@
 {% set e = r.event %}
 {% set searchable = (e.title[lang] ~ ' ' ~ e.venue.place ~ ' ' ~ (e.venue.name or '') ~ ' ' ~ e.description[lang]) | lower %}
 {% set child_tags = r.children | map(attribute='tags') | sum(start=[]) | unique | join(' ') %}
-<details class="ev st-{{ e.status.value }}{% if r.standalone_copy_of %} copy{% endif %}"{% if r.standalone_copy_of %} data-parent="{{ r.standalone_copy_of.id }}"{% else %} id="{{ e.id }}"{% endif %} data-tags="{{ e.tags | join(' ') }}" data-child-tags="{{ child_tags }}" data-primary="{{ e.primary_tag }}" data-place="{{ e.venue.place }}" data-drive="{{ drive_time(e.venue.place) or 999 }}" data-time="{{ e.schedule.start_time or '' }}" data-search="{{ searchable }}">
+<details class="ev st-{{ e.status.value }}{% if r.standalone_copy_of %} copy{% endif %}"{% if r.standalone_copy_of %} data-parent="{{ r.standalone_copy_of.id }}"{% else %} id="{{ e.id }}"{% endif %} data-tags="{{ e.tags | join(' ') }}" data-child-tags="{{ child_tags }}" data-primary="{{ e.primary_tag }}" data-place="{{ e.venue.place }}" data-drive="{{ drive_time(e.venue.place) or 999 }}" data-time="{{ e.schedule.start_time if r.timed else '' }}" data-search="{{ searchable }}">
   <summary>
-    <span class="time">{% if r.section == 'all_day' %}{% if is_multi_day(e) %}{{ t('until_short', date=fmt(e.schedule.last_date, 'short')) }}{% endif %}{% else %}{{ e.schedule.start_time }}{% endif %}</span>
+    <span class="time{% if not r.timed %} untimed{% endif %}">{% if r.timed %}{{ e.schedule.start_time }}{% elif is_multi_day(e) %}{{ t('until_short', date=fmt(e.schedule.last_date, 'short')) }}{% endif %}</span>
     <span class="title">{{ e.title[lang] }}</span>
     <span class="place">{{ e.venue.place }}</span>
     <span class="meta">{{ status_badge(e) }}{{ tag_list(e) }}{% if r.children %}<span class="prog">{{ t('program_items', count=r.children | length) }}</span>{% endif %}{% if r.standalone_copy_of %}<span class="part">{{ t('part_of', title=r.standalone_copy_of.title[lang]) }}</span>{% endif %}</span>

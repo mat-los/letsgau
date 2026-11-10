@@ -93,16 +93,14 @@ def is_multi_day(event: Event) -> bool:
     return event.schedule.last_date > event.schedule.start_date
 
 
-def section_of(event: Event) -> str:
+def is_timed(event: Event) -> bool:
+    """True for a single-day event with a known start time.
+
+    All-day, multi-day and events without a start time are "untimed" and come
+    first in the day list.
+    """
     s = event.schedule
-    if s.all_day or s.start_time is None or is_multi_day(event):
-        return "all_day"
-    hour = int(s.start_time[:2])
-    if hour < 12:
-        return "morning"
-    if hour < 18:
-        return "afternoon"
-    return "evening"
+    return not (s.all_day or s.start_time is None or is_multi_day(event))
 
 
 def hours_today(event: Event, day: date) -> str | None:
@@ -111,9 +109,6 @@ def hours_today(event: Event, day: date) -> str | None:
         if day.weekday() in weekdays_in(hours.days):
             return f"{hours.from_}–{hours.to}"
     return None
-
-
-SECTIONS = ("all_day", "morning", "afternoon", "evening")
 
 
 @dataclass
@@ -128,8 +123,8 @@ class Row:
     """Set for the hidden copy of a program item that filters can reveal."""
 
     @property
-    def section(self) -> str:
-        return section_of(self.event)
+    def timed(self) -> bool:
+        return is_timed(self.event)
 
 
 @dataclass
@@ -138,12 +133,11 @@ class DayView:
     rows: list[Row]
     count: int
 
-    def section(self, name: str) -> list[Row]:
-        return [r for r in self.rows if r.section == name]
 
-
-def sort_key(event: Event) -> tuple[str, str]:
-    return (event.schedule.start_time or "", event.title.de.casefold())
+def sort_key(event: Event) -> tuple[bool, str, str]:
+    """Day list order: untimed events first, then by start time, then by title."""
+    timed = is_timed(event)
+    return (timed, event.schedule.start_time or "" if timed else "", event.title.de.casefold())
 
 
 def day_view(events: Sequence[Event], day: date) -> DayView:
@@ -286,7 +280,6 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
             "tomorrow": site.today + timedelta(days=1),
             "weekend": weekend if weekend in site.days else None,
         },
-        sections=SECTIONS,
         drive_time=site.drive_time,
         ld=feeds.json_ld(
             view.rows,
