@@ -125,6 +125,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- "Why is my event not here?" page: explains why Facebook and Instagram are not
+  read, asks for the title and a short description as text (not only date, time
+  and place), and that a public calendar only helps if its dates can be read,
+  with a simple web-search test.
 - `site.contact_email` is optional when `site.feedback_form_endpoint` is set
   (at least one is required). With a form service, the about, missing-event
   and privacy pages and `llms.txt` link the form instead of showing the
