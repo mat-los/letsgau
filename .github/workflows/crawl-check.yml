@@ -88,7 +88,8 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Check whitelist URLs for the 30-minute area (informational)
-        if: always()
+        # runs after a failed step too, but not after a cancel (always() kept it running)
+        if: ${{ !cancelled() }}
         continue-on-error: true
         timeout-minutes: 10
         run: |
