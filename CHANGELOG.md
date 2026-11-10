@@ -125,6 +125,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The search field is on every page, not only on day pages. On content pages
+  the results replace the page text and link to the events; category filters
+  apply only where the category chips are shown.
 - The clear button of the search field is a white cross on a light circle
   instead of the browser's blue default.
 - Search also matches category names in every language: "Konzert" or
