@@ -1,6 +1,5 @@
-/* Let's Gau – progressive enhancement: date bar arrows and compact header on every
-   page; filters, search, grouping and swipe on day pages. Everything works without
-   it; nothing is loaded. */
+/* Let's Gau – date bar arrows and compact header on every page; filters, search,
+   grouping and swipe on day pages. Everything works without it. */
 (function () {
   "use strict";
   var KEY = "lg.v1", body = document.body, list = document.getElementById("list");
@@ -38,8 +37,7 @@
     }, { passive: false });
   }
 
-  /* header: slides away when scrolling down and comes back when scrolling up
-     (transform only, so the layout never jumps) */
+  /* header slides away when scrolling down, back when scrolling up (transform only) */
   var head = document.getElementById("top"), last = 0, compact = false;
   function setCompact(on) {
     compact = on;
@@ -107,6 +105,10 @@
     });
     var none = list.querySelector(".nomatch"); if (none) none.hidden = shown > 0 || !rows.length;
     if (reset) reset.hidden = !active;
+    if (cnt) {
+      var n = 0; for (var k in state.tags) if (state.tags[k]) n++;
+      cnt.textContent = n ? String(n) : ""; cnt.hidden = !n;
+    }
     chips.forEach(function (c) {
       var s = state.tags[c.getAttribute("data-tag")] || "";
       c.setAttribute("data-state", s); c.setAttribute("aria-pressed", s === "in" ? "true" : s === "out" ? "mixed" : "false");
@@ -121,6 +123,19 @@
       save(); apply();
     });
   });
+  /* category chips fold in and out (remembered; base.html applies it before paint) */
+  var toggle = document.getElementById("cats-toggle"), html = document.documentElement;
+  var cnt = toggle && toggle.querySelector(".cnt");
+  function showCats(open) {
+    html.classList.toggle("cats-closed", !open);
+    if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  if (toggle) {
+    showCats(state.cats !== false);
+    toggle.addEventListener("click", function () {
+      state.cats = html.classList.contains("cats-closed"); save(); showCats(state.cats);
+    });
+  }
   if (reset) reset.addEventListener("click", function () { state.tags = {}; if (q) q.value = ""; save(); apply(); });
   if (q) q.addEventListener("input", apply);
 

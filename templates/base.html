@@ -24,7 +24,7 @@
 <style>{% for tag in config.tags %}.t-{{ tag.id }},[data-primary="{{ tag.id }}"]{--c:var(--p{{ loop.index0 % 10 + 1 }})}{% endfor %}</style>
 <link rel="icon" href="{{ root }}assets/icon.svg" type="image/svg+xml">
 {% block head %}{% endblock %}
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{if((JSON.parse(localStorage.getItem("lg.v1"))||{}).cats===false)document.documentElement.classList.add("cats-closed")}catch(e){}</script>
 </head>
 <body data-lang="{{ lang }}" data-root="{{ root }}"{% block body_attrs %}{% endblock %}>
 <a class="skip" href="#main">{{ t('skip') }}</a>

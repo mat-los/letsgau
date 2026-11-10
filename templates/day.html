@@ -9,15 +9,18 @@
 {% endblock %}
 {% block header_more %}
 <div class="tools js-only">
-  <div class="chips" role="group" aria-label="{{ t('filters') }}" title="{{ t('filter_hint') }}">
-    {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
-    <button type="button" class="chip reset" id="reset" hidden>{{ t('reset') }}</button>
-  </div>
+  <div class="tools-row">
+  <button type="button" class="cats-toggle" id="cats-toggle" aria-controls="chips" aria-expanded="true">{{ t('filters') }}<span class="cnt" hidden></span></button>
   <div class="group" role="group" aria-label="{{ t('group_by') }}">
     <span>{{ t('group_by') }}:</span>
     <button type="button" data-group="none" aria-pressed="true">{{ t('group_none') }}</button>
     <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
     <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
+  </div>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="{{ t('filters') }}" title="{{ t('filter_hint') }}">
+    {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
+    <button type="button" class="chip reset" id="reset" hidden>{{ t('reset') }}</button>
   </div>
 </div>
 {% endblock %}

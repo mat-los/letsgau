@@ -114,6 +114,17 @@ a { color: var(--accent); text-underline-offset: 2px; }
 .chip[data-state="in"]::before { background: #fff; }
 @media (prefers-color-scheme: dark) { .chip[data-state="in"] { color: #111; } .chip[data-state="in"]::before { background: #111; } }
 .chip[data-state="out"] { background: transparent; color: var(--exc); border-color: var(--exc); text-decoration: line-through; box-shadow: none; }
+.tools-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px;
+  max-width: 1000px; margin: 0 auto 6px; }
+.tools-row .group { margin: 0; }
+.cats-toggle { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: .8rem; font-weight: 700;
+  cursor: pointer; padding: 4px 10px 4px 8px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--fg); }
+.cats-toggle::before { content: "▾"; font-size: .75rem; transition: transform .15s; }
+.cats-closed .cats-toggle::before { transform: rotate(-90deg); }
+.cats-toggle .cnt { min-width: 18px; padding: 0 5px; border-radius: 999px; background: var(--gold); color: var(--on-gold);
+  font-size: .7rem; text-align: center; }
+.cats-closed .chips { display: none; }
 .group { display: flex; gap: 8px; align-items: center; margin-top: 4px; font-size: .8rem; color: var(--muted); }
 .group button { font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; padding: 4px 10px; border: 0;
   border-radius: 999px; background: transparent; color: var(--muted); }
