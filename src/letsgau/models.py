@@ -249,6 +249,41 @@ class FlyerCacheFile(_DataModel):
     files: dict[str, FlyerCacheEntry] = {}
 
 
+class InstagramAccount(_DataModel):
+    """One Instagram account in ``data/instagram.json``."""
+
+    origin: Literal["whitelist", "mined"]
+    places: list[str] = []
+    """Places/municipalities the account belongs to (decides the batch)."""
+    status: Literal["new", "active", "not_business", "not_found", "error"] = "new"
+    first_seen: date
+    last_checked: date | None = None
+    last_error: str = ""
+
+
+class InstagramPost(_DataModel):
+    """What the AI read from one post, keyed by the post's media ID."""
+
+    username: str
+    permalink: str
+    posted: date
+    version: int
+    """Extraction version; posts of an older version are read again."""
+    first_seen: date
+    last_seen: date
+    events: list[dict[str, Any]] = []
+    """Raw event candidates as the AI answered them (validated again on every use)."""
+
+
+class InstagramFile(_DataModel):
+    """``data/instagram.json``: known accounts and posts already read."""
+
+    schema_version: Literal[1] = 1
+    updated_at: datetime
+    accounts: dict[str, InstagramAccount] = {}
+    posts: dict[str, InstagramPost] = {}
+
+
 # --- sources (Phase 7) --------------------------------------------------------------------
 
 

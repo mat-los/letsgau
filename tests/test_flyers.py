@@ -134,6 +134,7 @@ def make_config(tmp_path: Path, entries: list[dict[str, Any]], sweeps: int = 4) 
             "whitelist_file": str(FIXTURES / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "blacklist.yaml"),
             "flyers_file": str(flyer_file),
+            "instagram_file": "",
         }
     )
     depth = config.depth.model_copy(

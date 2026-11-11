@@ -120,6 +120,26 @@ python -m letsgau run --job events --dry-run --limit-places 3
   every event on them up to `store_days`; unchanged files reuse the stored
   events without an AI call. Identical files under two URLs are read once. The
   log shows `N flyer file(s) from <page>, N already read, N new`.
+- Instagram (`sources.instagram_file`, `instagram.*`; `src/letsgau/instagram.py`):
+  every batch gets one Instagram step after the flyer calls.
+  - **Accounts:** the accounts of the list whose `places` are in the batch,
+    then (with `instagram.read_mined`) accounts *mined* in this or earlier
+    runs: every web call reports the Instagram accounts that the pages it read
+    link to (`instagram_accounts` in its answer), and new ones are added to
+    `data/instagram.json` with the batch's municipalities. At most
+    `max_accounts_per_run` accounts per run, the list first.
+  - **Reading:** the Graph API's *Business Discovery* returns the latest
+    `posts_per_account` posts (caption, image or video cover, carousel images,
+    time, link). Posts older than `max_post_age_days` and posts already read
+    are skipped; new posts are read by the AI in groups of 6 (caption plus up
+    to 4 images each, no web access), with the post's link as the source.
+    Results are cached per post, like flyers.
+  - **Accounts that cannot be read:** personal and private accounts
+    (`not_business`) or unknown names (`not_found`) are marked and tried again
+    after 30 days; a warning only for accounts on the list. An invalid token,
+    a rate limit or a network error stops the step for the run, with a
+    warning. Without the two secrets the step is skipped with one warning.
+  - The token is never written to logs, warnings or `data/instagram.json`.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g
@@ -284,9 +304,36 @@ below.
 | `CLAUDE_CODE_OAUTH_TOKEN` | `ai.auth: subscription` (create with `claude setup-token`); must not be combined with `ANTHROPIC_API_KEY` in the same environment |
 | `ANTHROPIC_API_KEY` | `ai.auth: api_key` |
 | `ORS_API_KEY` | geo stage (OpenRouteService); free key from [account.heigit.org](https://account.heigit.org) |
+| `INSTAGRAM_ACCESS_TOKEN` | optional: reading Instagram accounts (see below); without it, Instagram is skipped |
+| `INSTAGRAM_USER_ID` | optional: the ID of your own Instagram professional account |
 
 Locally, put them into `.env` (see `.env.example`). In API mode, set a monthly
 spend limit in the Anthropic Console.
+
+### Instagram setup
+
+Only business and creator accounts can be read, through your own Instagram
+*professional* account (Graph API, "Instagram API with Facebook Login"):
+
+1. Switch your Instagram account to a professional account and link it to a
+   Facebook page (page settings → Linked accounts → Instagram).
+2. On developers.facebook.com create an app (type *Business*) and add
+   *Instagram → API setup with Facebook Login*.
+3. In the *Graph API Explorer*, select the app and request `instagram_basic`,
+   `pages_show_list` and `pages_read_engagement` (some guides also list
+   `instagram_manage_insights`). `me/accounts?fields=instagram_business_account`
+   shows your Instagram user ID.
+4. Test: `<user id>?fields=business_discovery.username(<account>){media.limit(3){caption,timestamp,permalink}}`
+   should return the account's latest posts.
+5. For the workflow, create a token that does not expire: Meta Business Suite →
+   Business settings → System users → assign the app and the page → generate
+   a token with the permissions above. (A user token from the Explorer expires
+   after hours, an extended one after about 60 days.)
+6. Save it as the secret `INSTAGRAM_ACCESS_TOKEN` and the user ID as
+   `INSTAGRAM_USER_ID`. List accounts in `instance/sources/instagram.yaml`.
+
+Meta changes this API now and then; if every account fails with `auth` or
+`other`, check the token and the current Meta documentation first.
 
 ## Costs
 

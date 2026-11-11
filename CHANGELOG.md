@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Instagram: the events crawl reads recent posts of Instagram business and
+  creator accounts (Graph API Business Discovery; secrets
+  `INSTAGRAM_ACCESS_TOKEN` and `INSTAGRAM_USER_ID`). Accounts come from
+  `sources.instagram_file` and are also mined from links on pages the crawl
+  reads. New posts (caption and images) are read by the AI once and cached in
+  `data/instagram.json`; settings in the new `instagram` config section.
 - `window.store_days` (default 180): events the AI sees anyway up to this far
   ahead are kept instead of dropped; searching still stops at `crawl_days`,
   the website still shows `display_days`, the feeds contain all events.

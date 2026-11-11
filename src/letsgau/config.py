@@ -177,6 +177,24 @@ class SourcesConfig(_Strict):
     blacklist_file: str
     flyers_file: str = ""
     """Pages whose images/PDFs are downloaded and read by the AI; empty = none."""
+    instagram_file: str = ""
+    """Instagram accounts read on every events run (``{username, places, note}``); empty =
+    Instagram off (no reading, no mining of account names)."""
+
+
+class InstagramConfig(_Strict):
+    """Reading Instagram business accounts (needs INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_USER_ID)."""
+
+    posts_per_account: int = Field(default=6, ge=1, le=25)
+    """Latest posts fetched per account and run."""
+    max_post_age_days: int = Field(default=21, ge=1, le=120)
+    """Older posts are not read (announcements are usually posted shortly before)."""
+    max_accounts_per_run: int = Field(default=40, ge=0, le=200)
+    """Accounts read per run: the list first, then mined accounts."""
+    read_mined: bool = True
+    """Also read accounts found in links on pages the crawl reads, not only the list."""
+    api_version: str = Field(default="", pattern=r"^(v\d+\.\d+)?$")
+    """Graph API version such as ``v24.0``; empty = the app's default version."""
 
 
 class Tag(_Strict):
@@ -198,6 +216,7 @@ class Config(_Strict):
     depth: DepthConfig = DepthConfig()
     events: EventsConfig
     sources: SourcesConfig
+    instagram: InstagramConfig = InstagramConfig()
     excluded_topics: list[str] = []
     tags: list[Tag] = Field(min_length=1)
 
