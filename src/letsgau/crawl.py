@@ -556,9 +556,6 @@ SEARCHES_PER_SEARCH_CALL = 13
 part of the checklist; one long call with the whole checklist stopped after a few searches."""
 RECHECK_PER_CALL = 20
 """Known events per re-check call."""
-NUDGE_RATIO = 0.75
-"""A search call that used less than this share of its searches is asked once more
-(at 0.5, calls that ran 7 of 14 searches were not asked)."""
 
 
 def search_queries(
@@ -594,8 +591,6 @@ class CrawlCall:
     """Known events of a ``recheck`` call."""
     queries: list[tuple[str, list[str]]] = field(default_factory=list)
     """Checklist part of a ``search`` call: (municipality, queries)."""
-    previous: dict[str, Any] | None = None
-    """Set on the second attempt of a search call that stopped early."""
 
 
 def split_queries(
@@ -701,7 +696,6 @@ def render_prompt(
         flyer=call.flyer,
         files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
         queries=call.queries or search_queries(batch.groups, today, window_end),
-        previous=call.previous,
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -838,17 +832,11 @@ def crawl(
             )
             reports.append(report)
         several = sweeps > 0
-        same_mode = [c for b, c in plan if b is batch and c.mode == call.mode and not c.previous]
-        number = sum(
-            1
-            for b, c in plan[: position + 1]
-            if b is batch and c.mode == call.mode and not c.previous
-        )
+        same_mode = [c for b, c in plan if b is batch and c.mode == call.mode]
+        number = sum(1 for b, c in plan[: position + 1] if b is batch and c.mode == call.mode)
         tag = call.mode
         if call.mode == "sources" or (len(same_mode) > 1 and call.mode != "flyers"):
             tag = f"{call.mode} {number}"
-        if call.previous:
-            tag += " again"
         prefix = f"[{tag}] " if several else ""
         remaining = budget - usage.web_searches
         if clock() > deadline:
@@ -929,24 +917,6 @@ def crawl(
             else:
                 events[event.id] = event
         report.events += len(found)
-        used = result.usage.web_searches
-        if call.mode == "search" and used < per_call * NUDGE_RATIO:
-            if call.previous is None and clock() <= deadline:
-                _log(
-                    f"batch {batch.number}: {prefix}used {used} of {per_call} searches; "
-                    "asking again"
-                )
-                again = CrawlCall(
-                    "search",
-                    queries=call.queries,
-                    previous={"searches": used, "found": [e.title.de for e in found]},
-                )
-                plan.insert(position + 1, (batch, again))
-            else:
-                warnings.append(
-                    f"batch {batch.number}: {prefix}open search used only {used} of "
-                    f"{per_call} searches"
-                )
         checked = checked_by_batch.setdefault(batch.number, [])
         checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls

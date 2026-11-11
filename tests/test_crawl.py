@@ -644,18 +644,16 @@ def test_search_queries_cover_every_month_and_district() -> None:
     assert len(queries) == 2 + 2 + len(crawl.SEARCH_TOPICS) + 1
 
 
-def test_open_search_is_split_and_asked_again_when_it_stops_early(
+def test_open_search_is_split_and_a_short_call_is_not_repeated(
     tmp_path: Path, data_dir: Path
 ) -> None:
     config = make_config(tmp_path, sweeps=4, places_per_request=8)
     config = config.model_copy(
         update={"depth": config.depth.model_copy(update={"crawl_searches_per_request": 39})}
     )
-    first = _answer()
-    # sweep (8 searches), search 1 stops after 7 of 13 searches (as in the first live run),
-    # its second attempt does the work
-    runner = FakeRunner(answers=[{}, first, {}, {}, {}])
-    searches = iter([8, 7, 13, 13, 13])
+    # the first search call stops after 2 of 13 searches: it is not asked again
+    runner = FakeRunner(answers=[{}, _answer(), {}, {}])
+    searches = iter([8, 2, 13, 13])
     original = runner.run
 
     def run(request: AiRequest) -> AiResult:
@@ -669,16 +667,13 @@ def test_open_search_is_split_and_asked_again_when_it_stops_early(
     assert steps == [
         "events batch 1/1 (sources 1)",
         "events batch 1/1 (search 1)",
-        "events batch 1/1 (search 1 again)",
         "events batch 1/1 (search 2)",
         "events batch 1/1 (search 3)",
     ]
     parts = [r.prompt for r in runner.requests[1:]]
-    assert '"Schongau Veranstaltungen"' in parts[0] and '"Schongau Veranstaltungen"' not in parts[2]
-    assert "A first attempt at this task ran only 7 of the" in parts[1]
-    assert parts[1].count('"Schongau') == parts[0].count('"Schongau')  # same checklist part
-    assert "do not report them again:\n- " in parts[1]
-    assert not any("open search used only" in w for w in result.warnings)
+    assert '"Schongau Veranstaltungen"' in parts[0] and '"Schongau Veranstaltungen"' not in parts[1]
+    assert all("A first attempt" not in p for p in parts)
+    assert result.warnings == []
 
 
 def test_split_queries_keeps_every_query_once() -> None:
