@@ -91,14 +91,18 @@ python -m letsgau run --job events --dry-run --limit-places 3
     completely, following pagination to the end of the window, with at most 8
     searches to find moved pages;
   - each re-check call opens the sources of up to 20 known events of the next
-    `deep_check_days` and reports date, time, cancellation or postponement;
+    `deep_check_days` and reports date, time, cancellation or postponement.
+    Events that a source call of the same run already reported again count as
+    confirmed and are left out; if none remain, the re-check call is skipped;
   - the open search skips the known sources and runs a fixed query checklist
     per municipality (every month of the window, 15 topics, every district).
     Its budget, `depth.crawl_searches_per_request`, is split into calls of
-    about 13 searches (40 → 3 calls), each with a part of the checklist. The
-    log lists the searches each call actually ran. A call that stops early
-    is not asked again: a second attempt in a live run repeated the same
-    queries and found nothing new.
+    about 13 searches (default 13 → one call), each with a part of the
+    checklist. Every run starts the checklist at a different query (Monday
+    and Thursday about half a list apart), so over a few runs every query is
+    run even when a call stops early. The log lists the searches each call
+    actually ran. A call that stops early is not asked again: a second
+    attempt in a live run repeated the same queries and found nothing new.
 
   All answers go through the same merge, which
   removes duplicates between the calls. If a call fails, the events of the

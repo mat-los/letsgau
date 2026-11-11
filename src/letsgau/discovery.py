@@ -406,18 +406,25 @@ def known_sources_for(
     municipalities: Iterable[str],
     exclude_urls: Iterable[str] = (),
     limit: int | None = MAX_KNOWN_PER_BATCH,
+    skip_prefixes: Iterable[str] = (),
 ) -> list[Source]:
-    """Active, well-rated sources of these municipalities (for the crawl prompt)."""
+    """Active, well-rated sources of these municipalities (for the crawl prompt).
+
+    ``skip_prefixes`` are URL entries of the blacklist: a source whose URL starts with
+    one of them is not read (e.g. a second front end of the same event database).
+    """
     if sources is None:
         return []
     wanted = {m.casefold() for m in municipalities}
     skip = {normalize_url(u) for u in exclude_urls}
+    prefixes = [normalize_url(u) for u in skip_prefixes]
     picked = [
         s
         for s in sources.sources
         if s.status is SourceStatus.ACTIVE
         and s.origin is not SourceOrigin.WHITELIST
         and normalize_url(s.url) not in skip
+        and not any(normalize_url(s.url).startswith(p) for p in prefixes)
         and {p.casefold() for p in s.places} & wanted
         and ((s.rating or 0) >= MIN_RATING_FOR_CRAWL or s.hits >= 2)
     ]
@@ -588,7 +595,7 @@ def run(
         [g.name for g in crawl.group_places(places.places)],
     )
     blacklist = crawl._load_list(Path(config.sources.blacklist_file), crawl.BlacklistEntry)
-    blocked = sorted({e.domain for e in blacklist})
+    blocked = sorted({e.domain for e in blacklist if e.domain})
     existing = load_sources(data_dir)
     sources = {normalize_url(s.url): s for s in (existing.sources if existing else [])}
     result = DiscoveryResult(sources=existing or SourcesFile(updated_at=datetime.now(UTC)))

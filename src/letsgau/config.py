@@ -163,7 +163,7 @@ class DepthConfig(_Strict):
     discovery_searches_per_request: int = Field(default=30, ge=3, le=100)
     crawl_sources_per_request: int = Field(default=4, ge=0, le=50)
     """Known sources per "source sweep" call; 0 = one combined call per batch."""
-    crawl_searches_per_request: int = Field(default=40, ge=3, le=100)
+    crawl_searches_per_request: int = Field(default=13, ge=3, le=100)
     """Search limit of the open-search call (and of the combined call)."""
 
 
