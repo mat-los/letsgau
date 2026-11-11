@@ -125,6 +125,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Open search: a call that stops before using its searches is no longer asked
+  a second time. In a live run the second attempt repeated the same queries and
+  found nothing new, at about $0.60 per run.
 - Contact form: it is sent in the background and a thank-you message replaces
   the form on the page (the service's raw answer is no longer shown). The email
   address is mandatory, and there is a new type "General inquiry" (the
@@ -157,8 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Event crawl: the re-check of the known events of the next days is its own
   call (up to 20 events each) instead of part of the open search. The open
   search budget is split into calls of about 13 searches, each with a part of
-  the checklist; a call that used less than three quarters of its searches is
-  asked once more (the log lists each search query once). Checklist topics include youth centres and live music, and press
+  the checklist (the log lists each search query once). Checklist topics include youth centres and live music, and press
   previews count as a source (with the search result when the article is
   blocked).
 - The Run workflow uploads every AI answer and, in subscription mode, the

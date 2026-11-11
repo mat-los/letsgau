@@ -64,19 +64,6 @@ general web search.
   (at most {{ max_searches }} web searches in total). Fetching pages does not count.
 - Report only events from that list (and the new date of a postponed one); do not look for others.
 {%- elif mode == "search" %}
-{%- if previous %}
-
-A first attempt at this task ran only {{ previous.searches }} of the {{ max_searches }} allowed web
-searches and stopped before the checklist was done, so events are missing. Do it properly this
-time: run every query of the checklist below, open the promising results and keep going until the
-checklist is done.
-{%- if previous.found %}
-It already found these; do not report them again:
-{%- for title in previous.found %}
-- {{ title }}
-{%- endfor %}
-{%- endif %}
-{%- endif %}
 
 Be thorough: the calendar is only useful if it is close to complete. Other researchers read these
 known sources completely, so do not read them again:
