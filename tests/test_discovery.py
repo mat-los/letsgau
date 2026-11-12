@@ -15,6 +15,8 @@ from letsgau.ai_runner import AiError, AiRequest, AiResult
 from letsgau.config import Config, load_config
 from letsgau.models import (
     Event,
+    InstagramAccount,
+    InstagramFile,
     Place,
     PlacesFile,
     SourceOrigin,
@@ -385,3 +387,68 @@ def test_crawl_prompt_lists_known_sources_and_counts_hits(config: Config, data_d
     stored = discovery.load_sources(data_dir)
     club = next(s for s in stored.sources if "ecpeiting" in s.url)
     assert club.hits == 1
+
+
+# --- Instagram accounts ---------------------------------------------------------------------
+
+
+def test_discovery_collects_instagram_accounts(thorough: Config, data_dir: Path) -> None:
+    known = InstagramFile(
+        updated_at="2026-11-01T00:00:00Z",
+        accounts={
+            "loewenhof.test": InstagramAccount(
+                origin="whitelist", places=["Schongau"], first_seen=date(2026, 11, 1)
+            )
+        },
+    )
+    (data_dir / "instagram.json").write_text(known.model_dump_json(), encoding="utf-8")
+    first = coverage_answer("Schongau", "official")
+    first["instagram_accounts"] = [
+        {"username": "@Cafe.Test", "name": "Café Test", "places": ["Herzogsägmühle"]},
+        {"username": "https://www.instagram.com/bar.test/", "name": "Bar", "places": []},
+        {"username": "loewenhof.test", "name": "Löwenhof", "places": ["Peiting"]},
+        {"username": "not a handle!", "name": "x", "places": []},
+    ]
+    runner = FakeRunner(answers=[first] + [coverage_answer("Peiting", "x")] * 11)
+    result = discovery.run(thorough, runner=runner, data_dir=data_dir, today=TODAY)
+
+    request = runner.requests[0]
+    assert "instagram_accounts" in request.schema["properties"]
+    assert 'In "instagram_accounts", list' in request.prompt
+    venues = runner.requests[2].prompt
+    assert "announce their events only on Instagram" in venues
+    assert "announce their events only on Instagram" not in request.prompt  # venues pass only
+    assert result.instagram_added == ["cafe.test", "bar.test"]
+    stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
+    assert stored.accounts["cafe.test"].origin == "mined"
+    assert stored.accounts["cafe.test"].places == ["Peiting"]  # district resolved
+    assert stored.accounts["cafe.test"].first_seen == TODAY
+    assert stored.accounts["bar.test"].places == ["Schongau", "Peiting"]  # the batch
+    assert stored.accounts["loewenhof.test"].origin == "whitelist"  # known: untouched
+    assert stored.accounts["loewenhof.test"].places == ["Schongau"]
+
+
+def test_discovery_without_instagram(config: Config, data_dir: Path) -> None:
+    config = config.model_copy(
+        update={"sources": config.sources.model_copy(update={"instagram_file": ""})}
+    )
+    runner = FakeRunner(answers=[answer(), {"sources": [], "blacklist_candidates": []}])
+    result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY)
+    assert "instagram_accounts" not in runner.requests[0].schema["properties"]
+    assert "instagram_accounts" not in runner.requests[0].prompt
+    assert result.instagram_cache is None
+    assert not (data_dir / "instagram.json").exists()
+
+
+def test_discovery_dry_run_keeps_instagram_file(config: Config, data_dir: Path) -> None:
+    data = answer()
+    data["instagram_accounts"] = [{"username": "cafe.test", "name": "Café", "places": []}]
+    discovery.run(
+        config,
+        runner=FakeRunner(answers=[data]),
+        data_dir=data_dir,
+        today=TODAY,
+        dry_run=True,
+        limit_places=2,
+    )
+    assert not (data_dir / "instagram.json").exists()

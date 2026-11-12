@@ -1320,7 +1320,8 @@ def _run_instagram_call(
                 for u, a in cache.accounts.items()
                 if a.origin == "mined" and a.places and here(a.places)
             ),
-            key=lambda u: (cache.accounts[u].first_seen, u),
+            # least recently read first, so that all are read when there are more than the limit
+            key=lambda u: (cache.accounts[u].last_checked or date.min, u),
         )
     if not accounts:
         return

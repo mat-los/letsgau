@@ -11,6 +11,10 @@
   known ones get the new rating. Whitelist entries are synced in with
   ``origin: whitelist``; blacklisted domains are never added and existing
   entries become ``status: blacklisted``.
+* With Instagram on (``sources.instagram_file``), every call also reports the Instagram
+  accounts of local organisers it came across; the venues pass looks for those of cafés,
+  bars, clubs and venues on purpose. New accounts go into ``data/instagram.json``
+  (``origin: mined``) and are read by the next events run.
 * ``data/suggested.md`` lists whitelist candidates (many hits or a top rating)
   and blacklist candidates as lines to copy into the YAML files. It lives on the
   ``data`` branch with the other generated files (the bot never commits to
@@ -36,10 +40,13 @@ from urllib.parse import urlsplit
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from pydantic import ValidationError
 
+from letsgau import instagram
 from letsgau.ai_runner import AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
     Event,
+    InstagramAccount,
+    InstagramFile,
     PlacesFile,
     Source,
     SourceKind,
@@ -214,7 +221,7 @@ def save_sources(sources: SourcesFile, data_dir: Path = DATA_DIR) -> None:
 # --- AI answer ------------------------------------------------------------------------------
 
 
-def answer_schema(with_coverage: bool = False) -> dict[str, Any]:
+def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> dict[str, Any]:
     def obj(properties: dict[str, Any]) -> dict[str, Any]:
         return {
             "type": "object",
@@ -255,6 +262,15 @@ def answer_schema(with_coverage: bool = False) -> dict[str, Any]:
             }
         )
         properties["coverage"] = {"type": "array", "items": coverage}
+    if with_instagram:
+        account = obj(
+            {
+                "username": {"type": "string"},
+                "name": {"type": "string"},
+                "places": {"type": "array", "items": {"type": "string"}},
+            }
+        )
+        properties["instagram_accounts"] = {"type": "array", "items": account}
     return obj(properties)
 
 
@@ -265,6 +281,7 @@ def render_prompt(
     blocked: Sequence[str],
     max_searches: int,
     focus: Focus | None = None,
+    instagram: bool = False,
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(PROMPTS_DIR),
@@ -279,6 +296,7 @@ def render_prompt(
         blocked_domains=blocked,
         max_searches=max_searches,
         focus=focus,
+        instagram=instagram,
     )
 
 
@@ -292,6 +310,8 @@ class DiscoveryResult:
     updated: list[str] = field(default_factory=list)
     blacklist_candidates: dict[str, str] = field(default_factory=dict)
     coverage: list[Coverage] = field(default_factory=list)
+    instagram_added: list[str] = field(default_factory=list)
+    instagram_cache: InstagramFile | None = None
     warnings: list[str] = field(default_factory=list)
     usage: Usage = field(default_factory=Usage)
 
@@ -399,6 +419,30 @@ def merge_answer(
 
 
 # --- events stage helpers ---------------------------------------------------------------------
+
+
+def add_instagram_accounts(
+    cache: InstagramFile,
+    data: Mapping[str, Any],
+    *,
+    batch_places: Sequence[str],
+    resolve: Any,
+    today: date,
+) -> list[str]:
+    """Add the Instagram accounts of one AI answer that are not known yet; returns them."""
+    added = []
+    for item in data.get("instagram_accounts") or []:
+        if not isinstance(item, Mapping):
+            continue
+        handle = instagram.normalize(str(item.get("username", "")))
+        if not handle or handle in cache.accounts:
+            continue
+        places = [p for p in (resolve(n) for n in item.get("places") or []) if p]
+        cache.accounts[handle] = InstagramAccount(
+            origin="mined", places=sorted(set(places)) or list(batch_places), first_seen=today
+        )
+        added.append(handle)
+    return added
 
 
 def known_sources_for(
@@ -600,6 +644,14 @@ def run(
     sources = {normalize_url(s.url): s for s in (existing.sources if existing else [])}
     result = DiscoveryResult(sources=existing or SourcesFile(updated_at=datetime.now(UTC)))
     sync_lists(sources, whitelist, blocked, today)
+    insta_on = bool(config.sources.instagram_file)
+    insta_path = data_dir / "instagram.json"
+    if insta_on:
+        result.instagram_cache = (
+            InstagramFile.model_validate_json(insta_path.read_text(encoding="utf-8"))
+            if insta_path.exists()
+            else InstagramFile(updated_at=datetime.now(UTC).replace(microsecond=0))
+        )
 
     runner = runner or make_runner(config)
     depth = config.depth
@@ -630,8 +682,8 @@ def run(
         request = AiRequest(
             step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,
-            prompt=render_prompt(config, batch, known, blocked, per_call, focus),
-            schema=answer_schema(with_coverage=focus is not None),
+            prompt=render_prompt(config, batch, known, blocked, per_call, focus, insta_on),
+            schema=answer_schema(with_coverage=focus is not None, with_instagram=insta_on),
             blocked_domains=blocked,
             max_searches=per_call,
         )
@@ -651,6 +703,17 @@ def run(
             result=result,
             focus=focus.id if focus else "",
         )
+        if result.instagram_cache is not None:
+            added = add_instagram_accounts(
+                result.instagram_cache,
+                answer.data,
+                batch_places=names,
+                resolve=to_municipality,
+                today=today,
+            )
+            result.instagram_added += added
+            if added:
+                print(f"discovery: {label}: Instagram accounts found: {', '.join(added)}")
         note = str(answer.data.get("notes") or "").strip()
         if note:
             print(f"discovery: note from {label}: {note}")
@@ -670,6 +733,8 @@ def run(
         f"{result.usage.web_searches} searches, ~${result.usage.cost_usd:.2f} at API prices"
         + ("; dry run, nothing written" if dry_run else "")
     )
+    if result.instagram_cache is not None:
+        print(f"discovery: {len(result.instagram_added)} new Instagram account(s)")
     gaps = [c for c in result.coverage if c.status != "found"]
     if result.coverage:
         print(
@@ -680,6 +745,14 @@ def run(
             print(f"  {c.status:13} {c.municipality} / {c.focus} / {c.category}: {c.note}")
     if not dry_run:
         save_sources(result.sources, data_dir)
+        if result.instagram_cache is not None and result.instagram_added:
+            cache = result.instagram_cache.model_copy(
+                update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
+            )
+            insta_path.write_text(
+                json.dumps(cache.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
         state_path = data_dir / "state.json"
         state = (
             State.model_validate_json(state_path.read_text(encoding="utf-8"))

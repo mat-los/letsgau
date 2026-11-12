@@ -2,7 +2,7 @@
 # Only business or creator accounts can be read; personal and private accounts cannot.
 # Format: list of { username, places, note }. `username` without @ (an instagram.com link
 # works too); `places` assigns the account to the batch with these places.
-# Accounts that pages link to are also found during runs ("mined") and kept in
+# Accounts that pages link to, or that discovery finds, are also collected ("mined") and kept in
 # data/instagram.json; this list is for the ones you want read for sure.
 # Needs the secrets INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID (docs/OPERATIONS.md).
 - username: loewenhof_schongau
