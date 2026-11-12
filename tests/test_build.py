@@ -328,7 +328,15 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
         if event_id in by_anchor:
             assert by_anchor[event_id].get("x") == (None if value == "scheduled" else value)
     assert any(e.get("x") == "cancelled" for e in index)
+    # details for the expanded hit (#67): description, venue line, primary source
+    by_id = {e.id: e for e in events}
+    for event_id, entry in by_anchor.items():
+        event = by_id[event_id]
+        assert entry["t"] == event.description.de
+        assert entry["l"] == next(s.url for s in event.sources if s.primary)
+        assert entry["v"].endswith(event.venue.address or event.venue.place)
     html = page(site, "de/2026-11-14")
+    assert "&#34;day&#34;:&#34;Zum Tag&#34;" in html
     assert 'id="results"' in html and "assets/search.js" in html
     assert (site / "assets" / "search.js").stat().st_size < 5_000
 

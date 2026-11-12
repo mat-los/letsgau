@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Search results expand like the cards on the day pages: description, venue,
+  source and a link to the day (the index has the fields `t`, `v`, `l`).
 - Start times that differ between the dates of a film or series: opening
   hours can be given per date (`"days": "2026-11-21"`), which wins over the
   weekday, and the events prompt asks for them instead of a weekday pattern or

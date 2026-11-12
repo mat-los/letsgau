@@ -347,13 +347,20 @@ def fold(text: str) -> str:
     return "".join(c for c in text if not unicodedata.combining(c))
 
 
+def venue_line(event: Event) -> str:
+    """``name, address`` or ``name, place``, as in the details of a day page."""
+    v = event.venue
+    return ", ".join(x for x in (v.name, v.address or v.place) if x)
+
+
 def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
     Entry keys: ``d`` day, ``u`` time column (start time or "until ..."), ``n`` title,
-    ``p`` place, ``g`` tags, ``h`` link anchor, ``s`` folded search text (title, place,
-    venue, description, main event and the category names in every language), ``x`` status
-    (only when not scheduled: cancelled, postponed, unconfirmed).
+    ``p`` place, ``g`` tags, ``h`` link anchor, ``t`` description, ``v`` venue line, ``l``
+    primary source URL (``t``, ``v``, ``l`` for the expanded hit), ``s`` folded search text
+    (title, place, venue, description, main event and the category names in every language),
+    ``x`` status (only when not scheduled: cancelled, postponed, unconfirmed).
     """
     t = Texts(load_i18n(lang))
     by_id = {e.id: e for e in site.events}
@@ -401,6 +408,9 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                     "p": event.venue.place,
                     "g": event.tags,
                     "h": anchor,
+                    "t": getattr(event.description, lang),
+                    "v": venue_line(event),
+                    "l": next((s.url for s in event.sources if s.primary), event.sources[0].url),
                     "s": fold(text),
                     **(
                         {"x": event.status.value}
