@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Social media (Instagram, Facebook, TikTok, …) is never added to
+  `data/sources.json`: events from Instagram posts no longer add
+  `instagram.com` as a source when hits are counted, discovery answers with
+  such URLs are skipped, and existing entries are removed.
 - Search results expand like the cards on the day pages: description, venue,
   source and a link to the day (the index has the fields `t`, `v`, `l`).
 - Start times that differ between the dates of a film or series: opening

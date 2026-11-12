@@ -484,3 +484,30 @@ def test_recently_checked_sources_are_only_listed(config: Config, data_dir: Path
     assert "https://fresh.example/" in listed and "https://hit.example/" in listed
     assert "https://stale.example/" in recheck and "https://never.example/" in recheck
     assert "https://fresh.example/" not in recheck
+
+
+def test_social_media_is_never_a_source(config: Config, data_dir: Path) -> None:
+    stale = Source(
+        url="https://www.instagram.com/",
+        domain="instagram.com",
+        places=["Schongau"],
+        origin=SourceOrigin.CRAWL,
+        first_seen=TODAY,
+    )
+    sources = SourcesFile(updated_at="2026-11-12T00:00:00Z", sources=[stale])
+    events = [
+        _event("https://www.instagram.com/p/DfWnAnTqVBX/", "Schongau"),  # an Instagram post
+        _event("https://m.facebook.com/events/123", "Schongau"),
+    ]
+    updated = discovery.record_hits(sources, events, {}, [], TODAY)
+    assert updated.sources == []  # nothing added, the stale entry removed
+
+    (data_dir / "sources.json").write_text(sources.model_dump_json(), encoding="utf-8")
+    data = answer()
+    data["sources"].append({**data["sources"][0], "url": "https://www.facebook.com/cafe.test"})
+    discovery.run(
+        config, runner=FakeRunner(answers=[data, {"sources": []}]), data_dir=data_dir, today=TODAY
+    )
+    stored = discovery.load_sources(data_dir)
+    assert stored is not None
+    assert not any(discovery.is_social(s.url) for s in stored.sources)
