@@ -160,6 +160,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instagram lookup session: the cafés and bars of the municipality's directory
+  are searched first, before known club and venue sources.
 - Instance: 14 new Instagram candidates for the profile check.
 - Instagram lookup session: the venue list also comes from the known venue and
   club sources and the municipality's own restaurant directory, so it works

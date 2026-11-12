@@ -39,8 +39,9 @@ Use the WebSearch tool with `mode: "extended"`.
    - `site:instagram.com <municipality> café`
    - `site:instagram.com <municipality> bar club party`
    - `site:instagram.com <municipality> verein konzert veranstaltung`
-2. For every place on the venue list (at most 40 per session; cafés, bars and pubs first), search
-   `<name> <municipality> instagram`. Directory pages such as Restaurant Guru, Das Örtliche,
+2. For every place on the venue list, search `<name> <municipality> instagram`, at most 40
+   per session, in this order: first **every** café, bar, pub, beer garden and club from the
+   municipality's directory (part 3), then the other places of part 1, then those of part 2. Directory pages such as Restaurant Guru, Das Örtliche,
    Tripadvisor or the municipality's business directory often name the account; the venue's
    own website may link it.
 
