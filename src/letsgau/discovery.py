@@ -38,8 +38,9 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
+import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from pydantic import ValidationError
+from pydantic import BaseModel, ConfigDict, ValidationError
 
 from letsgau import instagram
 from letsgau.ai_runner import AiError, AiRequest, Runner, make_runner
@@ -50,6 +51,7 @@ from letsgau.models import (
     InstagramFile,
     PlacesFile,
     RejectedCandidate,
+    SeenVenue,
     Source,
     SourceKind,
     SourceOrigin,
@@ -561,6 +563,37 @@ def collect_candidates(
     return found
 
 
+class ListedCandidate(BaseModel):
+    """An entry of ``sources.instagram_candidates_file`` (written by the lookup session)."""
+
+    model_config = ConfigDict(extra="ignore")
+    username: str
+    name: str = ""
+    places: list[str] = []
+    website: str = ""
+    found_on: str = ""
+    """Where the name was seen (search result or directory page); for the reviewer."""
+
+
+def listed_candidates(
+    config: Config, *, resolve: Any, default_places: Sequence[str] = ()
+) -> list[Candidate]:
+    """The entries of ``sources.instagram_candidates_file`` as candidates (not checked yet)."""
+    path = Path(config.sources.instagram_candidates_file or "")
+    if not config.sources.instagram_candidates_file or not path.exists():
+        return []
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or []
+    items = []
+    for entry in raw if isinstance(raw, list) else []:
+        try:
+            items.append(ListedCandidate.model_validate(entry).model_dump())
+        except ValidationError:
+            continue
+    return collect_candidates(
+        {"instagram_candidates": items}, batch_places=default_places, resolve=resolve
+    )
+
+
 def verify_candidates(
     cache: InstagramFile,
     candidates: Sequence[Candidate],
@@ -895,7 +928,7 @@ def run(
     calls: list[tuple[int, Any, Focus | str | None]] = []
     for n, batch in enumerate(batches, 1):
         calls += [(n, batch, focus) for focus in focuses]
-        if insta_on:
+        if insta_on and config.instagram.ai_lookup:
             calls.append((n, batch, LOOKUP))
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
@@ -1012,6 +1045,13 @@ def run(
                         website=str(item.get("website") or ""),
                     )
                     venues_seen.setdefault(number, {}).setdefault(v.name.casefold(), v)
+                    old = result.instagram_cache.venues.get(v.name)
+                    result.instagram_cache.venues[v.name] = SeenVenue(
+                        places=v.places,
+                        website=v.website or (old.website if old else ""),
+                        first_seen=old.first_seen if old else today,
+                        last_seen=today,
+                    )
             if seen:
                 found = ", ".join(c.username for c in seen)
                 print(f"discovery: {label}: Instagram accounts to check: {found}")
@@ -1019,6 +1059,9 @@ def run(
         if note:
             print(f"discovery: note from {label}: {note}")
     if result.instagram_cache is not None:
+        candidates += listed_candidates(
+            config, resolve=to_municipality, default_places=sorted(names_in)
+        )
         accepted, rejected, kept = verify_candidates(
             result.instagram_cache,
             candidates,
@@ -1066,9 +1109,7 @@ def run(
             print(f"  {c.status:13} {c.municipality} / {c.focus} / {c.category}: {c.note}")
     if not dry_run:
         save_sources(result.sources, data_dir)
-        if result.instagram_cache is not None and (
-            result.instagram_added or result.instagram_rejected
-        ):
+        if result.instagram_cache is not None:
             cache = result.instagram_cache.model_copy(
                 update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
             )

@@ -14,11 +14,11 @@ repo is English.
 | `docs/DATA_MODEL.md`, `docs/CONFIGURATION.md`, `docs/OPERATIONS.md` | reference docs |
 | `docs/decisions/` | ADRs (`ADR-001` … `ADR-005`) |
 | `instance/config.yaml` | the Schongau instance config, validated by `src/letsgau/config.py` |
-| `instance/sources/` | `whitelist.yaml`, `blacklist.yaml`, `flyers.yaml` (pages read as images/PDFs), `instagram.yaml` (Instagram accounts), `suggested.md` |
+| `instance/sources/` | `whitelist.yaml`, `blacklist.yaml`, `flyers.yaml` (pages read as images/PDFs), `instagram.yaml` (Instagram accounts), `instagram_candidates.yaml` (unconfirmed, checked by profile), `suggested.md` |
 | `instance/content/` | Markdown content pages (`*.de.md`, `*.en.md`) |
 | `examples/instance/` | templates with `{{PLACEHOLDER}}`s for `letsgau init` |
 | `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `flyers`, `instagram`, `merge`, `ai_runner`, `build`, `feeds` |
-| `prompts/` | `discovery.md`, `instagram_lookup.md`, `events.md`, `merge.md` |
+| `prompts/` | `discovery.md`, `instagram_lookup.md`, `instagram_session.md` (scheduled lookup session), `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |
 | `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` / `site-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |

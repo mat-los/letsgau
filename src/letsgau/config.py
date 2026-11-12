@@ -180,6 +180,10 @@ class SourcesConfig(_Strict):
     instagram_file: str = ""
     """Instagram accounts read on every events run (``{username, places, note}``); empty =
     Instagram off (no reading, no mining of account names)."""
+    instagram_candidates_file: str = ""
+    """Candidate Instagram accounts (``{username, name, places, website, found_on}``), e.g.
+    written by the scheduled lookup session; each is checked against its profile before it is
+    read. Empty = none."""
 
 
 class InstagramConfig(_Strict):
@@ -195,6 +199,10 @@ class InstagramConfig(_Strict):
     """Also read accounts found in links on pages the crawl reads, not only the list."""
     api_version: str = Field(default="", pattern=r"^(v\d+\.\d+)?$")
     """Graph API version such as ``v24.0``; empty = the app's default version."""
+    ai_lookup: bool = False
+    """Discovery's AI lookup call per batch ("<name> <town> instagram" searches). Off by
+    default: its search engine rarely shows usernames; the scheduled lookup session writes
+    ``sources.instagram_candidates_file`` instead."""
 
 
 class Tag(_Strict):

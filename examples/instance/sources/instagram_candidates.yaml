@@ -1,0 +1,7 @@
+# Unconfirmed Instagram accounts, written by the scheduled lookup session
+# (prompts/instagram_session.md) or by hand. The pipeline checks each one against
+# the account's profile: it is read only if it is a business or creator account
+# whose name, biography or website names its municipality or links the place's
+# own website. Rejected names are kept in data/instagram.json (rejected).
+# Format: list of { username, name, places, website, found_on }.
+[]

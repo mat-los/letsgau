@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Instagram candidates file (`sources.instagram_candidates_file`): unconfirmed
+  accounts, proposed by a scheduled Claude Code session
+  (`prompts/instagram_session.md`) whose web search finds usernames that the
+  pipeline's search does not; the events and discovery runs check each one
+  against its profile. Discovery stores the venues it saw in
+  `data/instagram.json` (`venues`) as input. The AI lookup call is off by
+  default (`instagram.ai_lookup`).
 - Instagram lookup: after the passes of each batch, discovery runs a separate
   call (`prompts/instagram_lookup.md`) that lists the cafés, bars, pubs, clubs
   and venues of its municipalities and searches "<name> <town> instagram" for

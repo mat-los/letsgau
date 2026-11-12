@@ -60,9 +60,11 @@ def config() -> Config:
 
 @pytest.fixture
 def thorough(config: Config) -> Config:
-    """The instance's depth settings: three focus passes, two municipalities per call."""
+    """The instance's depth settings: three focus passes, two municipalities per call; with
+    the AI Instagram lookup call switched on."""
     depth = load_config(REPO_ROOT / "instance" / "config.yaml").depth
-    return config.model_copy(update={"depth": depth})
+    insta = config.instagram.model_copy(update={"ai_lookup": True})
+    return config.model_copy(update={"depth": depth, "instagram": insta})
 
 
 @pytest.fixture
@@ -165,8 +167,7 @@ def test_discovery_extends_sources_and_writes_suggestions(
     assert not any(u == "not a url" for u in by_url)
     assert len(result.added) == 3
     state = State.model_validate_json((data_dir / "state.json").read_text("utf-8"))
-    # 2 batches + 1 Instagram lookup: only the first batch has venue sources to look up
-    assert state.last_usage["discovery"].requests == 3
+    assert state.last_usage["discovery"].requests == 2  # the AI lookup is off by default
 
     suggested = (data_dir / "suggested.md").read_text(encoding="utf-8")
     assert "## Whitelist candidates" in suggested
@@ -699,3 +700,37 @@ def test_lookup_checklist_from_the_venues_the_passes_saw(thorough: Config, data_
     assert prompt.count("Jeanscafe Schongau instagram") == 1
     assert '"Café Schongau Schongau instagram"' in prompt  # from the other passes
     assert runner.lookups[0].max_searches == 3  # one search per place (3 distinct names)
+
+
+def test_discovery_stores_venues_and_checks_the_candidates_file(
+    config: Config, data_dir: Path, tmp_path: Path
+) -> None:
+    from letsgau import instagram
+
+    listing = tmp_path / "candidates.yaml"
+    listing.write_text(
+        "- username: jeanscafe\n  name: Jeanscafe\n  places: [Schongau]\n- username: no-handle!\n",
+        encoding="utf-8",
+    )
+    config = config.model_copy(
+        update={
+            "sources": config.sources.model_copy(update={"instagram_candidates_file": str(listing)})
+        }
+    )
+    data = answer()
+    data["venues_seen"] = [{"name": "Jeanscafe", "places": ["Schongau"], "website": ""}]
+    bio = {"business_discovery": {"username": "jeanscafe", "biography": "Schongau"}}
+    runner = FakeRunner(answers=[data, {"sources": []}])
+    result = discovery.run(
+        config,
+        runner=runner,
+        data_dir=data_dir,
+        today=TODAY,
+        graph_get=lambda url: bio,
+        env={instagram.TOKEN_ENV: "t", instagram.USER_ENV: "178"},
+    )
+    assert runner.lookups == []  # the AI lookup is off by default
+    assert result.instagram_added == ["jeanscafe"]
+    stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
+    assert stored.venues["Jeanscafe"].places == ["Schongau"]
+    assert stored.venues["Jeanscafe"].first_seen == TODAY

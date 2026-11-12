@@ -112,8 +112,8 @@ optional; the defaults are the thorough settings.
 
 ## `sources`
 
-Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file` and
-`instagram_file`.
+Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file`,
+`instagram_file` and `instagram_candidates_file`.
 
 ```yaml
 # whitelist.yaml – always checked explicitly on every event run
@@ -169,6 +169,21 @@ docs/OPERATIONS.md). An empty `instagram_file` switches Instagram off: no
 reading and no collecting of account names (neither from pages the crawl
 reads nor by discovery).
 
+`instagram_candidates_file` lists **unconfirmed** accounts, usually written by
+the scheduled lookup session (`prompts/instagram_session.md`):
+
+```yaml
+- username: "jeanscafe"
+  name: "Jeanscafe"            # the place the name was attributed to
+  places: ["Schongau"]
+  website: ""                  # the place's own website, if known
+  found_on: "https://restaurantguru.com/Jeanscafe-Schongau"
+```
+
+Each entry is checked against the account's profile (events and discovery
+runs) and read only if it names the municipality or links the website; see
+docs/OPERATIONS.md.
+
 ## `instagram`
 
 | Key | Default | Meaning |
@@ -178,6 +193,7 @@ reads nor by discovery).
 | `max_accounts_per_run` | `40` | accounts read per run: the list first, then mined accounts (least recently read first) |
 | `read_mined` | `true` | also read accounts found on pages the crawl reads or by discovery |
 | `api_version` | `""` | Graph API version such as `v24.0`; empty uses the app's default |
+| `ai_lookup` | `false` | discovery's AI lookup call per batch ("<name> <town> instagram"); off because its search engine rarely shows usernames |
 
 ## `excluded_topics`
 
