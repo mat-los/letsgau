@@ -345,3 +345,12 @@ def test_instagram_off_without_list_file(tmp_path: Path) -> None:
 def test_instagram_file_round_trip() -> None:
     file = InstagramFile(updated_at="2026-11-12T00:00:00Z")
     assert InstagramFile.model_validate_json(file.model_dump_json()) == file
+
+
+def test_instagram_step_is_the_last_call_of_a_batch() -> None:
+    flyer = crawl.FlyerEntry(url="https://flyers.example/", places=["A"])
+    batch = crawl.Batch(number=1, groups=[], flyers=[flyer])
+    calls = crawl.plan_calls(batch, 5, queries=[("q", ["A"])], instagram=True)
+    assert [c.mode for c in calls] == ["flyers", "search", "instagram"]
+    combined = crawl.plan_calls(batch, 0, instagram=True)
+    assert [c.mode for c in combined] == ["all", "flyers", "instagram"]

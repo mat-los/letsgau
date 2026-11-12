@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Instagram: the step runs last in each batch, so accounts found by the
+  batch's other calls are read in the same run.
+
 ### Added
 
 - The Actions list names each run by what it does: the job and "(dry run)" for

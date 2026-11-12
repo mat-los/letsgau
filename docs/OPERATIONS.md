@@ -121,7 +121,8 @@ python -m letsgau run --job events --dry-run --limit-places 3
   events without an AI call. Identical files under two URLs are read once. The
   log shows `N flyer file(s) from <page>, N already read, N new`.
 - Instagram (`sources.instagram_file`, `instagram.*`; `src/letsgau/instagram.py`):
-  every batch gets one Instagram step after the flyer calls.
+  every batch ends with one Instagram step, so accounts found by its other
+  calls are read in the same run.
   - **Accounts:** the accounts of the list whose `places` are in the batch,
     then (with `instagram.read_mined`) accounts *mined* in this or earlier
     runs: every web call reports the Instagram accounts that the pages it read
