@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Instance: two more Instagram accounts in the list (a pub and a cinema).
+
 ### Fixed
 
 - Social media (Instagram, Facebook, TikTok, …) is never added to
