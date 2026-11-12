@@ -114,3 +114,18 @@
   places: ["Schongau"]
   website: ""
   found_on: "https://www.instagram.com/tierheim_schongau/"
+- username: "gasthof_janser"
+  name: "Gasthof Janser"
+  places: ["Altenstadt"]
+  website: "https://www.gasthof-janser.com/"
+  found_on: "https://www.instagram.com/gasthof_janser/"
+- username: "pizzeria.trattoria.la.locanda"
+  name: "Pizzeria Trattoria La Locanda"
+  places: ["Altenstadt"]
+  website: "https://www.lalocanda-altenstadt.de"
+  found_on: "https://www.swipein.restaurant/de/restaurant/restaurant-la-locanda-altenstadt-bayern"
+- username: "pgaltenstadt"
+  name: "PG Altenstadt i. Obb."
+  places: ["Altenstadt"]
+  website: "https://www.pg-altenstadt.org"
+  found_on: "https://www.instagram.com/pgaltenstadt/"
