@@ -298,6 +298,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Duplicates of a series: the merge AI treats a single date that belongs to a
+  series in the other entry as the same event (the series is kept); merged
+  duplicates keep the categories of both (at most 3). Events organised by a
+  parish or church also get the religion tag when another category is the
+  main one.
 - Markets, exhibitions and other multi-day events with opening hours show that
   day's opening time in the day list, with the closing time below it, and sort
   by it (before: only "until <last day>").

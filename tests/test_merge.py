@@ -516,3 +516,28 @@ def test_fresh_times_per_date_update_a_longer_stored_schedule() -> None:
     assert merge.combine(old, film(["2026-11-21"], [])).schedule.opening_hours == [
         old.schedule.opening_hours[0]  # type: ignore[index]
     ]
+
+
+def test_merged_duplicates_keep_both_categories() -> None:
+    old = ev(
+        "KircheKreativ: Acrylmalen",
+        "2026-11-14",
+        tags=["art-culture", "religion"],
+        primary_tag="art-culture",
+    )
+    new = ev(
+        "Acrylmalen (KircheKreativ)",
+        "2026-11-14",
+        tags=["talk-workshop", "art-culture"],
+        primary_tag="talk-workshop",
+    )
+    combined = merge.combine(old, new)
+    assert combined.tags == ["talk-workshop", "art-culture", "religion"]
+    assert combined.primary_tag == new.primary_tag
+    many = ev("X", "2026-11-14", tags=["concert", "party", "food-drink"], primary_tag="concert")
+    assert merge.combine(old, many).tags == ["concert", "party", "food-drink"]  # at most 3
+
+
+def test_merge_prompt_treats_one_date_of_a_series_as_the_same_event() -> None:
+    text = " ".join((merge.PROMPTS_DIR / "merge.md").read_text(encoding="utf-8").split())
+    assert "a single date of that same series" in text and "answer true" in text

@@ -204,6 +204,11 @@ matching status.
 {%- for tag in tags %}
   - {{ tag.id }}: {{ tag.en }}
 {%- endfor %}
+{%- if tags | selectattr("id", "equalto", "religion") | list %}
+  An event organised by a parish, church or religious community (in a church or parish hall, or
+  announced by a parish) also gets "religion" as one of its tags, even when another category is
+  the main one (e.g. a parish painting group: "art-culture" and "religion").
+{%- endif %}
 - Status: "scheduled" normally, "cancelled" if the event is called off, "postponed" if it moved;
   for a postponed event also report the new date in "postponed_to_date" and add the event at its
   new date as a separate entry.

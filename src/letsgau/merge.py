@@ -213,6 +213,19 @@ def merge_hours(old: Schedule, new: Schedule) -> list[OpeningHours] | None:
     return kept + list(new.opening_hours)
 
 
+MAX_TAGS = 3
+
+
+def merge_tags(new: Event, old: Event) -> list[str]:
+    """The fresh tags first (their primary tag stays primary), then stored ones they lack, at
+    most :data:`MAX_TAGS`: a duplicate found under two categories keeps both."""
+    tags = list(new.tags)
+    for tag in old.tags:
+        if tag not in tags and len(tags) < MAX_TAGS:
+            tags.append(tag)
+    return tags
+
+
 def combine(old: Event, new: Event) -> Event:
     """Update a stored event with a fresh crawl result; the stored id stays."""
     status = new.status
@@ -233,6 +246,7 @@ def combine(old: Event, new: Event) -> Event:
             "id": old.id,
             "status": status,
             "schedule": schedule,
+            "tags": merge_tags(new, old),
             "sources": merge_sources(old.sources, new.sources),
             "first_seen": min(old.first_seen, new.first_seen),
             "last_verified": max(old.last_verified, new.last_verified),

@@ -9,7 +9,9 @@ Each pair below was found by the crawl and looks similar to an event that is alr
 Decide for each pair whether both entries describe the same event (same occasion at the same
 place and time, possibly with a different title, spelling or language). Different performances,
 different days of a series that is stored separately, or different events at the same venue are
-not the same event.
+not the same event. But if one entry is a series (a date range) and the other is a single date of
+that same series (same organiser, same activity, same place and time), they are the same event:
+answer true, and the series is kept.
 {% for pair in pairs %}
 Pair {{ pair.number }}:
 - A: {{ pair.new.title.de }} | {{ pair.new.schedule.start_date }}{% if pair.new.schedule.end_date and pair.new.schedule.end_date != pair.new.schedule.start_date %} to {{ pair.new.schedule.end_date }}{% endif %}{% if pair.new.schedule.start_time %} {{ pair.new.schedule.start_time }}{% endif %} | {{ pair.new.venue.name or "" }}, {{ pair.new.venue.place }} | {{ pair.new.description.de }}
