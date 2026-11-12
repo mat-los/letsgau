@@ -192,7 +192,7 @@ def test_pages_for_21_days_in_both_languages(site: Path) -> None:
 
 def test_day_page_has_header_elements(site: Path) -> None:
     html = page(site, "de/2026-11-14")
-    assert "Events bis 5 Min. um Schongau und in Altenstadt · 21 Tage im Voraus" in html
+    assert "Events in Schongau und Altenstadt" in html
     assert '<a href="../../de/2026-11-13/">Heute</a>' in html
     assert 'aria-current="page">Morgen</a>' in html  # Saturday is tomorrow
     assert "Wochenende" not in html  # no weekend button
@@ -359,3 +359,10 @@ def test_end_time_below_the_start_time() -> None:
     assert build.end_on(ev(start_time="20:00", end_time="22:00"), SATURDAY) == "22:00"
     assert build.end_on(ev(start_time="20:00"), SATURDAY) is None
     assert build.end_on(ev(end_time="22:00"), SATURDAY) is None  # no start time
+
+
+def test_join_names() -> None:
+    t = build.Texts(build.load_i18n("de"))
+    assert build.join_names(t, ["Schongau"]) == "Schongau"
+    assert build.join_names(t, ["Schongau", "Altenstadt"]) == "Schongau und Altenstadt"
+    assert build.join_names(t, ["A", "B", "C"]) == "A, B und C"

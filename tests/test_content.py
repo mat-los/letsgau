@@ -226,7 +226,7 @@ def test_fork_builds_without_original_data(
     assert main(["run", "--job", "build"]) == 0
     site = tmp_path / "site"
     day = (site / "de" / "index.html").read_text(encoding="utf-8")
-    assert "Events bis 25 Min. um Murnau" in day
+    assert "Events in Murnau" in day
     assert "Für diesen Tag sind noch keine Events bekannt." in day  # no data copied
     assert not (site / "CNAME").exists()  # github.io address
     for path in site.rglob("*.html"):

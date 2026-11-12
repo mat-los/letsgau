@@ -10,8 +10,8 @@ Steps (docs/CONCEPT.md, "Pipeline", step 5):
    sources are appended.
 2. **AI tie-break.** Unclear pairs (similarity between :data:`UNCLEAR` and
    :data:`CLEAR`) are decided by the merge model (default Haiku) with yes/no. The
-   same call checks every new event against ``excluded_topics``; matches are
-   dropped and logged.
+   same call checks every new and stored event against ``excluded_topics``;
+   matches are dropped (new) or removed (stored) and logged.
 3. **Status.** Cancellations and postponements come from the crawl. Events in
    the deep-check window that were not found again although their municipality
    was crawled get ``misses + 1``; at ``events.unconfirmed_after_misses`` they
@@ -456,7 +456,9 @@ def apply(
 
     # 2. One AI call: unclear pairs and the topic check of new events.
     new_events = [e for i, e in enumerate(crawled) if target[i] is None]
-    decisions = decide([*stored_pairs, *pairs], new_events)
+    # stored events are checked too, so a topic added to excluded_topics later also removes
+    # what is already in the calendar (cheap: one line per event for the merge model)
+    decisions = decide([*stored_pairs, *pairs], [*new_events, *open_events])
     alias: dict[str, str] = {}  # removed stored duplicate -> kept stored event
     for pair in [*clear_stored, *stored_pairs]:
         if pair.number and pair.number not in decisions.same:
@@ -510,6 +512,12 @@ def apply(
             events[key] = event
             report.added.append(key)
         found.add(key)
+
+    for key in [k for k in stored if k in decisions.excluded and k in events]:
+        report.excluded[key] = decisions.excluded[key]
+        _log(f"removed {events[key].title.de!r}: excluded topic {decisions.excluded[key]!r}")
+        del events[key]
+        found.discard(key)
 
     for key in found:
         status = events[key].status

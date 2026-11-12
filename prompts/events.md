@@ -168,6 +168,10 @@ matching status.
 ## Rules
 
 - Only events with a concrete date in one of the municipalities above. Invent nothing.
+- Courses, workshops and talks that anyone can book (adult education centre/vhs, music school,
+  library, clubs) are events: one entry per course, with all its dates in "dates" or its first
+  and last date, the start time and the place. A course list with several pages: read every page
+  up to the end of the window.
 - Regular church services (Sunday or weekday masses, regular worship) are not events. Special
   services and religious occasions are: e.g. St. Martin's procession, Advent or Taizé prayers,
   pilgrimages, patronal and parish festivals, special services for an occasion.
@@ -204,6 +208,10 @@ matching status.
 {%- for tag in tags %}
   - {{ tag.id }}: {{ tag.en }}
 {%- endfor %}
+{%- if tags | selectattr("id", "equalto", "seniors") | list %}
+  Events made for older people (Seniorennachmittag, Seniorenclub, Seniorentreff, courses for
+  seniors) also get "seniors".
+{%- endif %}
 {%- if tags | selectattr("id", "equalto", "religion") | list %}
   An event organised by a parish, church or religious community (in a church or parish hall, or
   announced by a parish) also gets "religion" as one of its tags, even when another category is
