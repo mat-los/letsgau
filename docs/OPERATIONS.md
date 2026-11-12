@@ -319,10 +319,15 @@ Only business and creator accounts can be read, through your own Instagram
    Facebook page (page settings → Linked accounts → Instagram).
 2. On developers.facebook.com create an app (type *Business*) and add
    *Instagram → API setup with Facebook Login*.
-3. In the *Graph API Explorer*, select the app and request `instagram_basic`,
-   `pages_show_list` and `pages_read_engagement` (some guides also list
-   `instagram_manage_insights`). `me/accounts?fields=instagram_business_account`
-   shows your Instagram user ID.
+3. Add the permissions `instagram_basic`, `instagram_manage_insights` (required for
+   Business Discovery; without it the API answers error `#10`, "Application does
+   not have permission"), `pages_show_list`, `pages_read_engagement` and
+   `business_management` (needed when the page belongs to a business portfolio)
+   to the app's use case, and to the *Facebook Login for Business* configuration
+   if you use one. The `instagram_business_*` permissions belong to "Instagram
+   API with Instagram Login" and do not work here. In the *Graph API Explorer*,
+   generate a user token with them; `<page id>?fields=instagram_business_account`
+   (page ID from Business settings → Pages) shows your Instagram user ID.
 4. Test: `<user id>?fields=business_discovery.username(<account>){media.limit(3){caption,timestamp,permalink}}`
    should return the account's latest posts.
 5. For the workflow, create a token that does not expire: Meta Business Suite →
@@ -333,7 +338,8 @@ Only business and creator accounts can be read, through your own Instagram
    `INSTAGRAM_USER_ID`. List accounts in `instance/sources/instagram.yaml`.
 
 Meta changes this API now and then; if every account fails with `auth` or
-`other`, check the token and the current Meta documentation first.
+`other`, check the token and the current Meta documentation first. A missing
+app permission (`permission`) stops the Instagram step for the whole run.
 
 ## Costs
 
