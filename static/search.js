@@ -3,11 +3,11 @@
    the field is hidden. */
 (function () {
   "use strict";
-  var MIN = 3, MAX = 50, /* results per page */ q = document.getElementById("q"), box = document.getElementById("results");
+  var MIN = 3, MAX = 50, q = document.getElementById("q"), box = document.getElementById("results");
   if (!q || !box) return;
   var body = document.body, lang = body.getAttribute("data-lang"), root = body.getAttribute("data-root") || "";
   var L = JSON.parse(box.getAttribute("data-labels")), index = null, loading = null, timer = 0;
-  /* while searching, the results replace the page content (day list or content page) */
+  /* while searching, the results replace the page content */
   var day = [].slice.call(box.parentNode.children).filter(function (e) { return e !== box; });
   var chips = !!document.querySelector(".chip[data-tag]");
   var dateFmt = new Intl.DateTimeFormat(lang, { weekday: "long", day: "numeric", month: "long" });
@@ -53,13 +53,16 @@
           sec.appendChild(el("h2", "", dateFmt.format(new Date(e.d + "T12:00:00"))));
           list.appendChild(sec);
         }
-        var a = el("a", "hit t-" + e.g[0] + (e.x ? " st-" + e.x : ""));
-        a.href = root + lang + "/" + e.d + "/" + (e.h ? "#" + e.h : "");
-        a.appendChild(el("span", "time", e.u)); a.appendChild(el("span", "title", e.n));
-        var p = el("span", "place", e.p);
-        if (e.x) p.appendChild(el("span", "badge " + e.x, L[e.x]));
-        a.appendChild(p);
-        sec.appendChild(a);
+        /* a card like on the day pages */
+        var c = el("details", "ev t-" + e.g[0] + (e.x ? " st-" + e.x : "")), s = el("summary"), b = el("div", "body");
+        s.appendChild(el("span", "time" + (/:/.test(e.u) ? "" : " untimed"), e.u));
+        s.appendChild(el("span", "title", e.n)); s.appendChild(el("span", "place", e.p));
+        if (e.x) { var m = el("span", "meta"); m.appendChild(el("span", "badge " + e.x, L[e.x])); s.appendChild(m); }
+        b.appendChild(el("p", "desc", e.t)); if (e.v) b.appendChild(el("p", "venue", e.v));
+        var p = el("p", "src", L.source + ": "), a = el("a", "", e.l.replace(/^https?:\/\//, ""));
+        a.href = e.l; a.rel = "nofollow noopener"; a.target = "_blank"; p.appendChild(a); b.appendChild(p);
+        a = el("a", "to-day", L.day + " →"); a.href = root + lang + "/" + e.d + "/" + (e.h ? "#" + e.h : "");
+        b.appendChild(a); c.appendChild(s); c.appendChild(b); sec.appendChild(c);
       });
       shown = Math.min(hits.length, shown + MAX);
       foot.textContent = "";
