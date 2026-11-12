@@ -47,6 +47,12 @@ Report every café, bar, pub, club or venue of these municipalities that you fin
 else in this pass (linked on its website, in its Google listing, or from a search like
 "<name> <municipality> Instagram") in "instagram_accounts", also if it has no website of its own.
 
+Also open the municipality's own directory of restaurants and businesses (on its website, often
+"Essen & Trinken", "Gastgeber", "Gastronomie" or "Unternehmen A-Z") and the tourist office's
+listings. List every café, bar, pub, beer garden, club, disco and venue of these municipalities
+that may hold events in "venues_seen" (name as written there, municipality, its own website if
+known, otherwise ""), together with the ones you saw elsewhere in this pass. A later step looks up
+their Instagram accounts one by one, so the list matters more than the accounts.
 {%- endif %}
 {%- else %}
 ## What to look for
@@ -117,7 +123,9 @@ you read, or in search results. "username" is the account name without @ (from
 instagram.com/<username>), "name" is the organiser, "places" the municipalities (exactly as written
 above). Only accounts you actually saw in a link or a search result; never guess a name. A later
 step looks up the accounts of the places you could not find, and every account is checked against
-its profile. Cafés,
+its profile.
+{%- if not focus or focus.id != "venues" %} List cafés, bars, pubs and venues you came across in
+"venues_seen" (name, municipality, website or "").{% endif %} Cafés,
 bars and pubs count even if you don't know whether they hold events. Leave out accounts of people,
 of shops and businesses that never hold events, and of organisers outside these municipalities.
 {%- endif %}

@@ -207,12 +207,15 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - **Instagram** (with `sources.instagram_file`):
   - every pass reports the Instagram accounts it saw (`instagram_accounts`);
     the venues pass runs `site:instagram.com <town> …` searches on purpose;
+  - the passes list the cafés, bars, pubs, clubs and venues they saw in
+    `venues_seen`; the venues pass reads the municipality's own gastronomy
+    and business directory for it;
   - after the passes of a batch, a separate **lookup call**
-    (`prompts/instagram_lookup.md`) lists the cafés, bars, pubs, clubs and
-    venues of its municipalities (known venue and club sources plus the
-    municipality's own directories) and searches "<name> <town> instagram"
-    for each; names that results or directory sites give are reported as
-    `instagram_candidates`;
+    (`prompts/instagram_lookup.md`) gets a fixed checklist of searches
+    "<name> <town> instagram", one per place (`venues_seen` plus the known
+    venue and club sources, at most 40); names that results, directory sites
+    or the place's website give are reported as `instagram_candidates`.
+    Without places the call is skipped;
   - **every** account found by discovery, and every mined account that was
     never read yet, is checked with the Graph API (`business_discovery` with
     name, biography and website; needs the `INSTAGRAM_*` secrets). It is kept
@@ -222,7 +225,8 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
     which links the organiser's own website. Others go to `rejected` in
     `data/instagram.json` (checked again after 180 days) and are removed
     from the accounts; at most 40 checks per run. Accounts on the list
-    (`instagram.yaml`) are never checked.
+    (`instagram.yaml`) are never checked. The log lists confirmed, rejected
+    and known accounts that were checked and kept, with the evidence.
 - Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
   hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
 - The events stage gives each batch the active sources of its municipalities
