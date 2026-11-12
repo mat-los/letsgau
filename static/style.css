@@ -176,7 +176,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat; }
 .ev .meta { grid-area: meta; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-.tag, .badge, .prog, .part { font-size: .7rem; font-weight: 600; line-height: 1.5; padding: 1px 8px; border-radius: 999px;
+.tag, .badge, .prog, .part, .span { font-size: .7rem; font-weight: 600; line-height: 1.5; padding: 1px 8px; border-radius: 999px;
   background: var(--chip); color: var(--muted); }
 .tag { color: color-mix(in oklab, var(--c, var(--muted)) 72%, var(--fg));
   background: color-mix(in srgb, var(--c, var(--muted)) 12%, var(--card)); }
@@ -185,6 +185,9 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .badge.unconfirmed { border: 1px dashed var(--muted); background: transparent; }
 @media (prefers-color-scheme: dark) { .badge.cancelled, .badge.postponed { color: #111; } }
 .prog { background: transparent; border: 1px solid var(--line); }
+/* how long a multi-day event runs ("bis 6.12."), separate from the time column */
+.span { background: transparent; border: 1px solid var(--line); }
+.span::before { content: "→ "; }
 .st-cancelled { opacity: .85; } .st-cancelled .title { text-decoration: line-through; }
 .st-unconfirmed .title, .st-unconfirmed .time { color: var(--muted); font-weight: 500; }
 .ev[open] { box-shadow: 0 4px 18px rgba(30, 30, 27, .1); }

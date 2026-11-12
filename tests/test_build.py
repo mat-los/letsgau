@@ -346,3 +346,16 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
 def build_days() -> list[date]:
     start = NOW.date()
     return [date.fromordinal(start.toordinal() + i) for i in range(21)]
+
+
+def test_time_column_shows_only_times_and_the_end_date_is_a_badge(site: Path) -> None:
+    html = page(site, "de/2026-11-14")
+    columns = re.findall(r'<span class="time[^"]*">(.*?)</span>', html)
+    assert columns and not any("bis" in c for c in columns)
+    assert re.search(r'<span class="span">bis \d+\.\d+\.</span>', html)
+
+
+def test_end_time_below_the_start_time() -> None:
+    assert build.end_on(ev(start_time="20:00", end_time="22:00"), SATURDAY) == "22:00"
+    assert build.end_on(ev(start_time="20:00"), SATURDAY) is None
+    assert build.end_on(ev(end_time="22:00"), SATURDAY) is None  # no start time

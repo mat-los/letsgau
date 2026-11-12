@@ -143,10 +143,14 @@ def time_on(event: Event, day: date) -> str | None:
 
 
 def end_on(event: Event, day: date) -> str | None:
-    """The closing time of a multi-day event's opening hours on ``day`` (``13:00`` for a market
-    open ``07:30–13:00``), shown below the opening time; None for start times."""
-    if event.schedule.all_day or not is_multi_day(event):
+    """The end time on ``day``, shown below the start time: a single-day event's end time, or
+    the closing time of a multi-day event's opening hours (``13:00`` for a market open
+    ``07:30–13:00``); None for screenings and events without a known end."""
+    s = event.schedule
+    if s.all_day:
         return None
+    if not is_multi_day(event):
+        return s.end_time if s.start_time and s.end_time else None
     hours = hours_today(event, day)
     return hours.split("–")[1] if hours and "–" in hours else None
 
