@@ -17,6 +17,7 @@ from letsgau.build import (
     hours_today,
     is_timed,
     sort_key,
+    time_on,
     weekdays_in,
 )
 from letsgau.cli import main
@@ -109,6 +110,40 @@ def test_untimed_first_then_by_start_time_and_opening_hours() -> None:
     assert hours_today(hours, SATURDAY) == "11:00–21:00"
     assert hours_today(hours, date(2026, 11, 16)) == "16:00–20:00"
     assert hours_today(ev(), SATURDAY) is None
+
+
+def test_screening_times_per_weekday() -> None:
+    # a film shown on single days with a different start time per weekday
+    film = ev(
+        end_date="2026-11-17",
+        dates=["2026-11-14", "2026-11-15", "2026-11-17"],
+        opening_hours=[
+            {"days": "sat", "from": "17:30", "to": "17:30"},
+            {"days": "sun,tue", "from": "20:00", "to": "20:00"},
+        ],
+    )
+    assert time_on(film, SATURDAY) == "17:30"
+    assert time_on(film, date(2026, 11, 17)) == "20:00"
+    assert hours_today(film, SATURDAY) == "17:30"  # a start time, not "17:30–17:30"
+    # same time every listed day, no opening hours
+    assert (
+        time_on(
+            ev(end_date="2026-11-21", dates=["2026-11-14", "2026-11-21"], start_time="19:00"),
+            SATURDAY,
+        )
+        == "19:00"
+    )
+    # an exhibition's opening hours are no start time; a festival's first-day time neither
+    market = ev(
+        end_date="2026-11-30", opening_hours=[{"days": "sat", "from": "11:00", "to": "21:00"}]
+    )
+    assert time_on(market, SATURDAY) is None
+    assert time_on(ev(start_time="10:00", end_date="2026-11-15"), SATURDAY) is None
+    assert time_on(ev(start_time="10:00", all_day=True), SATURDAY) is None
+    # sorted among the timed events of the day, and shown with its last day
+    morning, evening = ev(start_time="09:30"), ev(start_time="20:00")
+    view = day_view([evening, film, morning], SATURDAY)
+    assert [r.time for r in view.rows] == ["09:30", "17:30", "20:00"]
 
 
 def test_day_view_nests_program_items(events: list[Event]) -> None:

@@ -106,11 +106,36 @@ def is_timed(event: Event) -> bool:
 
 
 def hours_today(event: Event, day: date) -> str | None:
-    """Opening hours that apply on ``day`` (``16:00–20:00``), if known."""
+    """Opening hours that apply on ``day`` (``16:00–20:00``), if known.
+
+    An entry whose start and end are equal is a start time (a film screening, a show), not a
+    range: it is returned as ``20:00``.
+    """
     for hours in event.schedule.opening_hours or []:
         if day.weekday() in weekdays_in(hours.days):
+            if hours.from_ == hours.to:
+                return hours.from_
             return f"{hours.from_}–{hours.to}"
     return None
+
+
+def time_on(event: Event, day: date) -> str | None:
+    """The start time shown for ``event`` on ``day``, or None.
+
+    Single-day events: their start time. Multi-day events: the start time that weekday's
+    entry of ``opening_hours`` gives (screenings: start equals end), or the common start
+    time of an event on single dates (``dates``). Opening-hour ranges such as an exhibition's
+    ``10:00–17:00`` are no start time; such events stay "untimed".
+    """
+    s = event.schedule
+    if s.all_day:
+        return None
+    if not is_multi_day(event):
+        return s.start_time
+    hours = hours_today(event, day)
+    if hours is not None:
+        return None if "–" in hours else hours
+    return s.start_time if s.dates else None
 
 
 @dataclass
@@ -123,10 +148,12 @@ class Row:
     """Set for a program item rendered on its own (its main event is not on this day)."""
     standalone_copy_of: Event | None = None
     """Set for the hidden copy of a program item that filters can reveal."""
+    time: str | None = None
+    """Start time on this day (:func:`time_on`)."""
 
     @property
     def timed(self) -> bool:
-        return is_timed(self.event)
+        return self.time is not None
 
 
 @dataclass
@@ -136,10 +163,14 @@ class DayView:
     count: int
 
 
-def sort_key(event: Event) -> tuple[bool, str, str]:
-    """Day list order: untimed events first, then by start time, then by title."""
-    timed = is_timed(event)
-    return (timed, event.schedule.start_time or "" if timed else "", event.title.de.casefold())
+def sort_key(event: Event, day: date | None = None) -> tuple[bool, str, str]:
+    """Day list order: untimed events first, then by start time, then by title.
+
+    With ``day``, the start time on that day (:func:`time_on`) counts, so a film shown at
+    20:00 sorts among the evening events.
+    """
+    time = time_on(event, day) if day else (event.schedule.start_time if is_timed(event) else None)
+    return (time is not None, time or "", event.title.de.casefold())
 
 
 def day_view(events: Sequence[Event], day: date) -> DayView:
@@ -149,12 +180,13 @@ def day_view(events: Sequence[Event], day: date) -> DayView:
     children: dict[str, list[Event]] = {}
     rows: list[Row] = []
     copies: list[Row] = []
-    for event in sorted(today, key=sort_key):
+    for event in sorted(today, key=lambda e: sort_key(e, day)):
+        time = time_on(event, day)
         if event.parent_id and event.parent_id in by_id:
             children.setdefault(event.parent_id, []).append(event)
-            copies.append(Row(event=event, standalone_copy_of=by_id[event.parent_id]))
+            copies.append(Row(event=event, standalone_copy_of=by_id[event.parent_id], time=time))
         else:
-            rows.append(Row(event=event))
+            rows.append(Row(event=event, time=time))
     for row in rows:
         row.children = children.get(row.event.id, [])
     count = len(rows) + sum(len(r.children) for r in rows)
@@ -266,6 +298,7 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "quick": {"today": site.today, "tomorrow": site.today + timedelta(days=1)},
         "current_day": None,
         "hours_today": hours_today,
+        "time_on": time_on,
         "is_multi_day": is_multi_day,
         "Status": EventStatus,
     }
@@ -331,8 +364,9 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
         if day is None:
             continue
         parent = by_id.get(event.parent_id) if event.parent_id else None
-        if is_timed(event):
-            when = event.schedule.start_time or ""
+        time = time_on(event, day)
+        if time is not None:
+            when = time
         elif is_multi_day(event):
             when = t("until_short", date=format_date(t, event.schedule.last_date, "short"))
         else:
@@ -355,7 +389,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
         entries.append(
             (
                 day,
-                sort_key(event),
+                sort_key(event, day),
                 {
                     "d": day.isoformat(),
                     "u": when,
