@@ -1,4 +1,4 @@
-"""Discovery stage (default model: Opus): find and rate event sources per municipality.
+"""Discovery stage: find and rate event sources per municipality.
 
 * Municipalities from ``data/places.json`` are processed in batches of
   ``depth.discovery_places_per_request``. With ``depth.discovery_focus_passes``
@@ -32,7 +32,7 @@ import sys
 import time
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -61,6 +61,10 @@ DATA_DIR = Path("data")
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
 MIN_RATING_FOR_CRAWL = 3
 MAX_KNOWN_PER_BATCH = 12
+RECHECK_SOURCES_DAYS = 90
+"""Known sources rated longer ago than this (and without recent hits) are re-rated; the others
+are only listed, so that the AI neither opens nor reports them again (saves tokens: the events
+stage reads the good ones twice a week anyway)."""
 WHITELIST_HITS = 3
 """Hits from which an active source is suggested for the whitelist."""
 
@@ -282,7 +286,10 @@ def render_prompt(
     max_searches: int,
     focus: Focus | None = None,
     instagram: bool = False,
+    recheck: Sequence[Source] = (),
 ) -> str:
+    """The discovery prompt. ``known`` sources are only listed (not to be opened again),
+    ``recheck`` ones are to be opened and rated anew (see :func:`is_fresh`)."""
     env = Environment(
         loader=FileSystemLoader(PROMPTS_DIR),
         undefined=StrictUndefined,
@@ -297,6 +304,7 @@ def render_prompt(
         max_searches=max_searches,
         focus=focus,
         instagram=instagram,
+        recheck=recheck,
     )
 
 
@@ -419,6 +427,16 @@ def merge_answer(
 
 
 # --- events stage helpers ---------------------------------------------------------------------
+
+
+def is_fresh(source: Source, today: date) -> bool:
+    """True if a known source needs no new look: whitelisted, rated or hit recently."""
+    recent = today - timedelta(days=RECHECK_SOURCES_DAYS)
+    return (
+        source.origin is SourceOrigin.WHITELIST
+        or (source.last_checked is not None and source.last_checked >= recent)
+        or (source.last_hit is not None and source.last_hit >= recent)
+    )
 
 
 def add_instagram_accounts(
@@ -676,13 +694,17 @@ def run(
             for s in sources.values()
             if {p.casefold() for p in s.places} & {n.casefold() for n in names}
         ]
+        recheck = [s for s in known if not is_fresh(s, today)]
+        known = [s for s in known if is_fresh(s, today)]
         per_call = max(
             3, min(depth.discovery_searches_per_request, remaining // (len(calls) - position))
         )
         request = AiRequest(
             step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,
-            prompt=render_prompt(config, batch, known, blocked, per_call, focus, insta_on),
+            prompt=render_prompt(
+                config, batch, known, blocked, per_call, focus, insta_on, recheck=recheck
+            ),
             schema=answer_schema(with_coverage=focus is not None, with_instagram=insta_on),
             blocked_domains=blocked,
             max_searches=per_call,

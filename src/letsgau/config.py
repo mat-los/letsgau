@@ -160,7 +160,7 @@ class DepthConfig(_Strict):
     discovery_focus_passes: bool = True
     """Three focused discovery calls per batch (official, clubs, venues) instead of one."""
     discovery_places_per_request: int = Field(default=2, ge=1, le=50)
-    discovery_searches_per_request: int = Field(default=30, ge=3, le=100)
+    discovery_searches_per_request: int = Field(default=20, ge=3, le=100)
     crawl_sources_per_request: int = Field(default=4, ge=0, le=50)
     """Known sources per "source sweep" call; 0 = one combined call per batch."""
     crawl_searches_per_request: int = Field(default=13, ge=3, le=100)

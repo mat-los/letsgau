@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Cheaper discovery: the default model is Sonnet instead of Opus
+  (`models.discovery`), `depth.discovery_searches_per_request` is 20 instead
+  of 30, and known sources that are whitelisted or were rated or hit in the
+  last 90 days are only listed in the prompt, not opened and reported again;
+  older ones are re-rated.
 - Instagram: the step runs last in each batch, so accounts found by the
   batch's other calls are read in the same run.
 
