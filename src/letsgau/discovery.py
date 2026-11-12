@@ -297,16 +297,59 @@ def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> 
             }
         )
         properties["instagram_accounts"] = {"type": "array", "items": account}
-        candidate_account = obj(
-            {
-                "username": {"type": "string"},
-                "name": {"type": "string"},
-                "places": {"type": "array", "items": {"type": "string"}},
-                "website": {"type": "string"},
-            }
-        )
-        properties["instagram_candidates"] = {"type": "array", "items": candidate_account}
     return obj(properties)
+
+
+LOOKUP = "instagram"
+"""Marker of the Instagram lookup call that follows the passes of a batch."""
+MAX_LOOKUP_VENUES = 40
+
+
+def lookup_schema() -> dict[str, Any]:
+    candidate = {
+        "type": "object",
+        "properties": {
+            "username": {"type": "string"},
+            "name": {"type": "string"},
+            "places": {"type": "array", "items": {"type": "string"}},
+            "website": {"type": "string"},
+        },
+        "required": ["username", "name", "places", "website"],
+        "additionalProperties": False,
+    }
+    return {
+        "type": "object",
+        "properties": {
+            "instagram_candidates": {"type": "array", "items": candidate},
+            "notes": {"type": "string"},
+        },
+        "required": ["instagram_candidates", "notes"],
+        "additionalProperties": False,
+    }
+
+
+def render_lookup_prompt(
+    config: Config,
+    groups: Sequence[Any],
+    venues: Sequence[Source],
+    known_accounts: Sequence[str],
+    max_searches: int,
+) -> str:
+    """The prompt of the Instagram lookup call (``prompts/instagram_lookup.md``)."""
+    env = Environment(
+        loader=FileSystemLoader(PROMPTS_DIR),
+        undefined=StrictUndefined,
+        keep_trailing_newline=True,
+        autoescape=False,
+    )
+    return env.get_template("instagram_lookup.md").render(
+        region=config.region,
+        groups=groups,
+        venues=venues[:MAX_LOOKUP_VENUES],
+        known_accounts=known_accounts,
+        max_searches=max_searches,
+        max_places=MAX_LOOKUP_VENUES,
+    )
 
 
 def render_prompt(
@@ -475,11 +518,15 @@ class Candidate:
 
 
 def collect_candidates(
-    data: Mapping[str, Any], *, batch_places: Sequence[str], resolve: Any
+    data: Mapping[str, Any],
+    *,
+    batch_places: Sequence[str],
+    resolve: Any,
+    key: str = "instagram_candidates",
 ) -> list[Candidate]:
-    """The candidate account names of one AI answer (not checked yet)."""
+    """The account names of one AI answer under ``key`` (not checked yet)."""
     found = []
-    for item in data.get("instagram_candidates") or []:
+    for item in data.get(key) or []:
         if not isinstance(item, Mapping):
             continue
         handle = instagram.normalize(str(item.get("username", "")))
@@ -519,7 +566,18 @@ def verify_candidates(
     token, user_id = env.get(instagram.TOKEN_ENV, ""), env.get(instagram.USER_ENV, "")
     retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
     todo: dict[str, Candidate] = {}
+    # mined accounts that were never read yet are checked too (e.g. found before this check
+    # existed); a rejected one is removed from the accounts
+    unread = {
+        u: Candidate(username=u, name="", places=list(a.places), website="")
+        for u, a in cache.accounts.items()
+        if a.origin == "mined" and a.status == "new" and a.last_checked is None
+    }
+    todo.update(unread)
     for c in candidates:
+        if c.username in unread:
+            todo[c.username] = c  # the answer's website and name help the check
+            continue
         old = cache.rejected.get(c.username)
         if c.username in cache.accounts or c.username in todo:
             continue
@@ -529,6 +587,8 @@ def verify_candidates(
     if not todo:
         return [], []
     if not token or not user_id:
+        if not candidates:
+            return [], []  # only unread accounts: nothing new to report
         warnings.append(
             f"instagram: {len(todo)} candidate account(s) not checked: "
             f"{instagram.TOKEN_ENV} or {instagram.USER_ENV} not set"
@@ -551,19 +611,22 @@ def verify_candidates(
             cache.rejected[c.username] = RejectedCandidate(
                 checked=today, reason=exc.kind, name=c.name
             )
+            cache.accounts.pop(c.username, None)
             rejected.append(c.username)
             continue
         names = [n for place in c.places for n in names_of(place)]
         if instagram.belongs_to(profile, names, c.website):
-            cache.accounts[c.username] = InstagramAccount(
-                origin="mined", places=c.places, first_seen=today
-            )
+            if c.username not in cache.accounts:
+                cache.accounts[c.username] = InstagramAccount(
+                    origin="mined", places=c.places, first_seen=today
+                )
+                accepted.append(c.username)
             cache.rejected.pop(c.username, None)
-            accepted.append(c.username)
         else:
             cache.rejected[c.username] = RejectedCandidate(
                 checked=today, reason="profile does not name the place", name=c.name
             )
+            cache.accounts.pop(c.username, None)
             rejected.append(c.username)
     return accepted, rejected
 
@@ -576,30 +639,6 @@ def is_fresh(source: Source, today: date) -> bool:
         or (source.last_checked is not None and source.last_checked >= recent)
         or (source.last_hit is not None and source.last_hit >= recent)
     )
-
-
-def add_instagram_accounts(
-    cache: InstagramFile,
-    data: Mapping[str, Any],
-    *,
-    batch_places: Sequence[str],
-    resolve: Any,
-    today: date,
-) -> list[str]:
-    """Add the Instagram accounts of one AI answer that are not known yet; returns them."""
-    added = []
-    for item in data.get("instagram_accounts") or []:
-        if not isinstance(item, Mapping):
-            continue
-        handle = instagram.normalize(str(item.get("username", "")))
-        if not handle or handle in cache.accounts:
-            continue
-        places = [p for p in (resolve(n) for n in item.get("places") or []) if p]
-        cache.accounts[handle] = InstagramAccount(
-            origin="mined", places=sorted(set(places)) or list(batch_places), first_seen=today
-        )
-        added.append(handle)
-    return added
 
 
 def known_sources_for(
@@ -831,11 +870,21 @@ def run(
     batches = [groups[i : i + size] for i in range(0, len(groups), size)]
     focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
     candidates: list[Candidate] = []
-    calls = [(n, batch, focus) for n, batch in enumerate(batches, 1) for focus in focuses]
+    calls: list[tuple[int, Any, Focus | str | None]] = []
+    for n, batch in enumerate(batches, 1):
+        calls += [(n, batch, focus) for focus in focuses]
+        if insta_on:
+            calls.append((n, batch, LOOKUP))
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
     for position, (number, batch, focus) in enumerate(calls):
-        label = f"batch {number}" + (f" ({focus.id})" if focus else "")
+        label = f"batch {number}" + (
+            " (instagram)"
+            if focus == LOOKUP
+            else f" ({focus.id})"
+            if isinstance(focus, Focus)
+            else ""
+        )
         remaining = budget - result.usage.web_searches
         if remaining < 3:
             result.warnings.append(f"{label}: skipped, search budget used up")
@@ -854,6 +903,40 @@ def run(
         per_call = max(
             3, min(depth.discovery_searches_per_request, remaining // (len(calls) - position))
         )
+        if focus == LOOKUP:
+            assert result.instagram_cache is not None
+            cache = result.instagram_cache
+            retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
+            skip = set(cache.accounts) | {
+                u for u, r in cache.rejected.items() if r.checked > retry_after
+            }
+            skip |= {c.username for c in candidates}
+            venues = [s for s in known + recheck if s.kind in (SourceKind.VENUE, SourceKind.CLUB)]
+            request = AiRequest(
+                step=f"discovery {label}, call {position + 1}/{len(calls)}",
+                model=config.models.discovery,
+                prompt=render_lookup_prompt(config, batch, venues, sorted(skip), per_call),
+                schema=lookup_schema(),
+                blocked_domains=blocked,
+                max_searches=per_call,
+            )
+            try:
+                answer = runner.run(request)
+            except AiError as exc:
+                result.warnings.append(f"{label}: {exc}")
+                continue
+            result.usage = result.usage.add(answer.usage)
+            found = collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
+            candidates += found
+            print(
+                f"discovery: {label}: {len(found)} candidate(s): "
+                + (", ".join(c.username for c in found) or "none")
+            )
+            note = str(answer.data.get("notes") or "").strip()
+            if note:
+                print(f"discovery: note from {label}: {note}")
+            continue
+        assert not isinstance(focus, str)
         request = AiRequest(
             step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,
@@ -881,23 +964,17 @@ def run(
             focus=focus.id if focus else "",
         )
         if result.instagram_cache is not None:
-            added = add_instagram_accounts(
-                result.instagram_cache,
-                answer.data,
-                batch_places=names,
-                resolve=to_municipality,
-                today=today,
-            )
-            result.instagram_added += added
-            if added:
-                print(f"discovery: {label}: Instagram accounts found: {', '.join(added)}")
-            candidates += collect_candidates(
-                answer.data, batch_places=names, resolve=to_municipality
-            )
+            seen = collect_candidates(
+                answer.data, batch_places=names, resolve=to_municipality, key="instagram_accounts"
+            ) + collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
+            candidates += seen
+            if seen:
+                found = ", ".join(c.username for c in seen)
+                print(f"discovery: {label}: Instagram accounts to check: {found}")
         note = str(answer.data.get("notes") or "").strip()
         if note:
             print(f"discovery: note from {label}: {note}")
-    if result.instagram_cache is not None and candidates:
+    if result.instagram_cache is not None:
         accepted, rejected = verify_candidates(
             result.instagram_cache,
             candidates,

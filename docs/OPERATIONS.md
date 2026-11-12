@@ -204,20 +204,25 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   *Coverage* section of `data/suggested.md`.
 - Adds new sources to `data/sources.json` (`origin: discovery`), re-rates known
   ones, syncs the whitelist in and marks blacklisted domains.
-- With Instagram on (`sources.instagram_file`), every call also reports the
-  Instagram accounts of local organisers it came across; the venues pass looks
-  for the accounts of cafés, bars, clubs and venues on purpose. New accounts
-  are added to `data/instagram.json` (`origin: mined`) and read by the next
-  events run. Not written in a dry run.
-- **Instagram candidates:** for cafés, bars and venues without a confirmed
-  account, the venues pass searches "<name> <town> instagram" and reports names
-  that directory sites attribute to them as `instagram_candidates`. The
-  pipeline checks each one with the Graph API (`business_discovery` with
-  name, biography and website; needs the `INSTAGRAM_*` secrets). It keeps a
-  candidate only if it is a business or creator account and its profile names
-  the municipality (or one of its districts) or links the organiser's own
-  website. Others go to `rejected` in `data/instagram.json` and are checked
-  again after 180 days; at most 40 candidates per run.
+- **Instagram** (with `sources.instagram_file`):
+  - every pass reports the Instagram accounts it saw (`instagram_accounts`);
+    the venues pass runs `site:instagram.com <town> …` searches on purpose;
+  - after the passes of a batch, a separate **lookup call**
+    (`prompts/instagram_lookup.md`) lists the cafés, bars, pubs, clubs and
+    venues of its municipalities (known venue and club sources plus the
+    municipality's own directories) and searches "<name> <town> instagram"
+    for each; names that results or directory sites give are reported as
+    `instagram_candidates`;
+  - **every** account found by discovery, and every mined account that was
+    never read yet, is checked with the Graph API (`business_discovery` with
+    name, biography and website; needs the `INSTAGRAM_*` secrets). It is kept
+    only if it is a business or creator account whose name, biography or
+    website names the municipality (or one of its districts), or whose
+    username contains it together with more than the bare place name, or
+    which links the organiser's own website. Others go to `rejected` in
+    `data/instagram.json` (checked again after 180 days) and are removed
+    from the accounts; at most 40 checks per run. Accounts on the list
+    (`instagram.yaml`) are never checked.
 - Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
   hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
 - The events stage gives each batch the active sources of its municipalities
