@@ -541,3 +541,39 @@ def test_merged_duplicates_keep_both_categories() -> None:
 def test_merge_prompt_treats_one_date_of_a_series_as_the_same_event() -> None:
     text = " ".join((merge.PROMPTS_DIR / "merge.md").read_text(encoding="utf-8").split())
     assert "a single date of that same series" in text and "answer true" in text
+
+
+def test_venue_words_and_film_prefix_do_not_count() -> None:
+    a = ev(
+        "Film: Heimsuchung – Eine Jahrhundertgeschichte",
+        "2026-11-12",
+        venue={"name": "Lagerhaus-Kino", "place": "Schongau", "address": None},
+    )
+    b = ev(
+        "Lagerhaus-Kino: Heimsuchung – Eine Jahrhundertgeschichte",
+        "2026-11-12",
+        venue={"name": "Lagerhaus-Kino", "place": "Schongau", "address": None},
+    )
+    assert candidate_score(a, b) >= merge.CLEAR
+    other = ev(
+        "Film: Sinn und Sinnlichkeit",
+        "2026-11-12",
+        venue={"name": "Lagerhaus-Kino", "place": "Schongau", "address": None},
+    )
+    assert candidate_score(a, other) < merge.UNCLEAR  # two films stay apart
+
+
+def test_same_slot_and_shared_source_merge_without_the_ai() -> None:
+    url = "https://www.schongau-evangelisch.de/"
+    a = ev('Gospelchor-Probe "Get Together"', "2026-11-28", time="10:00", url=url)
+    b = ev("Gospelchor-Projekt: Probe", "2026-11-28", time="10:00", url=url)
+    assert merge.clear_by_source(a, b)
+    assert not merge.clear_by_source(a, ev("Gospelchor-Projekt: Probe", "2026-11-28", time="10:00"))
+    assert not merge.clear_by_source(a, ev("Kinderturnen", "2026-11-28", time="10:00", url=url))
+
+    def failing(pairs: Any, new_events: Any) -> Decisions:  # the AI is not available
+        return Decisions()
+
+    stored = EventsFile(updated_at="2026-11-12T00:00:00Z", events=[a, b])
+    result = apply(stored, [], decide=failing, today=DAY1)
+    assert len(result.events) == 1  # one entry left, without any AI decision

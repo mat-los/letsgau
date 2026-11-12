@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Instagram pre-screen (`instagram.prescreen`): a text-only call to the merge
+  model drops posts whose caption is clearly not about an upcoming event before
+  their images are read.
 - Instagram candidates file (`sources.instagram_candidates_file`): unconfirmed
   accounts, proposed by a scheduled Claude Code session
   (`prompts/instagram_session.md`) whose web search finds usernames that the
@@ -301,6 +304,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Duplicates: words of the venue name and prefixes like "Film:" no longer
+  count when titles are compared; pairs in the same slot that share a source
+  page are merged without the AI (they survived a failed tie-break); stored
+  pairs with a similarity of 0.5–0.85 also go to the tie-break.
 - Duplicates of a series: the merge AI treats a single date that belongs to a
   series in the other entry as the same event (the series is kept); merged
   duplicates keep the categories of both (at most 3). Events organised by a

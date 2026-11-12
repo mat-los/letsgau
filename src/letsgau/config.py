@@ -199,6 +199,9 @@ class InstagramConfig(_Strict):
     """Also read accounts found in links on pages the crawl reads, not only the list."""
     api_version: str = Field(default="", pattern=r"^(v\d+\.\d+)?$")
     """Graph API version such as ``v24.0``; empty = the app's default version."""
+    prescreen: bool = True
+    """Before reading a post's images, a text-only call (``models.merge``) drops posts whose
+    caption is clearly not about an upcoming event; when in doubt, a post is read."""
     ai_lookup: bool = False
     """Discovery's AI lookup call per batch ("<name> <town> instagram" searches). Off by
     default: its search engine rarely shows usernames; the scheduled lookup session writes

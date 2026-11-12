@@ -55,6 +55,8 @@ _STOPWORDS = frozenset(
         *("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"),
         *("mondays", "tuesdays", "wednesdays", "thursdays", "fridays", "saturdays"),
         *("sundays", "weekdays", "weekend", "weekends"),
+        # generic prefixes of a title ("Film: …", "Kino: …"): the rest decides
+        *("film", "kino", "cinema", "movie"),
     }
 )
 _UMLAUTS = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
@@ -160,8 +162,24 @@ def candidate_score(
     ta, tb = _minutes(a.start_time), _minutes(b.start_time)
     if ta is not None and tb is not None and abs(ta - tb) > MAX_TIME_GAP_MINUTES:
         return 0.0
+    # venue names count like place names: "Lagerhaus-Kino: Heimsuchung" = "Heimsuchung"
     places = {new.venue.place, old.venue.place, place_a, place_b}
+    places |= {v for v in (new.venue.name, old.venue.name) if v}
     return title_similarity(new.title.de, old.title.de, places)
+
+
+def clear_by_source(
+    new: Event, old: Event, municipality_of: Mapping[str, str] | None = None
+) -> bool:
+    """Same slot (day, start time, municipality), a shared source page and a title score of at
+    least :data:`UNCLEAR`: the same page describes one event twice under different titles
+    ("Gospelchor-Probe 'Get Together'" / "Gospelchor-Projekt: Probe"). Merged without the
+    AI, so duplicates do not survive a failed tie-break."""
+    if not same_slot(new, old, municipality_of):
+        return False
+    if not {s.url for s in new.sources} & {s.url for s in old.sources}:
+        return False
+    return candidate_score(new, old, municipality_of) >= UNCLEAR
 
 
 def same_slot(new: Event, old: Event, municipality_of: Mapping[str, str] | None = None) -> bool:
@@ -398,9 +416,9 @@ def apply(
     for i, old in enumerate(open_events):
         for new in open_events[i + 1 :]:
             score = candidate_score(new, old, municipality_of)
-            if score >= CLEAR:
+            if score >= CLEAR or clear_by_source(new, old, municipality_of):
                 clear_stored.append(Pair(0, new, old, score))
-            elif same_slot(new, old, municipality_of):
+            elif score >= UNCLEAR or same_slot(new, old, municipality_of):
                 stored_pairs.append(Pair(len(stored_pairs) + 1, new, old, score))
 
     # 1. Matching against stored events and earlier crawled events.
@@ -416,6 +434,10 @@ def apply(
             score = candidate_score(event, other, municipality_of)
             if score > best:
                 best_id, best = other.id, score
+        by_source = [o for o in pool.values() if clear_by_source(event, o, municipality_of)]
+        if by_source and (best_id is None or best < CLEAR):
+            best_id = max(by_source, key=lambda o: candidate_score(event, o, municipality_of)).id
+            best = CLEAR
         if best_id is not None and best >= CLEAR:
             target[i] = best_id
         else:

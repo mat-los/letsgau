@@ -457,3 +457,71 @@ def test_listed_candidates_are_checked_and_read_in_the_events_run(tmp_path: Path
     assert "jeanscafephilly" not in cache.accounts
     assert cache.rejected["jeanscafephilly"].reason == "profile does not name the place"
     assert "201" in cache.posts
+
+
+class ScreenRunner(Runner):
+    """The pre-screen marks post 2 as no event; the rest as in Runner."""
+
+    def __init__(self, fail: bool = False) -> None:
+        super().__init__()
+        self.fail = fail
+        self.screens: list[AiRequest] = []
+
+    def run(self, request: AiRequest) -> AiResult:
+        if request.step == "instagram pre-screen":
+            self.screens.append(request)
+            if self.fail:
+                from letsgau.ai_runner import AiError
+
+                raise AiError("limit")
+            answer = [{"post": 1, "may_be_event": True}, {"post": 2, "may_be_event": False}]
+            return AiResult(data={"posts": answer}, usage=Usage(requests=1))
+        return super().run(request)
+
+
+def test_prescreen_skips_the_images_of_non_event_posts(tmp_path: Path) -> None:
+    config, data_dir = setup(tmp_path, [{"username": "cafe.test", "places": ["Schongau"]}])
+    graph = Graph(
+        {
+            "cafe.test": discovery(
+                "cafe.test",
+                [
+                    media(
+                        "301",
+                        "2026-11-11",
+                        "Samstag 20 Uhr: The Testers live im Café, Eintritt frei!",
+                    ),
+                    media(
+                        "302",
+                        "2026-11-10",
+                        "Unser neuer Kürbiskuchen ist da – nur solange der Vorrat reicht",
+                    ),
+                    media("303", "2026-11-09", "Save the date!"),  # short: no pre-screen
+                ],
+            )
+        }
+    )
+    runner = ScreenRunner()
+    result = crawl.crawl(
+        config, runner, data_dir=data_dir, today=TODAY, fetch=fetch, graph_get=graph, env=ENV
+    )
+    screen = runner.screens[0]
+    assert screen.model == config.models.merge and screen.web is False and not screen.files
+    assert "Kürbiskuchen" in screen.prompt and "Save the date!" not in screen.prompt
+    reading = next(r for r in runner.requests if "(instagram)" in r.step)
+    assert "Kürbiskuchen" not in reading.prompt  # its images are not read
+    assert "Save the date!" in reading.prompt and "The Testers" in reading.prompt
+    cache = result.instagram_cache
+    assert cache is not None and cache.posts["302"].events == []  # cached, not read again
+
+
+def test_prescreen_failure_reads_all_posts(tmp_path: Path) -> None:
+    config, data_dir = setup(tmp_path, [{"username": "cafe.test"}])
+    caption = "Unser neuer Kürbiskuchen ist da – nur solange der Vorrat reicht"
+    graph = Graph({"cafe.test": discovery("cafe.test", [media("401", "2026-11-11", caption)])})
+    runner = ScreenRunner(fail=True)
+    crawl.crawl(
+        config, runner, data_dir=data_dir, today=TODAY, fetch=fetch, graph_get=graph, env=ENV
+    )
+    reading = next(r for r in runner.requests if "(instagram)" in r.step)
+    assert caption in reading.prompt

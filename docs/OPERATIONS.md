@@ -159,6 +159,10 @@ python -m letsgau run --job events --dry-run --limit-places 3
   N postponed, N now unconfirmed, N excluded by topic, N past deleted`.
   Unclear duplicates and the topic check of new events cost one call to the
   merge model (Haiku) per run; if that call fails, unclear pairs stay separate.
+  Merged without that call: a title similarity of at least 0.85 (words of the
+  place and venue names and prefixes like "Film:" do not count), and pairs in
+  the same slot (day, start time, municipality) that share a source page and
+  have a title similarity of at least 0.5.
   Besides title similarity 0.5–0.85, every pair with the same day, start time
   and municipality goes to that call, also two events already stored (which
   are then combined: the older one stays, sources are joined, links to the
