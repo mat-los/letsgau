@@ -7,6 +7,10 @@ professional account (``INSTAGRAM_USER_ID``, linked to a Facebook page, with a t
 accounts by username: caption, image URLs, time and permalink. Personal and private accounts,
 Stories and the text inside videos are not available.
 
+Discovery also proposes *candidate* account names that it saw on directory sites or in search
+results but could not confirm; :func:`fetch_profile` and :func:`belongs_to` check them against
+the profile (name, biography, website) before they are kept.
+
 This module only talks to the API and parses its answers; the event crawl
 (:func:`letsgau.crawl._run_instagram_call`) decides which accounts to read, downloads the
 images, lets the AI read new posts and caches the results in ``data/instagram.json``.
@@ -19,6 +23,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 import urllib.error
 import urllib.request
 from collections.abc import Callable, Iterable
@@ -134,6 +139,66 @@ def fetch_posts(
     account = data.get("business_discovery") or {}
     media = (account.get("media") or {}).get("data") or []
     return [p for p in (_post(item, username) for item in media) if p is not None]
+
+
+@dataclass
+class Profile:
+    username: str
+    name: str = ""
+    biography: str = ""
+    website: str = ""
+
+
+def fetch_profile(
+    username: str,
+    *,
+    user_id: str,
+    token: str,
+    api_version: str = "",
+    get: Get = http_get,
+) -> Profile:
+    """Name, biography and website of a business or creator account."""
+    path = f"{api_version}/{user_id}" if api_version else user_id
+    fields = f"business_discovery.username({username}){{username,name,biography,website}}"
+    data = get(f"{GRAPH_URL}/{path}?{urlencode({'fields': fields, 'access_token': token})}")
+    if not isinstance(data, dict):
+        raise AccountError("other", "unexpected answer from the Graph API")
+    if "error" in data:
+        raise _error(data.get("error") or {}, token)
+    account = data.get("business_discovery") or {}
+    return Profile(
+        username=str(account.get("username") or username),
+        name=str(account.get("name") or ""),
+        biography=str(account.get("biography") or ""),
+        website=str(account.get("website") or ""),
+    )
+
+
+def _fold(text: str) -> str:
+    text = unicodedata.normalize("NFD", text.lower().replace("ß", "ss"))
+    return "".join(c for c in text if not unicodedata.combining(c))
+
+
+def belongs_to(profile: Profile, places: Iterable[str], website: str = "") -> bool:
+    """True if the profile names one of the places, or links the organiser's own website.
+
+    ``places`` are municipality (or district) names; ``website`` is the organiser's site as
+    discovery saw it. The check is deliberately strict: a generic name such as ``jeanscafe``
+    may belong to a café anywhere, so the profile itself must point to the place.
+    """
+    text = _fold(" ".join((profile.username, profile.name, profile.biography, profile.website)))
+    for place in places:
+        word = _fold(place).strip()
+        if len(word) >= 4 and re.search(rf"(?<![a-z]){re.escape(word)}(?![a-z])", text):
+            return True
+    domain = _domain(website)
+    return bool(domain) and domain in _fold(profile.website + " " + profile.biography)
+
+
+def _domain(url: str) -> str:
+    host = url.strip().lower()
+    host = re.sub(r"^[a-z]+://", "", host).split("/")[0].split("?")[0]
+    return host.removeprefix("www.") if "." in host else ""
 
 
 def _post(item: Any, username: str) -> Post | None:

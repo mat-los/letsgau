@@ -209,6 +209,15 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   for the accounts of cafés, bars, clubs and venues on purpose. New accounts
   are added to `data/instagram.json` (`origin: mined`) and read by the next
   events run. Not written in a dry run.
+- **Instagram candidates:** for cafés, bars and venues without a confirmed
+  account, the venues pass searches "<name> <town> instagram" and reports names
+  that directory sites attribute to them as `instagram_candidates`. The
+  pipeline checks each one with the Graph API (`business_discovery` with
+  name, biography and website; needs the `INSTAGRAM_*` secrets). It keeps a
+  candidate only if it is a business or creator account and its profile names
+  the municipality (or one of its districts) or links the organiser's own
+  website. Others go to `rejected` in `data/instagram.json` and are checked
+  again after 180 days; at most 40 candidates per run.
 - Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
   hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
 - The events stage gives each batch the active sources of its municipalities

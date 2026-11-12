@@ -278,13 +278,25 @@ class InstagramPost(_DataModel):
     """Raw event candidates as the AI answered them (validated again on every use)."""
 
 
+class RejectedCandidate(_DataModel):
+    """A candidate account name from discovery that did not pass the profile check."""
+
+    checked: date
+    reason: str = ""
+    name: str = ""
+    """The organiser discovery attributed the name to."""
+
+
 class InstagramFile(_DataModel):
-    """``data/instagram.json``: known accounts and posts already read."""
+    """``data/instagram.json``: known accounts, posts already read, rejected candidates."""
 
     schema_version: Literal[1] = 1
     updated_at: datetime
     accounts: dict[str, InstagramAccount] = {}
     posts: dict[str, InstagramPost] = {}
+    rejected: dict[str, RejectedCandidate] = {}
+    """Candidate names (discovery) that are not the organiser's account; checked again after
+    ``discovery.CANDIDATE_RETRY_DAYS``."""
 
 
 # --- sources (Phase 7) --------------------------------------------------------------------
