@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:34:57Z",
+  "updated_at": "2026-11-12T10:47:22Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -63,6 +63,16 @@
       "last_error": ""
     },
     "mein.schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "bistro.cafe.ballenhaus": {
       "origin": "mined",
       "places": [
         "Schongau"

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:34:57Z",
+  "updated_at": "2026-11-12T10:47:22Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -199,6 +199,24 @@
       "last_checked": "2026-11-09",
       "hits": 4,
       "last_hit": "2026-11-12"
+    },
+    {
+      "url": "http://www.bergwacht-bayern.org/schongau_peiting.html",
+      "domain": "bergwacht-bayern.org",
+      "name": "Bergwacht-Bereitschaft Schongau-Peiting",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Listed in the town club directory; page failed (certificate error), no events seen.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://brauhaus-schongau.de/kalender/",
@@ -3279,6 +3297,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.weilheim-schongau.de/media/5341/veranstaltungskalender-wm-sog_august2022.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landratsamt Veranstaltungskalender WM-SOG (PDF, Aug 2022)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated 2022 PDF calendar, not usable.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/6220/infomail-juli-23.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landratsamt Infomail Juli 2023",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated 2023 PDF newsletter.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.weilheim-schongau.de/media/7205/24-12-16-sog-eltern-info-treff-plakat-2025-i.pdf",
       "domain": "weilheim-schongau.de",
       "name": "Eltern-Info-Treffs Schongau Plakat 2025",
@@ -3435,6 +3489,24 @@
       "rating": 2,
       "update_frequency": "unknown",
       "note": "Only seen in a search result; I could not confirm a Schongau events section.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.yumpu.com/de/document/view/55727157/ferienprogramm-2016-der-stadt-schongau-und-der-gemeinden-altenstadt-und-hohenfurch",
+      "domain": "yumpu.com",
+      "name": "Ferienprogramm 2016 Schongau/Altenstadt/Hohenfurch (yumpu)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated 2016 holiday programme.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
