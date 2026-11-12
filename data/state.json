@@ -3,7 +3,7 @@
   "geo_fingerprint": "sha256:89db14d8b1ab7bc7",
   "force_discovery": false,
   "last_run": {
-    "geo": "2026-11-11T11:53:03Z",
+    "geo": "2026-11-12T12:43:24Z",
     "discovery": "2026-11-12T10:58:28Z",
     "events": "2026-11-12T09:43:38Z",
     "build": "2026-11-12T11:09:27Z"
