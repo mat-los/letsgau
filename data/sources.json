@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T19:50:58Z",
+  "updated_at": "2026-11-12T20:21:20Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -35,7 +35,7 @@
       "note": "Same content as /schongau/all; use that URL.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 16,
+      "hits": 18,
       "last_hit": "2026-11-12"
     },
     {
@@ -431,7 +431,7 @@
       "note": "Regional calendar with about 14 events, date/time/address as text; only rarely a Schongau entry (e.g. 20.12. Weihnachtsoratorium, St. Anna); no pagination.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 7,
+      "hits": 8,
       "last_hit": "2026-11-12"
     },
     {
@@ -503,7 +503,7 @@
       "note": "Re-rated from 3: the 2026/27 programme (Comedy Lounge, Starkbieranstich) is only in brochure images; use the Reservix shop for dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 84,
+      "hits": 94,
       "last_hit": "2026-11-12"
     },
     {
@@ -791,7 +791,7 @@
       "note": "Full parish calendar as text with date, time and room; also includes ecumenical dates in Peiting/Altenstadt; shows only about two weeks ahead.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 91,
+      "hits": 101,
       "last_hit": "2026-11-12"
     },
     {
@@ -1133,8 +1133,8 @@
       "note": "Monthly program with dates, times, places (MIZ, Aula, Galerie Schottmayer) as text; exhibitions are public.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 0,
-      "last_hit": null
+      "hits": 2,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://freizeitmonster.de/blog/bars-schongau",
@@ -1331,8 +1331,8 @@
       "note": "Home page shows JHV Fri 13 Nov 20:00 and weekly Übungsschießen Thursday 19:30 as text.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 0,
-      "last_hit": null
+      "hits": 2,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://www.juze-schongau.de/termine/",
@@ -1475,7 +1475,7 @@
       "note": "Shop events (e.g. Taylor Tone Show Fr 27.11.2026, 18:30, free, registration); commercial workshops, few entries.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 4,
+      "hits": 5,
       "last_hit": "2026-11-12"
     },
     {
@@ -1511,7 +1511,7 @@
       "note": "Single event page with date, time and place as text.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 4,
+      "hits": 5,
       "last_hit": "2026-11-12"
     },
     {
@@ -1583,7 +1583,7 @@
       "note": "Lists about 8 events from 12 Nov to 31 Dec 2026 with date, time and place as text; some sign-up deadlines carry the wrong year (2025).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 74,
+      "hits": 82,
       "last_hit": "2026-11-12"
     },
     {
@@ -1637,7 +1637,7 @@
       "note": "Same Flohmarkt-Pfaffenwinkel dates as meine-flohmarkt-termine, mixed with other towns in the postcode area; use as a cross-check only.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 9,
+      "hits": 11,
       "last_hit": "2026-11-12"
     },
     {
@@ -1745,7 +1745,7 @@
       "note": "Cinema's own schedule as text, running 9.11.–2.12.2026 (also available as a PDF); lagerhauskino.de fails with an SSL error.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 81,
+      "hits": 91,
       "last_hit": "2026-11-12"
     },
     {
@@ -1925,8 +1925,8 @@
       "note": "Lists all Flohmarkt-Pfaffenwinkel dates (Festplatz Lechuferstr. 4 and Altstadtflohmarkt Marienplatz), already through 2027; start times are on the detail pages.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 0,
-      "last_hit": null
+      "hits": 2,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://www.merkur.de/lokales/schongau/",
@@ -2069,7 +2069,7 @@
       "note": "Event calendar with place and time as text (Musikschule Saal, Brahmsgarten); currently 0 upcoming, though the homepage teases a concert on 25 Nov.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 7,
+      "hits": 8,
       "last_hit": "2026-11-12"
     },
     {
@@ -2141,7 +2141,7 @@
       "note": "Lists the Herbstkonzert on 14.11.2026 in the Ballenhaussaal (site says 17:00, an aggregator says 18:00).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 12,
+      "hits": 13,
       "last_hit": "2026-11-12"
     },
     {
@@ -2321,7 +2321,7 @@
       "note": "Front-page news posts carry dates as text; the weekly Kirchenanzeiger and the 'Termine' page are PDFs only; /aktuelles-termine/ is empty ('erscheinen demnächst').",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 88,
+      "hits": 100,
       "last_hit": "2026-11-12"
     },
     {
@@ -2393,7 +2393,7 @@
       "note": "Weekly Kirchenanzeiger PDFs (e.g. /wp-content/uploads/2026/11/46_So-32.pdf) with all services and parish dates, but PDF only; plus Pfarrbrief archive and Kinderkalender PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 69,
+      "hits": 79,
       "last_hit": "2026-11-12"
     },
     {
@@ -2429,7 +2429,7 @@
       "note": "Pool/sauna events as text through Dec 2026 (sauna nights, ice-skating school, 25th anniversary on 6.12.); many repeating entries.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 112,
+      "hits": 123,
       "last_hit": "2026-11-12"
     },
     {
@@ -2483,8 +2483,8 @@
       "note": "Same site as the first entry.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 0,
-      "last_hit": null
+      "hits": 1,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -2537,7 +2537,7 @@
       "note": "Concerts and parties listed, but dates only in poster images or via ticket links.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 39,
+      "hits": 44,
       "last_hit": "2026-11-12"
     },
     {
@@ -2663,7 +2663,7 @@
       "note": "Few entries (Jahreshauptversammlung 25.11.2026, Zwergerlrennen); season calendar only as PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 10,
+      "hits": 11,
       "last_hit": "2026-11-12"
     },
     {
@@ -2717,7 +2717,7 @@
       "note": "Yearly Excel-made PDF linked from the 'Termine' menu; couldn't be parsed; the homepage announces only some events (Trachtenjahrtag 8 Nov).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 21,
+      "hits": 24,
       "last_hit": "2026-11-12"
     },
     {
@@ -2753,7 +2753,7 @@
       "note": "Rating raised from 3: the home page lists current services and groups for November 2026 with date, time and place as text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 65,
+      "hits": 71,
       "last_hit": "2026-11-12"
     },
     {
@@ -2771,7 +2771,7 @@
       "note": "The home page has the next games for the first team, 1b, U20 and U15 (dates without year); the known 'bayernliga-2021-22' link is an old season URL that the site still uses.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 69,
+      "hits": 76,
       "last_hit": "2026-11-12"
     },
     {
@@ -2789,7 +2789,7 @@
       "note": "Full 2026/27 home schedule with dates and times as text; the URL slug says 2021-22 but the content is current; the homepage schongau-mammuts.de also lists home games of the 1b, U20 and U15 teams (ea-schongau.de redirects here).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 72,
+      "hits": 83,
       "last_hit": "2026-11-12"
     },
     {
@@ -3239,7 +3239,7 @@
       "note": "Public dates as text for the night-watchman, torchlight and Advent tours (e.g. 20.11., 27.11., 6.12., 11./18.12.2026); time and price given, meeting point Tourist Info.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 41,
+      "hits": 45,
       "last_hit": "2026-11-12"
     },
     {
@@ -3257,7 +3257,7 @@
       "note": "Public museum tours as text with date, time and price (13.11.2026, 4.1.2027 Rauhnächte, 19.2.2027); meeting point Christophstraße 57.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 18,
+      "hits": 21,
       "last_hit": "2026-11-12"
     },
     {
@@ -3329,7 +3329,7 @@
       "note": "Recurring weekly market, Fridays 7:30–13:00 on Marienplatz (moves to Thursday if Friday is a holiday); a static page, but enough to create the recurring entry.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 10,
+      "hits": 11,
       "last_hit": "2026-11-12"
     },
     {
@@ -3437,7 +3437,7 @@
       "note": "Organiser site (Konrad family, Kinsau): 2026 dates 4–20 Dec, opening hours and family/senior days as text; the day-by-day programme is only a PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 31,
+      "hits": 35,
       "last_hit": "2026-11-12"
     },
     {
@@ -3455,7 +3455,7 @@
       "note": "Homepage lists upcoming home matches (14., 21., 28.11.26) with times as text; niche sport.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 76,
+      "hits": 82,
       "last_hit": "2026-11-12"
     },
     {
@@ -3491,7 +3491,7 @@
       "note": "Current events for seniors (10.11., 19.11., Mittagessen dates) with place as text; the year is often omitted.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 30,
+      "hits": 32,
       "last_hit": "2026-11-12"
     },
     {
@@ -3509,7 +3509,7 @@
       "note": "Weekly recurring offers of AWO, parishes, choirs, Repair Café etc. by weekday, time and place; no specific dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 15,
+      "hits": 17,
       "last_hit": "2026-11-12"
     },
     {
@@ -3671,8 +3671,8 @@
       "note": "Full season schedule as text (Nikolausschießen, Nikolausfeier 6 Dec, JHV 19 Jan, Königsschießen); years omitted; sv-schwabniederhofen.de redirects here.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 0,
-      "last_hit": null
+      "hits": 3,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://www.swipein.restaurant/en/place/schongau-weilheim-schongau/category/cafe",
@@ -3923,7 +3923,7 @@
       "note": "News posts announce tournaments and courses (e.g. Stockturnier, Doppelturnier) with dates in the article text; the list shows dates garbled.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 8,
+      "hits": 9,
       "last_hit": "2026-11-12"
     },
     {
@@ -4031,7 +4031,7 @@
       "note": "Current, but mostly events from the wider region (Kaufbeuren, Herrsching, Füssen); Schongau entries are rare and mostly copied from evangelische-termine.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 5,
+      "hits": 7,
       "last_hit": "2026-11-12"
     },
     {
@@ -4103,8 +4103,8 @@
       "note": "",
       "first_seen": "2026-11-12",
       "last_checked": null,
-      "hits": 0,
-      "last_hit": null
+      "hits": 17,
+      "last_hit": "2026-11-12"
     },
     {
       "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
@@ -4121,7 +4121,7 @@
       "note": "51 Schongau events with date, time and address. Paginated with ?os=12&send=foo (12 per page). Same RCE-Event data as the city calendar.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 216,
+      "hits": 233,
       "last_hit": "2026-11-12"
     },
     {
@@ -4175,7 +4175,7 @@
       "note": "A few dates as text (25.11.2026 service in Verklärung Christi); some dates have no year and several posters have no text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 13,
+      "hits": 14,
       "last_hit": "2026-11-12"
     },
     {
@@ -4517,7 +4517,7 @@
       "note": "Few dated events as text (Fair Woche 11-25 Sep, Lebendiger Adventskalender 11.12.2026 18:00); small organiser page.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 2,
+      "hits": 3,
       "last_hit": "2026-11-12"
     },
     {
@@ -4535,7 +4535,7 @@
       "note": "Programme on the homepage includes Weihnachtsoratorium with Chor der Stadt Schongau on 20.12.2026 in St. Anna Schongau; most concerts are in the Wieskirche (Steingaden); /konzerte/ returns 404.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 7,
+      "hits": 8,
       "last_hit": "2026-11-12"
     },
     {

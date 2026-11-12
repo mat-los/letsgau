@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T19:50:58Z",
+  "updated_at": "2026-11-12T20:21:08Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -387,9 +387,9 @@
       "places": [
         "Altenstadt"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "feuerwehr_altenstadt_i.ob": {
@@ -397,9 +397,9 @@
       "places": [
         "Altenstadt"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "rehkitzrettung_altenstadt": {
@@ -407,9 +407,39 @@
       "places": [
         "Altenstadt"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "gasthof_janser": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "pizzeria.trattoria.la.locanda": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "pgaltenstadt": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "last_error": ""
     }
   },
@@ -2118,6 +2148,140 @@
           "sources": [
             {
               "url": "https://www.instagram.com/p/DfpplZuJT0t/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18139780687629421": {
+      "username": "feuerwehr_altenstadt_i.ob",
+      "permalink": "https://www.instagram.com/p/DfkzDUHO-ro/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18134644489863927": {
+      "username": "feuerwehr_altenstadt_i.ob",
+      "permalink": "https://www.instagram.com/p/DfhtjlPjgvw/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18168714595485756": {
+      "username": "feuerwehr_altenstadt_i.ob",
+      "permalink": "https://www.instagram.com/p/DfP2xN3OUiB/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18105980960010715": {
+      "username": "pgaltenstadt",
+      "permalink": "https://www.instagram.com/p/Dfh9mqIkWG9/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18016213160966789": {
+      "username": "violet_schongau",
+      "permalink": "https://www.instagram.com/p/DfpxhUHm7vz/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Rocknacht im Violet",
+            "en": "Rock Night at Violet"
+          },
+          "description": {
+            "de": "Rocknacht mit DJ BC und den besten Rock-Hits, Einlass 20:30 Uhr, Eintritt frei.",
+            "en": "Rock night with DJ BC playing the best rock hits. Doors open 20:30, free entry."
+          },
+          "venue": {
+            "name": "Violet",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-27",
+            "start_time": "20:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfpxhUHm7vz/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17976052875152619": {
+      "username": "gasthof_janser",
+      "permalink": "https://www.instagram.com/p/Dfh10ikqI81/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Silvester im Gasthof Janser",
+            "en": "New Year's Eve at Gasthof Janser"
+          },
+          "description": {
+            "de": "Festlicher Silvesterabend mit 4-Gänge-Menü inklusive Aperitif und großem Feuerwerk, 59 € pro Person. Reservierung nötig.",
+            "en": "Festive New Year's Eve with 4-course menu incl. aperitif and fireworks, 59 € per person. Reservation required."
+          },
+          "venue": {
+            "name": "Gasthof Janser",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-31",
+            "end_date": "2026-12-31",
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "food-drink",
+          "tags": [
+            "food-drink",
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfh10ikqI81/",
               "primary": true
             }
           ]
