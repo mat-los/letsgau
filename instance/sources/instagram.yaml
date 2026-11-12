@@ -5,4 +5,6 @@
 # Accounts that pages link to are also found during runs ("mined") and kept in
 # data/instagram.json; this list is for the ones you want read for sure.
 # Needs the secrets INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID (docs/OPERATIONS.md).
-[]
+- username: loewenhof_schongau
+  places: [Schongau]
+  note: "Löwenhof, bar and parties; tested 2026-11-12"
