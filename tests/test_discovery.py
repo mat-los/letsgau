@@ -165,7 +165,8 @@ def test_discovery_extends_sources_and_writes_suggestions(
     assert not any(u == "not a url" for u in by_url)
     assert len(result.added) == 3
     state = State.model_validate_json((data_dir / "state.json").read_text("utf-8"))
-    assert state.last_usage["discovery"].requests == 4  # 2 batches + 2 Instagram lookups
+    # 2 batches + 1 Instagram lookup: only the first batch has venue sources to look up
+    assert state.last_usage["discovery"].requests == 3
 
     suggested = (data_dir / "suggested.md").read_text(encoding="utf-8")
     assert "## Whitelist candidates" in suggested
@@ -228,7 +229,9 @@ def test_blacklisted_existing_source_is_marked(config: Config, data_dir: Path) -
 
 
 def coverage_answer(municipality: str, focus: str) -> dict[str, Any]:
-    data = {"sources": [], "blacklist_candidates": [], "notes": ""}
+    data: dict[str, Any] = {"sources": [], "blacklist_candidates": [], "notes": ""}
+    # a café seen in the pass, so that the batch's Instagram lookup has a checklist
+    data["venues_seen"] = [{"name": f"Café {municipality}", "places": [], "website": ""}]
     data["coverage"] = [
         {"municipality": municipality, "category": f"{focus} a", "status": "found", "note": ""},
         {
@@ -589,8 +592,9 @@ def test_instagram_candidates_are_checked_against_their_profile(
     lookup_request = runner.lookups[0]
     assert lookup_request.step == "discovery batch 1 (instagram), call 4/16"
     assert "instagram_candidates" in lookup_request.schema["properties"]
-    assert '"<name> <municipality> instagram"' in lookup_request.prompt
-    assert "- Schongau\n" in lookup_request.prompt and "old.wrong" in lookup_request.prompt
+    assert '1. "Café Schongau Schongau instagram"' in lookup_request.prompt  # the checklist
+    assert "venues_seen" in runner.requests[2].schema["properties"]
+    assert "old.wrong" in lookup_request.prompt  # known: not to be reported again
     assert asked == ["jeanscafe", "cafe.abroad", "bar.site", "private.one"]  # old.wrong: recent
     assert result.instagram_added == ["jeanscafe", "bar.site"]
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
@@ -677,3 +681,21 @@ def test_unread_mined_accounts_are_checked_and_dropped_if_foreign(
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
     assert set(stored.accounts) == {"stadt.schongau", "reaktor_sog", "listed.one"}
     assert stored.rejected["schongau"].reason == "profile does not name the place"
+
+
+def test_lookup_checklist_from_the_venues_the_passes_saw(thorough: Config, data_dir: Path) -> None:
+    venues = coverage_answer("Schongau", "venues")
+    venues["venues_seen"] = [
+        {"name": "Jeanscafe", "places": ["Schongau"], "website": ""},
+        {"name": "Café Express", "places": ["Herzogsägmühle"], "website": "https://express.de"},
+        {"name": "jeanscafe", "places": ["Schongau"], "website": ""},  # duplicate
+    ]
+    answers = [coverage_answer("Schongau", "official"), coverage_answer("Schongau", "clubs")]
+    runner = FakeRunner(answers=[*answers, venues] + [coverage_answer("Peiting", "x")] * 9)
+    discovery.run(thorough, runner=runner, data_dir=data_dir, today=TODAY, env={})
+    prompt = runner.lookups[0].prompt
+    assert '"Jeanscafe Schongau instagram"' in prompt
+    assert '"Café Express Peiting instagram" (website: https://express.de)' in prompt
+    assert prompt.count("Jeanscafe Schongau instagram") == 1
+    assert '"Café Schongau Schongau instagram"' in prompt  # from the other passes
+    assert runner.lookups[0].max_searches == 3  # one search per place (3 distinct names)

@@ -153,6 +153,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instagram lookup: the discovery passes list the cafés, bars and venues they
+  saw (`venues_seen`, the venues pass from the municipality's directory), and
+  the lookup call gets one fixed search per place instead of a free task; the
+  log shows known accounts that were checked and kept, with the evidence.
 - Instance: ten more Instagram accounts in the list (cinema, brewery, cafés,
   beer garden, markets, clubs), found with `site:instagram.com` searches.
 - Discovery's Instagram searches use `site:instagram.com <town> …`; plain

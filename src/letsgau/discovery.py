@@ -297,6 +297,14 @@ def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> 
             }
         )
         properties["instagram_accounts"] = {"type": "array", "items": account}
+        venue = obj(
+            {
+                "name": {"type": "string"},
+                "places": {"type": "array", "items": {"type": "string"}},
+                "website": {"type": "string"},
+            }
+        )
+        properties["venues_seen"] = {"type": "array", "items": venue}
     return obj(properties)
 
 
@@ -328,10 +336,19 @@ def lookup_schema() -> dict[str, Any]:
     }
 
 
+@dataclass
+class Venue:
+    """A café, bar, club or venue seen in a pass; its account is looked up by name."""
+
+    name: str
+    places: list[str]
+    website: str = ""
+
+
 def render_lookup_prompt(
     config: Config,
     groups: Sequence[Any],
-    venues: Sequence[Source],
+    venues: Sequence[Venue],
     known_accounts: Sequence[str],
     max_searches: int,
 ) -> str:
@@ -554,9 +571,9 @@ def verify_candidates(
     get: instagram.Get,
     api_version: str = "",
     warnings: list[str],
-) -> tuple[list[str], list[str]]:
-    """Keep the candidates whose profile points to their place; returns the accepted and the
-    rejected names.
+) -> tuple[list[str], list[str], list[str]]:
+    """Keep the candidates whose profile points to their place; returns the accepted, the
+    rejected and the kept names (known accounts that passed the check, with the evidence).
 
     A candidate is accepted if it is a business or creator account whose name, biography or
     website names one of its places (``names_of`` gives a municipality's names, its districts
@@ -585,17 +602,18 @@ def verify_candidates(
             continue
         todo[c.username] = c
     if not todo:
-        return [], []
+        return [], [], []
     if not token or not user_id:
         if not candidates:
-            return [], []  # only unread accounts: nothing new to report
+            return [], [], []  # only unread accounts: nothing new to report
         warnings.append(
             f"instagram: {len(todo)} candidate account(s) not checked: "
             f"{instagram.TOKEN_ENV} or {instagram.USER_ENV} not set"
         )
-        return [], []
+        return [], [], []
     accepted: list[str] = []
     rejected: list[str] = []
+    kept: list[str] = []
     for checked, c in enumerate(todo.values()):
         if checked >= MAX_CANDIDATES_PER_RUN:
             warnings.append("instagram: candidate limit reached; the rest is checked next run")
@@ -621,6 +639,9 @@ def verify_candidates(
                     origin="mined", places=c.places, first_seen=today
                 )
                 accepted.append(c.username)
+            else:
+                evidence = profile.name or profile.biography or profile.website
+                kept.append(f"{c.username} ({evidence[:40]})")
             cache.rejected.pop(c.username, None)
         else:
             cache.rejected[c.username] = RejectedCandidate(
@@ -628,7 +649,7 @@ def verify_candidates(
             )
             cache.accounts.pop(c.username, None)
             rejected.append(c.username)
-    return accepted, rejected
+    return accepted, rejected, kept
 
 
 def is_fresh(source: Source, today: date) -> bool:
@@ -870,6 +891,7 @@ def run(
     batches = [groups[i : i + size] for i in range(0, len(groups), size)]
     focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
     candidates: list[Candidate] = []
+    venues_seen: dict[int, dict[str, Venue]] = {}  # batch -> folded name -> venue
     calls: list[tuple[int, Any, Focus | str | None]] = []
     for n, batch in enumerate(batches, 1):
         calls += [(n, batch, focus) for focus in focuses]
@@ -911,11 +933,22 @@ def run(
                 u for u, r in cache.rejected.items() if r.checked > retry_after
             }
             skip |= {c.username for c in candidates}
-            venues = [s for s in known + recheck if s.kind in (SourceKind.VENUE, SourceKind.CLUB)]
+            checklist = list(venues_seen.get(number, {}).values())
+            listed = {v.name.casefold() for v in checklist}
+            for s in known + recheck:
+                kind_ok = s.kind in (SourceKind.VENUE, SourceKind.CLUB)
+                if kind_ok and s.name and s.name.casefold() not in listed:
+                    listed.add(s.name.casefold())
+                    checklist.append(Venue(name=s.name, places=s.places[:1], website=s.url))
+            checklist = checklist[:MAX_LOOKUP_VENUES]
+            if not checklist:
+                print(f"discovery: {label}: skipped, no cafés, bars or venues to look up")
+                continue
+            per_call = max(3, min(remaining, len(checklist)))
             request = AiRequest(
                 step=f"discovery {label}, call {position + 1}/{len(calls)}",
                 model=config.models.discovery,
-                prompt=render_lookup_prompt(config, batch, venues, sorted(skip), per_call),
+                prompt=render_lookup_prompt(config, batch, checklist, sorted(skip), per_call),
                 schema=lookup_schema(),
                 blocked_domains=blocked,
                 max_searches=per_call,
@@ -968,6 +1001,17 @@ def run(
                 answer.data, batch_places=names, resolve=to_municipality, key="instagram_accounts"
             ) + collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
             candidates += seen
+            for item in answer.data.get("venues_seen") or []:
+                if isinstance(item, Mapping) and str(item.get("name") or "").strip():
+                    v = Venue(
+                        name=str(item["name"]).strip(),
+                        places=[
+                            p for p in (to_municipality(n) for n in item.get("places") or []) if p
+                        ]
+                        or names[:1],
+                        website=str(item.get("website") or ""),
+                    )
+                    venues_seen.setdefault(number, {}).setdefault(v.name.casefold(), v)
             if seen:
                 found = ", ".join(c.username for c in seen)
                 print(f"discovery: {label}: Instagram accounts to check: {found}")
@@ -975,7 +1019,7 @@ def run(
         if note:
             print(f"discovery: note from {label}: {note}")
     if result.instagram_cache is not None:
-        accepted, rejected = verify_candidates(
+        accepted, rejected, kept = verify_candidates(
             result.instagram_cache,
             candidates,
             names_of=lambda m: names_in.get(m, [m]),
@@ -992,6 +1036,8 @@ def run(
             f"confirmed by their profile: {', '.join(accepted) or 'none'}; "
             f"rejected: {', '.join(rejected) or 'none'}"
         )
+        if kept:
+            print(f"discovery: known accounts checked and kept: {', '.join(kept)}")
     if calls and not result.usage.requests:
         raise DiscoveryError("every discovery batch failed: " + "; ".join(result.warnings))
 
