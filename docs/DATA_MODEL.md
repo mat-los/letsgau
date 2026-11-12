@@ -40,6 +40,10 @@ adds the accounts it finds.
   `first_seen`, `last_seen` and `events` (raw candidates, validated again on
   every use). A post is read by the AI once; posts older than
   `max_post_age_days` + 30 days are dropped.
+- `rejected`: candidate account names from discovery that failed the profile
+  check → `checked`, `reason` (`profile does not name the place`,
+  `not_business`, `not_found`, …), `name` (the organiser). Checked again after
+  180 days.
 
 Deleting the file only means the recent posts are read again once and mined
 accounts are found again.

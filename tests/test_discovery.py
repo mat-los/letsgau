@@ -7,6 +7,7 @@ import json
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlsplit
 
 import pytest
 
@@ -19,6 +20,7 @@ from letsgau.models import (
     InstagramFile,
     Place,
     PlacesFile,
+    RejectedCandidate,
     Source,
     SourceOrigin,
     SourcesFile,
@@ -418,7 +420,8 @@ def test_discovery_collects_instagram_accounts(thorough: Config, data_dir: Path)
     assert 'In "instagram_accounts", list' in request.prompt
     venues = runner.requests[2].prompt
     assert "announce their events only on Instagram" in venues
-    assert '- "Schongau Café Instagram"' in venues and '- "Peiting Bar Kneipe Instagram"' in venues
+    assert '- "site:instagram.com Schongau café"' in venues
+    assert '- "site:instagram.com Peiting bar club party"' in venues
     assert "announce their events only on Instagram" not in request.prompt  # venues pass only
     assert result.instagram_added == ["cafe.test", "bar.test"]
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
@@ -512,3 +515,89 @@ def test_social_media_is_never_a_source(config: Config, data_dir: Path) -> None:
     stored = discovery.load_sources(data_dir)
     assert stored is not None
     assert not any(discovery.is_social(s.url) for s in stored.sources)
+
+
+def test_instagram_candidates_are_checked_against_their_profile(
+    thorough: Config, data_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    from letsgau import instagram
+
+    known = InstagramFile(
+        updated_at="2026-11-01T00:00:00Z",
+        rejected={"old.wrong": RejectedCandidate(checked=TODAY - timedelta(days=10))},
+    )
+    (data_dir / "instagram.json").write_text(known.model_dump_json(), encoding="utf-8")
+    venues = coverage_answer("Schongau", "venues")
+    venues["instagram_candidates"] = [
+        {"username": "jeanscafe", "name": "Jeanscafe", "places": ["Schongau"], "website": ""},
+        {"username": "@Cafe.Abroad", "name": "Café", "places": ["Schongau"], "website": ""},
+        {"username": "bar.site", "name": "Bar", "places": [], "website": "https://bar-site.de/"},
+        {"username": "private.one", "name": "Pub", "places": ["Herzogsägmühle"], "website": ""},
+        {"username": "old.wrong", "name": "Old", "places": ["Schongau"], "website": ""},
+    ]
+    answers = [coverage_answer("Schongau", "official"), coverage_answer("Schongau", "clubs")]
+    runner = FakeRunner(answers=[*answers, venues] + [coverage_answer("Peiting", "x")] * 9)
+
+    def profile(username: str, **fields: str) -> dict[str, Any]:
+        return {"business_discovery": {"username": username, **fields}}
+
+    asked: list[str] = []
+
+    def graph(url: str) -> dict[str, Any]:
+        fields = parse_qs(urlsplit(url).query)["fields"][0]
+        username = fields.split("username(")[1].split(")")[0]
+        asked.append(username)
+        return {
+            "jeanscafe": profile("jeanscafe", biography="Café am Marienplatz in Schongau"),
+            "cafe.abroad": profile("cafe.abroad", biography="Best coffee in Philadelphia"),
+            "bar.site": profile("bar.site", website="https://www.bar-site.de"),
+        }.get(username, {"error": {"message": "Invalid user id", "code": 110}})
+
+    env = {instagram.TOKEN_ENV: "t", instagram.USER_ENV: "178"}
+    result = discovery.run(
+        thorough, runner=runner, data_dir=data_dir, today=TODAY, graph_get=graph, env=env
+    )
+    assert "instagram_candidates" in runner.requests[2].schema["properties"]
+    assert '"<name> <municipality> instagram"' in runner.requests[2].prompt
+    assert asked == ["jeanscafe", "cafe.abroad", "bar.site", "private.one"]  # old.wrong: recent
+    assert result.instagram_added == ["jeanscafe", "bar.site"]
+    stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
+    assert stored.accounts["jeanscafe"].origin == "mined"
+    assert stored.accounts["jeanscafe"].places == ["Schongau"]
+    assert stored.accounts["bar.site"].places == ["Schongau", "Peiting"]  # the batch
+    assert stored.rejected["cafe.abroad"].reason == "profile does not name the place"
+    assert stored.rejected["private.one"].reason == "not_business"
+    assert "rejected: cafe.abroad, private.one" in capsys.readouterr().out
+
+
+def test_district_names_count_for_the_profile_check(thorough: Config, data_dir: Path) -> None:
+    from letsgau import instagram
+
+    venues = coverage_answer("Peiting", "venues")
+    venues["instagram_candidates"] = [
+        {"username": "hsm.cafe", "name": "Café", "places": ["Peiting"], "website": ""}
+    ]
+    answers = [coverage_answer("Schongau", "x")] * 2 + [venues] + [coverage_answer("x", "x")] * 9
+    bio = {"business_discovery": {"username": "hsm.cafe", "biography": "Café in Herzogsägmühle"}}
+    result = discovery.run(
+        thorough,
+        runner=FakeRunner(answers=answers),
+        data_dir=data_dir,
+        today=TODAY,
+        graph_get=lambda url: bio,
+        env={instagram.TOKEN_ENV: "t", instagram.USER_ENV: "178"},
+    )
+    assert result.instagram_added == ["hsm.cafe"]
+
+
+def test_candidates_without_token_are_not_checked(thorough: Config, data_dir: Path) -> None:
+    venues = coverage_answer("Schongau", "venues")
+    venues["instagram_candidates"] = [
+        {"username": "jeanscafe", "name": "Jeanscafe", "places": [], "website": ""}
+    ]
+    answers = [coverage_answer("Schongau", "x")] * 2 + [venues] + [coverage_answer("x", "x")] * 9
+    result = discovery.run(
+        thorough, runner=FakeRunner(answers=answers), data_dir=data_dir, today=TODAY, env={}
+    )
+    assert result.instagram_added == []
+    assert any("candidate account(s) not checked" in w for w in result.warnings)

@@ -34,17 +34,26 @@ useful, and follow up on every lead (links on pages you open, names mentioned in
 {%- if instagram and focus.id == "venues" %}
 
 Many cafés, bars, clubs and small venues announce their events only on Instagram. Instagram pages
-themselves cannot be opened here, but search results show their links. Run these searches for every
-municipality and take the account names from the instagram.com/<username> links in the results:
+themselves cannot be opened here, but search results list them. Run these searches for every
+municipality exactly as written (the site: operator limits the results to Instagram profiles) and
+take the account names from the instagram.com/<username> links in the results:
 {% for group in groups %}
-- "{{ group.name }} Café Instagram"
-- "{{ group.name }} Bar Kneipe Instagram"
-- "{{ group.name }} Club Party Konzert Instagram"
+- "site:instagram.com {{ group.name }} café"
+- "site:instagram.com {{ group.name }} bar club party"
+- "site:instagram.com {{ group.name }} verein konzert veranstaltung"
 {%- endfor %}
 
 Report every café, bar, pub, club or venue of these municipalities that you find there or anywhere
 else in this pass (linked on its website, in its Google listing, or from a search like
 "<name> <municipality> Instagram") in "instagram_accounts", also if it has no website of its own.
+
+Then, for the cafés, bars, pubs and venues of this pass whose account you did not find that way,
+search "<name> <municipality> instagram" (one search each, as far as your limit allows). Directory
+sites such as Restaurant Guru, Das Örtliche, Tripadvisor or the municipality's business directory
+often name the account. Report such names in "instagram_candidates" with the place's name, its
+municipality and its own website if you know it (otherwise ""). The pipeline checks every candidate
+against the account's profile, so report a name you saw attributed to the place even if you cannot
+confirm it; but never invent one.
 {%- endif %}
 {%- else %}
 ## What to look for
@@ -113,9 +122,16 @@ In "instagram_accounts", list the Instagram accounts of local organisers (clubs,
 bars, parishes, the municipality) in the municipalities above that you came across: linked on pages
 you read, or in search results. "username" is the account name without @ (from
 instagram.com/<username>), "name" is the organiser, "places" the municipalities (exactly as written
-above). Only accounts you actually saw in a link or a search result; never guess a name. Cafés,
+above). Only accounts you actually saw in a link to the account or in its own search result; never
+guess a name (a name a directory attributes to a place goes to "instagram_candidates"). Cafés,
 bars and pubs count even if you don't know whether they hold events. Leave out accounts of people,
 of shops and businesses that never hold events, and of organisers outside these municipalities.
+{%- if focus and focus.id != "venues" %}
+Answer "instagram_candidates" with an empty list.
+{%- elif not focus %}
+Report names that only a directory attributes to a place (not confirmed by a link or its own
+search result) in "instagram_candidates" with name, municipality and the place's own website.
+{%- endif %}
 {%- endif %}
 Use "notes" for anything the operator should know (blocked sites, PDFs only, sources to check by hand).
 

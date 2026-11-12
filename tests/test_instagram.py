@@ -377,3 +377,40 @@ def test_instagram_step_is_the_last_call_of_a_batch() -> None:
     assert [c.mode for c in calls] == ["flyers", "search", "instagram"]
     combined = crawl.plan_calls(batch, 0, instagram=True)
     assert [c.mode for c in combined] == ["all", "flyers", "instagram"]
+
+
+def test_profile_check_needs_the_place_or_the_website() -> None:
+    def profile(**kw: str) -> instagram.Profile:
+        return instagram.Profile(username=kw.pop("username", "jeanscafe"), **kw)
+
+    places = ["Schongau"]
+    assert instagram.belongs_to(profile(biography="Café & Bar am Marienplatz, Schongau"), places)
+    assert instagram.belongs_to(profile(name="Jeanscafe SCHONGAU"), places)
+    assert instagram.belongs_to(profile(username="cafe_express_schongau_"), places)
+    assert instagram.belongs_to(profile(website="https://www.jeanscafe.de/"), [], "jeanscafe.de")
+    assert instagram.belongs_to(profile(biography="Infos: jeanscafe.de"), [], "http://jeanscafe.de")
+    # another place, or only a similar word
+    assert not instagram.belongs_to(profile(biography="Jean's Café, Philadelphia"), places)
+    assert not instagram.belongs_to(profile(biography="Schongauerin aus Leidenschaft"), places)
+    assert not instagram.belongs_to(profile(website="https://other.example/"), [], "jeanscafe.de")
+    assert not instagram.belongs_to(profile(), [], "")
+
+
+def test_fetch_profile_reads_name_biography_and_website() -> None:
+    answer = {
+        "business_discovery": {
+            "username": "jeanscafe",
+            "name": "Jeanscafe",
+            "biography": "Marienplatz 14, Schongau",
+            "website": "https://jeanscafe.de",
+        }
+    }
+    graph = Graph({"jeanscafe": answer})
+    p = instagram.fetch_profile("jeanscafe", user_id="178", token=TOKEN, get=graph)
+    assert (p.name, p.biography, p.website) == (
+        "Jeanscafe",
+        "Marienplatz 14, Schongau",
+        "https://jeanscafe.de",
+    )
+    fields = parse_qs(urlsplit(graph.urls[0]).query)["fields"][0]
+    assert fields == "business_discovery.username(jeanscafe){username,name,biography,website}"

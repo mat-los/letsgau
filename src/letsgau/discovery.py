@@ -28,6 +28,7 @@ Discovery runs monthly by default and is forced after a geo change.
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from collections.abc import Callable, Iterable, Mapping, Sequence
@@ -48,6 +49,7 @@ from letsgau.models import (
     InstagramAccount,
     InstagramFile,
     PlacesFile,
+    RejectedCandidate,
     Source,
     SourceKind,
     SourceOrigin,
@@ -295,6 +297,15 @@ def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> 
             }
         )
         properties["instagram_accounts"] = {"type": "array", "items": account}
+        candidate_account = obj(
+            {
+                "username": {"type": "string"},
+                "name": {"type": "string"},
+                "places": {"type": "array", "items": {"type": "string"}},
+                "website": {"type": "string"},
+            }
+        )
+        properties["instagram_candidates"] = {"type": "array", "items": candidate_account}
     return obj(properties)
 
 
@@ -339,6 +350,7 @@ class DiscoveryResult:
     blacklist_candidates: dict[str, str] = field(default_factory=dict)
     coverage: list[Coverage] = field(default_factory=list)
     instagram_added: list[str] = field(default_factory=list)
+    instagram_rejected: int = 0
     instagram_cache: InstagramFile | None = None
     warnings: list[str] = field(default_factory=list)
     usage: Usage = field(default_factory=Usage)
@@ -447,6 +459,113 @@ def merge_answer(
 
 
 # --- events stage helpers ---------------------------------------------------------------------
+
+
+MAX_CANDIDATES_PER_RUN = 40
+"""Candidate Instagram names checked against their profile per discovery run."""
+CANDIDATE_RETRY_DAYS = 180
+
+
+@dataclass
+class Candidate:
+    username: str
+    name: str
+    places: list[str]
+    website: str
+
+
+def collect_candidates(
+    data: Mapping[str, Any], *, batch_places: Sequence[str], resolve: Any
+) -> list[Candidate]:
+    """The candidate account names of one AI answer (not checked yet)."""
+    found = []
+    for item in data.get("instagram_candidates") or []:
+        if not isinstance(item, Mapping):
+            continue
+        handle = instagram.normalize(str(item.get("username", "")))
+        if not handle:
+            continue
+        places = [p for p in (resolve(n) for n in item.get("places") or []) if p]
+        found.append(
+            Candidate(
+                username=handle,
+                name=str(item.get("name") or ""),
+                places=sorted(set(places)) or list(batch_places),
+                website=str(item.get("website") or ""),
+            )
+        )
+    return found
+
+
+def verify_candidates(
+    cache: InstagramFile,
+    candidates: Sequence[Candidate],
+    *,
+    names_of: Callable[[str], list[str]],
+    today: date,
+    env: Mapping[str, str],
+    get: instagram.Get,
+    api_version: str = "",
+    warnings: list[str],
+) -> tuple[list[str], list[str]]:
+    """Keep the candidates whose profile points to their place; returns the accepted and the
+    rejected names.
+
+    A candidate is accepted if it is a business or creator account whose name, biography or
+    website names one of its places (``names_of`` gives a municipality's names, its districts
+    included) or links the organiser's own website. Others go to ``cache.rejected`` and are
+    not checked again for :data:`CANDIDATE_RETRY_DAYS`.
+    """
+    token, user_id = env.get(instagram.TOKEN_ENV, ""), env.get(instagram.USER_ENV, "")
+    retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
+    todo: dict[str, Candidate] = {}
+    for c in candidates:
+        old = cache.rejected.get(c.username)
+        if c.username in cache.accounts or c.username in todo:
+            continue
+        if old is not None and old.checked > retry_after:
+            continue
+        todo[c.username] = c
+    if not todo:
+        return [], []
+    if not token or not user_id:
+        warnings.append(
+            f"instagram: {len(todo)} candidate account(s) not checked: "
+            f"{instagram.TOKEN_ENV} or {instagram.USER_ENV} not set"
+        )
+        return [], []
+    accepted: list[str] = []
+    rejected: list[str] = []
+    for checked, c in enumerate(todo.values()):
+        if checked >= MAX_CANDIDATES_PER_RUN:
+            warnings.append("instagram: candidate limit reached; the rest is checked next run")
+            break
+        try:
+            profile = instagram.fetch_profile(
+                c.username, user_id=user_id, token=token, api_version=api_version, get=get
+            )
+        except instagram.AccountError as exc:
+            if exc.kind in ("auth", "permission", "rate_limit", "network"):
+                warnings.append(f"instagram: candidates not checked further: {exc}")
+                break
+            cache.rejected[c.username] = RejectedCandidate(
+                checked=today, reason=exc.kind, name=c.name
+            )
+            rejected.append(c.username)
+            continue
+        names = [n for place in c.places for n in names_of(place)]
+        if instagram.belongs_to(profile, names, c.website):
+            cache.accounts[c.username] = InstagramAccount(
+                origin="mined", places=c.places, first_seen=today
+            )
+            cache.rejected.pop(c.username, None)
+            accepted.append(c.username)
+        else:
+            cache.rejected[c.username] = RejectedCandidate(
+                checked=today, reason="profile does not name the place", name=c.name
+            )
+            rejected.append(c.username)
+    return accepted, rejected
 
 
 def is_fresh(source: Source, today: date) -> bool:
@@ -659,6 +778,8 @@ def run(
     data_dir: Path = DATA_DIR,
     today: date | None = None,
     clock: Callable[[], float] = time.monotonic,
+    graph_get: instagram.Get | None = None,
+    env: Mapping[str, str] | None = None,
 ) -> DiscoveryResult:
     """CLI entry point for ``--job discovery``."""
     from letsgau import crawl  # late import: crawl uses this module too
@@ -673,6 +794,9 @@ def run(
         groups = groups[:limit_places]
     index = crawl.PlaceIndex(places.places)
     municipality_of = {p.name: p.municipality or p.name for p in places.places}
+    names_in: dict[str, list[str]] = {}  # municipality -> its name and its districts' names
+    for p in places.places:
+        names_in.setdefault(p.municipality or p.name, []).append(p.name)
 
     def to_municipality(name: str) -> str | None:
         place = index.resolve(name)
@@ -706,6 +830,7 @@ def run(
     size = depth.discovery_places_per_request
     batches = [groups[i : i + size] for i in range(0, len(groups), size)]
     focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
+    candidates: list[Candidate] = []
     calls = [(n, batch, focus) for n, batch in enumerate(batches, 1) for focus in focuses]
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
@@ -766,9 +891,30 @@ def run(
             result.instagram_added += added
             if added:
                 print(f"discovery: {label}: Instagram accounts found: {', '.join(added)}")
+            candidates += collect_candidates(
+                answer.data, batch_places=names, resolve=to_municipality
+            )
         note = str(answer.data.get("notes") or "").strip()
         if note:
             print(f"discovery: note from {label}: {note}")
+    if result.instagram_cache is not None and candidates:
+        accepted, rejected = verify_candidates(
+            result.instagram_cache,
+            candidates,
+            names_of=lambda m: names_in.get(m, [m]),
+            today=today,
+            env=os.environ if env is None else env,
+            get=graph_get or instagram.http_get,
+            api_version=config.instagram.api_version,
+            warnings=result.warnings,
+        )
+        result.instagram_added += accepted
+        result.instagram_rejected = len(rejected)
+        print(
+            f"discovery: {len({c.username for c in candidates})} Instagram candidate(s); "
+            f"confirmed by their profile: {', '.join(accepted) or 'none'}; "
+            f"rejected: {', '.join(rejected) or 'none'}"
+        )
     if calls and not result.usage.requests:
         raise DiscoveryError("every discovery batch failed: " + "; ".join(result.warnings))
 
@@ -797,7 +943,9 @@ def run(
             print(f"  {c.status:13} {c.municipality} / {c.focus} / {c.category}: {c.note}")
     if not dry_run:
         save_sources(result.sources, data_dir)
-        if result.instagram_cache is not None and result.instagram_added:
+        if result.instagram_cache is not None and (
+            result.instagram_added or result.instagram_rejected
+        ):
             cache = result.instagram_cache.model_copy(
                 update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
             )
