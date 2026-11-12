@@ -17,7 +17,7 @@ region:
   center: { lat: 47.811, lon: 10.896 }  # approx. Schongau old town
   drive_time_minutes: 5                 # TESTING value (target: 30); change triggers geo + discovery
   place_types: [city, town, village]    # OSM place types, hamlets ignored
-  include_places: []                    # e.g. ["Landsberg am Lech", "Weilheim in Oberbayern"]
+  include_places: ["Altenstadt"]        # added even if outside the drive time (OSM name; the closest match, next to Schongau)
   exclude_places: []                    # places deliberately left out
 
 window:

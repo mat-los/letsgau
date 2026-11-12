@@ -163,6 +163,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: a neighbouring municipality is added with `region.include_places`.
 - Day list: the time column shows only times (start, and the end time or
   closing time below it); how long a multi-day event runs is a badge in the
   tag line ("→ bis 5.12.", "letzter Tag" on its last day).
