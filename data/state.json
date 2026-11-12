@@ -5,18 +5,18 @@
   "last_run": {
     "geo": "2026-11-12T12:43:24Z",
     "discovery": "2026-11-12T15:16:26Z",
-    "events": "2026-11-12T15:19:55Z",
-    "build": "2026-11-12T15:19:55Z"
+    "events": "2026-11-12T18:57:36Z",
+    "build": "2026-11-12T18:57:36Z"
   },
   "last_usage": {
     "events": {
-      "requests": 14,
-      "web_searches": 1,
+      "requests": 19,
+      "web_searches": 13,
       "web_fetches": 0,
-      "input_tokens": 962058,
-      "output_tokens": 151369,
-      "cost_usd": 1.2219,
-      "duration_s": 485.3999999999999
+      "input_tokens": 1620510,
+      "output_tokens": 192338,
+      "cost_usd": 1.8657,
+      "duration_s": 664.8000000000001
     },
     "discovery": {
       "requests": 3,

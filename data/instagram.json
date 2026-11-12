@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T15:30:17Z",
+  "updated_at": "2026-11-12T19:10:07Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -97,10 +97,10 @@
       "places": [
         "Schongau"
       ],
-      "status": "error",
+      "status": "active",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "last_error": "(#4) Application request limit reached (code 4)"
+      "last_error": ""
     },
     "weinstuben.schongau": {
       "origin": "mined",
@@ -363,6 +363,16 @@
       "last_error": ""
     },
     "tierheim_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "ea_schongau_1b": {
       "origin": "mined",
       "places": [
         "Schongau"
@@ -1908,6 +1918,181 @@
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12",
       "events": []
+    },
+    "18107305886244914": {
+      "username": "ea_schongau_1b",
+      "permalink": "https://www.instagram.com/p/De1bUYniIri/",
+      "posted": "2026-10-23",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17957825814272039": {
+      "username": "jeanscafe",
+      "permalink": "https://www.instagram.com/p/DfZt0_JjqW4/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18419674732156887": {
+      "username": "jeanscafe",
+      "permalink": "https://www.instagram.com/p/DfCRlTZDkrM/",
+      "posted": "2026-10-28",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17918315025546669": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfpX1a5DKd3/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18409151413202557": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DfpeaU7iuVU/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18147305902505083": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/Dfl9hv4DmzL/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18122082536279188": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/DfhIqPauCNU/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18018939176954655": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/DfZLqsqOb0p/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17978163207137035": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/DfRZykZzOtG/",
+      "posted": "2026-11-03",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18118853591594532": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/DfPAlXwDuUM/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18122276840472768": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/DfJrbvNjmql/",
+      "posted": "2026-10-31",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18118810151014676": {
+      "username": "ea_schongau_1b",
+      "permalink": "https://www.instagram.com/reel/DfZHZjxI8fR/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18400542907201042": {
+      "username": "jeanscafe",
+      "permalink": "https://www.instagram.com/p/DfSUsjtES3V/",
+      "posted": "2026-11-03",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18108034139461622": {
+      "username": "jeanscafe",
+      "permalink": "https://www.instagram.com/p/DezWf7Qt1Gh/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18108432215376421": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DfpplZuJT0t/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Taschenlampenführung „In’s Licht gerückt“",
+            "en": "Flashlight Tour „In’s Licht gerückt“"
+          },
+          "description": {
+            "de": "Abendführung durch die dunkle St.-Anna-Kirche: Kunstwerke werden nur im Schein der Taschenlampe beleuchtet, zum Schluss Musik bei Kerzenschein. Anmeldung nötig, 10 € pro Person.",
+            "en": "Evening tour of the dark St. Anna church with artworks lit only by flashlight, ending with music by candlelight. Registration required, €10 per person."
+          },
+          "venue": {
+            "name": "Heilig-Geist-Spitalkirche St. Anna",
+            "place": "Schongau",
+            "address": "Karmeliterstraße 6, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": null,
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "art-culture",
+          "tags": [
+            "art-culture",
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfpplZuJT0t/",
+              "primary": true
+            }
+          ]
+        }
+      ]
     }
   },
   "rejected": {
