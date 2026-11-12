@@ -160,6 +160,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: 2 new Instagram candidates for the profile check; tests no longer read the
+  instance's candidates file.
 - Instagram lookup: the discovery passes list the cafés, bars and venues they
   saw (`venues_seen`, the venues pass from the municipality's directory), and
   the lookup call gets one fixed search per place instead of a free task; the

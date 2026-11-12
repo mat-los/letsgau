@@ -155,6 +155,7 @@ def setup(tmp_path: Path, accounts: list[dict[str, Any]]) -> tuple[Config, Path]
             "blacklist_file": str(FIXTURES / "blacklist.yaml"),
             "flyers_file": "",
             "instagram_file": str(listing),
+            "instagram_candidates_file": "",
         }
     )
     depth = config.depth.model_copy(update={"crawl_sources_per_request": 4})
