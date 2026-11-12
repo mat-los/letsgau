@@ -33,10 +33,18 @@ useful, and follow up on every lead (links on pages you open, names mentioned in
 {%- endif %}
 {%- if instagram and focus.id == "venues" %}
 
-Many cafés, bars, clubs and small venues announce their events only on Instagram. For every such
-place you come across in this pass, find its Instagram account (linked on its website, in its
-Google listing, or with a search like "<name> <municipality> Instagram") and report it in
-"instagram_accounts", also if the place has no website of its own.
+Many cafés, bars, clubs and small venues announce their events only on Instagram. Instagram pages
+themselves cannot be opened here, but search results show their links. Run these searches for every
+municipality and take the account names from the instagram.com/<username> links in the results:
+{% for group in groups %}
+- "{{ group.name }} Café Instagram"
+- "{{ group.name }} Bar Kneipe Instagram"
+- "{{ group.name }} Club Party Konzert Instagram"
+{%- endfor %}
+
+Report every café, bar, pub, club or venue of these municipalities that you find there or anywhere
+else in this pass (linked on its website, in its Google listing, or from a search like
+"<name> <municipality> Instagram") in "instagram_accounts", also if it has no website of its own.
 {%- endif %}
 {%- else %}
 ## What to look for
@@ -103,10 +111,11 @@ village), "not_checked" if you ran out of searches; "note" says briefly what you
 
 In "instagram_accounts", list the Instagram accounts of local organisers (clubs, venues, cafés,
 bars, parishes, the municipality) in the municipalities above that you came across: linked on pages
-you read, or found by a search. "username" is the account name without @ (from
+you read, or in search results. "username" is the account name without @ (from
 instagram.com/<username>), "name" is the organiser, "places" the municipalities (exactly as written
-above). Only accounts you actually saw; never guess a name. Leave out accounts of people, of
-businesses without events, and of organisers outside these municipalities.
+above). Only accounts you actually saw in a link or a search result; never guess a name. Cafés,
+bars and pubs count even if you don't know whether they hold events. Leave out accounts of people,
+of shops and businesses that never hold events, and of organisers outside these municipalities.
 {%- endif %}
 Use "notes" for anything the operator should know (blocked sites, PDFs only, sources to check by hand).
 

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Discovery's venues pass runs three Instagram searches per municipality (cafés,
+  bars, clubs) and takes account names from the links in the search results;
+  cafés, bars and pubs are reported even without known events.
+
 ### Fixed
 
 - Social media (Instagram, Facebook, TikTok, …) is never added to
