@@ -84,3 +84,33 @@
   places: ["Schongau"]
   website: "https://www.schongau-triathlon.de/"
   found_on: "https://www.instagram.com/schongau_triathlon/"
+- username: "jeanscafe"
+  name: "Jeanscafe"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://restaurantguru.com/Jeanscafe-Schongau"
+- username: "bootshaus_schongau"
+  name: "Bootshaus am Schongauer See"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://de.restaurantguru.com/Bootshaus-Lido-Schongau-2"
+- username: "faschongau_nachwuchs"
+  name: "TSV Schongau Fußball Nachwuchs"
+  places: ["Schongau"]
+  website: "https://www.fa-schongau.de/"
+  found_on: "https://www.instagram.com/faschongau_nachwuchs/"
+- username: "leichtathletikschongau"
+  name: "Leichtathletik Schongau"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/leichtathletikschongau/"
+- username: "tri.team.schongau"
+  name: "Tri.Team.Schongau"
+  places: ["Schongau"]
+  website: "https://www.schongau-triathlon.de/"
+  found_on: "https://www.instagram.com/tri.team.schongau/"
+- username: "tierheim_schongau"
+  name: "Tierheim Schongau"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/tierheim_schongau/"
