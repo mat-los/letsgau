@@ -126,10 +126,10 @@ def hours_today(event: Event, day: date) -> str | None:
 def time_on(event: Event, day: date) -> str | None:
     """The start time shown for ``event`` on ``day``, or None.
 
-    Single-day events: their start time. Multi-day events: the start time that weekday's
-    entry of ``opening_hours`` gives (screenings: start equals end), or the common start
-    time of an event on single dates (``dates``). Opening-hour ranges such as an exhibition's
-    ``10:00–17:00`` are no start time; such events stay "untimed".
+    Single-day events: their start time. Multi-day events: the start of that day's entry of
+    ``opening_hours`` (a screening's start time, or the opening time of a market or an
+    exhibition, see :func:`end_on`), or the common start time of an event on single dates
+    (``dates``).
     """
     s = event.schedule
     if s.all_day:
@@ -138,8 +138,17 @@ def time_on(event: Event, day: date) -> str | None:
         return s.start_time
     hours = hours_today(event, day)
     if hours is not None:
-        return None if "–" in hours else hours
+        return hours.split("–")[0]
     return s.start_time if s.dates else None
+
+
+def end_on(event: Event, day: date) -> str | None:
+    """The closing time of a multi-day event's opening hours on ``day`` (``13:00`` for a market
+    open ``07:30–13:00``), shown below the opening time; None for start times."""
+    if event.schedule.all_day or not is_multi_day(event):
+        return None
+    hours = hours_today(event, day)
+    return hours.split("–")[1] if hours and "–" in hours else None
 
 
 @dataclass
@@ -154,6 +163,8 @@ class Row:
     """Set for the hidden copy of a program item that filters can reveal."""
     time: str | None = None
     """Start time on this day (:func:`time_on`)."""
+    end: str | None = None
+    """Closing time on this day for opening hours (:func:`end_on`)."""
 
     @property
     def timed(self) -> bool:
@@ -188,9 +199,16 @@ def day_view(events: Sequence[Event], day: date) -> DayView:
         time = time_on(event, day)
         if event.parent_id and event.parent_id in by_id:
             children.setdefault(event.parent_id, []).append(event)
-            copies.append(Row(event=event, standalone_copy_of=by_id[event.parent_id], time=time))
+            copies.append(
+                Row(
+                    event=event,
+                    standalone_copy_of=by_id[event.parent_id],
+                    time=time,
+                    end=end_on(event, day),
+                )
+            )
         else:
-            rows.append(Row(event=event, time=time))
+            rows.append(Row(event=event, time=time, end=end_on(event, day)))
     for row in rows:
         row.children = children.get(row.event.id, [])
     count = len(rows) + sum(len(r.children) for r in rows)

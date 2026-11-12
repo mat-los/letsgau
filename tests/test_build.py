@@ -133,11 +133,12 @@ def test_screening_times_per_weekday() -> None:
         )
         == "19:00"
     )
-    # an exhibition's opening hours are no start time; a festival's first-day time neither
+    # opening hours: opening time, closing time below; a festival's first-day time is none
     market = ev(
         end_date="2026-11-30", opening_hours=[{"days": "sat", "from": "11:00", "to": "21:00"}]
     )
-    assert time_on(market, SATURDAY) is None
+    assert time_on(market, SATURDAY) == "11:00" and build.end_on(market, SATURDAY) == "21:00"
+    assert build.end_on(film, SATURDAY) is None
     assert time_on(ev(start_time="10:00", end_date="2026-11-15"), SATURDAY) is None
     assert time_on(ev(start_time="10:00", all_day=True), SATURDAY) is None
     # sorted among the timed events of the day, and shown with its last day
@@ -171,7 +172,8 @@ def test_day_view_nests_program_items(events: list[Event]) -> None:
     ]
     copies = [r for r in view.rows if r.standalone_copy_of]
     assert len(copies) == 3 and copies[0].standalone_copy_of is parent.event
-    assert len([r for r in view.rows if not r.timed]) == 16  # 8 multi-day + events without time
+    # untimed: events without a time; multi-day events with opening hours show the opening time
+    assert len([r for r in view.rows if not r.timed]) == 7
 
 
 # --- pages (acceptance #14, #16, #17) ----------------------------------------------------
