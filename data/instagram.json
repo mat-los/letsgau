@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T09:42:18Z",
+  "updated_at": "2026-11-12T09:54:51Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -17,9 +17,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "musikhaus_kirstein": {
@@ -27,9 +27,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     }
   },
@@ -81,6 +81,262 @@
           ]
         }
       ]
+    },
+    "17998419806837904": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfonND4GyFj/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Taylor Tone Show",
+            "en": "Taylor Tone Show"
+          },
+          "description": {
+            "de": "Vorführung der Taylor-Gitarren mit Experte Simon Tächl, Live-Demos, Ausprobieren und Verlosung einer GS Mini. Eintritt frei, Anmeldung erforderlich.",
+            "en": "Showcase of Taylor guitars with expert Simon Tächl, live demos, try-outs and a GS Mini raffle. Free entry, registration required."
+          },
+          "venue": {
+            "name": "Musikhaus Kirstein",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-27",
+            "start_time": "18:30",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfonND4GyFj/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17964884052010914": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfmD8Q3iF3b/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18102090983541225": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfkJmmUCGfA/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18103268534147044": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/Dfj6Rc_CAsN/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18440205310180552": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfhWdrxiNC8/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17911610475590723": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/Dfe-Y_kiiAb/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18016356413990769": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/reel/Dfk8vJzK0EA/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Dunkle Zeiten – Dark Wave Gothic mit DJ A.N.A.",
+            "en": "Dunkle Zeiten – Dark Wave Gothic with DJ A.N.A."
+          },
+          "description": {
+            "de": "Gothic-Party mit Dark Wave im Reaktor. Einlass nur schwarz gekleidet oder dem Thema entsprechend. Eintritt 6 Euro.",
+            "en": "Dark wave gothic night at Reaktor. Admission only in black or fitting the theme. Entry 6 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": "2026-11-13",
+            "start_time": "21:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/Dfk8vJzK0EA/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18146669353582647": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/p/DfhV81Sqc3L/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Balkan Party mit DJ Sasha",
+            "en": "Balkan Party with DJ Sasha"
+          },
+          "description": {
+            "de": "Balkan-Party mit DJ Sasha im Reaktor. Eintritt 6 Euro.",
+            "en": "Balkan party with DJ Sasha at Reaktor. Entry 6 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-27",
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfhV81Sqc3L/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18109426133341369": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/reel/DfUqBY6IRty/",
+      "posted": "2026-11-04",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18127699678803939": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/p/De9VsDKKFyf/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Eule Allstars Band",
+            "en": "Eule Allstars Band"
+          },
+          "description": {
+            "de": "Livekonzert der Eule Allstars Band im Reaktor. Abendkasse 10 Euro.",
+            "en": "Live concert by the Eule Allstars Band at Reaktor. Tickets 10 euros at the door."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-11-28",
+            "end_date": "2026-11-28",
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/De9VsDKKFyf/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18125432878700657": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/reel/DezIzA-IWUB/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T08:47:19Z",
+  "updated_at": "2026-11-12T09:55:04Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -14,7 +14,7 @@
         "en": "Weekly singing circle of the Protestant parish in the parish hall."
       },
       "venue": {
-        "name": "Evangelisches Gemeindehaus",
+        "name": "Evang. Gemeindehaus",
         "place": "Schongau",
         "address": null
       },
@@ -34,7 +34,7 @@
       "primary_tag": "concert",
       "tags": [
         "concert",
-        "religion"
+        "art-culture"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -214,7 +214,7 @@
       },
       "description": {
         "de": "Filmvorführung im Lagerhaus-Kino Schongau an mehreren Terminen.",
-        "en": "Film screenings at the Lagerhaus cinema in Schongau on several dates."
+        "en": "Film screening at the Lagerhaus cinema in Schongau on several dates."
       },
       "venue": {
         "name": "Lagerhaus-Kino",
@@ -236,17 +236,27 @@
         ],
         "opening_hours": [
           {
-            "days": "thu,mon,wed",
+            "days": "2026-11-12",
             "from": "20:00",
             "to": "20:00"
           },
           {
-            "days": "sat",
+            "days": "2026-11-14",
             "from": "18:00",
             "to": "18:00"
           },
           {
-            "days": "sun",
+            "days": "2026-11-15",
+            "from": "20:00",
+            "to": "20:00"
+          },
+          {
+            "days": "2026-11-16",
+            "from": "20:00",
+            "to": "20:00"
+          },
+          {
+            "days": "2026-11-18",
             "from": "20:00",
             "to": "20:00"
           }
@@ -278,11 +288,11 @@
         "en": "Day of Eternal Adoration"
       },
       "description": {
-        "de": "Gebetstag der Pfarrei Mariae Himmelfahrt, an dem die Kolpingsfamilie mitwirkt. Uhrzeit nicht angegeben.",
-        "en": "Prayer day of the Mariae Himmelfahrt parish, with participation of the Kolping family. No time given."
+        "de": "Besonderer Anbetungstag der Pfarrei Mariae Himmelfahrt unter Mitwirkung der Kolpingsfamilie.",
+        "en": "Special adoration day of the parish Mariae Himmelfahrt with the Kolping family taking part."
       },
       "venue": {
-        "name": null,
+        "name": "Pfarrei Mariae Himmelfahrt",
         "place": "Schongau",
         "address": null
       },
@@ -318,11 +328,11 @@
       "parent_id": null,
       "title": {
         "de": "Spielenachmittag der AWO",
-        "en": "AWO games afternoon"
+        "en": "AWO Games Afternoon"
       },
       "description": {
-        "de": "Karten- und Brettspiele, Stosspuddeln und Ratschen bei Kaffee und Kuchen; jeder ist willkommen.",
-        "en": "Card and board games and chatting with coffee and cake; everyone welcome."
+        "de": "Wöchentlich donnerstags Karten- und Brettspiele, Ratschen, Kaffee und Kuchen; alle willkommen.",
+        "en": "Weekly Thursday cards and board games, chatting, coffee and cake; everyone welcome."
       },
       "venue": {
         "name": "AWO",
@@ -331,7 +341,7 @@
       },
       "schedule": {
         "start_date": "2026-11-12",
-        "end_date": "2026-12-03",
+        "end_date": "2026-12-10",
         "start_time": "14:00",
         "end_time": "17:00",
         "all_day": false,
@@ -339,14 +349,15 @@
           "2026-11-12",
           "2026-11-19",
           "2026-11-26",
-          "2026-12-03"
+          "2026-12-03",
+          "2026-12-10"
         ],
         "opening_hours": null
       },
       "primary_tag": "family-kids",
       "tags": [
         "family-kids",
-        "talk-workshop"
+        "art-culture"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -370,8 +381,8 @@
         "en": "Fibromyalgia Symposium in Schongau"
       },
       "description": {
-        "de": "Symposium zum Thema Fibromyalgie im Saal des Historischen Ballenhauses.",
-        "en": "Symposium on fibromyalgia in the hall of the historic Ballenhaus."
+        "de": "Symposium zum Thema Fibromyalgie mit Begrüßung durch Claudia Dexl im Saal des Ballenhauses.",
+        "en": "Symposium on fibromyalgia with a welcome by Claudia Dexl in the Ballenhaus hall."
       },
       "venue": {
         "name": "Saal des Historischen Ballenhauses",
@@ -440,11 +451,11 @@
       "parent_id": null,
       "title": {
         "de": "Lagerhaus-Kino: Sinn und Sinnlichkeit",
-        "en": "Lagerhaus Cinema: Sense and Sensibility"
+        "en": "Lagerhaus Cinema: Sinn und Sinnlichkeit"
       },
       "description": {
         "de": "Filmvorführung im Lagerhaus-Kino Schongau an mehreren Terminen.",
-        "en": "Film screenings at the Lagerhaus cinema in Schongau on several dates."
+        "en": "Film screening at the Lagerhaus cinema in Schongau on several dates."
       },
       "venue": {
         "name": "Lagerhaus-Kino",
@@ -469,12 +480,12 @@
         ],
         "opening_hours": [
           {
-            "days": "fri,sat,tue,thu",
+            "days": "2026-11-13,2026-11-14,2026-11-17,2026-11-19,2026-11-24",
             "from": "20:00",
             "to": "20:00"
           },
           {
-            "days": "sun",
+            "days": "2026-11-15,2026-11-21,2026-11-22",
             "from": "17:30",
             "to": "17:30"
           }
@@ -502,17 +513,17 @@
       "id": "2026-11-13-weibsdeifi-markt-freitag-schongau",
       "parent_id": null,
       "title": {
-        "de": "Weibsdeifi-Markt in Schongau",
-        "en": "Weibsdeifi Market in Schongau"
+        "de": "Weibsdeifi-Markt",
+        "en": "Weibsdeifi Flea Market for Women"
       },
       "description": {
-        "de": "Markt in der Münzstraße-Passage, freitags und samstags.",
-        "en": "Market in the Münzstraße passage on Fridays and Saturdays."
+        "de": "Second-Hand-Flohmarkt für Frauen in der Münzstraße-Passage, freitags und samstags.",
+        "en": "Second-hand flea market for women in the Münzstraße passage, on Fridays and Saturdays."
       },
       "venue": {
-        "name": "Weibsdeifi-Markt",
+        "name": "Weibsdeifi-Markt, Passage",
         "place": "Schongau",
-        "address": "Münzstr. 9 - Passage, 86952 Schongau"
+        "address": "Münzstr. 9, 86952 Schongau"
       },
       "schedule": {
         "start_date": "2026-11-13",
@@ -534,12 +545,12 @@
           {
             "days": "fri",
             "from": "15:00",
-            "to": "18:00"
+            "to": "15:00"
           },
           {
             "days": "sat",
             "from": "10:00",
-            "to": "14:00"
+            "to": "10:00"
           }
         ]
       },
@@ -623,13 +634,13 @@
         "en": "Schongau Weekly Market"
       },
       "description": {
-        "de": "Wöchentlicher Markt auf dem Marienplatz in der Altstadt, freitags (bei Feiertag donnerstags).",
-        "en": "Weekly market on Marienplatz in the old town, on Fridays (Thursday if Friday is a holiday)."
+        "de": "Wöchentlicher Markt auf dem Marienplatz mit regionalen Produkten, freitags.",
+        "en": "Weekly market on Marienplatz with regional products, held on Fridays."
       },
       "venue": {
         "name": "Marienplatz",
         "place": "Schongau",
-        "address": "Marienplatz, Schongau"
+        "address": "Marienplatz, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-11-13",
@@ -729,11 +740,11 @@
       "parent_id": null,
       "title": {
         "de": "Kinderspielenachmittag im Plantsch",
-        "en": "Children's Play Afternoon at Plantsch"
+        "en": "Children's play afternoon at Plantsch"
       },
       "description": {
-        "de": "Wöchentlicher Spielenachmittag für Kinder im Hallenbad.",
-        "en": "Weekly children's play afternoon at the indoor pool."
+        "de": "Freitäglicher Spielenachmittag für Kinder im Hallenbad.",
+        "en": "Friday play afternoon for children at the indoor pool."
       },
       "venue": {
         "name": "Plantsch",
@@ -756,7 +767,8 @@
       },
       "primary_tag": "family-kids",
       "tags": [
-        "family-kids"
+        "family-kids",
+        "sports"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -776,15 +788,15 @@
       "id": "2026-11-13-museumsfuehrung-ja-so-ist-war-das-leben-schongau",
       "parent_id": null,
       "title": {
-        "de": "Museumsführung: Ja, so ist (war) das Leben in Schongau!",
-        "en": "Museum Tour: Life in Schongau Then and Now"
+        "de": "Ja, so ist (war) das Leben in Schongau!",
+        "en": "Ja, so ist (war) das Leben in Schongau! – Museum Tour"
       },
       "description": {
-        "de": "Führung durch Schongaus Geschichte von der Antike bis zum Mittelalter; Preis 10 €.",
-        "en": "Tour through Schongau's history from antiquity to the Middle Ages; €10."
+        "de": "Zeitreise durch Schongaus Geschichte von der Antike bis ins Mittelalter im Stadtmuseum.",
+        "en": "Journey through Schongau's history from antiquity to the Middle Ages at the town museum."
       },
       "venue": {
-        "name": "Stadt Schongau",
+        "name": "Stadtmuseum",
         "place": "Schongau",
         "address": "Münzstraße 1-3, 86956 Schongau"
       },
@@ -802,7 +814,8 @@
       },
       "primary_tag": "art-culture",
       "tags": [
-        "art-culture"
+        "art-culture",
+        "talk-workshop"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -871,14 +884,14 @@
       "parent_id": null,
       "title": {
         "de": "Jugendtreff",
-        "en": "Youth Meeting"
+        "en": "Youth meeting"
       },
       "description": {
-        "de": "Jugendtreff im Evangelischen Gemeindehaus, Seminarraum im Untergeschoss, geleitet von Diakon Alex Irmer-von-Hayek.",
-        "en": "Youth meeting in the Protestant parish hall, basement seminar room, led by deacon Alex Irmer-von-Hayek."
+        "de": "Jugendtreff im Evangelischen Gemeindehaus (Seminarraum/UG), geleitet von Diakon Alex Irmer-von-Hayek.",
+        "en": "Youth meeting at the Protestant parish hall (seminar room), led by deacon Alex Irmer-von-Hayek."
       },
       "venue": {
-        "name": "Evangelisches Gemeindehaus",
+        "name": "Evang. Gemeindehaus",
         "place": "Schongau",
         "address": null
       },
@@ -893,8 +906,7 @@
       },
       "primary_tag": "family-kids",
       "tags": [
-        "family-kids",
-        "religion"
+        "family-kids"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -914,12 +926,12 @@
       "id": "2026-11-13-ea-schongau-1b-sg-oberstdorf-sonthofen",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau 1b vs. SG Oberstdorf/Sonthofen",
-        "en": "EA Schongau 1b vs. SG Oberstdorf/Sonthofen"
+        "de": "Eishockey: EA Schongau 1b vs. SG Oberstdorf/Sonthofen",
+        "en": "Ice hockey: EA Schongau 1b vs. SG Oberstdorf/Sonthofen"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der 1b-Mannschaft gegen SG Oberstdorf/Sonthofen.",
-        "en": "Ice hockey home game of the 1b team against SG Oberstdorf/Sonthofen."
+        "de": "Heimspiel der 1b-Mannschaft.",
+        "en": "Home game of the 1b team."
       },
       "venue": {
         "name": null,
@@ -961,17 +973,17 @@
         "en": "Dunkle Zeiten – Dark Wave Gothic with DJ A.N.A."
       },
       "description": {
-        "de": "Dark-Wave- und Gothic-Abend im Reaktor. Einlass nur schwarz gekleidet oder passend zum Thema (Gothic, Endzeit). Eintritt 6 Euro.",
-        "en": "Dark wave and gothic night at Reaktor. Entry only in black or theme-appropriate dress (gothic, apocalypse). Admission 6 euros."
+        "de": "Gothic-Party mit Dark Wave im Reaktor. Einlass nur schwarz gekleidet oder dem Thema entsprechend. Eintritt 6 Euro.",
+        "en": "Dark wave gothic night at Reaktor. Admission only in black or fitting the theme. Entry 6 euros."
       },
       "venue": {
         "name": "Reaktor",
         "place": "Schongau",
-        "address": "Schützenhausstr. 1, Schongau"
+        "address": "Schützenhausstr. 1"
       },
       "schedule": {
         "start_date": "2026-11-13",
-        "end_date": null,
+        "end_date": "2026-11-13",
         "start_time": "21:00",
         "end_time": null,
         "all_day": false,
@@ -980,8 +992,7 @@
       },
       "primary_tag": "party",
       "tags": [
-        "party",
-        "concert"
+        "party"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -997,6 +1008,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.instagram.com/reel/Dfk8vJzK0EA/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1008,16 +1025,16 @@
       "parent_id": null,
       "title": {
         "de": "Lumora – Das Weihnachtsmärchen",
-        "en": "Lumora – The Christmas Fairy Tale"
+        "en": "Lumora – The Christmas Fairytale"
       },
       "description": {
-        "de": "Winterwelt voller Licht und Magie im Schongauer Märchenwald für Kinder und Erwachsene, an den Adventswochenenden.",
-        "en": "A winter world of light and magic at the Schongau Märchenwald for children and adults, on weekends."
+        "de": "Winterliche Märchenwelt mit Lichtern und Märchenbegegnungen im Schongauer Märchenwald für Kinder und Erwachsene.",
+        "en": "Winter fairytale world with lights and story encounters at the Märchenwald, for children and adults."
       },
       "venue": {
         "name": null,
         "place": "Schongau",
-        "address": "Dießener Str. 6"
+        "address": "Dießener Str. 6, Schongau"
       },
       "schedule": {
         "start_date": "2026-11-14",
@@ -1067,6 +1084,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://allevents.in/schongau/lumora-das-weihnachtsmärchen/200030783260824",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1077,15 +1100,15 @@
       "id": "2026-11-14-kirchekreativ-acrylmalen-schongau",
       "parent_id": null,
       "title": {
-        "de": "KircheKreativ: Acrylmalen",
-        "en": "KircheKreativ: Acrylic Painting"
+        "de": "Acrylmalen (KircheKreativ)",
+        "en": "Acrylic painting (KircheKreativ)"
       },
       "description": {
         "de": "Malen mit Acrylfarben, keine Vorkenntnisse nötig.",
         "en": "Painting with acrylics, no experience needed."
       },
       "venue": {
-        "name": "Gemeindesaal",
+        "name": "Gemeindesaal Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -1130,15 +1153,15 @@
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
       "parent_id": null,
       "title": {
-        "de": "KircheKreativ: Malen mit Acrylfarben",
-        "en": "KircheKreativ: Painting with Acrylics"
+        "de": "KircheKreativ: Gruppenmalen mit Acrylfarben",
+        "en": "KircheKreativ: group acrylic painting"
       },
       "description": {
-        "de": "Gemeinsames Malen mit Acrylfarben unter Anleitung, keine Vorkenntnisse nötig.",
-        "en": "Group painting with acrylic paints under guidance; no prior experience needed."
+        "de": "Gemeinsames Malen mit Acrylfarben im Evangelischen Gemeindehaus, keine Vorkenntnisse nötig.",
+        "en": "Group painting with acrylic paints at the Protestant parish hall, no experience needed."
       },
       "venue": {
-        "name": "Evang. Gemeindehaus Schongau (Saal)",
+        "name": "Evang. Gemeindehaus",
         "place": "Schongau",
         "address": null
       },
@@ -1151,10 +1174,10 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "art-culture",
       "tags": [
-        "talk-workshop",
-        "art-culture"
+        "art-culture",
+        "talk-workshop"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -1243,8 +1266,8 @@
         "en": "Bowling: Men 2 vs. Peissenberg G1"
       },
       "description": {
-        "de": "Heimspiel der SKK Schwarz-Gelb Schongau Männer 2 gegen Peissenberg G1.",
-        "en": "Home match of SKK Schwarz-Gelb Schongau men's team 2 against Peissenberg G1."
+        "de": "Heimspiel der SKK Schwarz-Gelb Schongau.",
+        "en": "Home match of SKK Schwarz-Gelb Schongau."
       },
       "venue": {
         "name": null,
@@ -1286,8 +1309,8 @@
         "en": "Baptism Families Meeting with Family Church"
       },
       "description": {
-        "de": "Einladung an Täuflinge, besonders des Jahrgangs 2025, mit Taufkerzen in die Pfarrkirche Verklärung Christi.",
-        "en": "Invitation to baptised children, especially born 2025, to bring their baptism candles to the parish church."
+        "de": "Treffen der Tauffamilien mit Familienkirche in der Verklärung Christi.",
+        "en": "Meeting of baptism families with a family church service."
       },
       "venue": {
         "name": "Pfarrkirche Verklärung Christi",
@@ -1296,7 +1319,7 @@
       },
       "schedule": {
         "start_date": "2026-11-14",
-        "end_date": "2026-11-14",
+        "end_date": null,
         "start_time": "14:30",
         "end_time": null,
         "all_day": false,
@@ -1305,7 +1328,8 @@
       },
       "primary_tag": "family-kids",
       "tags": [
-        "family-kids"
+        "family-kids",
+        "religion"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -1321,6 +1345,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1335,8 +1365,8 @@
         "en": "Bowling: Men 1 vs. SpG Alztal 1"
       },
       "description": {
-        "de": "Heimspiel der SKK Schwarz-Gelb Schongau Männer 1 gegen SpG Alztal 1.",
-        "en": "Home match of SKK Schwarz-Gelb Schongau men's team 1 against SpG Alztal 1."
+        "de": "Heimspiel der SKK Schwarz-Gelb Schongau.",
+        "en": "Home match of SKK Schwarz-Gelb Schongau."
       },
       "venue": {
         "name": null,
@@ -1378,8 +1408,8 @@
         "en": "Autumn Concert Orchester Schongau"
       },
       "description": {
-        "de": "Herbstkonzert des Orchesters Schongau im Rahmen des Aktionswochenendes der Alzheimer Gesellschaft. Eintritt frei, Spenden erbeten.",
-        "en": "Autumn concert by the Schongau orchestra during the Alzheimer Society action weekend. Free admission, donations welcome."
+        "de": "Herbstkonzert im Rahmen des Aktionswochenendes der Alzheimer Gesellschaft; Eintritt frei, Spenden erbeten.",
+        "en": "Autumn concert during the Alzheimer Society action weekend; free entry, donations welcome."
       },
       "venue": {
         "name": "Ballenhaussaal",
@@ -1417,12 +1447,12 @@
       "id": "2026-11-14-ea-schongau-u20-sg-dachau-fuerstenfeldbruck",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau U20 vs. SG Dachau/Fürstenfeldbruck",
-        "en": "EA Schongau U20 vs. SG Dachau/Fürstenfeldbruck"
+        "de": "Eishockey: EA Schongau U20 vs. SG Dachau/Fürstenfeldbruck",
+        "en": "Ice hockey: EA Schongau U20 vs. SG Dachau/Fürstenfeldbruck"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der U20 gegen SG Dachau/Fürstenfeldbruck.",
-        "en": "Ice hockey home game of the U20 against SG Dachau/Fürstenfeldbruck."
+        "de": "Heimspiel der U20.",
+        "en": "Home game of the U20 team."
       },
       "venue": {
         "name": null,
@@ -1523,25 +1553,26 @@
         "en": "Memorial Ceremony at the War Memorial"
       },
       "description": {
-        "de": "Totenehrung im Klosterhof am Kriegerdenkmal im Anschluss an den Pfarrgottesdienst.",
-        "en": "Memorial ceremony at the war memorial in the Klosterhof after the parish service."
+        "de": "Totenehrung im Klosterhof im Anschluss an den Pfarrgottesdienst um 10:00 Uhr, gestaltet von der Stadtkapelle.",
+        "en": "Memorial ceremony in the Klosterhof after the 10:00 parish service."
       },
       "venue": {
-        "name": "Klosterhof",
+        "name": "Klosterhof, Kriegerdenkmal",
         "place": "Schongau",
         "address": null
       },
       "schedule": {
         "start_date": "2026-11-15",
-        "end_date": "2026-11-15",
+        "end_date": null,
         "start_time": null,
         "end_time": null,
         "all_day": false,
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "art-culture",
+      "primary_tag": "religion",
       "tags": [
+        "religion",
         "art-culture"
       ],
       "status": "scheduled",
@@ -1558,6 +1589,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1568,12 +1605,12 @@
       "id": "2026-11-15-mammuts-eislaufschule-schongau",
       "parent_id": null,
       "title": {
-        "de": "Mammuts Eislaufschule mit Badbesuch",
-        "en": "Mammuts Ice Skating School with Discounted Pool Visit"
+        "de": "Mammuts Eislaufschule",
+        "en": "Mammuts ice-skating school"
       },
       "description": {
-        "de": "Eislaufschule, danach Badbesuch im Plantsch zum halben Preis.",
-        "en": "Ice skating school, followed by a 50% discounted visit to the Plantsch pool."
+        "de": "Eislaufschule, danach Badbesuch mit 50 % Rabatt.",
+        "en": "Ice-skating school, followed by a pool visit at 50% discount."
       },
       "venue": {
         "name": "Plantsch",
@@ -1618,11 +1655,11 @@
       "parent_id": null,
       "title": {
         "de": "Zwergerlgottesdienst",
-        "en": "Toddler Service (Zwergerlgottesdienst)"
+        "en": "Zwergerl service for young families"
       },
       "description": {
-        "de": "Gottesdienst für Familien mit kleinen Kindern zum Thema Streiten und Vertragen, danach gemeinsames Mittagessen.",
-        "en": "Service for families with small children on quarrelling and making up, followed by lunch."
+        "de": "Gottesdienst für Familien mit kleinen Kindern, danach gemeinsames Mittagessen.",
+        "en": "Service for families with young children, followed by shared lunch."
       },
       "venue": {
         "name": "Dreifaltigkeitskirche",
@@ -1638,10 +1675,10 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "religion",
+      "primary_tag": "family-kids",
       "tags": [
-        "religion",
-        "family-kids"
+        "family-kids",
+        "religion"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -1667,12 +1704,12 @@
       "id": "2026-11-15-ea-schongau-tev-miesbach",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau vs. TEV Miesbach",
-        "en": "EA Schongau vs. TEV Miesbach"
+        "de": "Eishockey: EA Schongau vs. TEV Miesbach",
+        "en": "Ice hockey: EA Schongau vs. TEV Miesbach"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der ersten Mannschaft des EA Schongau gegen TEV Miesbach.",
-        "en": "Ice hockey home game of EA Schongau's first team against TEV Miesbach."
+        "de": "Heimspiel der 1. Mannschaft des EA Schongau.",
+        "en": "Home game of EA Schongau's first team."
       },
       "venue": {
         "name": null,
@@ -1717,11 +1754,11 @@
       "parent_id": null,
       "title": {
         "de": "Traum- und Duftreise im Saunaland",
-        "en": "Dream and Fragrance Journey in the Sauna Area"
+        "en": "Dream and fragrance journey in the sauna area"
       },
       "description": {
         "de": "Kurze Entspannungsreise im Saunaland des Plantsch.",
-        "en": "Short relaxation session in the Plantsch sauna area."
+        "en": "Short relaxation journey in the Plantsch sauna area."
       },
       "venue": {
         "name": "Plantsch Saunaland",
@@ -1742,9 +1779,8 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "food-drink",
+      "primary_tag": "talk-workshop",
       "tags": [
-        "food-drink",
         "talk-workshop"
       ],
       "status": "scheduled",
@@ -1821,6 +1857,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-09"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1832,11 +1874,11 @@
       "parent_id": null,
       "title": {
         "de": "Sozialer Mittagstisch",
-        "en": "Social Lunch"
+        "en": "Social Lunch Table"
       },
       "description": {
-        "de": "Gemeinsames Mittagessen für Senioren im Spiegelsaal des Heilig-Geist-Seniorenheims; Anmeldung erforderlich.",
-        "en": "Shared lunch for seniors in the Spiegelsaal of the Heilig-Geist senior home; registration required."
+        "de": "Gemeinsames Mittagessen für Senioren mit Suppe, Hauptgericht, Nachspeise und Getränk; Anmeldung erforderlich.",
+        "en": "Shared lunch for seniors with soup, main course, dessert and drink; registration required."
       },
       "venue": {
         "name": "Heilig-Geist-Seniorenheim, Spiegelsaal",
@@ -1880,11 +1922,11 @@
       "parent_id": null,
       "title": {
         "de": "Gedächtnistraining mit Senioren",
-        "en": "Memory Training for Seniors"
+        "en": "Memory training for seniors"
       },
       "description": {
-        "de": "Gehirntraining mit Rätseln, Spielen, Bewegung und Kreativem. Anmeldung: 08861/200758.",
-        "en": "Brain training with puzzles, games, movement and creative tasks. Registration required."
+        "de": "Rätsel, Spiele, Bewegung und Kreatives für Senioren; Anmeldung bei Susi Siegler.",
+        "en": "Puzzles, games, movement and creative activities for seniors; registration required."
       },
       "venue": {
         "name": "Pfarrheim Verklärung Christi",
@@ -1957,7 +1999,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/vorlesen-fuer-kinder-ab-2-jahren-e7cbdbd1f152aee6fc64d30beb20c5592.html",
@@ -1998,17 +2040,17 @@
       "id": "2026-11-18-bewegungsgottesdienst-zum-buss-und-bettag-schongau",
       "parent_id": null,
       "title": {
-        "de": "Bewegungsgottesdienst zum Buß- und Bettag",
-        "en": "Movement Service for Day of Repentance"
+        "de": "Qi-Gong-Bewegungs-Gottesdienst mit Abendmahl",
+        "en": "Qi Gong movement service with communion"
       },
       "description": {
-        "de": "Gottesdienst mit leichten Bewegungsübungen und Abendmahl.",
-        "en": "Service with light movement exercises and Holy Communion."
+        "de": "Gottesdienst zum Buß- und Bettag mit Qi-Gong-Elementen in der Dreifaltigkeitskirche.",
+        "en": "Repentance Day service with Qi Gong elements at the Dreifaltigkeitskirche."
       },
       "venue": {
-        "name": "Gemeindehaus",
+        "name": "Dreifaltigkeitskirche",
         "place": "Schongau",
-        "address": "Blumenstr. 5"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-18",
@@ -2029,6 +2071,12 @@
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
         }
@@ -2088,58 +2136,15 @@
       "misses": 0
     },
     {
-      "id": "2026-11-18-qi-gong-bewegungs-gottesdienst-mit-abendmahl-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Qi-Gong-Bewegungs-Gottesdienst mit Abendmahl",
-        "en": "Qi Gong Movement Service with Communion"
-      },
-      "description": {
-        "de": "Besonderer Gottesdienst mit Qi-Gong-Bewegung und Abendmahl.",
-        "en": "Special service combining Qi Gong movement and Communion."
-      },
-      "venue": {
-        "name": "Dreifaltigkeitskirche",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-18",
-        "end_date": null,
-        "start_time": "19:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
       "id": "2026-11-18-vortrag-die-einheit-der-stadt-die-stadt-als-schongau",
       "parent_id": null,
       "title": {
         "de": "Die Einheit der Stadt – die Stadt als Einheit",
-        "en": "The Unity of the City – the City as Unity"
+        "en": "The Unity of the Town – the Town as a Unity"
       },
       "description": {
-        "de": "Vortrag im Ballenhaus.",
-        "en": "Talk at the Ballenhaus."
+        "de": "Vortrag über die Stadtmauer als verbindendes Element der Stadt.",
+        "en": "Talk on the town wall as a unifying element of the town."
       },
       "venue": {
         "name": "Ballenhaus",
@@ -2166,7 +2171,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/die-einheit-der-stadt-die-stadt-als-einheit-e109fc80c8c07267caf5d79ac0349e166.html",
@@ -2208,20 +2213,20 @@
       "parent_id": null,
       "title": {
         "de": "Jugendschwimm-Abzeichen Abnahmetermin",
-        "en": "Youth Swimming Badge Test Day"
+        "en": "Youth Swimming Badge Examination"
       },
       "description": {
-        "de": "Abnahme der Jugendschwimmabzeichen im Plantsch.",
-        "en": "Youth swimming badge tests at Plantsch."
+        "de": "Abnahme der Jugendschwimm-Abzeichen im Plantsch Schongau.",
+        "en": "Youth swimming badge tests at the Plantsch pool in Schongau."
       },
       "venue": {
         "name": "Plantsch",
         "place": "Schongau",
-        "address": null
+        "address": "Lechuferstraße 6, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-11-19",
-        "end_date": null,
+        "end_date": "2026-11-19",
         "start_time": "15:00",
         "end_time": "17:00",
         "all_day": false,
@@ -2251,21 +2256,21 @@
       "id": "2026-11-19-vorstellung-notfallmappe-schongau",
       "parent_id": null,
       "title": {
-        "de": "Vorstellung der Notfallmappe",
+        "de": "Vorstellung Notfallmappe",
         "en": "Presentation of the Emergency Folder"
       },
       "description": {
-        "de": "Vorstellung der Notfallmappe mit der Seniorenfachstelle für Senioren im Sitzungssaal des Rathauses.",
-        "en": "Presentation of the emergency folder with the senior office for seniors in the town hall council room."
+        "de": "Die Seniorenfachstelle stellt eine Notfallmappe und ihre Angebote für Senioren vor.",
+        "en": "The senior advice office presents an emergency folder and its services for seniors."
       },
       "venue": {
-        "name": "Rathaus, Sitzungssaal",
+        "name": "Sitzungssaal des Rathauses",
         "place": "Schongau",
         "address": null
       },
       "schedule": {
         "start_date": "2026-11-19",
-        "end_date": null,
+        "end_date": "2026-11-19",
         "start_time": "15:00",
         "end_time": null,
         "all_day": false,
@@ -2284,6 +2289,18 @@
           "primary": true,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -2295,11 +2312,11 @@
       "parent_id": null,
       "title": {
         "de": "Vorhang auf für Schongaus Geschichte! Eine lebendige Zeitreise in Kurzszenen",
-        "en": "Curtain up for Schongau's history! A living time travel in short scenes"
+        "en": "Curtain Up for Schongau's History! A Lively Journey in Short Scenes"
       },
       "description": {
-        "de": "Szenische Zeitreise durch die Schongauer Geschichte in der Realschule.",
-        "en": "Staged scenes through Schongau's history at the Realschule."
+        "de": "Kurzszenen zur Stadtgeschichte, gespielt von einer Theatergruppe der Realschule.",
+        "en": "Short scenes on local history performed by a school drama group."
       },
       "venue": {
         "name": "Pfaffenwinkel-Realschule",
@@ -2327,7 +2344,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -2367,6 +2384,55 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-19-eucharistische-anbetung-der-kolpingsfamilie-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Eucharistische Anbetung der Kolpingsfamilie",
+        "en": "Eucharistic Adoration by Kolping"
+      },
+      "description": {
+        "de": "Eucharistische Anbetung nach der Abendmesse, gestaltet von der Kolpingsfamilie.",
+        "en": "Eucharistic adoration after the evening mass, organised by the Kolping family."
+      },
+      "venue": {
+        "name": "Pfarrkirche Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-19",
+        "end_date": null,
+        "start_time": "18:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
       "misses": 0
     },
@@ -2411,7 +2477,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -2481,11 +2547,11 @@
       "parent_id": null,
       "title": {
         "de": "Spielenachmittag für 10-13 Jährige",
-        "en": "Games afternoon for 10-13 year olds"
+        "en": "Games Afternoon for Ages 10-13"
       },
       "description": {
-        "de": "Spielenachmittag in der Bücherei am Münztor.",
-        "en": "Games afternoon at the Bücherei am Münztor library."
+        "de": "Brettspiele in der Bücherei für 10- bis 13-Jährige, ohne Anmeldung.",
+        "en": "Board games at the library for ages 10 to 13, no registration needed."
       },
       "venue": {
         "name": "Bücherei am Münztor",
@@ -2530,7 +2596,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "https://veranstaltungen.erlebe.bayern/schongau/",
@@ -2559,12 +2625,12 @@
       "id": "2026-11-20-ea-schongau-erv-schweinfurt",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau vs. ERV Schweinfurt",
-        "en": "EA Schongau vs. ERV Schweinfurt"
+        "de": "Eishockey: EA Schongau vs. ERV Schweinfurt",
+        "en": "Ice hockey: EA Schongau vs. ERV Schweinfurt"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der ersten Mannschaft des EA Schongau gegen ERV Schweinfurt.",
-        "en": "Ice hockey home game of EA Schongau's first team against ERV Schweinfurt."
+        "de": "Heimspiel der 1. Mannschaft des EA Schongau.",
+        "en": "Home game of EA Schongau's first team."
       },
       "venue": {
         "name": null,
@@ -2609,7 +2675,7 @@
       "parent_id": null,
       "title": {
         "de": "Film: Chopin – Eine Sonate in Paris",
-        "en": "Film: Chopin – A Sonata in Paris"
+        "en": "Film: Chopin – Eine Sonate in Paris"
       },
       "description": {
         "de": "Filmvorführung im Lagerhaus-Kino Schongau.",
@@ -2658,20 +2724,20 @@
       "parent_id": null,
       "title": {
         "de": "Mit Wein, Weib und Wacht durch die Schongauer Nacht",
-        "en": "Night watchman tour: Wine, Women and Watch through Schongau's night"
+        "en": "Night Watchman Tour with Wine through Schongau"
       },
       "description": {
-        "de": "Nachtwächter-Rundgang mit Liedern, Wirtshauskontrollen und Geschichten, inkl. Getränk an vier Stationen. 22 €.",
-        "en": "Night watchman walk with songs, tavern checks and stories, drinks at four stations included. €22."
+        "de": "Nachtwächter-Rundgang durch die Altstadt mit Geschichten und Wein oder Bier an vier Stationen; alkoholfreie Option.",
+        "en": "Night watchman walk through the old town with stories and wine or beer at four stations; non-alcoholic option."
       },
       "venue": {
-        "name": "Tourist Information",
+        "name": "Tourist Information Schongau",
         "place": "Schongau",
         "address": "Weinstraße 11"
       },
       "schedule": {
         "start_date": "2026-11-20",
-        "end_date": null,
+        "end_date": "2026-11-20",
         "start_time": "20:00",
         "end_time": null,
         "all_day": false,
@@ -2800,16 +2866,16 @@
       "parent_id": null,
       "title": {
         "de": "Adventsbasar",
-        "en": "Advent bazaar"
+        "en": "Advent Bazaar"
       },
       "description": {
-        "de": "Adventsbasar im Pfarrheim Verklärung Christi.",
-        "en": "Advent bazaar at the parish hall Verklärung Christi."
+        "de": "Basar mit Kaffee, Punsch, Kuchen, Waffeln, Handwerk und fairem Handel; Musik der Musikschule Pfaffenwinkel; Samstag Segnung der Adventskränze.",
+        "en": "Bazaar with coffee, punch, cake, waffles, crafts and fair trade goods; music by the Musikschule Pfaffenwinkel; wreath blessing on Saturday."
       },
       "venue": {
-        "name": "Katholisches Pfarrheim Verklärung Christi",
+        "name": "Pfarrsaal Verklärung Christi",
         "place": "Schongau",
-        "address": "Schönlinderstr. 37, 86956 Schongau"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-21",
@@ -2823,21 +2889,21 @@
         ],
         "opening_hours": [
           {
-            "days": "sat",
+            "days": "2026-11-21",
             "from": "13:00",
-            "to": "18:00"
+            "to": "17:00"
           },
           {
-            "days": "sun",
+            "days": "2026-11-22",
             "from": "11:00",
-            "to": "17:00"
+            "to": "16:00"
           }
         ]
       },
       "primary_tag": "market-festival",
       "tags": [
         "market-festival",
-        "religion"
+        "food-drink"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -2852,7 +2918,7 @@
           "url": "https://www.pg-schongau.com/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/adventsbasar-e42e6d16fbcdd5b4aea18dd174af4c797.html",
@@ -2901,6 +2967,18 @@
           "primary": false,
           "first_seen": "2026-11-11",
           "last_seen": "2026-11-11"
+        },
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-09",
@@ -2912,11 +2990,11 @@
       "parent_id": null,
       "title": {
         "de": "Krippenspiel-Probe",
-        "en": "Nativity Play Rehearsal"
+        "en": "Nativity play rehearsal"
       },
       "description": {
         "de": "Probe für das Krippenspiel in der Dreifaltigkeitskirche.",
-        "en": "Rehearsal for the nativity play at Dreifaltigkeitskirche."
+        "en": "Rehearsal for the nativity play at the Dreifaltigkeitskirche."
       },
       "venue": {
         "name": "Dreifaltigkeitskirche",
@@ -2962,8 +3040,8 @@
         "en": "Bowling: District qualifier Seniors A"
       },
       "description": {
-        "de": "Bezirksvorentscheid der Senioren A bei SKK Schwarz-Gelb Schongau.",
-        "en": "District qualifying round for Seniors A hosted by SKK Schwarz-Gelb Schongau."
+        "de": "Bezirksvorentscheid der Senioren A in Schongau.",
+        "en": "District qualifying round for Seniors A in Schongau."
       },
       "venue": {
         "name": null,
@@ -3001,11 +3079,11 @@
       "id": "2026-11-21-plantsch-friends-vollmond-saunanacht-schongau",
       "parent_id": null,
       "title": {
-        "de": "Vollmond-Saunanacht „Plantsch & Friends“",
-        "en": "Full Moon Sauna Night 'Plantsch & Friends'"
+        "de": "Plantsch & Friends Vollmond-Saunanacht",
+        "en": "Plantsch & Friends full-moon sauna night"
       },
       "description": {
-        "de": "Saunanacht mit langer Öffnung bis 23 Uhr.",
+        "de": "Saunanacht mit verlängerter Öffnungszeit bis 23 Uhr.",
         "en": "Sauna night with extended opening until 11 pm."
       },
       "venue": {
@@ -3045,11 +3123,11 @@
       "parent_id": null,
       "title": {
         "de": "FKK-Badenacht mit Lampion-Schwimmen",
-        "en": "Nude Swimming Night with Lantern Swimming"
+        "en": "Naturist swim night with lantern swimming"
       },
       "description": {
-        "de": "Abendliche Badenacht mit Lampion-Schwimmen im Plantsch.",
-        "en": "Evening swimming night with lantern swimming at Plantsch."
+        "de": "Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Swim night with lantern swimming at Plantsch."
       },
       "venue": {
         "name": "Plantsch",
@@ -3065,9 +3143,10 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "party",
+      "primary_tag": "sports",
       "tags": [
-        "party"
+        "sports",
+        "family-kids"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -3087,12 +3166,12 @@
       "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
       "parent_id": null,
       "title": {
-        "de": "Gottesdienst zum Ewigkeitssonntag",
-        "en": "Eternity Sunday Service"
+        "de": "Ewigkeitssonntag-Gottesdienst",
+        "en": "Eternity Sunday service"
       },
       "description": {
-        "de": "Gedenkgottesdienst für die im vergangenen Jahr Verstorbenen.",
-        "en": "Memorial service for those who died in the past year."
+        "de": "Gedenken an die im letzten Jahr Verstorbenen.",
+        "en": "Remembrance of those who died in the past year."
       },
       "venue": {
         "name": "Dreifaltigkeitskirche",
@@ -3136,12 +3215,12 @@
       "id": "2026-11-22-oekumenischer-gedenkgottesdienst-seniorenheim-schongau",
       "parent_id": null,
       "title": {
-        "de": "Ökumenischer Gedenkgottesdienst Seniorenheim Heiliggeist",
-        "en": "Ecumenical Memorial Service, Heiliggeist Senior Home"
+        "de": "Ökumenischer Gottesdienst mit Gedenken (Seniorenheim Heiliggeist)",
+        "en": "Ecumenical remembrance service (Heiliggeist care home)"
       },
       "description": {
-        "de": "Ökumenischer Gottesdienst mit Gedenken an die Verstorbenen.",
-        "en": "Ecumenical service remembering the deceased."
+        "de": "Ökumenischer Gedenkgottesdienst im Seniorenheim.",
+        "en": "Ecumenical remembrance service at the care home."
       },
       "venue": {
         "name": "Seniorenheim Heiliggeist",
@@ -3176,15 +3255,64 @@
       "misses": 0
     },
     {
+      "id": "2026-11-22-oekumenische-gedenkfeier-fuer-verstorbene-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner",
+        "en": "Ecumenical Memorial Service for Deceased Residents"
+      },
+      "description": {
+        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner im Altenheim.",
+        "en": "Ecumenical memorial service for deceased care home residents."
+      },
+      "venue": {
+        "name": "Altenheim",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "15:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
       "id": "2026-11-22-ea-schongau-1b-sg-senden-burgau",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau 1b vs. SG Senden/Burgau",
-        "en": "EA Schongau 1b vs. SG Senden/Burgau"
+        "de": "Eishockey: EA Schongau 1b vs. SG Senden/Burgau",
+        "en": "Ice hockey: EA Schongau 1b vs. SG Senden/Burgau"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der 1b-Mannschaft gegen SG Senden/Burgau.",
-        "en": "Ice hockey home game of the 1b team against SG Senden/Burgau."
+        "de": "Heimspiel der 1b-Mannschaft.",
+        "en": "Home game of the 1b team."
       },
       "venue": {
         "name": null,
@@ -3219,18 +3347,74 @@
       "misses": 0
     },
     {
+      "id": "2026-11-22-benefizkonzert-mozart-messe-b-dur-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Benefizkonzert zum Ausklang des Kirchenjahres",
+        "en": "Benefit Concert for the End of the Church Year"
+      },
+      "description": {
+        "de": "Kirchenchor, Solisten und Orchester unter Andreas Wiesmann spielen u. a. Mozarts Messe in B-Dur (KV 275); Eintritt frei, Spenden für neue Glocken.",
+        "en": "Church choir, soloists and orchestra play Mozart's Mass in B-flat major among others; free entry, donations for new bells."
+      },
+      "venue": {
+        "name": "Pfarrkirche Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "19:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
       "id": "2026-11-23-oekumenischer-gedenkgottesdienst-marie-eberth-schongau",
       "parent_id": null,
       "title": {
-        "de": "Ökumenischer Gedenkgottesdienst Marie-Eberth-Seniorenheim",
-        "en": "Ecumenical Memorial Service, Marie-Eberth Senior Home"
+        "de": "Ökumenischer Gottesdienst mit Gedenken (Marie-Eberth-Seniorenheim)",
+        "en": "Ecumenical remembrance service (Marie-Eberth care home)"
       },
       "description": {
-        "de": "Ökumenischer Gottesdienst mit Gedenken an die Verstorbenen.",
-        "en": "Ecumenical service remembering the deceased."
+        "de": "Ökumenischer Gedenkgottesdienst im Seniorenheim.",
+        "en": "Ecumenical remembrance service at the care home."
       },
       "venue": {
-        "name": "Marie-Eberth-Seniorenheim",
+        "name": "Marie-Eberth Seniorenheim",
         "place": "Schongau",
         "address": null
       },
@@ -3265,17 +3449,17 @@
       "id": "2026-11-25-gottesdienst-mit-vivace-oekumenischer-chor-schongau",
       "parent_id": null,
       "title": {
-        "de": "Vivace-Chor: Gestaltung des katholischen Gottesdienstes",
-        "en": "Vivace Choir: Catholic Service Music"
+        "de": "Gottesdienst mit Vivace Chor",
+        "en": "Service with Vivace Choir"
       },
       "description": {
-        "de": "Der Vivace Chor gestaltet den Gottesdienst in Verklärung Christi musikalisch.",
-        "en": "The Vivace choir provides the music for the service at Verklärung Christi."
+        "de": "Musikalische Gestaltung des Gottesdienstes durch den Vivace Chor.",
+        "en": "Vivace choir provides music for the service."
       },
       "venue": {
         "name": "Verklärung Christi",
         "place": "Schongau",
-        "address": null
+        "address": "Schönlinder Str. 39, Schongau"
       },
       "schedule": {
         "start_date": "2026-11-25",
@@ -3359,17 +3543,17 @@
       "id": "2026-11-25-jahreshauptversammlung-skiclub-schongau",
       "parent_id": null,
       "title": {
-        "de": "80. Jahreshauptversammlung SC Schongau",
-        "en": "80th Annual General Meeting SC Schongau"
+        "de": "Jahreshauptversammlung Ski-Club SC Schongau",
+        "en": "SC Schongau Ski Club Annual General Meeting"
       },
       "description": {
-        "de": "Jahreshauptversammlung des Ski-Clubs Schongau.",
-        "en": "Annual general meeting of the Ski Club Schongau."
+        "de": "80. Jahreshauptversammlung des Ski-Clubs.",
+        "en": "80th annual general meeting of the ski club."
       },
       "venue": {
         "name": "Gasthaus Baska zum Lindauer",
         "place": "Schongau",
-        "address": "Löwenstraße 7"
+        "address": "Löwenstraße 7, Schongau"
       },
       "schedule": {
         "start_date": "2026-11-25",
@@ -3380,9 +3564,9 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "sports",
       "tags": [
-        "talk-workshop"
+        "sports"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -3403,20 +3587,20 @@
       "parent_id": null,
       "title": {
         "de": "Junge Künstler in Concert",
-        "en": "Young Artists in Concert"
+        "en": "Junge Künstler in Concert"
       },
       "description": {
-        "de": "Vorspiel der Schüler der Musikschule Pfaffenwinkel im Musikschul-Saal, Eintritt frei.",
-        "en": "Recital by Musikschule Pfaffenwinkel students in the school's hall, free admission."
+        "de": "Vorspiel von Schülerinnen und Schülern der Musikschule im Saal, Eintritt frei.",
+        "en": "Recital by music school students in the school's hall, free admission."
       },
       "venue": {
-        "name": "Musikschule Saal",
+        "name": "Musikschule Pfaffenwinkel, Saal im 3. Stock",
         "place": "Schongau",
         "address": "Marienplatz 7, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-11-25",
-        "end_date": null,
+        "end_date": "2026-11-25",
         "start_time": "18:30",
         "end_time": "19:30",
         "all_day": false,
@@ -3477,24 +3661,14 @@
         ],
         "opening_hours": [
           {
-            "days": "thu",
+            "days": "2026-11-26,2026-11-28,2026-11-30",
             "from": "20:00",
             "to": "20:00"
           },
           {
-            "days": "sat",
-            "from": "20:00",
-            "to": "20:00"
-          },
-          {
-            "days": "sun",
+            "days": "2026-11-29",
             "from": "18:00",
             "to": "18:00"
-          },
-          {
-            "days": "mon",
-            "from": "20:00",
-            "to": "20:00"
           }
         ]
       },
@@ -3521,11 +3695,11 @@
       "parent_id": null,
       "title": {
         "de": "Gemeindenachmittag: Woher kommt unser Trinkwasser?",
-        "en": "Parish Afternoon: Where Does Our Drinking Water Come From?"
+        "en": "Parish afternoon: Where does our drinking water come from?"
       },
       "description": {
-        "de": "Vortrag von Werner Schmitt über die Herkunft des Trinkwassers.",
-        "en": "Talk by Werner Schmitt on the sources of our drinking water."
+        "de": "Vortrag von Werner Schmitt im Evangelischen Gemeindehaus.",
+        "en": "Talk by Werner Schmitt at the Protestant parish hall."
       },
       "venue": {
         "name": "Evang. Gemeindehaus",
@@ -3609,6 +3783,65 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-ins-licht-gerueckt-taschenlampenfuehrung-st-anna-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Ins Licht gerückt – Taschenlampenführung St. Anna",
+        "en": "Ins Licht gerückt – Flashlight Tour of St. Anna"
+      },
+      "description": {
+        "de": "Abendführung durch die dunkle Spitalkirche St. Anna, Kunstwerke im Taschenlampenlicht, Abschluss mit Musik und Kerzenschein.",
+        "en": "Evening tour of St. Anna church in the dark, art lit by flashlight, ending with music and candlelight."
+      },
+      "venue": {
+        "name": "Heilig-Geist-Spitalkirche St. Anna",
+        "place": "Schongau",
+        "address": "Karmeliterstraße 6"
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": "2027-02-12",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-27",
+          "2027-01-06",
+          "2027-02-12"
+        ],
+        "opening_hours": [
+          {
+            "days": "2026-11-27,2027-01-06",
+            "from": "18:00",
+            "to": "18:00"
+          },
+          {
+            "days": "2027-02-12",
+            "from": "19:00",
+            "to": "19:00"
+          }
+        ]
+      },
+      "primary_tag": "art-culture",
+      "tags": [
+        "art-culture",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-kino-die-blutgraefin-schongau",
       "parent_id": null,
       "title": {
@@ -3639,29 +3872,14 @@
         ],
         "opening_hours": [
           {
-            "days": "fri",
+            "days": "2026-11-27,2026-11-29,2026-12-01,2026-12-02",
             "from": "20:00",
             "to": "20:00"
           },
           {
-            "days": "sat",
+            "days": "2026-11-28",
             "from": "17:30",
             "to": "17:30"
-          },
-          {
-            "days": "sun",
-            "from": "20:00",
-            "to": "20:00"
-          },
-          {
-            "days": "tue",
-            "from": "20:00",
-            "to": "20:00"
-          },
-          {
-            "days": "wed",
-            "from": "20:00",
-            "to": "20:00"
           }
         ]
       },
@@ -3736,8 +3954,8 @@
         "en": "Themed Tour \"In's Licht gerückt\""
       },
       "description": {
-        "de": "Führung in der St.-Anna-Kirche (Heilig-Geist-Kirche).",
-        "en": "Guided tour in St. Anna church (Holy Spirit church)."
+        "de": "Abendführung durch die dämmrige Heilig-Geist-Kirche mit Blick auf einzelne Kunstwerke.",
+        "en": "Evening tour of the dimly lit Heilig-Geist church focusing on individual artworks."
       },
       "venue": {
         "name": "Klosterhof des Heilig-Geist-Spitals",
@@ -3759,7 +3977,8 @@
       },
       "primary_tag": "art-culture",
       "tags": [
-        "art-culture"
+        "art-culture",
+        "talk-workshop"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -3818,15 +4037,71 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-taylor-tone-show-2026-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Taylor Tone Show",
+        "en": "Taylor Tone Show"
+      },
+      "description": {
+        "de": "Vorführung der Taylor-Gitarren mit Experte Simon Tächl, Live-Demos, Ausprobieren und Verlosung einer GS Mini. Eintritt frei, Anmeldung erforderlich.",
+        "en": "Showcase of Taylor guitars with expert Simon Tächl, live demos, try-outs and a GS Mini raffle. Free entry, registration required."
+      },
+      "venue": {
+        "name": "Musikhaus Kirstein",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": "2026-11-27",
+        "start_time": "18:30",
+        "end_time": "21:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "http://www.kirstein.de/Termine/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.instagram.com/p/DfonND4GyFj/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-weihnachtsbasteln-mit-buechern-fuer-erwachsene-schongau",
       "parent_id": null,
       "title": {
         "de": "Weihnachtsbasteln mit Büchern für Erwachsene",
-        "en": "Christmas crafting with books for adults"
+        "en": "Christmas Crafting with Books for Adults"
       },
       "description": {
-        "de": "Bastelabend für Erwachsene in der Bücherei.",
-        "en": "Crafting evening for adults at the library."
+        "de": "Zweistündiges Basteln von Sternen für Weihnachten in der Bücherei.",
+        "en": "Two-hour craft session making Christmas stars at the library."
       },
       "venue": {
         "name": "Bücherei am Münztor",
@@ -3891,18 +4166,61 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-balkan-party-mit-dj-sasha-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Balkan Party mit DJ Sasha",
+        "en": "Balkan Party with DJ Sasha"
+      },
+      "description": {
+        "de": "Balkan-Party mit DJ Sasha im Reaktor. Eintritt 6 Euro.",
+        "en": "Balkan party with DJ Sasha at Reaktor. Entry 6 euros."
+      },
+      "venue": {
+        "name": "Reaktor",
+        "place": "Schongau",
+        "address": "Schützenhausstr. 1"
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": "2026-11-27",
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DfhV81Sqc3L/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-ea-schongau-esc-dorfen",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau Mammuts – ESC Dorfen",
-        "en": "EA Schongau Mammuts vs ESC Dorfen"
+        "de": "Eishockey: EA Schongau Mammuts – ESC Dorfen",
+        "en": "Ice Hockey: EA Schongau Mammuts vs ESC Dorfen"
       },
       "description": {
-        "de": "Eishockey Bayernliga, Heimspiel der Mammuts.",
-        "en": "Ice hockey Bayernliga home game."
+        "de": "Bayernliga-Heimspiel der Mammuts gegen Dorfen.",
+        "en": "Bayernliga home game of the Mammuts against Dorfen."
       },
       "venue": {
-        "name": "Eisstadion Schongau",
+        "name": "EA Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -4028,8 +4346,8 @@
         "en": "Bowling: Men 4 vs. Eberfing G1"
       },
       "description": {
-        "de": "Heimspiel der Männer 4 von Schwarz-Gelb Schongau gegen Eberfing G1.",
-        "en": "Home match of Schwarz-Gelb Schongau men's team 4 against Eberfing G1."
+        "de": "Heimspiel der SKK Schwarz-Gelb Schongau.",
+        "en": "Home match of SKK Schwarz-Gelb Schongau."
       },
       "venue": {
         "name": null,
@@ -4071,8 +4389,8 @@
         "en": "Bowling: Men 3 vs. Oberdiessen 2"
       },
       "description": {
-        "de": "Heimspiel der Männer 3 von Schwarz-Gelb Schongau gegen Oberdiessen 2.",
-        "en": "Home match of Schwarz-Gelb Schongau men's team 3 against Oberdiessen 2."
+        "de": "Heimspiel der SKK Schwarz-Gelb Schongau.",
+        "en": "Home match of SKK Schwarz-Gelb Schongau."
       },
       "venue": {
         "name": null,
@@ -4114,8 +4432,8 @@
         "en": "Bowling: Women 1 vs. SpG Seeshaupt/Weilheim G4"
       },
       "description": {
-        "de": "Heimspiel der Frauen 1 von Schwarz-Gelb Schongau gegen SpG Seeshaupt/Weilheim G4.",
-        "en": "Home match of Schwarz-Gelb Schongau women's team 1 against SpG Seeshaupt/Weilheim G4."
+        "de": "Heimspiel der SKK Schwarz-Gelb Schongau.",
+        "en": "Home match of SKK Schwarz-Gelb Schongau."
       },
       "venue": {
         "name": null,
@@ -4153,12 +4471,12 @@
       "id": "2026-11-28-ea-schongau-u20-esv-buchloe",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau U20 vs. ESV Buchloe",
-        "en": "EA Schongau U20 vs. ESV Buchloe"
+        "de": "Eishockey: EA Schongau U20 vs. ESV Buchloe",
+        "en": "Ice hockey: EA Schongau U20 vs. ESV Buchloe"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der U20 gegen ESV Buchloe.",
-        "en": "Ice hockey home game of the U20 against ESV Buchloe."
+        "de": "Heimspiel der U20.",
+        "en": "Home game of the U20 team."
       },
       "venue": {
         "name": null,
@@ -4189,6 +4507,49 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-28-eule-allstars-band-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Eule Allstars Band",
+        "en": "Eule Allstars Band"
+      },
+      "description": {
+        "de": "Livekonzert der Eule Allstars Band im Reaktor. Abendkasse 10 Euro.",
+        "en": "Live concert by the Eule Allstars Band at Reaktor. Tickets 10 euros at the door."
+      },
+      "venue": {
+        "name": "Reaktor",
+        "place": "Schongau",
+        "address": "Schützenhausstr. 1"
+      },
+      "schedule": {
+        "start_date": "2026-11-28",
+        "end_date": "2026-11-28",
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/De9VsDKKFyf/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
       "misses": 0
     },
@@ -4284,11 +4645,11 @@
       "parent_id": null,
       "title": {
         "de": "Gottesdienst zum 1. Advent mit Vorstellung der Sekretärinnen",
-        "en": "First Advent Service with Introduction of Secretaries"
+        "en": "First Advent service with introduction of church secretaries"
       },
       "description": {
-        "de": "Adventsgottesdienst mit Vorstellung von Miriam Storf und Ingrid Anderl, danach Kaffee.",
-        "en": "Advent service introducing two secretaries, followed by coffee."
+        "de": "Adventsgottesdienst, anschließend Kaffee.",
+        "en": "First Advent service followed by coffee."
       },
       "venue": {
         "name": "Dreifaltigkeitskirche",
@@ -4326,15 +4687,15 @@
       "id": "2026-11-29-ea-schongau-esv-burgau-2000",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau Mammuts – ESV Burgau 2000",
-        "en": "EA Schongau Mammuts vs ESV Burgau 2000"
+        "de": "Eishockey: EA Schongau Mammuts – ESV Burgau 2000",
+        "en": "Ice Hockey: EA Schongau Mammuts vs ESV Burgau 2000"
       },
       "description": {
-        "de": "Eishockey Bayernliga, Heimspiel der Mammuts.",
-        "en": "Ice hockey Bayernliga home game."
+        "de": "Bayernliga-Heimspiel der Mammuts gegen Burgau.",
+        "en": "Bayernliga home game of the Mammuts against Burgau."
       },
       "venue": {
-        "name": "Eisstadion Schongau",
+        "name": "EA Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -4369,12 +4730,12 @@
       "id": "2026-11-30-betriebsbesichtigung-glaser-huber-schongau",
       "parent_id": null,
       "title": {
-        "de": "Kolping: Betriebsbesichtigung bei Glaser Huber",
-        "en": "Kolping: Company Tour at Glaser Huber"
+        "de": "Betriebsbesichtigung Glaser Huber",
+        "en": "Company tour at Glaser Huber"
       },
       "description": {
-        "de": "Betriebsbesichtigung mit Imbiss der Kolpingsfamilie; Anmeldung bei Robert Huber erforderlich.",
-        "en": "Company tour with snack by the Kolping family; registration with Robert Huber required."
+        "de": "Besichtigung der Glaserei mit anschließender Brotzeit; Anmeldung bei Robert Huber.",
+        "en": "Tour of the glazier's workshop followed by a snack; registration required."
       },
       "venue": {
         "name": "Glaser Huber",
@@ -4463,11 +4824,11 @@
       "parent_id": null,
       "title": {
         "de": "Schongauer Weihnachtszauber",
-        "en": "Schongau Weihnachtszauber Christmas Market"
+        "en": "Schongauer Weihnachtszauber Christmas Market"
       },
       "description": {
-        "de": "Christkindlmarkt auf dem Marienplatz mit Kinderzug, Perchtenshow, Familientagen und Seniorennachmittag.",
-        "en": "Christmas market on Marienplatz with children's train, Perchten show, family days and senior afternoon."
+        "de": "Christkindlmarkt auf dem Marienplatz in der Altstadt mit Familientagen, Perchtenshow und Seniorennachmittag.",
+        "en": "Christmas market on Marienplatz in the old town with family days, Perchten show and senior afternoon."
       },
       "venue": {
         "name": "Marienplatz",
@@ -4501,6 +4862,11 @@
             "days": "sun",
             "from": "14:00",
             "to": "21:00"
+          },
+          {
+            "days": "2026-12-20",
+            "from": "14:00",
+            "to": "20:00"
           }
         ]
       },
@@ -4669,11 +5035,11 @@
       "parent_id": null,
       "title": {
         "de": "Öffentliches Meerjungfrauen-Schwimmen",
-        "en": "Public Mermaid Swimming"
+        "en": "Public mermaid swimming"
       },
       "description": {
-        "de": "Öffentliches Meerjungfrauen-Schwimmen am ersten Samstag des Monats.",
-        "en": "Public mermaid swimming on the first Saturday of the month."
+        "de": "Meerjungfrauen-Schwimmen für alle, jeden ersten Samstag im Monat.",
+        "en": "Mermaid swimming for everyone, every first Saturday of the month."
       },
       "venue": {
         "name": "Plantsch",
@@ -4712,12 +5078,12 @@
       "id": "2026-12-05-kolping-gedenktag-schongau",
       "parent_id": null,
       "title": {
-        "de": "Kolping-Gedenktag mit Nikolausbesuch",
-        "en": "Kolping Commemoration Day with St. Nicholas Visit"
+        "de": "Kolping-Gedenktag mit Adventsfeier",
+        "en": "Kolping Memorial Day with Advent gathering"
       },
       "description": {
-        "de": "Gottesdienst zum Gedenktag Adolph Kolpings, danach adventliches Beisammensein mit Nikolaus im Pfarrheim.",
-        "en": "Service for Adolph Kolping's memorial day, then Advent gathering with St. Nicholas."
+        "de": "Messe in der Heilig Geist Kirche, danach Adventsfeier im Pfarrheim mit Besuch des Nikolaus.",
+        "en": "Mass at Heilig Geist church, then Advent gathering with a visit from St. Nicholas."
       },
       "venue": {
         "name": "Heilig Geist Kirche / Pfarrheim Verklärung Christi",
@@ -4806,14 +5172,14 @@
       "parent_id": null,
       "title": {
         "de": "Kai und Funky von Ton Steine Scherben feat. Birte Volta",
-        "en": "Kai und Funky von Ton Steine Scherben feat. Birte Volta"
+        "en": "Kai and Funky of Ton Steine Scherben feat. Birte Volta"
       },
       "description": {
-        "de": "Konzert im Reaktor Sog in Schongau.",
-        "en": "Concert at Reaktor Sog in Schongau."
+        "de": "Konzert im Reaktor in Schongau.",
+        "en": "Concert at the Reaktor in Schongau."
       },
       "venue": {
-        "name": "Reaktor Sog",
+        "name": "Reaktor",
         "place": "Schongau",
         "address": null
       },
@@ -4867,11 +5233,11 @@
       "parent_id": null,
       "title": {
         "de": "25 Jahre Plantsch – Geburtstagsfeier",
-        "en": "25 Years of Plantsch – Birthday Celebration"
+        "en": "25 years of Plantsch – birthday celebration"
       },
       "description": {
-        "de": "Das Plantsch feiert sein 25-jähriges Bestehen mit allen Gästen.",
-        "en": "Plantsch celebrates its 25th anniversary with all guests."
+        "de": "Das Plantsch feiert sein 25-jähriges Bestehen mit seinen Gästen.",
+        "en": "Plantsch celebrates its 25th anniversary with its guests."
       },
       "venue": {
         "name": "Plantsch",
@@ -4911,11 +5277,11 @@
       "parent_id": null,
       "title": {
         "de": "Themenführung - Stadtführung im Advent",
-        "en": "Themed tour - Advent city tour"
+        "en": "Themed Tour - Advent Town Tour"
       },
       "description": {
-        "de": "Adventliche Stadtführung ab der Tourist Information.",
-        "en": "Advent city tour starting at the tourist information."
+        "de": "Adventlicher Rundgang durch stille Winkel der Altstadt inkl. Erasmuskapelle im Stadtmuseum.",
+        "en": "Advent walk through quiet corners of the old town including the Erasmus chapel in the town museum."
       },
       "venue": {
         "name": "Tourist Information",
@@ -4933,7 +5299,8 @@
       },
       "primary_tag": "art-culture",
       "tags": [
-        "art-culture"
+        "art-culture",
+        "outdoor"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -4995,15 +5362,15 @@
       "id": "2026-12-06-ea-schongau-ersc-amberg",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau Mammuts – ERSC Amberg",
-        "en": "EA Schongau Mammuts vs ERSC Amberg"
+        "de": "Eishockey: EA Schongau Mammuts – ERSC Amberg",
+        "en": "Ice Hockey: EA Schongau Mammuts vs ERSC Amberg"
       },
       "description": {
-        "de": "Eishockey Bayernliga, Heimspiel der Mammuts.",
-        "en": "Ice hockey Bayernliga home game."
+        "de": "Bayernliga-Heimspiel der Mammuts gegen Amberg.",
+        "en": "Bayernliga home game of the Mammuts against Amberg."
       },
       "venue": {
-        "name": "Eisstadion Schongau",
+        "name": "EA Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -5038,12 +5405,12 @@
       "id": "2026-12-07-familientag-auf-dem-weihnachtszauber-schongau",
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
-        "de": "Familientage Weihnachtszauber",
-        "en": "Family Days at the Weihnachtszauber"
+        "de": "Familientag Weihnachtszauber",
+        "en": "Family Day at the Christmas Market"
       },
       "description": {
-        "de": "Familientage auf dem Christkindlmarkt.",
-        "en": "Family days at the Christmas market."
+        "de": "Familientag auf dem Schongauer Weihnachtszauber.",
+        "en": "Family day at the Schongau Christmas market."
       },
       "venue": {
         "name": "Marienplatz",
@@ -5129,17 +5496,17 @@
       "id": "2026-12-10-gar-herrnmaessig-aufferbaut-mit-maurn-und-thuern-schongau",
       "parent_id": null,
       "title": {
-        "de": "Vortrag: Die Baugeschichte der Stadtmauer von Schongau",
-        "en": "Talk: Building History of Schongau's Town Wall"
+        "de": "Vortrag: Baugeschichte der Stadtmauer",
+        "en": "Talk: Construction History of the Town Wall"
       },
       "description": {
-        "de": "Vortrag der vhs im Rahmen der Jubiläumsreihe zur Baugeschichte der Schongauer Stadtmauer.",
-        "en": "vhs lecture in the anniversary series on the construction history of Schongau's town wall."
+        "de": "Vortrag zur Baugeschichte der Schongauer Stadtmauer mit ihren Türmen.",
+        "en": "Talk on the construction history of Schongau's town wall and its towers."
       },
       "venue": {
-        "name": "vhs Schongau",
+        "name": "Ballenhaus",
         "place": "Schongau",
-        "address": null
+        "address": "Marienplatz 2, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-12-10",
@@ -5232,11 +5599,11 @@
       "parent_id": null,
       "title": {
         "de": "Themenführung - Romantischer Advent in Schongau",
-        "en": "Themed tour - Romantic Advent in Schongau"
+        "en": "Themed Tour - Romantic Advent in Schongau"
       },
       "description": {
-        "de": "Adventsführung ab der Tourist Information.",
-        "en": "Advent tour starting at the tourist information."
+        "de": "Altstadtrundgang mit Adventslesungen und Livemusik am Polizeidienerturm.",
+        "en": "Old town walk with Advent readings and live music at the Polizeidienerturm."
       },
       "venue": {
         "name": "Tourist Information Schongau",
@@ -5257,7 +5624,8 @@
       },
       "primary_tag": "art-culture",
       "tags": [
-        "art-culture"
+        "art-culture",
+        "outdoor"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -5295,15 +5663,15 @@
       "id": "2026-12-11-ea-schongau-peissenberg-miners",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau Mammuts – Peissenberg Miners",
-        "en": "EA Schongau Mammuts vs Peissenberg Miners"
+        "de": "Eishockey: EA Schongau Mammuts – Peissenberg Miners",
+        "en": "Ice Hockey: EA Schongau Mammuts vs Peissenberg Miners"
       },
       "description": {
-        "de": "Eishockey Bayernliga, Heimspiel der Mammuts.",
-        "en": "Ice hockey Bayernliga home game."
+        "de": "Bayernliga-Heimspiel der Mammuts gegen Peißenberg.",
+        "en": "Bayernliga home game of the Mammuts against Peissenberg."
       },
       "venue": {
-        "name": "Eisstadion Schongau",
+        "name": "EA Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -5387,12 +5755,12 @@
       "id": "2026-12-12-perchtenshow-beim-weihnachtszauber-schongau",
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
-        "de": "Perchtenshow",
-        "en": "Perchten Show"
+        "de": "Perchtenshow Weihnachtszauber",
+        "en": "Perchten Show at the Christmas Market"
       },
       "description": {
-        "de": "Perchtenshow beim Schongauer Weihnachtszauber.",
-        "en": "Perchten show at the Weihnachtszauber."
+        "de": "Perchtenshow auf dem Schongauer Weihnachtszauber.",
+        "en": "Perchten show at the Schongau Christmas market."
       },
       "venue": {
         "name": "Marienplatz",
@@ -5401,7 +5769,7 @@
       },
       "schedule": {
         "start_date": "2026-12-12",
-        "end_date": null,
+        "end_date": "2026-12-12",
         "start_time": null,
         "end_time": null,
         "all_day": false,
@@ -5410,7 +5778,8 @@
       },
       "primary_tag": "market-festival",
       "tags": [
-        "market-festival"
+        "market-festival",
+        "art-culture"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -5474,12 +5843,12 @@
       "id": "2026-12-14-lebendiger-adventskalender-hl-kreuz-kapelle-schongau",
       "parent_id": null,
       "title": {
-        "de": "Lebendiger Adventskalender: Türchen der Kolpingsfamilie",
-        "en": "Living Advent Calendar: Kolping Door"
+        "de": "Lebendiger Adventskalender an der Hl. Kreuz Kapelle",
+        "en": "Living Advent calendar at Hl. Kreuz chapel"
       },
       "description": {
-        "de": "Kolpingsfamilie gestaltet ein Türchen beim Lebendigen Adventskalender von Schongau belebt e.V.",
-        "en": "Kolpingsfamilie hosts a door of the Living Advent Calendar by Schongau belebt e.V."
+        "de": "Die Kolpingsfamilie öffnet ihre Tür beim Lebendigen Adventskalender von Schongau belebt e.V.",
+        "en": "Kolping opens its door for the living Advent calendar of Schongau belebt e.V."
       },
       "venue": {
         "name": "Hl. Kreuz Kapelle",
@@ -5511,6 +5880,50 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-17-jugendschwimm-abzeichen-abnahmetermin-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Jugendschwimm-Abzeichen Abnahmetermin",
+        "en": "Youth Swimming Badge Examination"
+      },
+      "description": {
+        "de": "Abnahme der Jugendschwimm-Abzeichen im Plantsch Schongau.",
+        "en": "Youth swimming badge tests at the Plantsch pool in Schongau."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": "Lechuferstraße 6, 86956 Schongau"
+      },
+      "schedule": {
+        "start_date": "2026-12-17",
+        "end_date": "2026-12-17",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
+        }
+      ],
+      "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
       "misses": 0
     },
@@ -5568,11 +5981,11 @@
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
         "de": "Seniorennachmittag Weihnachtszauber",
-        "en": "Senior Afternoon at the Weihnachtszauber"
+        "en": "Senior Afternoon at the Christmas Market"
       },
       "description": {
-        "de": "Seniorennachmittag auf dem Christkindlmarkt.",
-        "en": "Senior afternoon at the Christmas market."
+        "de": "Seniorennachmittag auf dem Schongauer Weihnachtszauber.",
+        "en": "Senior afternoon at the Schongau Christmas market."
       },
       "venue": {
         "name": "Marienplatz",
@@ -5581,7 +5994,7 @@
       },
       "schedule": {
         "start_date": "2026-12-19",
-        "end_date": null,
+        "end_date": "2026-12-19",
         "start_time": null,
         "end_time": null,
         "all_day": false,
@@ -5611,11 +6024,11 @@
       "parent_id": null,
       "title": {
         "de": "Let it swing - Das Weihnachtskonzert der SOG-BigBand",
-        "en": "Let it swing - Christmas concert of the SOG BigBand"
+        "en": "Let it swing - Christmas Concert of the SOG-BigBand"
       },
       "description": {
-        "de": "Weihnachtskonzert der SOG-BigBand.",
-        "en": "Christmas concert by the SOG BigBand."
+        "de": "Weihnachtskonzert der SOG-BigBand im Jakob-Pfeiffer-Haus.",
+        "en": "Christmas concert by the SOG-BigBand at the Jakob-Pfeiffer-Haus."
       },
       "venue": {
         "name": "Jakob-Pfeiffer-Haus",
@@ -5659,17 +6072,17 @@
       "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
       "parent_id": null,
       "title": {
-        "de": "Ein Weihnachtsoratorium – Festlich Barocke Weihnachtsklänge",
+        "de": "Ein Weihnachtsoratorium – Festlich barocke Weihnachtsklänge",
         "en": "A Christmas Oratorio – Festive Baroque Christmas Sounds"
       },
       "description": {
-        "de": "Weihnachtsoratorium mit dem Chor der Stadt Schongau in der Kirche St. Anna, zwei Aufführungen am Vormittag und Abend.",
-        "en": "Christmas Oratorio with the Chor der Stadt Schongau at St. Anna church, two performances in the morning and evening."
+        "de": "Weihnachtskantaten von Christoph Graupner mit dem Chor der Stadt Schongau, Barockorchester und Solisten. Zwei Aufführungen: 11:00 und 17:00 Uhr.",
+        "en": "Christmas cantatas by Christoph Graupner with the Chor der Stadt Schongau, baroque orchestra and soloists. Two performances: 11:00 and 17:00."
       },
       "venue": {
-        "name": "St. Anna",
+        "name": "Heiliggeist-Spital-Kirche St. Anna",
         "place": "Schongau",
-        "address": null
+        "address": "Karmeliterstr. 6, Schongau"
       },
       "schedule": {
         "start_date": "2026-12-20",
@@ -5677,10 +6090,19 @@
         "start_time": null,
         "end_time": null,
         "all_day": false,
-        "dates": [
-          "2026-12-20"
-        ],
-        "opening_hours": null
+        "dates": null,
+        "opening_hours": [
+          {
+            "days": "2026-12-20",
+            "from": "11:00",
+            "to": "11:00"
+          },
+          {
+            "days": "2026-12-20",
+            "from": "17:00",
+            "to": "17:00"
+          }
+        ]
       },
       "primary_tag": "concert",
       "tags": [
@@ -5729,15 +6151,15 @@
       "id": "2026-12-20-ea-schongau-esc-geretsried",
       "parent_id": null,
       "title": {
-        "de": "EA Schongau – ESC Geretsried (Bayernliga)",
-        "en": "EA Schongau vs ESC Geretsried (Bayernliga)"
+        "de": "Eishockey: EA Schongau Mammuts – ESC Geretsried",
+        "en": "Ice Hockey: EA Schongau Mammuts vs ESC Geretsried"
       },
       "description": {
-        "de": "Eishockey-Heimspiel der Mammuts in der Bayernliga gegen ESC Geretsried.",
-        "en": "Ice hockey home game of the Mammuts in the Bayernliga against ESC Geretsried."
+        "de": "Bayernliga-Heimspiel der Mammuts gegen Geretsried.",
+        "en": "Bayernliga home game of the Mammuts against Geretsried."
       },
       "venue": {
-        "name": "Eisstadion Schongau",
+        "name": "EA Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -5761,11 +6183,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-11",
+      "last_verified": "2026-11-12",
       "misses": 0
     },
     {
@@ -5828,11 +6250,11 @@
         "en": "Forest Christmas"
       },
       "description": {
-        "de": "Gemeinsame Suche nach dem Jesuskind in der Krippe mit den Hirten.",
-        "en": "Joint search for the baby Jesus in the manger together with the shepherds."
+        "de": "Mit den Hirten das Jesuskind in der Krippe suchen; Treffpunkt Parkplatz im Forchet.",
+        "en": "Search for the baby Jesus with the shepherds; meeting point Forchet car park."
       },
       "venue": {
-        "name": "Parkplatz im Forchet, Säulingstr./Zugspitzstr.",
+        "name": "Parkplatz im Forchet, Säulingstr.",
         "place": "Schongau",
         "address": null
       },
@@ -5845,11 +6267,11 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "family-kids",
+      "primary_tag": "religion",
       "tags": [
-        "family-kids",
         "religion",
-        "outdoor"
+        "outdoor",
+        "family-kids"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -5913,11 +6335,11 @@
       "parent_id": null,
       "title": {
         "de": "Christmas-Party Vollmond-Saunanacht",
-        "en": "Christmas Party Full Moon Sauna Night"
+        "en": "Christmas party full-moon sauna night"
       },
       "description": {
-        "de": "Saunanacht mit Christmas-Party im Plantsch.",
-        "en": "Sauna night with Christmas party at Plantsch."
+        "de": "Saunanacht mit Weihnachtsparty, Öffnung bis 23 Uhr.",
+        "en": "Sauna night with Christmas party, open until 11 pm."
       },
       "venue": {
         "name": "Plantsch",
@@ -6054,11 +6476,11 @@
       "parent_id": null,
       "title": {
         "de": "Frauenwanderung",
-        "en": "Women's Winter Walk"
+        "en": "Women's winter hike"
       },
       "description": {
-        "de": "Etwa einstündige Winterwanderung mit geistlichen Stationen und Einkehr. Anmeldung bis 22.12.",
-        "en": "About one-hour winter walk with spiritual stops and a stop for refreshments."
+        "de": "Etwa einstündige Winterwanderung mit geistlichen Stationen; Treffpunkt Lechwirt, Anmeldung nötig.",
+        "en": "About one-hour winter hike with spiritual stops; meet at Lechwirt, registration required."
       },
       "venue": {
         "name": "Lechwirt, Lechvorstadt 2",
@@ -6076,7 +6498,8 @@
       },
       "primary_tag": "outdoor",
       "tags": [
-        "outdoor"
+        "outdoor",
+        "religion"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -6097,11 +6520,11 @@
       "parent_id": null,
       "title": {
         "de": "Silvesterparty für Familien mit Kindern",
-        "en": "New Year's Eve Party for Families"
+        "en": "New Year's Eve party for families"
       },
       "description": {
-        "de": "Silvesterfeier der Kolpingsfamilie für Familien mit Kindern, Details folgen.",
-        "en": "Kolpingsfamilie New Year's Eve party for families with children; details to follow."
+        "de": "Silvesterfeier für Familien mit Kindern der Kolpingsfamilie; weitere Infos folgen.",
+        "en": "Family New Year's Eve party by Kolping; more information to follow."
       },
       "venue": {
         "name": null,
@@ -6240,12 +6663,12 @@
       "id": "2027-01-04-eine-zauber-hafte-nacht-rauhnaechte-im-stadtmuseum-schongau",
       "parent_id": null,
       "title": {
-        "de": "Eine zauber-hafte Nacht! (Rauhnächte)",
-        "en": "A Magical Night! (Rauhnächte)"
+        "de": "Eine zauber-hafte Nacht! – Rauhnächte",
+        "en": "A Magical Night! – Rauhnächte Evening"
       },
       "description": {
-        "de": "Abend zu Rauhnacht-Bräuchen mit Museumsstücken, Verkostung und Live-Volksmusik; 15 €.",
-        "en": "Evening on Rauhnächte traditions with museum pieces, tasting and live folk music; €15."
+        "de": "Abend zu Rauhnacht-Brauchtum anhand von Museumsstücken, mit Verkostung und Live-Musik (Ziach, Gitarre, Zither, Harfe).",
+        "en": "Evening on Rauhnächte folklore via museum exhibits, with tasting and live music."
       },
       "venue": {
         "name": "Stadtmuseum Schongau",
@@ -6254,7 +6677,7 @@
       },
       "schedule": {
         "start_date": "2027-01-04",
-        "end_date": null,
+        "end_date": "2027-01-04",
         "start_time": "19:30",
         "end_time": null,
         "all_day": false,
@@ -6264,7 +6687,7 @@
       "primary_tag": "art-culture",
       "tags": [
         "art-culture",
-        "talk-workshop"
+        "concert"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -6462,25 +6885,30 @@
       "id": "2027-03-27-flohmarkt-schongau-festplatz",
       "parent_id": null,
       "title": {
-        "de": "Flohmarkt in Schongau am Festplatz",
-        "en": "Flea Market at the Festplatz Schongau"
+        "de": "Flohmarkt am Festplatz für Jedermann",
+        "en": "Flea Market at the Festplatz"
       },
       "description": {
-        "de": "Flohmarkt für Jedermann auf dem Festplatz.",
-        "en": "Flea market for everyone at the fairground."
+        "de": "Flohmarkt für Jedermann am Festplatz.",
+        "en": "Open flea market for everyone at the Festplatz."
       },
       "venue": {
-        "name": "Festplatz Schongau",
+        "name": "Festplatz",
         "place": "Schongau",
         "address": "Lechuferstrasse 4, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2027-03-27",
-        "end_date": null,
+        "end_date": "2027-08-28",
         "start_time": "07:00",
         "end_time": null,
         "all_day": false,
-        "dates": null,
+        "dates": [
+          "2027-03-27",
+          "2027-04-24",
+          "2027-06-26",
+          "2027-08-28"
+        ],
         "opening_hours": null
       },
       "primary_tag": "market-festival",
@@ -6494,7 +6922,7 @@
           "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-10"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-e3b88ae3c280189c8903df30a02cadb5c.html",
@@ -6506,17 +6934,17 @@
           "url": "https://meine-flohmarkt-termine.de/flohmarkt-in-schongau-am-festplatz-fur-jedermann/23872802/details",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-10"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-e3b88ae3c280189c8903df30a02cadb5c.html",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-10"
+          "last_seen": "2026-11-12"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-10",
+      "last_verified": "2026-11-12",
       "misses": 0
     },
     {
@@ -6574,21 +7002,21 @@
       "parent_id": null,
       "title": {
         "de": "Flohmarkt in Schongau am Festplatz",
-        "en": "Flea Market at the Festplatz Schongau"
+        "en": "Flea market at the Festplatz Schongau"
       },
       "description": {
-        "de": "Flohmarkt für Jedermann auf dem Festplatz.",
-        "en": "Flea market for everyone at the fairground."
+        "de": "Flohmarkt für Jedermann des Flohmarkt-Pfaffenwinkel am Festplatz.",
+        "en": "Open flea market by Flohmarkt-Pfaffenwinkel at the Festplatz."
       },
       "venue": {
-        "name": "Festplatz Schongau",
+        "name": "Festplatz",
         "place": "Schongau",
-        "address": "Lechuferstrasse 4, 86956 Schongau"
+        "address": "Lechuferstraße 4, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2027-04-24",
         "end_date": null,
-        "start_time": "07:00",
+        "start_time": null,
         "end_time": null,
         "all_day": false,
         "dates": null,
@@ -6611,7 +7039,7 @@
           "url": "https://meine-flohmarkt-termine.de/flohmarkt-in-schongau-am-festplatz-fur-jedermann/23872803/details",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-10"
+          "last_seen": "2026-11-12"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-e424fdb06d29e360132db5ed75a81b0a6.html",
@@ -6621,7 +7049,7 @@
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-10",
+      "last_verified": "2026-11-12",
       "misses": 0
     }
   ]

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T08:47:08Z",
+  "updated_at": "2026-11-12T09:54:51Z",
   "files": {
     "2444c78005282edc4ca286272d0ce808f5db6c7eac5a56556f52c1de39ed65e7": {
       "page_url": "https://www.reaktor-sog.de/",
@@ -1287,6 +1287,375 @@
             {
               "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
               "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "d9d0908198ce636a25d68e0dcedb3eb7114e2f7f6166dcf840dc657e47d9051b": {
+      "page_url": "https://www.pg-schongau.com/pfarrbrief/",
+      "file_url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Adventskranzbinden im Pfarrsaal",
+            "en": "Advent Wreath Binding"
+          },
+          "description": {
+            "de": "Basteltermine zum Binden der Adventskränze, Helfer gesucht; Kaffee und Kuchen vorhanden.",
+            "en": "Crafting sessions for binding Advent wreaths; helpers wanted, coffee and cake provided."
+          },
+          "venue": {
+            "name": "Pfarrsaal Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-16",
+            "end_date": "2026-11-18",
+            "start_time": "14:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-16",
+              "2026-11-17",
+              "2026-11-18"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Notfallmappe – Vorstellung der Seniorenfachstelle",
+            "en": "Emergency Folder – Presentation by Senior Services Office"
+          },
+          "description": {
+            "de": "Vorstellung der Notfallmappe durch die Seniorenfachstelle des Landratsamts; Anmeldung bei der Stadtverwaltung (Tel. 214-139).",
+            "en": "Presentation of the emergency folder by the district senior services office; registration via city administration."
+          },
+          "venue": {
+            "name": "Sitzungssaal im Rathaus",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-19",
+            "end_date": null,
+            "start_time": "15:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Eucharistische Anbetung der Kolpingsfamilie",
+            "en": "Eucharistic Adoration by Kolping"
+          },
+          "description": {
+            "de": "Eucharistische Anbetung nach der Abendmesse, gestaltet von der Kolpingsfamilie.",
+            "en": "Eucharistic adoration after the evening mass, organised by the Kolping family."
+          },
+          "venue": {
+            "name": "Pfarrkirche Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-19",
+            "end_date": null,
+            "start_time": "18:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Adventsbasar",
+            "en": "Advent Bazaar"
+          },
+          "description": {
+            "de": "Basar mit Kaffee, Punsch, Kuchen, Waffeln, Handwerk und fairem Handel; Musik der Musikschule Pfaffenwinkel; Samstag Segnung der Adventskränze.",
+            "en": "Bazaar with coffee, punch, cake, waffles, crafts and fair trade goods; music by the Musikschule Pfaffenwinkel; wreath blessing on Saturday."
+          },
+          "venue": {
+            "name": "Pfarrsaal Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-21",
+            "end_date": "2026-11-22",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-21",
+              "2026-11-22"
+            ],
+            "opening_hours": [
+              {
+                "days": "2026-11-21",
+                "from": "13:00",
+                "to": "17:00"
+              },
+              {
+                "days": "2026-11-22",
+                "from": "11:00",
+                "to": "16:00"
+              }
+            ]
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Benefizkonzert zum Ausklang des Kirchenjahres",
+            "en": "Benefit Concert for the End of the Church Year"
+          },
+          "description": {
+            "de": "Kirchenchor, Solisten und Orchester unter Andreas Wiesmann spielen u. a. Mozarts Messe in B-Dur (KV 275); Eintritt frei, Spenden für neue Glocken.",
+            "en": "Church choir, soloists and orchestra play Mozart's Mass in B-flat major among others; free entry, donations for new bells."
+          },
+          "venue": {
+            "name": "Pfarrkirche Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-22",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "Tauffamilientreffen mit Familienkirche",
+            "en": "Baptism Families Meeting with Family Church"
+          },
+          "description": {
+            "de": "Treffen der Tauffamilien mit Familienkirche in der Verklärung Christi.",
+            "en": "Meeting of baptism families with a family church service."
+          },
+          "venue": {
+            "name": "Pfarrkirche Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "14:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": null,
+          "title": {
+            "de": "Totenehrung am Kriegerdenkmal",
+            "en": "Memorial Ceremony at the War Memorial"
+          },
+          "description": {
+            "de": "Totenehrung im Klosterhof im Anschluss an den Pfarrgottesdienst um 10:00 Uhr, gestaltet von der Stadtkapelle.",
+            "en": "Memorial ceremony in the Klosterhof after the 10:00 parish service."
+          },
+          "venue": {
+            "name": "Klosterhof, Kriegerdenkmal",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e8",
+          "parent_ref": null,
+          "title": {
+            "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner",
+            "en": "Ecumenical Memorial Service for Deceased Residents"
+          },
+          "description": {
+            "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner im Altenheim.",
+            "en": "Ecumenical memorial service for deceased care home residents."
+          },
+          "venue": {
+            "name": "Altenheim",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-22",
+            "end_date": null,
+            "start_time": "15:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+              "primary": false
             }
           ]
         }
