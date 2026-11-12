@@ -1,5 +1,7 @@
-# Blacklist: domains that are never used as a source (passed as blocked_domains).
-# Format: list of { domain, reason }. Always wins over discovery results.
+# Blacklist. Always wins over discovery results. Two kinds of entries:
+# - { domain, reason }: never used as a source; also blocked for the AI's web access.
+# - { url, reason }: this page (and the pages below it) is not read as a known source,
+#   e.g. another front end of an event database that is already read elsewhere.
 - domain: "buehne10.ch"
   reason: "Cultural club in Schongau LU, Switzerland, not Schongau (Bavaria)."
 - domain: "schongau.ch"
@@ -34,3 +36,12 @@
   reason: "Returns HTTP 404."
 - domain: "marktcom.de"
   reason: "Returns HTTP 410 Gone."
+# Same RCE event database as veranstaltungen.pfaffen-winkel.de/<municipality>/, which is
+# read for every municipality (whitelist): in the data of 2026-11-11 every event from these
+# pages also came from Pfaffenwinkel, so reading them again only cost tokens.
+- url: "https://www.rce-event.de/output.php?id=1246"
+  reason: "Print list of the same RCE database as the Pfaffenwinkel calendar"
+- url: "https://veranstaltungen.erlebe.bayern/"
+  reason: "Same RCE database as the Pfaffenwinkel calendar (identical event IDs)"
+- url: "https://veranstaltungen.pfaffen-winkel.de/region/"
+  reason: "Regional overview of the same database, not filtered by place; the per-municipality pages are read"

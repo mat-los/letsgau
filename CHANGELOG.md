@@ -125,6 +125,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Fewer tokens per events run, same coverage:
+  - blacklist entries can be a `url` instead of a `domain`: such a page is not
+    read as a known source (for a second front end of an event database that is
+    already read elsewhere), while the domain stays usable;
+  - re-check calls leave out the known events that a source call of the same
+    run reported again, and are skipped when none remain;
+  - the open search defaults to 13 searches (one call) instead of 40, and every
+    run starts the query checklist at a different point, so over a few runs
+    every query is still run.
 - Open search: a call that stops before using its searches is no longer asked
   a second time. In a live run the second attempt repeated the same queries and
   found nothing new, at about $0.60 per run.

@@ -32,8 +32,8 @@ import sys
 import tempfile
 import time
 import unicodedata
-from collections.abc import Iterable, Sequence
-from dataclasses import dataclass, field
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass, field, replace
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -41,7 +41,7 @@ from urllib.parse import urlsplit
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 from letsgau import flyers, merge
 from letsgau.ai_runner import FILES_DIR, AiError, AiRequest, Runner, make_runner
@@ -129,8 +129,19 @@ class FlyerEntry(WhitelistEntry):
 
 
 class BlacklistEntry(_Strict):
-    domain: str = Field(pattern=r"^[a-z0-9.-]+\.[a-z]{2,}$")
+    """``domain``: never used as a source, also blocked for the AI's web access.
+    ``url``: this page (and the pages below it) is not read as a known source, for
+    example a second front end of an event database that is already read elsewhere."""
+
+    domain: str | None = Field(default=None, pattern=r"^[a-z0-9.-]+\.[a-z]{2,}$")
+    url: str | None = Field(default=None, pattern=r"^https?://\S+$")
     reason: str = ""
+
+    @model_validator(mode="after")
+    def _one_kind(self) -> BlacklistEntry:
+        if (self.domain is None) == (self.url is None):
+            raise ValueError("give either domain or url")
+        return self
 
 
 def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry)](
@@ -593,6 +604,30 @@ class CrawlCall:
     """Checklist part of a ``search`` call: (municipality, queries)."""
 
 
+def rotate_queries(
+    queries: Sequence[tuple[str, list[str]]], today: date
+) -> list[tuple[str, list[str]]]:
+    """The checklist starting at a different query in every run.
+
+    A search call usually runs only part of its checklist, so a fixed order would always
+    skip the same queries. Two runs a week (Monday and Thursday) start about half a list
+    apart, and over a few runs every query gets its turn. The order depends only on the
+    date, so a dry run on the same day plans the same queries.
+    """
+    flat = [(m, q) for m, items in queries for q in items]
+    if not flat:
+        return []
+    run = today.isocalendar().week * 2 + (1 if today.weekday() >= 3 else 0)
+    start = run * ((len(flat) + 1) // 2) % len(flat)
+    rotated: list[tuple[str, list[str]]] = []
+    for m, q in flat[start:] + flat[:start]:
+        if rotated and rotated[-1][0] == m:
+            rotated[-1][1].append(q)
+        else:
+            rotated.append((m, [q]))
+    return rotated
+
+
 def split_queries(
     queries: Sequence[tuple[str, list[str]]], parts: int
 ) -> list[list[tuple[str, list[str]]]]:
@@ -649,6 +684,17 @@ def plan_calls(
         CrawlCall("search")
     ]
     return calls
+
+
+def confirmed(known: Event, found: Mapping[str, Event], municipality_of: Mapping[str, str]) -> bool:
+    """True if an event found in this run is the known event (same id, or the same
+    match the merge would make)."""
+    if known.id in found:
+        return True
+    return any(
+        merge.candidate_score(event, known, municipality_of) >= merge.CLEAR
+        for event in found.values()
+    )
 
 
 def render_prompt(
@@ -769,7 +815,7 @@ def crawl(
         raise CrawlError("data/places.json is missing or empty; run `letsgau run --job geo` first")
     whitelist = _load_list(Path(config.sources.whitelist_file), WhitelistEntry)
     blacklist = _load_list(Path(config.sources.blacklist_file), BlacklistEntry)
-    blocked = sorted({e.domain for e in blacklist})
+    blocked = sorted({e.domain for e in blacklist if e.domain})
     existing = _load(data_dir / "events.json", EventsFile)
     known = [e for e in (existing.events if existing else []) if e.parent_id is None]
 
@@ -791,6 +837,7 @@ def crawl(
             [g.name for g in batch.groups],
             [w.url for w in batch.whitelist],
             limit=None if sweeps else discovery.MAX_KNOWN_PER_BATCH,
+            skip_prefixes=[e.url for e in blacklist if e.url],
         )
 
     budget = config.limits.max_web_searches_per_run
@@ -809,13 +856,14 @@ def crawl(
 
     deep_end = today + timedelta(days=config.window.deep_check_days)
     window_end = today + timedelta(days=config.window.crawl_days)
+    municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
     plan = [
         (batch, call)
         for batch in batches
         for call in plan_calls(
             batch,
             sweeps,
-            queries=search_queries(batch.groups, today, window_end),
+            queries=rotate_queries(search_queries(batch.groups, today, window_end), today),
             recheck=[e for e in batch.known if e.schedule.start_date <= deep_end],
             search_calls=max(
                 1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
@@ -842,6 +890,22 @@ def crawl(
         if clock() > deadline:
             _skip(report, prefix + "skipped: max_runtime_minutes reached")
             continue
+        if call.mode == "recheck":
+            # the source calls of this run read the same pages: an event they reported
+            # again is confirmed, only the others need a look at their own source
+            open_events = [e for e in call.events if not confirmed(e, events, municipality_of)]
+            if not open_events:
+                _log(
+                    f"batch {batch.number}: {prefix}skipped, all {len(call.events)} events "
+                    "confirmed by the source reading"
+                )
+                continue
+            if len(open_events) < len(call.events):
+                _log(
+                    f"batch {batch.number}: {prefix}{len(call.events) - len(open_events)} of "
+                    f"{len(call.events)} events confirmed by the source reading"
+                )
+            call = replace(call, events=open_events)
         if call.mode == "flyers":
             _run_flyer_call(
                 config,
@@ -942,7 +1006,6 @@ def crawl(
         if report.error is None:
             covered.update(p.name for p in batch.places)
             covered.update(g.name for g in batch.groups)
-    municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
     keep_after = today - timedelta(days=FLYER_CACHE_KEEP_DAYS)
     flyer_cache = flyer_cache.model_copy(
         update={
@@ -1205,7 +1268,7 @@ def run(
             discovery.load_sources(data_dir),
             result.events,
             result.municipality_of,
-            sorted({e.domain for e in blacklist}),
+            sorted({e.domain for e in blacklist if e.domain}),
             today,
         )
         discovery.save_sources(sources, data_dir)

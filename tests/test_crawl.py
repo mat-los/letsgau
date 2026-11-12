@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -581,7 +581,8 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
     urls = [f"https://club{i}.example/termine" for i in range(14)]  # more than the old cap of 12
     _sources_file(data_dir, urls)
     crawl.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)  # known events
-    runner = FakeRunner()
+    empty = {"events": [], "checked_sources": [], "notes": ""}
+    runner = FakeRunner(answers=[empty] * 10)  # the sweeps find none of the known events
     result = crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
 
     # 1 whitelist entry + 14 known sources in sweeps of 2 -> 8 sweeps, then the re-check of
@@ -612,6 +613,46 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
     assert runner.requests[8].max_searches == crawl.SWEEP_MAX_SEARCHES
     assert result.batches[0].calls == 10 and result.batches[0].error is None
     assert "Schongau" in result.covered_places
+
+
+def test_recheck_skips_events_the_source_reading_found_again(
+    tmp_path: Path, data_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    config = make_config(tmp_path, sweeps=4, places_per_request=8)
+    crawl.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)  # known events
+    stored = EventsFile.model_validate_json((data_dir / "events.json").read_text("utf-8"))
+    deep = [
+        e
+        for e in stored.events
+        if e.parent_id is None
+        and e.schedule.start_date <= TODAY + timedelta(days=config.window.deep_check_days)
+    ]
+    assert len(deep) >= 2
+
+    # all known events found again by the sweep: no re-check call at all
+    runner = FakeRunner(answers=[_answer(), {"events": []}])
+    crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    assert [r.step for r in runner.requests] == [
+        "events batch 1/1 (sources 1)",
+        "events batch 1/1 (search)",
+    ]
+    assert "skipped, all" in capsys.readouterr().err
+
+    # the sweep finds all but one: the re-check gets only that one
+    answer = _answer()
+    missing = deep[0]
+    answer["events"] = [c for c in answer["events"] if c["title"]["de"] != missing.title.de]
+    runner = FakeRunner(answers=[answer, {"events": []}, {"events": []}])
+    crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    steps = [r.step for r in runner.requests]
+    assert steps == [
+        "events batch 1/1 (sources 1)",
+        "events batch 1/1 (recheck)",
+        "events batch 1/1 (search)",
+    ]
+    recheck = runner.requests[1].prompt.split("## Known events to re-check")[1].split("##")[0]
+    assert missing.title.de in recheck
+    assert recheck.count("\n- ") == 1
 
 
 def test_failed_sweep_keeps_other_events_but_not_coverage(tmp_path: Path, data_dir: Path) -> None:
@@ -750,12 +791,10 @@ def test_cli_events_dry_run(
     out = capsys.readouterr().out
     assert "crawl: " in out and "dry run" in out
     # instance depth: one source sweep over the fixture whitelist, then the open search
-    # (40 searches) in 3 calls with a third of the checklist each
+    # (13 searches) in one call
     assert [r.step for r in runner.requests] == [
         "events batch 1/1 (sources 1)",
-        "events batch 1/1 (search 1)",
-        "events batch 1/1 (search 2)",
-        "events batch 1/1 (search 3)",
+        "events batch 1/1 (search)",
     ]
     assert not (tmp_path / "data" / "events.json").exists()
 
@@ -849,3 +888,19 @@ def test_cli_sources_lists_expanded_urls(
     assert "  404  https://veranstaltungen.pfaffen-winkel.de/peiting/" in out
     total = out.count("  200  ") + out.count("  404  ")  # the instance whitelist may grow
     assert f"{total - 1} of {total} sources reachable" in out
+
+
+def test_rotate_queries_starts_elsewhere_each_run() -> None:
+    queries = [("A", [f"a{i}" for i in range(6)]), ("B", [f"b{i}" for i in range(5)])]
+    flat = [q for _, items in queries for q in items]
+    monday, thursday = date(2026, 11, 16), date(2026, 11, 19)
+    starts = []
+    for day in (monday, thursday):
+        rotated = crawl.rotate_queries(queries, day)
+        order = [q for _, items in rotated for q in items]
+        assert sorted(order) == sorted(flat)  # every query once
+        assert order == flat[flat.index(order[0]) :] + flat[: flat.index(order[0])]  # rotation
+        starts.append(flat.index(order[0]))
+    assert abs(starts[0] - starts[1]) in (5, 6)  # about half a list apart
+    assert crawl.rotate_queries(queries, monday) == crawl.rotate_queries(queries, monday)
+    assert crawl.rotate_queries([], monday) == []
