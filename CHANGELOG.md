@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Films and other events shown on several days at a different time per day
+  show that day's start time in the day list (with "to <last day>" below)
+  and sort among the timed events; their details say "Today 20:00" instead
+  of "Open today 20:00–20:00".
+
 ### Changed
 
 - Instagram: the step runs last in each batch, so accounts found by the
