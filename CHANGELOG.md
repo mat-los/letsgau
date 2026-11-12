@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Instagram candidates: discovery's venues pass searches "<name> <town>
+  instagram" for cafés, bars and venues without a known account and reports
+  the names directory sites give as `instagram_candidates`. Each candidate is
+  checked against its profile (Graph API: name, biography, website) and kept
+  only if it names the municipality or links the organiser's website; rejected
+  names are stored in `data/instagram.json` (`rejected`) and retried after 180
+  days.
 - Discovery collects Instagram accounts: every call reports the accounts of
   local organisers it came across, and the venues pass looks for those of
   cafés, bars, clubs and venues on purpose. New accounts go into
