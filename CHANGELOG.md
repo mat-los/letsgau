@@ -140,6 +140,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: ten more Instagram accounts in the list (cinema, brewery, cafés,
+  beer garden, markets, clubs), found with `site:instagram.com` searches.
 - Discovery's venues pass runs three Instagram searches per municipality (cafés,
   bars, clubs) and takes account names from the links in the search results;
   cafés, bars and pubs are reported even without known events.
