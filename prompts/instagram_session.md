@@ -12,10 +12,20 @@ git fetch origin main data
 git checkout -B claude/instagram-candidates-$(date -u +%Y-%m) origin/main
 git show origin/data:data/instagram.json > /tmp/instagram.json
 git show origin/data:data/places.json > /tmp/places.json
+git show origin/data:data/sources.json > /tmp/sources.json
 ```
 
-- `venues` in `/tmp/instagram.json`: the cafés, bars, clubs and venues discovery saw (name,
-  places, website).
+(Use the scratchpad directory instead of `/tmp` if the session has one.)
+
+- **The venue list**, built from three parts:
+  1. `venues` in `/tmp/instagram.json`: the cafés, bars, clubs and venues discovery saw (name,
+     places, website); may be missing or short;
+  2. the sources in `/tmp/sources.json` with `kind` `venue` or `club` (`name`, `places`, `url`);
+  3. **always** the municipality's own directory of restaurants and businesses: find it with
+     a search like `<municipality> Essen Trinken Gastgeber` or `<municipality> Gastronomie`
+     (often on the municipality's website, e.g. "Schongau erleben > Essen & Trinken >
+     Gastgeber"), open it and take every café, bar, pub, beer garden, club and venue.
+  Merge the three by name.
 - Known names, which are never proposed again: the keys of `accounts` and `rejected` in
   `/tmp/instagram.json`, and the usernames in `instance/sources/instagram.yaml` and
   `instance/sources/instagram_candidates.yaml`.
@@ -29,7 +39,7 @@ Use the WebSearch tool with `mode: "extended"`.
    - `site:instagram.com <municipality> café`
    - `site:instagram.com <municipality> bar club party`
    - `site:instagram.com <municipality> verein konzert veranstaltung`
-2. For every venue in `venues` (at most 40 per session; cafés, bars and pubs first), search
+2. For every place on the venue list (at most 40 per session; cafés, bars and pubs first), search
    `<name> <municipality> instagram`. Directory pages such as Restaurant Guru, Das Örtliche,
    Tripadvisor or the municipality's business directory often name the account; the venue's
    own website may link it.
@@ -57,7 +67,8 @@ needed):
 Then:
 - add one line to `CHANGELOG.md` under `Unreleased` (`### Changed`), without the instance's
   name, e.g. "- Instance: N new Instagram candidates for the profile check.";
-- run `python -m letsgau check` and `pytest -q`;
+- run `python -m letsgau check` and `python -m pytest -q` (a bare `pytest` may belong to
+  another Python);
 - commit (Conventional Commits, English), push the branch;
 - open a pull request that lists every candidate with its place and where it was found.
 
