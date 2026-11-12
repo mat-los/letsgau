@@ -14,8 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and sort among the timed events; their details say "Today 20:00" instead
   of "Open today 20:00–20:00".
 
+### Changed
+
+- Instagram: the step runs last in each batch, so accounts found by the
+  batch's other calls are read in the same run.
+
 ### Added
 
+- Discovery collects Instagram accounts: every call reports the accounts of
+  local organisers it came across, and the venues pass looks for those of
+  cafés, bars, clubs and venues on purpose. New accounts go into
+  `data/instagram.json` and are read by the next events run. With more mined
+  accounts than `instagram.max_accounts_per_run`, the least recently read go
+  first, so all of them take turns.
 - The Actions list names each run by what it does: the job and "(dry run)" for
   *Run*, "daily" for scheduled runs, the places for *Crawl check*, the minutes
   for *Geo check*.

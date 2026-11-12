@@ -690,13 +690,17 @@ def plan_calls(
     (``search_calls`` calls, see :data:`SEARCHES_PER_SEARCH_CALL`).
 
     With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``) plus
-    the flyer calls.
+    the flyer calls. The Instagram step (``instagram``) comes last.
     """
     flyer_calls = [CrawlCall("flyers", flyer=f) for f in batch.flyers]
-    if instagram:  # the accounts are chosen when the step runs (mined ones may be added)
-        flyer_calls.append(CrawlCall("instagram"))
+    # last, so that accounts mined by every other call of the batch are read in the same run
+    instagram_calls = [CrawlCall("instagram")] if instagram else []
     if sources_per_request <= 0:
-        return [CrawlCall("all", list(batch.whitelist), list(batch.sources)), *flyer_calls]
+        return [
+            CrawlCall("all", list(batch.whitelist), list(batch.sources)),
+            *flyer_calls,
+            *instagram_calls,
+        ]
     items: list[Any] = [*batch.whitelist, *batch.sources]
     calls = []
     for start in range(0, len(items), sources_per_request):
@@ -715,7 +719,7 @@ def plan_calls(
     calls += [CrawlCall("search", queries=p) for p in split_queries(queries, search_calls)] or [
         CrawlCall("search")
     ]
-    return calls
+    return calls + instagram_calls
 
 
 def confirmed(known: Event, found: Mapping[str, Event], municipality_of: Mapping[str, str]) -> bool:
@@ -1316,7 +1320,8 @@ def _run_instagram_call(
                 for u, a in cache.accounts.items()
                 if a.origin == "mined" and a.places and here(a.places)
             ),
-            key=lambda u: (cache.accounts[u].first_seen, u),
+            # least recently read first, so that all are read when there are more than the limit
+            key=lambda u: (cache.accounts[u].last_checked or date.min, u),
         )
     if not accounts:
         return

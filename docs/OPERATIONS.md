@@ -121,13 +121,16 @@ python -m letsgau run --job events --dry-run --limit-places 3
   events without an AI call. Identical files under two URLs are read once. The
   log shows `N flyer file(s) from <page>, N already read, N new`.
 - Instagram (`sources.instagram_file`, `instagram.*`; `src/letsgau/instagram.py`):
-  every batch gets one Instagram step after the flyer calls.
+  every batch ends with one Instagram step, so accounts found by its other
+  calls are read in the same run.
   - **Accounts:** the accounts of the list whose `places` are in the batch,
     then (with `instagram.read_mined`) accounts *mined* in this or earlier
     runs: every web call reports the Instagram accounts that the pages it read
     link to (`instagram_accounts` in its answer), and new ones are added to
-    `data/instagram.json` with the batch's municipalities. At most
-    `max_accounts_per_run` accounts per run, the list first.
+    `data/instagram.json` with the batch's municipalities; discovery adds
+    accounts too (see *Discovery*). At most `max_accounts_per_run` accounts per
+    run: the list first, then the mined accounts read least recently, so all
+    of them take turns when there are more than the limit.
   - **Reading:** the Graph API's *Business Discovery* returns the latest
     `posts_per_account` posts (caption, image or video cover, carousel images,
     time, link). Posts older than `max_post_age_days` and posts already read
@@ -201,6 +204,11 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   *Coverage* section of `data/suggested.md`.
 - Adds new sources to `data/sources.json` (`origin: discovery`), re-rates known
   ones, syncs the whitelist in and marks blacklisted domains.
+- With Instagram on (`sources.instagram_file`), every call also reports the
+  Instagram accounts of local organisers it came across; the venues pass looks
+  for the accounts of cafés, bars, clubs and venues on purpose. New accounts
+  are added to `data/instagram.json` (`origin: mined`) and read by the next
+  events run. Not written in a dry run.
 - Writes `data/suggested.md` on the `data` branch: whitelist candidates (≥ 3
   hits or rating ≥ 4) and blacklist candidates as YAML blocks to copy.
 - The events stage gives each batch the active sources of its municipalities

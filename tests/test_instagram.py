@@ -18,7 +18,7 @@ import yaml
 from letsgau import crawl, instagram
 from letsgau.ai_runner import AiRequest, AiResult
 from letsgau.config import Config, load_config
-from letsgau.models import InstagramFile, Place, PlacesFile, Usage
+from letsgau.models import InstagramAccount, InstagramFile, Place, PlacesFile, Usage
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = REPO_ROOT / "tests" / "fixtures" / "crawl"
@@ -345,3 +345,35 @@ def test_instagram_off_without_list_file(tmp_path: Path) -> None:
 def test_instagram_file_round_trip() -> None:
     file = InstagramFile(updated_at="2026-11-12T00:00:00Z")
     assert InstagramFile.model_validate_json(file.model_dump_json()) == file
+
+
+def test_mined_accounts_least_recently_read_first(tmp_path: Path) -> None:
+    config, data_dir = setup(tmp_path, [])
+    config = config.model_copy(
+        update={"instagram": config.instagram.model_copy(update={"max_accounts_per_run": 1})}
+    )
+    seen = date(2026, 11, 1)
+    cache = InstagramFile(
+        updated_at="2026-11-11T00:00:00Z",
+        accounts={
+            "old.test": InstagramAccount(
+                origin="mined", places=["Schongau"], first_seen=seen, last_checked=TODAY
+            ),
+            "young.test": InstagramAccount(origin="mined", places=["Schongau"], first_seen=TODAY),
+        },
+    )
+    (data_dir / "instagram.json").write_text(cache.model_dump_json(), encoding="utf-8")
+    graph = Graph({u: discovery(u, []) for u in ("old.test", "young.test")})
+    crawl.crawl(
+        config, Runner(), data_dir=data_dir, today=TODAY, fetch=fetch, graph_get=graph, env=ENV
+    )
+    assert graph.asked == ["young.test"]  # never read before; the other was read today
+
+
+def test_instagram_step_is_the_last_call_of_a_batch() -> None:
+    flyer = crawl.FlyerEntry(url="https://flyers.example/", places=["A"])
+    batch = crawl.Batch(number=1, groups=[], flyers=[flyer])
+    calls = crawl.plan_calls(batch, 5, queries=[("q", ["A"])], instagram=True)
+    assert [c.mode for c in calls] == ["flyers", "search", "instagram"]
+    combined = crawl.plan_calls(batch, 0, instagram=True)
+    assert [c.mode for c in combined] == ["all", "flyers", "instagram"]

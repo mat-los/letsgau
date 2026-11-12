@@ -166,7 +166,8 @@ twice. Links to such pages may still appear as additional sources of events.
 
 Only business and creator accounts can be read (setup and secrets in
 docs/OPERATIONS.md). An empty `instagram_file` switches Instagram off: no
-reading and no mining of account names from pages.
+reading and no collecting of account names (neither from pages the crawl
+reads nor by discovery).
 
 ## `instagram`
 
@@ -174,8 +175,8 @@ reading and no mining of account names from pages.
 | --- | --- | --- |
 | `posts_per_account` | `6` | latest posts fetched per account and run |
 | `max_post_age_days` | `21` | older posts are not read |
-| `max_accounts_per_run` | `40` | accounts read per run: the list first, then mined accounts |
-| `read_mined` | `true` | also read accounts that pages read by the crawl link to |
+| `max_accounts_per_run` | `40` | accounts read per run: the list first, then mined accounts (least recently read first) |
+| `read_mined` | `true` | also read accounts found on pages the crawl reads or by discovery |
 | `api_version` | `""` | Graph API version such as `v24.0`; empty uses the app's default |
 
 ## `excluded_topics`
