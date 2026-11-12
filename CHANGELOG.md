@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- The Actions list names each run by what it does: the job and "(dry run)" for
+  *Run*, "daily" for scheduled runs, the places for *Crawl check*, the minutes
+  for *Geo check*.
 - Instagram: the events crawl reads recent posts of Instagram business and
   creator accounts (Graph API Business Discovery; secrets
   `INSTAGRAM_ACCESS_TOKEN` and `INSTAGRAM_USER_ID`). Accounts come from
