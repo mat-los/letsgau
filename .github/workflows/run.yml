@@ -3,6 +3,10 @@
 # bot-only `data` branch and deploys site/ to GitHub Pages.
 # Start by hand: Actions -> Run -> Run workflow (also in the GitHub mobile app).
 name: Run
+# Title in the Actions list: the chosen job, "(dry run)", or "daily" for the schedule.
+run-name: >-
+  ${{ github.event_name == 'schedule' && 'Run: auto (daily)'
+  || format('Run: {0}{1}', inputs.job, inputs.dry_run && ' (dry run)' || '') }}
 
 on:
   schedule:

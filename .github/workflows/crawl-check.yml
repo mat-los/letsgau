@@ -10,6 +10,7 @@
 # CLAUDE_CODE_OAUTH_TOKEN secrets; ANTHROPIC_API_KEY must not be set, or Claude
 # Code would bill it.
 name: Crawl check
+run-name: "Crawl check: ${{ inputs.limit_places }} place(s), dry run"
 
 on:
   workflow_dispatch:

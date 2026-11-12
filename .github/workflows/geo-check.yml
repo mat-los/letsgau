@@ -3,6 +3,9 @@
 # change this file. Writes nothing to data/; prints the place list and uploads
 # freshly recorded test fixtures as an artifact. Needs the ORS_API_KEY secret.
 name: Geo check
+run-name: >-
+  ${{ github.event_name == 'pull_request' && 'Geo check: workflow change'
+  || format('Geo check: {0} min', inputs.minutes) }}
 
 on:
   workflow_dispatch:
