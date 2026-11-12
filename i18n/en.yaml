@@ -2,6 +2,7 @@
 # Placeholders in {braces} are filled by the build.
 lang_name: "English"
 coverage: "Events within {minutes} min of {label} · {days} days ahead"
+coverage_with: "Events within {minutes} min of {label} and in {extra} · {days} days ahead"
 today: "Today"
 tomorrow: "Tomorrow"
 last_updated: "Last updated"

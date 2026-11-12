@@ -310,10 +310,12 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "t": t,
         "root": "../" * depth,
         "base_url": config.site.base_url.rstrip("/") + "/",
+        # places added with include_places lie outside the drive time: name them
         "coverage": t(
-            "coverage",
+            "coverage_with" if config.region.include_places else "coverage",
             minutes=config.region.drive_time_minutes,
             label=config.region.label,
+            extra=", ".join(config.region.include_places),
             days=config.window.display_days,
         ),
         "updated": f"{format_date(t, local.date(), 'short')} {local:%H:%M}",

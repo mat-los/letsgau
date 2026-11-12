@@ -192,7 +192,7 @@ def test_pages_for_21_days_in_both_languages(site: Path) -> None:
 
 def test_day_page_has_header_elements(site: Path) -> None:
     html = page(site, "de/2026-11-14")
-    assert "Events bis 5 Min. um Schongau · 21 Tage im Voraus" in html
+    assert "Events bis 5 Min. um Schongau und in Altenstadt · 21 Tage im Voraus" in html
     assert '<a href="../../de/2026-11-13/">Heute</a>' in html
     assert 'aria-current="page">Morgen</a>' in html  # Saturday is tomorrow
     assert "Wochenende" not in html  # no weekend button
