@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Instagram lookup: after the passes of each batch, discovery runs a separate
+  call (`prompts/instagram_lookup.md`) that lists the cafés, bars, pubs, clubs
+  and venues of its municipalities and searches "<name> <town> instagram" for
+  each. Every account discovery finds, and every mined account never read yet,
+  is now checked against its profile before it is kept; a username that is
+  only the bare place name (e.g. `schongau`) no longer counts as proof.
 - Instagram candidates: discovery's venues pass searches "<name> <town>
   instagram" for cafés, bars and venues without a known account and reports
   the names directory sites give as `instagram_candidates`. Each candidate is

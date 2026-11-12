@@ -186,10 +186,18 @@ def belongs_to(profile: Profile, places: Iterable[str], website: str = "") -> bo
     discovery saw it. The check is deliberately strict: a generic name such as ``jeanscafe``
     may belong to a café anywhere, so the profile itself must point to the place.
     """
-    text = _fold(" ".join((profile.username, profile.name, profile.biography, profile.website)))
+    text = _fold(" ".join((profile.name, profile.biography, profile.website)))
+    user = _fold(profile.username)
     for place in places:
         word = _fold(place).strip()
-        if len(word) >= 4 and re.search(rf"(?<![a-z]){re.escape(word)}(?![a-z])", text):
+        if len(word) < 4:
+            continue
+        pattern = rf"(?<![a-z]){re.escape(word)}(?![a-z])"
+        if re.search(pattern, text):
+            return True
+        # a username counts only if it is more than the place name (cafe_express_schongau,
+        # not "schongau": that may be any account about any Schongau)
+        if re.search(pattern, user) and re.sub(r"[^a-z]", "", user) != re.sub(r"[^a-z]", "", word):
             return True
     domain = _domain(website)
     return bool(domain) and domain in _fold(profile.website + " " + profile.biography)

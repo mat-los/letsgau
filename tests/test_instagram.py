@@ -394,6 +394,9 @@ def test_profile_check_needs_the_place_or_the_website() -> None:
     assert not instagram.belongs_to(profile(biography="Schongauerin aus Leidenschaft"), places)
     assert not instagram.belongs_to(profile(website="https://other.example/"), [], "jeanscafe.de")
     assert not instagram.belongs_to(profile(), [], "")
+    # the bare place name as username proves nothing (Schongau in Switzerland, a fan account)
+    assert not instagram.belongs_to(profile(username="schongau"), places)
+    assert not instagram.belongs_to(profile(username="schongau_"), places)
 
 
 def test_fetch_profile_reads_name_biography_and_website() -> None:
