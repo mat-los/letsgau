@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Instance: two more Instagram accounts in the list (a pub and a cinema).
+- Instance: four more Instagram accounts in the list (a pub, a cinema, a bar
+  and a café).
 
 ### Fixed
 
