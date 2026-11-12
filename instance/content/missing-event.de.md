@@ -5,8 +5,11 @@ kommt deine Veranstaltung am sichersten in den Kalender:
 
 1. **Auf eine öffentliche Webseite stellen.** Die Seite liest Webseiten von
    Gemeinden, Vereinen, Veranstaltungsorten und regionalen Kalendern.
-   **Facebook und Instagram** liest sie nicht: Beide erlauben nicht, ihre Seiten
-   automatisch abzufragen. Steht eine Veranstaltung nur dort, fehlt sie hier.
+   **Instagram** liest sie auch, wenn sie dein Konto kennt (verlinke es auf deiner
+   Webseite oder schreib uns) und es ein Business- oder Creator-Konto ist.
+   **Facebook und andere soziale Netzwerke** liest sie nicht: Sie
+   erlauben nicht, ihre Seiten automatisch abzufragen. Steht eine Veranstaltung
+   nur dort, fehlt sie hier.
 2. **Alles Wichtige als Text schreiben:** den Titel, Datum, Uhrzeit, Ort und ein,
    zwei Sätze, worum es geht. Nicht nur auf einem Plakat oder Flyer-Bild, denn ein
    Bild kann die KI nicht zuverlässig lesen.

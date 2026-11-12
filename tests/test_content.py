@@ -71,9 +71,9 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     assert "<h1>Über Let&#39;s Gau</h1>" in about
     assert "bis\n5 Fahrminuten um Schongau" in about or "5 Fahrminuten um Schongau" in about
     missing = read(site, "de/fehlt-mein-event")
-    assert "<strong>Facebook und Instagram</strong> liest sie nicht" in missing
+    assert "<strong>Facebook und andere soziale Netzwerke</strong> liest sie nicht" in missing
     assert "als Text schreiben" in missing and "Titel, Datum, Uhrzeit, Ort" in missing
-    assert "erlauben nicht, ihre Seiten" in missing  # why Facebook/Instagram are missing
+    assert "erlauben nicht, ihre Seiten" in missing  # why Facebook is missing
     assert "Websuche" in missing  # how to tell whether a public calendar can be read
     privacy = read(site, "en/privacy")
     assert "no cookies" in privacy.lower() and "localStorage" in privacy

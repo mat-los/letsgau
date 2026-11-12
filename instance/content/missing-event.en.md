@@ -4,9 +4,11 @@
 surest way to get your event into the calendar:
 
 1. **Put it on a public website.** The site reads websites of municipalities,
-   clubs, venues and regional calendars. It does not read **Facebook or
-   Instagram**: neither allows its pages to be read automatically. An event that
-   is only posted there is missing here.
+   clubs, venues and regional calendars. It also reads **Instagram** if it knows
+   your account (link it on your website or write to us) and it is a business or
+   creator account. It does not read **Facebook or other social networks**: they
+   do not allow their pages to be read automatically. An event that is only
+   posted there is missing here.
 2. **Write everything important as text:** the title, date, time, place and a
    sentence or two about what it is. Not only on a poster or flyer image, because
    the AI cannot read images reliably.
