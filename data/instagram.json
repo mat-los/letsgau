@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T08:47:08Z",
+  "updated_at": "2026-11-12T09:42:18Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -13,6 +13,16 @@
       "last_error": ""
     },
     "reaktor_sog": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "musikhaus_kirstein": {
       "origin": "mined",
       "places": [
         "Schongau"

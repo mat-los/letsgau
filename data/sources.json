@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T08:47:19Z",
+  "updated_at": "2026-11-12T09:42:18Z",
   "sources": [
     {
       "url": "https://allevents.in/schongau",
@@ -317,7 +317,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Mirror of Songkick with almost no dates; Songkick is already rated 1.",
@@ -345,6 +345,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.eltern-aktuell.de/",
+      "domain": "eltern-aktuell.de",
+      "name": "Eltern-Treff Schongau (linked site)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Generic parenting portal, no Schongau events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
       "domain": "evangelische-termine.de",
       "name": "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de)",
@@ -352,7 +370,7 @@
       "places": [
         "Schongau"
       ],
-      "origin": "discovery",
+      "origin": "whitelist",
       "status": "active",
       "rating": 5,
       "update_frequency": "weekly",
@@ -377,6 +395,24 @@
       "note": "Returns HTTP 405, and search results point to mostly unrelated or online events.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.eventfinder.de/schongau/konzerte/",
+      "domain": "eventfinder.de",
+      "name": "Eventfinder Schongau Konzerte",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Few entries (e.g. Reaktor concert); same portal as already known eventfinder pages.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -443,7 +479,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Generic page with no Schongau events.",
@@ -461,7 +497,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "weekly",
       "note": "Resolves to Schongau in Switzerland (events in Muri, Wohlen and other Swiss towns); only occasional single Bavarian Schongau events (e.g. TSV boxing).",
@@ -569,7 +605,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "rare",
       "note": "Directory of three bars (Lagerhaus, La Perla, Evis Treff) with no events and no own websites.",
@@ -587,12 +623,30 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 2,
       "update_frequency": "rare",
       "note": "Christmas markets only. Lists the Schongau Weihnachtsmarkt on 04.–20.12.2026 at Marienplatz.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "http://www.fsr-club2000.de",
+      "domain": "fsr-club2000.de",
+      "name": "Fallschirmsportring Club 2000",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Redirects to skydive-altenstadt.de (tandem jumps), no public events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -658,7 +712,7 @@
       "places": [
         "Schongau"
       ],
-      "origin": "discovery",
+      "origin": "whitelist",
       "status": "active",
       "rating": 1,
       "update_frequency": "rare",
@@ -677,7 +731,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "No showtimes, only general film teasers; use the cinema's own page instead.",
@@ -701,6 +755,78 @@
       "note": "Copy of the weekly film schedule, but showtimes are not clearly tied to days; use lagerhauskino.pfaffenwinkel.net instead.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "http://www.kirstein.de/Termine/",
+      "domain": "kirstein.de",
+      "name": "Musikhaus Kirstein Schongau – Termine",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "Shop events (e.g. Taylor Tone Show Fr 27.11.2026, 18:30, free, registration); commercial workshops, few entries.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kirstein.de/Messe/",
+      "domain": "kirstein.de",
+      "name": "Kirstein MusiConnect 2017 recap",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated 2017 event page; not useful.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/",
+      "domain": "kirstein.de",
+      "name": "Kirstein Taylor Tone Show 2026",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Single event page with date, time and place as text.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kirstein.de/Presse/",
+      "domain": "kirstein.de",
+      "name": "Kirstein press releases",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Press archive mostly 2015–2019; outdated.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -784,7 +910,7 @@
       "places": [
         "Schongau"
       ],
-      "origin": "discovery",
+      "origin": "whitelist",
       "status": "active",
       "rating": 5,
       "update_frequency": "weekly",
@@ -867,6 +993,24 @@
       "last_hit": null
     },
     {
+      "url": "https://loewenhof.bar",
+      "domain": "loewenhof.bar",
+      "name": "Bar Löwenhof Schongau",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Café/restaurant/bar with no events listed on the site; only an Instagram link.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.maerkteheute.de/maerkte/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-3/",
       "domain": "maerkteheute.de",
       "name": "MärkteHeute – Flohmarkt Schongau Festplatz",
@@ -875,7 +1019,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Returns HTTP 404.",
@@ -893,7 +1037,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Returns HTTP 410 Gone.",
@@ -953,6 +1097,24 @@
       "note": "Only lists the Ausbildungsmesse (March 2027).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "http://www.mfc-schongau.de/aktuelles",
+      "domain": "mfc-schongau.de",
+      "name": "Modellflug-Sportclub Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Aktuelles says no news; no event dates.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1037,7 +1199,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Generic Bavaria list with no Schongau events on page 1.",
@@ -1055,7 +1217,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "monthly",
       "note": "Auto-generated article that mixes in Oberhausen (NRW) events and has no Schongau events.",
@@ -1109,7 +1271,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Generic address directory with no events.",
@@ -1133,6 +1295,24 @@
       "note": "Blocked by Anubis bot protection; only internal duty plans seen as PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.peiting.de/en/tourismus/culture-and-attractions/surrounding-area/schongau/",
+      "domain": "peiting.de",
+      "name": "Peiting Tourismus Schongau page",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only sights description, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1355,7 +1535,7 @@
     {
       "url": "https://www.regioactive.de/markt/flohmarkt-in-schongau-am-festplatz-2026-09-12-ZhPwXswdRY",
       "domain": "regioactive.de",
-      "name": "regioactive – Flohmarkt Schongau Festplatz",
+      "name": "regioactive Flohmarkt Festplatz",
       "kind": "calendar",
       "places": [
         "Schongau"
@@ -1364,9 +1544,9 @@
       "status": "active",
       "rating": 1,
       "update_frequency": "unknown",
-      "note": "Single past event page, blocked (403) for automated fetch.",
+      "note": "Already known; only shows 12.09. and 17.10.2026 dates, both past.",
       "first_seen": "2026-11-09",
-      "last_checked": "2026-11-09",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1522,7 +1702,7 @@
       "places": [
         "Schongau"
       ],
-      "origin": "discovery",
+      "origin": "whitelist",
       "status": "active",
       "rating": 5,
       "update_frequency": "weekly",
@@ -2171,7 +2351,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "rare",
       "note": "Shows 0 upcoming events.",
@@ -2303,6 +2483,24 @@
       "note": "Regional tango calendar as text; includes occasional milongas in the Ballenhaus Schongau (with Lechwärts e.V.); most entries are outside Schongau.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://tauchclub-schongau.de/termine/",
+      "domain": "tauchclub-schongau.de",
+      "name": "Tauchclub Aquarius Schongau – Termine",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Termine page has no dates, only compressor filling hours; site works only without www.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -2487,6 +2685,24 @@
       "last_hit": "2026-11-11"
     },
     {
+      "url": "https://veranstaltungen.meinestadt.de/schongau/konzerte/alle",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Schongau Konzerte",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Subpage of the known meinestadt calendar; mixes in neighbouring towns.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "http://veranstaltungen.pfaffen-winkel.de/region/",
       "domain": "veranstaltungen.pfaffen-winkel.de",
       "name": "Tourismusverband Pfaffenwinkel – regional calendar",
@@ -2585,7 +2801,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "rare",
       "note": "Generic text with no year and 'next date unknown'; outdated compared with the organiser site.",
@@ -2603,7 +2819,7 @@
         "Schongau"
       ],
       "origin": "discovery",
-      "status": "active",
+      "status": "blacklisted",
       "rating": 1,
       "update_frequency": "rare",
       "note": "Latest date shown is from 2017, which is misleading.",
