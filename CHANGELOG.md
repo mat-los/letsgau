@@ -163,6 +163,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The coverage sentence names the places added with `region.include_places`
+  ("… und in <place>"), since they lie outside the drive time.
 - Instance: a neighbouring municipality is added with `region.include_places`.
 - Day list: the time column shows only times (start, and the end time or
   closing time below it); how long a multi-day event runs is a badge in the
