@@ -13,10 +13,13 @@ Eine KI durchsucht zweimal pro Woche öffentliche Webseiten von Gemeinden,
 Vereinen, Veranstaltungsorten und regionalen Kalendern und fasst die Termine kurz
 in eigenen Worten zusammen. Jede Veranstaltung verlinkt auf ihre Quelle.
 
-**Instagram und Facebook** sind nicht dabei: Beide erlauben nicht, ihre Seiten
-automatisch abzufragen. Viele Vereine, Cafés und Bars kündigen ihre Termine aber
-nur dort an. Solche Events fehlen hier, solange sie nicht zusätzlich auf einer
-Webseite oder in einem öffentlichen Kalender stehen, etwa dem der Gemeinde.
+**Instagram:** Viele Vereine, Cafés und Bars kündigen ihre Termine nur dort an.
+Deshalb liest die Seite auch die neuesten Beiträge von Instagram-Konten, die sie
+kennt: weil eine Webseite darauf verlinkt oder weil sie in unserer Liste stehen.
+Das geht nur bei Business- und Creator-Konten, nicht bei privaten.
+
+**Facebook und andere soziale Netzwerke** sind nicht dabei: Sie erlauben nicht,
+ihre Seiten automatisch abzufragen. Steht ein Event nur dort, fehlt es hier.
 [Fehlt dein Event?](../fehlt-mein-event/)
 
 **Hinweis:** Die Events werden automatisch per KI gesammelt und können falsch oder
