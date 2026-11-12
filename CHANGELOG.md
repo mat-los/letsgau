@@ -163,6 +163,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: 3 new Instagram candidates for the profile check.
 - The coverage sentence names the places added with `region.include_places`
   ("… und in <place>"), since they lie outside the drive time.
 - Instance: a neighbouring municipality is added with `region.include_places`.
