@@ -7,39 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- Content pages (about, missing event) say that Instagram business and creator
-  accounts are read, but not Facebook or other social networks.
-
-### Fixed
-
-- Social media (Instagram, Facebook, TikTok, …) is never added to
-  `data/sources.json`: events from Instagram posts no longer add
-  `instagram.com` as a source when hits are counted, discovery answers with
-  such URLs are skipped, and existing entries are removed.
-- Search results expand like the cards on the day pages: description, venue,
-  source and a link to the day (the index has the fields `t`, `v`, `l`).
-- Start times that differ between the dates of a film or series: opening
-  hours can be given per date (`"days": "2026-11-21"`), which wins over the
-  weekday, and the events prompt asks for them instead of a weekday pattern or
-  one time for all dates. A fresh crawl result updates the stored opening hours
-  also when the stored event keeps its longer schedule.
-- Films and other events shown on several days at a different time per day
-  show that day's start time in the day list (with "to <last day>" below)
-  and sort among the timed events; their details say "Today 20:00" instead
-  of "Open today 20:00–20:00".
-
-### Changed
-
-- Cheaper discovery: the default model is Sonnet instead of Opus
-  (`models.discovery`), `depth.discovery_searches_per_request` is 20 instead
-  of 30, and known sources that are whitelisted or were rated or hit in the
-  last 90 days are only listed in the prompt, not opened and reported again;
-  older ones are re-rated.
-- Instagram: the step runs last in each batch, so accounts found by the
-  batch's other calls are read in the same run.
-
 ### Added
 
 - Discovery collects Instagram accounts: every call reports the accounts of
@@ -173,6 +140,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Content pages (about, missing event) say that Instagram business and creator
+  accounts are read, but not Facebook or other social networks.
+- Instance: four more Instagram accounts in the list (a pub, a cinema, a bar
+  and a café).
+- Cheaper discovery: the default model is Sonnet instead of Opus
+  (`models.discovery`), `depth.discovery_searches_per_request` is 20 instead
+  of 30, and known sources that are whitelisted or were rated or hit in the
+  last 90 days are only listed in the prompt, not opened and reported again;
+  older ones are re-rated.
+- Instagram: the step runs last in each batch, so accounts found by the
+  batch's other calls are read in the same run.
 - Fewer tokens per events run, same coverage:
   - blacklist entries can be a `url` instead of a `domain`: such a page is not
     read as a known source (for a second front end of an event database that is
@@ -265,3 +243,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   not per batch.
 - The *Crawl check* workflow runs only on demand, no longer on pull requests that
   change a prompt: it uses about as much of the plan as a real run.
+
+### Fixed
+
+- Social media (Instagram, Facebook, TikTok, …) is never added to
+  `data/sources.json`: events from Instagram posts no longer add
+  `instagram.com` as a source when hits are counted, discovery answers with
+  such URLs are skipped, and existing entries are removed.
+- Search results expand like the cards on the day pages: description, venue,
+  source and a link to the day (the index has the fields `t`, `v`, `l`).
+- Start times that differ between the dates of a film or series: opening
+  hours can be given per date (`"days": "2026-11-21"`), which wins over the
+  weekday, and the events prompt asks for them instead of a weekday pattern or
+  one time for all dates. A fresh crawl result updates the stored opening hours
+  also when the stored event keeps its longer schedule.
+- Films and other events shown on several days at a different time per day
+  show that day's start time in the day list (with "to <last day>" below)
+  and sort among the timed events; their details say "Today 20:00" instead
+  of "Open today 20:00–20:00".
+
