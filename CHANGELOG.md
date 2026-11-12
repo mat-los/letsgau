@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Markets, exhibitions and other multi-day events with opening hours show that
+  day's opening time in the day list, with the closing time below it, and sort
+  by it (before: only "until <last day>").
 - Social media (Instagram, Facebook, TikTok, …) is never added to
   `data/sources.json`: events from Instagram posts no longer add
   `instagram.com` as a source when hits are counted, discovery answers with
