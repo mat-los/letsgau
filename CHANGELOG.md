@@ -160,6 +160,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Day list: the time column shows only times (start, and the end time or
+  closing time below it); how long a multi-day event runs is a badge in the
+  tag line ("→ bis 5.12.", "letzter Tag" on its last day).
 - Instagram lookup session: per-place searches only for cafés, bars, venues and
   event organisers (clubs are covered by the general searches), no place
   searched twice, chains and delivery services skipped, a numbered branch if
