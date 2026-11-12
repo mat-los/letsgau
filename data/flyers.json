@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T07:53:44Z",
+  "updated_at": "2026-11-12T08:47:08Z",
   "files": {
     "2444c78005282edc4ca286272d0ce808f5db6c7eac5a56556f52c1de39ed65e7": {
       "page_url": "https://www.reaktor-sog.de/",
@@ -8,7 +8,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e2",
@@ -60,7 +60,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e1",
@@ -113,7 +113,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e3",
@@ -169,7 +169,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e4",
@@ -263,7 +263,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "159d64f4bd9fa41b9049659101743b85f820c3377ce8432e0f39db1d4e6e4647": {
@@ -272,7 +272,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "92e5f7ff4a2320ec69f41879a006bdfa3644c19026e9874110abe23e45949634": {
@@ -281,7 +281,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "e601481bbcbe6cd2dd902a9e22cc9bcbacc3af0811dd0b7b48df7408df4a94dd": {
@@ -290,7 +290,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e9",
@@ -393,7 +393,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "a3d3365a1b91258d5ffc82a07acb1f9d107eea78104a7b91046cd4662980a2f7": {
@@ -402,7 +402,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "e4b2ba620bae6475d2e82aa8e97557229c023eed14b876d194676fc9214985e9": {
@@ -411,7 +411,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "089465046e389be5abd8e43e78cf21a7fe2e27de41227e6545de7a076521f35f": {
@@ -420,7 +420,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "912e689bd4b2ede77745b966c94469c647b29caaf2a7ee0adee40f7c4640c48b": {
@@ -429,7 +429,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e1",
@@ -535,7 +535,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e3",
@@ -588,7 +588,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e4",
@@ -684,7 +684,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e6",
@@ -778,7 +778,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e8",
@@ -830,7 +830,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "fc2fa6e268b0a1d7a4b70dec3b33e9fb103cecc550c59c8dee44433739946b0c": {
@@ -839,7 +839,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e1",
@@ -1163,7 +1163,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": []
     },
     "21f4211c044860c1c3ae69cf5f54b1cd8e056f7f3a834212f391d3ae3e987e51": {
@@ -1172,7 +1172,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "events": [
         {
           "ref": "e1",

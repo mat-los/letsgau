@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-12T08:47:08Z",
+  "accounts": {
+    "loewenhof_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "reaktor_sog": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    }
+  },
+  "posts": {
+    "18220270822359870": {
+      "username": "loewenhof_schongau",
+      "permalink": "https://www.instagram.com/p/DfWnAnTqVBX/",
+      "posted": "2026-11-05",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Hofparty im Löwenhof",
+            "en": "Courtyard Party at Löwenhof"
+          },
+          "description": {
+            "de": "Hofparty mit Resident-DJ MXFRSCH (Rock, Alternative, Old School), der seinen Geburtstag feiert. Einlass ab 18 Jahren, ggf. Einlassstopp.",
+            "en": "Courtyard party with resident DJ MXFRSCH (rock, alternative, old school), celebrating his birthday. Admission 18+, possible entry stop."
+          },
+          "venue": {
+            "name": "Löwenhof Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-28",
+            "end_date": null,
+            "start_time": "22:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfWnAnTqVBX/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
