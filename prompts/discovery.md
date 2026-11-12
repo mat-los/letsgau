@@ -34,12 +34,13 @@ useful, and follow up on every lead (links on pages you open, names mentioned in
 {%- if instagram and focus.id == "venues" %}
 
 Many cafés, bars, clubs and small venues announce their events only on Instagram. Instagram pages
-themselves cannot be opened here, but search results show their links. Run these searches for every
-municipality and take the account names from the instagram.com/<username> links in the results:
+themselves cannot be opened here, but search results list them. Run these searches for every
+municipality exactly as written (the site: operator limits the results to Instagram profiles) and
+take the account names from the instagram.com/<username> links in the results:
 {% for group in groups %}
-- "{{ group.name }} Café Instagram"
-- "{{ group.name }} Bar Kneipe Instagram"
-- "{{ group.name }} Club Party Konzert Instagram"
+- "site:instagram.com {{ group.name }} café"
+- "site:instagram.com {{ group.name }} bar club party"
+- "site:instagram.com {{ group.name }} verein konzert veranstaltung"
 {%- endfor %}
 
 Report every café, bar, pub, club or venue of these municipalities that you find there or anywhere
