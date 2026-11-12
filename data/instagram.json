@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:15:21Z",
+  "updated_at": "2026-11-12T10:34:57Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -43,6 +43,26 @@
       "last_error": ""
     },
     "weltladen_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "mein.schongau": {
       "origin": "mined",
       "places": [
         "Schongau"
@@ -358,5 +378,6 @@
       "last_seen": "2026-11-12",
       "events": []
     }
-  }
+  },
+  "rejected": {}
 }

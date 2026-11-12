@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:15:21Z",
+  "updated_at": "2026-11-12T10:34:57Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -723,6 +723,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.golocal.de/schongau/reviews/shopping/",
+      "domain": "golocal.de",
+      "name": "golocal Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Business review directory, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.hausundgrund.de/verein/peitingschongau/ueber-uns/satzung",
+      "domain": "hausundgrund.de",
+      "name": "Haus & Grund Peiting-Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only statutes; no public events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://historischer-verein-schongau.de/aktuelles/",
       "domain": "historischer-verein-schongau.de",
       "name": "Historischer Verein Schongau – Aktuelles",
@@ -901,6 +937,24 @@
       "last_checked": "2026-11-09",
       "hits": 50,
       "last_hit": "2026-11-12"
+    },
+    {
+      "url": "https://www.komoot.com/highlight/660193",
+      "domain": "komoot.com",
+      "name": "Komoot – Café Ballenhaus highlight",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Points only to Facebook page of the café; no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://www.kreisbote.de/lokales/schongau/",
@@ -1371,6 +1425,24 @@
       "last_hit": null
     },
     {
+      "url": "https://ov-schongau.thw.de/fileadmin/user_upload/LVBY/GTOE/OSOA/Unsere_Dienststelle/Dienstplaene/TZ_OV-Stab_Plan_2025.PDF",
+      "domain": "ov-schongau.thw.de",
+      "name": "THW OV Schongau Dienstplan 2025",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Internal duty roster for 2025, not public events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.peiting.de/en/tourismus/culture-and-attractions/surrounding-area/schongau/",
       "domain": "peiting.de",
       "name": "Peiting Tourismus Schongau page",
@@ -1383,6 +1455,24 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Only sights description, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.pfaffen-winkel.de/detail/id=62d6507f688edf9b8845211c",
+      "domain": "pfaffen-winkel.de",
+      "name": "Pfaffenwinkel Stadtpfarrkirche Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Static place description, no event list.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -1533,6 +1623,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.raisin.digital/en/explore/germany/bavaria/schongau/venues/bars/",
+      "domain": "raisin.digital",
+      "name": "raisin.digital Schongau bars",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Bar directory only, no events; useful only to find venue names.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
       "domain": "rce-event.de",
       "name": "Stadt Schongau Veranstaltungskalender (RCE-Event backend, print list)",
@@ -1601,6 +1709,42 @@
       "note": "Returns HTTP 403. Snippets show only flea markets (Festplatz) and brewery events, with no events listed after early November.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.regioactive.de/gastronomie/brunch-im-brauhaus-an-mariae-himmelfahrt-schongau-schongauer-2026-08-15-wy0CGFmrj9",
+      "domain": "regioactive.de",
+      "name": "Regioactive – Brunch im Brauhaus (Kulturteam Oberland)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Single past listing (15 Aug 2026) of a recurring brunch; useful only to identify organiser Kulturteam Oberland e.V.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.regioactive.de/konzert/krashkarma-schongau-reaktor-2026-11-07-tickets-MJY01lT1Vh",
+      "domain": "regioactive.de",
+      "name": "Regioactive – Krashkarma im Reaktor",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Single concert listing (7 Nov 2026, already past); shows Reaktor concerts appear on regioactive.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -2037,6 +2181,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1052",
+      "domain": "schongau.de",
+      "name": "Trachtenverein Schloßbergler (Vereinsverzeichnis-Eintrag)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Directory entry only; club site schlossbergler.de is already known.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1053",
       "domain": "schongau.de",
       "name": "Griechisch-deutscher Kulturverein (city club entry)",
@@ -2122,6 +2284,42 @@
       "update_frequency": "rare",
       "note": "Only chairperson contact, no website or events; club has no web presence found.",
       "first_seen": "2026-11-09",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1130",
+      "domain": "schongau.de",
+      "name": "Theaterverein Treibhaus (Vereinsverzeichnis-Eintrag)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact data only; club site theaterverein-treibhaus.de is already known.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1187",
+      "domain": "schongau.de",
+      "name": "Alpenverein Schongau (Vereinsverzeichnis-Eintrag)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact data only.",
+      "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
@@ -2321,6 +2519,24 @@
       "note": "Calendar is probably an embedded widget that didn't render; Sunday service at 10:00, Franz-Rupp-Str. 4-5; check by hand.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.schongauer-hexennacht.de",
+      "domain": "schongauer-hexennacht.de",
+      "name": "Schongauer Hexennacht",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Annual Halloween/Hexennacht event (30–31.10.2026, Altstadt/Marienplatz), dates as text; programme as PDF; event is over, check again for 2027.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -2573,6 +2789,24 @@
       "note": "Tours by arrangement only; public dates are on the city's Museumsführungen page.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.swipein.restaurant/en/place/schongau-weilheim-schongau/category/cafe",
+      "domain": "swipein.restaurant",
+      "name": "SwipeIn – Cafés in Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Café directory (City Café, Café Express, Zum Huterer, Bijou Café Rose, Ballenhaus); no events, no Instagram names.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -3057,6 +3291,42 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "2025 poster PDF (Turmsaal Münzgebäude), outdated.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/7386/schuetzenverein.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landkreis Vereinsforum Schützenverein PDF",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Generic PDF about shooting clubs, no event dates.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/7544/layout_kobe_flyer_vereinsforum_herbst_winter_2025_final_web.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "KOBE Vereinsforum flyer",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated PDF flyer for club trainings, not public events.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,

@@ -4,7 +4,7 @@
   "force_discovery": false,
   "last_run": {
     "geo": "2026-11-11T11:53:03Z",
-    "discovery": "2026-11-12T10:12:11Z",
+    "discovery": "2026-11-12T10:32:32Z",
     "events": "2026-11-12T09:43:38Z",
     "build": "2026-11-12T09:43:38Z"
   },
@@ -20,12 +20,12 @@
     },
     "discovery": {
       "requests": 3,
-      "web_searches": 35,
+      "web_searches": 27,
       "web_fetches": 0,
-      "input_tokens": 1382598,
-      "output_tokens": 60423,
-      "cost_usd": 1.065,
-      "duration_s": 187.9
+      "input_tokens": 946024,
+      "output_tokens": 42465,
+      "cost_usd": 0.8439000000000001,
+      "duration_s": 143.0
     }
   }
 }

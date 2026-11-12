@@ -125,15 +125,13 @@ accept a suggestion.
 - domain: "deutsche-weihnachtsmaerkte.de"
   reason: "Redirects (307) to the known -170 page; search snippet gives Christkindlmarkt 04.–20.12.2026 at Marienplatz; single event only."
 - domain: "dev.pfaffen-winkel.de"
-  reason: "Dev/staging copy of pfaffen-winkel.de; use the production event pages instead."
+  reason: "Dev-server POI detail pages with no event lists; real events are on veranstaltungen.pfaffen-winkel.de (known)."
 - domain: "eltern-aktuell.de"
   reason: "Generic parenting portal, no Schongau events."
 - domain: "eventbrite.de"
   reason: "Returns HTTP 405, and search results point to mostly unrelated or online events."
 - domain: "eventfinder.de"
   reason: "Aggregator category page, mostly regional/nearby events (e.g. Peiting), same data as already known eventfinder pages."
-- domain: "eventfrog.at"
-  reason: "Shows 'Schonger Musig' concerts from Schongau LU, Switzerland, easily mistaken for Bavaria."
 - domain: "fcg-schongau.de"
   reason: "Certificate error, not readable; search snippet says the church is still being founded (Schongau/Peiting)."
 - domain: "feuerwehr-schongau.de"
@@ -142,12 +140,18 @@ accept a suggestion.
   reason: "Only weekly club evenings (in Peiting); no public dated events."
 - domain: "fsr-club2000.de"
   reason: "Redirects to skydive-altenstadt.de (tandem jumps), no public events."
+- domain: "golocal.de"
+  reason: "Business review directory, no events."
+- domain: "hausundgrund.de"
+  reason: "Only statutes; no public events."
 - domain: "historischer-verein-schongau.de"
   reason: "Latest entry 14.12.2025; no current events."
 - domain: "juze-schongau.de"
   reason: "Rating lowered from 2: the page says 'Derzeit gibt es keine anstehenden Termine'; it lists only opening hours."
 - domain: "kirstein.de"
   reason: "Outdated 2017 event page; not useful."
+- domain: "komoot.com"
+  reason: "Tourist highlight pages without event listings"
 - domain: "kulturportal-bayern.de"
   reason: "Only one event from 2003; the club's work continues as LiccAmbra (already known)."
 - domain: "lechscouts.de"
@@ -164,10 +168,14 @@ accept a suggestion.
   reason: "Blocked by Anubis bot protection; only internal duty plans seen as PDF."
 - domain: "peiting.de"
   reason: "Only sights description, no events."
+- domain: "pfaffen-winkel.de"
+  reason: "Static place description, no event list."
 - domain: "pg-schongau.com"
   reason: "Kirchenchor, orchestra, Turmbläser described; no dates."
 - domain: "quermania.de"
   reason: "Says only that a market happens in 2026, with no dates; refers readers to schongau.de."
+- domain: "raisin.digital"
+  reason: "Bar directory only, no events; useful only to find venue names."
 - domain: "regioactive.de"
   reason: "Already known; only shows 12.09. and 17.10.2026 dates, both past."
 - domain: "romantischestrasse.de"
@@ -185,7 +193,7 @@ accept a suggestion.
 - domain: "stadtmuseum-sog.de"
   reason: "No events; newest item from August 2024."
 - domain: "swipein.restaurant"
-  reason: "Restaurant directory without events, no local value for the calendar."
+  reason: "Generic restaurant directory, no events, no Instagram info"
 - domain: "tauchclub-schongau.de"
   reason: "Termine page has no dates, only compressor filling hours; site works only without www."
 - domain: "tc-schongau.de"
@@ -210,22 +218,22 @@ What the discovery passes searched for, per municipality. `nothing_found` and `n
 
 | Pass | Category | Result | Note |
 | --- | --- | --- | --- |
-| official | event calendar of the municipality | found | The known schongau.de calendar pages are already listed. I found no new page. |
-| official | tourist office and regional tourism calendars | found | The tourist office has no separate calendar. The known erlebe.bayern and pfaffen-winkel.de calendars cover it. |
-| official | regional event calendars and aggregators that list this municipality | found | Only known aggregators turned up: eventfinder, regioactive, meinestadt, allevents. |
-| official | local newspapers and their event pages | found | Only the known Kreisbote and Merkur turned up. The Altlandkreis magazine on Yumpu is outdated. |
-| official | the municipality's directory of clubs and institutions (for the next passes) | found | The known club directory at schongau.de/de/Mein-Schongau/Vereine lists clubs A to W with entry pages. |
-| clubs | sports clubs | found | Only the already known sources (TSV, SC, Mammuts, SOG Handball, Schwarz-Gelb). No new club sites found. |
-| clubs | music: brass bands, choirs, music societies | **nothing found** | Stadtkapelle, Chor, Vivace and Orchester are already known. Nothing new; Swiss 'Schonger Musig' results are the wrong Schongau. |
-| clubs | traditional costume, marksmen and folk clubs | **nothing found** | Schlossbergler already known. No Schützenverein or Soldatenverein website found for Schongau. |
-| clubs | fire brigade and charitable organisations | **nothing found** | Feuerwehr, BRK, THW, Wasserwacht already known. Bergwacht site unreachable (certificate error). |
-| clubs | Catholic and Protestant parishes, free churches | found | Only the known PG Schongau, evangelisch and FEG pages; searches found no additional parish sites. |
-| clubs | youth centre, youth and senior groups, family centres | found | Only old flyer PDFs and district PDFs. JuZe site is already known. Weltladen is the only new source with dated events. |
-| clubs | theatre groups, culture and history societies | **nothing found** | Theaterstadl has no website; Treibhaus, Historischer Verein and Kulturstiftung have no new sources. |
-| venues | cultural centres, stages, music clubs and concert venues | found | Reaktor, Kirstein, Brauhaus, Kulturverein already known; no new sources found. |
-| venues | cinema and theatre programmes | found | Lagerhauskino and Treibhaus theatre already known; nothing new. |
-| venues | museums, library, adult education centre (vhs), music school | found | All already known; searches for Bücherei events returned only other towns. |
-| venues | swimming pools, ice rinks and other leisure facilities with events | found | plantsch.de known; Eisstadion and Lechsporthalle have no own event page found. |
-| venues | inns, breweries, cafés, bars and farms that hold events | **nothing found** | Only directory listings found; no new event pages or Instagram links; venues listed in notes for hand check. |
-| venues | organisers of annual events: Christmas market, carnival, folk and town festivals | found | Weihnachtszauber and schongau-belebt already known; no 2026 dates for Volksfest or carnival found. |
-| venues | markets: weekly market, flea markets, craft markets | found | Wochenmarkt and flohmarkt sources already known; nothing new. |
+| official | event calendar of the municipality | found | schongau.de calendar pages already known; no new ones found. |
+| official | tourist office and regional tourism calendars | found | Tourist Information (Weinstraße 11) content is on schongau.de and pfaffen-winkel (known); nothing new. |
+| official | regional event calendars and aggregators | found | Only known aggregators (eventfinder, regioactive, meinestadt) appeared; no new ones. |
+| official | local newspapers and their event pages | **nothing found** | Only known Kreisbote/Merkur/Wochenanzeiger; no new event pages. |
+| official | municipality's directory of clubs and institutions | found | Known schongau.de/Mein-Schongau/Vereine is the directory; no other directory found. |
+| clubs | sports clubs | found | Only already-known club sites (TSV, Mammuts, SC, Schwarz-Gelb, etc.); no schedule pages found for new clubs. |
+| clubs | music: brass bands, choirs, music societies | found | Only known sources (Stadtkapelle, Vivace, Chor, Orchester); nothing new. |
+| clubs | traditional costume, marksmen and folk clubs | **nothing found** | Schloßbergler already known; no Schützenverein in city directory and no event pages found. |
+| clubs | fire brigade and charitable organisations | **nothing found** | Only known sources; THW only an internal 2025 roster; BRK, Bergwacht, AWO, VdK have no usable event pages. |
+| clubs | Catholic and Protestant parishes, free churches | **not checked** | Parish sources are already known; no new search was run. |
+| clubs | youth centre, youth and senior groups, family centres | **nothing found** | Only known Juze and Seniorenbeirat pages; Seniorenfachstelle infomails found were 2021-2023 and outdated. |
+| clubs | theatre groups, culture and history societies | **nothing found** | Treibhaus and Historischer Verein already known; Theaterstadl has no website. |
+| venues | cultural centres, stages, music clubs and concert venues | found | Reaktor, Brauhaus and Kulturteam Oberland only appear on aggregators; mostly already known. |
+| venues | cinema and theatre programmes | **not checked** | Lagerhauskino and Treibhaus theatre are already known. |
+| venues | museums, library, vhs, music school | **not checked** | Covered by known sources; no extra searches run. |
+| venues | swimming pools, ice rinks and leisure facilities | **not checked** | Not searched. |
+| venues | inns, breweries, cafés, bars and farms | **nothing found** | Directories list cafés but no event pages and no Instagram links. |
+| venues | organisers of annual events (Christmas market, festivals) | **nothing found** | No Stadtfest or Volksfest dates found; the Christmas market sources are already known. |
+| venues | markets: weekly, flea and craft markets | **nothing found** | Only the regioactive Festplatz flea market (12 Sep 2026), already known. |
