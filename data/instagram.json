@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T15:18:51Z",
+  "updated_at": "2026-11-12T15:30:17Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -97,10 +97,10 @@
       "places": [
         "Schongau"
       ],
-      "status": "active",
+      "status": "error",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "last_error": ""
+      "last_error": "(#4) Application request limit reached (code 4)"
     },
     "weinstuben.schongau": {
       "origin": "mined",
@@ -347,9 +347,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "bootshaus_schongau": {
@@ -357,9 +357,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "tierheim_schongau": {
@@ -367,9 +367,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     }
   },
