@@ -210,13 +210,16 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   - the passes list the cafés, bars, pubs, clubs and venues they saw in
     `venues_seen`; the venues pass reads the municipality's own gastronomy
     and business directory for it;
-  - after the passes of a batch, a separate **lookup call**
-    (`prompts/instagram_lookup.md`) gets a fixed checklist of searches
-    "<name> <town> instagram", one per place (`venues_seen` plus the known
-    venue and club sources, at most 40); names that results, directory sites
-    or the place's website give are reported as `instagram_candidates`.
-    Without places the call is skipped;
-  - **every** account found by discovery, and every mined account that was
+  - the AI lookup call per batch (`prompts/instagram_lookup.md`) is off by
+    default (`instagram.ai_lookup`): its search engine rarely shows Instagram
+    usernames. Instead, a **scheduled Claude Code session**
+    (`prompts/instagram_session.md`, monthly after discovery) searches the
+    accounts of the venues in `data/instagram.json` (`venues`) with the web
+    search of a Claude Code session and proposes them in
+    `instance/sources/instagram_candidates.yaml` by pull request; after the
+    merge, the next events or discovery run checks them;
+  - **every** account found by discovery, every entry of
+    `sources.instagram_candidates_file` and every mined account that was
     never read yet, is checked with the Graph API (`business_discovery` with
     name, biography and website; needs the `INSTAGRAM_*` secrets). It is kept
     only if it is a business or creator account whose name, biography or

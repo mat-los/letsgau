@@ -417,3 +417,42 @@ def test_fetch_profile_reads_name_biography_and_website() -> None:
     )
     fields = parse_qs(urlsplit(graph.urls[0]).query)["fields"][0]
     assert fields == "business_discovery.username(jeanscafe){username,name,biography,website}"
+
+
+def test_listed_candidates_are_checked_and_read_in_the_events_run(tmp_path: Path) -> None:
+    config, data_dir = setup(tmp_path, [])
+    listing = tmp_path / "candidates.yaml"
+    listing.write_text(
+        yaml.safe_dump(
+            [
+                {
+                    "username": "jeanscafe",
+                    "name": "Jeanscafe",
+                    "places": ["Schongau"],
+                    "found_on": "https://restaurantguru.com/Jeanscafe-Schongau",
+                },
+                {"username": "jeanscafephilly", "name": "Jeans Cafe", "places": ["Schongau"]},
+            ]
+        ),
+        encoding="utf-8",
+    )
+    config = config.model_copy(
+        update={
+            "sources": config.sources.model_copy(update={"instagram_candidates_file": str(listing)})
+        }
+    )
+    jeans = discovery("jeanscafe", [media("201", "2026-11-11", "Live music on Friday")])
+    jeans["business_discovery"]["biography"] = "Café & Bar am Marienplatz, Schongau"
+    philly = discovery("jeanscafephilly", [])
+    philly["business_discovery"]["biography"] = "Philadelphia, PA"
+    graph = Graph({"jeanscafe": jeans, "jeanscafephilly": philly})
+    result = crawl.crawl(
+        config, Runner(), data_dir=data_dir, today=TODAY, fetch=fetch, graph_get=graph, env=ENV
+    )
+    cache = result.instagram_cache
+    assert cache is not None
+    assert cache.accounts["jeanscafe"].origin == "mined"
+    assert cache.accounts["jeanscafe"].status == "active"  # read in the same run
+    assert "jeanscafephilly" not in cache.accounts
+    assert cache.rejected["jeanscafephilly"].reason == "profile does not name the place"
+    assert "201" in cache.posts

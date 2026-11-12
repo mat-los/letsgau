@@ -278,6 +278,15 @@ class InstagramPost(_DataModel):
     """Raw event candidates as the AI answered them (validated again on every use)."""
 
 
+class SeenVenue(_DataModel):
+    """A café, bar, club or venue a discovery pass saw; input for the Instagram lookup."""
+
+    places: list[str] = []
+    website: str = ""
+    first_seen: date
+    last_seen: date
+
+
 class RejectedCandidate(_DataModel):
     """A candidate account name from discovery that did not pass the profile check."""
 
@@ -297,6 +306,9 @@ class InstagramFile(_DataModel):
     rejected: dict[str, RejectedCandidate] = {}
     """Candidate names (discovery) that are not the organiser's account; checked again after
     ``discovery.CANDIDATE_RETRY_DAYS``."""
+    venues: dict[str, SeenVenue] = {}
+    """Venues seen by discovery, by name; the scheduled lookup session searches their
+    accounts."""
 
 
 # --- sources (Phase 7) --------------------------------------------------------------------

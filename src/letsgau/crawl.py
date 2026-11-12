@@ -909,6 +909,17 @@ def crawl(
     deep_end = today + timedelta(days=config.window.deep_check_days)
     window_end = today + timedelta(days=config.window.crawl_days)
     municipality_of = {p.name: p.municipality or p.name for p in places_file.places}
+    if insta_on and config.sources.instagram_candidates_file:
+        _check_listed_candidates(
+            config,
+            insta_cache,
+            index=index,
+            municipality_of=municipality_of,
+            today=today,
+            env=os.environ if env is None else env,
+            get=graph_get or instagram.http_get,
+            warnings=warnings,
+        )
     plan = [
         (batch, call)
         for batch in batches
@@ -1249,6 +1260,49 @@ INSTAGRAM_POSTS_PER_CALL = 6
 """New posts read in one AI call (caption plus up to 4 images each)."""
 INSTAGRAM_RETRY_DAYS = 30
 """Accounts that were not readable (personal account, not found) are tried again after this."""
+
+
+def _check_listed_candidates(
+    config: Config,
+    cache: InstagramFile,
+    *,
+    index: PlaceIndex,
+    municipality_of: Mapping[str, str],
+    today: date,
+    env: Mapping[str, str],
+    get: instagram.Get,
+    warnings: list[str],
+) -> None:
+    """Check the entries of ``sources.instagram_candidates_file`` against their profile, so
+    that a merged lookup pull request takes effect in the next events run."""
+    from letsgau import discovery  # late import: discovery imports this module
+
+    names_in: dict[str, list[str]] = {}
+    for place, municipality in municipality_of.items():
+        names_in.setdefault(municipality, []).append(place)
+
+    def resolve(name: str) -> str | None:
+        place = index.resolve(name)
+        return municipality_of.get(place, place) if place else None
+
+    found = discovery.listed_candidates(config, resolve=resolve, default_places=sorted(names_in))
+    if not found:
+        return
+    accepted, rejected, _ = discovery.verify_candidates(
+        cache,
+        found,
+        names_of=lambda m: names_in.get(m, [m]),
+        today=today,
+        env=env,
+        get=get,
+        api_version=config.instagram.api_version,
+        warnings=warnings,
+    )
+    if accepted or rejected:
+        _log(
+            f"instagram candidates: confirmed {', '.join(accepted) or 'none'}; "
+            f"rejected {', '.join(rejected) or 'none'}"
+        )
 
 
 def _mine_instagram(

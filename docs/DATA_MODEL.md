@@ -44,6 +44,9 @@ adds the accounts it finds.
   check → `checked`, `reason` (`profile does not name the place`,
   `not_business`, `not_found`, …), `name` (the organiser). Checked again after
   180 days.
+- `venues`: cafés, bars, clubs and venues the discovery passes saw (by name)
+  → `places`, `website`, `first_seen`, `last_seen`; input for the scheduled
+  Instagram lookup session.
 
 Deleting the file only means the recent posts are read again once and mined
 accounts are found again.
