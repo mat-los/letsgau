@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:47:22Z",
+  "updated_at": "2026-11-12T11:02:24Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -389,5 +389,11 @@
       "events": []
     }
   },
-  "rejected": {}
+  "rejected": {
+    "vcp_stamm_lechrain": {
+      "checked": "2026-11-12",
+      "reason": "profile does not name the place",
+      "name": "VCP Stamm Lechrain (Pfadfinder)"
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T10:47:22Z",
+  "updated_at": "2026-11-12T11:02:24Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -291,6 +291,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.bssb.de/vbkfiles/424017__SG_Rottenbuch_1801_eV/documents/Programmheft_Rottenbuch_2026_Final.pdf",
+      "domain": "bssb.de",
+      "name": "Programmheft Gauschießen 2026 Schützengau Schongau (Rottenbuch)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "PDF for July 2026 event in Rottenbuch, already past and not Schongau.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.buecherei-muenztor.de",
       "domain": "buecherei-muenztor.de",
       "name": "Bücherei am Münztor",
@@ -305,6 +323,24 @@
       "note": "Redirects (301) to the WinBIAP OPAC webopac.winbiap.net/schongau; there is no event page for the library.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://buergerinfo-schongau.digitalfabrix.de/",
+      "domain": "buergerinfo-schongau.digitalfabrix.de",
+      "name": "Bürgerinformationssystem Schongau",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Council meeting information only, linked from schongau.de; not cultural events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -525,6 +561,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.eventfinder.de/steingaden/konzerte/",
+      "domain": "eventfinder.de",
+      "name": "Eventfinder Steingaden Konzerte",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Neighbouring town, not Schongau.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.eventfinder.de/theater-kultur-schongau.php",
       "domain": "eventfinder.de",
       "name": "eventfinder – Theater & Kultur Schongau",
@@ -687,6 +741,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.fotoclub-schongau.de",
+      "domain": "fotoclub-schongau.de",
+      "name": "Fotoclub Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Club evening every Wednesday 19:00 but held in Peiting, no dated events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://freizeitmonster.de/blog/bars-schongau",
       "domain": "freizeitmonster.de",
       "name": "Freizeitmonster – Bars in Schongau",
@@ -753,6 +825,24 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Business review directory, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.hausundgrund.de/verband/bayern/jhv-haus-grund-schongau-70-jaehriges-bestehen-des-vereins",
+      "domain": "hausundgrund.de",
+      "name": "Haus & Grund Schongau JHV report",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Old news report about an annual meeting, no event list.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -921,6 +1011,24 @@
       "last_hit": "2026-11-12"
     },
     {
+      "url": "https://www.kirstein.de/Pianotainment/",
+      "domain": "kirstein.de",
+      "name": "Musikhaus Kirstein Pianotainment",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Single concert page; same organiser as the known Kirstein sources.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.kirstein.de/Presse/",
       "domain": "kirstein.de",
       "name": "Kirstein press releases",
@@ -933,6 +1041,24 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Press archive mostly 2015–2019; outdated.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kirstein.de/Pressemitteilung-MusiConnect-2024/",
+      "domain": "kirstein.de",
+      "name": "Musikhaus Kirstein Pressemitteilungen (MusiConnect, Konzerte)",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Press releases for past events (MusiConnect 2024); current events are on the already known Termine page.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -1011,6 +1137,24 @@
       "last_hit": "2026-11-12"
     },
     {
+      "url": "https://www.kulturbox.de/buehnen/schongau/",
+      "domain": "kulturbox.de",
+      "name": "kulturbox.de Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Page returned no event content when fetched; useless.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://kulturportal-bayern.de/veranstalter/kulturverein-schongauer-land-e-v/",
       "domain": "kulturportal-bayern.de",
       "name": "Kulturportal Bayern – Kulturverein Schongauer Land e.V.",
@@ -1025,6 +1169,24 @@
       "note": "Only one event from 2003; the club's work continues as LiccAmbra (already known).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kulturvision-aktuell.de/",
+      "domain": "kulturvision-aktuell.de",
+      "name": "Kulturvision aktuell",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only old PDFs surfaced, nothing for Schongau confirmed.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1097,6 +1259,24 @@
       "note": "HTTP 403 for the fetcher; check by hand.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.liccambra.org/events/",
+      "domain": "liccambra.org",
+      "name": "LiccAmbra Events",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Returns 403 when fetched; search snippet shows a reading in Schongau-West, last updated about a year ago.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1761,6 +1941,24 @@
       "rating": 2,
       "update_frequency": "rare",
       "note": "Single concert listing (7 Nov 2026, already past); shows Reaktor concerts appear on regioactive.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.regioactive.de/location/schongau/reaktor",
+      "domain": "regioactive.de",
+      "name": "Songkick Reaktor Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Venue page https://songkick.com/venues/4593065-reaktor (songkick is blacklisted), only a few concerts; use reaktor-sog.de instead.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -3009,6 +3207,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.vcp-lechrain.de",
+      "domain": "vcp-lechrain.de",
+      "name": "VCP Stamm Lechrain (Pfadfinder, Ferienbus)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Scouts based in Epfach/Landsberg/Schongau; only Ferienbus registration, no dated event list.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://veranstaltungen.erlebe.bayern/schongau/",
       "domain": "veranstaltungen.erlebe.bayern",
       "name": "erlebe.bayern Veranstaltungskalender – Schongau",
@@ -3075,6 +3291,24 @@
       "rating": 2,
       "update_frequency": "unknown",
       "note": "Subpage of the known meinestadt calendar; mixes in neighbouring towns.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://veranstaltungen.meinestadt.de/schongau/kultur/alle",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Kulturveranstaltungen Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Mostly nearby towns (Kaufbeuren, Murnau); only one Schongau event (Dine & Crime, Brauhaus, 11.12.2026) in the first 20 entries.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
