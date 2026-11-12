@@ -206,6 +206,26 @@ def is_blocked(url: str, blocked: Iterable[str]) -> bool:
     return any(host == d or host.endswith("." + d) for d in blocked)
 
 
+SOCIAL_DOMAINS = (
+    "instagram.com",
+    "facebook.com",
+    "fb.com",
+    "fb.me",
+    "tiktok.com",
+    "threads.net",
+    "x.com",
+    "twitter.com",
+    "youtube.com",
+    "linktr.ee",
+)
+"""Social media: never a source in ``sources.json`` (Instagram accounts are kept in
+``data/instagram.json`` instead), however an event or an AI answer links to it."""
+
+
+def is_social(url: str) -> bool:
+    return is_blocked(url, SOCIAL_DOMAINS)
+
+
 def load_sources(data_dir: Path = DATA_DIR) -> SourcesFile | None:
     path = data_dir / "sources.json"
     if not path.exists():
@@ -368,7 +388,7 @@ def merge_answer(
         if not url.startswith(("http://", "https://")):
             result.warnings.append(f"invalid URL skipped: {url!r}")
             continue
-        if is_blocked(url, blocked):
+        if is_blocked(url, blocked) or is_social(url):
             continue
         places = [p for p in (resolve(n) for n in item.get("places") or []) if p] or list(
             batch_places
@@ -502,7 +522,11 @@ def record_hits(
     today: date,
 ) -> SourcesFile:
     """Count events per source; unknown primary sources are added as ``origin: crawl``."""
-    by_key = {normalize_url(s.url): s for s in (sources.sources if sources else [])}
+    by_key = {
+        normalize_url(s.url): s
+        for s in (sources.sources if sources else [])
+        if not is_social(s.url)
+    }
 
     def find(url: str) -> str | None:
         key = normalize_url(url)
@@ -517,6 +541,8 @@ def record_hits(
         for src in event.sources:
             key = find(src.url)
             if key is None and src.primary and not is_blocked(src.url, blocked):
+                if is_social(src.url):  # e.g. an Instagram post: no website to count
+                    continue
                 parts = urlsplit(src.url)
                 root = f"{parts.scheme}://{parts.netloc}/"
                 key = normalize_url(root)
@@ -659,7 +685,11 @@ def run(
     blacklist = crawl._load_list(Path(config.sources.blacklist_file), crawl.BlacklistEntry)
     blocked = sorted({e.domain for e in blacklist if e.domain})
     existing = load_sources(data_dir)
-    sources = {normalize_url(s.url): s for s in (existing.sources if existing else [])}
+    sources = {
+        normalize_url(s.url): s
+        for s in (existing.sources if existing else [])
+        if not is_social(s.url)  # entries added before social media were filtered
+    }
     result = DiscoveryResult(sources=existing or SourcesFile(updated_at=datetime.now(UTC)))
     sync_lists(sources, whitelist, blocked, today)
     insta_on = bool(config.sources.instagram_file)
