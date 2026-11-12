@@ -163,6 +163,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The header line names only the places: "Events in <center> und <places>"
+  (center label plus `region.include_places`), without drive time and days.
+- The excluded-topics check also covers stored events, so a topic added later
+  removes what is already in the calendar.
+- Events prompt: public courses, workshops and talks are events (one entry per
+  course; read every page of a course list); a "seniors" category is used for
+  events made for older people when the instance has it.
+- Instance: members-only events excluded, a "Senioren" category, the vhs course
+  search as a whitelist source, up to 100 Instagram accounts per run.
 - Instance: 3 new Instagram candidates for the profile check.
 - The coverage sentence names the places added with `region.include_places`
   ("… und in <place>"), since they lie outside the drive time.

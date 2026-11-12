@@ -199,9 +199,12 @@ docs/OPERATIONS.md.
 ## `excluded_topics`
 
 Free-text topic blacklist. Matching events are never included (checked in the
-crawl prompt and again in the merge step).
+crawl prompt and again in the merge step, where stored events are checked too:
+a topic added later also removes events already in the calendar).
 
 ## `tags`
 
 Fixed list of `{id, de, en}`. IDs are lowercase kebab-case and unique; the AI
-must not invent new ones.
+must not invent new ones. Two IDs get an extra rule in the events prompt if
+present: `religion` (events organised by a parish or church) and `seniors`
+(events made for older people).

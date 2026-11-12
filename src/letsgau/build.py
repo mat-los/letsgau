@@ -234,6 +234,13 @@ class Texts(dict[str, Any]):
         return str(text).format(**values) if values else str(text)
 
 
+def join_names(t: Texts, names: Sequence[str]) -> str:
+    """``A``, ``A und B``, ``A, B und C`` (the word from the UI strings)."""
+    if len(names) <= 1:
+        return "".join(names)
+    return f"{', '.join(names[:-1])} {t('and')} {names[-1]}"
+
+
 def format_date(t: Texts, day: date, style: str = "long") -> str:
     return t(
         f"date_{style}",
@@ -310,13 +317,10 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "t": t,
         "root": "../" * depth,
         "base_url": config.site.base_url.rstrip("/") + "/",
-        # places added with include_places lie outside the drive time: name them
+        # "Events in Schongau und Altenstadt": the center and the places added with
+        # include_places
         "coverage": t(
-            "coverage_with" if config.region.include_places else "coverage",
-            minutes=config.region.drive_time_minutes,
-            label=config.region.label,
-            extra=", ".join(config.region.include_places),
-            days=config.window.display_days,
+            "coverage", places=join_names(t, [config.region.label, *config.region.include_places])
         ),
         "updated": f"{format_date(t, local.date(), 'short')} {local:%H:%M}",
         "updated_iso": site.generated_at.isoformat(),

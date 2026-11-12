@@ -182,7 +182,8 @@ def test_unclear_pair_is_decided_by_the_ai() -> None:
     merged, report = run(stored, crawled, DAY2, says(True))
     pairs, new = seen[0]
     assert len(pairs) == 1 and merge.UNCLEAR <= pairs[0].score < merge.CLEAR
-    assert [e.title.de for e in new] == ["Konzert im Advent"]  # also gets the topic check
+    # the new event and the stored one both get the topic check
+    assert [e.title.de for e in new] == ["Konzert im Advent", "Adventskonzert der Stadtkapelle"]
     assert len(merged.events) == 1
     assert merged.events[0].id == stored.events[0].id
     assert report.merged_fuzzy == [(crawled[0].id, stored.events[0].id)]
@@ -577,3 +578,18 @@ def test_same_slot_and_shared_source_merge_without_the_ai() -> None:
     stored = EventsFile(updated_at="2026-11-12T00:00:00Z", events=[a, b])
     result = apply(stored, [], decide=failing, today=DAY1)
     assert len(result.events) == 1  # one entry left, without any AI decision
+
+
+def test_a_stored_event_on_an_excluded_topic_is_removed() -> None:
+    meeting = ev("Schützenverein, Jahreshauptversammlung", "2026-12-05", time="20:00")
+    concert = ev("Adventskonzert", "2026-12-05", time="19:00")
+    stored = EventsFile(updated_at="2026-11-12T00:00:00Z", events=[meeting, concert])
+
+    def decide(pairs: Any, events: Any) -> Decisions:
+        assert {e.id for e in events} == {meeting.id, concert.id}
+        return Decisions(excluded={meeting.id: "members only"})
+
+    report = MergeReport()
+    result = apply(stored, [], decide=decide, today=DAY1, report=report)
+    assert [e.title.de for e in result.events] == ["Adventskonzert"]
+    assert report.excluded == {meeting.id: "members only"}

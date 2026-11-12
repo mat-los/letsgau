@@ -1,8 +1,8 @@
 # Fixed UI strings (German). Event texts come bilingual from the pipeline.
 # Placeholders in {braces} are filled by the build.
 lang_name: "Deutsch"
-coverage: "Events bis {minutes} Min. um {label} · {days} Tage im Voraus"
-coverage_with: "Events bis {minutes} Min. um {label} und in {extra} · {days} Tage im Voraus"
+coverage: "Events in {places}"
+and: "und"
 today: "Heute"
 tomorrow: "Morgen"
 last_updated: "Zuletzt aktualisiert"

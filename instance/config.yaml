@@ -65,7 +65,7 @@ sources:
 instagram:                              # reading Instagram business/creator accounts
   posts_per_account: 6                  # latest posts fetched per account and run
   max_post_age_days: 21                 # older posts are not read
-  max_accounts_per_run: 40              # the list first, then accounts found on pages
+  max_accounts_per_run: 100             # the list first, then accounts found on pages
   read_mined: true                      # also read accounts linked from pages the crawl reads
   api_version: ""                       # Graph API version such as "v24.0"; empty = app default
   prescreen: true                       # skip the images of posts whose caption is clearly no event
@@ -75,6 +75,7 @@ excluded_topics:                        # topic blacklist: never include such ev
   - "First-aid courses and similar mandatory courses"
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
+  - "Events only for members or a closed group: annual general meetings (Jahreshauptversammlung, Hauptversammlung), internal club evenings, members' shooting practice, rehearsals and training sessions not open to the public"
 
 tags:                                   # fixed list, the AI must not invent new ones
   - { id: concert,         de: "Konzert",            en: "Concert" }
@@ -88,3 +89,4 @@ tags:                                   # fixed list, the AI must not invent new
   - { id: food-drink,      de: "Kulinarik",          en: "Food & Drink" }
   - { id: talk-workshop,   de: "Vortrag & Workshop", en: "Talk & Workshop" }
   - { id: religion,        de: "Religion",           en: "Religion" }
+  - { id: seniors,         de: "Senioren",           en: "Seniors" }
