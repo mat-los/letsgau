@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T11:02:24Z",
+  "updated_at": "2026-11-12T15:09:16Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -37,9 +37,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "weltladen_schongau": {
@@ -47,9 +47,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "schongau": {
@@ -57,9 +57,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "mein.schongau": {
@@ -67,9 +67,9 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
       "last_error": ""
     },
     "bistro.cafe.ballenhaus": {
@@ -77,9 +77,269 @@
       "places": [
         "Schongau"
       ],
-      "status": "new",
+      "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": null,
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "stadtkapelle_schongau_e.v._": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "lionsclubschongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "weinstuben.schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "faschingsgesellschaft_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "schongauer_maerchenwald": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "juze_sog": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "plantsch_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "soghandball": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "tcschongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "alpenverein.schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "thw_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "schongau_triathlon": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "birishpub.zumhuterer": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "lagerhausschongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "violet_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "herrlose___": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "lagerhauskino": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "schongauer_brauhaus": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "roessle_biergarten_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "cafe_express_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "cafe_express_schongau_": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "schongauer_weihnachtszauber": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "schongauer_sommer": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "csd_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "poolparty.schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "ea_schongau": {
+      "origin": "whitelist",
+      "places": [
+        "Schongau"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "last_error": ""
     }
   },
@@ -387,6 +647,1237 @@
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12",
       "events": []
+    },
+    "18156135106542243": {
+      "username": "birishpub.zumhuterer",
+      "permalink": "https://www.instagram.com/p/DfiBK-ztRMd/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18148630999569354": {
+      "username": "birishpub.zumhuterer",
+      "permalink": "https://www.instagram.com/reel/DfhNw0btrH8/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18125987605998485": {
+      "username": "birishpub.zumhuterer",
+      "permalink": "https://www.instagram.com/p/DffWbzzN6dk/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18035239931894100": {
+      "username": "birishpub.zumhuterer",
+      "permalink": "https://www.instagram.com/p/DezU27rtIwF/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18111129458179106": {
+      "username": "lagerhausschongau",
+      "permalink": "https://www.instagram.com/p/DfaI2Dktyqt/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Dinner & Dance mit DJ VYBZ",
+            "en": "Dinner & Dance with DJ VYBZ"
+          },
+          "description": {
+            "de": "Ab 18 Uhr normaler Betrieb mit Essen, Cocktails und Drinks, ab 21 Uhr legt DJ VYBZ auf.",
+            "en": "Regular service with food, cocktails and drinks from 6 pm; DJ VYBZ plays from 9 pm."
+          },
+          "venue": {
+            "name": "Lagerhaus Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-11-14",
+            "start_time": "21:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfaI2Dktyqt/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18398114587202847": {
+      "username": "violet_schongau",
+      "permalink": "https://www.instagram.com/p/Dezefh-qHeM/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18133830583704218": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/reel/DfcjeDUotxR/",
+      "posted": "2026-11-07",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18120125659948651": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/reel/DfKajTttWtL/",
+      "posted": "2026-10-31",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18124668094943957": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/reel/DfH5cxXN7gO/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18013397606768478": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/p/DezLdhJDUNz/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Adventsbinden bei Herr Lose",
+            "en": "Advent Wreath Making at Herr Lose"
+          },
+          "description": {
+            "de": "Kreativer Abend: Unter Anleitung den eigenen Adventskranz binden. Ca. 2,5 Stunden, 45 € p. P., max. 10 Personen, Anmeldung erforderlich.",
+            "en": "Creative evening making your own Advent wreath with guidance. About 2.5 hours, €45 per person, max. 10 people, registration required."
+          },
+          "venue": {
+            "name": "Herr Lose",
+            "place": "Schongau",
+            "address": "Marienplatz 16, Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-27",
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DezLdhJDUNz/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17916865782550248": {
+      "username": "schongauer_brauhaus",
+      "permalink": "https://www.instagram.com/p/DfpMmaJjGiD/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17938960617127889": {
+      "username": "schongauer_brauhaus",
+      "permalink": "https://www.instagram.com/p/DfIGTrcESK4/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18473276848187816": {
+      "username": "schongauer_weihnachtszauber",
+      "permalink": "https://www.instagram.com/p/Dfkj7PXRX2I/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Schongauer Weihnachtszauber",
+            "en": "Schongau Christmas Magic Market"
+          },
+          "description": {
+            "de": "Weihnachtsmarkt in der Schongauer Altstadt mit Bühnenprogramm, Kunsthandwerk, Kindereisenbahn, Perchtenshow, Nikolausbesuch, Kutschfahrten, Familien- und Seniorennachmittag.",
+            "en": "Christmas market in Schongau's old town with daily stage program, crafts, kids' train, Perchten show, St. Nicholas visit, carriage rides, family and senior afternoons."
+          },
+          "venue": {
+            "name": "Altstadt / Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-04",
+            "end_date": "2026-12-20",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-12-04",
+              "2026-12-05",
+              "2026-12-06",
+              "2026-12-07",
+              "2026-12-08",
+              "2026-12-09",
+              "2026-12-10",
+              "2026-12-11",
+              "2026-12-12",
+              "2026-12-13",
+              "2026-12-14",
+              "2026-12-15",
+              "2026-12-16",
+              "2026-12-17",
+              "2026-12-18",
+              "2026-12-19",
+              "2026-12-20"
+            ],
+            "opening_hours": [
+              {
+                "days": "mon-thu",
+                "from": "16:00",
+                "to": "21:00"
+              },
+              {
+                "days": "fri",
+                "from": "16:00",
+                "to": "22:00"
+              },
+              {
+                "days": "sat",
+                "from": "14:00",
+                "to": "22:00"
+              },
+              {
+                "days": "sun",
+                "from": "14:00",
+                "to": "21:00"
+              }
+            ]
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfkj7PXRX2I/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18120412997066442": {
+      "username": "schongauer_weihnachtszauber",
+      "permalink": "https://www.instagram.com/reel/De9wM6yxPXH/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18658353925039137": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "EAS 1B – SG Sonthofen/OBD.",
+            "en": "EAS 1B vs. SG Sonthofen/OBD."
+          },
+          "description": {
+            "de": "Heimspiel der zweiten Mannschaft der EA Schongau im Eisstadion.",
+            "en": "Home game of EA Schongau's second team at the ice stadium."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "EAS U9 Turnier",
+            "en": "EAS U9 Tournament"
+          },
+          "description": {
+            "de": "Eishockey-Nachwuchsturnier der U9 im Stadion an der Lechuferstraße.",
+            "en": "U9 youth ice hockey tournament at the Lechuferstraße stadium."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "09:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Pond Hockey / Schlägerlauf",
+            "en": "Pond Hockey / Stick Skate"
+          },
+          "description": {
+            "de": "Öffentlicher Schlägerlauf mit Pond Hockey im Eisstadion.",
+            "en": "Public stick skating session with pond hockey at the ice stadium."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "12:45",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "EAS U20 – SG Dachau/FFB",
+            "en": "EAS U20 vs. SG Dachau/FFB"
+          },
+          "description": {
+            "de": "Heimspiel der U20 der EA Schongau gegen die SG Dachau/FFB.",
+            "en": "Home game of EA Schongau U20 against SG Dachau/FFB."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": null,
+          "title": {
+            "de": "Discolauf",
+            "en": "Disco Skating"
+          },
+          "description": {
+            "de": "Eislaufen mit Discomusik im Eisstadion Schongau.",
+            "en": "Ice skating with disco music at the Schongau ice stadium."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "19:40",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18388787701236533": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DfmUurOD3iZ/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Mammuts vs. TEV Miesbach",
+            "en": "Mammuts vs. TEV Miesbach"
+          },
+          "description": {
+            "de": "Bayernliga-Heimspiel der EA Schongau Mammuts gegen den TEV Miesbach im Stadion an der Lechuferstraße.",
+            "en": "Bayernliga home game of EA Schongau Mammuts against TEV Miesbach at the Lechuferstraße stadium."
+          },
+          "venue": {
+            "name": "Stadion an der Lechuferstraße",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": null,
+            "start_time": "17:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfmUurOD3iZ/",
+              "primary": true
+            },
+            {
+              "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "18650244721035228": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Dfkc4LziNHq/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17917084776474511": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Dfh_WNSigcc/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18225895369338783": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Dfh9TfGikfT/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18223248169351105": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Dffk0qVinPE/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18349780888271291": {
+      "username": "alpenverein.schongau",
+      "permalink": "https://www.instagram.com/p/DfZAr9KlchH/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18136110277637056": {
+      "username": "alpenverein.schongau",
+      "permalink": "https://www.instagram.com/p/De9qJnpFGcM/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18100720049108326": {
+      "username": "faschingsgesellschaft_schongau",
+      "permalink": "https://www.instagram.com/p/Dfna9CWgJIY/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18027188948944748": {
+      "username": "faschingsgesellschaft_schongau",
+      "permalink": "https://www.instagram.com/p/DfmPIC5gFSn/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18106217012288035": {
+      "username": "faschingsgesellschaft_schongau",
+      "permalink": "https://www.instagram.com/p/DfZ7iaSokMe/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18116976560585275": {
+      "username": "juze_sog",
+      "permalink": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "40 Jahre Juze Jubiläum",
+            "en": "Juze 40th Anniversary"
+          },
+          "description": {
+            "de": "Jubiläumsfeier zum 40-jährigen Bestehen des Jugendzentrums Schongau mit Konzert. Weitere Infos folgen.",
+            "en": "Celebration of the Schongau youth centre's 40th anniversary, including a concert. More info to follow."
+          },
+          "venue": {
+            "name": "Juze Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18032141153857470": {
+      "username": "juze_sog",
+      "permalink": "https://www.instagram.com/p/DfPU40KqF4q/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Schongauer Brettspieletage",
+            "en": "Schongau Board Game Days"
+          },
+          "description": {
+            "de": "Spieleverleih mit über 600 Spielen, Erklärungen vom Team, Spieleshop, Essen und Getränke vor Ort. Eintritt Erwachsene 5 €, Kinder 6–12 Jahre 2 €.",
+            "en": "Board game lending with over 600 games, explained by the team, game shop, food and drinks on site. Admission adults €5, children 6–12 €2."
+          },
+          "venue": {
+            "name": "Jakob-Pfeiffer-Haus",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-21",
+            "end_date": "2026-11-22",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-21",
+              "2026-11-22"
+            ],
+            "opening_hours": [
+              {
+                "days": "2026-11-21",
+                "from": "14:00",
+                "to": "21:00"
+              },
+              {
+                "days": "2026-11-22",
+                "from": "14:00",
+                "to": "20:00"
+              }
+            ]
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfPU40KqF4q/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18657132259059699": {
+      "username": "lionsclubschongau",
+      "permalink": "https://www.instagram.com/p/Dfg9dQ2jeVE/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18130847135478389": {
+      "username": "lionsclubschongau",
+      "permalink": "https://www.instagram.com/p/DezqFM_Citk/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18156076612548163": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/Dfh3w1jFHUK/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18118771417824800": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/reel/DfecG-SgnG6/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18120738224072789": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/reel/DfeK6fbjYPl/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18607001602065958": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfZJEaUl7AB/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18375244900246127": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfT-n9PEb5w/",
+      "posted": "2026-11-04",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18352833406267921": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfP2MermCBQ/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18126635956859874": {
+      "username": "plantsch_schongau",
+      "permalink": "https://www.instagram.com/p/De_pW-VirFe/",
+      "posted": "2026-10-27",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17896907568654385": {
+      "username": "schongau",
+      "permalink": "https://www.instagram.com/p/Dff163TCKiP/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Kleidertauschparty Schongau",
+            "en": "Clothing Swap Party Schongau"
+          },
+          "description": {
+            "de": "Kleidung mitbringen, tauschen und neue Lieblingsstücke finden im Ballenhaus.",
+            "en": "Bring clothes, swap them and find new favourite pieces at the Ballenhaus."
+          },
+          "venue": {
+            "name": "Ballenhaus",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-21",
+            "end_date": null,
+            "start_time": "10:00",
+            "end_time": "16:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dff163TCKiP/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18126133175316084": {
+      "username": "schongau",
+      "permalink": "https://www.instagram.com/p/DfQbnpCIvhj/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17990542563080081": {
+      "username": "schongau",
+      "permalink": "https://www.instagram.com/p/DfJiWijlBub/",
+      "posted": "2026-10-31",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18145100191594282": {
+      "username": "schongau",
+      "permalink": "https://www.instagram.com/p/DfF0u-pCqwK/",
+      "posted": "2026-10-29",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18133787701780851": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DfmPH4jsQoO/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Fasching im Schongauer Märchenwald",
+            "en": "Carnival at Schongauer Märchenwald"
+          },
+          "description": {
+            "de": "Faschingstreiben für die ganze Familie mit Kostümen und den Drachen-Freunden im Märchenwald.",
+            "en": "Carnival fun for the whole family with costumes and the dragon friends at the fairy-tale park."
+          },
+          "venue": {
+            "name": "Schongauer Märchenwald",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-31",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfmPH4jsQoO/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17881922283553231": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DfZQeIOiBMh/",
+      "posted": "2026-11-06",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18445469806134133": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DfXJVilihH_/",
+      "posted": "2026-11-05",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18136611878499445": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DfPmwpMCHqD/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18183769273426071": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DezRplaiBgj/",
+      "posted": "2026-10-22",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17894928309436711": {
+      "username": "soghandball",
+      "permalink": "https://www.instagram.com/p/DfKptHzxNqi/",
+      "posted": "2026-10-31",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18131881978701762": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Dfm2UC5CBId/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18077004239495972": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Dfm1JRaiE0D/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "BONUS-Roadshow „Wohnraum Weiterdenken“",
+            "en": "BONUS Roadshow \"Rethinking Living Space\""
+          },
+          "description": {
+            "de": "Kostenlose Infoveranstaltung zu energetischer Sanierung, Wohnraumgestaltung und Vererben von Immobilien mit Fachvorträgen und Beratungstischen. Anmeldung erforderlich.",
+            "en": "Free info event on energy retrofits, home redesign and passing on property, with expert talks and advice tables. Registration required."
+          },
+          "venue": {
+            "name": "Ballenhaus Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-01",
+            "end_date": null,
+            "start_time": "18:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfm1JRaiE0D/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17996707689051781": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DfkEmwkHHQF/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Ratsch-Café mit Thomas",
+            "en": "Chat Café with Mayor Thomas"
+          },
+          "description": {
+            "de": "Bürgermeister Thomas Schleich lädt im Ballenhaus Café zum offenen Austausch ein. Ohne Anmeldung.",
+            "en": "Mayor Thomas Schleich invites residents to an informal chat at Ballenhaus Café. No registration needed."
+          },
+          "venue": {
+            "name": "Ballenhaus Café",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": "14:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfkEmwkHHQF/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18132359989842804": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DfjxtjZCjzd/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17909353941669848": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Dfjl1TrE3L8/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17966390355227538": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DfhPbWjCPKY/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "18361007047173779": {
+      "username": "stadtkapelle_schongau_e.v._",
+      "permalink": "https://www.instagram.com/p/Dfh_9w8oQR9/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Wertungsspiele des MON Bezirk Oberland",
+            "en": "MON Oberland District Band Competitions"
+          },
+          "description": {
+            "de": "Die Stadtkapelle Schongau richtet die Wertungsspiele der Musikkapellen aus; Termin Samstag oder Sonntag.",
+            "en": "Stadtkapelle Schongau hosts the brass band competitions; held on Saturday or Sunday."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-04-17",
+            "end_date": "2027-04-18",
+            "start_time": null,
+            "end_time": null,
+            "all_day": true,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfh_9w8oQR9/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18133359346695272": {
+      "username": "stadtkapelle_schongau_e.v._",
+      "permalink": "https://www.instagram.com/p/DfUZTENowuM/",
+      "posted": "2026-11-04",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "LET IT SWING – Weihnachtskonzert der SOG-BigBand",
+            "en": "LET IT SWING – Christmas Concert by the SOG-BigBand"
+          },
+          "description": {
+            "de": "Weihnachtsklassiker im BigBand-Sound, Eintritt frei, Spenden erbeten. Einlass 18 Uhr, Weihnachtsspritz im Foyer.",
+            "en": "Christmas classics in big band style, free entry, donations welcome. Doors 18:00, Christmas spritz in the foyer."
+          },
+          "venue": {
+            "name": "Jakob-Pfeiffer-Haus",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-19",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfUZTENowuM/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17915405028283878": {
+      "username": "weltladen_schongau",
+      "permalink": "https://www.instagram.com/p/DfNRDGotcJY/",
+      "posted": "2026-11-01",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
+    },
+    "17922595338241581": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/Dfo2FfjE5Ze/",
+      "posted": "2026-11-12",
+      "version": 1,
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "events": []
     }
   },
   "rejected": {
@@ -394,6 +1885,27 @@
       "checked": "2026-11-12",
       "reason": "profile does not name the place",
       "name": "VCP Stamm Lechrain (Pfadfinder)"
+    },
+    "lechwirt": {
+      "checked": "2026-11-12",
+      "reason": "profile does not name the place",
+      "name": "Lechwirt"
+    },
+    "liccambra_ammerlechland": {
+      "checked": "2026-11-12",
+      "reason": "not_business",
+      "name": "LiccAmbra e.V. Kultur im AmmerLechLand"
+    },
+    "musikschulepfaffenwinkel_e.v._": {
+      "checked": "2026-11-12",
+      "reason": "profile does not name the place",
+      "name": "Musikschule Pfaffenwinkel e.V."
+    },
+    "ffwsog": {
+      "checked": "2026-11-12",
+      "reason": "not_business",
+      "name": "Freiwillige Feuerwehr Schongau"
     }
-  }
+  },
+  "venues": {}
 }
