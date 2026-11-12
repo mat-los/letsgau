@@ -254,6 +254,8 @@ def test_prompt_lists_municipalities_with_districts(config: Config, tmp_path: Pa
     assert "Altenstadt" not in prompt
     assert result.batches[0].places == ["Schongau", "Peiting"]
     assert result.skipped_places == ["Altenstadt"]
+    # church events also get the religion tag (the instance has that category)
+    assert 'also gets "religion" as one of its tags' in prompt
 
 
 # --- validation of single candidates ----------------------------------------------------
