@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T19:10:22Z",
+  "updated_at": "2026-11-12T19:50:58Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -71,6 +71,240 @@
       "note": "Event list didn't render (probably JS-loaded); tour calendar 2026 only as PDF; check by hand.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeinde Altenstadt (Homepage)",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Mostly news and reports; also has Tourismus and Branchenbuch sections, no event calendar",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/gemeinde/kommunale-einrichtungen/buecherei",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeindebücherei Altenstadt",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only says details come on posters or Facebook; no dated events as text; archive at /archiv-veranstaltungen.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/gemeinde/rathaus/schwimmbad",
+      "domain": "altenstadt-obb.de",
+      "name": "Freibad Altenstadt",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only season hours (season ended 9 Sep 2026), no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/termine",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeinde Altenstadt – Termine",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Official Termine page is empty and only refers to kulze.info; the homepage has news but no event list",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/tourismus/essen-und-trinken",
+      "domain": "altenstadt-obb.de",
+      "name": "Altenstadt Essen und Trinken (Gemeinde)",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Directory of cafés, Gasthöfe and Diskothek Kutsche; no events, useful as venue list.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/kultur",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeinde Altenstadt – Vereine Kultur",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "club directory; lists Jagdhornbläser, Blaskapelle, Basilikafreunde, KulZe, TSV, Feuerwehr with websites, no events",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/kultur/basilikafreunde",
+      "domain": "altenstadt-obb.de",
+      "name": "Freunde der Romanischen Basilika St. Michael",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Orgelmatineen concert series only as Word flyer; no current dated events in November.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/kulze",
+      "domain": "altenstadt-obb.de",
+      "name": "Kulze Schwabniederhofen (Gemeinde page)",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only old 2024 programme as brochure images; use kulze.info/programm instead (already known).",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/sonstige",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeinde Altenstadt – Vereine Sonstige",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "club directory; Fotogruppe, Gartenbauverein, Rehkitzrettung (Instagram), Feuerwehr, no events",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/sport",
+      "domain": "altenstadt-obb.de",
+      "name": "Gemeinde Altenstadt – Vereine Sport",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "club directory; TSV departments, RC 77, Schützenvereine Jägerhaus and Schwabniederhofen, FSR Club 2000, no events",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/tsv-schwabniederhofen/startseite",
+      "domain": "altenstadt-obb.de",
+      "name": "TSV Schwabniederhofen (page on municipality site)",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "No events visible; Aktuelles section not read.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.altenstadt-obb.de/vereine/verbaende/kab",
+      "domain": "altenstadt-obb.de",
+      "name": "KAB Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact only, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "http://www.altenstaedter-jagdhornblaeser.de",
+      "domain": "altenstaedter-jagdhornblaeser.de",
+      "name": "Altenstädter Jagdhornbläser",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Domain does not resolve.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -219,6 +453,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.blaskapelle-altenstadt.de",
+      "domain": "blaskapelle-altenstadt.de",
+      "name": "Blaskapelle Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Posts are Instagram embeds with partly missing years; mostly old dates",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://brauhaus-schongau.de/kalender/",
       "domain": "brauhaus-schongau.de",
       "name": "Schongauer Brauhaus – Kalender",
@@ -339,6 +591,24 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Council meeting information only, linked from schongau.de; not cultural events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.cafebistrolions.de",
+      "domain": "cafebistrolions.de",
+      "name": "Café Bistro Lion's",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Page showed only the name, no events.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -687,6 +957,24 @@
       "last_hit": null
     },
     {
+      "url": "http://www.fa-altenstadt.de/",
+      "domain": "fa-altenstadt.de",
+      "name": "Fußballabteilung TSV Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "SSL handshake error when fetched; check by hand for home matches (also on fussball.de).",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.fa-schongau.de/termine/",
       "domain": "fa-schongau.de",
       "name": "TSV Schongau Fußballabteilung – Termine",
@@ -719,6 +1007,24 @@
       "note": "Certificate error, not readable; search snippet says the church is still being founded (Schongau/Peiting).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.feuerwehr-altenstadt.de",
+      "domain": "feuerwehr-altenstadt.de",
+      "name": "Feuerwehr Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Only operations archive; check /neuigkeiten for announcements",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -813,6 +1119,24 @@
       "last_hit": null
     },
     {
+      "url": "https://fotogruppe-altenstadt.de/veranstaltungen",
+      "domain": "fotogruppe-altenstadt.de",
+      "name": "Fotogruppe Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Monthly program with dates, times, places (MIZ, Aula, Galerie Schottmayer) as text; exhibitions are public.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://freizeitmonster.de/blog/bars-schongau",
       "domain": "freizeitmonster.de",
       "name": "Freizeitmonster – Bars in Schongau",
@@ -861,6 +1185,24 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Redirects to skydive-altenstadt.de (tandem jumps), no public events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.gartenbauvereine-wm-sog.de",
+      "domain": "gartenbauvereine-wm-sog.de",
+      "name": "Gartenbauvereine Weilheim-Schongau (incl. Ortsverein Altenstadt)",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "District-wide event list at /aktuelles-und-termine/alle-termine; no Altenstadt events seen.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -939,6 +1281,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
+      "domain": "hohenfurch.de",
+      "name": "Schönach-Kurier Hohenfurch",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "PDF from Hohenfurch, only occasional Altenstadt dates, outdated issue",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Feriensommer_2026_DINA5_20260710_WEB.pdf",
       "domain": "hohenfurch.de",
       "name": "Feriensommer 2026 (Tourist Information Schongau / youth officers)",
@@ -957,6 +1317,24 @@
       "last_hit": null
     },
     {
+      "url": "http://www.jaegerhaus-altenstadt.de",
+      "domain": "jaegerhaus-altenstadt.de",
+      "name": "Schützenverein Jägerhaus Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Home page shows JHV Fri 13 Nov 20:00 and weekly Übungsschießen Thursday 19:30 as text.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.juze-schongau.de/termine/",
       "domain": "juze-schongau.de",
       "name": "Jugendzentrum Schongau – Termine",
@@ -971,6 +1349,24 @@
       "note": "Rating lowered from 2: the page says 'Derzeit gibt es keine anstehenden Termine'; it lists only opening hours.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kfv-schongau.de",
+      "domain": "kfv-schongau.de",
+      "name": "Kreisfischereiverein Schongau",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "News current (Oct 2026) but mostly member/youth events; separate Terminkalender page at /terminkalender not readable.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -1293,6 +1689,24 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Only old PDFs surfaced, nothing for Schongau confirmed.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.kulze.info/programm/",
+      "domain": "kulze.info",
+      "name": "KulZe Kulturzentrum Schwabniederhofen – Programm",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Programme 2026 is over, 2027 programme to be announced in January; also pages /kalender/ and Kinderkino; fetched text did not show events",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -1857,6 +2271,42 @@
       "last_hit": null
     },
     {
+      "url": "https://www.pg-altenstadt.org",
+      "domain": "pg-altenstadt.org",
+      "name": "Pfarreiengemeinschaft Altenstadt (Basilika St. Michael)",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Domain is .org (.com has bad certificate); Termine and Gottesdienstanzeiger empty when read; Pfarrbrief only as PDF 2-3x/year; check /gottesdienste and /aktuelles (Pfarrtelegramm) by hand.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.pg-altenstadt.org/gottesdienste",
+      "domain": "pg-altenstadt.org",
+      "name": "PG Altenstadt Gottesdienste",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Headings Gottesdienstanzeiger and Vorschau were empty when fetched, possibly loaded dynamically.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.pg-schongau.com/",
       "domain": "pg-schongau.com",
       "name": "Pfarreiengemeinschaft Schongau (kath.)",
@@ -2019,6 +2469,24 @@
       "last_hit": null
     },
     {
+      "url": "https://rc77-altenstadt.de/",
+      "domain": "rc77-altenstadt.de",
+      "name": "RC 77 Altenstadt (old URL)",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Same site as the first entry.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
       "domain": "rce-event.de",
       "name": "Stadt Schongau Veranstaltungskalender (RCE-Event backend, print list)",
@@ -2075,7 +2543,7 @@
     {
       "url": "https://www.regioactive.de/events/23935/schongau/veranstaltungen-party-konzerte",
       "domain": "regioactive.de",
-      "name": "regioactive Schongau (re-seen)",
+      "name": "Regioactive Schongau (re-seen)",
       "kind": "calendar",
       "places": [
         "Schongau"
@@ -2083,8 +2551,8 @@
       "origin": "discovery",
       "status": "active",
       "rating": 2,
-      "update_frequency": "weekly",
-      "note": "Already known; shows Reaktor concerts, Festplatz flea markets (17 Oct, 7 Nov 2026).",
+      "update_frequency": "monthly",
+      "note": "Already known; lists Reaktor concerts and Festplatz flea markets.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-12",
       "hits": 0,
@@ -3189,6 +3657,24 @@
       "last_hit": null
     },
     {
+      "url": "https://sv-snh.jimdoweb.com/",
+      "domain": "sv-snh.jimdoweb.com",
+      "name": "Schützenverein Schwabniederhofen",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Full season schedule as text (Nikolausschießen, Nikolausfeier 6 Dec, JHV 19 Jan, Königsschießen); years omitted; sv-schwabniederhofen.de redirects here.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.swipein.restaurant/en/place/schongau-weilheim-schongau/category/cafe",
       "domain": "swipein.restaurant",
       "name": "SwipeIn – Cafés in Schongau",
@@ -3365,6 +3851,60 @@
       "note": "Single-event listing on a triathlon calendar; only useful once a year.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.tsv-altenstadt.de",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Aktuelles empty; department pages with Termine (tennis /tennis/termine-2015, /tischtennis/termine)",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.tsv-altenstadt.de/skiclub",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt Skiabteilung",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only ski-course dates for the past Jan 2026 course; may be updated for winter 2026/27.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.tsv-altenstadt.de/tischtennis",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt Tischtennis",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only outdated 2025 match dates.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -3549,6 +4089,24 @@
       "last_hit": null
     },
     {
+      "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+      "domain": "veranstaltungen.pfaffen-winkel.de",
+      "name": "Pfaffenwinkel tourism calendar, one page per municipality, paginated with ?os=12, ?os=24",
+      "kind": "other",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "whitelist",
+      "status": "active",
+      "rating": null,
+      "update_frequency": "unknown",
+      "note": "",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
       "domain": "veranstaltungen.pfaffen-winkel.de",
       "name": "Tourismusverband Pfaffenwinkel – Veranstaltungen Schongau",
@@ -3565,6 +4123,24 @@
       "last_checked": "2026-11-09",
       "hits": 216,
       "last_hit": "2026-11-12"
+    },
+    {
+      "url": "https://www.vg-altenstadt.de",
+      "domain": "vg-altenstadt.de",
+      "name": "VG Altenstadt",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Administration only, no events or Mitteilungsblatt found on the start page",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://www.vhs-pfaffenwinkel.de/vhs-schongau",

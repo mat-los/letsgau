@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T19:10:07Z",
+  "updated_at": "2026-11-12T19:50:58Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -380,6 +380,36 @@
       "status": "active",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "blaskapelle_altenstadt": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "feuerwehr_altenstadt_i.ob": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "rehkitzrettung_altenstadt": {
+      "origin": "mined",
+      "places": [
+        "Altenstadt"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
       "last_error": ""
     }
   },
@@ -2150,7 +2180,7 @@
       "places": [
         "Schongau"
       ],
-      "website": "https://brauhaus-schongau.de/",
+      "website": "https://brauhaus-schongau.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12"
     },
@@ -2263,6 +2293,198 @@
         "Schongau"
       ],
       "website": "https://lagerhauskino.pfaffenwinkel.net",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "KulZe Kulturzentrum Schwabniederhofen": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.kulze.info",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Café Sweetheart (am Rathaus)": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Pfarrsaal Altenstadt": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Romanische Basilika St. Michael": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Schützenheim Altenstadt": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Gasthof Janser (Schwabniederhofen)": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Bistro LIONS Altenstadt": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Galerie Schottmayer": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "MIZ Altenstadt (Bürgerzentrum)": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.altenstadt-obb.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Basilika St. Michael": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.pg-altenstadt.org",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Schützenheim Jägerhaus": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "http://www.jaegerhaus-altenstadt.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Zum Huterer (Café, Toasteria, Wein)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "La Perla": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Blaue Traube": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Bootshaus": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Restaurant Tre Amici": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Café Konditorei Sweetheart": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.cafe-konditorei-sweetheart.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Café Bistro Lion's": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.cafebistrolions.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Gasthof Janser": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.gasthof-janser.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Pizzeria Trattoria La Locanda": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.lalocanda-altenstadt.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Sportgaststätte TSV Altenstadt": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.tsv-altenstadt.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Sportheim TSV Schwabniederhofen": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Diskothek Kutsche": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.alte-kutsche.de",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Kulze Schwabniederhofen": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.kulze.info",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12"
     }
