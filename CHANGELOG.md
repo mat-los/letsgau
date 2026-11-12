@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Start times that differ between the dates of a film or series: opening
+  hours can be given per date (`"days": "2026-11-21"`), which wins over the
+  weekday, and the events prompt asks for them instead of a weekday pattern or
+  one time for all dates. A fresh crawl result updates the stored opening hours
+  also when the stored event keeps its longer schedule.
 - Films and other events shown on several days at a different time per day
   show that day's start time in the day list (with "to <last day>" below)
   and sort among the timed events; their details say "Today 20:00" instead

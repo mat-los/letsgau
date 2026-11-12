@@ -176,6 +176,12 @@ matching status.
   For a cinema, report each film as its own entry with the film in the title; a film shown on
   several days is one recurring entry with "dates". If the individual events or their dates are
   not given, report nothing for that venue.
+- Start times that differ between the dates of one entry (cinemas often show a film at 17:30 on
+  one day and 20:00 on another): start_time null, and one "opening_hours" entry per date with
+  "days" set to the date ("2026-11-21"), "from" and "to" both the start time. Several dates with
+  the same time may share one entry ("2026-11-21,2026-11-28"). Use a weekday ("sat") only if the
+  time is the same on every such weekday of the entry; use start_time only if it is the same on
+  every date. Read the time of every single date; never assume the pattern of one week repeats.
 - Events after {{ window_end }} up to {{ store_end }} that you see on a page you read anyway: report
   them too (they are kept for later). But do not page, filter or search beyond {{ window_end }}.
 - If the start time is not stated, use null. Never guess a time. Use 24-hour "HH:MM".
@@ -184,7 +190,8 @@ matching status.
   If it only runs on some days (e.g. Advent weekends), list those days in "dates".
 - A recurring event (weekly market, regular club evening) is one entry: start_date is the first
   and end_date the last occurrence until {{ window_end }}, and "dates" lists every occurrence. Use
-  "opening_hours" (days like "mon-fri" or "sat,sun", times "HH:MM") for markets and exhibitions.
+  "opening_hours" (days like "mon-fri" or "sat,sun", or dates like "2026-11-21"; times "HH:MM")
+  for markets and exhibitions.
 - A series on several weekdays with different times (e.g. a market on Fridays 15:00-18:00 and
   Saturdays 10:00-14:00) is still one entry: every day in "dates", the times per weekday in
   "opening_hours", start_time null. Never split it by weekday and never put a weekday in the title.

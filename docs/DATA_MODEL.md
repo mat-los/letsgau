@@ -127,7 +127,7 @@ start date, start time and id.
 | `title`, `description` | always DE and EN; proper names unchanged; description ≤ `description_max_chars`, own words |
 | `schedule.start_time` | `null` if unknown; never guessed |
 | `schedule.dates` | list of single days if not continuous (e.g. only Advent weekends) |
-| `schedule.opening_hours` | optional, per weekday; the site shows today's hours |
+| `schedule.opening_hours` | optional, per weekday (`mon-fri`) or per date (`2026-11-21`, a date wins over its weekday); the site shows today's hours, or the start time if `from` equals `to` (screenings) |
 | `primary_tag` | exactly one; drives grouping by category |
 | `tags` | 1–3 from the fixed list, includes `primary_tag` |
 | `status` | `scheduled`, `postponed`, `cancelled` or `unconfirmed` |

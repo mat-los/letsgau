@@ -33,7 +33,7 @@ from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from letsgau.models import Event, EventsFile, EventSource, EventStatus, Schedule
+from letsgau.models import Event, EventsFile, EventSource, EventStatus, OpeningHours, Schedule
 
 CLEAR = 0.85
 """Title similarity from which a pair is merged without asking the AI."""
@@ -203,6 +203,16 @@ def merge_sources(old: list[EventSource], new: list[EventSource]) -> list[EventS
     return merged
 
 
+def merge_hours(old: Schedule, new: Schedule) -> list[OpeningHours] | None:
+    """The stored opening hours, updated by the fresh ones: an entry of ``new`` replaces the
+    entry of ``old`` for the same days; entries for other days are added."""
+    if not new.opening_hours:
+        return old.opening_hours
+    fresh = {h.days for h in new.opening_hours}
+    kept = [h for h in old.opening_hours or [] if h.days not in fresh]
+    return kept + list(new.opening_hours)
+
+
 def combine(old: Event, new: Event) -> Event:
     """Update a stored event with a fresh crawl result; the stored id stays."""
     status = new.status
@@ -213,7 +223,9 @@ def combine(old: Event, new: Event) -> Event:
     if covers(old.schedule, new.schedule):
         # only part of a known multi-day event or series (one day, or the Saturdays of a
         # Friday/Saturday market): keep the full schedule and its texts
-        schedule = old.schedule
+        schedule = old.schedule.model_copy(
+            update={"opening_hours": merge_hours(old.schedule, new.schedule)}
+        )
         texts = {"title": old.title, "description": old.description}
     return new.model_copy(
         update={
