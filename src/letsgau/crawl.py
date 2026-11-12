@@ -1364,7 +1364,7 @@ def _run_instagram_call(
                 update={"status": status, "last_checked": today, "last_error": str(exc)}
             )
             _log(f"batch {batch.number}: instagram @{username}: {exc.kind}: {exc}")
-            if exc.kind in ("auth", "rate_limit", "network"):
+            if exc.kind in ("auth", "permission", "rate_limit", "network"):
                 state["stop"] = True
                 warnings.append(f"instagram: {exc}; no more accounts are read in this run")
             elif account.origin == "whitelist":

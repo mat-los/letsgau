@@ -218,6 +218,7 @@ def test_fetch_posts_parses_business_discovery() -> None:
         (NOT_BUSINESS["error"], "not_business"),
         ({"message": f"Error validating access token {TOKEN}", "code": 190}, "auth"),
         ({"message": "Application request limit reached", "code": 4}, "rate_limit"),
+        ({"message": "(#10) Application does not have permission", "code": 10}, "permission"),
         ({"message": "Cannot find User with username x", "code": 100}, "not_found"),
         ({"message": "Something else", "code": 1}, "other"),
     ],

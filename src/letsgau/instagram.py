@@ -50,8 +50,8 @@ class AccountError(Exception):
     """An account could not be read.
 
     ``kind``: ``not_business`` (personal account, or not a professional account),
-    ``not_found``, ``auth`` (token invalid or expired), ``rate_limit``, ``network`` or
-    ``other``.
+    ``not_found``, ``auth`` (token invalid or expired), ``permission`` (the app or token lacks
+    a permission; affects every account), ``rate_limit``, ``network`` or ``other``.
     """
 
     def __init__(self, kind: str, message: str) -> None:
@@ -179,6 +179,8 @@ def _error(error: dict[str, Any], token: str) -> AccountError:
     lower = message.lower()
     if code == 190 or "access token" in lower:
         kind = "auth"
+    elif code == 10 or (isinstance(code, int) and 200 <= code <= 299):
+        kind = "permission"
     elif code in (4, 17, 32, 613) or "limit" in lower:
         kind = "rate_limit"
     elif code == 110 or subcode == 2207013 or "business" in lower or "professional" in lower:
