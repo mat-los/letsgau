@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Content pages (about, missing event) say that Instagram business and creator
+  accounts are read, but not Facebook or other social networks.
+
 ### Fixed
 
 - Social media (Instagram, Facebook, TikTok, …) is never added to
