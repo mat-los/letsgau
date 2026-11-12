@@ -160,6 +160,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instagram lookup session: per-place searches only for cafés, bars, venues and
+  event organisers (clubs are covered by the general searches), no place
+  searched twice, chains and delivery services skipped, a numbered branch if
+  the month's exists, and the session merges its own pull request (every
+  candidate is checked against its profile before it is read).
 - Instance: 6 new Instagram candidates for the profile check.
 - Instagram lookup session: the cafés and bars of the municipality's directory
   are searched first, before known club and venue sources.
