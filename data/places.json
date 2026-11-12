@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "fingerprint": "sha256:89db14d8b1ab7bc7",
-  "generated_at": "2026-11-09T07:33:12Z",
+  "generated_at": "2026-11-12T19:42:56Z",
   "center": {
     "lat": 47.811,
     "lon": 10.896
@@ -12,7 +12,9 @@
     "town",
     "village"
   ],
-  "include_places": [],
+  "include_places": [
+    "Altenstadt"
+  ],
   "exclude_places": [],
   "places": [
     {
@@ -25,6 +27,17 @@
       "distance_km": 0.6,
       "origin": "area",
       "municipality": "Schongau"
+    },
+    {
+      "name": "Altenstadt",
+      "osm_id": "node/3610365493",
+      "place_type": "village",
+      "lat": 47.823657,
+      "lon": 10.8734632,
+      "drive_time_minutes": 7.8,
+      "distance_km": 3.2,
+      "origin": "include",
+      "municipality": "Altenstadt"
     }
   ]
 }
