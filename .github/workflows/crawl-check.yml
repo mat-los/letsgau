@@ -32,6 +32,8 @@ jobs:
     env:
       ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}   # optional: Instagram accounts
+      INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
       LIMIT_PLACES: ${{ inputs.limit_places || '3' }}
       LETSGAU_RECORD_DIR: ${{ github.workspace }}/recordings
       DISABLE_AUTOUPDATER: "1"

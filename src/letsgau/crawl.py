@@ -27,6 +27,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import tempfile
@@ -41,9 +42,16 @@ from urllib.parse import urlsplit
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    ValidationError,
+    field_validator,
+    model_validator,
+)
 
-from letsgau import flyers, merge
+from letsgau import flyers, instagram, merge
 from letsgau.ai_runner import FILES_DIR, AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
@@ -53,6 +61,9 @@ from letsgau.models import (
     EventStatus,
     FlyerCacheEntry,
     FlyerCacheFile,
+    InstagramAccount,
+    InstagramFile,
+    InstagramPost,
     LocalizedText,
     Place,
     PlacesFile,
@@ -128,6 +139,23 @@ class FlyerEntry(WhitelistEntry):
     """Images/PDFs downloaded from the page per run (in page order)."""
 
 
+class InstagramEntry(_Strict):
+    """An Instagram account read on every run (``instance/sources/instagram.yaml``)."""
+
+    username: str
+    places: list[str] = []
+    """Places of the account (decides the batch); without, the first batch."""
+    note: str = ""
+
+    @field_validator("username")
+    @classmethod
+    def _handle(cls, value: str) -> str:
+        handle = instagram.normalize(value)
+        if handle is None:
+            raise ValueError(f"not an Instagram account name: {value!r}")
+        return handle
+
+
 class BlacklistEntry(_Strict):
     """``domain``: never used as a source, also blocked for the AI's web access.
     ``url``: this page (and the pages below it) is not read as a known source, for
@@ -144,7 +172,7 @@ class BlacklistEntry(_Strict):
         return self
 
 
-def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry)](
+def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry, InstagramEntry)](
     path: Path, model: type[T]
 ) -> list[T]:
     if not path.exists():
@@ -297,6 +325,7 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
         {
             "events": {"type": "array", "items": event},
             "checked_sources": {"type": "array", "items": checked},
+            "instagram_accounts": {"type": "array", "items": {"type": "string"}},
             "notes": {"type": "string"},
         }
     )
@@ -593,7 +622,7 @@ def search_queries(
 class CrawlCall:
     """One AI call of a batch: a combined call, a sweep over known sources, or the open search."""
 
-    mode: str  # "all" | "sources" | "flyers" | "recheck" | "search"
+    mode: str  # "all" | "sources" | "flyers" | "instagram" | "recheck" | "search"
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     sources: list[Any] = field(default_factory=list)
     flyer: FlyerEntry | None = None
@@ -653,6 +682,7 @@ def plan_calls(
     queries: Sequence[tuple[str, list[str]]] = (),
     recheck: Sequence[Event] = (),
     search_calls: int = 1,
+    instagram: bool = False,
 ) -> list[CrawlCall]:
     """Split a batch into source sweeps (``sources_per_request`` sources each), one call per
     flyer page, re-check calls for the known events of the deep-check window
@@ -663,6 +693,8 @@ def plan_calls(
     the flyer calls.
     """
     flyer_calls = [CrawlCall("flyers", flyer=f) for f in batch.flyers]
+    if instagram:  # the accounts are chosen when the step runs (mined ones may be added)
+        flyer_calls.append(CrawlCall("instagram"))
     if sources_per_request <= 0:
         return [CrawlCall("all", list(batch.whitelist), list(batch.sources)), *flyer_calls]
     items: list[Any] = [*batch.whitelist, *batch.sources]
@@ -707,6 +739,8 @@ def render_prompt(
     prompts_dir: Path = PROMPTS_DIR,
     call: CrawlCall | None = None,
     files: Sequence[Any] = (),
+    posts: Sequence[Any] = (),
+    mine_instagram: bool = False,
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(prompts_dir),
@@ -741,6 +775,8 @@ def render_prompt(
         + [f.url for f in batch.flyers],
         flyer=call.flyer,
         files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
+        posts=posts,
+        mine_instagram=mine_instagram,
         queries=call.queries or search_queries(batch.groups, today, window_end),
         tags=config.tags,
         excluded_topics=config.excluded_topics,
@@ -787,6 +823,8 @@ class CrawlResult:
     """What the merge did (set by :func:`run`)."""
     flyer_cache: FlyerCacheFile | None = None
     """Updated flyer cache (written by :func:`run` unless it is a dry run)."""
+    instagram_cache: InstagramFile | None = None
+    """Updated Instagram accounts and posts (written by :func:`run` unless a dry run)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -807,6 +845,8 @@ def crawl(
     prompts_dir: Path = PROMPTS_DIR,
     clock: Any = time.monotonic,
     fetch: flyers.Fetch | None = None,
+    graph_get: instagram.Get | None = None,
+    env: Mapping[str, str] | None = None,
 ) -> CrawlResult:
     """Run the AI over all batches and return validated events (writes nothing)."""
     today = today or date.today()
@@ -853,6 +893,14 @@ def crawl(
     flyer_cache = _load(data_dir / "flyers.json", FlyerCacheFile) or FlyerCacheFile(
         updated_at=datetime.now(UTC).replace(microsecond=0)
     )
+    insta_on = bool(config.sources.instagram_file)
+    insta_entries = load_instagram(config)
+    if insta_on and not Path(config.sources.instagram_file).exists():
+        warnings.append(f"{config.sources.instagram_file} not found; only mined accounts are read")
+    insta_cache = _load(data_dir / "instagram.json", InstagramFile) or InstagramFile(
+        updated_at=datetime.now(UTC).replace(microsecond=0)
+    )
+    insta_state: dict[str, Any] = {"read": 0, "stop": False, "warned": False}
 
     deep_end = today + timedelta(days=config.window.deep_check_days)
     window_end = today + timedelta(days=config.window.crawl_days)
@@ -868,6 +916,7 @@ def crawl(
             search_calls=max(
                 1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
             ),
+            instagram=insta_on,
         )
     ]
     by_batch: dict[int, BatchReport] = {}
@@ -926,6 +975,28 @@ def crawl(
             )
             usage = usage.add(report.last_usage)
             continue
+        if call.mode == "instagram":
+            _run_instagram_call(
+                config,
+                runner,
+                batch,
+                report,
+                events,
+                today=today,
+                blocked=blocked,
+                prompts_dir=prompts_dir,
+                index=index,
+                fetch=fetch,
+                warnings=warnings,
+                step=f"events batch {batch.number}/{len(batches)} (instagram)",
+                cache=insta_cache,
+                entries=insta_entries,
+                state=insta_state,
+                env=os.environ if env is None else env,
+                get=graph_get or instagram.http_get,
+            )
+            usage = usage.add(report.last_usage)
+            continue
         if remaining < MIN_SEARCHES_PER_BATCH:
             _skip(report, prefix + "skipped: max_web_searches_per_run used up")
             continue
@@ -949,6 +1020,7 @@ def crawl(
             max_searches=per_call,
             prompts_dir=prompts_dir,
             call=call,
+            mine_instagram=insta_on,
         )
         step = f"events batch {batch.number}/{len(batches)}"
         request = AiRequest(
@@ -981,6 +1053,10 @@ def crawl(
             else:
                 events[event.id] = event
         report.events += len(found)
+        if insta_on:
+            mined = _mine_instagram(result.data, batch, insta_cache, today)
+            if mined:
+                _log(f"batch {batch.number}: {prefix}Instagram accounts found: {', '.join(mined)}")
         checked = checked_by_batch.setdefault(batch.number, [])
         checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls
@@ -1022,6 +1098,7 @@ def crawl(
         covered_places=covered,
         municipality_of=municipality_of,
         flyer_cache=flyer_cache,
+        instagram_cache=_prune_instagram(insta_cache, today, config) if insta_on else None,
     )
 
 
@@ -1154,6 +1231,256 @@ def _run_flyer_call(
     report.events += len(found)
 
 
+def load_instagram(config: Config) -> list[InstagramEntry]:
+    """The Instagram list; empty if ``sources.instagram_file`` is unset or missing."""
+    path = Path(config.sources.instagram_file) if config.sources.instagram_file else None
+    if path is None or not path.exists():
+        return []
+    return _load_list(path, InstagramEntry)
+
+
+INSTAGRAM_VERSION = 1
+"""Bump when the Instagram extraction changes, so cached posts are read again."""
+INSTAGRAM_POSTS_PER_CALL = 6
+"""New posts read in one AI call (caption plus up to 4 images each)."""
+INSTAGRAM_RETRY_DAYS = 30
+"""Accounts that were not readable (personal account, not found) are tried again after this."""
+
+
+def _mine_instagram(
+    data: dict[str, Any], batch: Batch, cache: InstagramFile, today: date
+) -> list[str]:
+    """Add the account names an AI call found on the pages it read; returns the new ones."""
+    added = []
+    for raw in data.get("instagram_accounts") or []:
+        handle = instagram.normalize(str(raw))
+        if handle and handle not in cache.accounts:
+            cache.accounts[handle] = InstagramAccount(
+                origin="mined", places=[g.name for g in batch.groups], first_seen=today
+            )
+            added.append(handle)
+    return added
+
+
+def _prune_instagram(cache: InstagramFile, today: date, config: Config) -> InstagramFile:
+    keep_after = today - timedelta(days=config.instagram.max_post_age_days + 30)
+    return cache.model_copy(
+        update={
+            "updated_at": datetime.now(UTC).replace(microsecond=0),
+            "posts": {k: v for k, v in cache.posts.items() if v.posted >= keep_after},
+        }
+    )
+
+
+def _run_instagram_call(
+    config: Config,
+    runner: Runner,
+    batch: Batch,
+    report: BatchReport,
+    events: dict[str, Event],
+    *,
+    today: date,
+    blocked: Sequence[str],
+    prompts_dir: Path,
+    index: PlaceIndex,
+    fetch: flyers.Fetch,
+    warnings: list[str],
+    step: str,
+    cache: InstagramFile,
+    entries: Sequence[InstagramEntry],
+    state: dict[str, Any],
+    env: Mapping[str, str],
+    get: instagram.Get,
+) -> None:
+    """Read the recent posts of the batch's Instagram accounts; only new posts go to the AI."""
+    report.last_usage = Usage()
+    settings = config.instagram
+    names = {p.name.casefold() for p in batch.places} | {g.name.casefold() for g in batch.groups}
+
+    def here(places: Sequence[str]) -> bool:
+        return bool({p.casefold() for p in places} & names) or (not places and batch.number == 1)
+
+    listed = [e for e in entries if here(e.places)]
+    for entry in listed:
+        old = cache.accounts.get(entry.username)
+        cache.accounts[entry.username] = (
+            old.model_copy(update={"origin": "whitelist", "places": entry.places})
+            if old
+            else InstagramAccount(origin="whitelist", places=entry.places, first_seen=today)
+        )
+    accounts = [e.username for e in listed]
+    if settings.read_mined:
+        accounts += sorted(
+            (
+                u
+                for u, a in cache.accounts.items()
+                if a.origin == "mined" and a.places and here(a.places)
+            ),
+            key=lambda u: (cache.accounts[u].first_seen, u),
+        )
+    if not accounts:
+        return
+    token, user_id = env.get(instagram.TOKEN_ENV, ""), env.get(instagram.USER_ENV, "")
+    if not token or not user_id:
+        if not state["warned"]:
+            warnings.append(
+                f"instagram: {instagram.TOKEN_ENV} or {instagram.USER_ENV} not set; "
+                "Instagram accounts are not read"
+            )
+            state["warned"] = True
+        return
+
+    cutoff = today - timedelta(days=settings.max_post_age_days)
+    items: list[dict[str, Any]] = []
+    fresh: list[instagram.Post] = []
+    read = 0
+    for username in accounts:
+        if state["stop"]:
+            break
+        if state["read"] >= settings.max_accounts_per_run:
+            _log(f"batch {batch.number}: instagram: max_accounts_per_run reached")
+            break
+        account = cache.accounts[username]
+        if (
+            account.status in ("not_business", "not_found")
+            and account.last_checked is not None
+            and (today - account.last_checked).days < INSTAGRAM_RETRY_DAYS
+        ):
+            continue
+        state["read"] += 1
+        read += 1
+        try:
+            posts = instagram.fetch_posts(
+                username,
+                user_id=user_id,
+                token=token,
+                limit=settings.posts_per_account,
+                api_version=settings.api_version,
+                get=get,
+            )
+        except instagram.AccountError as exc:
+            status = exc.kind if exc.kind in ("not_business", "not_found") else "error"
+            cache.accounts[username] = account.model_copy(
+                update={"status": status, "last_checked": today, "last_error": str(exc)}
+            )
+            _log(f"batch {batch.number}: instagram @{username}: {exc.kind}: {exc}")
+            if exc.kind in ("auth", "permission", "rate_limit", "network"):
+                state["stop"] = True
+                warnings.append(f"instagram: {exc}; no more accounts are read in this run")
+            elif account.origin == "whitelist":
+                warnings.append(f"instagram: @{username} cannot be read ({exc.kind}): {exc}")
+            continue
+        cache.accounts[username] = account.model_copy(
+            update={"status": "active", "last_checked": today, "last_error": ""}
+        )
+        for post in posts:
+            if post.posted.date() < cutoff:
+                continue
+            cached = cache.posts.get(post.id)
+            if cached is not None and cached.version == INSTAGRAM_VERSION:
+                cache.posts[post.id] = cached.model_copy(update={"last_seen": today})
+                items += [_rekey(item, f"ig{post.id}") for item in cached.events]
+            else:
+                fresh.append(post)
+    _log(f"batch {batch.number}: instagram: {read} account(s) read, {len(fresh)} new post(s)")
+
+    for start in range(0, len(fresh), INSTAGRAM_POSTS_PER_CALL):
+        chunk = fresh[start : start + INSTAGRAM_POSTS_PER_CALL]
+        number = start // INSTAGRAM_POSTS_PER_CALL + 1
+        with tempfile.TemporaryDirectory(prefix="letsgau-instagram-") as tmp:
+            infos: list[dict[str, Any]] = []
+            paths: list[Path] = []
+            for n, post in enumerate(chunk, 1):
+                files = []
+                for k, url in enumerate(post.image_urls, 1):
+                    try:
+                        body, content_type = fetch(url, flyers.MAX_IMAGE_BYTES)
+                    except OSError:
+                        continue
+                    if flyers._kind(body, content_type, url) != "image":
+                        continue
+                    path = Path(tmp) / f"post{n}-{k}{flyers._ext(body, 'image')}"
+                    path.write_bytes(body)
+                    paths.append(path)
+                    files.append(f"{FILES_DIR}/{path.name}")
+                infos.append(
+                    {
+                        "ref": f"post {n}",
+                        "username": post.username,
+                        "posted": post.posted.date().isoformat(),
+                        "permalink": post.permalink,
+                        "caption": post.caption.strip()[:2200],
+                        "files": files,
+                    }
+                )
+            result = None
+            if any(i["caption"] or i["files"] for i in infos):
+                request = AiRequest(
+                    step=step + (f" {number}" if len(fresh) > INSTAGRAM_POSTS_PER_CALL else ""),
+                    model=config.models.events,
+                    prompt=render_prompt(
+                        config,
+                        batch,
+                        today=today,
+                        blocked=blocked,
+                        max_searches=0,
+                        prompts_dir=prompts_dir,
+                        call=CrawlCall("instagram"),
+                        posts=infos,
+                    ),
+                    schema=answer_schema(config.tag_ids, files=[i["ref"] for i in infos]),
+                    blocked_domains=blocked,
+                    max_searches=0,
+                    web=False,
+                    files=paths,
+                )
+                try:
+                    result = runner.run(request)
+                except AiError as exc:
+                    _skip(report, f"[instagram] {exc}")
+                    _log(f"batch {batch.number}: [instagram] {exc}")
+                    continue  # not cached: read again next run
+            by_post: dict[str, list[dict[str, Any]]] = {p.id: [] for p in chunk}
+            if result is not None:
+                report.calls += 1
+                report.last_usage = report.last_usage.add(result.usage)
+                report.usage = report.usage.add(result.usage)
+                note = str(result.data.get("notes") or "").strip()
+                if note:
+                    report.notes = "\n".join(filter(None, [report.notes, f"[instagram] {note}"]))
+                for item in result.data.get("events") or []:
+                    if not isinstance(item, dict):
+                        continue
+                    urls = {str(s.get("url", "")) for s in item.get("sources") or []}
+                    owner = next(
+                        (
+                            p
+                            for p, i in zip(chunk, infos, strict=True)
+                            if i["ref"] == item.get("file")
+                        ),
+                        next((p for p in chunk if p.permalink in urls), chunk[0]),
+                    )
+                    by_post[owner.id].append({k: v for k, v in item.items() if k != "file"})
+            for post in chunk:
+                cache.posts[post.id] = InstagramPost(
+                    username=post.username,
+                    permalink=post.permalink,
+                    posted=post.posted.date(),
+                    version=INSTAGRAM_VERSION,
+                    first_seen=today,
+                    last_seen=today,
+                    events=by_post[post.id],
+                )
+                items += [_rekey(item, f"ig{post.id}") for item in by_post[post.id]]
+    found, rejected = events_from_answer(
+        {"events": items}, config=config, places=index, blocked=blocked, today=today
+    )
+    report.rejected += rejected
+    for event in found:
+        events[event.id] = merge.combine(events[event.id], event) if event.id in events else event
+    report.events += len(found)
+
+
 def _skip(report: BatchReport, reason: str) -> None:
     report.error = "; ".join(filter(None, [report.error, reason]))
 
@@ -1255,6 +1582,10 @@ def run(
         _write_json(events_path, merged.model_dump(mode="json", by_alias=True))
         if result.flyer_cache is not None and result.flyer_cache.files:
             _write_json(data_dir / "flyers.json", result.flyer_cache.model_dump(mode="json"))
+        if result.instagram_cache is not None and (
+            result.instagram_cache.accounts or result.instagram_cache.posts
+        ):
+            _write_json(data_dir / "instagram.json", result.instagram_cache.model_dump(mode="json"))
         state_path = data_dir / "state.json"
         state = _load(state_path, State) or State()
         now = datetime.now(UTC).replace(microsecond=0)

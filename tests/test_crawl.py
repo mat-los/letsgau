@@ -67,6 +67,7 @@ def make_config(tmp_path: Path, sweeps: int = 0, store_days: int = 28, **limits:
             "whitelist_file": str(FIXTURES / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "blacklist.yaml"),
             "flyers_file": "",
+            "instagram_file": "",
         }
     )
     return config.model_copy(

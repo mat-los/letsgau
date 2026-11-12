@@ -53,6 +53,30 @@ file (with the Read tool, or as attached) and take every event between {{ today 
 {% for name, url, kind in files %}
 - {{ name }} ({{ kind }}, {{ url }})
 {%- endfor %}
+{%- elif mode == "instagram" %}
+
+Below are recent posts of Instagram accounts of venues, clubs and organisers in this area: the
+caption of each post and its images (open them with the Read tool, or as attached). You have no
+web access in this task. Take every event between {{ today }} and {{ store_end }} that a post
+announces.
+
+- A date without a year, and words like "today", "tomorrow" or "this Saturday", refer to the day
+  the post was published: use the next matching date on or after it.
+- Report only announced events with a concrete date. Skip photos of past events, offers, menus,
+  opening hours, vacancies and general posts. If no time is given, use null; never guess a time.
+- The place: as written in the post or on the image; if only the venue is named and it is the
+  account's own venue, use the account's municipality from the list above.
+- Sources: the post's link as the primary source.
+- In "file", give the post the event comes from, exactly as listed below ("post 1", ...).
+- In "checked_sources", list each post's link with "events_found" or "no_events".
+{% for post in posts %}
+### {{ post.ref }}: @{{ post.username }}, published {{ post.posted }}, {{ post.permalink }}
+{%- if post.files %}
+Images: {{ post.files | join(", ") }}
+{%- endif %}
+Caption:
+{{ post.caption or "(no caption)" }}
+{% endfor %}
 {%- elif mode == "recheck" %}
 
 You are one of several researchers working on this calendar. Your job: check the known events
@@ -186,6 +210,13 @@ matching status.
 {%- endif %}
 - In "checked_sources" list every source named above and every calendar page you opened, with
   "events_found", "no_events" or "unreachable".
+{%- if mine_instagram and mode not in ("flyers", "instagram") %}
+- In "instagram_accounts", list the Instagram account names (without @) of venues, clubs and
+  organisers in these municipalities that the pages you read link to (instagram.com/<name>);
+  otherwise an empty list. Do not search for them.
+{%- else %}
+- Answer "instagram_accounts" with an empty list.
+{%- endif %}
 - Use "notes" for anything the operator should know (e.g. a source that moved), otherwise "".
 
 Answer only with the JSON object described by the schema.

@@ -112,7 +112,8 @@ optional; the defaults are the thorough settings.
 
 ## `sources`
 
-Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file`.
+Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file` and
+`instagram_file`.
 
 ```yaml
 # whitelist.yaml – always checked explicitly on every event run
@@ -154,6 +155,28 @@ dropped. A `url` entry is narrower: known sources whose URL starts with it
 (compared without `www.`, scheme and trailing slash) are not read in the source
 sweeps, so a second front end of the same event database does not cost tokens
 twice. Links to such pages may still appear as additional sources of events.
+
+`instagram_file` lists Instagram accounts read on every events run:
+
+```yaml
+- username: "cafe.example"    # without @; an instagram.com link works too
+  places: ["Schongau"]        # optional: the batch with these places; without, the first
+  note: "Café, live music"
+```
+
+Only business and creator accounts can be read (setup and secrets in
+docs/OPERATIONS.md). An empty `instagram_file` switches Instagram off: no
+reading and no mining of account names from pages.
+
+## `instagram`
+
+| Key | Default | Meaning |
+| --- | --- | --- |
+| `posts_per_account` | `6` | latest posts fetched per account and run |
+| `max_post_age_days` | `21` | older posts are not read |
+| `max_accounts_per_run` | `40` | accounts read per run: the list first, then mined accounts |
+| `read_mined` | `true` | also read accounts that pages read by the crawl link to |
+| `api_version` | `""` | Graph API version such as `v24.0`; empty uses the app's default |
 
 ## `excluded_topics`
 

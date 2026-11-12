@@ -27,6 +27,22 @@ current date and merged like freshly read ones. Entries whose file has not been
 on its page for 30 days are dropped. Deleting the file only means every flyer
 is read again once.
 
+## Instagram (`data/instagram.json`)
+
+Written by the events stage when `sources.instagram_file` is set.
+
+- `accounts`: account name → `origin` (`whitelist` from the list, `mined` from
+  links on pages the crawl read), `places`, `status` (`new`, `active`,
+  `not_business`, `not_found`, `error`), `first_seen`, `last_checked`,
+  `last_error`. Accounts that cannot be read are tried again after 30 days.
+- `posts`: media ID → `username`, `permalink`, `posted`, `version`,
+  `first_seen`, `last_seen` and `events` (raw candidates, validated again on
+  every use). A post is read by the AI once; posts older than
+  `max_post_age_days` + 30 days are dropped.
+
+Deleting the file only means the recent posts are read again once and mined
+accounts are found again.
+
 ## Places (`data/places.json`)
 
 Written by the geo stage. Besides the place list it stores the inputs it was
