@@ -1330,6 +1330,95 @@ def _prune_instagram(cache: InstagramFile, today: date, config: Config) -> Insta
     )
 
 
+SCREEN_MIN_CAPTION = 40
+"""Posts with a shorter caption skip the pre-screen: the picture probably carries the text."""
+
+
+def screen_schema() -> dict[str, Any]:
+    item = {
+        "type": "object",
+        "properties": {"post": {"type": "integer"}, "may_be_event": {"type": "boolean"}},
+        "required": ["post", "may_be_event"],
+        "additionalProperties": False,
+    }
+    return {
+        "type": "object",
+        "properties": {"posts": {"type": "array", "items": item}},
+        "required": ["posts"],
+        "additionalProperties": False,
+    }
+
+
+def _prescreen_posts(
+    config: Config,
+    runner: Runner,
+    posts: list[instagram.Post],
+    cache: InstagramFile,
+    *,
+    today: date,
+    report: BatchReport,
+) -> list[instagram.Post]:
+    """Drop posts whose caption is clearly not about an upcoming event, before their images
+    are read (``instagram.prescreen``; one text-only call to the merge model).
+
+    Dropped posts are cached without events, so they are not read again. Posts with a short
+    caption, and all posts if the call fails, go on to the image reading.
+    """
+    candidates = [p for p in posts if len(p.caption.strip()) >= SCREEN_MIN_CAPTION]
+    if not candidates:
+        return posts
+    env = Environment(
+        loader=FileSystemLoader(PROMPTS_DIR),
+        undefined=StrictUndefined,
+        keep_trailing_newline=True,
+        autoescape=False,
+    )
+    prompt = env.get_template("instagram_screen.md").render(
+        today=today,
+        posts=[
+            {"n": n, "username": p.username, "posted": p.posted.date(), "caption": p.caption[:1500]}
+            for n, p in enumerate(candidates, 1)
+        ],
+    )
+    request = AiRequest(
+        step="instagram pre-screen",
+        model=config.models.merge,
+        prompt=prompt,
+        schema=screen_schema(),
+        web=False,
+        max_searches=0,
+    )
+    try:
+        result = runner.run(request)
+    except AiError as exc:
+        _log(f"instagram pre-screen failed, all posts are read: {exc}")
+        return posts
+    report.usage = report.usage.add(result.usage)
+    report.last_usage = report.last_usage.add(result.usage)
+    no_event = {
+        int(x["post"])
+        for x in result.data.get("posts") or []
+        if isinstance(x, dict)
+        and x.get("may_be_event") is False
+        and str(x.get("post", "")).isdigit()
+    }
+    dropped = {candidates[n - 1].id for n in no_event if 1 <= n <= len(candidates)}
+    for post in posts:
+        if post.id in dropped:
+            cache.posts[post.id] = InstagramPost(
+                username=post.username,
+                permalink=post.permalink,
+                posted=post.posted.date(),
+                version=INSTAGRAM_VERSION,
+                first_seen=today,
+                last_seen=today,
+                events=[],
+            )
+    if dropped:
+        _log(f"instagram pre-screen: {len(dropped)} of {len(posts)} post(s) are no event")
+    return [p for p in posts if p.id not in dropped]
+
+
 def _run_instagram_call(
     config: Config,
     runner: Runner,
@@ -1442,6 +1531,8 @@ def _run_instagram_call(
             else:
                 fresh.append(post)
     _log(f"batch {batch.number}: instagram: {read} account(s) read, {len(fresh)} new post(s)")
+    if fresh and settings.prescreen:
+        fresh = _prescreen_posts(config, runner, fresh, cache, today=today, report=report)
 
     for start in range(0, len(fresh), INSTAGRAM_POSTS_PER_CALL):
         chunk = fresh[start : start + INSTAGRAM_POSTS_PER_CALL]
