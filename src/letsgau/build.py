@@ -108,14 +108,18 @@ def is_timed(event: Event) -> bool:
 def hours_today(event: Event, day: date) -> str | None:
     """Opening hours that apply on ``day`` (``16:00–20:00``), if known.
 
-    An entry whose start and end are equal is a start time (a film screening, a show), not a
-    range: it is returned as ``20:00``.
+    An entry for the date wins over one for its weekday. An entry whose start and end are
+    equal is a start time (a film screening, a show), not a range: it is returned as ``20:00``.
     """
-    for hours in event.schedule.opening_hours or []:
+    entries = event.schedule.opening_hours or []
+    by_date = [h for h in entries if h.days[0].isdigit()]
+    by_weekday = [h for h in entries if not h.days[0].isdigit()]
+    for hours in by_date:
+        if day.isoformat() in hours.days.split(","):
+            return hours.from_ if hours.from_ == hours.to else f"{hours.from_}–{hours.to}"
+    for hours in by_weekday:
         if day.weekday() in weekdays_in(hours.days):
-            if hours.from_ == hours.to:
-                return hours.from_
-            return f"{hours.from_}–{hours.to}"
+            return hours.from_ if hours.from_ == hours.to else f"{hours.from_}–{hours.to}"
     return None
 
 

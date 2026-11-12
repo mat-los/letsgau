@@ -494,3 +494,25 @@ def test_program_item_never_matches_its_main_event() -> None:
     assert candidate_score(choir, market) == 0.0
     merged, _ = run(None, [market, choir], DAY1)
     assert len(merged.events) == 2
+
+
+def test_fresh_times_per_date_update_a_longer_stored_schedule() -> None:
+    def film(dates: list[str], hours: list[dict[str, str]]) -> Event:
+        schedule = {
+            "start_date": dates[0],
+            "end_date": dates[-1],
+            "dates": dates,
+            "opening_hours": hours,
+        }
+        return ev("Film: Test", dates[0], schedule=schedule)
+
+    weekly = {"days": "sat", "from": "20:00", "to": "20:00"}
+    old = film(["2026-11-14", "2026-11-21"], [weekly])
+    new = film(["2026-11-21"], [{"days": "2026-11-21", "from": "17:30", "to": "17:30"}])
+    combined = merge.combine(old, new)
+    assert combined.schedule.dates == old.schedule.dates  # the longer schedule is kept
+    hours = {h.days: h.from_ for h in combined.schedule.opening_hours or []}
+    assert hours == {"sat": "20:00", "2026-11-21": "17:30"}
+    assert merge.combine(old, film(["2026-11-21"], [])).schedule.opening_hours == [
+        old.schedule.opening_hours[0]  # type: ignore[index]
+    ]

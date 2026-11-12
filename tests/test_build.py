@@ -146,6 +146,19 @@ def test_screening_times_per_weekday() -> None:
     assert [r.time for r in view.rows] == ["09:30", "17:30", "20:00"]
 
 
+def test_times_per_date_win_over_the_weekday() -> None:
+    film = ev(
+        end_date="2026-11-21",
+        dates=["2026-11-14", "2026-11-21"],
+        opening_hours=[
+            {"days": "sat", "from": "20:00", "to": "20:00"},
+            {"days": "2026-11-21,2026-11-28", "from": "17:30", "to": "17:30"},
+        ],
+    )
+    assert time_on(film, SATURDAY) == "20:00"
+    assert time_on(film, date(2026, 11, 21)) == "17:30"
+
+
 def test_day_view_nests_program_items(events: list[Event]) -> None:
     view = day_view(events, SATURDAY)
     assert view.count == 103

@@ -125,6 +125,8 @@ class Usage(_DataModel):
 Time = Annotated[str, Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d$")]
 """Local time ``HH:MM``."""
 WEEKDAY_SPEC = r"^(mon|tue|wed|thu|fri|sat|sun)([-,](mon|tue|wed|thu|fri|sat|sun))*$"
+DATES_SPEC = r"^\d{4}-\d{2}-\d{2}(,\d{4}-\d{2}-\d{2})*$"
+DAYS_SPEC = f"{WEEKDAY_SPEC}|{DATES_SPEC}"
 
 
 class LocalizedText(_DataModel):
@@ -144,8 +146,9 @@ class Venue(_DataModel):
 class OpeningHours(_DataModel):
     model_config = ConfigDict(extra="forbid", populate_by_name=True)
 
-    days: str = Field(pattern=WEEKDAY_SPEC)
-    """e.g. ``mon-fri``, ``sat,sun``."""
+    days: str = Field(pattern=DAYS_SPEC)
+    """Weekdays (``mon-fri``, ``sat,sun``) or single dates (``2026-11-21``,
+    ``2026-11-21,2026-11-28``); an entry for a date wins over one for its weekday."""
     from_: Time = Field(alias="from")
     to: Time
 
