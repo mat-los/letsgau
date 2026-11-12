@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T15:09:16Z",
+  "updated_at": "2026-11-12T15:18:51Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -340,6 +340,36 @@
       "status": "active",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "last_error": ""
+    },
+    "jeanscafe": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "bootshaus_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
+      "last_error": ""
+    },
+    "tierheim_schongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-12",
+      "last_checked": null,
       "last_error": ""
     }
   },
@@ -1905,7 +1935,151 @@
       "checked": "2026-11-12",
       "reason": "not_business",
       "name": "Freiwillige Feuerwehr Schongau"
+    },
+    "faschongau_nachwuchs": {
+      "checked": "2026-11-12",
+      "reason": "not_business",
+      "name": "TSV Schongau Fußball Nachwuchs"
+    },
+    "leichtathletikschongau": {
+      "checked": "2026-11-12",
+      "reason": "not_business",
+      "name": "Leichtathletik Schongau"
+    },
+    "tri.team.schongau": {
+      "checked": "2026-11-12",
+      "reason": "not_business",
+      "name": "Tri.Team.Schongau"
     }
   },
-  "venues": {}
+  "venues": {
+    "Reaktor": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.reaktor-sog.de/",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Schongauer Brauhaus": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://brauhaus-schongau.de/",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Ballenhaus": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://ballenhaus-schongau.de/",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Löwenhof Bar": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://loewenhof.bar",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Reitverein Schongau": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Ballenhaus Schongau": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://ballenhaus-schongau.de/",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Bistro & Café Ballenhaus": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://ballenhaus-schongau.de/",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Bar Löwenhof": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://loewenhof.bar",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Unverpacktladen und Café Herr Lose": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "City Café": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Café Express": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Zum Huterer Café Toasteria Wein": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Bijou Café Rose": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Restaurant Hotel Holl": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Evis Treff": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    },
+    "Lagerhaus": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://lagerhauskino.pfaffenwinkel.net",
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12"
+    }
+  }
 }
