@@ -32,7 +32,7 @@ jobs:                                   # format: off | daily | weekly:mon,thu |
   build: "daily"                        # rebuild daily so "today" is correct
 
 models:                                 # Claude model IDs per step
-  discovery: "claude-opus-5-5"
+  discovery: "claude-sonnet-5-5"
   events: "claude-sonnet-5-5"
   merge: "claude-haiku-5-5"
 
@@ -47,7 +47,7 @@ limits:
 depth:                                  # thoroughness: more AI calls, more complete results
   discovery_focus_passes: true          # 3 calls per batch: official, clubs, venues
   discovery_places_per_request: 2       # municipalities per discovery call
-  discovery_searches_per_request: 30    # search limit per discovery call
+  discovery_searches_per_request: 20    # search limit per discovery call
   crawl_sources_per_request: 4          # known sources per "source sweep" call; 0 = one combined call
   crawl_searches_per_request: 13        # open-search budget per batch (calls of ~13 searches; each run starts the checklist elsewhere)
 

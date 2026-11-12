@@ -69,8 +69,20 @@ Report every page you checked, also the weak ones (rating 1 or 2), so that nobod
 
 ## Already known sources
 
-These are known already. Report one again only if your rating differs or the URL moved.
+These are known and were checked recently; the event crawl reads the good ones twice a week. Do
+not open them, do not search for them and do not report them again. Only if you notice on another
+page that one has moved or is gone, report it with the new URL or rating 1. Spend your searches on
+sources that are not in this list.
 {% for source in known %}
+- {{ source.url }}{% if source.rating %} (rated {{ source.rating }}/5){% endif %}
+{%- endfor %}
+{%- endif %}
+{%- if recheck %}
+
+## Known sources to check again
+
+These were rated a while ago. Open each once and report it again with a fresh rating.
+{% for source in recheck %}
 - {{ source.url }}{% if source.rating %} (rated {{ source.rating }}/5){% endif %}
 {%- endfor %}
 {%- endif %}

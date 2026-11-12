@@ -194,7 +194,7 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - Runs monthly (`jobs.discovery`) and after every geo change. Municipalities are
   batched by `depth.discovery_places_per_request`. With
   `depth.discovery_focus_passes` (default) each batch gets three calls to the
-  discovery model (Opus), one per focus: official and regional calendars (and
+  discovery model (`models.discovery`, Sonnet by default), one per focus: official and regional calendars (and
   the municipality's club directory), clubs and parishes (working through that
   directory), venues, institutions and annual events. Each pass has a fixed
   German query checklist per municipality and sees the sources of the earlier
@@ -214,8 +214,12 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - The events stage gives each batch the active sources of its municipalities
   (rating ≥ 3 or ≥ 2 hits; all of them in sweep mode, at most 12 in combined
   mode) and counts hits per source after every run.
-- Usage: about $1–1.5 at API prices per pass for one municipality, so roughly
-  $4 for Schongau alone with focus passes.
+- Known sources are only listed in the prompt (not opened or reported again)
+  if they are whitelisted, or were rated or had a hit in the last 90 days
+  (`RECHECK_SOURCES_DAYS`); older ones are listed separately to be re-rated.
+- Usage: with Opus and 30 searches per pass about $4.35 at API prices for
+  Schongau alone (three passes); with the defaults (Sonnet, 20 searches, known
+  sources not re-read) roughly a third of that.
 
 ## Build the website
 

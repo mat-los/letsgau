@@ -99,7 +99,7 @@ optional; the defaults are the thorough settings.
 | --- | --- | --- |
 | `discovery_focus_passes` | `true` | three discovery calls per batch (official calendars, clubs, venues), each with a query checklist and a coverage report; `false` = one general call |
 | `discovery_places_per_request` | `2` | municipalities per discovery call |
-| `discovery_searches_per_request` | `30` | search limit per discovery call |
+| `discovery_searches_per_request` | `20` | search limit per discovery call |
 | `crawl_sources_per_request` | `4` | known sources per *source sweep* call of the event crawl; every batch then ends with one *open search* call. `0` = one combined call per batch |
 | `crawl_searches_per_request` | `13` | search budget of the open search per batch, split into calls of about 13 searches (or the limit of the combined call). Each run starts the query checklist at a different point, so over a few runs every query is run even if a call stops early |
 

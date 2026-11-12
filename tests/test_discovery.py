@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +19,7 @@ from letsgau.models import (
     InstagramFile,
     Place,
     PlacesFile,
+    Source,
     SourceOrigin,
     SourcesFile,
     SourceStatus,
@@ -128,7 +129,7 @@ def test_discovery_extends_sources_and_writes_suggestions(
     result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY)
 
     # 7 municipalities (Herzogsägmühle belongs to Peiting) in batches of 6 -> 2 Opus calls
-    assert [r.model for r in runner.requests] == ["claude-opus-5-5"] * 2
+    assert [r.model for r in runner.requests] == ["claude-sonnet-5-5"] * 2
     assert runner.requests[0].blocked_domains == ["example-spam.de"]
     prompt = runner.requests[0].prompt
     assert "- Peiting (including Herzogsägmühle)" in prompt
@@ -261,8 +262,8 @@ def test_focus_passes_spread_the_search_budget(thorough: Config, data_dir: Path)
     )
     runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
     result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY, limit_places=2)
-    # 1 batch x 3 passes: 40 // 3 = 13, (40 - 6) // 2 = 17, (40 - 12) // 1 = 28
-    assert [r.max_searches for r in runner.requests] == [13, 17, 28]
+    # 1 batch x 3 passes: 40 // 3 = 13, (40 - 6) // 2 = 17, min(20, (40 - 12) // 1)
+    assert [r.max_searches for r in runner.requests] == [13, 17, 20]
     assert not result.warnings
 
 
@@ -452,3 +453,34 @@ def test_discovery_dry_run_keeps_instagram_file(config: Config, data_dir: Path) 
         limit_places=2,
     )
     assert not (data_dir / "instagram.json").exists()
+
+
+def test_recently_checked_sources_are_only_listed(config: Config, data_dir: Path) -> None:
+    def source(url: str, **extra: Any) -> Source:
+        return Source(
+            url=url,
+            domain=discovery.domain_of(url),
+            places=["Schongau"],
+            origin=SourceOrigin.DISCOVERY,
+            rating=4,
+            first_seen=date(2026, 1, 1),
+            **extra,
+        )
+
+    known = [
+        source("https://fresh.example/", last_checked=TODAY - timedelta(days=30)),
+        source("https://hit.example/", last_checked=date(2026, 1, 1), last_hit=TODAY),
+        source("https://stale.example/", last_checked=date(2026, 1, 1)),
+        source("https://never.example/"),
+    ]
+    assert [discovery.is_fresh(s, TODAY) for s in known] == [True, True, False, False]
+    sources = SourcesFile(updated_at="2026-11-01T00:00:00Z", sources=known)
+    (data_dir / "sources.json").write_text(sources.model_dump_json(), encoding="utf-8")
+    runner = FakeRunner(answers=[{"sources": [], "blacklist_candidates": [], "notes": ""}])
+    discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY, limit_places=1)
+    prompt = runner.requests[0].prompt
+    listed, recheck = prompt.split("## Known sources to check again")
+    assert "Do\nnot open them" in listed or "Do not open them" in listed.replace("\n", " ")
+    assert "https://fresh.example/" in listed and "https://hit.example/" in listed
+    assert "https://stale.example/" in recheck and "https://never.example/" in recheck
+    assert "https://fresh.example/" not in recheck
