@@ -46,6 +46,7 @@ def config() -> Config:
             "whitelist_file": str(FIXTURES / "crawl" / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "crawl" / "blacklist.yaml"),
             "flyers_file": "",
+            "instagram_candidates_file": "",
         }
     )
     single_pass = config.depth.model_copy(

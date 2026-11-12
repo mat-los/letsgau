@@ -4,4 +4,13 @@
 # whose name, biography or website names its municipality or links the place's
 # own website. Rejected names are kept in data/instagram.json (rejected).
 # Format: list of { username, name, places, website, found_on }.
-[]
+- username: "stadtkapelle_schongau_e.v._"
+  name: "Stadtkapelle Schongau e.V."
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/stadtkapelle_schongau_e.v._/"
+- username: "lionsclubschongau"
+  name: "Lions Club Schongau"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/lionsclubschongau/"
