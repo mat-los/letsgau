@@ -1,7 +1,25 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T09:55:04Z",
+  "updated_at": "2026-11-12T10:15:21Z",
   "sources": [
+    {
+      "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
+      "domain": "ab-ins-schwimmbad.de",
+      "name": "ab-ins-schwimmbad Hallenbad Plantsch",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Directory listing only, mentions Kino/Vollmondsauna but no dates; use plantsch.de instead.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
     {
       "url": "https://allevents.in/schongau",
       "domain": "allevents.in",
@@ -125,6 +143,24 @@
       "note": "Only recurring items (Weißwurstfrühstück on Fridays, monthly DJ night with no dates) and 'Termin folgt'; dates are posted on Instagram instead.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://bavaria.travel/accessible-holidays/bar-loewenhof/",
+      "domain": "bavaria.travel",
+      "name": "bavaria.travel Bar Löwenhof",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Accessibility listing only, no events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -309,6 +345,24 @@
       "last_hit": null
     },
     {
+      "url": "https://dev.pfaffen-winkel.de/detail/id=62d6507d688edf9b88451ec2",
+      "domain": "dev.pfaffen-winkel.de",
+      "name": "pfaffen-winkel.de dev venue detail pages (Marienplatz)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Dev-server POI detail pages with no event lists; real events are on veranstaltungen.pfaffen-winkel.de (known).",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://developer.songkick.com/venues/4419157-schongauer-brauhaus",
       "domain": "developer.songkick.com",
       "name": "Songkick (developer mirror) – Schongauer Brauhaus",
@@ -395,6 +449,24 @@
       "note": "Returns HTTP 405, and search results point to mostly unrelated or online events.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.eventfinder.de/comedy-und-kabarett-schongau.php",
+      "domain": "eventfinder.de",
+      "name": "Eventfinder Comedy & Kabarett Schongau",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Aggregator category page, mostly regional/nearby events (e.g. Peiting), same data as already known eventfinder pages.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -685,24 +757,6 @@
       "last_checked": "2026-11-09",
       "hits": 0,
       "last_hit": null
-    },
-    {
-      "url": "https://www.instagram.com/",
-      "domain": "instagram.com",
-      "name": "",
-      "kind": "other",
-      "places": [
-        "Schongau"
-      ],
-      "origin": "crawl",
-      "status": "active",
-      "rating": null,
-      "update_frequency": "unknown",
-      "note": "",
-      "first_seen": "2026-11-12",
-      "last_checked": null,
-      "hits": 6,
-      "last_hit": "2026-11-12"
     },
     {
       "url": "https://www.juze-schongau.de/termine/",
@@ -1947,6 +2001,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1017",
+      "domain": "schongau.de",
+      "name": "Bergwacht Schongau-Peiting (city directory entry)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Contact only; club site bergwacht-bayern.org/schongau_peiting.html had a TLS certificate error and could not be read.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1032",
       "domain": "schongau.de",
       "name": "Eisenbahner-Sportverein Schongau (city club entry)",
@@ -2001,6 +2073,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1065",
+      "domain": "schongau.de",
+      "name": "Kath. Mütterkreis, Soldaten- und Veteranenverein, Kleingärtnerverein, Kulturstiftung, Eltern-Treff (city directory entries)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Checked ids 1065, 1120, 1074, 1081, 1165: only chair contacts, no website or events.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1125",
       "domain": "schongau.de",
       "name": "Support e.V. im Brahmsgarten (city club entry)",
@@ -2021,8 +2111,8 @@
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1129",
       "domain": "schongau.de",
-      "name": "Theaterverein Schongau 'Theaterstadl' e.V. (city club entry)",
-      "kind": "municipality",
+      "name": "Theaterverein Schongau Theaterstadl (city directory entry)",
+      "kind": "club",
       "places": [
         "Schongau"
       ],
@@ -2030,9 +2120,9 @@
       "status": "active",
       "rating": 1,
       "update_frequency": "rare",
-      "note": "Contact entry only (Peter Mahl); no own website found.",
+      "note": "Only chairperson contact, no website or events; club has no web presence found.",
       "first_seen": "2026-11-09",
-      "last_checked": "2026-11-09",
+      "last_checked": "2026-11-12",
       "hits": 0,
       "last_hit": null
     },
@@ -2487,6 +2577,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.swipein.restaurant/en/place/schongau/category/bar",
+      "domain": "swipein.restaurant",
+      "name": "swipein Schongau bars",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Restaurant/bar directory, no events and no Instagram links.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://tango-oberland.de/veranstaltungen",
       "domain": "tango-oberland.de",
       "name": "Tango Oberland – Veranstaltungen",
@@ -2919,6 +3027,114 @@
       "last_hit": null
     },
     {
+      "url": "https://www.weilheim-schongau.de/media/1857/juze-flyer-2018-final.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "JuZe Schongau Flyer 2018",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated 2018 flyer PDF.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/7205/24-12-16-sog-eltern-info-treff-plakat-2025-i.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Eltern-Info-Treffs Schongau Plakat 2025",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "2025 poster PDF (Turmsaal Münzgebäude), outdated.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/7695/liccambra-ev-8.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landratsamt PDF liccambra e.V.",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "A PDF with no readable text and no event content.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/7951/newsletter-03-2025.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landkreis Seniorenfachstelle Infomail (PDF)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "District PDF newsletters for seniors, occasional Schongau items, only PDFs and old issues.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/8395/layout_kobe_flyer_herbst_winter_2026_27_entw03_web_korr.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "KoBE Flyer Herbst/Winter 2026/27 (Landkreis)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "District PDF with engagement/volunteer events; Schongau only occasionally.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://weltlaeden.de/schongau",
+      "domain": "weltlaeden.de",
+      "name": "Weltladen Schongau (Fair Handeln e.V.)",
+      "kind": "club",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Few dated events as text (Fair Woche 11-25 Sep, Lebendiger Adventskalender 11.12.2026 18:00); small organiser page.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://www.wieskonzerte.de",
       "domain": "wieskonzerte.de",
       "name": "Festlicher Sommer in der Wies e.V. (Wieskonzerte)",
@@ -2935,6 +3151,42 @@
       "last_checked": "2026-11-09",
       "hits": 4,
       "last_hit": "2026-11-12"
+    },
+    {
+      "url": "https://wochenanzeiger.de/167766",
+      "domain": "wochenanzeiger.de",
+      "name": "Wochenanzeiger (article page)",
+      "kind": "press",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Only seen in a search result; I could not confirm a Schongau events section.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.yumpu.com/de/document/view/71096967/altlandkreis-das-magazin-fur-den-westlichen-pfaffenwinkel-ausgabe-mai-juni-2026",
+      "domain": "yumpu.com",
+      "name": "Altlandkreis Magazin (Yumpu, Mai/Juni 2026)",
+      "kind": "press",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Bi-monthly magazine with a two-month event calendar; this issue is outdated and is a flipbook, so check for the newest issue by hand.",
+      "first_seen": "2026-11-12",
+      "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
     },
     {
       "url": "https://zuenftick.de/events",
