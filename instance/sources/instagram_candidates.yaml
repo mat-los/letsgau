@@ -14,3 +14,73 @@
   places: ["Schongau"]
   website: ""
   found_on: "https://www.instagram.com/lionsclubschongau/"
+- username: "weinstuben.schongau"
+  name: "Weinstuben im Frauentor"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://restaurantguru.com/Weinstuben-im-Frauentor-Schongau"
+- username: "lechwirt"
+  name: "Lechwirt"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/lechwirt/"
+- username: "faschingsgesellschaft_schongau"
+  name: "Schongauer Faschingsgesellschaft e.V."
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/faschingsgesellschaft_schongau/"
+- username: "schongauer_maerchenwald"
+  name: "Schongauer Märchenwald und Tierpark"
+  places: ["Schongau"]
+  website: "https://www.schongauer-maerchenwald.de/"
+  found_on: "https://www.instagram.com/schongauer_maerchenwald/"
+- username: "juze_sog"
+  name: "Jugendzentrum Schongau"
+  places: ["Schongau"]
+  website: "https://www.juze-schongau.de/"
+  found_on: "https://linktr.ee/juze_sog"
+- username: "plantsch_schongau"
+  name: "Plantsch Badespaß & Saunaland"
+  places: ["Schongau"]
+  website: "https://www.plantsch.de/"
+  found_on: "https://www.instagram.com/plantsch_schongau/"
+- username: "liccambra_ammerlechland"
+  name: "LiccAmbra e.V. Kultur im AmmerLechLand"
+  places: ["Schongau"]
+  website: "https://www.liccambra.org/"
+  found_on: "https://storage.e.jimdo.com/file/0233d1b8-8f23-4610-98f9-da51d81104fe/230312_PI_LiccAmbra-Veranstaltungen_M%C3%A4rz-April23.pdf"
+- username: "soghandball"
+  name: "TSV Schongau Abt. Handball"
+  places: ["Schongau"]
+  website: "https://sog-handball.de/"
+  found_on: "https://www.instagram.com/soghandball/"
+- username: "tcschongau"
+  name: "TC Schongau"
+  places: ["Schongau"]
+  website: "https://tc-schongau.de/"
+  found_on: "https://www.instagram.com/tcschongau/"
+- username: "musikschulepfaffenwinkel_e.v._"
+  name: "Musikschule Pfaffenwinkel e.V."
+  places: ["Schongau"]
+  website: "https://musikschule-pfaffenwinkel.de/"
+  found_on: "https://www.youtube.com/@musikschulepfaffenwinkele.v."
+- username: "alpenverein.schongau"
+  name: "DAV Sektion Schongau"
+  places: ["Schongau"]
+  website: "https://www.alpenverein-schongau.de/"
+  found_on: "https://www.instagram.com/alpenverein.schongau/"
+- username: "ffwsog"
+  name: "Freiwillige Feuerwehr Schongau"
+  places: ["Schongau"]
+  website: "https://feuerwehr-schongau.de/"
+  found_on: "https://www.instagram.com/ffwsog/"
+- username: "thw_schongau"
+  name: "THW Ortsverband Schongau"
+  places: ["Schongau"]
+  website: "https://ov-schongau.thw.de"
+  found_on: "https://www.instagram.com/thw_schongau/"
+- username: "schongau_triathlon"
+  name: "Schongau Triathlon"
+  places: ["Schongau"]
+  website: "https://www.schongau-triathlon.de/"
+  found_on: "https://www.instagram.com/schongau_triathlon/"
