@@ -31,6 +31,13 @@ useful, and follow up on every lead (links on pages you open, names mentioned in
 
 {{ focus.extra }}
 {%- endif %}
+{%- if instagram and focus.id == "venues" %}
+
+Many cafés, bars, clubs and small venues announce their events only on Instagram. For every such
+place you come across in this pass, find its Instagram account (linked on its website, in its
+Google listing, or with a search like "<name> <municipality> Instagram") and report it in
+"instagram_accounts", also if the place has no website of its own.
+{%- endif %}
 {%- else %}
 ## What to look for
 
@@ -40,7 +47,8 @@ theatres, music venues, cafés and bars with events, libraries, adult education 
 newspapers and their event pages.
 {%- endif %}
 
-Facebook and Instagram pages do not count. You have at most {{ max_searches }} web searches for
+Facebook and Instagram pages do not count as sources{% if instagram %} (but see "instagram_accounts"
+below){% endif %}. You have at most {{ max_searches }} web searches for
 this {{ "pass" if focus else "batch" }}; use most of them. Fetching pages does not count against
 the limit, so open every promising page and read it.
 
@@ -78,6 +86,15 @@ Report websites that should never be used (spam, copied or outdated listings) as
 In "coverage", give one entry per category of this pass and municipality: "found" if you found at
 least one usable source, "nothing_found" if you searched and there is none (e.g. no cinema in the
 village), "not_checked" if you ran out of searches; "note" says briefly what you found or tried.
+{%- endif %}
+{%- if instagram %}
+
+In "instagram_accounts", list the Instagram accounts of local organisers (clubs, venues, cafés,
+bars, parishes, the municipality) in the municipalities above that you came across: linked on pages
+you read, or found by a search. "username" is the account name without @ (from
+instagram.com/<username>), "name" is the organiser, "places" the municipalities (exactly as written
+above). Only accounts you actually saw; never guess a name. Leave out accounts of people, of
+businesses without events, and of organisers outside these municipalities.
 {%- endif %}
 Use "notes" for anything the operator should know (blocked sites, PDFs only, sources to check by hand).
 

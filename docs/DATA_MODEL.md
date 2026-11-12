@@ -29,10 +29,11 @@ is read again once.
 
 ## Instagram (`data/instagram.json`)
 
-Written by the events stage when `sources.instagram_file` is set.
+Written by the events stage when `sources.instagram_file` is set; discovery
+adds the accounts it finds.
 
 - `accounts`: account name → `origin` (`whitelist` from the list, `mined` from
-  links on pages the crawl read), `places`, `status` (`new`, `active`,
+  links on pages the crawl read, or found by discovery), `places`, `status` (`new`, `active`,
   `not_business`, `not_found`, `error`), `first_seen`, `last_checked`,
   `last_error`. Accounts that cannot be read are tried again after 30 days.
 - `posts`: media ID → `username`, `permalink`, `posted`, `version`,
