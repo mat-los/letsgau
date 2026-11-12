@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Instagram: the step runs last in each batch, so accounts found by the
+  batch's other calls are read in the same run.
+
 ### Added
 
 - Discovery collects Instagram accounts: every call reports the accounts of

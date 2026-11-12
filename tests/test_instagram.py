@@ -368,3 +368,12 @@ def test_mined_accounts_least_recently_read_first(tmp_path: Path) -> None:
         config, Runner(), data_dir=data_dir, today=TODAY, fetch=fetch, graph_get=graph, env=ENV
     )
     assert graph.asked == ["young.test"]  # never read before; the other was read today
+
+
+def test_instagram_step_is_the_last_call_of_a_batch() -> None:
+    flyer = crawl.FlyerEntry(url="https://flyers.example/", places=["A"])
+    batch = crawl.Batch(number=1, groups=[], flyers=[flyer])
+    calls = crawl.plan_calls(batch, 5, queries=[("q", ["A"])], instagram=True)
+    assert [c.mode for c in calls] == ["flyers", "search", "instagram"]
+    combined = crawl.plan_calls(batch, 0, instagram=True)
+    assert [c.mode for c in combined] == ["all", "flyers", "instagram"]
