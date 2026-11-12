@@ -418,6 +418,7 @@ def test_discovery_collects_instagram_accounts(thorough: Config, data_dir: Path)
     assert 'In "instagram_accounts", list' in request.prompt
     venues = runner.requests[2].prompt
     assert "announce their events only on Instagram" in venues
+    assert '- "Schongau Café Instagram"' in venues and '- "Peiting Bar Kneipe Instagram"' in venues
     assert "announce their events only on Instagram" not in request.prompt  # venues pass only
     assert result.instagram_added == ["cafe.test", "bar.test"]
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
