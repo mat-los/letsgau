@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ site.config.site.name }} {{ site.config.region.label }}</title>
+<title>{{ site.config.site.name }} - {{ title_suffix }}</title>
 {% if not site.config.site.indexing %}<meta name="robots" content="noindex">
 {% endif %}<meta http-equiv="refresh" content="0; url={{ default }}/">
 <link rel="canonical" href="{{ site.config.site.base_url.rstrip('/') }}/{{ default }}/">

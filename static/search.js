@@ -1,13 +1,12 @@
-/* Let's Gau – search across all displayed days, on every page. The index
-   (data/search.<lang>.json) is fetched only when a search starts; without JavaScript
-   the field is hidden. */
+/* Let's Gau – search over all displayed days; the index (data/search.<lang>.json) is
+   fetched when a search starts. */
 (function () {
   "use strict";
   var MIN = 3, MAX = 50, q = document.getElementById("q"), box = document.getElementById("results");
   if (!q || !box) return;
   var body = document.body, lang = body.getAttribute("data-lang"), root = body.getAttribute("data-root") || "";
   var L = JSON.parse(box.getAttribute("data-labels")), index = null, loading = null, timer = 0;
-  /* while searching, the results replace the page content */
+  /* results replace the page; the tab title names the search */
   var day = [].slice.call(box.parentNode.children).filter(function (e) { return e !== box; });
   var chips = !!document.querySelector(".chip[data-tag]");
   var dateFmt = new Intl.DateTimeFormat(lang, { weekday: "long", day: "numeric", month: "long" });
@@ -32,7 +31,8 @@
   function el(tag, cls, text) {
     var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e;
   }
-  function show(on) { box.hidden = !on; day.forEach(function (e) { e.hidden = on; }); }
+  var pt = document.title;
+  function show(on) { box.hidden = !on; day.forEach(function (e) { e.hidden = on; }); document.title = on ? fill(L.title, { q: q.value.trim() }) : pt; }
   function msg(text) { box.textContent = ""; box.appendChild(el("p", "empty", text)); show(true); }
 
   function render(text) {
@@ -53,7 +53,6 @@
           sec.appendChild(el("h2", "", dateFmt.format(new Date(e.d + "T12:00:00"))));
           list.appendChild(sec);
         }
-        /* a card like on the day pages */
         var c = el("details", "ev t-" + e.g[0] + (e.x ? " st-" + e.x : "")), s = el("summary"), b = el("div", "body");
         s.appendChild(el("span", "time" + (/:/.test(e.u) ? "" : " untimed"), e.u));
         s.appendChild(el("span", "title", e.n)); s.appendChild(el("span", "place", e.p));

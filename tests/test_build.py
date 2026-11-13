@@ -246,7 +246,11 @@ def test_status_and_program_display(site: Path) -> None:
 
 def test_metadata_and_links(site: Path) -> None:
     html = page(site, "de/2026-11-14")
-    assert "<title>Let&#39;s Gau Schongau</title>" in html  # the same on every page
+    title = "<title>Let&#39;s Gau - Samstag, 14. November 2026 - Events rund um Schongau</title>"
+    assert title in html
+    about = page(site, "en/about")
+    assert re.search(r"<title>Let&#39;s Gau - [^<]+ - Events around Schongau</title>", about)
+    assert "&#34;title&#34;:&#34;Let&#39;s Gau - Suche: {q} - Events rund um Schongau" in html
     assert (
         '<meta property="og:title" content="Was ist los in und um Schongau am Samstag, '
         '14. November 2026">' in html
