@@ -317,6 +317,12 @@ answer of every AI call and, in subscription mode, the transcript of each call
 search queries of each call as `… N searches: query | query | …`. Use it to see
 why an event was missed.
 
+The Claude Code CLI is pinned (`CLAUDE_CODE_VERSION` in `run.yml` and
+`crawl-check.yml`), because the pipeline relies on its flags (`--json-schema`,
+`--tools`, `--setting-sources`) and on its JSON output (`structured_output`,
+`modelUsage`). To update it, set the new version in both workflows, run the
+*Crawl check* workflow and merge only if it succeeds.
+
 One-time setup: *Settings → Pages → Source: GitHub Actions*, and the secrets
 below.
 

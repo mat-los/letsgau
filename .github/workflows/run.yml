@@ -46,12 +46,13 @@ jobs:
       INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # only for ai.auth: api_key
       DISABLE_AUTOUPDATER: "1"
+      CLAUDE_CODE_VERSION: "2.1.323"   # pinned: the pipeline relies on its flags and JSON output; bump after a Crawl check
       PYTHONUNBUFFERED: "1"
       # every AI answer and (subscription mode) the transcript of each call, kept 7 days
       # as the artifact "ai-recordings" for checking what the AI searched and read
       LETSGAU_RECORD_DIR: ${{ github.workspace }}/ai-recordings
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
       - name: Check out the data branch
@@ -66,23 +67,23 @@ jobs:
           mkdir -p ../data-branch/data ../data-branch/geo
           ln -sfn "$(realpath ../data-branch/data)" data
           ln -sfn "$(realpath ../data-branch/geo)" geo
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
       - name: Install
         run: |
           pip install -e .
-          npm install -g @anthropic-ai/claude-code
+          npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
       - name: Run
         id: run
         run: python -m letsgau run --job "$JOB" $DRY_RUN
       - name: Upload AI recordings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ai-recordings
           path: ai-recordings
@@ -102,9 +103,10 @@ jobs:
       - name: Upload site
         id: upload
         if: always() && env.DRY_RUN == '' && hashFiles('site/index.html') != ''
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
+          include-hidden-files: true   # keep .nojekyll
 
   deploy:
     needs: run
@@ -116,4 +118,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
