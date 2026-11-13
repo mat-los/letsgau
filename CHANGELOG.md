@@ -170,6 +170,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Crawl answers: known events found again are listed by id in `known_seen`
+  (status, and date or time only if they changed) instead of being written
+  out again with title and description in two languages; page, sweep and
+  re-check calls get the known events of their sources with their ids. Only
+  new events are written out in full.
 - Sources: every events run stores what it found on each source it read
   (`last_swept`, `last_result`, `empty_runs` in `sources.json`); after 3 runs
   in a row without an event a source becomes `dormant` and is skipped until

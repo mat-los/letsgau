@@ -33,8 +33,10 @@ Written by the events stage (sweep mode) for every whitelist and known source.
 `pages` maps the source URL to `mode` (`text`: read from its downloaded text;
 `agent`: not readable as text, read by the agent sweep, with the `reason`),
 `sha256` of the text (all pages of the list, up to 5, about 40,000 characters),
-`version`, `first_seen`, `last_seen`, `last_changed` and `events`: the raw
-event candidates the AI read from the text, all of them up to `store_days`. An
+`version`, `first_seen`, `last_seen`, `last_changed`, `events`: the raw
+event candidates the AI read from the text, all of them up to `store_days`,
+and `seen`: the known events it found there again (`known_seen`: id plus what
+changed). An
 unchanged text is not sent to the AI again; its cached candidates are validated
 against the current date and merged like freshly read ones. An `agent` page is
 not downloaded again for 28 days. Entries not used for 30 days are dropped;

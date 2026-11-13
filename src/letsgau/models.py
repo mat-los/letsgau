@@ -280,6 +280,8 @@ class PageCacheEntry(_DataModel):
     """Last run in which the text (or the mode) changed."""
     events: list[dict[str, Any]] = []
     """Raw event candidates as the AI answered them (validated again on every use)."""
+    seen: list[dict[str, Any]] = []
+    """Known events the AI found again on the page (``known_seen``: id plus changes)."""
 
 
 class PagesFile(_DataModel):

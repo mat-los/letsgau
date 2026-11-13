@@ -220,3 +220,85 @@ def test_events_on_a_page_read_as_text_need_no_recheck(setup: tuple[Any, Path]) 
     ]
     assert result.merge is not None and result.merge.missed == [stored.events[0].id]
     assert json.loads((data_dir / "events.json").read_text())["events"][0]["misses"] == 1
+
+
+# --- known events reported by id (known_seen) ----------------------------------------------------
+
+
+def test_known_events_are_reported_by_id_and_cached(setup: tuple[Any, Path]) -> None:
+    config, data_dir = setup
+    site = {WHITELIST: LIST_HTML}
+    found = _answer(_event("Kabarett im Ballenhaus", "2026-11-20", WHITELIST))
+    crawl.run(
+        config,
+        runner=FakeRunner(answers=[found, _answer()]),
+        data_dir=data_dir,
+        today=TODAY,
+        fetch=serve(site),
+    )
+    stored = EventsFile.model_validate_json((data_dir / "events.json").read_text()).events[0]
+
+    # the page changes (new time); the AI lists the known event by id, with the new time only
+    site[WHITELIST] = LIST_HTML.replace("20:00", "19:30")
+    seen = _answer() | {
+        "known_seen": [
+            {
+                "id": stored.id,
+                "status": "scheduled",
+                "start_date": None,
+                "start_time": "19:30",
+                "source_url": WHITELIST,
+                "file": "page 1",
+            }
+        ]
+    }
+    later = TODAY + timedelta(days=3)
+    runner = FakeRunner(answers=[seen, _answer()])
+    result = crawl.run(config, runner=runner, data_dir=data_dir, today=later, fetch=serve(site))
+    prompt = runner.requests[0].prompt
+    assert "## Known events on these sources" in prompt
+    assert f"- {stored.id} | 2026-11-20 20:00 | Kabarett im Ballenhaus | Schongau" in prompt
+    assert '"known_seen" with an empty list' not in prompt
+    assert '"known_seen" with an empty list' in runner.requests[1].prompt  # the search
+    assert result.merge is not None and result.merge.updated == [stored.id]
+    assert result.merge.added == [] and result.merge.merged_fuzzy == []
+    event = EventsFile.model_validate_json((data_dir / "events.json").read_text()).events[0]
+    assert (event.id, event.schedule.start_time, event.last_verified) == (stored.id, "19:30", later)
+    assert event.title == stored.title
+
+    # unchanged page next time: the cached sighting confirms the event without an AI call
+    again = TODAY + timedelta(days=6)
+    result = crawl.crawl(
+        config,
+        FakeRunner(answers=[_answer()] * 3),
+        data_dir=data_dir,
+        today=again,
+        fetch=serve(site),
+    )
+    assert [e.id for e in result.events] == [stored.id]
+    assert result.events[0].last_verified == again
+
+
+def test_seen_events_change_only_what_was_reported(setup: tuple[Any, Path]) -> None:
+    config, _ = setup
+    event = crawl.to_event(
+        crawl.Candidate.model_validate(_event("Kabarett", "2026-11-20", WHITELIST)),
+        config=config,
+        places=crawl.PlaceIndex(
+            [crawl.Place(name="Schongau", osm_id="node/1", place_type="town", lat=47.8, lon=10.9)]
+        ),
+        blocked=[],
+        today=TODAY,
+    )
+    items = [
+        {"id": event.id, "status": "cancelled", "start_date": "2026-11-21", "start_time": "bad"},
+        {"id": "2026-11-20-unknown", "status": "scheduled"},
+    ]
+    found, rejected = crawl.seen_events(
+        items, {event.id: event}, config=config, blocked=[], today=TODAY
+    )
+    assert [r.reason for r in rejected] == ["known_seen: unknown id"]
+    (seen,) = found
+    assert seen.status.value == "cancelled" and seen.schedule.start_time == "20:00"
+    assert seen.schedule.start_date.isoformat() == "2026-11-21" and seen.id == event.id
+    assert [s.url for s in seen.sources] == [WHITELIST]

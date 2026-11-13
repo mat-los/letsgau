@@ -270,7 +270,8 @@ def _obj(properties: dict[str, Any]) -> dict[str, Any]:
 def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str, Any]:
     """JSON schema of one batch answer (strict: every field required, nulls allowed).
 
-    With ``files`` (flyer calls) every event also names the file it is printed on.
+    With ``files`` (flyer and page calls) every event also names the file it is printed on.
+    ``known_seen`` lists known events found again, by id, with only what changed.
     """
     text = _obj({"de": {"type": "string"}, "en": {"type": "string"}})
     day = {"type": "string", "format": "date"}
@@ -327,9 +328,20 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
             "result": {"type": "string", "enum": ["events_found", "no_events", "unreachable"]},
         }
     )
+    seen = _obj(
+        {
+            "id": {"type": "string"},
+            "status": {"type": "string", "enum": ["scheduled", "cancelled"]},
+            "start_date": _nullable(day),
+            "start_time": _nullable({"type": "string"}),
+            "source_url": _nullable({"type": "string"}),
+            **({"file": {"type": "string", "enum": list(files)}} if files else {}),
+        }
+    )
     return _obj(
         {
             "events": {"type": "array", "items": event},
+            "known_seen": {"type": "array", "items": seen},
             "checked_sources": {"type": "array", "items": checked},
             "instagram_accounts": {"type": "array", "items": {"type": "string"}},
             "notes": {"type": "string"},
@@ -491,6 +503,72 @@ def events_from_answer(
         for e in events
     ]
     return events, rejected
+
+
+def seen_events(
+    items: Iterable[Any],
+    known: Mapping[str, Event],
+    *,
+    config: Config,
+    blocked: Sequence[str],
+    today: date,
+) -> tuple[list[Event], list[Rejected]]:
+    """Known events the AI found again (``known_seen``: id plus what changed), as events with
+    the stored id, texts and tags, so the merge updates them without a full answer."""
+    store_end = today + timedelta(days=config.window.store_days)
+    found: list[Event] = []
+    rejected: list[Rejected] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        event = known.get(str(item.get("id") or ""))
+        if event is None:
+            rejected.append(Rejected(str(item.get("id")), "known_seen: unknown id"))
+            continue
+        s = event.schedule
+        update: dict[str, Any] = {}
+        if not s.dates and s.end_date in (None, s.start_date):  # only single days move
+            if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d", str(item.get("start_time") or "")):
+                update["start_time"] = item["start_time"]
+            try:
+                day = date.fromisoformat(str(item.get("start_date") or ""))
+            except ValueError:
+                day = None
+            if day is not None and today <= day <= store_end:
+                update |= {"start_date": day, "end_date": None}
+        status = event.status
+        if item.get("status") == "cancelled":
+            status = EventStatus.CANCELLED
+        elif status is EventStatus.UNCONFIRMED:
+            status = EventStatus.SCHEDULED
+        url = str(item.get("source_url") or "").strip()
+        if not url.startswith(("http://", "https://")) or is_blocked(url, blocked):
+            url = next(src.url for src in event.sources if src.primary)
+        found.append(
+            event.model_copy(
+                update={
+                    "schedule": s.model_copy(update=update),
+                    "status": status,
+                    "sources": [
+                        EventSource(url=url, primary=True, first_seen=today, last_seen=today)
+                    ],
+                    "last_verified": today,
+                    "misses": 0,
+                }
+            )
+        )
+    return found, rejected
+
+
+def known_for(call: CrawlCall, batch: Batch) -> list[Event]:
+    """Known events of the batch listed on the sources of a ``pages`` or ``sources`` call."""
+    if call.mode == "pages":
+        urls = [t.url for t in call.pages]
+    elif call.mode == "sources":
+        urls = [w.url for w in call.whitelist] + [s.url for s in call.sources]
+    else:
+        return []
+    return [e for e in batch.known if any(_same_source(u, s.url) for u in urls for s in e.sources)]
 
 
 # --- batches and prompt ---------------------------------------------------------------
@@ -794,6 +872,7 @@ def render_prompt(
             else []
         ),
         later_events=[e for e in batch.known if deep_end < e.schedule.start_date <= window_end],
+        known_events=known_for(call, batch),
         sources=call.sources,
         covered_sources=[w.url for w in batch.whitelist]
         + [s.url for s in batch.sources]
@@ -997,6 +1076,8 @@ def crawl(
                     index=index,
                     blocked=blocked,
                     today=today,
+                    seen=entry.seen,
+                    known={e.id: e for e in batch.known},
                 )
                 text_read.add(item.url)
                 read_sources.add(item.url)
@@ -1175,6 +1256,15 @@ def crawl(
         found, rejected = events_from_answer(
             result.data, config=config, places=index, blocked=blocked, today=today
         )
+        again, unknown = seen_events(
+            result.data.get("known_seen") or [],
+            {e.id: e for e in batch.known},
+            config=config,
+            blocked=blocked,
+            today=today,
+        )
+        found += again
+        rejected += unknown
         report.rejected += rejected
         for event in found:
             if event.id in events:
@@ -1261,12 +1351,17 @@ def _add_items(
     index: PlaceIndex,
     blocked: Sequence[str],
     today: date,
+    seen: Sequence[dict[str, Any]] = (),
+    known: Mapping[str, Event] | None = None,
 ) -> None:
-    """Validate raw event candidates (fresh or cached) and add them to ``events``."""
+    """Validate raw event candidates and known events found again (fresh or cached) and add
+    them to ``events``."""
     found, rejected = events_from_answer(
         {"events": list(items)}, config=config, places=index, blocked=blocked, today=today
     )
-    report.rejected += rejected
+    again, unknown = seen_events(seen, known or {}, config=config, blocked=blocked, today=today)
+    found += again
+    report.rejected += rejected + unknown
     for event in found:
         events[event.id] = merge.combine(events[event.id], event) if event.id in events else event
     report.events += len(found)
@@ -1334,6 +1429,16 @@ def _run_pages_call(
             ),
         )
         by_page[owner.url].append({k: v for k, v in item.items() if k != "file"})
+    seen_by_page: dict[str, list[dict[str, Any]]] = {t.url: [] for t in call.pages}
+    for item in result.data.get("known_seen") or []:
+        if not isinstance(item, dict):
+            continue
+        url = str(item.get("source_url") or "")
+        owner = next(
+            (t for ref, t in zip(refs, call.pages, strict=True) if ref == item.get("file")),
+            next((t for t in call.pages if _same_source(t.url, url)), call.pages[0]),
+        )
+        seen_by_page[owner.url].append({k: v for k, v in item.items() if k != "file"})
     for text in call.pages:
         old = cache.pages.get(text.url)
         cache.pages[text.url] = PageCacheEntry(
@@ -1344,6 +1449,7 @@ def _run_pages_call(
             last_seen=today,
             last_changed=today,
             events=by_page[text.url],
+            seen=seen_by_page[text.url],
         )
     _add_items(
         [item for items in by_page.values() for item in items],
@@ -1353,6 +1459,8 @@ def _run_pages_call(
         index=index,
         blocked=blocked,
         today=today,
+        seen=[item for items in seen_by_page.values() for item in items],
+        known={e.id: e for e in batch.known},
     )
     return [t.url for t in call.pages]
 

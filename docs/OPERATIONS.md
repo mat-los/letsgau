@@ -85,7 +85,10 @@ python -m letsgau run --job events --dry-run --limit-places 3
     below, and text mode is tried again after 28 days.
 
   The log shows `pages: N unchanged (reused), N changed (read as text), N for
-  the agent` per batch. Then every batch is split into *source sweeps* (only
+  the agent` per batch. Page, sweep and re-check calls get the known events of
+  their sources with their ids; the AI lists those it finds again in
+  `known_seen` (id, status, and date or time only if they changed) instead of
+  writing them out again in two languages, and writes out only new events. Then every batch is split into *source sweeps* (only
   the agent sources), *re-checks* and the *open search*:
   - each sweep reads N known sources (whitelist first, then discovered ones)
     completely, following pagination to the end of the window, with at most 8
