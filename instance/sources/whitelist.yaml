@@ -9,6 +9,24 @@
   places: ["Schongau"]
 - url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/"
   note: "Pfaffenwinkel tourism calendar, one page per municipality, paginated with ?os=12, ?os=24"
+  places: ["Schongau", "Altenstadt", "Peiting", "Hohenfurch"]   # not Herzogsägmühle: no page of its own
+# The page download does not find the numbered page links of this calendar, so the further
+# pages of the long Peiting list (about 60 events) are listed one by one; overlaps are harmless.
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/?os=12"
+  note: "Pfaffenwinkel tourism calendar, further page (events 13 and later)"
+  places: ["Peiting"]
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/?os=24"
+  note: "Pfaffenwinkel tourism calendar, further page (events 25 and later)"
+  places: ["Peiting"]
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/?os=36"
+  note: "Pfaffenwinkel tourism calendar, further page (events 37 and later)"
+  places: ["Peiting"]
+- url: "https://veranstaltungen.pfaffen-winkel.de/{municipality_slug}/?os=48"
+  note: "Pfaffenwinkel tourism calendar, further page (events 49 and later)"
+  places: ["Peiting"]
+- url: "https://www.herzogsaegmuehle.de/erleben/veranstaltungen"
+  note: "Diakoniedorf Herzogsägmühle: events as text with detail pages (Christmas market, Dorffest)"
+  places: ["Herzogsägmühle"]
 - url: "https://lagerhauskino.pfaffenwinkel.net"
   note: "Lagerhaus-Kino Schongau, film programme (one entry per film)"
   places: ["Schongau"]
