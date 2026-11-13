@@ -90,7 +90,7 @@ computed from, so the next run can tell whether anything changed.
 | `municipalities` | the configured municipalities as "name postcode"; a change recomputes the list and forces discovery |
 | `places[].osm_id` | OpenStreetMap element, e.g. `node/240040710` |
 | `places[].origin` | `municipality`; older files also have `area` or `include` |
-| `places[].municipality` | municipality (OSM `admin_level=8`) the place belongs to, e.g. `Altenstadt` for Schwabniederhofen |
+| `places[].municipality` | municipality (OSM `admin_level=8`) the place belongs to, e.g. `Altenstadt` for Schwabniederhofen; the place's own name for a district listed in `region.municipalities[].separate` |
 | order | per municipality in config order, its main place first, then by name |
 
 Files written before 2026-11 also carry `center`, `drive_time_minutes`,

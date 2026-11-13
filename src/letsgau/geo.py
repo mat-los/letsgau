@@ -128,9 +128,14 @@ def _key(m: Municipality) -> str:
     return " ".join(x for x in (m.name.strip(), m.postcode) if x)
 
 
+def _fingerprint_key(m: Municipality) -> str:
+    """Like :func:`_key`, plus the separate districts (absent ones keep old fingerprints)."""
+    return _key(m) + (f" | {', '.join(m.separate)}" if m.separate else "")
+
+
 def fingerprint(region: RegionConfig) -> str:
     """Stable hash of the municipality list; a change triggers geo + discovery."""
-    payload = [_key(m) for m in region.municipalities]
+    payload = [_fingerprint_key(m) for m in region.municipalities]
     digest = hashlib.sha256(json.dumps(payload).encode()).hexdigest()
     return f"sha256:{digest[:16]}"
 
@@ -269,7 +274,12 @@ def municipality_places(clients: Clients, m: Municipality) -> list[Place]:
         places = [p for p in places if (p.municipality or "").casefold() == name]
     places = [p for p in places if p.municipality]
     places.sort(key=lambda p: (p.name.casefold() != (p.municipality or "").casefold(), p.name))
-    return places
+    # separate districts become an area of their own (after sorting: they keep their position)
+    separate = {s.strip().casefold() for s in m.separate}
+    return [
+        p.model_copy(update={"municipality": p.name}) if p.name.casefold() in separate else p
+        for p in places
+    ]
 
 
 # --- stage --------------------------------------------------------------------
@@ -317,6 +327,10 @@ def compute(
         found = municipality_places(clients, m)
         if not found:
             warnings.append(f"{_key(m)!r}: no places found in OpenStreetMap")
+        names = {p.name.casefold() for p in found}
+        for district in m.separate:
+            if district.strip().casefold() not in names:
+                warnings.append(f"{_key(m)!r}: separate district {district!r} not found")
         for place in found:
             if place.osm_id not in seen:
                 seen.add(place.osm_id)

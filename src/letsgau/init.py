@@ -109,7 +109,10 @@ def fill_config(text: str, a: Answers) -> str:
     return re.sub(
         r"^  municipalities:.*\{\{MUNICIPALITIES\}\}.*\n"
         r"    - \{ name: \"\{\{MUNICIPALITY\}\}\".*\n",
-        lambda _m: "  municipalities:                      # name and/or postcode each\n" + items,
+        lambda _m: (
+            "  municipalities:                      # name and/or postcode each"
+            " (optional separate: [districts shown as their own area])\n" + items
+        ),
         text,
         count=1,
         flags=re.M,

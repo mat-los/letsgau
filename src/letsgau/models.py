@@ -74,8 +74,9 @@ class Place(_DataModel):
     """Legacy, like ``drive_time_minutes``."""
     origin: PlaceOrigin = PlaceOrigin.MUNICIPALITY
     municipality: str | None = None
-    """Municipality (OSM ``admin_level=8``, e.g. Peiting for Herzogsägmühle); the place's own
-    name if it lies in none. ``None`` only in files written before Phase 2."""
+    """Municipality (OSM ``admin_level=8``, e.g. Peiting for Birkland); the place's own name if
+    it lies in none or is listed in its municipality's ``separate``. ``None`` only in files
+    written before Phase 2."""
 
 
 class PlacesFile(_DataModel):

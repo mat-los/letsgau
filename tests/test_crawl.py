@@ -884,7 +884,9 @@ def test_cli_sources_lists_expanded_urls(
     assert "https://veranstaltungen.pfaffen-winkel.de/peiting/  (Peiting)" in out
     assert "reaktor" not in out
 
-    monkeypatch.setattr(crawl, "check_url", lambda url: "404" if "peiting" in url else "200")
+    monkeypatch.setattr(
+        crawl, "check_url", lambda url: "404" if url.endswith("/peiting/") else "200"
+    )
     assert (
         main(
             [
