@@ -370,6 +370,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Re-checks skip events whose primary source is an Instagram or Facebook post:
+  a fetch gets no content there, so the call could never confirm them (the
+  Instagram step re-reads its cached posts instead).
 - Merge: an event filed under the wrong municipality now matches its duplicate when
   both name the same venue on a shared source page; a per-day start time from
   `opening_hours` counts for the time check and the same-slot tie-break; a single
