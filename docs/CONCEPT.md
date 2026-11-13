@@ -399,7 +399,7 @@ Die Einträge im Wireframe sind Platzhalter.
 
 - Abschnitte: Ganztägig & mehrtägig (zugeklappt, mit Anzahl), Vormittag (vor 12 Uhr), Nachmittag (12 bis 18 Uhr), Abend (ab 18 Uhr). Abschnittsüberschriften kleben beim Scrollen.
 - Eine Zeile: Uhrzeit, Titel, Ort, kleine Tag-Symbole. Antippen klappt auf: Beschreibung, Adresse, Hauptquelle als Link plus "+2 weitere Quellen".
-- Mehrtägiges zeigt "noch bis 23.12." und die heutigen Öffnungszeiten, falls bekannt.
+- Mehrtägiges, das an jedem Tag stattfindet (Weihnachtsmarkt, Ausstellung, Festwochenende), zeigt "noch bis 23.12." und die heutigen Öffnungszeiten, falls bekannt. Eine Reihe mit Lücken (Wochenmarkt, Kurs, Kinovorstellungen) zeigt kein Enddatum, sondern die nächsten Termine ("Weitere Termine: Fr 20.11., Fr 27.11.").
 - Hauptevents mit Programm: eine Zeile mit "heute 5 Programmpunkte", das Programm erscheint erst beim Aufklappen.
 - Status: Abgesagt durchgestrichen mit rotem Hinweis; Verschoben mit Link zum neuen Tag; nicht mehr bestätigt grau markiert.
 

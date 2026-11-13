@@ -366,3 +366,41 @@ def test_join_names() -> None:
     assert build.join_names(t, ["Schongau"]) == "Schongau"
     assert build.join_names(t, ["Schongau", "Altenstadt"]) == "Schongau und Altenstadt"
     assert build.join_names(t, ["A", "B", "C"]) == "A, B und C"
+
+
+def test_end_date_only_for_events_that_run_every_day() -> None:
+    market = ev(end_date="2026-11-20")  # continuous range: every day
+    exhibition = ev(end_date="2026-11-16", dates=["2026-11-14", "2026-11-15", "2026-11-16"])
+    weekly = ev(
+        end_date="2026-12-05", dates=["2026-11-14", "2026-11-21", "2026-11-28", "2026-12-05"]
+    )
+    single = ev(start_time="20:00")
+    assert build.runs_daily(market) and build.runs_daily(exhibition)
+    assert not build.runs_daily(weekly) and not build.runs_daily(single)
+    assert build.next_dates(market, SATURDAY) == [] and build.next_dates(single, SATURDAY) == []
+    assert [d.isoformat() for d in build.next_dates(weekly, SATURDAY)] == [
+        "2026-11-21",
+        "2026-11-28",
+        "2026-12-05",
+    ]
+
+
+def test_series_show_their_next_dates_instead_of_an_end(tmp_path: Path) -> None:
+    from letsgau.build import Texts, load_i18n
+
+    t = Texts(load_i18n("de"))
+    films = ev(
+        end_date="2026-11-20",
+        dates=["2026-11-14", "2026-11-15", "2026-11-18", "2026-11-20"],
+        opening_hours=[
+            {"days": "2026-11-14,2026-11-15", "from": "17:30", "to": "17:30"},
+            {"days": "2026-11-18,2026-11-20", "from": "20:00", "to": "20:00"},
+        ],
+    )
+    assert build.more_dates(t, films, SATURDAY) == (
+        "Weitere Termine: So 15.11. 17:30, Mi 18.11. 20:00, Fr 20.11. 20:00"
+    )
+    assert build.more_dates(t, films, date(2026, 11, 20)) == ""  # the last date
+    assert build.more_dates(Texts(load_i18n("en")), films, SATURDAY).startswith(
+        "More dates: Sun 15/11 17:30"
+    )
