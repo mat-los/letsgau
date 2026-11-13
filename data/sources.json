@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T20:21:20Z",
+  "updated_at": "2026-11-13T00:05:34Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -149,7 +149,7 @@
     {
       "url": "https://www.altenstadt-obb.de/tourismus/essen-und-trinken",
       "domain": "altenstadt-obb.de",
-      "name": "Altenstadt Essen und Trinken (Gemeinde)",
+      "name": "Altenstadt Essen und Trinken",
       "kind": "municipality",
       "places": [
         "Altenstadt"
@@ -158,9 +158,9 @@
       "status": "active",
       "rating": 2,
       "update_frequency": "rare",
-      "note": "Directory of cafés, Gasthöfe and Diskothek Kutsche; no events, useful as venue list.",
+      "note": "Already known; used only as a venue directory (Gasthof Janser, Sweetheart, Kutsche disco, La Locanda).",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null
     },
@@ -921,6 +921,25 @@
       "last_hit": null
     },
     {
+      "url": "https://www.eventfinder.de/veranstaltungen-steingaden.php",
+      "domain": "eventfinder.de",
+      "name": "Eventfinder Steingaden",
+      "kind": "calendar",
+      "places": [
+        "Altenstadt",
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Covers Steingaden, not the target municipalities.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://eventfrog.de/de/events/de/bayern/oberbayern/weilheim-schongau/schongau.html",
       "domain": "eventfrog.de",
       "name": "Eventfrog – Schongau (Bavaria path)",
@@ -1313,6 +1332,24 @@
       "note": "Summer holiday programme as a PDF, published once a year in July.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://home.meinestadt.de/altenstadt-schongau",
+      "domain": "home.meinestadt.de",
+      "name": "meinestadt.de Altenstadt b. Schongau",
+      "kind": "calendar",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Town portal with only regional weekend tips from Erding, München and Memmingen; nothing local.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null
     },
@@ -1713,6 +1750,24 @@
       "last_hit": null
     },
     {
+      "url": "https://www.lagerhaus-schongau.de",
+      "domain": "lagerhaus-schongau.de",
+      "name": "Lagerhaus Schongau (Bar, Café, Restaurant, Kino)",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Venue site with menu and hours only; no event list, cinema programme is elsewhere (lagerhauskino).",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://lagerhauskino.pfaffen-winkel.net/",
       "domain": "lagerhauskino.pfaffen-winkel.net",
       "name": "",
@@ -1871,6 +1926,24 @@
       "note": "Returns HTTP 404.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://maps.adac.de/poi/strumpfmuseum-altenstadt",
+      "domain": "maps.adac.de",
+      "name": "ADAC Strumpfmuseum Altenstadt",
+      "kind": "other",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only opening hours (Mo-Fr 9-18, Sa 9-13), no events; the museum is at the Vatter V1 factory outlet.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null
     },
@@ -2543,7 +2616,7 @@
     {
       "url": "https://www.regioactive.de/events/23935/schongau/veranstaltungen-party-konzerte",
       "domain": "regioactive.de",
-      "name": "Regioactive Schongau (re-seen)",
+      "name": "Regioactive Schongau",
       "kind": "calendar",
       "places": [
         "Schongau"
@@ -2551,10 +2624,10 @@
       "origin": "discovery",
       "status": "active",
       "rating": 2,
-      "update_frequency": "monthly",
-      "note": "Already known; lists Reaktor concerts and Festplatz flea markets.",
+      "update_frequency": "unknown",
+      "note": "Already known; seen again, lists Reaktor concerts and Festplatz flea markets, some past dates.",
       "first_seen": "2026-11-09",
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null
     },
@@ -3999,6 +4072,24 @@
       "last_hit": "2026-11-11"
     },
     {
+      "url": "https://veranstaltungen.meinestadt.de/altenstadt-schongau/alle/alle",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Veranstaltungen Altenstadt b. Schongau",
+      "kind": "calendar",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Titled for Altenstadt but the first 20 of 693 entries are from surrounding towns (Schongau, Huglfing, Buchloe, Kaufbeuren); no Altenstadt events seen.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
       "url": "https://veranstaltungen.meinestadt.de/schongau",
       "domain": "veranstaltungen.meinestadt.de",
       "name": "meinestadt.de Schongau Veranstaltungen (start page)",
@@ -4139,6 +4230,24 @@
       "note": "Administration only, no events or Mitteilungsblatt found on the start page",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null
+    },
+    {
+      "url": "https://www.vhs-pfaffenwinkel.de/kurse/kurssuche?tx_kuportal_search%5B__referrer%5D%5B%40extension%5D=KuPortal&tx_kuportal_search%5B__referrer%5D%5B%40controller%5D=Kurs&tx_kuportal_search%5B__referrer%5D%5B%40action%5D=filter&tx_kuportal_search%5B__referrer%5D%5Barguments%5D=YTowOnt9f476d3ea6f6e28bdae763596ff8896fba845b20f&tx_kuportal_search%5B__referrer%5D%5B%40request%5D=%7B%22%40extension%22%3A%22KuPortal%22%2C%22%40controller%22%3A%22Kurs%22%2C%22%40action%22%3A%22filter%22%7Df4f9f8536f95347e69cda9b48bcbaada588a277e&tx_kuportal_search%5B__trustedProperties%5D=%7B%22pKursFilter%22%3A%7B%22suchbegriff%22%3A1%2C%22kategorie%22%3A1%2C%22inst%22%3A1%7D%7Db7e3477fac52339cc24927ec07548ef377d79a25&tx_kuportal_search%5BpKursFilter%5D%5Bsuchbegriff%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Binst%5D=4#kw-kursuebersicht",
+      "domain": "vhs-pfaffenwinkel.de",
+      "name": "vhs Pfaffenwinkel, course search for the Schongau branch (inst=4); several pages: read all of them; courses, workshops and talks count",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "whitelist",
+      "status": "active",
+      "rating": null,
+      "update_frequency": "unknown",
+      "note": "",
+      "first_seen": "2026-11-13",
+      "last_checked": null,
       "hits": 0,
       "last_hit": null
     },

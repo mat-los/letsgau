@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T20:21:08Z",
+  "updated_at": "2026-11-13T00:05:34Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -2336,9 +2336,9 @@
       "places": [
         "Schongau"
       ],
-      "website": "https://www.reaktor-sog.de/",
+      "website": "https://www.reaktor-sog.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Schongauer Brauhaus": {
       "places": [
@@ -2346,7 +2346,7 @@
       ],
       "website": "https://brauhaus-schongau.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Ballenhaus": {
       "places": [
@@ -2384,9 +2384,9 @@
       "places": [
         "Schongau"
       ],
-      "website": "https://ballenhaus-schongau.de/",
+      "website": "https://ballenhaus-schongau.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Bar Löwenhof": {
       "places": [
@@ -2394,7 +2394,7 @@
       ],
       "website": "https://loewenhof.bar",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Unverpacktladen und Café Herr Lose": {
       "places": [
@@ -2402,7 +2402,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "City Café": {
       "places": [
@@ -2410,7 +2410,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Café Express": {
       "places": [
@@ -2418,7 +2418,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Zum Huterer Café Toasteria Wein": {
       "places": [
@@ -2434,7 +2434,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Restaurant Hotel Holl": {
       "places": [
@@ -2442,7 +2442,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Evis Treff": {
       "places": [
@@ -2450,7 +2450,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Lagerhaus": {
       "places": [
@@ -2554,7 +2554,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "La Perla": {
       "places": [
@@ -2592,9 +2592,9 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "https://www.cafe-konditorei-sweetheart.de",
+      "website": "http://www.cafe-konditorei-sweetheart.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Café Bistro Lion's": {
       "places": [
@@ -2610,15 +2610,15 @@
       ],
       "website": "https://www.gasthof-janser.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Pizzeria Trattoria La Locanda": {
       "places": [
         "Altenstadt"
       ],
-      "website": "https://www.lalocanda-altenstadt.de",
+      "website": "http://www.lalocanda-altenstadt.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Sportgaststätte TSV Altenstadt": {
       "places": [
@@ -2626,7 +2626,7 @@
       ],
       "website": "https://www.tsv-altenstadt.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Sportheim TSV Schwabniederhofen": {
       "places": [
@@ -2634,15 +2634,15 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Diskothek Kutsche": {
       "places": [
         "Altenstadt"
       ],
-      "website": "https://www.alte-kutsche.de",
+      "website": "http://www.alte-kutsche.de",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Kulze Schwabniederhofen": {
       "places": [
@@ -2651,6 +2651,46 @@
       "website": "https://www.kulze.info",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12"
+    },
+    "Lagerhauskino": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://lagerhauskino.pfaffenwinkel.net",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lagerhaus (Bar, Café, Restaurant, Kino)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.lagerhaus-schongau.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Kulturteam Oberland e.V.": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café-Bistro Lion's": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.cafebistrolions.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Strumpfmuseum (Vatter V1)": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "vatter-v1.de/strumpfmuseum",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
     }
   }
 }
