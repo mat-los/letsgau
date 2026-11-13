@@ -1,8 +1,8 @@
 # Let's Gau
 
 **Let's Gau** is an open-source event calendar. An AI collects all publicly
-listed events in a configurable list of municipalities (default: Schongau and
-Altenstadt, Bavaria) and publishes them as a static,
+listed events in a configurable list of municipalities (default: Schongau,
+Altenstadt, Peiting and Hohenfurch, Bavaria) and publishes them as a static,
 mobile-first website with one page per day for the next three weeks.
 
 It runs without a server: GitHub Actions starts a Python pipeline, Claude

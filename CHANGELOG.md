@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Bundled instance: Peiting (86971) and Hohenfurch (86978) added to
+  `region.municipalities`.
 - `site.goatcounter`: optional cookieless visitor counting with GoatCounter.
   When set, every page loads its script and the privacy page describes what is
   counted; empty (the default) keeps the site free of any external script.

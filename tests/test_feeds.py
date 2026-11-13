@@ -83,7 +83,7 @@ def test_json_ld_status_times_and_program(site: Path) -> None:
 def test_llms_txt(site: Path) -> None:
     text = (site / "llms.txt").read_text(encoding="utf-8")
     assert text.startswith("# Let's Gau")
-    assert "Events in Schongau and Altenstadt" in text
+    assert "Events in Schongau, Altenstadt, Peiting and Hohenfurch" in text
     assert "https://letsgau.de/<lang>/<YYYY-MM-DD>/" in text
     assert "https://letsgau.de/data/events.json" in text and "events.ics" in text
     assert "- `concert`: Konzert / Concert" in text
