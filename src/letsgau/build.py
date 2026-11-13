@@ -95,6 +95,39 @@ def is_multi_day(event: Event) -> bool:
     return event.schedule.last_date > event.schedule.start_date
 
 
+def runs_daily(event: Event) -> bool:
+    """True for a multi-day event that takes place on every day from start to end (a
+    Christmas market, an exhibition, a festival weekend). Only for these is the end date
+    shown: for a series with gaps (a weekly market, a course, film screenings) the last stored
+    date is often just the end of the crawl window."""
+    s = event.schedule
+    if not is_multi_day(event):
+        return False
+    return not s.dates or len(set(s.dates)) == (s.last_date - s.start_date).days + 1
+
+
+MORE_DATES = 3
+"""Next dates listed in the details of a series."""
+
+
+def next_dates(event: Event, day: date) -> list[date]:
+    """The next :data:`MORE_DATES` dates of a series after ``day`` (none for other events)."""
+    s = event.schedule
+    if not is_multi_day(event) or runs_daily(event) or not s.dates:
+        return []
+    return sorted(d for d in set(s.dates) if d > day)[:MORE_DATES]
+
+
+def more_dates(t: Texts, event: Event, day: date) -> str:
+    """The next dates of a series ("Weitere Termine: Fr 20.11. 20:00, ..."), else empty."""
+    parts = []
+    for d in next_dates(event, day):
+        text = f"{t['weekdays_short'][d.weekday()]} {format_date(t, d, 'short')}"
+        time = time_on(event, d)
+        parts.append(f"{text} {time}" if time else text)
+    return t("more_dates", dates=", ".join(parts)) if parts else ""
+
+
 def is_timed(event: Event) -> bool:
     """True for a single-day event with a known start time.
 
@@ -332,6 +365,8 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "hours_today": hours_today,
         "time_on": time_on,
         "is_multi_day": is_multi_day,
+        "runs_daily": runs_daily,
+        "more_dates": lambda e, d: more_dates(t, e, d),
         "Status": EventStatus,
     }
 
@@ -384,11 +419,12 @@ def venue_line(event: Event) -> str:
 def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
-    Entry keys: ``d`` day, ``u`` time column (start time or "until ..."), ``n`` title,
-    ``p`` place, ``g`` tags, ``h`` link anchor, ``t`` description, ``v`` venue line, ``l``
-    primary source URL (``t``, ``v``, ``l`` for the expanded hit), ``s`` folded search text
-    (title, place, venue, description, main event and the category names in every language),
-    ``x`` status (only when not scheduled: cancelled, postponed, unconfirmed).
+    Entry keys: ``d`` day, ``u`` time column (start time, or "until ..." for an event that
+    runs every day), ``n`` title, ``p`` place, ``g`` tags, ``h`` link anchor, ``t``
+    description, ``v`` venue line, ``l`` primary source URL (``t``, ``v``, ``l`` for the
+    expanded hit), ``s`` folded search text (title, place, venue, description, main event and
+    the category names in every language), ``x`` status (only when not scheduled: cancelled,
+    postponed, unconfirmed).
     """
     t = Texts(load_i18n(lang))
     by_id = {e.id: e for e in site.events}
@@ -406,7 +442,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
         time = time_on(event, day)
         if time is not None:
             when = time
-        elif is_multi_day(event):
+        elif runs_daily(event):
             when = t("until_short", date=format_date(t, event.schedule.last_date, "short"))
         else:
             when = ""

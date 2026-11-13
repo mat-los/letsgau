@@ -15,7 +15,8 @@
   {% if event.venue.name or event.venue.address %}
   <p class="venue">{{ event.venue.name or "" }}{% if event.venue.name and event.venue.address %}, {% endif %}{{ event.venue.address or "" }}{% if not event.venue.address %}{% if event.venue.name %}, {% endif %}{{ event.venue.place }}{% endif %}</p>
   {% endif %}
-  {% if is_multi_day(event) %}<p class="until">{{ t('until', date=fmt(event.schedule.last_date, 'short')) }}{% set hours = hours_today(event, day) %}{% if hours %} · {{ t('today_hours' if '–' in hours else 'today_at') }} {{ hours }}{% endif %}</p>
+  {% if runs_daily(event) %}<p class="until">{{ t('until', date=fmt(event.schedule.last_date, 'short')) }}{% set hours = hours_today(event, day) %}{% if hours %} · {{ t('today_hours' if '–' in hours else 'today_at') }} {{ hours }}{% endif %}</p>
+  {% elif is_multi_day(event) %}{% set hours = hours_today(event, day) %}{% if hours %}<p class="until">{{ t('today_hours' if '–' in hours else 'today_at') }} {{ hours }}</p>{% endif %}{% set more = more_dates(event, day) %}{% if more %}<p class="until">{{ more }}</p>{% endif %}
   {% elif event.schedule.end_time %}<p class="until">{{ event.schedule.start_time }}–{{ event.schedule.end_time }}</p>{% endif %}
   {% if event.status == Status.POSTPONED and event.postponed_to %}
   {% set new_day = event.postponed_to[:10] %}
@@ -43,11 +44,12 @@
 {% set child_tags = r.children | map(attribute='tags') | sum(start=[]) | unique | join(' ') %}
 <details class="ev st-{{ e.status.value }}{% if r.standalone_copy_of %} copy{% endif %}"{% if r.standalone_copy_of %} data-parent="{{ r.standalone_copy_of.id }}"{% else %} id="{{ e.id }}"{% endif %} data-tags="{{ e.tags | join(' ') }}" data-child-tags="{{ child_tags }}" data-primary="{{ e.primary_tag }}" data-place="{{ e.venue.place }}" data-drive="{{ drive_time(e.venue.place) or 999 }}" data-time="{{ r.time or '' }}" data-search="{{ searchable }}">
   <summary>
-    {# the time column only shows times; how long a multi-day event runs is a badge below #}
+    {# the time column only shows times; the end of an event that runs every day is a badge below;
+       a series with gaps has no end badge, its next dates are in the details #}
     <span class="time{% if not r.timed %} untimed{% endif %}">{% if r.timed %}{{ r.time }}{% if r.end %}<small>–{{ r.end }}</small>{% endif %}{% endif %}</span>
     <span class="title">{{ e.title[lang] }}</span>
     <span class="place">{{ e.venue.place }}</span>
-    <span class="meta">{{ status_badge(e) }}{% if is_multi_day(e) %}<span class="span">{{ t('last_day') if e.schedule.last_date == day else t('until_short', date=fmt(e.schedule.last_date, 'short')) }}</span>{% endif %}{{ tag_list(e) }}{% if r.children %}<span class="prog">{{ t('program_items', count=r.children | length) }}</span>{% endif %}{% if r.standalone_copy_of %}<span class="part">{{ t('part_of', title=r.standalone_copy_of.title[lang]) }}</span>{% endif %}</span>
+    <span class="meta">{{ status_badge(e) }}{% if runs_daily(e) %}<span class="span">{{ t('last_day') if e.schedule.last_date == day else t('until_short', date=fmt(e.schedule.last_date, 'short')) }}</span>{% endif %}{{ tag_list(e) }}{% if r.children %}<span class="prog">{{ t('program_items', count=r.children | length) }}</span>{% endif %}{% if r.standalone_copy_of %}<span class="part">{{ t('part_of', title=r.standalone_copy_of.title[lang]) }}</span>{% endif %}</span>
   </summary>
   {{ body(e, day, r.children) }}
 </details>
