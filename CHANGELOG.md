@@ -163,6 +163,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Sources: every events run stores what it found on each source it read
+  (`last_swept`, `last_result`, `empty_runs` in `sources.json`); after 3 runs
+  in a row without an event a source becomes `dormant` and is skipped until
+  28 days after its last sweep, then read once more. URLs that differ only in
+  a pagination parameter (`?os=0` / `?os=10`) are now one source.
 - Workflows: GitHub Actions bumped to their current majors (Node 24; no more
   Node 20 deprecation warnings), and the Claude Code CLI is pinned
   (`CLAUDE_CODE_VERSION`, 2.1.323) instead of installing the latest release

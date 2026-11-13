@@ -829,6 +829,9 @@ class CrawlResult:
     """Updated flyer cache (written by :func:`run` unless it is a dry run)."""
     instagram_cache: InstagramFile | None = None
     """Updated Instagram accounts and posts (written by :func:`run` unless a dry run)."""
+    swept: dict[str, str] = field(default_factory=dict)
+    """Source URL -> ``events`` | ``empty`` | ``unreachable`` for every whitelist and known
+    source a successful call of this run read (see :func:`discovery.record_sweeps`)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -882,6 +885,7 @@ def crawl(
             [w.url for w in batch.whitelist],
             limit=None if sweeps else discovery.MAX_KNOWN_PER_BATCH,
             skip_prefixes=[e.url for e in blacklist if e.url],
+            today=today,
         )
 
     budget = config.limits.max_web_searches_per_run
@@ -936,6 +940,8 @@ def crawl(
     ]
     by_batch: dict[int, BatchReport] = {}
     checked_by_batch: dict[int, list[str]] = {}
+    read_sources: set[str] = set()  # source URLs of calls that returned an answer
+    unreachable: set[str] = set()  # URLs a call reported as unreachable
     for position, (batch, call) in enumerate(plan):
         report = by_batch.get(batch.number)
         if report is None:
@@ -1075,6 +1081,14 @@ def crawl(
         checked = checked_by_batch.setdefault(batch.number, [])
         checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls
+        if call.mode in ("sources", "all"):
+            read_sources.update(w.url for w in call.whitelist)
+            read_sources.update(s.url for s in call.sources)
+        unreachable.update(
+            str(c.get("url", ""))
+            for c in result.data.get("checked_sources") or []
+            if c.get("result") == "unreachable"
+        )
         for title_reason in rejected:
             _log(f"batch {batch.number}: dropped {title_reason.title!r}: {title_reason.reason}")
 
@@ -1097,6 +1111,15 @@ def crawl(
         if report.error is None:
             covered.update(p.name for p in batch.places)
             covered.update(g.name for g in batch.groups)
+    event_urls = [src.url for e in events.values() for src in e.sources]
+    swept = {
+        url: "events"
+        if any(_same_source(url, u) for u in event_urls)
+        else "unreachable"
+        if any(_same_source(url, u) for u in unreachable)
+        else "empty"
+        for url in read_sources
+    }
     keep_after = today - timedelta(days=FLYER_CACHE_KEEP_DAYS)
     flyer_cache = flyer_cache.model_copy(
         update={
@@ -1114,6 +1137,7 @@ def crawl(
         municipality_of=municipality_of,
         flyer_cache=flyer_cache,
         instagram_cache=_prune_instagram(insta_cache, today, config) if insta_on else None,
+        swept=swept,
     )
 
 
@@ -1752,7 +1776,13 @@ def run(
             sorted({e.domain for e in blacklist if e.domain}),
             today,
         )
-        discovery.save_sources(sources, data_dir)
+        swept, dormant = discovery.record_sweeps(sources, result.swept, today)
+        discovery.save_sources(swept or sources, data_dir)
+        with_events = sum(r == "events" for r in result.swept.values())
+        print(
+            f"crawl: sources: {len(result.swept)} read, {with_events} with events"
+            + (f"; now dormant: {', '.join(dormant)}" if dormant else "")
+        )
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
 

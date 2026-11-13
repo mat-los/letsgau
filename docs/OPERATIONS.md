@@ -225,6 +225,12 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - The events stage gives each batch the active sources of its municipalities
   (rating ≥ 3 or ≥ 2 hits; all of them in sweep mode, at most 12 in combined
   mode) and counts hits per source after every run.
+- Every events run stores what it found on each source it read (`last_result`
+  in `sources.json`). A source without an event in 3 runs in a row becomes
+  `dormant` and is left out of the sweeps until 28 days after its last sweep;
+  then it is read once more, and an event makes it active again. Whitelist
+  entries are never made dormant. The log shows `crawl: sources: N read, N with
+  events; now dormant: …`.
 - Known sources are only listed in the prompt (not opened or reported again)
   if they are whitelisted, or were rated or had a hit in the last 90 days
   (`RECHECK_SOURCES_DAYS`); older ones are listed separately to be re-rated.

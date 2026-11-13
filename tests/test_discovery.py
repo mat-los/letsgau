@@ -412,6 +412,69 @@ def test_crawl_prompt_lists_known_sources_and_counts_hits(config: Config, data_d
     stored = discovery.load_sources(data_dir)
     club = next(s for s in stored.sources if "ecpeiting" in s.url)
     assert club.hits == 1
+    assert (club.last_result, club.last_swept, club.empty_runs) == ("events", TODAY, 0)
+
+
+def _source(url: str, **extra: Any) -> Source:
+    data: dict[str, Any] = {
+        "url": url,
+        "domain": discovery.domain_of(url),
+        "places": ["Peiting"],
+        "origin": SourceOrigin.DISCOVERY,
+        "rating": 4,
+        "first_seen": TODAY,
+    }
+    return Source(**(data | extra))
+
+
+def test_pagination_variants_are_one_source(tmp_path: Path) -> None:
+    a = "https://rce.example/output.php?id=1&os=0&send=foo"
+    b = "https://rce.example/output.php?id=1&os=10&send=foo"
+    assert discovery.normalize_url(a) == discovery.normalize_url(b)
+    assert discovery.normalize_url("https://x.example/?page_id=83") != discovery.normalize_url(
+        "https://x.example/?page_id=84"
+    )
+    file = SourcesFile(
+        updated_at="2026-11-09T00:00:00Z",
+        sources=[_source(a, hits=46, rating=5), _source(b, hits=37, rating=None, places=["X"])],
+    )
+    discovery.save_sources(file, tmp_path)
+    loaded = discovery.load_sources(tmp_path)
+    assert loaded is not None and len(loaded.sources) == 1
+    merged = loaded.sources[0]
+    assert (merged.url, merged.hits, merged.rating, merged.places) == (a, 83, 5, ["Peiting", "X"])
+
+
+def test_sources_without_events_become_dormant_and_come_back() -> None:
+    url = "https://quiet.example/termine"
+    file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=[_source(url)])
+    newly: list[str] = []
+    for run in range(discovery.DORMANT_AFTER_RUNS):
+        result = "unreachable" if run == 0 else "empty"
+        updated, newly = discovery.record_sweeps(file, {url: result}, TODAY)
+        assert updated is not None
+        file = updated
+    source = file.sources[0]
+    assert source.status is SourceStatus.DORMANT and newly == [url]
+    assert (source.empty_runs, source.last_result) == (discovery.DORMANT_AFTER_RUNS, "empty")
+    # left out of the sweeps until the retry pause is over
+    assert discovery.known_sources_for(file, ["Peiting"], today=TODAY + timedelta(days=1)) == []
+    later = TODAY + timedelta(days=discovery.DORMANT_RETRY_DAYS)
+    assert [s.url for s in discovery.known_sources_for(file, ["Peiting"], today=later)] == [url]
+    updated, newly = discovery.record_sweeps(file, {url: "events"}, later)
+    assert updated is not None and newly == []
+    assert (updated.sources[0].status, updated.sources[0].empty_runs) == (SourceStatus.ACTIVE, 0)
+
+
+def test_whitelist_sources_are_never_dormant() -> None:
+    url = "https://trusted.example/kalender"
+    file = SourcesFile(
+        updated_at="2026-11-09T00:00:00Z",
+        sources=[_source(url, origin=SourceOrigin.WHITELIST, empty_runs=5)],
+    )
+    updated, newly = discovery.record_sweeps(file, {url: "empty"}, TODAY)
+    assert updated is not None and newly == []
+    assert updated.sources[0].status is SourceStatus.ACTIVE
 
 
 # --- Instagram accounts ---------------------------------------------------------------------

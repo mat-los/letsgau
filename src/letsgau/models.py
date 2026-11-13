@@ -44,6 +44,8 @@ class SourceOrigin(StrEnum):
 class SourceStatus(StrEnum):
     ACTIVE = "active"
     BLACKLISTED = "blacklisted"
+    DORMANT = "dormant"
+    """Several sweeps in a row found nothing; read again only after a pause."""
 
 
 class _DataModel(BaseModel):
@@ -339,6 +341,13 @@ class Source(_DataModel):
     hits: int = Field(default=0, ge=0)
     """Events found on this source in total (counted by the events stage)."""
     last_hit: date | None = None
+    last_swept: date | None = None
+    """Last events run that read this source."""
+    last_result: Literal["events", "empty", "unreachable"] | None = None
+    """What that run found there."""
+    empty_runs: int = Field(default=0, ge=0)
+    """Runs in a row without an event from this source (``dormant`` from
+    ``discovery.DORMANT_AFTER_RUNS``)."""
 
 
 class SourcesFile(_DataModel):
