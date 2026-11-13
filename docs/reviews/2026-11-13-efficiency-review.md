@@ -5,6 +5,19 @@ Inputs: `main` at `e334856`, the `data` branch at `abc0f1b`, the logs of
 *Run: events* #41 (2026-11-13 00:25, run id 43336977334) and *Run: discovery*
 #40 (2026-11-13 00:01, run id 43333596230), and `data/state.json`.
 
+## Status
+
+| Item | State |
+| --- | --- |
+| F1 + F5, F2, F3, O5 | done in PR #104 (merged) |
+| O1, O2, O6, F4 (light: `depth.open_search`, postcodes), F7 | done in the follow-up PR |
+| F6, F8, F9, O3, O4 | open (judged low priority for now) |
+| F4 full (count the events only the open search found) | open |
+| `docs/CONCEPT.md` still says Opus for discovery | waiting for the owner's decision |
+
+None of the done items has been live-tested yet (no Crawl check, no real run):
+compare the first real runs with the baseline below.
+
 Every item has an ID. Items in *OK* and *Needs fixing* end with
 **Instructions for Claude Code**, written so that a later session can pick up
 one item per pull request. The general rules in `CLAUDE.md` still apply:
