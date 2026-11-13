@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Page cache (`data/pages.json`, `src/letsgau/pages.py`): in sweep mode every
+  whitelist and known source is downloaded as text first. Unchanged pages
+  reuse the events read from them before (no AI call), changed pages go to a
+  *page* call without web access (`prompts/events.md`, mode `pages`), and only
+  pages that cannot be read as text (JavaScript calendars, PDFs, blocked
+  downloads) are still swept by the agent. Re-checks skip events whose source
+  page was read as text in the same run.
 - Instagram pre-screen (`instagram.prescreen`): a text-only call to the merge
   model drops posts whose caption is clearly not about an upcoming event before
   their images are read.

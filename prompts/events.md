@@ -37,6 +37,24 @@ researchers handle the remaining sources and a general web search.
 {%- for source in sources %}
 - {{ source.url }}{% if source.name %} ({{ source.name }}){% endif %}{% if source.note %}: {{ source.note }}{% endif %}
 {%- endfor %}
+{%- elif mode == "pages" %}
+
+You are one of several researchers working on this calendar. Below is the text of some of its
+known sources, downloaded just now (links in angle brackets; "--- next page" marks a following
+page of the same list). You have no web access in this task. Take every event between {{ today }}
+and {{ store_end }} from these texts (also the later ones: a page is only read again when it
+changes).
+
+- Report only what the text says. If it gives no time, use null; never guess a time or a place.
+- Sources: the page's URL as the primary source. If the text links the event's own detail page,
+  add that link as a second source.
+- In "file", give the page the event comes from, exactly as listed below ("page 1", ...).
+- In "checked_sources", list each page's URL with "events_found" or "no_events".
+{% for ref, url, text in pages %}
+### {{ ref }}: {{ url }}
+
+{{ text }}
+{% endfor %}
 {%- elif mode == "flyers" %}
 
 The files below were downloaded from {{ flyer.url }}{% if flyer.note %} ({{ flyer.note }}){% endif %}:
