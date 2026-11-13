@@ -73,6 +73,8 @@ excluded_topics:                        # topic blacklist: never include such ev
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
 
+excluded_title_patterns: []              # regexes (case-insensitive) on the German title: dropped without asking the AI
+
 tags:                                   # fixed list, the AI must not invent new ones
   - { id: concert,         de: "Konzert",            en: "Concert" }
   - { id: party,           de: "Party",              en: "Party" }

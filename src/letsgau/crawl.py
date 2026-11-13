@@ -400,6 +400,9 @@ def to_event(
     Raises ``ValueError`` with the reason if the candidate must be dropped.
     """
     store_end = today + timedelta(days=config.window.store_days)
+    pattern = config.excluded_title(candidate.title.de)
+    if pattern is not None:
+        raise ValueError(f"excluded title pattern {pattern!r}")
     schedule = candidate.schedule
     if schedule.last_date < today:
         raise ValueError(f"already over ({schedule.last_date})")
@@ -2098,6 +2101,7 @@ def run(
         unconfirmed_after=config.events.unconfirmed_after_misses,
         decide=merge.ai_decider(runner, config.models.merge, config.excluded_topics),
         report=report,
+        excluded_title=config.excluded_title,
     )
     result.merge = report
     print(

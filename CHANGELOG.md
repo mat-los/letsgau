@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `excluded_title_patterns`: case-insensitive regular expressions on the
+  German title; matching events are dropped by the crawl's validation and
+  removed from the stored events by the merge, without asking the AI. The
+  Schongau instance lists annual general meetings, rehearsals, confirmation
+  classes, club Christmas/St. Nicholas/year-end parties and shooting practice.
 - Page cache (`data/pages.json`, `src/letsgau/pages.py`): in sweep mode every
   whitelist and known source is downloaded as text first. Unchanged pages
   reuse the events read from them before (no AI call), changed pages go to a

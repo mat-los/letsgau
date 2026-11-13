@@ -151,6 +151,9 @@ python -m letsgau run --job events --dry-run --limit-places 3
     a rate limit or a network error stops the step for the run, with a
     warning. Without the two secrets the step is skipped with one warning.
   - The token is never written to logs, warnings or `data/instagram.json`.
+- Events whose German title matches `excluded_title_patterns` (for example
+  `Jahreshauptversammlung`, `Probe`) are dropped by the validation and
+  removed from the stored events by the merge, without asking the AI.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g

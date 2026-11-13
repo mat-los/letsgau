@@ -456,14 +456,24 @@ def apply(
     unconfirmed_after: int = 2,
     decide: Decide = no_ai,
     report: MergeReport | None = None,
+    excluded_title: Callable[[str], str | None] | None = None,
 ) -> EventsFile:
     """Return the new ``events.json`` content.
 
+    ``excluded_title`` returns the matching title pattern of an event title, if any.
     ``covered_places`` are the places (and municipalities) crawled successfully in
     this run; only stored events there can be "missed". ``None`` disables misses.
     """
     report = report if report is not None else MergeReport()
     stored = {e.id: e for e in (existing.events if existing else [])}
+    # stored events whose title matches ``excluded_title_patterns`` (also a pattern added
+    # later) are removed without asking the AI; new ones are dropped by crawl.to_event
+    for key, event in list(stored.items()):
+        pattern = excluded_title(event.title.de) if excluded_title else None
+        if pattern is not None:
+            report.excluded[key] = f"title pattern {pattern!r}"
+            _log(f"removed {event.title.de!r}: title pattern {pattern!r}")
+            del stored[key]
     crawled = list(crawled)
 
     # 0. Duplicates already in storage: clear ones (similar title, shared days, same place)

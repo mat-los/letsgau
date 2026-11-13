@@ -206,6 +206,15 @@ Free-text topic blacklist. Matching events are never included (checked in the
 crawl prompt and again in the merge step, where stored events are checked too:
 a topic added later also removes events already in the calendar).
 
+## `excluded_title_patterns`
+
+List of regular expressions (Python syntax, case-insensitive), matched against
+the German title. A matching event is dropped by the crawl's validation and
+removed from the stored events by the merge, without asking the AI. Use it for
+the obvious cases (`'\bJahreshauptversammlung\b'`, `'\bProbe\b'`); everything
+else is left to `excluded_topics`. Write patterns in single quotes in YAML. An
+invalid pattern is a configuration error. Default: none.
+
 ## `tags`
 
 Fixed list of `{id, de, en}`. IDs are lowercase kebab-case and unique; the AI

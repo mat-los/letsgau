@@ -242,7 +242,26 @@ class Config(_Strict):
     sources: SourcesConfig
     instagram: InstagramConfig = InstagramConfig()
     excluded_topics: list[str] = []
+    excluded_title_patterns: list[str] = []
+    """Case-insensitive regular expressions; an event whose German title matches one is
+    dropped without asking the AI (the obvious members-only events)."""
     tags: list[Tag] = Field(min_length=1)
+
+    @field_validator("excluded_title_patterns")
+    @classmethod
+    def _valid_patterns(cls, value: list[str]) -> list[str]:
+        for pattern in value:
+            try:
+                re.compile(pattern)
+            except re.error as exc:
+                raise ValueError(f"invalid regular expression {pattern!r}: {exc}") from exc
+        return value
+
+    def excluded_title(self, title: str) -> str | None:
+        """The first ``excluded_title_patterns`` entry that matches ``title``, or None."""
+        return next(
+            (p for p in self.excluded_title_patterns if re.search(p, title, re.IGNORECASE)), None
+        )
 
     @field_validator("tags")
     @classmethod

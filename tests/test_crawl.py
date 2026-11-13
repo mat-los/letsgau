@@ -948,3 +948,77 @@ def test_open_search_every_other_run_with_postcodes(tmp_path: Path, data_dir: Pa
     )
     assert plan[0][1][0] == "Schongau Veranstaltungen 86956"
     assert all(q.endswith(" 86956") for q in plan[0][1])
+
+
+@pytest.mark.parametrize(
+    ("title", "excluded"),
+    [
+        ("Gartenbauverein Altenstadt/Schwabniederhofen, Jahresabschluss", True),
+        ("Nikolausfeier Schützenverein Schwabniederhofen", True),
+        ("Schützenverein Altenstadt, Preisverteilung Nikolausschießen", True),
+        ("Nikolausfeier der Trachtenjugend", True),
+        ("Weihnachtsfeier des Trachtenvereins", True),
+        ("Krippenspiel-Probe", True),
+        ("Gospelchor-Probe", True),
+        ("3. Konfinachmittag", True),
+        ("80. Jahreshauptversammlung Skiclub Schongau", True),
+        ("Übungsschießen Schützenverein Jägerhaus", True),
+        ("Fotogruppe Altenstadt: Clubabend", False),
+        ("Adventsbasar", False),
+        ("LET IT SWING – Weihnachtskonzert der SOG-BigBand", False),
+        ("Öffentliche Generalprobe", False),
+        ("Probetraining Tischtennis", False),
+        ("Jugendtreff", False),
+    ],
+)
+def test_instance_title_patterns(config: Config, title: str, excluded: bool) -> None:
+    assert (config.excluded_title(title) is not None) is excluded
+
+
+def test_title_patterns_drop_new_and_remove_stored_events(config: Config) -> None:
+    config = config.model_copy(update={"excluded_title_patterns": [r"\bProbe\b"]})
+    item = _answer()["events"][0] | {"title": {"de": "Krippenspiel-Probe", "en": "Rehearsal"}}
+    with pytest.raises(ValueError, match="excluded title pattern"):
+        to_event(
+            Candidate.model_validate(item),
+            config=config,
+            places=PlaceIndex(
+                [Place(name="Schongau", osm_id="node/1", place_type="town", lat=47.8, lon=10.9)]
+            ),
+            blocked=[],
+            today=TODAY,
+        )
+    kept = to_event(
+        Candidate.model_validate(_answer()["events"][0]),
+        config=config,
+        places=PlaceIndex(
+            [Place(name="Schongau", osm_id="node/1", place_type="town", lat=47.8, lon=10.9)]
+        ),
+        blocked=[],
+        today=TODAY,
+    )
+    rehearsal = kept.model_copy(
+        update={
+            "id": "2026-11-27-probe-schongau",
+            "title": kept.title.model_copy(update={"de": "Chor: Probe"}),
+        }
+    )
+    stored = EventsFile(updated_at="2026-11-09T00:00:00Z", events=[kept, rehearsal])
+    report = merge.MergeReport()
+    result = merge.apply(
+        stored, [], today=TODAY, report=report, excluded_title=config.excluded_title
+    )
+    assert [e.id for e in result.events] == [kept.id]
+    assert report.excluded == {rehearsal.id: "title pattern '\\\\bProbe\\\\b'"}
+
+
+def test_invalid_title_pattern_is_a_config_error(tmp_path: Path) -> None:
+    text = CONFIG_PATH.read_text(encoding="utf-8").replace(
+        "excluded_title_patterns:", "excluded_title_patterns:\n  - '(unclosed'", 1
+    )
+    path = tmp_path / "config.yaml"
+    path.write_text(text, encoding="utf-8")
+    from letsgau.config import ConfigError
+
+    with pytest.raises(ConfigError, match="invalid regular expression"):
+        load_config(path)
