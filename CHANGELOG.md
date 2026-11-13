@@ -175,6 +175,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Start page (`/de/`, `/en/`) and `/`: title and share preview without a date
+  ("Was ist los in und um <region>?") and the general address as `og:url`, so a
+  link shared on WhatsApp no longer shows the day it was shared. Dated pages keep
+  their date; for search engines the dated page stays canonical.
 - Phone: the header no longer slides in and out. The search row and the date bar
   stay pinned (about 130 px); coverage line, info links, Heute/Morgen and the
   category tools scroll away with the page. This removes the empty gap at the top

@@ -7,6 +7,11 @@
 {% if not site.config.site.indexing %}<meta name="robots" content="noindex">
 {% endif %}<meta http-equiv="refresh" content="0; url={{ default }}/">
 <link rel="canonical" href="{{ site.config.site.base_url.rstrip('/') }}/{{ default }}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.config.site.name }}">
+<meta property="og:title" content="{{ share_title }}">
+<meta property="og:description" content="{{ share_description }}">
+<meta property="og:url" content="{{ site.config.site.base_url.rstrip('/') }}/">
 <script>
 (function () {
   var langs = {{ langs | tojson }}, lang = "{{ default }}";

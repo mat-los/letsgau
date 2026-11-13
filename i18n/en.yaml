@@ -9,6 +9,8 @@ last_updated: "Last updated"
 ai_notice: "Events are collected automatically by AI and may be wrong or outdated. Please check with the organizer before you go."
 title_suffix: "Events around {region}"
 search_title: "Search: {q}"
+index_title: "What's on in and around {label}?"
+index_description: "Concerts, markets, sports, culture and more in {places}: what's on today and in the coming weeks."
 day_title: "What's on in and around {label} on {date}"
 day_description: "{count} events in and around {label} on {date}: concerts, markets, sports, culture and more."
 weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
