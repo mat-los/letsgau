@@ -98,7 +98,7 @@ sequenceDiagram
 | Datenspeicher | JSON-Dateien in `data/` | kostenlos, über Git versioniert; später Umstieg auf Supabase möglich |
 | Pipeline | Python 3.12, Pydantic, Jinja2 | einfach lesbar, gute Validierung der KI-Ausgabe |
 | KI | Claude API mit den serverseitigen Tools `web_search` und `web_fetch` | kein eigener Crawler nötig; Blacklist lässt sich als `blocked_domains` übergeben |
-| Modelle | Sonnet für Discovery und Events, Haiku für Duplikate | Sonnet reicht für die Suche nach Quellen und kostet einen Bruchteil von Opus; Haiku ist günstig beim Abgleich |
+| Modelle | Sonnet für Discovery und Events, Haiku für Duplikate | Sonnet reicht für die Suche nach Quellen und kostet etwa die Hälfte von Opus; Haiku ist günstig beim Abgleich |
 | Frontend | statisches HTML, ein CSS, wenig Vanilla-JS | schnell am Handy, lesbar für KIs ohne JavaScript |
 | Diagramme | Mermaid | rendert direkt auf GitHub, als Text von KIs pflegbar |
 
