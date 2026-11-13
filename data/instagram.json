@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T00:40:44Z",
+  "updated_at": "2026-11-13T08:41:46Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -2611,7 +2611,7 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "http://www.cafe-konditorei-sweetheart.de",
+      "website": "https://www.cafe-konditorei-sweetheart.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2635,7 +2635,7 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "http://www.lalocanda-altenstadt.de",
+      "website": "https://www.lalocanda-altenstadt.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2659,7 +2659,7 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "http://www.alte-kutsche.de",
+      "website": "https://www.alte-kutsche.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2708,6 +2708,62 @@
         "Altenstadt"
       ],
       "website": "vatter-v1.de/strumpfmuseum",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Schongauer Märchenwald und Tierpark": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.schongauer-maerchenwald.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café - Bistro Lion's": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "https://www.cafebistrolions.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Strumpfmuseum Altenstadt (Bistro, Eiscafé)": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lagerhaus Schongau (Restaurant-Bar)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.lagerhaus-schongau.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Hotel Blaue Traube": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Hotel Alte Post": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Wirtshaus Fischerstubn": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
     }

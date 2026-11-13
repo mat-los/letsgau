@@ -8,119 +8,119 @@ accept a suggestion.
 
 ```yaml
 - url: "https://www.plantsch.de/service/veranstaltungen/"
-  note: "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen (123 hits, rated 4/5)"
+  note: "Plantsch Schongau (Hallenbad/Sauna) – Veranstaltungen (132 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://www.pg-schongau.com/"
-  note: "Pfarreiengemeinschaft Schongau (kath.) (100 hits, rated 4/5)"
+  note: "Pfarreiengemeinschaft Schongau (kath.) (112 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://brauhaus-schongau.de/veranstaltungen/"
-  note: "Schongauer Brauhaus – Veranstaltungen (94 hits, rated 2/5)"
+  note: "Schongauer Brauhaus – Veranstaltungen (104 hits, rated 2/5)"
   places: ["Schongau"]
 - url: "http://www.kolpingsfamilie-schongau.de/termine"
-  note: "Kolpingsfamilie Schongau – Termine (82 hits, rated 5/5)"
-  places: ["Schongau"]
-- url: "https://www.schwarz-gelb-schongau.de"
-  note: "SKK Schwarz-Gelb Schongau (Kegeln) (82 hits, rated 4/5)"
+  note: "Kolpingsfamilie Schongau – Termine (89 hits, rated 5/5)"
   places: ["Schongau"]
 - url: "https://www.pg-schongau.com/pfarrbrief/"
-  note: "PG Schongau – Pfarrbrief & Kirchenanzeiger (79 hits, rated 3/5)"
+  note: "PG Schongau – Pfarrbrief & Kirchenanzeiger (89 hits, rated 3/5)"
+  places: ["Schongau"]
+- url: "https://www.schwarz-gelb-schongau.de"
+  note: "SKK Schwarz-Gelb Schongau (Kegeln) (88 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo"
+  note: "Stadt Schongau Veranstaltungskalender (RCE-Event backend, print list) (83 hits, rated 5/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau-mammuts.de/"
+  note: "EA Schongau / Schongau Mammuts (ice hockey) – home page (82 hits, rated 4/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau-evangelisch.de/"
+  note: "Ev.-Luth. Kirchengemeinde Schongau (77 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://veranstaltungen.erlebe.bayern/schongau/"
   note: "erlebe.bayern Veranstaltungskalender – Schongau (77 hits, rated 3/5)"
   places: ["Schongau"]
-- url: "https://www.schongau-mammuts.de/"
-  note: "EA Schongau / Schongau Mammuts (ice hockey) – home page (76 hits, rated 4/5)"
-  places: ["Schongau"]
-- url: "https://www.schongau-evangelisch.de/"
-  note: "Ev.-Luth. Kirchengemeinde Schongau (71 hits, rated 4/5)"
-  places: ["Schongau"]
-- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo"
-  note: "Stadt Schongau Veranstaltungskalender (RCE-Event backend, print list) (46 hits, rated 5/5)"
-  places: ["Schongau"]
 - url: "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
-  note: "Stadt Schongau – Themenführungen (Tourist Information) (45 hits, rated 4/5)"
+  note: "Stadt Schongau – Themenführungen (Tourist Information) (49 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://www.reaktor-sog.de/"
-  note: "Reaktor Schongau (Kulturzentrum/Club) (44 hits, rated 2/5)"
-  places: ["Schongau"]
-- url: "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo"
-  note: "Event calendar print list (RCE event, id 1246); session parameter RCEID removed (37 hits)"
+  note: "Reaktor Schongau (Kulturzentrum/Club) (49 hits, rated 2/5)"
   places: ["Schongau"]
 - url: "https://www.schongauer-weihnachtszauber.com"
-  note: "Schongauer Weihnachtszauber (Christkindlmarkt Marienplatz) (35 hits, rated 4/5)"
+  note: "Schongauer Weihnachtszauber (Christkindlmarkt Marienplatz) (39 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://seniorenbeirat-schongau.de/"
-  note: "Seniorenbeirat Schongau (32 hits, rated 4/5)"
+  note: "Seniorenbeirat Schongau (34 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf"
-  note: "Trachtenverein Schloßbergler – Vereinstermine 2026 (PDF) (24 hits, rated 2/5)"
+  note: "Trachtenverein Schloßbergler – Vereinstermine 2026 (PDF) (27 hits, rated 2/5)"
   places: ["Schongau"]
 - url: "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen"
-  note: "Stadt Schongau – Museumsführungen Stadtmuseum (21 hits, rated 4/5)"
+  note: "Stadt Schongau – Museumsführungen Stadtmuseum (23 hits, rated 4/5)"
   places: ["Schongau"]
 - url: "https://allevents.in/schongau"
-  note: "allevents.in – Schongau (short URL) (18 hits, rated 3/5)"
+  note: "allevents.in – Schongau (short URL) (20 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/"
-  note: "Seniorenbeirat Schongau – Regelmäßige Veranstaltungen (17 hits, rated 3/5)"
+  note: "Seniorenbeirat Schongau – Regelmäßige Veranstaltungen (18 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://allevents.in/schongau/all"
-  note: "allevents.in – Schongau (14 hits, rated 3/5)"
+  note: "allevents.in – Schongau (16 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://vivace-schongau.de/?page_id=83"
-  note: "Vivace Ökumenischer Chor Schongau – Aktuelles (14 hits, rated 3/5)"
+  note: "Vivace Ökumenischer Chor Schongau – Aktuelles (15 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://www.orchester-schongau.de/"
-  note: "Orchester Schongau (13 hits, rated 3/5)"
+  note: "Orchester Schongau (14 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html"
-  note: "krencky24 – flea markets postcode area 869 (11 hits, rated 3/5)"
+  note: "krencky24 – flea markets postcode area 869 (12 hits, rated 3/5)"
+  places: ["Schongau"]
+- url: "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt"
+  note: "Stadt Schongau – Wochenmarkt (12 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://www.sc-schongau.de/termine/"
   note: "Ski-Club SC Schongau – Termine (11 hits, rated 3/5)"
   places: ["Schongau"]
-- url: "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt"
-  note: "Stadt Schongau – Wochenmarkt (11 hits, rated 3/5)"
+- url: "https://musikschule-pfaffenwinkel.de/termine/"
+  note: "Musikschule Pfaffenwinkel – Termine (9 hits, rated 3/5)"
+  places: ["Schongau"]
+- url: "https://www.bayregio-wm.de/veranstaltungen/"
+  note: "Bayregio Landkreis WM / Pfaffenwinkel – Veranstaltungen (9 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://www.tsv-schongau.de/"
   note: "TSV Schongau 1863 – Aktuelles (9 hits, rated 3/5)"
   places: ["Schongau"]
-- url: "https://musikschule-pfaffenwinkel.de/termine/"
-  note: "Musikschule Pfaffenwinkel – Termine (8 hits, rated 3/5)"
-  places: ["Schongau"]
-- url: "https://www.bayregio-wm.de/veranstaltungen/"
-  note: "Bayregio Landkreis WM / Pfaffenwinkel – Veranstaltungen (8 hits, rated 3/5)"
-  places: ["Schongau"]
 - url: "https://www.wieskonzerte.de"
-  note: "Festlicher Sommer in der Wies e.V. (Wieskonzerte) (8 hits, rated 3/5)"
+  note: "Festlicher Sommer in der Wies e.V. (Wieskonzerte) (9 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://veranstaltungen.meinestadt.de/schongau/alle/alle"
   note: "meinestadt.de Veranstaltungen Schongau (7 hits, rated 2/5)"
   places: ["Schongau"]
 - url: "http://www.kirstein.de/Termine/"
-  note: "Musikhaus Kirstein Schongau – Termine (5 hits, rated 3/5)"
+  note: "Musikhaus Kirstein Schongau – Termine (6 hits, rated 3/5)"
   places: ["Schongau"]
 - url: "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/"
-  note: "Kirstein Taylor Tone Show 2026 (5 hits, rated 3/5)"
+  note: "Kirstein Taylor Tone Show 2026 (6 hits, rated 3/5)"
   places: ["Schongau"]
+- url: "https://fotogruppe-altenstadt.de/veranstaltungen"
+  note: "Fotogruppe Altenstadt (5 hits, rated 4/5)"
+  places: ["Altenstadt"]
 - url: "https://www.vhs-pfaffenwinkel.de/vhs-schongau"
   note: "vhs Pfaffenwinkel – Außenstelle Schongau (5 hits, rated 3/5)"
+  places: ["Schongau"]
+- url: "https://veranstaltungen.meinestadt.de/schongau"
+  note: "meinestadt.de Schongau Veranstaltungen (start page) (5 hits, rated 2/5)"
   places: ["Schongau"]
 - url: "https://lagerhauskino.pfaffen-winkel.net/"
   note: "(5 hits)"
   places: ["Schongau"]
 - url: "https://sv-snh.jimdoweb.com/"
-  note: "Schützenverein Schwabniederhofen (3 hits, rated 4/5)"
+  note: "Schützenverein Schwabniederhofen (4 hits, rated 4/5)"
   places: ["Altenstadt"]
 - url: "https://weltlaeden.de/schongau"
-  note: "Weltladen Schongau (Fair Handeln e.V.) (3 hits, rated 3/5)"
+  note: "Weltladen Schongau (Fair Handeln e.V.) (4 hits, rated 3/5)"
   places: ["Schongau"]
-- url: "https://veranstaltungen.meinestadt.de/schongau"
-  note: "meinestadt.de Schongau Veranstaltungen (start page) (3 hits, rated 2/5)"
+- url: "https://meine-flohmarkt-termine.de/"
+  note: "(3 hits)"
   places: ["Schongau"]
-- url: "https://fotogruppe-altenstadt.de/veranstaltungen"
-  note: "Fotogruppe Altenstadt (2 hits, rated 4/5)"
-  places: ["Altenstadt"]
 - url: "https://meine-flohmarkt-termine.de/ort/schongau"
   note: "Meine Flohmarkt Termine – Schongau (2 hits, rated 4/5)"
   places: ["Schongau"]
@@ -134,6 +134,8 @@ accept a suggestion.
 ```yaml
 - domain: "ab-ins-schwimmbad.de"
   reason: "Directory listing only, mentions Kino/Vollmondsauna but no dates; use plantsch.de instead."
+- domain: "aktuell.meinestadt.de"
+  reason: "News page showed no local news, only district-wide items."
 - domain: "altenstadt-obb.de"
   reason: "Only season hours (season ended 9 Sep 2026), no events."
 - domain: "altenstaedter-jagdhornblaeser.de"
@@ -168,8 +170,6 @@ accept a suggestion.
   reason: "Generic parenting portal, no Schongau events."
 - domain: "erloestes-christentum.de"
   reason: "Publications and sermons, no event list."
-- domain: "eventbrite.be"
-  reason: "Mirror of Eventbrite results showing unrelated events (Schwangau, Munich); no Schongau events."
 - domain: "eventbrite.de"
   reason: "Returns HTTP 405, and search results point to mostly unrelated or online events."
 - domain: "eventfinder.de"
@@ -182,8 +182,6 @@ accept a suggestion.
   reason: "Only weekly club evenings (in Peiting); no public dated events."
 - domain: "fsr-club2000.de"
   reason: "Redirects to skydive-altenstadt.de (tandem jumps), no public events."
-- domain: "giggle.tips"
-  reason: "Aggregator with unrelated or unverified events."
 - domain: "golocal.de"
   reason: "Business review directory, no events."
 - domain: "hausundgrund.de"
@@ -203,7 +201,7 @@ accept a suggestion.
 - domain: "kirstein.de"
   reason: "Outdated 2017 event page; not useful."
 - domain: "komoot.com"
-  reason: "Tourist POI pages with outdated details (e.g. 2018 Basilika opening hours); no events."
+  reason: "Points only to Facebook page of the café; no events."
 - domain: "kulturbox.de"
   reason: "Page returned no event content when fetched; useless."
 - domain: "kulturportal-bayern.de"
@@ -233,7 +231,7 @@ accept a suggestion.
 - domain: "quermania.de"
   reason: "Says only that a market happens in 2026, with no dates; refers readers to schongau.de."
 - domain: "raisin.digital"
-  reason: "Auto-generated bar directory."
+  reason: "Bar directory only, no events; useful only to find venue names."
 - domain: "regioactive.de"
   reason: "Already known; only shows 12.09. and 17.10.2026 dates, both past."
 - domain: "romantischestrasse.de"
@@ -244,14 +242,18 @@ accept a suggestion.
   reason: "A fetch shows only Tourist-Info contact details and no events, because the embed loads with JavaScript. /de/Schongau-erleben/Veranstaltungskalender is likewise only an intro text with a poster."
 - domain: "schongauer-sommer.de"
   reason: "Historischer Markt discontinued; no dates, © 2025."
+- domain: "sellwerk.de"
+  reason: "Business-profile spam directory, shows companies of other towns and no events."
 - domain: "spin.de"
   reason: "'Keine Veranstaltungen bekannt'; newest entry is from 2010."
 - domain: "stadtkapelle-schongau.de"
   reason: "Rating confirmed: 'Keine Veranstaltungen'; has an iCal feed that might hold entries."
 - domain: "stadtmuseum-sog.de"
   reason: "No events; newest item from August 2024."
+- domain: "steingaden.de"
+  reason: "Belongs to Steingaden, not Schongau or Altenstadt; appears only in search results by chance."
 - domain: "swipein.restaurant"
-  reason: "Generic restaurant and café directory with Google reviews; no events and no Instagram links."
+  reason: "Directory of restaurants; the Altenstadt (Weilheim-Schongau) pages list only venues 19-30 km away, no events."
 - domain: "tauchclub-schongau.de"
   reason: "Termine page has no dates, only compressor filling hours; site works only without www."
 - domain: "tc-schongau.de"
@@ -265,7 +267,7 @@ accept a suggestion.
 - domain: "vg-altenstadt.de"
   reason: "Administration only, no events or Mitteilungsblatt found on the start page"
 - domain: "wanderlog.com"
-  reason: "Auto-generated place listings; no local events."
+  reason: "Generic travel planner with mixed-up places and no local events."
 - domain: "wasserwacht-schongau.de"
   reason: "TLS certificate mismatch, not readable."
 - domain: "weilheim-schongau.bund-naturschutz.de"
@@ -284,46 +286,56 @@ What the discovery passes searched for, per municipality. `nothing_found` and `n
 
 | Pass | Category | Result | Note |
 | --- | --- | --- | --- |
-| official | municipality event calendar | found | schongau.de pages are already known; nothing new found. |
-| official | tourist office and regional tourism calendars | found | pfaffen-winkel.de and erlebe.bayern are already known; no new ones found. |
-| official | regional calendars and aggregators | found | meinestadt, eventfinder and regioactive are already known. |
-| official | local newspapers | found | Kreisbote and Merkur are already known; Schongauer Nachrichten not checked separately. |
-| official | club directory | found | schongau.de/de/Mein-Schongau/Vereine is already known. |
-| clubs | Schützen- und Trachtenvereine | **nothing found** | One search; only the known Gauschießen PDF turned up, no club website. |
-| clubs | Sportvereine | **not checked** | Out of effort budget. |
-| clubs | Musik und Chöre | **not checked** | Out of effort budget. |
-| clubs | Feuerwehr und Hilfsorganisationen | **not checked** | Out of effort budget. |
-| clubs | Pfarreien und Kirchen | **not checked** | Out of effort budget; the known sources already cover the main parishes. |
-| clubs | Jugend, Senioren, Familie | **not checked** | Out of effort budget. |
-| clubs | Theater, Kultur- und Heimatvereine | **not checked** | Out of effort budget. |
-| venues | cultural centres, stages, music clubs | found | Reaktor, Brauhaus, Ballenhaus, LiccAmbra, Kulturteam Oberland; all already known or have no own event page. |
-| venues | cinema and theatre | found | Lagerhauskino sources already known; Lagerhaus site itself has no programme. |
-| venues | museums, library, vhs, music school | found | All already in the known list (stadtmuseum-sog, buecherei-muenztor, vhs, musikschule). |
-| venues | swimming pools, ice rinks, leisure | found | Plantsch, Eisstadion, Mammuts already known. |
-| venues | inns, breweries, cafés, bars | found | Found venue names (Lagerhaus, Löwenhof, Herr Lose, Café Express, City Café, Huterer, Bijou Café Rose, Evis Treff) but no own event pages. |
-| venues | annual events (Christmas market, festivals) | found | Hexennacht and Weihnachtszauber already known; no new source. |
-| venues | markets and flea markets | found | Wochenmarkt and flea market sources already known; no new source. |
+| official | event calendar of the municipality | found | Only known schongau.de pages; no new ones. |
+| official | tourist office and regional tourism calendars | found | Known pfaffen-winkel.de and erlebe.bayern; Märchenwald added as a venue. |
+| official | regional event calendars and aggregators | found | Known aggregators only. |
+| official | local newspapers and their event pages | found | Known merkur, kreisbote, wochenanzeiger; no new ones found. |
+| official | club directory | found | Known schongau.de/Vereine. |
+| clubs | sports clubs | **not checked** | Not searched in this pass. |
+| clubs | music: brass bands, choirs, music societies | **not checked** | Not searched; several known sources already exist. |
+| clubs | traditional costume, marksmen and folk clubs | **nothing found** | One search; only PDFs from other towns, no club site found. |
+| clubs | fire brigade and charitable organisations | **not checked** | Not searched. |
+| clubs | Catholic and Protestant parishes, free churches | **not checked** | Not searched; known sources exist. |
+| clubs | youth centre, youth and senior groups, family centres | **not checked** | Not searched. |
+| clubs | theatre groups, culture and history societies | **not checked** | Not searched. |
+| venues | Kultur Programm | found | Only known sources (pfaffen-winkel, LiccAmbra, Kirstein, Reaktor). Nothing new. |
+| venues | Kino | found | Lagerhauskino is already known. Nothing new. |
+| venues | Museum Führungen | found | Stadtmuseum and city guided tours are already known. |
+| venues | Bücherei | **nothing found** | Search returned only other cities' libraries. The known sources are the only ones. |
+| venues | vhs | found | Known vhs-pfaffenwinkel page only. |
+| venues | Musikschule | found | Known musikschule-pfaffenwinkel.de only. |
+| venues | Hallenbad / Eisstadion | **nothing found** | Search for Eisstadion events found nothing. Only known pages exist. |
+| venues | Gasthof / Brauerei | found | Brauhaus is known. Hotel Blaue Traube, Alte Post and Fischerstubn were seen but no event pages found. |
+| venues | Café Bar Live Musik | found | Reaktor, Lagerhaus and Löwenhof are known. Evis Treff and various cafés were only seen in listings. |
+| venues | Christkindlmarkt / Weihnachtsmarkt | **nothing found** | Nothing beyond the known Weihnachtszauber and listing pages. |
+| venues | Volksfest / Stadtfest | **nothing found** | No Schongau festival dates found. Only nearby towns appeared. |
+| venues | Markt / Flohmarkt | found | Festplatz flea markets on 12 Sep and 17 Oct 2026; sources already known. |
 
 ### Altenstadt
 
 | Pass | Category | Result | Note |
 | --- | --- | --- | --- |
-| official | municipality event calendar | found | altenstadt-obb.de/termine is already known; nothing new found. |
-| official | tourist office and regional tourism calendars | found | veranstaltungen.pfaffen-winkel.de/altenstadt is already known. |
-| official | regional calendars and aggregators | found | Found the meinestadt altenstadt-schongau pages, which show only surrounding-area events. |
-| official | local newspapers | **nothing found** | No Altenstadt-specific newspaper page found. |
-| official | club directory | found | altenstadt-obb.de/vereine/* is already known. |
-| clubs | Schützen- und Trachtenvereine | **nothing found** | One search; no club calendar found, only old Ferienprogramm mentions. |
-| clubs | Sportvereine | **not checked** | Out of effort budget. |
-| clubs | Musik und Chöre | **not checked** | Out of effort budget. |
-| clubs | Feuerwehr und Hilfsorganisationen | **not checked** | Out of effort budget. |
-| clubs | Pfarreien und Kirchen | **not checked** | Out of effort budget; the known sources already cover the main parishes. |
-| clubs | Jugend, Senioren, Familie | **not checked** | Out of effort budget. |
-| clubs | Theater, Kultur- und Heimatvereine | **not checked** | Out of effort budget. |
-| venues | cultural centres, stages, music clubs | **nothing found** | Only Basilika St. Michael concerts via parish pages, already known. |
-| venues | cinema and theatre | **nothing found** | No cinema or theatre found in Altenstadt. |
-| venues | museums, library, vhs, music school | found | Strumpfmuseum (Vatter V1) has no event page; library already known. |
-| venues | swimming pools, ice rinks, leisure | **nothing found** | Only the municipal Schwimmbad page, already known and rated 1. |
-| venues | inns, breweries, cafés, bars | found | Gasthof Janser, Sweetheart, Lion's, Kutsche disco, La Locanda from the municipality directory; no event pages. |
-| venues | annual events (Christmas market, festivals) | **nothing found** | No Weihnachtsmarkt or Dorffest source found in search. |
-| venues | markets and flea markets | **nothing found** | Nothing found for Altenstadt. |
+| official | event calendar of the municipality | found | Only known altenstadt-obb.de/termine. |
+| official | tourist office and regional tourism calendars | found | Known veranstaltungen.pfaffen-winkel.de/altenstadt. |
+| official | regional event calendars and aggregators | found | Known meinestadt and pfaffen-winkel only. |
+| official | local newspapers and their event pages | **nothing found** | No Altenstadt-specific press found. |
+| official | club directory | found | Known altenstadt-obb.de/vereine pages. |
+| clubs | sports clubs | **not checked** | Not searched. |
+| clubs | music: brass bands, choirs, music societies | **not checked** | Not searched. |
+| clubs | traditional costume, marksmen and folk clubs | **nothing found** | One search; Schützenverein Altenstadt is mentioned only in a holiday brochure, no site found. |
+| clubs | fire brigade and charitable organisations | **not checked** | Not searched. |
+| clubs | Catholic and Protestant parishes, free churches | **not checked** | Not searched. |
+| clubs | youth centre, youth and senior groups, family centres | **not checked** | Not searched. |
+| clubs | theatre groups, culture and history societies | **not checked** | Not searched. |
+| venues | Kultur Programm | **nothing found** | Only known pages. Results for Altenstadt in Hesse are not relevant. |
+| venues | Kino | **nothing found** | No cinema in Altenstadt. The Schongau Lagerhauskino is nearby. |
+| venues | Museum Führungen | found | Strumpfmuseum exists but no events page found. Its website could not be opened. |
+| venues | Bücherei | found | The known municipal library page only. |
+| venues | vhs | **nothing found** | vhs Pfaffenwinkel is the regional provider, no Altenstadt-specific page. |
+| venues | Musikschule | **nothing found** | Covered by the regional music school, which is known. |
+| venues | Hallenbad / Eisstadion | found | Municipal pool page is already known, rated 1. |
+| venues | Gasthof / Brauerei | found | Gasthof Janser and La Locanda are in the directory. Their sites were not reachable. |
+| venues | Café Bar Live Musik | found | Sweetheart (no events), Café-Bistro Lion's (known) and Diskothek Kutsche found. The Kutsche site is unreachable. |
+| venues | Christkindlmarkt / Weihnachtsmarkt | **nothing found** | Nothing found. |
+| venues | Volksfest / Dorffest | **nothing found** | Only the Schwabsoien Dorffest in a neighbouring village appeared. |
+| venues | Markt / Flohmarkt | **nothing found** | Nothing found. |

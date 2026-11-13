@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T00:41:38Z",
+  "updated_at": "2026-11-13T08:41:46Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -18,7 +18,31 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://aktuell.meinestadt.de/schongau",
+      "domain": "aktuell.meinestadt.de",
+      "name": "meinestadt.de Schongau Nachrichten",
+      "kind": "press",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "News page showed no local news, only district-wide items.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://allevents.in/schongau",
@@ -36,7 +60,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 20,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://allevents.in/schongau/all",
@@ -54,7 +81,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 16,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.alpenverein-schongau.de/programm/veranstaltungen",
@@ -72,7 +102,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de",
@@ -90,7 +123,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/gemeinde/kommunale-einrichtungen/buecherei",
@@ -108,7 +144,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/gemeinde/rathaus/schwimmbad",
@@ -126,7 +165,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/termine",
@@ -144,7 +186,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/tourismus/essen-und-trinken",
@@ -162,7 +207,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/kultur",
@@ -180,7 +228,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/kultur/basilikafreunde",
@@ -198,7 +249,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/kulze",
@@ -216,7 +270,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/sonstige",
@@ -234,7 +291,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/sport",
@@ -252,7 +312,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/tsv-schwabniederhofen/startseite",
@@ -270,7 +333,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altenstadt-obb.de/vereine/verbaende/kab",
@@ -288,7 +354,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.altenstaedter-jagdhornblaeser.de",
@@ -306,7 +375,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://altlandkreis.biz/veranstaltungskalender/",
@@ -324,7 +396,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.altlandkreis.de/",
@@ -342,7 +417,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://ballenhaus-schongau.de/",
@@ -360,7 +438,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://ballenhaus-schongau.de/veranstaltungen/",
@@ -378,7 +459,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://bavaria.travel/accessible-holidays/bar-loewenhof/",
@@ -396,7 +480,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.bayregio-schongau.de/veranstaltungen/",
@@ -414,7 +501,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.bayregio-wm.de/veranstaltungen/",
@@ -432,7 +522,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 9,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.bergwacht-bayern.org/schongau_peiting.html",
@@ -450,7 +543,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.blaskapelle-altenstadt.de",
@@ -468,7 +564,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://brauhaus-schongau.de/kalender/",
@@ -486,7 +585,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://brauhaus-schongau.de/veranstaltungen/",
@@ -504,7 +606,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 104,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://brauhaus-schongau.reservix.de",
@@ -522,7 +627,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.brk-schongau.de",
@@ -540,7 +648,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.bssb.de/vbkfiles/424017__SG_Rottenbuch_1801_eV/documents/Programmheft_Rottenbuch_2026_Final.pdf",
@@ -558,7 +669,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.buecherei-muenztor.de",
@@ -576,7 +690,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://buergerinfo-schongau.digitalfabrix.de/",
@@ -594,7 +711,31 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.cafe-konditorei-sweetheart.de",
+      "domain": "cafe-konditorei-sweetheart.de",
+      "name": "Café Konditorei Sweetheart Altenstadt",
+      "kind": "venue",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only opening notices (closed 6 Dec), calendar empty, no events, only a Facebook link.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.cafebistrolions.de",
@@ -612,7 +753,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.chor-schongau.de",
@@ -630,7 +774,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://cometogermany.com/ENU/culture_and_events/christmas_markets_south_schongau",
@@ -648,7 +795,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.deutsche-weihnachtsmaerkte.de/weihnachtsmarkt/in/bayern/weihnachtsmarkt-schongau-266.html",
@@ -666,7 +816,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.deutsche-weihnachtsmaerkte.de/weihnachtsmarkt/weihnachtsmarkt-schongau-170",
@@ -684,7 +837,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://dev.pfaffen-winkel.de/detail/id=62d6507d688edf9b88451ec2",
@@ -702,7 +858,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://developer.songkick.com/venues/4419157-schongauer-brauhaus",
@@ -720,7 +879,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://eeb-oberland.de/programm/evang-luth-kirchengemeinde-schongau",
@@ -738,7 +900,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eltern-aktuell.de/",
@@ -756,7 +921,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://erloestes-christentum.de/",
@@ -774,7 +942,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
@@ -792,7 +963,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 110,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventbrite.de/d/germany--schongau/all-events/",
@@ -810,7 +984,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/comedy-und-kabarett-schongau.php",
@@ -828,7 +1005,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/schongau/konzerte/",
@@ -846,7 +1026,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/schongau/veranstaltungen/",
@@ -864,7 +1047,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/steingaden/konzerte/",
@@ -882,7 +1068,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/theater-kultur-schongau.php",
@@ -900,7 +1089,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/veranstaltungen-schongau.php",
@@ -918,7 +1110,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.eventfinder.de/veranstaltungen-steingaden.php",
@@ -937,7 +1132,10 @@
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://eventfrog.de/de/events/de/bayern/oberbayern/weilheim-schongau/schongau.html",
@@ -955,7 +1153,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://eventfrog.de/de/events/schongau.html",
@@ -973,7 +1174,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.fa-altenstadt.de/",
@@ -991,7 +1195,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.fa-schongau.de/termine/",
@@ -1009,7 +1216,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://fcg-schongau.de/",
@@ -1027,7 +1237,31 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.festivalsindeutschland.de/festival/peitinger-buergerfest",
+      "domain": "festivalsindeutschland.de",
+      "name": "festivalsindeutschland.de (aggregator)",
+      "kind": "calendar",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Lists regional festivals (Weilheim, Peiting, Hohenfurch); no Schongau or Altenstadt festival found, so only for neighbouring towns.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.feuerwehr-altenstadt.de",
@@ -1045,7 +1279,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://feuerwehr-schongau.de/",
@@ -1063,7 +1300,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://feuerwehr-schongau.de/aktuelles/",
@@ -1081,7 +1321,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.foerderverein-mariae-himmelfahrt.de/",
@@ -1099,7 +1342,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://fotoclub-schongau.de/aktuelles/",
@@ -1117,7 +1363,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.fotoclub-schongau.de",
@@ -1135,7 +1384,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://fotogruppe-altenstadt.de/veranstaltungen",
@@ -1153,7 +1405,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 5,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://freizeitmonster.de/blog/bars-schongau",
@@ -1171,7 +1426,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://freizeitmonster.de/blog/weihnachtsmaerkte-schongau",
@@ -1189,7 +1447,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.fsr-club2000.de",
@@ -1207,7 +1468,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.gartenbauvereine-wm-sog.de",
@@ -1225,7 +1489,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.golocal.de/schongau/reviews/shopping/",
@@ -1243,7 +1510,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.hausundgrund.de/verband/bayern/jhv-haus-grund-schongau-70-jaehriges-bestehen-des-vereins",
@@ -1261,7 +1531,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.hausundgrund.de/verein/peitingschongau/ueber-uns/satzung",
@@ -1279,7 +1552,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://historischer-verein-schongau.de/aktuelles/",
@@ -1297,7 +1573,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
@@ -1315,7 +1594,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Feriensommer_2026_DINA5_20260710_WEB.pdf",
@@ -1333,7 +1615,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://home.meinestadt.de/altenstadt-schongau",
@@ -1351,7 +1636,10 @@
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.jaegerhaus-altenstadt.de",
@@ -1369,7 +1657,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 2,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.juze-schongau.de/termine/",
@@ -1387,7 +1678,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kfv-schongau.de",
@@ -1405,7 +1699,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kiga-mariae-himmelfahrt.de/",
@@ -1423,7 +1720,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kino.de/kinoprogramm/stadt/schongau/kino/das-lagerhauskino/",
@@ -1441,7 +1741,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://kinofans.com/kino/das-lagerhauskino/",
@@ -1459,7 +1762,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://kinofans.com/kinoprogramm/schongau/",
@@ -1477,7 +1783,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kinoprogramm.com/kino/schongau/lagerhauskino/",
@@ -1495,7 +1804,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.kirstein.de/Termine/",
@@ -1513,7 +1825,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 6,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kirstein.de/Messe/",
@@ -1531,7 +1846,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/",
@@ -1549,7 +1867,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 6,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kirstein.de/Pianotainment/",
@@ -1567,7 +1888,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kirstein.de/Presse/",
@@ -1585,7 +1909,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kirstein.de/Pressemitteilung-MusiConnect-2024/",
@@ -1603,7 +1930,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.kolpingsfamilie-schongau.de/termine",
@@ -1621,7 +1951,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 89,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.komoot.com/highlight/660193",
@@ -1639,7 +1972,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kreisbote.de/lokales/schongau/",
@@ -1657,7 +1993,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
@@ -1675,7 +2014,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 12,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kulturbox.de/buehnen/schongau/",
@@ -1693,7 +2035,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://kulturportal-bayern.de/veranstalter/kulturverein-schongauer-land-e-v/",
@@ -1711,7 +2056,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kulturvision-aktuell.de/",
@@ -1729,7 +2077,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.kulze.info/programm/",
@@ -1747,7 +2098,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.lagerhaus-schongau.de",
@@ -1765,7 +2119,10 @@
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://lagerhauskino.pfaffen-winkel.net/",
@@ -1783,7 +2140,10 @@
       "first_seen": "2026-11-12",
       "last_checked": null,
       "hits": 5,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://lagerhauskino.pfaffenwinkel.net",
@@ -1801,7 +2161,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 101,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.lechscouts.de",
@@ -1819,7 +2182,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.lechwaerts.de",
@@ -1837,7 +2203,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.liccambra.org/",
@@ -1855,7 +2224,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.liccambra.org/events/",
@@ -1873,7 +2245,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.lions-schongau.de",
@@ -1891,7 +2266,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://loewenhof.bar",
@@ -1909,7 +2287,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.maerkteheute.de/maerkte/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-3/",
@@ -1927,7 +2308,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://maps.adac.de/poi/strumpfmuseum-altenstadt",
@@ -1945,7 +2329,10 @@
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.marktcom.de/veranstaltung/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-in-86956-schongau",
@@ -1963,7 +2350,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://meine-flohmarkt-termine.de/",
@@ -1981,7 +2371,10 @@
       "first_seen": "2026-11-12",
       "last_checked": null,
       "hits": 3,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://meine-flohmarkt-termine.de/ort/schongau",
@@ -1999,7 +2392,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 2,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.merkur.de/lokales/schongau/",
@@ -2017,7 +2413,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.messen.de/de/5267/messeort/lechsporthalle-schongau/messen",
@@ -2035,7 +2434,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.mfc-schongau.de/aktuelles",
@@ -2053,7 +2455,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://mittelaltermarkt-info.de/event-pro/historischer-markt-in-schongau/",
@@ -2071,7 +2476,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.musik-zum-tagesausklang.de",
@@ -2089,7 +2497,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://musikimpfaffenwinkel.de/programm/",
@@ -2107,7 +2518,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://musikschule-pfaffenwinkel.de/",
@@ -2125,7 +2539,10 @@
       "first_seen": "2026-11-09",
       "last_checked": null,
       "hits": 1,
-      "last_hit": "2026-11-09"
+      "last_hit": "2026-11-09",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://musikschule-pfaffenwinkel.de/termine/",
@@ -2143,7 +2560,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 9,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.mvp.de/bayern/veranstaltungen/schongau/",
@@ -2161,7 +2581,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.news.de/lokales/860161036/landkreis-weilheim-schongau-veranstaltungen-im-november-2026-events-aktuell-und-termine-in-der-naehe/1/",
@@ -2179,7 +2602,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://opac.winbiap.net/schongau",
@@ -2197,7 +2623,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.orchester-schongau.de/",
@@ -2215,7 +2644,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 14,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.ortsdienst.de/bayern/weilheim-schongau/schongau/kirche/",
@@ -2233,7 +2665,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://ov-schongau.thw.de",
@@ -2251,7 +2686,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://ov-schongau.thw.de/fileadmin/user_upload/LVBY/GTOE/OSOA/Unsere_Dienststelle/Dienstplaene/TZ_OV-Stab_Plan_2025.PDF",
@@ -2269,7 +2707,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.peiting.de/en/tourismus/culture-and-attractions/surrounding-area/schongau/",
@@ -2287,7 +2728,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.peiting.de/wp-content/uploads/2026/02/Landurlaub-im-Pfaffenwinkel-2026-online.pdf",
@@ -2305,7 +2749,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pfaffen-winkel.de/detail/id=62d6507f688edf9b8845211c",
@@ -2323,7 +2770,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pfaffen-winkel.de/kultur/brauchtum/weihnachten",
@@ -2341,7 +2791,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-altenstadt.org",
@@ -2359,7 +2812,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-altenstadt.org/gottesdienste",
@@ -2377,7 +2833,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/",
@@ -2395,7 +2854,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 112,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/aktuelles-termine/",
@@ -2413,7 +2875,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/choere-ensembles/",
@@ -2431,7 +2896,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/kath-frauenbund/",
@@ -2449,7 +2917,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/pfarrbrief/",
@@ -2467,7 +2938,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 89,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.pg-schongau.com/pfarrgemeinderat-mariae-himmelfahrt/",
@@ -2485,7 +2959,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.plantsch.de/service/veranstaltungen/",
@@ -2503,7 +2980,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 132,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.quermania.de/deutschland/weihnachtsmarkt.php?ort=Schongau",
@@ -2521,7 +3001,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.raisin.digital/en/explore/germany/bavaria/schongau/venues/bars/",
@@ -2539,7 +3022,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://rc77-altenstadt.de/",
@@ -2557,7 +3043,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 1,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -2574,26 +3063,11 @@
       "note": "This is the city's own calendar data as plain text, 10 events per page; page through with os=0,10,20…. Best URL to scrape, since schongau.de loads the calendar with JavaScript.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 46,
-      "last_hit": "2026-11-11"
-    },
-    {
-      "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
-      "domain": "rce-event.de",
-      "name": "Event calendar print list (RCE event, id 1246); session parameter RCEID removed",
-      "kind": "other",
-      "places": [
-        "Schongau"
-      ],
-      "origin": "whitelist",
-      "status": "active",
-      "rating": null,
-      "update_frequency": "unknown",
-      "note": "",
-      "first_seen": "2026-11-09",
-      "last_checked": null,
-      "hits": 37,
-      "last_hit": "2026-11-10"
+      "hits": 83,
+      "last_hit": "2026-11-11",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.reaktor-sog.de/",
@@ -2611,7 +3085,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 49,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.regioactive.de/events/23935/schongau/veranstaltungen-party-konzerte",
@@ -2629,7 +3106,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.regioactive.de/gastronomie/brunch-im-brauhaus-an-mariae-himmelfahrt-schongau-schongauer-2026-08-15-wy0CGFmrj9",
@@ -2647,7 +3127,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.regioactive.de/konzert/krashkarma-schongau-reaktor-2026-11-07-tickets-MJY01lT1Vh",
@@ -2665,7 +3148,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.regioactive.de/location/schongau/reaktor",
@@ -2683,7 +3169,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.regioactive.de/markt/flohmarkt-in-schongau-am-festplatz-2026-09-12-ZhPwXswdRY",
@@ -2701,7 +3190,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.romantischestrasse.de/veranstaltungen",
@@ -2719,7 +3211,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.sc-schongau.de/termine/",
@@ -2737,7 +3232,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 11,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://schlossbergler.de/",
@@ -2755,7 +3253,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://schlossbergler.de/aktuelles/",
@@ -2773,7 +3274,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
@@ -2791,7 +3295,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 27,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-belebt.de/news.html",
@@ -2809,7 +3316,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-evangelisch.de/",
@@ -2827,7 +3337,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 77,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-mammuts.de/",
@@ -2845,7 +3358,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 82,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
@@ -2863,7 +3379,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 86,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-mammuts.de/verein/termine/",
@@ -2881,7 +3400,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau-triathlon.de/",
@@ -2899,7 +3421,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Aktuelles/Neuigkeiten",
@@ -2917,7 +3442,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Aktuelles/Veranstaltungskalender",
@@ -2935,7 +3463,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Bildung/Buechereien",
@@ -2953,7 +3484,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Bildung/Stadtmuseum",
@@ -2971,7 +3505,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Kinder-Jugendliche/Jugendzentrum",
@@ -2989,7 +3526,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Senioren/Seniorenbeirat",
@@ -3007,7 +3547,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Sport-Freizeit/Eisstadion",
@@ -3025,7 +3568,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Stadtportrait/Feste-Maerkte",
@@ -3043,7 +3589,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine",
@@ -3061,7 +3610,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1010",
@@ -3079,7 +3631,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1017",
@@ -3097,7 +3652,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1032",
@@ -3115,7 +3673,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1052",
@@ -3133,7 +3694,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1053",
@@ -3151,7 +3715,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1063",
@@ -3169,7 +3736,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1065",
@@ -3187,7 +3757,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1125",
@@ -3205,7 +3778,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1129",
@@ -3223,7 +3799,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1130",
@@ -3241,7 +3820,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Mein-Schongau/Vereine/Verein?view=publish&item=club&id=1187",
@@ -3259,7 +3841,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-aktiv/Eisstadion",
@@ -3277,7 +3862,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Kraeuterhexe-Ursula-Engelwurz-im-Kasselturm-",
@@ -3295,7 +3883,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
@@ -3313,7 +3904,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 49,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen",
@@ -3331,7 +3925,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 23,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Stadt-und-Erlebnisfuehrungen-fuer-Kinder",
@@ -3349,7 +3946,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Stadtfuehrungen",
@@ -3367,7 +3967,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Veranstaltungskalender",
@@ -3385,7 +3988,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt",
@@ -3403,7 +4009,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 12,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/de/Unser-Rathaus/Was-erledige-ich-wo/Dienstleistung?view=publish&item=service&id=3582",
@@ -3421,7 +4030,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongau.de/veranstaltungen",
@@ -3439,7 +4051,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 1,
-      "last_hit": "2026-11-09"
+      "last_hit": "2026-11-09",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://schongau.feg.de/termine/",
@@ -3457,7 +4072,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongauer-hexennacht.de",
@@ -3475,7 +4093,31 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.schongauer-maerchenwald.de/events/",
+      "domain": "schongauer-maerchenwald.de",
+      "name": "Schongauer Märchenwald – Events",
+      "kind": "venue",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Lists only Halloween and Weihnachtsmärchenzauber without dates on the overview; details on sub-pages /events/halloween/ and /events/weihnachtsmaerchenzauber/.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.schongauer-sommer.de",
@@ -3493,7 +4135,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schongauer-weihnachtszauber.com",
@@ -3511,7 +4156,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 39,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.schwarz-gelb-schongau.de",
@@ -3529,7 +4177,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 88,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.segelclub-schongau.de",
@@ -3547,7 +4198,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://seniorenbeirat-schongau.de/",
@@ -3565,7 +4219,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 34,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/",
@@ -3583,7 +4240,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 18,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://sog-handball.de/",
@@ -3601,7 +4261,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.songkick.com/metro-areas/65521-germany-schongau",
@@ -3619,7 +4282,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.spin.de/events/location-show?id=36656",
@@ -3637,7 +4303,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.stadtkapelle-schongau.de/kategorie/stadtkapelle-schongau/neuigkeiten/",
@@ -3655,7 +4324,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.stadtkapelle-schongau.de/stadtkapelle-schongau/termine/",
@@ -3673,7 +4345,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://stadtmuseum-sog.de/aktuelle-info/",
@@ -3691,7 +4366,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://stadtmuseum-sog.de/aktuelle-sonderausstellung/",
@@ -3709,7 +4387,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://stadtmuseum-sog.de/fuehrungen/",
@@ -3727,7 +4408,32 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.steingaden.de/fileadmin/users/501/Mitteilungsblatt_30.04.2026.pdf",
+      "domain": "steingaden.de",
+      "name": "Steingaden Mitteilungsblatt (PDF)",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt",
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "weekly",
+      "note": "Belongs to Steingaden, not Schongau or Altenstadt; appears only in search results by chance.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://sv-snh.jimdoweb.com/",
@@ -3745,7 +4451,31 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 4,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.swipein.restaurant/en/place/altenstadt-weilheim-schongau/category/bar",
+      "domain": "swipein.restaurant",
+      "name": "swipein Altenstadt bars",
+      "kind": "other",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Lists venues 19-30 km away, none in Altenstadt; no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.swipein.restaurant/en/place/schongau-weilheim-schongau/category/cafe",
@@ -3763,7 +4493,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.swipein.restaurant/en/place/schongau/category/bar",
@@ -3781,7 +4514,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.swipein.restaurant/en/place/schongau/category/cafe",
@@ -3799,7 +4535,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://tango-oberland.de/veranstaltungen",
@@ -3817,7 +4556,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://tauchclub-schongau.de/termine/",
@@ -3835,7 +4577,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://tc-schongau.de/aktuelles/",
@@ -3853,7 +4598,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.theaterverein-treibhaus.de/",
@@ -3871,7 +4619,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.theaterverein-treibhaus.de/theateruebersicht",
@@ -3889,7 +4640,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://tickets.item-events.de/",
@@ -3907,7 +4661,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tri2b.com/triathlon-termine/21-schongauer-kinder-jugend-crosstriathlon-2026-bayern/",
@@ -3925,7 +4682,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tsv-altenstadt.de",
@@ -3943,7 +4703,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tsv-altenstadt.de/skiclub",
@@ -3961,7 +4724,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tsv-altenstadt.de/tischtennis",
@@ -3979,7 +4745,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tsv-schongau.de/",
@@ -3997,7 +4766,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 9,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.tsv-schongau.de/tsv-schongau/termine/",
@@ -4015,7 +4787,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.vcp-lechrain.de",
@@ -4033,7 +4808,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.erlebe.bayern/schongau/",
@@ -4051,7 +4829,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 77,
-      "last_hit": "2026-11-11"
+      "last_hit": "2026-11-11",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.erlebe.bayern/schongau/themenfuehrung-romantischer-advent-in-schongau-e874a1ca1aa0cccac3655d8307e3987ab.html",
@@ -4069,7 +4850,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 2,
-      "last_hit": "2026-11-11"
+      "last_hit": "2026-11-11",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.meinestadt.de/altenstadt-schongau/alle/alle",
@@ -4087,7 +4871,10 @@
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.meinestadt.de/schongau",
@@ -4105,7 +4892,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 5,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
@@ -4123,7 +4913,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 7,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.meinestadt.de/schongau/konzerte/alle",
@@ -4141,7 +4934,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.meinestadt.de/schongau/kultur/alle",
@@ -4159,7 +4955,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://veranstaltungen.pfaffen-winkel.de/region/",
@@ -4177,7 +4976,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
@@ -4195,7 +4997,10 @@
       "first_seen": "2026-11-12",
       "last_checked": null,
       "hits": 26,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
@@ -4213,7 +5018,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 249,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.vg-altenstadt.de",
@@ -4231,7 +5039,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.vhs-pfaffenwinkel.de/kurse/kurssuche?tx_kuportal_search%5B__referrer%5D%5B%40extension%5D=KuPortal&tx_kuportal_search%5B__referrer%5D%5B%40controller%5D=Kurs&tx_kuportal_search%5B__referrer%5D%5B%40action%5D=filter&tx_kuportal_search%5B__referrer%5D%5Barguments%5D=YTowOnt9f476d3ea6f6e28bdae763596ff8896fba845b20f&tx_kuportal_search%5B__referrer%5D%5B%40request%5D=%7B%22%40extension%22%3A%22KuPortal%22%2C%22%40controller%22%3A%22Kurs%22%2C%22%40action%22%3A%22filter%22%7Df4f9f8536f95347e69cda9b48bcbaada588a277e&tx_kuportal_search%5B__trustedProperties%5D=%7B%22pKursFilter%22%3A%7B%22suchbegriff%22%3A1%2C%22kategorie%22%3A1%2C%22inst%22%3A1%7D%7Db7e3477fac52339cc24927ec07548ef377d79a25&tx_kuportal_search%5BpKursFilter%5D%5Bsuchbegriff%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Binst%5D=4#kw-kursuebersicht",
@@ -4249,7 +5060,10 @@
       "first_seen": "2026-11-13",
       "last_checked": null,
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.vhs-pfaffenwinkel.de/vhs-schongau",
@@ -4267,7 +5081,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 5,
-      "last_hit": "2026-11-12"
+      "last_hit": "2026-11-12",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://vivace-schongau.de/?page_id=83",
@@ -4285,7 +5102,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 15,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://wanderlog.com/geoInMonth/14776/11/schongau-in-november",
@@ -4303,7 +5123,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "http://www.wasserwacht-schongau.de",
@@ -4321,7 +5144,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weihnachtsmaerkte-in-deutschland.de/weihnachtsmarkt-in-schongau.html",
@@ -4339,7 +5165,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://weihnachtsmarkt-heute.de/stadt/schongau/",
@@ -4357,7 +5186,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://weihnachtsmarkt-magazin.de/maerkte/schongau/",
@@ -4375,7 +5207,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://weilheim-schongau.bund-naturschutz.de/ortsgruppen/peiting-schongau.html",
@@ -4393,7 +5228,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/aktuelles/veranstaltungen/",
@@ -4411,7 +5249,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/aktuelles/veranstaltungskalender/",
@@ -4429,7 +5270,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/1857/juze-flyer-2018-final.pdf",
@@ -4447,7 +5291,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/5341/veranstaltungskalender-wm-sog_august2022.pdf",
@@ -4465,7 +5312,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/6220/infomail-juli-23.pdf",
@@ -4483,7 +5333,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7205/24-12-16-sog-eltern-info-treff-plakat-2025-i.pdf",
@@ -4501,7 +5354,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7386/schuetzenverein.pdf",
@@ -4519,7 +5375,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7389/vereine-teil-1-ausstellwerk-huglfing.pdf",
@@ -4537,7 +5396,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7544/layout_kobe_flyer_vereinsforum_herbst_winter_2025_final_web.pdf",
@@ -4555,7 +5417,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7695/liccambra-ev-8.pdf",
@@ -4573,7 +5438,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/7951/newsletter-03-2025.pdf",
@@ -4591,7 +5459,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.weilheim-schongau.de/media/8395/layout_kobe_flyer_herbst_winter_2026_27_entw03_web_korr.pdf",
@@ -4609,7 +5480,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://weltlaeden.de/schongau",
@@ -4627,7 +5501,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 4,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.wieskonzerte.de",
@@ -4645,7 +5522,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 9,
-      "last_hit": "2026-11-13"
+      "last_hit": "2026-11-13",
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://wochenanzeiger.de/167766",
@@ -4663,7 +5543,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.yumpu.com/de/document/view/55727157/ferienprogramm-2016-der-stadt-schongau-und-der-gemeinden-altenstadt-und-hohenfurch",
@@ -4681,7 +5564,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://www.yumpu.com/de/document/view/71096967/altlandkreis-das-magazin-fur-den-westlichen-pfaffenwinkel-ausgabe-mai-juni-2026",
@@ -4699,7 +5585,10 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://zuenftick.de/events",
@@ -4717,7 +5606,10 @@
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
       "hits": 0,
-      "last_hit": null
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     }
   ]
 }
