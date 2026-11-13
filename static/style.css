@@ -122,7 +122,12 @@ a { color: var(--accent); text-underline-offset: 2px; }
   font-size: .82rem; font-weight: 600; padding: 4px 11px 4px 9px; min-height: 30px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--card); color: var(--fg); box-shadow: var(--shadow); }
 .chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--muted)); }
-.chip.reset::before { display: none; }
+/* reset is an action, not a category: no pill, muted, with a cross, at the end of the row */
+.chip.reset { margin-left: auto; background: transparent; border-color: transparent; box-shadow: none;
+  color: var(--muted); padding-left: 6px; }
+.chip.reset::before { content: "\2715"; width: auto; height: auto; border-radius: 0; background: none;
+  font-size: .75rem; }
+.chip.reset:hover { color: var(--fg); }
 .chip[data-state="in"] { background: var(--c, var(--inc)); border-color: var(--c, var(--inc)); color: #fff; }
 .chip[data-state="in"]::before { background: #fff; }
 @media (prefers-color-scheme: dark) { .chip[data-state="in"] { color: #111; } .chip[data-state="in"]::before { background: #111; } }
@@ -259,7 +264,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
    filter tools scroll away with the page and are back at its top */
 @media (max-width: 639px) {
   .top { display: contents; }
-  .top > * { background: var(--brand); }
+  .top > :not(.tools) { background: var(--brand); }
   .bar { position: sticky; top: 0; z-index: 6; padding: 10px 12px 6px; }
   .sub, .quick { margin: 0; padding: 0 12px 8px; }
   .sub { padding-top: 2px; }

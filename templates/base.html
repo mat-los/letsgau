@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% set doc_suffix = t('title_suffix', region=config.region.label) %}
-<title>{{ config.site.name }} - {{ page_label if page_label is defined else title }} - {{ doc_suffix }}</title>
+{% set doc_label = page_label if page_label is defined else title %}
+<title>{{ config.site.name }} - {% if doc_label %}{{ doc_label }} - {% endif %}{{ doc_suffix }}</title>
 <meta name="description" content="{{ description }}">
 {% if not config.site.indexing %}<meta name="robots" content="noindex">
 {% endif %}<link rel="canonical" href="{{ base_url }}{{ canonical }}">
@@ -18,7 +19,7 @@
 <meta property="og:site_name" content="{{ config.site.name }}">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
-<meta property="og:url" content="{{ base_url }}{{ canonical }}">
+<meta property="og:url" content="{{ base_url }}{{ share_url if share_url is defined else canonical }}">
 <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
 <meta name="theme-color" content="#22211e">
 <link rel="stylesheet" href="{{ root }}assets/style.css">

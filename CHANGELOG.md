@@ -175,6 +175,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Category filter: "Zurücksetzen" looks like an action, not a category (no pill,
+  muted, with a cross, at the end of the row).
+- Start page (`/de/`, `/en/`) and `/`: title and share preview without a date
+  ("Was ist los in und um <region>?") and the general address as `og:url`, so a
+  link shared on WhatsApp no longer shows the day it was shared. Dated pages keep
+  their date; for search engines the dated page stays canonical.
 - Phone: the header no longer slides in and out. The search row and the date bar
   stay pinned (about 130 px); coverage line, info links, Heute/Morgen and the
   category tools scroll away with the page. This removes the empty gap at the top
@@ -385,6 +391,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Phone, light mode: the category/grouping strip is light again (since the pinned
+  header it had the dark header background).
 - Re-checks skip events whose primary source is an Instagram or Facebook post:
   a fetch gets no content there, so the call could never confirm them (the
   Instagram step re-reads its cached posts instead).

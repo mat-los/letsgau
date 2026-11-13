@@ -377,16 +377,31 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
     t: Texts = ctx["t"]
     index = site.days.index(day)
     date_text = format_date(t, day)
+    label = site.config.region.label
+    if is_index:
+        # the start page shows today's list under a general address: its title and its share
+        # preview (WhatsApp & co. keep that for days) name no date; for search engines the
+        # dated page stays the canonical one
+        places = join_names(t, [m.label for m in site.config.region.municipalities])
+        meta = {
+            "canonical": page_path(lang, day),
+            "share_url": page_path(lang),
+            "title": t("index_title", label=label),
+            "page_label": "",
+            "description": t("index_description", places=places),
+        }
+    else:
+        meta = {
+            "canonical": page_path(lang, day),
+            "title": t("day_title", label=label, date=date_text),
+            "page_label": date_text,
+            "description": t("day_description", count=view.count, label=label, date=date_text),
+        }
     ctx.update(
         view=view,
         day=day,
         is_index=is_index,
-        canonical=page_path(lang, day),
-        title=t("day_title", label=site.config.region.label, date=date_text),
-        page_label=date_text,
-        description=t(
-            "day_description", count=view.count, label=site.config.region.label, date=date_text
-        ),
+        **meta,
         prev_day=site.days[index - 1] if index > 0 else None,
         next_day=site.days[index + 1] if index + 1 < len(site.days) else None,
         current_day=day,
@@ -571,14 +586,18 @@ def build(
             site_dir / page_path(lang) / "index.html",
             render_day(env, site, lang, today, is_index=True),
         )
+    t0 = Texts(load_i18n(config.default_language))
     write(
         site_dir / "index.html",
         env.get_template("redirect.html").render(
             langs=config.site.languages,
             default=config.default_language,
             site=site,
-            title_suffix=Texts(load_i18n(config.default_language))(
-                "title_suffix", region=config.region.label
+            title_suffix=t0("title_suffix", region=config.region.label),
+            share_title=t0("index_title", label=config.region.label),
+            share_description=t0(
+                "index_description",
+                places=join_names(t0, [m.label for m in config.region.municipalities]),
             ),
         ),
     )
