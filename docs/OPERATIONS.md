@@ -147,11 +147,6 @@ python -m letsgau run --job events --dry-run --limit-places 3
     are skipped; new posts are read by the AI in groups of 6 (caption plus up
     to 4 images each, no web access), with the post's link as the source.
     Results are cached per post, like flyers.
-  - **Collaboration posts** ("account A and account B" at the top of a post)
-    belong to the first account only: the Graph API returns them for the owner,
-    not for the collaborator. If a venue's events are posted as collaborations by
-    a band or organiser, list that account too (it must be a business or creator
-    account).
   - **Accounts that cannot be read:** personal and private accounts
     (`not_business`) or unknown names (`not_found`) are marked and tried again
     after 30 days; a warning only for accounts on the list. An invalid token,
