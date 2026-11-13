@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `region.municipalities[].separate`: districts that count as an area of their
+  own (own group on the website, own entry in the crawl and discovery prompts,
+  never merged with events of the parent municipality). The bundled instance
+  lists Herzogsägmühle under Peiting.
 - Bundled instance: Peiting (86971) and Hohenfurch (86978) added to
   `region.municipalities`.
 - `site.goatcounter`: optional cookieless visitor counting with GoatCounter.
@@ -180,6 +184,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Bundled instance: further pages of the Peiting tourism calendar and the
+  Herzogsägmühle events page on the whitelist, the Hohenfurch newsletter PDF
+  as a flyer source.
+- Instance: 15 new Instagram candidates for the profile check.
 - "Fehlt mein Event?": a short note on Instagram collaboration posts (only the first
   named account can be read) and the post limit per account (new content placeholder
   `{{ instagram_posts }}`).
