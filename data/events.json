@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T08:55:15Z",
+  "updated_at": "2026-11-13T09:03:48Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -220,7 +220,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
-      "misses": 1
+      "misses": 0
     },
     {
       "id": "2026-11-12-fibromyalgiesymposium-schongau",
@@ -299,12 +299,12 @@
       "id": "2026-11-13-kino-sinn-und-sinnlichkeit-schongau",
       "parent_id": null,
       "title": {
-        "de": "Sinn und Sinnlichkeit (Lagerhauskino)",
-        "en": "Sense and Sensibility (Lagerhauskino)"
+        "de": "Sinn und Sinnlichkeit (Film)",
+        "en": "Sense and Sensibility (film)"
       },
       "description": {
         "de": "Filmvorführung im Lagerhauskino Schongau.",
-        "en": "Film screening at the Lagerhauskino in Schongau."
+        "en": "Film screening at the Lagerhauskino Schongau."
       },
       "venue": {
         "name": "Lagerhauskino",
@@ -358,6 +358,12 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.kinoprogramm.com/kino/schongau/lagerhauskino/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1991,6 +1997,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -2708,7 +2720,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 6
+      "misses": 7
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -3923,12 +3935,12 @@
       "id": "2026-11-26-kino-kommissar-jennerwein-hochsaison-schongau",
       "parent_id": null,
       "title": {
-        "de": "Kommissar Jennerwein – Hochsaison (Lagerhauskino)",
-        "en": "Kommissar Jennerwein – Hochsaison (Lagerhauskino)"
+        "de": "Kommissar Jennerwein – Hochsaison (Film)",
+        "en": "Kommissar Jennerwein – Hochsaison (film)"
       },
       "description": {
         "de": "Filmvorführung im Lagerhauskino Schongau.",
-        "en": "Film screening at the Lagerhauskino in Schongau."
+        "en": "Film screening at the Lagerhauskino Schongau."
       },
       "venue": {
         "name": "Lagerhauskino",
@@ -4300,11 +4312,11 @@
           "url": "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
