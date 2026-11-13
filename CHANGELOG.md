@@ -178,8 +178,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Website: the end date ("bis 20.12.", "letzter Tag", "noch bis …") is shown only for
   events that run on every day from start to end (Christmas market, exhibition,
   festival weekend). A series with gaps (weekly market, course, film screenings)
-  shows no end date, whose last stored date was often just the end of the crawl
-  window; its details list the next three dates ("Weitere Termine: …").
+  shows no end date, because its last stored date was often just the end of the
+  crawl window; its details list the next three dates ("Weitere Termine: …").
 - `docs/CONCEPT.md`: discovery uses Sonnet (as configured), not Opus.
 - Docs: `ARCHITECTURE.md` rewritten from the current code (page cache,
   flyers, Instagram, sweeps and re-checks; every module; Sonnet for
