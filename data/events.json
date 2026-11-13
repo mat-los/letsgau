@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T00:41:38Z",
+  "updated_at": "2026-11-13T06:54:48Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -593,50 +593,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-13-gartenbauverein-altenstadt-schwabniederhofen",
-      "parent_id": null,
-      "title": {
-        "de": "Gartenbauverein Altenstadt/Schwabniederhofen, Jahresabschluss",
-        "en": "Garden Club Altenstadt/Schwabniederhofen, Year-End Gathering"
-      },
-      "description": {
-        "de": "Jahresabschluss des Gartenbauvereins im Café Sweetheart am Rathaus.",
-        "en": "Year-end gathering of the garden club at Café Sweetheart by the town hall."
-      },
-      "venue": {
-        "name": "Café Sweetheart",
-        "place": "Altenstadt",
-        "address": "am Rathaus"
-      },
-      "schedule": {
-        "start_date": "2026-11-13",
-        "end_date": null,
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "food-drink",
-      "tags": [
-        "food-drink",
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/gartenbauverein-altenstadt-schwabniederhofen-jahresabschluss-e4309c3beea6d2de94c9c6bc15ead6b75.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-13-ratsch-cafe-mit-thomas-schongau",
       "parent_id": null,
       "title": {
@@ -728,51 +684,6 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-13-3-konfinachmittag-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "3. Konfinachmittag",
-        "en": "3rd Confirmation Class Afternoon"
-      },
-      "description": {
-        "de": "Konfinachmittag mit Pfarrerin B. Weggel im Evangelischen Gemeindehaus.",
-        "en": "Confirmation class afternoon with Pastor B. Weggel at the Protestant parish hall."
-      },
-      "venue": {
-        "name": "Evang. Gemeindehaus",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-13",
-        "end_date": null,
-        "start_time": "16:30",
-        "end_time": "18:30",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion",
-        "family-kids",
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-12",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -1423,62 +1334,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-14-tauffamilientreffen-mit-familienkirche-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Tauffamilientreffen mit Familienkirche",
-        "en": "Baptism Families Meeting with Family Church"
-      },
-      "description": {
-        "de": "Einladung an Täuflinge, besonders des Jahrgangs 2025, mit Taufkerzen in die Pfarrkirche Verklärung Christi.",
-        "en": "Invitation to baptised children, especially born 2025, to bring their baptism candles to the parish church."
-      },
-      "venue": {
-        "name": "Pfarrkirche Verklärung Christi",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-14",
-        "end_date": "2026-11-14",
-        "start_time": "14:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-14-kegeln-maenner-1-vs-spg-alztal-1-schongau",
       "parent_id": null,
       "title": {
@@ -1817,87 +1672,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-29-ea-schongau-esv-burgau-2000",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau Heimspiele Bayernliga",
-        "en": "EA Schongau Bayernliga Home Games"
-      },
-      "description": {
-        "de": "Eishockey-Heimspiele des EA Schongau: Miesbach, Schweinfurt, Dorfen, Burgau, Amberg und Peissenberg Miners.",
-        "en": "Ice hockey home games of EA Schongau against Miesbach, Schweinfurt, Dorfen, Burgau, Amberg and Peissenberg Miners."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-15",
-        "end_date": "2026-12-11",
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-15",
-          "2026-11-20",
-          "2026-11-27",
-          "2026-11-29",
-          "2026-12-06",
-          "2026-12-11"
-        ],
-        "opening_hours": [
-          {
-            "days": "2026-11-15",
-            "from": "17:30",
-            "to": "17:30"
-          },
-          {
-            "days": "2026-11-20",
-            "from": "20:00",
-            "to": "20:00"
-          },
-          {
-            "days": "2026-11-27",
-            "from": "20:00",
-            "to": "20:00"
-          },
-          {
-            "days": "2026-11-29",
-            "from": "17:30",
-            "to": "17:30"
-          },
-          {
-            "days": "2026-12-06",
-            "from": "17:30",
-            "to": "17:30"
-          },
-          {
-            "days": "2026-12-11",
-            "from": "20:00",
-            "to": "20:00"
-          }
-        ]
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-15-mammuts-eislaufschule-schongau",
       "parent_id": null,
       "title": {
@@ -2152,79 +1926,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-16-adventskranzbinden-fuer-den-adventsbasar-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Adventskranzbinden",
-        "en": "Advent Wreath Making"
-      },
-      "description": {
-        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
-        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
-      },
-      "venue": {
-        "name": "Pfarrsaal Verklärung Christi",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-16",
-        "end_date": "2026-11-18",
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-16",
-          "2026-11-17",
-          "2026-11-18"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop",
-        "family-kids",
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.pg-schongau.com/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/10/45_So-Allerheiligen.pdf",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-17-geselliges-mittagessen-fuer-senioren-schongau",
       "parent_id": null,
       "title": {
@@ -2440,51 +2141,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-18-1-treffen-zur-krippenspiel-vorbereitung-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Treffen zur Krippenspiel-Vorbereitung",
-        "en": "Nativity play preparation meeting"
-      },
-      "description": {
-        "de": "Vorbereitungstreffen für das Krippenspiel im Evangelischen Gemeindehaus, Leitung Pfarrer Michael Bischoff.",
-        "en": "Preparation meeting for the nativity play at the Protestant parish hall, led by Pastor Michael Bischoff."
-      },
-      "venue": {
-        "name": "Evang. Gemeindehaus Schongau (Saal)",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-18",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": "18:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion",
-        "family-kids",
-        "theatre-cinema"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-18-bewegungsgottesdienst-zum-buss-und-bettag-schongau",
       "parent_id": null,
       "title": {
@@ -2597,7 +2253,7 @@
       "venue": {
         "name": "MIZ",
         "place": "Altenstadt",
-        "address": "Schulweg 10, 86972 Altenstadt"
+        "address": "Schulweg 10"
       },
       "schedule": {
         "start_date": "2026-11-18",
@@ -3689,54 +3345,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-21-krippenspiel-probe-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Krippenspiel-Probe",
-        "en": "Nativity play rehearsal"
-      },
-      "description": {
-        "de": "Probe für das Krippenspiel in der Dreifaltigkeitskirche mit Pfarrer Michael Bischoff.",
-        "en": "Nativity play rehearsal in the Dreifaltigkeitskirche."
-      },
-      "venue": {
-        "name": "Dreifaltigkeitskirche",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-21",
-        "end_date": "2026-11-28",
-        "start_time": "10:00",
-        "end_time": "12:00",
-        "all_day": false,
-        "dates": [
-          "2026-11-21",
-          "2026-11-28"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "religion",
-        "theatre-cinema"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
       "id": "2026-11-21-kegeln-bezirksvorentscheid-senioren-a-schongau",
       "parent_id": null,
       "title": {
@@ -3778,49 +3386,6 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-21-av-petri-heil-jahresabschlussfeier-altenstadt",
-      "parent_id": null,
-      "title": {
-        "de": "AV Petri-Heil, Jahresabschlussfeier",
-        "en": "Anglers' club year-end party"
-      },
-      "description": {
-        "de": "Jahresabschlussfeier des Angelvereins im Gasthof Janser.",
-        "en": "Anglers' club year-end party at Gasthof Janser."
-      },
-      "venue": {
-        "name": "Gasthof Janser",
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-21",
-        "end_date": null,
-        "start_time": "19:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "party",
-      "tags": [
-        "party"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/av-petri-heil-jahresabschlussfeier-e5bdd0251637126274f9e67a62cb043cc.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
       "misses": 0
     },
     {
@@ -3962,98 +3527,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-22-oekumenischer-gedenkgottesdienst-seniorenheim-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Ökumenischer Gedenkgottesdienst im Seniorenheim Heiliggeist",
-        "en": "Ecumenical remembrance service at Heiliggeist care home"
-      },
-      "description": {
-        "de": "Ökumenischer Gottesdienst mit Gedenken.",
-        "en": "Ecumenical service with remembrance."
-      },
-      "venue": {
-        "name": "Seniorenheim Heiliggeist",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-22",
-        "end_date": null,
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-evangelisch.de/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-22-oekumenische-gedenkfeier-fuer-verstorbene-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner",
-        "en": "Ecumenical Memorial Service for Deceased Residents"
-      },
-      "description": {
-        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner im Altenheim.",
-        "en": "Ecumenical memorial service for deceased care home residents."
-      },
-      "venue": {
-        "name": "Altenheim",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-22",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-11-22-ea-schongau-1b-sg-senden-burgau",
       "parent_id": null,
       "title": {
@@ -4150,104 +3623,6 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-23-oekumenischer-gedenkgottesdienst-marie-eberth-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Ökumenischer Gedenkgottesdienst im Marie-Eberth-Seniorenheim",
-        "en": "Ecumenical remembrance service at Marie-Eberth care home"
-      },
-      "description": {
-        "de": "Ökumenischer Gottesdienst mit Gedenken.",
-        "en": "Ecumenical service with remembrance."
-      },
-      "venue": {
-        "name": "Marie-Eberth-Seniorenheim",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-23",
-        "end_date": null,
-        "start_time": "10:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-evangelisch.de/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-19-schuetzenverein-altenstadt-nikolausschiessen",
-      "parent_id": null,
-      "title": {
-        "de": "Nikolausschießen Schützenverein Schwabniederhofen",
-        "en": "Nikolausschießen at Schützenverein Schwabniederhofen"
-      },
-      "description": {
-        "de": "Nikolausschießen des Schützenvereins an mehreren Abenden, Beginn 19 Uhr.",
-        "en": "St. Nicholas shooting event of the shooting club on several evenings, starting 19:00."
-      },
-      "venue": {
-        "name": null,
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-24",
-        "end_date": "2026-12-04",
-        "start_time": "19:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-24",
-          "2026-11-30",
-          "2026-12-01",
-          "2026-12-03",
-          "2026-12-04"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/schuetzenverein-altenstadt-nikolausschiessen-e91abca5091626fef5fe97c44c1986b61.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "https://sv-snh.jimdoweb.com/",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
       "misses": 0
     },
     {
@@ -4395,50 +3770,6 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-25-bilderschau-der-fotogruppe-altenstadt",
-      "parent_id": null,
-      "title": {
-        "de": "Bilderschau der Fotogruppe Altenstadt",
-        "en": "Photo show by Fotogruppe Altenstadt"
-      },
-      "description": {
-        "de": "Jeder bringt 20–30 eigene Bilder mit; offener Abend im MIZ.",
-        "en": "Everyone brings 20–30 own pictures; open evening at the MIZ."
-      },
-      "venue": {
-        "name": "MIZ",
-        "place": "Altenstadt",
-        "address": "Schulweg 10"
-      },
-      "schedule": {
-        "start_date": "2026-11-25",
-        "end_date": "2026-11-25",
-        "start_time": "19:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "art-culture",
-      "tags": [
-        "art-culture",
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://fotogruppe-altenstadt.de/veranstaltungen",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -4712,7 +4043,7 @@
       "misses": 0
     },
     {
-      "id": "2027-01-06-taschenlampenfuehrung-ins-licht-gerueckt-januar-schongau",
+      "id": "2026-11-27-themenfuehrung-in-s-licht-gerueckt-schongau",
       "parent_id": null,
       "title": {
         "de": "Ins Licht gerückt – Taschenlampenführung St. Anna",
@@ -4754,16 +4085,65 @@
       "primary_tag": "art-culture",
       "tags": [
         "art-culture",
-        "talk-workshop"
+        "talk-workshop",
+        "outdoor"
       ],
       "status": "scheduled",
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
+          "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
           "primary": true,
-          "first_seen": "2026-11-10",
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-10"
+        },
+        {
+          "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
+          "primary": false,
+          "first_seen": "2026-11-09",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-e9a08d8ee7a0b4ff8e456f55eb4bfeaf4.html",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-09"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?os=12&send=foo",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-09"
+        },
+        {
+          "url": "https://veranstaltungen.erlebe.bayern/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-09"
+        },
+        {
+          "url": "http://veranstaltungen.erlebe.bayern/schongau/themenfuehrung-ins-licht-gerueckt-e9a08d8ee7a0b4ff8e456f55eb4bfeaf4.html",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-11"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-eeb2513369b3da05f176e1779b709e5f8.html",
+          "primary": false,
+          "first_seen": "2026-11-10",
+          "last_seen": "2026-11-12"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-eb2a7bed942bc700a287d398a7b361fe2.html",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-12"
         },
         {
           "url": "https://www.instagram.com/p/DfpplZuJT0t/",
@@ -4772,7 +4152,7 @@
           "last_seen": "2026-11-13"
         }
       ],
-      "first_seen": "2026-11-10",
+      "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -4861,102 +4241,6 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-27-themenfuehrung-in-s-licht-gerueckt-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Themenführung \"In's Licht gerückt\"",
-        "en": "Themed tour \"In's Licht gerückt\""
-      },
-      "description": {
-        "de": "Abendführung im Klosterhof des Heilig-Geist-Spitals.",
-        "en": "Evening tour in the cloister courtyard of the Heilig-Geist-Spital."
-      },
-      "venue": {
-        "name": "Klosterhof des Heilig-Geist-Spitals",
-        "place": "Schongau",
-        "address": "Karmeliterstr. 4, 86956 Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-11-27",
-        "end_date": "2027-02-12",
-        "start_time": "18:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-27",
-          "2027-01-06",
-          "2027-02-12"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "art-culture",
-      "tags": [
-        "art-culture",
-        "outdoor"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-10"
-        },
-        {
-          "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-e9a08d8ee7a0b4ff8e456f55eb4bfeaf4.html",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?os=12&send=foo",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://veranstaltungen.erlebe.bayern/schongau/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "http://veranstaltungen.erlebe.bayern/schongau/themenfuehrung-ins-licht-gerueckt-e9a08d8ee7a0b4ff8e456f55eb4bfeaf4.html",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-eeb2513369b3da05f176e1779b709e5f8.html",
-          "primary": false,
-          "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-eb2a7bed942bc700a287d398a7b361fe2.html",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -5253,51 +4537,6 @@
       "sources": [
         {
           "url": "https://vivace-schongau.de/?page_id=83",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-28-gospelchorprojekt-probe-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Gospelchor-Probe",
-        "en": "Gospel choir rehearsal"
-      },
-      "description": {
-        "de": "Probe des Gospelchor-Projekts, Anmeldung per E-Mail nötig.",
-        "en": "Gospel choir project rehearsal; registration by email required."
-      },
-      "venue": {
-        "name": "Martinskirche Herzogsägmühle",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "10:00",
-        "end_time": "13:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert",
-        "religion",
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-12"
@@ -5616,50 +4855,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-29-gospelchor-auftritt-im-gottesdienst-zum-1-advent-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Gospelchor-Auftritt im Gottesdienst",
-        "en": "Gospel choir performance in service"
-      },
-      "description": {
-        "de": "Auftritt des Gospelchor-Projekts im Gottesdienst.",
-        "en": "Gospel choir project performs during the service."
-      },
-      "venue": {
-        "name": "Martinskirche Herzogsägmühle",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-29",
-        "end_date": null,
-        "start_time": "10:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert",
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-evangelisch.de/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
       "id": "2026-11-29-gottesdienst-zum-1-advent-mit-einfuehrung-der-schongau",
       "parent_id": null,
       "title": {
@@ -5703,40 +4898,39 @@
       "misses": 0
     },
     {
-      "id": "2026-11-30-betriebsbesichtigung-glaser-huber-schongau",
+      "id": "2026-11-29-ea-schongau-esv-burgau",
       "parent_id": null,
       "title": {
-        "de": "Betriebsbesichtigung Glaser Huber",
-        "en": "Company tour at Glaser Huber"
+        "de": "EA Schongau – ESV Burgau",
+        "en": "EA Schongau – ESV Burgau"
       },
       "description": {
-        "de": "Besichtigung der Glaserei mit anschließendem Imbiss. Anmeldung erforderlich.",
-        "en": "Tour of the glazier's workshop followed by snacks and drinks. Registration required."
+        "de": "Eishockey Bayernliga: Heimspiel der EA Schongau Mammuts gegen ESV Burgau.",
+        "en": "Ice hockey Bayernliga: home game of EA Schongau Mammuts against ESV Burgau."
       },
       "venue": {
-        "name": "Glaser Huber",
+        "name": null,
         "place": "Schongau",
         "address": null
       },
       "schedule": {
-        "start_date": "2026-11-30",
+        "start_date": "2026-11-29",
         "end_date": null,
-        "start_time": "18:00",
+        "start_time": "17:30",
         "end_time": null,
         "all_day": false,
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "sports",
       "tags": [
-        "talk-workshop",
-        "religion"
+        "sports"
       ],
       "status": "scheduled",
       "postponed_to": null,
       "sources": [
         {
-          "url": "http://www.kolpingsfamilie-schongau.de/termine",
+          "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-13"
@@ -5980,49 +5174,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-04-schuetzenverein-altenstadt-preisverteilung",
-      "parent_id": null,
-      "title": {
-        "de": "Schützenverein Altenstadt, Preisverteilung Nikolausschießen",
-        "en": "Nikolaus shoot prize giving"
-      },
-      "description": {
-        "de": "Preisverteilung des Nikolausschießens im Schützenheim.",
-        "en": "Prize giving of the Nikolaus shoot."
-      },
-      "venue": {
-        "name": "Schützenheim",
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-04",
-        "end_date": null,
-        "start_time": "19:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/schuetzenverein-altenstadt-preisverteilung-nikolausschiessen-ec6f375258a03ff8c70b0970671e60e0b.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
       "id": "2026-12-04-comedy-lounge-mit-florian-simbeck-schongau",
       "parent_id": null,
       "title": {
@@ -6111,6 +5262,18 @@
         },
         {
           "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://allevents.in/schongau/all",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-13"
@@ -6210,50 +5373,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-05-kolping-gedenktag-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Feier des Kolping-Gedenktages",
-        "en": "Kolping Memorial Day celebration"
-      },
-      "description": {
-        "de": "Gottesdienst in der Heilig Geist Kirche, danach Adventsfeier mit Nikolausbesuch im Pfarrheim.",
-        "en": "Service at Heilig Geist church, then Advent gathering with St. Nicholas at the parish hall."
-      },
-      "venue": {
-        "name": "Heilig Geist Kirche / Pfarrheim Verklärung Christi",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": "18:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://www.kolpingsfamilie-schongau.de/termine",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-12-05-brau-house-mit-dj-cristiano-schongau",
       "parent_id": null,
       "title": {
@@ -6293,67 +5412,6 @@
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-05-kai-und-funky-von-ton-steine-scherben-feat-birte-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kai und Funky von Ton Steine Scherben feat. Birte Volta",
-        "en": "Kai and Funky of Ton Steine Scherben feat. Birte Volta"
-      },
-      "description": {
-        "de": "Konzert im Reaktor Schongau.",
-        "en": "Concert at Reaktor in Schongau."
-      },
-      "venue": {
-        "name": "Reaktor",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://allevents.in/schongau/all",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.reaktor-sog.de/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-13"
@@ -6580,50 +5638,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-06-nikolausfeier-schuetzenverein-schwabniederhofen-altenstadt",
-      "parent_id": null,
-      "title": {
-        "de": "Nikolausfeier Schützenverein Schwabniederhofen",
-        "en": "St. Nicholas party of the shooting club Schwabniederhofen"
-      },
-      "description": {
-        "de": "Nikolausfeier des Schützenvereins im großen Saal des Gasthofs Janser.",
-        "en": "Shooting club's St. Nicholas celebration in the large hall of Gasthof Janser."
-      },
-      "venue": {
-        "name": "Gasthof Janser, großer Saal",
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-06",
-        "end_date": "2026-12-06",
-        "start_time": "18:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "party",
-      "tags": [
-        "party",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://sv-snh.jimdoweb.com/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-12-07-familientag-auf-dem-weihnachtszauber-schongau",
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
@@ -6667,50 +5681,6 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-09-nikolausfeier-der-trachtenjugend-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Nikolausfeier der Trachtenjugend",
-        "en": "Nikolaus Celebration of the Costume Youth"
-      },
-      "description": {
-        "de": "Nikolausfeier der Trachtenjugend des Trachtenvereins Schloßbergler im Trachtenheim.",
-        "en": "St. Nicholas celebration of the Schloßbergler costume club's youth group at the Trachtenheim."
-      },
-      "venue": {
-        "name": "Trachtenheim Schongau",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-09",
-        "end_date": null,
-        "start_time": "17:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "art-culture"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
-          "primary": true,
-          "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-10",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -7106,137 +6076,6 @@
       "sources": [
         {
           "url": "https://www.schongauer-weihnachtszauber.com",
-          "primary": true,
-          "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-12-vdk-pfaffenwinkel-nikolausfeier-altenstadt",
-      "parent_id": null,
-      "title": {
-        "de": "VdK Pfaffenwinkel, Nikolausfeier",
-        "en": "VdK Pfaffenwinkel Nikolaus celebration"
-      },
-      "description": {
-        "de": "Nikolausfeier des VdK im Jakob-Pfeiffer-Haus.",
-        "en": "VdK Nikolaus celebration at the Jakob-Pfeiffer-Haus."
-      },
-      "venue": {
-        "name": "Jakob-Pfeiffer-Haus",
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "party",
-      "tags": [
-        "party"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/vdk-pfaffenwinkel-nikolausfeier-ebff119144cc6a9bad632a13bbe91b711.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-12-vdk-pfaffenwinkel-nikolausfeier-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "VdK Pfaffenwinkel: Nikolausfeier",
-        "en": "VdK Pfaffenwinkel: St. Nicholas party"
-      },
-      "description": {
-        "de": "Nikolausfeier des VdK im Jakob-Pfeiffer-Haus.",
-        "en": "VdK St. Nicholas celebration at Jakob-Pfeiffer-Haus."
-      },
-      "venue": {
-        "name": "Jakob-Pfeiffer-Haus",
-        "place": "Schongau",
-        "address": "Jakob-Pfeiffer-Str. 13, 86956 Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "seniors",
-      "tags": [
-        "seniors",
-        "party"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/vdk-pfaffenwinkel-nikolausfeier-ebff119144cc6a9bad632a13bbe91b711.html",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-12-weihnachtsfeier-des-trachtenvereins-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Weihnachtsfeier des Trachtenvereins",
-        "en": "Christmas Party of the Costume Club"
-      },
-      "description": {
-        "de": "Weihnachtsfeier des Trachtenvereins Schloßbergler im Trachtenheim.",
-        "en": "Christmas celebration of the Schloßbergler costume club at the Trachtenheim."
-      },
-      "venue": {
-        "name": "Trachtenheim Schongau",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "party",
-      "tags": [
-        "party",
-        "art-culture"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
           "primary": true,
           "first_seen": "2026-11-10",
           "last_seen": "2026-11-13"
@@ -7933,51 +6772,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-31-silvesterparty-fuer-familien-mit-kindern-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Silvesterparty für Familien mit Kindern",
-        "en": "New Year's Eve party for families"
-      },
-      "description": {
-        "de": "Silvesterfeier für Familien mit Kindern der Kolpingsfamilie; weitere Infos folgen.",
-        "en": "New Year's Eve party for families with children by Kolpingsfamilie; details to follow."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-31",
-        "end_date": null,
-        "start_time": "17:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "party",
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://www.kolpingsfamilie-schongau.de/termine",
-          "primary": true,
-          "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-12-31-silvester-im-gasthof-janser-schongau",
       "parent_id": null,
       "title": {
@@ -7990,7 +6784,7 @@
       },
       "venue": {
         "name": "Gasthof Janser",
-        "place": "Schongau",
+        "place": "Altenstadt",
         "address": null
       },
       "schedule": {
