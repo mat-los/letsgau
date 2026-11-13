@@ -318,7 +318,8 @@ check that every event is in the HTML.
 
 ## Run on GitHub
 
-The workflow `.github/workflows/run.yml` runs daily at 04:17 UTC and can be
+The workflow `.github/workflows/run.yml` runs daily at 02:00 UTC (03:00 Berlin time in winter, 04:00 in summer; GitHub may
+start scheduled runs some minutes late) and can be
 started by hand: *Actions → Run → Run workflow* (also in the GitHub mobile app),
 with the job (`auto`, `geo`, `discovery`, `events`, `build`, `all`) and an
 optional dry run. A `concurrency` group prevents overlapping runs. The deploy
