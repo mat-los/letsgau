@@ -15,7 +15,7 @@ site:
 
 region:
   label: "{{REGION_LABEL}}"             # name of the region in page titles
-  municipalities:                       # {{MUNICIPALITIES}}: name and/or postcode each; a change triggers geo + discovery
+  municipalities:                       # {{MUNICIPALITIES}}: name and/or postcode each (optional separate: [districts shown as their own area]); a change triggers geo + discovery
     - { name: "{{MUNICIPALITY}}", postcode: "" }
 
 window:

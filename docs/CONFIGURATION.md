@@ -31,7 +31,8 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | Key | Type | Meaning |
 | --- | --- | --- |
 | `label` | string | name of the region, used in page titles |
-| `municipalities` | list | at least one `{ name, postcode }`; each needs a name, a postcode (4–5 digits) or both; a change triggers geo + discovery |
+| `municipalities` | list | at least one `{ name, postcode, separate }`; each needs a name, a postcode (4–5 digits) or both; a change triggers geo + discovery |
+| `municipalities[].separate` | list of strings | optional: districts of this municipality that count as an area of their own (default `[]`), see below |
 
 Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
 
@@ -43,6 +44,13 @@ Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
   the stage aborts and asks for the postcode.
 - Districts (villages, hamlets, suburbs) are found automatically; the coverage
   sentence on the website lists the municipalities in config order.
+- A district named in `separate` (exact OSM place name, case is ignored) is
+  treated like a municipality of its own: it gets its own group when grouping
+  by place on the website, its own entry in the crawl and discovery prompts,
+  and events there are never merged with similar events of the parent
+  municipality. Use it for a district that is a destination in itself (e.g.
+  Herzogsägmühle, a village of Peiting). The geo log warns if the name is not
+  found. Changing the list triggers geo + discovery.
 
 ```yaml
 region:
@@ -50,6 +58,7 @@ region:
   municipalities:
     - { name: "Schongau", postcode: "86956" }
     - { name: "Altenstadt", postcode: "86972" }
+    - { name: "Peiting", postcode: "86971", separate: ["Herzogsägmühle"] }
 ```
 
 ## `window`

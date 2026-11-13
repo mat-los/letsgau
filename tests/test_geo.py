@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from datetime import UTC, datetime
 from pathlib import Path
@@ -193,3 +194,40 @@ def test_fingerprint_follows_the_municipality_list(config: Config) -> None:
     )
     assert geo.fingerprint(swapped) != fp
     assert geo.fingerprint(config.region) == fp
+
+
+def test_a_separate_district_becomes_an_area_of_its_own(config: Config, tmp_path: Path) -> None:
+    region = config.region.model_copy(
+        update={
+            "municipalities": [
+                Municipality(name="Altenstadt", postcode="86972", separate=["schwabniederhofen"])
+            ]
+        }
+    )
+    separate = config.model_copy(update={"region": region})
+    result = geo.compute(separate, clients(), data_dir=tmp_path, now=NOW)
+    assert result.places is not None
+    assert [(p.name, p.municipality) for p in result.places.places] == [
+        ("Altenstadt", "Altenstadt"),
+        ("Schwabniederhofen", "Schwabniederhofen"),  # keeps its position after the main place
+    ]
+    assert result.warnings == []
+
+    # the list is part of the fingerprint; an unknown name is reported
+    region.municipalities[0] = Municipality(name="Altenstadt", postcode="86972", separate=["Nix"])
+    assert geo.fingerprint(region) != result.places.fingerprint
+    again = geo.compute(separate, clients(), data_dir=tmp_path, now=NOW)
+    assert again.recomputed and again.fingerprint_changed
+    assert again.warnings == ["'Altenstadt 86972': separate district 'Nix' not found"]
+
+
+def test_the_fingerprint_without_separate_districts_is_unchanged() -> None:
+    region = load_config(REPO_ROOT / "examples" / "instance" / "config.yaml").region
+    payload = [geo._key(m) for m in region.municipalities]
+    digest = hashlib.sha256(json.dumps(payload).encode()).hexdigest()
+    assert geo.fingerprint(region) == f"sha256:{digest[:16]}"
+
+
+def test_separate_districts_must_be_unique() -> None:
+    with pytest.raises(ValueError, match="duplicates"):
+        Municipality(name="Peiting", separate=["Herzogsägmühle", "herzogsägmühle"])

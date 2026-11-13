@@ -20,3 +20,11 @@
   note: "Trachtenverein Schloßbergler: yearly club calendar PDF (new URL every year)"
   places: ["Schongau"]
   max_files: 1
+- url: "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf"
+  note: "Schönach-Kurier (Hohenfurch newsletter), April 2026 issue: club dates until autumn"
+  places: ["Hohenfurch"]
+  max_files: 1
+- url: "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_71_Internet.pdf"
+  note: "Schönach-Kurier, next issue (expected late 2026; a download warning until it is out). New URL per issue: add the next number, drop old ones"
+  places: ["Hohenfurch"]
+  max_files: 1

@@ -139,3 +139,78 @@
   places: ["Altenstadt"]
   website: "https://www.cafebistrolions.de"
   found_on: "https://restaurantguru.com/Cafe-Bistro-Lions-Altenstadt-Bavaria"
+- username: "cafecentralpeiting"
+  name: "Central – Café Bistro Bar"
+  places: ["Peiting"]
+  website: "http://www.central-bar-cafe.de"
+  found_on: "https://www.instagram.com/cafecentralpeiting/"
+- username: "cafebarsesar"
+  name: "Bäckerei und Café-Bar Sesar"
+  places: ["Peiting"]
+  website: "https://sesar-baeck.de/"
+  found_on: "https://www.instagram.com/cafebarsesar/"
+- username: "gasthaus_zechenschenke"
+  name: "Gasthof Zechenschenke"
+  places: ["Peiting"]
+  website: "http://www.zechenschenke.de"
+  found_on: "https://www.instagram.com/gasthaus_zechenschenke/"
+- username: "saliterhof_peiting"
+  name: "Saliterhof (Hofstüberl, alpacas)"
+  places: ["Peiting"]
+  website: ""
+  found_on: "https://www.instagram.com/saliterhof_peiting/"
+- username: "juze_peiting"
+  name: "Jugendzentrum Peiting"
+  places: ["Peiting"]
+  website: "https://juze-peiting.de/"
+  found_on: "https://www.instagram.com/juze_peiting/"
+- username: "knatra_peiting"
+  name: "Knappschafts- und Trachtenkapelle Peiting"
+  places: ["Peiting"]
+  website: "https://www.knappschaftskapelle.de"
+  found_on: "https://www.instagram.com/knatra_peiting/"
+- username: "lj_peiting"
+  name: "Landjugend Peiting"
+  places: ["Peiting"]
+  website: ""
+  found_on: "https://www.instagram.com/lj_peiting/"
+- username: "fapeiting"
+  name: "TSV Peiting Fußballabteilung"
+  places: ["Peiting"]
+  website: "http://www.fa-peiting.de"
+  found_on: "https://www.instagram.com/fapeiting/"
+- username: "ecpeiting"
+  name: "EC Peiting (ice hockey)"
+  places: ["Peiting"]
+  website: "https://www.ec-peiting.de/"
+  found_on: "https://www.ec-peiting.de/tag/instagram/"
+- username: "feuerwehr_peiting"
+  name: "Freiwillige Feuerwehr Markt Peiting"
+  places: ["Peiting"]
+  website: ""
+  found_on: "https://www.instagram.com/feuerwehr_peiting/"
+- username: "herzogsaegmuehle"
+  name: "Diakoniedorf Herzogsägmühle (Café und Wirtshaus Herzog)"
+  places: ["Herzogsägmühle"]
+  website: "https://www.herzogsaegmuehle.de/"
+  found_on: "https://restaurantguru.com/Cafe-Herzog-Peiting"
+- username: "faschingsclub_hohenfurch"
+  name: "Faschingsclub Hohenfurch e.V."
+  places: ["Hohenfurch"]
+  website: "https://www.faschingsclub-hohenfurch.de/"
+  found_on: "https://www.instagram.com/faschingsclub_hohenfurch/"
+- username: "landjugendhohenfurch"
+  name: "Landjugend Hohenfurch"
+  places: ["Hohenfurch"]
+  website: "https://www.landjugend-hohenfurch.de/"
+  found_on: "https://www.instagram.com/landjugendhohenfurch/"
+- username: "ffw.hohenfurch"
+  name: "Freiwillige Feuerwehr Hohenfurch"
+  places: ["Hohenfurch"]
+  website: "https://www.feuerwehr-hohenfurch.de/"
+  found_on: "https://www.instagram.com/ffw.hohenfurch/"
+- username: "werbegemeinschaftaltstschongau"
+  name: "Werbegemeinschaft Altstadt Schongau"
+  places: ["Schongau"]
+  website: ""
+  found_on: "https://www.instagram.com/werbegemeinschaftaltstschongau/"

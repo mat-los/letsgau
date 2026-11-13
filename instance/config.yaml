@@ -15,10 +15,10 @@ site:
 
 region:
   label: "Schongau"                     # name of the region in page titles
-  municipalities:                       # name and/or postcode each; districts are found automatically; a change triggers geo + discovery
+  municipalities:                       # name and/or postcode each; districts are found automatically (separate: districts shown as their own area); a change triggers geo + discovery
     - { name: "Schongau", postcode: "86956" }
     - { name: "Altenstadt", postcode: "86972" }
-    - { name: "Peiting", postcode: "86971" }
+    - { name: "Peiting", postcode: "86971", separate: ["Herzogsägmühle"] }  # Diakoniedorf: own area
     - { name: "Hohenfurch", postcode: "86978" }
 
 window:

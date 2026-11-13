@@ -99,11 +99,16 @@ class Municipality(_Strict):
 
     name: str = ""
     postcode: str = Field(default="", pattern=r"^(\d{4,5})?$")
+    separate: list[str] = Field(default_factory=list)
+    """Districts shown and searched as an area of their own instead of as part of this
+    municipality (e.g. a village that is a destination in itself)."""
 
     @model_validator(mode="after")
     def _name_or_postcode(self) -> Municipality:
         if not self.name.strip() and not self.postcode:
             raise ValueError("a municipality needs a name, a postcode or both")
+        if len({s.casefold() for s in self.separate}) != len(self.separate):
+            raise ValueError("separate must not contain duplicates")
         return self
 
     @property
