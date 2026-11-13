@@ -47,6 +47,7 @@ depth:                                  # thoroughness: more AI calls, more comp
   discovery_searches_per_request: 20    # search limit per discovery call
   crawl_sources_per_request: 4          # known sources per "source sweep" call; 0 = one combined call
   crawl_searches_per_request: 13        # open-search budget per batch (calls of ~13 searches; each run starts the checklist elsewhere)
+  open_search: "alternate"              # open search in sweep mode: every_run | alternate (every other run) | off
 
 events:
   unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"

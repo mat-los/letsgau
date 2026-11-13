@@ -180,6 +180,8 @@ class DepthConfig(_Strict):
     """Known sources per "source sweep" call; 0 = one combined call per batch."""
     crawl_searches_per_request: int = Field(default=13, ge=3, le=100)
     """Search limit of the open-search call (and of the combined call)."""
+    open_search: Literal["every_run", "alternate", "off"] = "alternate"
+    """When sweep mode runs the open search: every run, every other run, or never."""
 
 
 class EventsConfig(_Strict):

@@ -685,9 +685,14 @@ PAGE_CHARS_PER_CALL = 60_000
 
 
 def search_queries(
-    groups: Sequence[PlaceGroup], today: date, window_end: date
+    groups: Sequence[PlaceGroup],
+    today: date,
+    window_end: date,
+    postcodes: Mapping[str, str] | None = None,
 ) -> list[tuple[str, list[str]]]:
-    """The fixed query checklist of the open-search call, per municipality."""
+    """The fixed query checklist of the open-search call, per municipality. A municipality's
+    ``postcodes`` entry is added to its queries, so that places of the same name elsewhere
+    (Altenstadt in Hesse) do not crowd out the results."""
     months: list[str] = []
     day = today.replace(day=1)
     while day <= window_end:
@@ -700,7 +705,8 @@ def search_queries(
         queries += [f"{m} Veranstaltungen {month}" for month in months]
         queries += [f"{m} {topic}" for topic in SEARCH_TOPICS]
         queries += [f"{d} Veranstaltungen" for d in group.districts]
-        plan.append((m, queries))
+        code = (postcodes or {}).get(m.casefold(), "")
+        plan.append((m, [f"{q} {code}" if code else q for q in queries]))
     return plan
 
 
@@ -721,6 +727,17 @@ class CrawlCall:
     """Downloaded source texts of a ``pages`` call."""
 
 
+def run_number(today: date) -> int:
+    """Counts the half weeks (Monday to Wednesday, Thursday to Sunday), so that two runs a week
+    alternate; a dry run on the same day gets the same number."""
+    return today.isocalendar().week * 2 + (1 if today.weekday() >= 3 else 0)
+
+
+def open_search_due(setting: str, today: date) -> bool:
+    """Whether this run includes the open search (``depth.open_search``)."""
+    return setting == "every_run" or (setting == "alternate" and run_number(today) % 2 == 0)
+
+
 def rotate_queries(
     queries: Sequence[tuple[str, list[str]]], today: date
 ) -> list[tuple[str, list[str]]]:
@@ -734,8 +751,7 @@ def rotate_queries(
     flat = [(m, q) for m, items in queries for q in items]
     if not flat:
         return []
-    run = today.isocalendar().week * 2 + (1 if today.weekday() >= 3 else 0)
-    start = run * ((len(flat) + 1) // 2) % len(flat)
+    start = run_number(today) * ((len(flat) + 1) // 2) % len(flat)
     rotated: list[tuple[str, list[str]]] = []
     for m, q in flat[start:] + flat[:start]:
         if rotated and rotated[-1][0] == m:
@@ -815,9 +831,9 @@ def plan_calls(
     recheck = list(recheck)
     for start in range(0, len(recheck), RECHECK_PER_CALL):
         calls.append(CrawlCall("recheck", events=recheck[start : start + RECHECK_PER_CALL]))
-    calls += [CrawlCall("search", queries=p) for p in split_queries(queries, search_calls)] or [
-        CrawlCall("search")
-    ]
+    if search_calls > 0:
+        parts = split_queries(queries, search_calls)
+        calls += [CrawlCall("search", queries=p) for p in parts] or [CrawlCall("search")]
     return calls + instagram_calls
 
 
@@ -882,7 +898,13 @@ def render_prompt(
         files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
         posts=posts,
         mine_instagram=mine_instagram,
-        queries=call.queries or search_queries(batch.groups, today, window_end),
+        queries=call.queries
+        or search_queries(
+            batch.groups,
+            today,
+            window_end,
+            {m.name.casefold(): m.postcode for m in config.region.municipalities if m.name},
+        ),
         tags=config.tags,
         excluded_topics=config.excluded_topics,
         blocked_domains=blocked,
@@ -1044,6 +1066,7 @@ def crawl(
     to_sweep: dict[int, list[Any]] = {}
     changed: dict[int, list[pages.PageText]] = {}
     for batch in batches:
+        report_of(batch)  # every batch gets a report, also one without any AI call
         if not sweeps:
             continue
         to_sweep[batch.number], changed[batch.number] = [], []
@@ -1091,17 +1114,24 @@ def crawl(
             f"{len(changed[batch.number])} changed (read as text), "
             f"{len(to_sweep[batch.number])} for the agent"
         )
+    postcodes = {m.name.casefold(): m.postcode for m in config.region.municipalities if m.name}
+    if sweeps and not open_search_due(config.depth.open_search, today):
+        _log(f"open search: not in this run (depth.open_search: {config.depth.open_search})")
     plan = [
         (batch, call)
         for batch in batches
         for call in plan_calls(
             batch,
             sweeps,
-            queries=rotate_queries(search_queries(batch.groups, today, window_end), today),
+            queries=rotate_queries(
+                search_queries(batch.groups, today, window_end, postcodes), today
+            ),
             recheck=[e for e in batch.known if e.schedule.start_date <= deep_end],
             search_calls=max(
                 1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
-            ),
+            )
+            if open_search_due(config.depth.open_search, today)
+            else 0,
             instagram=insta_on,
             sweep=to_sweep.get(batch.number),
             texts=changed.get(batch.number, ()),

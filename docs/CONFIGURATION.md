@@ -105,6 +105,7 @@ optional; the defaults are the thorough settings.
 | `discovery_places_per_request` | `2` | municipalities per discovery call |
 | `discovery_searches_per_request` | `20` | search limit per discovery call |
 | `crawl_sources_per_request` | `4` | known sources per *source sweep* call of the event crawl; every batch then ends with one *open search* call. `0` = one combined call per batch |
+| `open_search` | `alternate` | when sweep mode runs the open search: `every_run`, `alternate` (every other run: Monday-to-Wednesday and Thursday-to-Sunday runs take turns, so with `weekly:mon,thu` once a week) or `off`. A query checklist run found few events the known sources did not already list |
 | `crawl_searches_per_request` | `13` | search budget of the open search per batch, split into calls of about 13 searches (or the limit of the combined call). Each run starts the query checklist at a different point, so over a few runs every query is run even if a call stops early |
 
 ## `events`

@@ -55,9 +55,13 @@ def make_config(tmp_path: Path, sweeps: int = 0, store_days: int = 28, **limits:
     config = load_config(CONFIG_PATH)
     config = config.model_copy(
         update={
-            # one open-search call of 13 searches unless a test sets more
+            # one open-search call of 13 searches in every run unless a test sets otherwise
             "depth": config.depth.model_copy(
-                update={"crawl_sources_per_request": sweeps, "crawl_searches_per_request": 13}
+                update={
+                    "crawl_sources_per_request": sweeps,
+                    "crawl_searches_per_request": 13,
+                    "open_search": "every_run",
+                }
             ),
             "window": config.window.model_copy(update={"store_days": store_days}),
         }
@@ -603,11 +607,10 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
 
     assert "do not read them again:\n- https://www.schongau.de/veranstaltungen" in search
     assert "- https://club13.example/termine" in search
-    assert '"Schongau Veranstaltungen November 2026", "Schongau Veranstaltungen Dezember 2026"' in (
-        search
-    )
-    assert '"Schongau Heimspiel OR Turnier"' in search
-    assert '"Schongau Jugendzentrum OR Juze"' in search
+    months = '"Schongau Veranstaltungen November 2026 86956", "Schongau Veranstaltungen Dez'
+    assert months in search
+    assert '"Schongau Heimspiel OR Turnier 86956"' in search
+    assert '"Schongau Jugendzentrum OR Juze 86956"' in search
     assert "Known events to re-check" not in search  # the search has only one job
     assert "Already known later events" in search
     assert "Known events to re-check (until 2026-11-16)" in recheck
@@ -717,7 +720,10 @@ def test_open_search_is_split_and_a_short_call_is_not_repeated(
         "events batch 1/1 (search 3)",
     ]
     parts = [r.prompt for r in runner.requests[1:]]
-    assert '"Schongau Veranstaltungen"' in parts[0] and '"Schongau Veranstaltungen"' not in parts[1]
+    assert (
+        '"Schongau Veranstaltungen 86956"' in parts[0]
+        and '"Schongau Veranstaltungen 86956"' not in parts[1]
+    )
     assert all("A first attempt" not in p for p in parts)
     assert result.warnings == []
 
@@ -796,10 +802,13 @@ def test_cli_events_dry_run(
     out = capsys.readouterr().out
     assert "crawl: " in out and "dry run" in out
     # instance depth: one source sweep over the fixture whitelist, then the open search
-    # (13 searches) in one call
+    # (13 searches) in one call, in every other run (depth.open_search: alternate)
+    search = (
+        ["events batch 1/1 (search)"] if crawl.open_search_due("alternate", date.today()) else []
+    )
     assert [r.step for r in runner.requests] == [
         "events batch 1/1 (sources 1)",
-        "events batch 1/1 (search)",
+        *search,
     ]
     assert not (tmp_path / "data" / "events.json").exists()
 
@@ -909,3 +918,33 @@ def test_rotate_queries_starts_elsewhere_each_run() -> None:
     assert abs(starts[0] - starts[1]) in (5, 6)  # about half a list apart
     assert crawl.rotate_queries(queries, monday) == crawl.rotate_queries(queries, monday)
     assert crawl.rotate_queries([], monday) == []
+
+
+def test_open_search_every_other_run_with_postcodes(tmp_path: Path, data_dir: Path) -> None:
+    config = make_config(tmp_path, sweeps=4)
+    config = config.model_copy(
+        update={"depth": config.depth.model_copy(update={"open_search": "alternate"})}
+    )
+    monday, thursday = TODAY, TODAY + timedelta(days=3)
+    assert crawl.open_search_due("alternate", monday) != crawl.open_search_due(
+        "alternate", thursday
+    )
+    assert crawl.open_search_due("every_run", thursday) and not crawl.open_search_due("off", monday)
+    steps = {}
+    for day in (monday, thursday):
+        runner = FakeRunner(answers=[{"events": []}] * 20)
+        crawl.crawl(config, runner, data_dir=data_dir, today=day)
+        steps[day] = [r.step for r in runner.requests]
+    searched = [day for day, s in steps.items() if any("(search" in step for step in s)]
+    assert searched == [monday]
+    postcodes = {"schongau": "86956"}
+    plan = crawl.search_queries(
+        crawl.group_places(
+            [Place(name="Schongau", osm_id="node/1", place_type="town", lat=47.8, lon=10.9)]
+        ),
+        TODAY,
+        TODAY + timedelta(days=28),
+        postcodes,
+    )
+    assert plan[0][1][0] == "Schongau Veranstaltungen 86956"
+    assert all(q.endswith(" 86956") for q in plan[0][1])

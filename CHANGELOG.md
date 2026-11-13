@@ -170,6 +170,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Open search: runs every other events run by default (new option
+  `depth.open_search`: `every_run`, `alternate`, `off`), and every checklist
+  query carries the municipality's postcode (`Altenstadt Veranstaltungen
+  86972`), so places of the same name elsewhere no longer crowd out the
+  results.
 - The Anthropic SDK is an optional extra (`pip install -e '.[api]'`), needed
   only for `ai.auth: api_key`; the Run workflow installs it only when
   `ANTHROPIC_API_KEY` is set.

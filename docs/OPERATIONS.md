@@ -99,8 +99,11 @@ python -m letsgau run --job events --dry-run --limit-places 3
     confirmed and are left out, and so are events whose source page was read
     as text in this run (found there, or no longer listed: then the merge
     counts a miss); if none remain, the re-check call is skipped;
-  - the open search skips the known sources and runs a fixed query checklist
-    per municipality (every month of the window, 15 topics, every district).
+  - the open search (every other run with `depth.open_search: alternate`, the
+    default) skips the known sources and runs a fixed query checklist per
+    municipality (every month of the window, 15 topics, every district), each
+    query with the municipality's postcode from `region.municipalities`, so
+    that places of the same name elsewhere do not crowd out the results.
     Its budget, `depth.crawl_searches_per_request`, is split into calls of
     about 13 searches (default 13 → one call), each with a part of the
     checklist. Every run starts the checklist at a different query (Monday
