@@ -175,6 +175,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `docs/CONCEPT.md`: discovery uses Sonnet (as configured), not Opus.
 - Docs: `ARCHITECTURE.md` rewritten from the current code (page cache,
   flyers, Instagram, sweeps and re-checks; every module; Sonnet for
   discovery), `prompts/README.md` lists every prompt, `docs/ISSUES.md` moved

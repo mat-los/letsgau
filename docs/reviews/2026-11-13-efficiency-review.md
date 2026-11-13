@@ -13,7 +13,7 @@ Inputs: `main` at `e334856`, the `data` branch at `abc0f1b`, the logs of
 | O1, O2, O6, F4 (light: `depth.open_search`, postcodes), F7 | done in the follow-up PR |
 | F6, F8, F9, O3, O4 | open (judged low priority for now) |
 | F4 full (count the events only the open search found) | open |
-| `docs/CONCEPT.md` still says Opus for discovery | waiting for the owner's decision |
+| `docs/CONCEPT.md` said Opus for discovery | changed to Sonnet with the owner's OK |
 
 None of the done items has been live-tested yet (no Crawl check, no real run):
 compare the first real runs with the baseline below.
