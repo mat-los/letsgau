@@ -47,6 +47,7 @@ depth:                                  # thoroughness: more AI calls, more comp
   discovery_searches_per_request: 20    # search limit per discovery call
   crawl_sources_per_request: 4          # known sources per "source sweep" call; 0 = one combined call
   crawl_searches_per_request: 13        # open-search budget per batch (calls of ~13 searches; each run starts the checklist elsewhere)
+  open_search: "alternate"              # open search in sweep mode: every_run | alternate (every other run) | off
 
 events:
   unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"
@@ -66,12 +67,13 @@ instagram:                              # reading Instagram business/creator acc
   read_mined: true                      # also read accounts linked from pages the crawl reads
   api_version: ""                       # Graph API version such as "v24.0"; empty = app default
   prescreen: true                       # skip the images of posts whose caption is clearly no event
-  ai_lookup: false                      # discovery's AI lookup call; off: its search rarely shows usernames
 
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
+
+excluded_title_patterns: []              # regexes (case-insensitive) on the German title: dropped without asking the AI
 
 tags:                                   # fixed list, the AI must not invent new ones
   - { id: concert,         de: "Konzert",            en: "Concert" }

@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `excluded_title_patterns`: case-insensitive regular expressions on the
+  German title; matching events are dropped by the crawl's validation and
+  removed from the stored events by the merge, without asking the AI. The
+  bundled instance lists annual general meetings, rehearsals, confirmation
+  classes, club Christmas/St. Nicholas/year-end parties and shooting practice.
 - Page cache (`data/pages.json`, `src/letsgau/pages.py`): in sweep mode every
   whitelist and known source is downloaded as text first. Unchanged pages
   reuse the events read from them before (no AI call), changed pages go to a
@@ -170,6 +175,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `docs/CONCEPT.md`: discovery uses Sonnet (as configured), not Opus.
+- Docs: `ARCHITECTURE.md` rewritten from the current code (page cache,
+  flyers, Instagram, sweeps and re-checks; every module; Sonnet for
+  discovery), `prompts/README.md` lists every prompt, `docs/ISSUES.md` moved
+  to `docs/archive/`, ADR-005 got a status note, and outdated statements in
+  `OPERATIONS.md` and `README.md` were corrected.
+- Code structure: the crawl's flyer calls moved to `flyers.py`, its Instagram
+  step and the candidate check (from `discovery.py`) to `instagram.py`;
+  helpers that were copied between modules (URLs, prompt templates, JSON
+  files, logging) live in `util.py`. No behaviour change.
+- Open search: runs every other events run by default (new option
+  `depth.open_search`: `every_run`, `alternate`, `off`), and every checklist
+  query carries the municipality's postcode (`Altenstadt Veranstaltungen
+  86972`), so places of the same name elsewhere no longer crowd out the
+  results.
+- The Anthropic SDK is an optional extra (`pip install -e '.[api]'`), needed
+  only for `ai.auth: api_key`; the Run workflow installs it only when
+  `ANTHROPIC_API_KEY` is set.
 - Crawl answers: known events found again are listed by id in `known_seen`
   (status, and date or time only if they changed) instead of being written
   out again with title and description in two languages; page, sweep and
@@ -337,6 +360,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   not per batch.
 - The *Crawl check* workflow runs only on demand, no longer on pull requests that
   change a prompt: it uses about as much of the plan as a real run.
+
+### Removed
+
+- `instagram.ai_lookup` and discovery's AI Instagram lookup call
+  (`prompts/instagram_lookup.md`): it was off by default since the scheduled
+  lookup session replaced it. A config that still sets the key fails
+  validation; delete the line.
 
 ### Fixed
 

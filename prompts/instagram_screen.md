@@ -1,4 +1,4 @@
-{#- Instagram pre-screen prompt (Jinja2), rendered by src/letsgau/crawl.py (_prescreen_posts)
+{#- Instagram pre-screen prompt (Jinja2), rendered by src/letsgau/instagram.py (prescreen_posts)
     before the images of new posts are read. Only the captions are shown; a post answered
     "may_be_event": false is not read further. -#}
 You sort Instagram posts of local cafés, bars, clubs and venues for an event calendar. Today is

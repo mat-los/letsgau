@@ -24,19 +24,16 @@ Steps (docs/CONCEPT.md, "Pipeline", step 5):
 from __future__ import annotations
 
 import re
-import sys
 import unicodedata
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
 from difflib import SequenceMatcher
-from pathlib import Path
 from typing import Any
-
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from letsgau.build import hours_today
 from letsgau.models import Event, EventsFile, EventSource, EventStatus, OpeningHours, Schedule
+from letsgau.util import PROMPTS_DIR, UMLAUTS, logger, prompt_env
 
 CLEAR = 0.85
 """Title similarity from which a pair is merged without asking the AI."""
@@ -46,7 +43,6 @@ SERIES_SLOT = 0.4
 """Title similarity from which a single event on one day of a series at the same start time
 goes to the AI tie-break (see :func:`same_slot`)."""
 MAX_TIME_GAP_MINUTES = 120
-PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
 
 _STOPWORDS = frozenset(
     {
@@ -65,7 +61,6 @@ _STOPWORDS = frozenset(
         *("film", "kino", "cinema", "movie"),
     }
 )
-_UMLAUTS = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
 
 
 # --- similarity ---------------------------------------------------------------------
@@ -73,11 +68,11 @@ _UMLAUTS = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
 
 def title_tokens(title: str, places: Iterable[str] = ()) -> list[str]:
     """Normalized title words without stop words, years and place names."""
-    text = unicodedata.normalize("NFKD", title.lower().translate(_UMLAUTS))
+    text = unicodedata.normalize("NFKD", title.lower().translate(UMLAUTS))
     text = text.encode("ascii", "ignore").decode()
     words = re.findall(r"[a-z0-9]+", text)
     place_words = {
-        w for p in places for w in re.findall(r"[a-z0-9]+", p.lower().translate(_UMLAUTS))
+        w for p in places for w in re.findall(r"[a-z0-9]+", p.lower().translate(UMLAUTS))
     }
     return [
         w
@@ -152,7 +147,7 @@ def _times_on_shared_days(a: Event, b: Event) -> list[tuple[date, int, int]]:
 
 
 def _venue_key(name: str | None) -> str:
-    text = unicodedata.normalize("NFKD", (name or "").lower().translate(_UMLAUTS))
+    text = unicodedata.normalize("NFKD", (name or "").lower().translate(UMLAUTS))
     return "".join(re.findall(r"[a-z0-9]+", text.encode("ascii", "ignore").decode()))
 
 
@@ -381,12 +376,7 @@ def decision_schema() -> dict[str, Any]:
 
 
 def render_prompt(pairs: Sequence[Pair], new_events: Sequence[Event], topics: Sequence[str]) -> str:
-    env = Environment(
-        loader=FileSystemLoader(PROMPTS_DIR),
-        undefined=StrictUndefined,
-        keep_trailing_newline=True,
-        autoescape=False,
-    )
+    env = prompt_env(PROMPTS_DIR)
     return env.get_template("merge.md").render(pairs=pairs, new_events=new_events, topics=topics)
 
 
@@ -456,14 +446,24 @@ def apply(
     unconfirmed_after: int = 2,
     decide: Decide = no_ai,
     report: MergeReport | None = None,
+    excluded_title: Callable[[str], str | None] | None = None,
 ) -> EventsFile:
     """Return the new ``events.json`` content.
 
+    ``excluded_title`` returns the matching title pattern of an event title, if any.
     ``covered_places`` are the places (and municipalities) crawled successfully in
     this run; only stored events there can be "missed". ``None`` disables misses.
     """
     report = report if report is not None else MergeReport()
     stored = {e.id: e for e in (existing.events if existing else [])}
+    # stored events whose title matches ``excluded_title_patterns`` (also a pattern added
+    # later) are removed without asking the AI; new ones are dropped by crawl.to_event
+    for key, event in list(stored.items()):
+        pattern = excluded_title(event.title.de) if excluded_title else None
+        if pattern is not None:
+            report.excluded[key] = f"title pattern {pattern!r}"
+            _log(f"removed {event.title.de!r}: title pattern {pattern!r}")
+            del stored[key]
     crawled = list(crawled)
 
     # 0. Duplicates already in storage: clear ones (similar title, shared days, same place)
@@ -625,5 +625,4 @@ def apply(
     return EventsFile(updated_at=datetime.now(UTC).replace(microsecond=0), events=kept)
 
 
-def _log(message: str) -> None:
-    print(f"merge: {message}", file=sys.stderr, flush=True)
+_log = logger("merge")

@@ -41,3 +41,12 @@ is "done", and with lots of context it takes shortcuts.
   discovery over several runs is planned for then.
 - Coverage gaps are visible in `data/suggested.md` and can be fixed with
   whitelist entries.
+
+## Status note (2026-11-13)
+
+The split into focused calls still holds, but the cost estimate above is out
+of date: on 2026-11-13 an events run for two municipalities made 22 calls
+(about $2 at API prices) because every known source was re-read by the agent.
+Since then the crawl reads sources as text with a cache (`src/letsgau/pages.py`),
+reports known events by id and makes sources without events dormant; see
+[the efficiency review](../reviews/2026-11-13-efficiency-review.md).

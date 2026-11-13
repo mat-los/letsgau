@@ -38,6 +38,7 @@ from typing import Any, Protocol
 from letsgau import __version__
 from letsgau.config import Config, Municipality, RegionConfig
 from letsgau.models import Place, PlaceOrigin, PlacesFile, State
+from letsgau.util import DATA_DIR, load_json, logger, write_json
 
 OVERPASS_URLS = (
     "https://overpass-api.de/api/interpreter",
@@ -49,7 +50,6 @@ USER_AGENT = f"letsgau/{__version__} (+https://github.com/mat-los/letsgau)"
 PLACE_TYPES = ("city", "town", "village", "hamlet", "suburb", "quarter", "neighbourhood")
 """OSM place types taken as places (and districts) of a municipality."""
 
-DATA_DIR = Path("data")
 
 Json = dict[str, Any]
 
@@ -119,10 +119,6 @@ def _redact(url: str) -> str:
 
 def _since(started: float) -> str:
     return f"{time.monotonic() - started:.1f}s"
-
-
-def _log(message: str) -> None:
-    print(f"geo: {message}", file=sys.stderr, flush=True)
 
 
 # --- fingerprint -------------------------------------------------------------
@@ -308,8 +304,8 @@ def compute(
     places_path = data_dir / "places.json"
     state_path = data_dir / "state.json"
 
-    previous = _load(places_path, PlacesFile)
-    state = _load(state_path, State) or State()
+    previous = load_json(places_path, PlacesFile, GeoError)
+    state = load_json(state_path, State, GeoError) or State()
     if previous is not None and previous.fingerprint == fp and not force:
         return GeoResult(False, False, previous, [])
 
@@ -340,27 +336,13 @@ def compute(
         places=places,
     )
     if not dry_run:
-        _write_json(places_path, result.model_dump(mode="json", exclude_none=True))
+        write_json(places_path, result.model_dump(mode="json", exclude_none=True))
         state.geo_fingerprint = fp
         if changed:
             state.force_discovery = True
         state.last_run["geo"] = now
-        _write_json(state_path, state.model_dump(mode="json"))
+        write_json(state_path, state.model_dump(mode="json"))
     return GeoResult(True, changed, result, warnings)
-
-
-def _load[T: (PlacesFile, State)](path: Path, model: type[T]) -> T | None:
-    if not path.exists():
-        return None
-    try:
-        return model.model_validate_json(path.read_text(encoding="utf-8"))
-    except ValueError as exc:
-        raise GeoError(f"{path} is invalid: {exc}") from exc
-
-
-def _write_json(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def run(
@@ -394,3 +376,6 @@ def run(
     for name, names in municipalities.items():
         print(f"  {name}: {', '.join(names)}")
     return result
+
+
+_log = logger("geo")

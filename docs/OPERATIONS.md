@@ -99,8 +99,11 @@ python -m letsgau run --job events --dry-run --limit-places 3
     confirmed and are left out, and so are events whose source page was read
     as text in this run (found there, or no longer listed: then the merge
     counts a miss); if none remain, the re-check call is skipped;
-  - the open search skips the known sources and runs a fixed query checklist
-    per municipality (every month of the window, 15 topics, every district).
+  - the open search (every other run with `depth.open_search: alternate`, the
+    default) skips the known sources and runs a fixed query checklist per
+    municipality (every month of the window, 15 topics, every district), each
+    query with the municipality's postcode from `region.municipalities`, so
+    that places of the same name elsewhere do not crowd out the results.
     Its budget, `depth.crawl_searches_per_request`, is split into calls of
     about 13 searches (default 13 → one call), each with a part of the
     checklist. Every run starts the checklist at a different query (Monday
@@ -148,6 +151,9 @@ python -m letsgau run --job events --dry-run --limit-places 3
     a rate limit or a network error stops the step for the run, with a
     warning. Without the two secrets the step is skipped with one warning.
   - The token is never written to logs, warnings or `data/instagram.json`.
+- Events whose German title matches `excluded_title_patterns` (for example
+  `Jahreshauptversammlung`, `Probe`) are dropped by the validation and
+  removed from the stored events by the merge, without asking the AI.
 - Warnings name dropped events with the reason (schema, window, place, tags,
   source), failed batches and whitelist sources that were not checked.
 - Subscription mode runs `claude -p` (Claude Code CLI, `npm install -g
@@ -156,7 +162,8 @@ python -m letsgau run --job events --dry-run --limit-places 3
   environment so it never bills an API key. Runs count against the plan's usage
   limits; the cost shown is what the run would cost at API prices (the CLI's
   `total_cost_usd`), a measure of how much of the plan a run uses.
-- API mode needs `ANTHROPIC_API_KEY`; the cost shown is an estimate from token
+- API mode needs `ANTHROPIC_API_KEY` and the Anthropic SDK (`pip install -e
+  '.[api]'`; the Run workflow installs it when the secret is set); the cost shown is an estimate from token
   prices and $10 per 1,000 searches.
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
 - The merge runs in the same stage (also with `--dry-run`, which then only
@@ -214,13 +221,14 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   ones, syncs the whitelist in and marks blacklisted domains.
 - **Instagram** (with `sources.instagram_file`):
   - every pass reports the Instagram accounts it saw (`instagram_accounts`);
-    the venues pass runs `site:instagram.com <town> …` searches on purpose;
+    the venues pass runs `site:instagram.com <town> …` searches on purpose,
+    but the search tool ignores the `site:` operator, so they rarely find an
+    account (the scheduled session below does that job);
   - the passes list the cafés, bars, pubs, clubs and venues they saw in
     `venues_seen`; the venues pass reads the municipality's own gastronomy
     and business directory for it;
-  - the AI lookup call per batch (`prompts/instagram_lookup.md`) is off by
-    default (`instagram.ai_lookup`): its search engine rarely shows Instagram
-    usernames. Instead, a **scheduled Claude Code session**
+  - the pipeline's own search rarely shows Instagram usernames, so a
+    **scheduled Claude Code session**
     (`prompts/instagram_session.md`, monthly after discovery) searches the
     accounts of the venues in `data/instagram.json` (`venues`) with the web
     search of a Claude Code session and proposes them in
@@ -252,9 +260,9 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - Known sources are only listed in the prompt (not opened or reported again)
   if they are whitelisted, or were rated or had a hit in the last 90 days
   (`RECHECK_SOURCES_DAYS`); older ones are listed separately to be re-rated.
-- Usage: with Opus and 30 searches per pass about $4.35 at API prices for
-  Schongau alone (three passes); with the defaults (Sonnet, 20 searches, known
-  sources not re-read) roughly a third of that.
+- Usage: the run of 2026-11-13 for Schongau and Altenstadt (Sonnet, three
+  passes, 20 searches each) made 3 calls with 24 searches, about $0.80 at API
+  prices.
 
 ## Build the website
 
@@ -398,3 +406,8 @@ app permission (`permission`) stops the Instagram step for the whole run.
 Every run writes requests, searches, tokens, the estimated cost and the AI time
 to the GitHub job summary; the usage of the last events and discovery runs is
 also in `data/state.json` (`last_usage`).
+
+For reference, the events run of 2026-11-13 for two municipalities, before the
+page cache: 22 AI calls, 1.96 M input and 234 k output tokens, about $2 at API
+prices. Since then an unchanged source page costs no call, and known events are
+answered by id; compare the job summaries of later runs with these numbers.

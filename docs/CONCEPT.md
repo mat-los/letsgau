@@ -42,7 +42,7 @@ flowchart LR
   end
   ORS["OpenRouteService<br/>isochrone"]
   OSM["OpenStreetMap Overpass<br/>places in area"]
-  CL["Claude API<br/>Opus, Sonnet, Haiku<br/>web_search + web_fetch"]
+  CL["Claude API<br/>Sonnet, Haiku<br/>web_search + web_fetch"]
   WEB["Public websites<br/>municipalities, clubs, venues"]
   PAGES["GitHub Pages<br/>custom domain"]
   U["Visitors on mobile"]
@@ -67,7 +67,7 @@ sequenceDiagram
   participant A as GitHub Actions
   participant S as Scheduler
   participant G as Geo
-  participant D as Discovery (Opus)
+  participant D as Discovery (Sonnet)
   participant E as Event crawl (Sonnet)
   participant M as Merge (Haiku)
   participant B as Site build
@@ -98,7 +98,7 @@ sequenceDiagram
 | Datenspeicher | JSON-Dateien in `data/` | kostenlos, über Git versioniert; später Umstieg auf Supabase möglich |
 | Pipeline | Python 3.12, Pydantic, Jinja2 | einfach lesbar, gute Validierung der KI-Ausgabe |
 | KI | Claude API mit den serverseitigen Tools `web_search` und `web_fetch` | kein eigener Crawler nötig; Blacklist lässt sich als `blocked_domains` übergeben |
-| Modelle | Opus für Discovery, Sonnet für Events, Haiku für Duplikate | Gründlichkeit dort, wo sie zählt; günstig beim wöchentlichen Lauf |
+| Modelle | Sonnet für Discovery und Events, Haiku für Duplikate | Sonnet reicht für die Suche nach Quellen und kostet etwa die Hälfte von Opus; Haiku ist günstig beim Abgleich |
 | Frontend | statisches HTML, ein CSS, wenig Vanilla-JS | schnell am Handy, lesbar für KIs ohne JavaScript |
 | Diagramme | Mermaid | rendert direkt auf GitHub, als Text von KIs pflegbar |
 
@@ -146,7 +146,7 @@ jobs:                                   # format: off | daily | weekly:mon,thu |
   build: "daily"                        # rebuild daily so "today" is correct
 
 models:
-  discovery: "claude-opus-5-5"
+  discovery: "claude-sonnet-5-5"
   events: "claude-sonnet-5-5"
   merge: "claude-haiku-5-5"
 
@@ -294,7 +294,7 @@ Ein Workflow startet jeden Tag; das Skript entscheidet anhand von `config.yaml` 
 - Overpass-Abfrage holt alle Orte der Typen aus `place_types` in dieser Fläche; danach `include_places` ergänzen und `exclude_places` entfernen.
 - Pro Ort die Fahrzeit vom Mittelpunkt speichern (ORS Matrix); wird für "nach Entfernung" auf der Website genutzt.
 
-**3. Discovery mit Opus (Standard monatlich)**
+**3. Discovery mit Sonnet (Standard monatlich)**
 
 - Auftrag: Für jeden Ort gepflegte Veranstaltungsquellen finden, also Gemeindekalender, Vereine, Kulturzentren, Kinos, Cafés, Sporthallen, regionale Kalender und Presse.
 - Jede Quelle bewerten: Gibt es aktuelle Termine? Mit Datum und Ort als Text? Wie oft aktualisiert?
@@ -589,7 +589,7 @@ Claude Code baut in neun Phasen, jede als eigener Pull Request mit Tests und akt
 
 **Phase 7: Discovery**
 
-- [ ] Opus-Lauf ergänzt `sources.json` und schreibt `sources/suggested.md` mit bewerteten Kandidaten
+- [ ] Discovery-Lauf (Sonnet) ergänzt `sources.json` und schreibt `sources/suggested.md` mit bewerteten Kandidaten
 - [ ] Wird nach Geo-Änderung automatisch ausgelöst
 
 **Phase 8: Inhalte, Domain, Abschluss**

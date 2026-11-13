@@ -38,19 +38,15 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
-import yaml
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from pydantic import BaseModel, ConfigDict, ValidationError
+from pydantic import ValidationError
 
 from letsgau import instagram
 from letsgau.ai_runner import AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
     Event,
-    InstagramAccount,
     InstagramFile,
     PlacesFile,
-    RejectedCandidate,
     SeenVenue,
     Source,
     SourceKind,
@@ -60,9 +56,8 @@ from letsgau.models import (
     State,
     Usage,
 )
+from letsgau.util import DATA_DIR, PROMPTS_DIR, domain_of, is_blocked, prompt_env, write_json
 
-DATA_DIR = Path("data")
-PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
 MIN_RATING_FOR_CRAWL = 3
 MAX_KNOWN_PER_BATCH = 12
 RECHECK_SOURCES_DAYS = 90
@@ -210,15 +205,6 @@ def normalize_url(url: str) -> str:
     return f"{host}{path}{query}"
 
 
-def domain_of(url: str) -> str:
-    return (urlsplit(url).hostname or "").lower().removeprefix("www.")
-
-
-def is_blocked(url: str, blocked: Iterable[str]) -> bool:
-    host = domain_of(url)
-    return any(host == d or host.endswith("." + d) for d in blocked)
-
-
 SOCIAL_DOMAINS = (
     "instagram.com",
     "facebook.com",
@@ -271,12 +257,7 @@ def collapse(sources: Sequence[Source]) -> list[Source]:
 
 
 def save_sources(sources: SourcesFile, data_dir: Path = DATA_DIR) -> None:
-    path = data_dir / "sources.json"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(sources.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    write_json(data_dir / "sources.json", sources)
 
 
 # --- AI answer ------------------------------------------------------------------------------
@@ -343,34 +324,6 @@ def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> 
     return obj(properties)
 
 
-LOOKUP = "instagram"
-"""Marker of the Instagram lookup call that follows the passes of a batch."""
-MAX_LOOKUP_VENUES = 40
-
-
-def lookup_schema() -> dict[str, Any]:
-    candidate = {
-        "type": "object",
-        "properties": {
-            "username": {"type": "string"},
-            "name": {"type": "string"},
-            "places": {"type": "array", "items": {"type": "string"}},
-            "website": {"type": "string"},
-        },
-        "required": ["username", "name", "places", "website"],
-        "additionalProperties": False,
-    }
-    return {
-        "type": "object",
-        "properties": {
-            "instagram_candidates": {"type": "array", "items": candidate},
-            "notes": {"type": "string"},
-        },
-        "required": ["instagram_candidates", "notes"],
-        "additionalProperties": False,
-    }
-
-
 @dataclass
 class Venue:
     """A café, bar, club or venue seen in a pass; its account is looked up by name."""
@@ -378,30 +331,6 @@ class Venue:
     name: str
     places: list[str]
     website: str = ""
-
-
-def render_lookup_prompt(
-    config: Config,
-    groups: Sequence[Any],
-    venues: Sequence[Venue],
-    known_accounts: Sequence[str],
-    max_searches: int,
-) -> str:
-    """The prompt of the Instagram lookup call (``prompts/instagram_lookup.md``)."""
-    env = Environment(
-        loader=FileSystemLoader(PROMPTS_DIR),
-        undefined=StrictUndefined,
-        keep_trailing_newline=True,
-        autoescape=False,
-    )
-    return env.get_template("instagram_lookup.md").render(
-        region=config.region,
-        groups=groups,
-        venues=venues[:MAX_LOOKUP_VENUES],
-        known_accounts=known_accounts,
-        max_searches=max_searches,
-        max_places=MAX_LOOKUP_VENUES,
-    )
 
 
 def render_prompt(
@@ -416,12 +345,7 @@ def render_prompt(
 ) -> str:
     """The discovery prompt. ``known`` sources are only listed (not to be opened again),
     ``recheck`` ones are to be opened and rated anew (see :func:`is_fresh`)."""
-    env = Environment(
-        loader=FileSystemLoader(PROMPTS_DIR),
-        undefined=StrictUndefined,
-        keep_trailing_newline=True,
-        autoescape=False,
-    )
+    env = prompt_env(PROMPTS_DIR)
     return env.get_template("discovery.md").render(
         region=config.region,
         groups=groups,
@@ -554,168 +478,6 @@ def merge_answer(
 
 
 # --- events stage helpers ---------------------------------------------------------------------
-
-
-MAX_CANDIDATES_PER_RUN = 40
-"""Candidate Instagram names checked against their profile per discovery run."""
-CANDIDATE_RETRY_DAYS = 180
-
-
-@dataclass
-class Candidate:
-    username: str
-    name: str
-    places: list[str]
-    website: str
-
-
-def collect_candidates(
-    data: Mapping[str, Any],
-    *,
-    batch_places: Sequence[str],
-    resolve: Any,
-    key: str = "instagram_candidates",
-) -> list[Candidate]:
-    """The account names of one AI answer under ``key`` (not checked yet)."""
-    found = []
-    for item in data.get(key) or []:
-        if not isinstance(item, Mapping):
-            continue
-        handle = instagram.normalize(str(item.get("username", "")))
-        if not handle:
-            continue
-        places = [p for p in (resolve(n) for n in item.get("places") or []) if p]
-        found.append(
-            Candidate(
-                username=handle,
-                name=str(item.get("name") or ""),
-                places=sorted(set(places)) or list(batch_places),
-                website=str(item.get("website") or ""),
-            )
-        )
-    return found
-
-
-class ListedCandidate(BaseModel):
-    """An entry of ``sources.instagram_candidates_file`` (written by the lookup session)."""
-
-    model_config = ConfigDict(extra="ignore")
-    username: str
-    name: str = ""
-    places: list[str] = []
-    website: str = ""
-    found_on: str = ""
-    """Where the name was seen (search result or directory page); for the reviewer."""
-
-
-def listed_candidates(
-    config: Config, *, resolve: Any, default_places: Sequence[str] = ()
-) -> list[Candidate]:
-    """The entries of ``sources.instagram_candidates_file`` as candidates (not checked yet)."""
-    path = Path(config.sources.instagram_candidates_file or "")
-    if not config.sources.instagram_candidates_file or not path.exists():
-        return []
-    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or []
-    items = []
-    for entry in raw if isinstance(raw, list) else []:
-        try:
-            items.append(ListedCandidate.model_validate(entry).model_dump())
-        except ValidationError:
-            continue
-    return collect_candidates(
-        {"instagram_candidates": items}, batch_places=default_places, resolve=resolve
-    )
-
-
-def verify_candidates(
-    cache: InstagramFile,
-    candidates: Sequence[Candidate],
-    *,
-    names_of: Callable[[str], list[str]],
-    today: date,
-    env: Mapping[str, str],
-    get: instagram.Get,
-    api_version: str = "",
-    warnings: list[str],
-) -> tuple[list[str], list[str], list[str]]:
-    """Keep the candidates whose profile points to their place; returns the accepted, the
-    rejected and the kept names (known accounts that passed the check, with the evidence).
-
-    A candidate is accepted if it is a business or creator account whose name, biography or
-    website names one of its places (``names_of`` gives a municipality's names, its districts
-    included) or links the organiser's own website. Others go to ``cache.rejected`` and are
-    not checked again for :data:`CANDIDATE_RETRY_DAYS`.
-    """
-    token, user_id = env.get(instagram.TOKEN_ENV, ""), env.get(instagram.USER_ENV, "")
-    retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
-    todo: dict[str, Candidate] = {}
-    # mined accounts that were never read yet are checked too (e.g. found before this check
-    # existed); a rejected one is removed from the accounts
-    unread = {
-        u: Candidate(username=u, name="", places=list(a.places), website="")
-        for u, a in cache.accounts.items()
-        if a.origin == "mined" and a.status == "new" and a.last_checked is None
-    }
-    todo.update(unread)
-    for c in candidates:
-        if c.username in unread:
-            todo[c.username] = c  # the answer's website and name help the check
-            continue
-        old = cache.rejected.get(c.username)
-        if c.username in cache.accounts or c.username in todo:
-            continue
-        if old is not None and old.checked > retry_after:
-            continue
-        todo[c.username] = c
-    if not todo:
-        return [], [], []
-    if not token or not user_id:
-        if not candidates:
-            return [], [], []  # only unread accounts: nothing new to report
-        warnings.append(
-            f"instagram: {len(todo)} candidate account(s) not checked: "
-            f"{instagram.TOKEN_ENV} or {instagram.USER_ENV} not set"
-        )
-        return [], [], []
-    accepted: list[str] = []
-    rejected: list[str] = []
-    kept: list[str] = []
-    for checked, c in enumerate(todo.values()):
-        if checked >= MAX_CANDIDATES_PER_RUN:
-            warnings.append("instagram: candidate limit reached; the rest is checked next run")
-            break
-        try:
-            profile = instagram.fetch_profile(
-                c.username, user_id=user_id, token=token, api_version=api_version, get=get
-            )
-        except instagram.AccountError as exc:
-            if exc.kind in ("auth", "permission", "rate_limit", "network"):
-                warnings.append(f"instagram: candidates not checked further: {exc}")
-                break
-            cache.rejected[c.username] = RejectedCandidate(
-                checked=today, reason=exc.kind, name=c.name
-            )
-            cache.accounts.pop(c.username, None)
-            rejected.append(c.username)
-            continue
-        names = [n for place in c.places for n in names_of(place)]
-        if instagram.belongs_to(profile, names, c.website):
-            if c.username not in cache.accounts:
-                cache.accounts[c.username] = InstagramAccount(
-                    origin="mined", places=c.places, first_seen=today
-                )
-                accepted.append(c.username)
-            else:
-                evidence = profile.name or profile.biography or profile.website
-                kept.append(f"{c.username} ({evidence[:40]})")
-            cache.rejected.pop(c.username, None)
-        else:
-            cache.rejected[c.username] = RejectedCandidate(
-                checked=today, reason="profile does not name the place", name=c.name
-            )
-            cache.accounts.pop(c.username, None)
-            rejected.append(c.username)
-    return accepted, rejected, kept
 
 
 def is_fresh(source: Source, today: date) -> bool:
@@ -1008,23 +770,15 @@ def run(
     size = depth.discovery_places_per_request
     batches = [groups[i : i + size] for i in range(0, len(groups), size)]
     focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
-    candidates: list[Candidate] = []
+    candidates: list[instagram.Candidate] = []
     venues_seen: dict[int, dict[str, Venue]] = {}  # batch -> folded name -> venue
-    calls: list[tuple[int, Any, Focus | str | None]] = []
+    calls: list[tuple[int, Any, Focus | None]] = []
     for n, batch in enumerate(batches, 1):
         calls += [(n, batch, focus) for focus in focuses]
-        if insta_on and config.instagram.ai_lookup:
-            calls.append((n, batch, LOOKUP))
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
     for position, (number, batch, focus) in enumerate(calls):
-        label = f"batch {number}" + (
-            " (instagram)"
-            if focus == LOOKUP
-            else f" ({focus.id})"
-            if isinstance(focus, Focus)
-            else ""
-        )
+        label = f"batch {number}" + (f" ({focus.id})" if focus is not None else "")
         remaining = budget - result.usage.web_searches
         if remaining < 3:
             result.warnings.append(f"{label}: skipped, search budget used up")
@@ -1043,51 +797,6 @@ def run(
         per_call = max(
             3, min(depth.discovery_searches_per_request, remaining // (len(calls) - position))
         )
-        if focus == LOOKUP:
-            assert result.instagram_cache is not None
-            cache = result.instagram_cache
-            retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
-            skip = set(cache.accounts) | {
-                u for u, r in cache.rejected.items() if r.checked > retry_after
-            }
-            skip |= {c.username for c in candidates}
-            checklist = list(venues_seen.get(number, {}).values())
-            listed = {v.name.casefold() for v in checklist}
-            for s in known + recheck:
-                kind_ok = s.kind in (SourceKind.VENUE, SourceKind.CLUB)
-                if kind_ok and s.name and s.name.casefold() not in listed:
-                    listed.add(s.name.casefold())
-                    checklist.append(Venue(name=s.name, places=s.places[:1], website=s.url))
-            checklist = checklist[:MAX_LOOKUP_VENUES]
-            if not checklist:
-                print(f"discovery: {label}: skipped, no cafés, bars or venues to look up")
-                continue
-            per_call = max(3, min(remaining, len(checklist)))
-            request = AiRequest(
-                step=f"discovery {label}, call {position + 1}/{len(calls)}",
-                model=config.models.discovery,
-                prompt=render_lookup_prompt(config, batch, checklist, sorted(skip), per_call),
-                schema=lookup_schema(),
-                blocked_domains=blocked,
-                max_searches=per_call,
-            )
-            try:
-                answer = runner.run(request)
-            except AiError as exc:
-                result.warnings.append(f"{label}: {exc}")
-                continue
-            result.usage = result.usage.add(answer.usage)
-            found = collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
-            candidates += found
-            print(
-                f"discovery: {label}: {len(found)} candidate(s): "
-                + (", ".join(c.username for c in found) or "none")
-            )
-            note = str(answer.data.get("notes") or "").strip()
-            if note:
-                print(f"discovery: note from {label}: {note}")
-            continue
-        assert not isinstance(focus, str)
         request = AiRequest(
             step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,
@@ -1115,9 +824,9 @@ def run(
             focus=focus.id if focus else "",
         )
         if result.instagram_cache is not None:
-            seen = collect_candidates(
+            seen = instagram.collect_candidates(
                 answer.data, batch_places=names, resolve=to_municipality, key="instagram_accounts"
-            ) + collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
+            )
             candidates += seen
             for item in answer.data.get("venues_seen") or []:
                 if isinstance(item, Mapping) and str(item.get("name") or "").strip():
@@ -1144,10 +853,10 @@ def run(
         if note:
             print(f"discovery: note from {label}: {note}")
     if result.instagram_cache is not None:
-        candidates += listed_candidates(
+        candidates += instagram.listed_candidates(
             config, resolve=to_municipality, default_places=sorted(names_in)
         )
-        accepted, rejected, kept = verify_candidates(
+        accepted, rejected, kept = instagram.verify_candidates(
             result.instagram_cache,
             candidates,
             names_of=lambda m: names_in.get(m, [m]),
@@ -1198,10 +907,7 @@ def run(
             cache = result.instagram_cache.model_copy(
                 update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
             )
-            insta_path.write_text(
-                json.dumps(cache.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
+            write_json(insta_path, cache)
         state_path = data_dir / "state.json"
         state = (
             State.model_validate_json(state_path.read_text(encoding="utf-8"))

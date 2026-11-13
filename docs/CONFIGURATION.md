@@ -105,6 +105,7 @@ optional; the defaults are the thorough settings.
 | `discovery_places_per_request` | `2` | municipalities per discovery call |
 | `discovery_searches_per_request` | `20` | search limit per discovery call |
 | `crawl_sources_per_request` | `4` | known sources per *source sweep* call of the event crawl; every batch then ends with one *open search* call. `0` = one combined call per batch |
+| `open_search` | `alternate` | when sweep mode runs the open search: `every_run`, `alternate` (every other run: Monday-to-Wednesday and Thursday-to-Sunday runs take turns, so with `weekly:mon,thu` once a week) or `off`. A query checklist run found few events the known sources did not already list |
 | `crawl_searches_per_request` | `13` | search budget of the open search per batch, split into calls of about 13 searches (or the limit of the combined call). Each run starts the query checklist at a different point, so over a few runs every query is run even if a call stops early |
 
 ## `events`
@@ -198,13 +199,21 @@ docs/OPERATIONS.md.
 | `read_mined` | `true` | also read accounts found on pages the crawl reads or by discovery |
 | `api_version` | `""` | Graph API version such as `v24.0`; empty uses the app's default |
 | `prescreen` | `true` | before a post's images are read, a text-only call to `models.merge` drops posts whose caption is clearly not about an upcoming event (cached, not read again); when in doubt, a post is read |
-| `ai_lookup` | `false` | discovery's AI lookup call per batch ("<name> <town> instagram"); off because its search engine rarely shows usernames |
 
 ## `excluded_topics`
 
 Free-text topic blacklist. Matching events are never included (checked in the
 crawl prompt and again in the merge step, where stored events are checked too:
 a topic added later also removes events already in the calendar).
+
+## `excluded_title_patterns`
+
+List of regular expressions (Python syntax, case-insensitive), matched against
+the German title. A matching event is dropped by the crawl's validation and
+removed from the stored events by the merge, without asking the AI. Use it for
+the obvious cases (`'\bJahreshauptversammlung\b'`, `'\bProbe\b'`); everything
+else is left to `excluded_topics`. Write patterns in single quotes in YAML. An
+invalid pattern is a configuration error. Default: none.
 
 ## `tags`
 

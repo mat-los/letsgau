@@ -180,6 +180,8 @@ class DepthConfig(_Strict):
     """Known sources per "source sweep" call; 0 = one combined call per batch."""
     crawl_searches_per_request: int = Field(default=13, ge=3, le=100)
     """Search limit of the open-search call (and of the combined call)."""
+    open_search: Literal["every_run", "alternate", "off"] = "alternate"
+    """When sweep mode runs the open search: every run, every other run, or never."""
 
 
 class EventsConfig(_Strict):
@@ -217,10 +219,6 @@ class InstagramConfig(_Strict):
     prescreen: bool = True
     """Before reading a post's images, a text-only call (``models.merge``) drops posts whose
     caption is clearly not about an upcoming event; when in doubt, a post is read."""
-    ai_lookup: bool = False
-    """Discovery's AI lookup call per batch ("<name> <town> instagram" searches). Off by
-    default: its search engine rarely shows usernames; the scheduled lookup session writes
-    ``sources.instagram_candidates_file`` instead."""
 
 
 class Tag(_Strict):
@@ -244,7 +242,26 @@ class Config(_Strict):
     sources: SourcesConfig
     instagram: InstagramConfig = InstagramConfig()
     excluded_topics: list[str] = []
+    excluded_title_patterns: list[str] = []
+    """Case-insensitive regular expressions; an event whose German title matches one is
+    dropped without asking the AI (the obvious members-only events)."""
     tags: list[Tag] = Field(min_length=1)
+
+    @field_validator("excluded_title_patterns")
+    @classmethod
+    def _valid_patterns(cls, value: list[str]) -> list[str]:
+        for pattern in value:
+            try:
+                re.compile(pattern)
+            except re.error as exc:
+                raise ValueError(f"invalid regular expression {pattern!r}: {exc}") from exc
+        return value
+
+    def excluded_title(self, title: str) -> str | None:
+        """The first ``excluded_title_patterns`` entry that matches ``title``, or None."""
+        return next(
+            (p for p in self.excluded_title_patterns if re.search(p, title, re.IGNORECASE)), None
+        )
 
     @field_validator("tags")
     @classmethod

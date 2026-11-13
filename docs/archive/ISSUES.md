@@ -1,5 +1,8 @@
 # GitHub issues, milestones and labels
 
+> **Archived.** This was the one-off setup of the version 1 milestones,
+> labels and issues; every phase is done. Open work lives in the GitHub issues.
+
 Project organisation as described in `docs/CONCEPT.md` (section "Projektorganisation in GitHub").
 The issues and labels exist on GitHub (labels were auto-created without color or description).
 Milestones cannot be created with the tools available to Claude Code, so run the script at the

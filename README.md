@@ -11,12 +11,9 @@ GitHub Pages. The site is equally usable by people on their phones, by search
 engines and by AI assistants.
 
 > **Status:** all phases of version 1 are implemented (geo, event crawl, merge,
-> website, AI readability, scheduler and workflow, discovery, content pages);
-> see [docs/ISSUES.md](docs/ISSUES.md).
+> website, AI readability, scheduler and workflow, discovery, content pages).
 > See [docs/CONCEPT.md](docs/CONCEPT.md) (German) for the full specification and
-> the phase plan, and [docs/ISSUES.md](docs/ISSUES.md) for the task list.
-
-<!-- Screenshot will be added in Phase 4. -->
+> the phase plan, and the GitHub issues for open work.
 
 ## How it works
 
@@ -63,7 +60,8 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 3. **Secrets:** under *Settings → Secrets and variables → Actions* add
    `CLAUDE_CODE_OAUTH_TOKEN` (create it with `claude setup-token`; needs a
    Claude subscription). Without a subscription set `ai.auth: api_key` and add
-   `ANTHROPIC_API_KEY` instead.
+   `ANTHROPIC_API_KEY` instead; the workflow then also installs the Anthropic
+   SDK (`pip install -e '.[api]'`, needed only in that mode).
 4. **Enable GitHub Pages:** *Settings → Pages → Source: GitHub Actions*.
 5. **Start the first run:** *Actions → Run → Run workflow*, job `all`. It
    computes the places, discovers sources, crawls the events and publishes the
