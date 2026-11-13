@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `site.goatcounter`: optional cookieless visitor counting with GoatCounter.
+  When set, every page loads its script and the privacy page describes what is
+  counted; empty (the default) keeps the site free of any external script.
 - `excluded_title_patterns`: case-insensitive regular expressions on the
   German title; matching events are dropped by the crawl's validation and
   removed from the stored events by the merge, without asking the AI. The

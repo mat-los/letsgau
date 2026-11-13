@@ -60,6 +60,8 @@ class SiteConfig(_Strict):
     """IANA time zone of the region; decides what "today" is on the website."""
     indexing: bool = True
     """False adds ``noindex`` to every page and stops inviting crawlers in robots.txt."""
+    goatcounter: str = Field(default="", pattern=r"^([a-z0-9-]+|\{\{[A-Z_]+\}\})?$")
+    """GoatCounter site code (``<code>.goatcounter.com``); empty = no visitor counting."""
 
     @model_validator(mode="after")
     def _some_contact(self) -> SiteConfig:

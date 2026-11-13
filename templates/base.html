@@ -69,5 +69,7 @@
 <script src="{{ root }}assets/app.js" defer></script>
 <script src="{{ root }}assets/search.js" defer></script>
 {% block scripts %}{% endblock %}
+{% if config.site.goatcounter %}<script data-goatcounter="https://{{ config.site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endif %}
 </body>
 </html>

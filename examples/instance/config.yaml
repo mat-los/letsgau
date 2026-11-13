@@ -11,6 +11,7 @@ site:
   feedback_form_endpoint: ""            # form service URL; empty = mailto fallback
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
   indexing: true                        # false = noindex on every page (hidden from search engines)
+  goatcounter: ""                       # optional GoatCounter code: cookieless visitor counts; "" = off
 
 region:
   label: "{{REGION_LABEL}}"             # name of the region in page titles

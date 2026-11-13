@@ -460,7 +460,7 @@ Alle Inhaltsseiten sind Markdown-Dateien in `content/`, je eine pro Sprache, und
 **Rechtliches** (kein Rechtsrat, vor dem Livegang prüfen lassen):
 
 - Impressum mit Anbieterangaben nach Digitale-Dienste-Gesetz.
-- Datenschutzerklärung: GitHub Pages verarbeitet beim Aufruf IP-Adressen; keine Cookies, kein Tracking, keine externen Schriften oder CDNs; localStorage nur für Filter und Sprache.
+- Datenschutzerklärung: GitHub Pages verarbeitet beim Aufruf IP-Adressen; keine Cookies, keine externen Schriften oder CDNs; localStorage nur für Filter und Sprache. Optional zählt GoatCounter Seitenaufrufe (`site.goatcounter`): ohne Cookies und ohne personenbezogene Daten, das einzige externe Skript; die Datenschutzerklärung nennt es dann.
 - Urheberrecht: nur eigene Kurzbeschreibungen, keine kopierten Texte oder Bilder aus den Quellen; die Quelle wird verlinkt.
 
 ## Repository, Dokumentation, Secrets, Kosten
