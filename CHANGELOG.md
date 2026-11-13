@@ -175,6 +175,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Category filter: "Zurücksetzen" looks like an action, not a category (no pill,
+  muted, with a cross, at the end of the row).
 - Start page (`/de/`, `/en/`) and `/`: title and share preview without a date
   ("Was ist los in und um <region>?") and the general address as `og:url`, so a
   link shared on WhatsApp no longer shows the day it was shared. Dated pages keep
@@ -389,6 +391,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Phone, light mode: the category/grouping strip is light again (since the pinned
+  header it had the dark header background).
 - Re-checks skip events whose primary source is an Instagram or Facebook post:
   a fetch gets no content there, so the call could never confirm them (the
   Instagram step re-reads its cached posts instead).
