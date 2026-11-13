@@ -1022,3 +1022,29 @@ def test_invalid_title_pattern_is_a_config_error(tmp_path: Path) -> None:
 
     with pytest.raises(ConfigError, match="invalid regular expression"):
         load_config(path)
+
+
+def test_events_from_social_posts_are_not_rechecked(tmp_path: Path, data_dir: Path) -> None:
+    config = make_config(tmp_path, sweeps=4, places_per_request=8)
+    crawl.run(config, runner=FakeRunner(), data_dir=data_dir, today=TODAY)  # known events
+    path = data_dir / "events.json"
+    stored = EventsFile.model_validate_json(path.read_text("utf-8"))
+    deep_end = TODAY + timedelta(days=config.window.deep_check_days)
+    deep = [e for e in stored.events if e.parent_id is None and e.schedule.start_date <= deep_end]
+    post = deep[0].model_copy(
+        update={
+            "sources": [
+                deep[0]
+                .sources[0]
+                .model_copy(update={"url": "https://www.instagram.com/p/Abc123/", "primary": True})
+            ]
+        }
+    )
+    events = [post if e.id == post.id else e for e in stored.events]
+    path.write_text(stored.model_copy(update={"events": events}).model_dump_json(), "utf-8")
+
+    runner = FakeRunner(answers=[{"events": []}] * 5)  # the sweep finds none of them
+    crawl.crawl(config, runner, data_dir=data_dir, today=TODAY)
+    recheck = next(r.prompt for r in runner.requests if "(recheck" in r.step)
+    assert post.title.de not in recheck.split("## Known events to re-check")[1]
+    assert crawl._from_social_post(post) and not crawl._from_social_post(deep[1])

@@ -98,7 +98,9 @@ python -m letsgau run --job events --dry-run --limit-places 3
     Events that a source call of the same run already reported again count as
     confirmed and are left out, and so are events whose source page was read
     as text in this run (found there, or no longer listed: then the merge
-    counts a miss); if none remain, the re-check call is skipped;
+    counts a miss), and events whose primary source is an Instagram or Facebook
+    post (a fetch gets no content there); if none remain, the re-check call is
+    skipped;
   - the open search (every other run with `depth.open_search: alternate`, the
     default) skips the known sources and runs a fixed query checklist per
     municipality (every month of the window, 15 topics, every district), each

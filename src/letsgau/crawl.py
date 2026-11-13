@@ -1113,7 +1113,11 @@ def crawl(
             queries=rotate_queries(
                 search_queries(batch.groups, today, window_end, postcodes), today
             ),
-            recheck=[e for e in batch.known if e.schedule.start_date <= deep_end],
+            recheck=[
+                e
+                for e in batch.known
+                if e.schedule.start_date <= deep_end and not _from_social_post(e)
+            ],
             search_calls=max(
                 1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
             )
@@ -1480,6 +1484,17 @@ def _run_pages_call(
         known={e.id: e for e in batch.known},
     )
     return [t.url for t in call.pages]
+
+
+SOCIAL_HOSTS = ("instagram.com", "facebook.com")
+
+
+def _from_social_post(event: Event) -> bool:
+    """True if the event's primary source is a social media post. A fetch gets no content
+    there, so a re-check call cannot confirm it; the Instagram step re-reads its cached posts
+    instead."""
+    primary = next(s.url for s in event.sources if s.primary)
+    return is_blocked(primary, SOCIAL_HOSTS)
 
 
 def _skip(report: BatchReport, reason: str) -> None:
