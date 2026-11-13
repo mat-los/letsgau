@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:03:40Z",
+  "updated_at": "2026-11-13T23:52:23Z",
   "sources": [
     {
       "url": "https://www.ab-ins-schwimmbad.de/Schongau/Hallenbad-Plantsch.html",
@@ -80,7 +80,7 @@
       "note": "Only about 6 entries, mixed with neighbouring towns (Peiting, Steingaden, Bad Kohlgrub); does list current Reaktor shows (e.g. 05.12.2026) and Lumora on 14.11.2026.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 22,
+      "hits": 25,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -563,7 +563,7 @@
       "note": "Regional calendar with about 14 events, date/time/address as text; only rarely a Schongau entry (e.g. 20.12. Weihnachtsoratorium, St. Anna); no pagination.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 12,
+      "hits": 13,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -584,6 +584,27 @@
       "note": "Listed in the town club directory; page failed (certificate error), no events seen.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "http://www.birklaender-musikanten.de",
+      "domain": "birklaender-musikanten.de",
+      "name": "Birkländer Musikanten",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Fetch failed with SSL error; check by hand.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -626,7 +647,7 @@
       "note": "Full 2026 list as text with time (Jahreskonzert 21.11. 20:00, Veteranenjahrtag 15.11., Dorfweihnachtsfeier 19.12., Christmette), but no venues given.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 3,
+      "hits": 6,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -668,7 +689,7 @@
       "note": "Re-rated from 3: the 2026/27 programme (Comedy Lounge, Starkbieranstich) is only in brochure images; use the Reservix shop for dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 134,
+      "hits": 144,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -710,6 +731,48 @@
       "note": "Self-signed certificate, not readable.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.brkbereitschaften-wm-sog.de/angebote/standard-titel-1.html",
+      "domain": "brkbereitschaften-wm-sog.de",
+      "name": "BRK Bereitschaft Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Description only, no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.bs-herzogsaegmuehle.de",
+      "domain": "bs-herzogsaegmuehle.de",
+      "name": "Bogenschützen Herzogsägmühle",
+      "kind": "club",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Weekly Kindertraining only; /termine-und-turniere not read.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -924,7 +987,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.deutsche-weihnachtsmaerkte.de/weihnachtsmarkt/in/bayern/weihnachtsmarkt-schongau-266.html",
@@ -1011,6 +1074,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://diewerkfeuerwehr.net/",
+      "domain": "diewerkfeuerwehr.net",
+      "name": "Werkfeuerwehr Herzogsägmühle",
+      "kind": "club",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only past open day 10.10.2026; separate Termine page.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.ec-peiting.de/oberliga/",
       "domain": "ec-peiting.de",
       "name": "EC Peiting – Oberliga Spielplan",
@@ -1029,7 +1113,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://eeb-oberland.de/programm/evang-luth-kirchengemeinde-schongau",
@@ -1095,6 +1179,28 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.evang-kirche-peiting.de/veranstaltungen-gottesdienste/",
+      "domain": "evang-kirche-peiting.de",
+      "name": "Ev.-Luth. Kirchengemeinde Peiting-Herzogsägmühle",
+      "kind": "club",
+      "places": [
+        "Herzogsägmühle",
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "unknown",
+      "note": "Page embeds evangelische-termine.de widget and shows no text; use the evangelische-termine feed instead.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
       "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
       "domain": "evangelische-termine.de",
       "name": "Ev.-Luth. Kirchengemeinde Schongau (evangelische-termine.de)",
@@ -1109,10 +1215,74 @@
       "note": "Full parish calendar as text with date, time and room; also includes ecumenical dates in Peiting/Altenstadt; shows only about two weeks ahead.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 133,
+      "hits": 142,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+      "domain": "evangelische-termine.de",
+      "name": "evangelische-termine.de – Kirchengemeinde Peiting-Herzogsägmühle",
+      "kind": "calendar",
+      "places": [
+        "Herzogsägmühle",
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 5,
+      "update_frequency": "weekly",
+      "note": "Services, senior meetups, Film des Monats at Rainer-Endisch-Saal, with date, time and place, through 1 Dec 2026.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 13,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.eventbrite.at/d/germany--hohenfurch/events--today/",
+      "domain": "eventbrite.at",
+      "name": "Eventbrite Hohenfurch",
+      "kind": "calendar",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Generic template pages showing unrelated events from other cities.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.eventbrite.de/d/germany--peiting/events--this-weekend",
+      "domain": "eventbrite.de",
+      "name": "Eventbrite Peiting",
+      "kind": "calendar",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Generic aggregator with almost no local events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
       "empty_runs": 0
     },
     {
@@ -1151,6 +1321,27 @@
       "note": "Aggregator category page, mostly regional/nearby events (e.g. Peiting), same data as already known eventfinder pages.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.eventfinder.de/peiting/konzerte/",
+      "domain": "eventfinder.de",
+      "name": "eventfinder Peiting Konzerte",
+      "kind": "calendar",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Concert subpage of the known eventfinder site; mostly ticket listings.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -1474,6 +1665,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.festivalsindeutschland.de/festival/lechgau-trachtenfest-hohenfurch",
+      "domain": "festivalsindeutschland.de",
+      "name": "festivalsindeutschland Lechgau-Trachtenfest",
+      "kind": "calendar",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "One-off festival (July 2026), past; the site may list other Hohenfurch festivals in future.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.festivalsindeutschland.de/festival/peitinger-buergerfest",
       "domain": "festivalsindeutschland.de",
       "name": "festivalsindeutschland.de – Peitinger Bürgerfest",
@@ -1538,6 +1750,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://feuerwehr-peiting.de/termine/",
+      "domain": "feuerwehr-peiting.de",
+      "name": "Freiwillige Feuerwehr Peiting – Termine",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "42 dated entries to Jan 2027, but mostly internal drills/Weihnachtsfeiern; public ones are Weihnachtsmarkt and Christbaumversteigerung.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
       "url": "https://feuerwehr-schongau.de/",
       "domain": "feuerwehr-schongau.de",
       "name": "Freiwillige Feuerwehr Schongau – home page",
@@ -1573,6 +1806,27 @@
       "note": "Reports and callouts; occasionally announces public dates (e.g. anniversary, taster training); no Termine page.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.fischereiverein-peiting.de/Termine/",
+      "domain": "fischereiverein-peiting.de",
+      "name": "Fischereiverein Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Terminplan 2026 only as PDF.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -1657,7 +1911,7 @@
       "note": "Monthly program with dates, times, places (MIZ, Aula, Galerie Schottmayer) as text; exhibitions are public.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 11,
+      "hits": 13,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -1811,6 +2065,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.haerle.de",
+      "domain": "haerle.de",
+      "name": "Brauerei Clemens Härle",
+      "kind": "venue",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Brewery site (Leutkirch); no Peiting event page found, only a listed Peiting concert on third-party portals.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.hausundgrund.de/verband/bayern/jhv-haus-grund-schongau-70-jaehriges-bestehen-des-vereins",
       "domain": "hausundgrund.de",
       "name": "Haus & Grund Schongau JHV report",
@@ -1853,6 +2128,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.herzogsaegmuehle.de/einkehren",
+      "domain": "herzogsaegmuehle.de",
+      "name": "Café und Wirtshaus Herzog – Wochenangebote und Abende",
+      "kind": "venue",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "Themed food evenings (e.g. Halbes Hendl 17 Nov, Burgerabend 12 Feb 2027) as text.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 3,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
       "domain": "herzogsaegmuehle.de",
       "name": "Diakoniedorf Herzogsägmühle – Veranstaltungen",
@@ -1860,17 +2156,80 @@
       "places": [
         "Peiting"
       ],
-      "origin": "discovery",
+      "origin": "whitelist",
       "status": "active",
       "rating": 5,
       "update_frequency": "monthly",
       "note": "Text list of dated events (Halbes Hendl 17.11., Weihnachtsmarkt 27–29.11.2026, Dorffest, Serenade 2027) with detail pages.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 4,
+      "hits": 8,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+      "domain": "herzogsaegmuehle.de",
+      "name": "Weihnachtsmarkt Herzogsägmühle",
+      "kind": "municipality",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Single-event page, dates 27–29 Nov 2026.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 9,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.herzogsaegmuehle.de/leben-im-dorf/aktuelles",
+      "domain": "herzogsaegmuehle.de",
+      "name": "Herzogsägmühle Aktuelles / Neuigkeiten",
+      "kind": "municipality",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "News pages incl. Weihnachtsmarkt (27–29 Nov 2026) and the Neuigkeiten newsletter, which is partly PDF.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
+      "url": "https://www.herzogsaegmuehle.de/leben-im-dorf/vereine",
+      "domain": "herzogsaegmuehle.de",
+      "name": "Herzogsägmühle Vereine",
+      "kind": "municipality",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Club directory with four clubs (Sportverein/Bogenschützen, Dorfentwicklung, Werkfeuerwehr, Fischereiverein), no events itself; next pass should check the linked sites.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
       "empty_runs": 0
     },
     {
@@ -1938,6 +2297,50 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_68_Internet.pdf",
+      "domain": "hohenfurch.de",
+      "name": "Schönach-Kurier Ausgabe 68",
+      "kind": "municipality",
+      "places": [
+        "Altenstadt",
+        "Hohenfurch",
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Old issue (2025) mentioning the club Christmas market of 29.11.2025; outdated.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_69_Internet.pdf",
+      "domain": "hohenfurch.de",
+      "name": "Schönach-Kurier Ausgabe 69 (PDF)",
+      "kind": "municipality",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "An older issue of the municipal newsletter, superseded by issues 70 and 72.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
       "domain": "hohenfurch.de",
       "name": "Schönach-Kurier (Gemeinde-Mitteilungsblatt Hohenfurch)",
@@ -1953,6 +2356,27 @@
       "note": "PDF issues (Ausgabe 70 is April 2026) include a Vereinstermine list for about six months; the PDF text could not be read here; check for a newer autumn 2026 issue at the same path (Ausgabe_71_Internet.pdf).",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-13",
+      "hits": 1,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_72_Internet.pdf",
+      "domain": "hohenfurch.de",
+      "name": "Schönach-Kurier Ausgabe 72 (Oct 2026)",
+      "kind": "municipality",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "PDF with Vereinstermine Herbst 2026–Frühjahr 2027 per homepage; my fetch could not read the text, check by hand; supersedes known Ausgabe 70.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": "2026-11-13",
@@ -1962,18 +2386,61 @@
     {
       "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Feriensommer_2026_DINA5_20260710_WEB.pdf",
       "domain": "hohenfurch.de",
-      "name": "Feriensommer 2026 (Tourist Information Schongau / youth officers)",
+      "name": "Feriensommer 2026 brochure",
       "kind": "municipality",
       "places": [
+        "Hohenfurch",
         "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Summer holiday programme 2026 (Schongau/Hohenfurch/Altenstadt), PDF only, season over.",
+      "first_seen": "2026-11-09",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.hohenfurch.de/fileadmin/users/230/2023_Jahresbericht_SVH.pdf",
+      "domain": "hohenfurch.de",
+      "name": "SV Hohenfurch Jahresbericht 2023 (PDF)",
+      "kind": "club",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Annual report from 2023, outdated and has no upcoming events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.hohenfurch.de/freizeit-u-kultur",
+      "domain": "hohenfurch.de",
+      "name": "Gemeinde Hohenfurch – Freizeit und Kultur",
+      "kind": "municipality",
+      "places": [
+        "Hohenfurch"
       ],
       "origin": "discovery",
       "status": "active",
       "rating": 2,
       "update_frequency": "rare",
-      "note": "Summer holiday programme as a PDF, published once a year in July.",
-      "first_seen": "2026-11-09",
-      "last_checked": "2026-11-09",
+      "note": "Overview linking the known clubs and excursion sites, no dated events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -2044,6 +2511,48 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.hohenfurch.de/schoenach-kurier",
+      "domain": "hohenfurch.de",
+      "name": "hohenfurch.de homepage news / Tourismus-Info",
+      "kind": "municipality",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Homepage shows news but no event list; tourism info page (hohenfurch.de/tourismus/zu-gast-in-hohenfurch) has no events, only contact and rooms.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.hohenfurch.de/tourismus/zu-gast-in-hohenfurch",
+      "domain": "hohenfurch.de",
+      "name": "Gemeinde Hohenfurch – Zu Gast in Hohenfurch",
+      "kind": "municipality",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Tourist info page without any listing of Gastronomie or events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.hohenfurch.de/vereine/eine-vielzahl-vereine",
       "domain": "hohenfurch.de",
       "name": "Gemeinde Hohenfurch – Vereinsübersicht",
@@ -2062,7 +2571,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.hohenfurch.de/vereine/kalkbrenner-kapelle",
@@ -2191,6 +2700,27 @@
       "empty_runs": 3
     },
     {
+      "url": "http://www.judo-peiting.de",
+      "domain": "judo-peiting.de",
+      "name": "Judo Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Spitzbubenturnier 21 Nov plus beginners' course; year not stated.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 1,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
       "url": "https://juze-peiting.de/",
       "domain": "juze-peiting.de",
       "name": "Jugendzentrum Peiting",
@@ -2209,7 +2739,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.juze-schongau.de/termine/",
@@ -2230,7 +2760,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 3
+      "empty_runs": 4
     },
     {
       "url": "https://www.kfv-schongau.de",
@@ -2356,7 +2886,7 @@
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "unreachable",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "http://www.kirstein.de/Termine/",
@@ -2373,7 +2903,7 @@
       "note": "Shop events (e.g. Taylor Tone Show Fr 27.11.2026, 18:30, free, registration); commercial workshops, few entries.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 7,
+      "hits": 8,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -2419,7 +2949,7 @@
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.kirstein.de/Pianotainment/",
@@ -2485,6 +3015,27 @@
       "empty_runs": 0
     },
     {
+      "url": "http://www.kleintierzuchtverein-peiting.de",
+      "domain": "kleintierzuchtverein-peiting.de",
+      "name": "Kleintierzuchtverein Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Kreisgeflügelschau 7–8 Nov 2026 at Saliterhof; separate Termine page.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
       "url": "https://www.knappschaftskapelle.de",
       "domain": "knappschaftskapelle.de",
       "name": "Knappschafts- und Trachtenkapelle Peiting – Startseite",
@@ -2499,7 +3050,7 @@
       "note": "Start page shows the next concerts as text; the rest is behind the Konzertmeister widget.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 1,
+      "hits": 2,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -2541,10 +3092,31 @@
       "note": "Lists about 8 events from 12 Nov to 31 Dec 2026 with date, time and place as text; some sign-up deadlines carry the wrong year (2025).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 101,
+      "hits": 105,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.komoot.com/highlight/2513817",
+      "domain": "komoot.com",
+      "name": "komoot highlight (Schongau gastronomy)",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Tourist POI listing, no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
       "empty_runs": 0
     },
     {
@@ -2589,7 +3161,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
@@ -2606,7 +3178,7 @@
       "note": "Same Flohmarkt-Pfaffenwinkel dates as meine-flohmarkt-termine, mixed with other towns in the postcode area; use as a cross-check only.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 18,
+      "hits": 20,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -2753,7 +3325,7 @@
       "note": "Cinema's own schedule as text, running 9.11.–2.12.2026 (also available as a PDF); lagerhauskino.de fails with an SSL error.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 126,
+      "hits": 135,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -2793,6 +3365,27 @@
       "rating": 2,
       "update_frequency": "unknown",
       "note": "Menu has a /termine page (landjugend-hohenfurch.de/termine) that I could not read; the start page has no dates.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "http://www.landjugend-peiting.de/",
+      "domain": "landjugend-peiting.de",
+      "name": "Kath. Landjugend Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Domain does not resolve.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -2842,6 +3435,28 @@
       "last_swept": null,
       "last_result": null,
       "empty_runs": 0
+    },
+    {
+      "url": "https://www.lernort-herzogsaegmuehle.de/veranstaltungen-und-projekte/2026",
+      "domain": "lernort-herzogsaegmuehle.de",
+      "name": "Lernort Herzogsägmühle – Veranstaltungen und Projekte 2026",
+      "kind": "other",
+      "places": [
+        "Herzogsägmühle",
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "rare",
+      "note": "Few exhibition and vernissage dates as text (e.g. 7 Dec 2026); archive pages for earlier years.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
     },
     {
       "url": "https://www.liccambra.org/",
@@ -2898,6 +3513,27 @@
       "rating": 2,
       "update_frequency": "rare",
       "note": "Only news items (Tag der offenen Tür 16.10.2026, Spielgruppe), no events calendar.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.liedertafel-hohenfurch.de",
+      "domain": "liedertafel-hohenfurch.de",
+      "name": "Liedertafel Hohenfurch",
+      "kind": "club",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "'Zur Zeit sind keine Veranstaltungen geplant'; weekly rehearsal Thursday 19:00 in Rathaus.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -3068,7 +3704,7 @@
       "note": "Lists all Flohmarkt-Pfaffenwinkel dates (Festplatz Lechuferstr. 4 and Altstadtflohmarkt Marienplatz), already through 2027; start times are on the detail pages.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 5,
+      "hits": 6,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3077,18 +3713,19 @@
     {
       "url": "https://www.merkur.de/lokales/schongau/",
       "domain": "merkur.de",
-      "name": "Schongauer Nachrichten (Münchner Merkur) – Lokales Schongau",
+      "name": "Merkur / Schongauer Nachrichten Lokales Schongau",
       "kind": "press",
       "places": [
+        "Peiting",
         "Schongau"
       ],
       "origin": "discovery",
       "status": "active",
       "rating": 2,
       "update_frequency": "weekly",
-      "note": "Fetching is blocked for automated tools. Main local daily; event announcements appear only inside articles, and no separate calendar page was found.",
+      "note": "schongauer-nachrichten.de redirects here; the page could not be fetched, so it was not verified.",
       "first_seen": "2026-11-09",
-      "last_checked": "2026-11-09",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -3152,6 +3789,69 @@
       "note": "Single event page (Historischer Markt, 31.7.–9.8.2026), now past.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://msc-peiting.de/veranstaltungen/",
+      "domain": "msc-peiting.de",
+      "name": "MSC Peiting im ADAC – Veranstaltungen",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "Stammtisch, Weihnachtsfeier 28.11. and Oldtimer-Teilemarkt, years missing; mostly member events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
+      "url": "https://museen-in-bayern.de/en/museums/museum-details/lernort-sozialdorf-herzogsaegmuehle",
+      "domain": "museen-in-bayern.de",
+      "name": "museen-in-bayern Lernort Sozialdorf Herzogsägmühle",
+      "kind": "other",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Museum directory entry, visits by arrangement only.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://museen-in-bayern.de/en/museums/museum-details/museum-im-kloesterle",
+      "domain": "museen-in-bayern.de",
+      "name": "museen-in-bayern Museum im Klösterle",
+      "kind": "other",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Opening hours conflict between directories; no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -3236,7 +3936,7 @@
       "note": "Event calendar with place and time as text (Musikschule Saal, Brahmsgarten); currently 0 upcoming, though the homepage teases a concert on 25 Nov.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 12,
+      "hits": 13,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3264,6 +3964,48 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.mvv-muenchen.de/en/leisure-ideas/places-to-visit-in-the-districts-covered-by-the-munich-transport-association/mvv-christmas-market-tour/",
+      "domain": "mvv-muenchen.de",
+      "name": "MVV Christmas market tour",
+      "kind": "other",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Lists Peiting Christmas market (Hauptplatz) 28–30 Nov 2025; 2026 edition not confirmed, check peiting.de.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.negele-zeus.de",
+      "domain": "negele-zeus.de",
+      "name": "Hotel Negele / Restaurant Zeus",
+      "kind": "venue",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Hauptplatz 2; site could not be opened (certificate error), so events are unverified.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.news.de/lokales/860161036/landkreis-weilheim-schongau-veranstaltungen-im-november-2026-events-aktuell-und-termine-in-der-naehe/1/",
       "domain": "news.de",
       "name": "news.de – Veranstaltungen Landkreis Weilheim-Schongau",
@@ -3278,6 +4020,48 @@
       "note": "Auto-generated article that mixes in Oberhausen (NRW) events and has no Schongau events.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.oafach-schea.de",
+      "domain": "oafach-schea.de",
+      "name": "Oafach-Schea Deko-Café Hohenfurch",
+      "kind": "venue",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Lists dated events as text (Südtiroler Abend 30.10.26, Weihnachtsausstellung 12.–14.11.26) plus closures; links Instagram oafach_schea.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 1,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
+      "url": "http://www.obstundgartenbauverein-peiting.de/",
+      "domain": "obstundgartenbauverein-peiting.de",
+      "name": "Obst- und Gartenbauverein Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Page returned empty.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -3362,7 +4146,7 @@
       "note": "Lists the Herbstkonzert on 14.11.2026 in the Ballenhaussaal (site says 17:00, an aggregator says 18:00).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 17,
+      "hits": 18,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3444,6 +4228,27 @@
       "rating": 1,
       "update_frequency": "rare",
       "note": "Five clubs incl. TTC Birkland with departments; only club descriptions, no dates.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.peiting.de/en/?p=11654",
+      "domain": "peiting.de",
+      "name": "peiting.de Touristinfo page",
+      "kind": "municipality",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Contact for Touristinfo (Hauptplatz 4); no event listing.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -3558,6 +4363,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.peiting.de/freizeit/vereine_und_verbaende/kolpingsfamilie-peiting/",
+      "domain": "peiting.de",
+      "name": "Kolpingsfamilie Peiting (municipal page)",
+      "kind": "municipality",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Only the weekly Wednesday meeting; no dated public events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.peiting.de/tourismus/",
       "domain": "peiting.de",
       "name": "Markt Peiting – Tourismus",
@@ -3639,7 +4465,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.peiting.de/wp-content/uploads/2026/02/Landurlaub-im-Pfaffenwinel-2026-online.pdf",
@@ -3665,7 +4491,7 @@
     {
       "url": "https://www.peiting.de/wp-content/uploads/2026/02/Landurlaub-im-Pfaffenwinkel-2026-online.pdf",
       "domain": "peiting.de",
-      "name": "Landurlaub im Pfaffenwinkel 2026 (Peiting brochure)",
+      "name": "Landurlaub im Pfaffenwinkel 2026",
       "kind": "other",
       "places": [
         "Schongau"
@@ -3674,9 +4500,9 @@
       "status": "active",
       "rating": 2,
       "update_frequency": "rare",
-      "note": "Yearly PDF brochure with only general regional events; not current.",
+      "note": "Already known; mentions the Bootshaus at the Schongauer Stausee.",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -3744,7 +4570,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.pg-altenstadt.org",
@@ -3766,7 +4592,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.pg-altenstadt.org/gottesdienste",
@@ -3804,7 +4630,7 @@
       "note": "Front-page news posts carry dates as text; the weekly Kirchenanzeiger and the 'Termine' page are PDFs only; /aktuelles-termine/ is empty ('erscheinen demnächst').",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 145,
+      "hits": 156,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3888,7 +4714,7 @@
       "note": "Weekly Kirchenanzeiger PDFs (e.g. /wp-content/uploads/2026/11/46_So-32.pdf) with all services and parish dates, but PDF only; plus Pfarrbrief archive and Kinderkalender PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 119,
+      "hits": 129,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3930,7 +4756,7 @@
       "note": "Pool/sauna events as text through Dec 2026 (sauna nights, ice-skating school, 25th anniversary on 6.12.); many repeating entries.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 216,
+      "hits": 244,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -3993,7 +4819,7 @@
       "note": "Same site as the first entry.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 4,
+      "hits": 5,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4035,25 +4861,47 @@
       "note": "Concerts and parties listed, but dates only in poster images or via ticket links.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 64,
+      "hits": 69,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
       "empty_runs": 0
     },
     {
-      "url": "https://www.regioactive.de/events/23935/schongau/veranstaltungen-party-konzerte",
+      "url": "https://www.regioactive.de/comedy/harry-g-obacht-peiting-schlossberghalle-2027-04-13-5z4kr5RCHY",
       "domain": "regioactive.de",
-      "name": "Regioactive Schongau",
+      "name": "regioactive – Schlossberghalle Peiting (Harry G)",
       "kind": "calendar",
       "places": [
-        "Schongau"
+        "Peiting"
       ],
       "origin": "discovery",
       "status": "active",
       "rating": 2,
       "update_frequency": "unknown",
-      "note": "Already known; seen again, lists Reaktor concerts and Festplatz flea markets, some past dates.",
+      "note": "Single ticket-event page for Schlossberghalle; the location list is already known.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.regioactive.de/events/23935/schongau/veranstaltungen-party-konzerte",
+      "domain": "regioactive.de",
+      "name": "regioactive Schongau",
+      "kind": "calendar",
+      "places": [
+        "Hohenfurch",
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Schongau-area concerts/markets, no Hohenfurch events seen; returned 403 to fetch.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -4105,6 +4953,28 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.regioactive.de/location/peiting/",
+      "domain": "regioactive.de",
+      "name": "regioactive Peiting events",
+      "kind": "calendar",
+      "places": [
+        "Herzogsägmühle",
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "weekly",
+      "note": "Lists Rainer-Endisch-Saal and Schlossberghalle events; the page returned 403 on fetch, so it was seen only in search results.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "unreachable",
+      "empty_runs": 1
+    },
+    {
       "url": "https://www.regioactive.de/location/peiting/herzogsaegmuehle-8yKRg0KCNw",
       "domain": "regioactive.de",
       "name": "regioactive.de Peiting (Schlossberghalle, Rainer-Endisch-Saal)",
@@ -4123,7 +4993,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "unreachable",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.regioactive.de/location/schongau/reaktor",
@@ -4189,6 +5059,27 @@
       "empty_runs": 0
     },
     {
+      "url": "http://www.reiten-peiting.de",
+      "domain": "reiten-peiting.de",
+      "name": "Reitverein Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "No events on front page; /index.php/verein/aktuelles not read.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.romantischestrasse.de/veranstaltungen",
       "domain": "romantischestrasse.de",
       "name": "Romantische Straße – Veranstaltungen",
@@ -4229,6 +5120,27 @@
       "last_swept": "2026-11-13",
       "last_result": "empty",
       "empty_runs": 3
+    },
+    {
+      "url": "http://www.schachclubpeiting.de",
+      "domain": "schachclubpeiting.de",
+      "name": "Schachclub Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "monthly",
+      "note": "Club tournament and Christmas party at Zechenschenke in Aktuelles; mostly members.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
     },
     {
       "url": "https://schlossbergler.de/",
@@ -4287,7 +5199,7 @@
       "note": "Yearly Excel-made PDF linked from the 'Termine' menu; couldn't be parsed; the homepage announces only some events (Trachtenjahrtag 8 Nov).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 30,
+      "hits": 31,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4329,7 +5241,7 @@
       "note": "Rating raised from 3: the home page lists current services and groups for November 2026 with date, time and place as text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 98,
+      "hits": 105,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4350,7 +5262,7 @@
       "note": "The home page has the next games for the first team, 1b, U20 and U15 (dates without year); the known 'bayernliga-2021-22' link is an old season URL that the site still uses.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 120,
+      "hits": 132,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4371,7 +5283,7 @@
       "note": "Full 2026/27 home schedule with dates and times as text; the URL slug says 2021-22 but the content is current; the homepage schongau-mammuts.de also lists home games of the 1b, U20 and U15 teams (ea-schongau.de redirects here).",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 119,
+      "hits": 130,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4840,6 +5752,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.schongau.de/de/Schongau-erleben/Essen-Trinken",
+      "domain": "schongau.de",
+      "name": "Stadt Schongau – Essen & Trinken (Gastronomieverzeichnis)",
+      "kind": "municipality",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Directory of 29 venues (names only, no external websites, no events); useful for the venue list.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-aktiv/Eisstadion",
       "domain": "schongau.de",
       "name": "Stadt Schongau – Eisstadion (Schongau aktiv)",
@@ -4896,7 +5829,7 @@
       "note": "Public dates as text for the night-watchman, torchlight and Advent tours (e.g. 20.11., 27.11., 6.12., 11./18.12.2026); time and price given, meeting point Tourist Info.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 61,
+      "hits": 65,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -4917,7 +5850,7 @@
       "note": "Public museum tours as text with date, time and price (13.11.2026, 4.1.2027 Rauhnächte, 19.2.2027); meeting point Christophstraße 57.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 29,
+      "hits": 31,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5001,7 +5934,7 @@
       "note": "Recurring weekly market, Fridays 7:30–13:00 on Marienplatz (moves to Thursday if Friday is a holiday); a static page, but enough to create the recurring entry.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 13,
+      "hits": 14,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5047,7 +5980,7 @@
       "last_hit": "2026-11-09",
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 3
+      "empty_runs": 4
     },
     {
       "url": "https://schongau.feg.de/termine/",
@@ -5148,7 +6081,7 @@
       "note": "Organiser site (Konrad family, Kinsau): 2026 dates 4–20 Dec, opening hours and family/senior days as text; the day-by-day programme is only a PDF.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 51,
+      "hits": 55,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5169,7 +6102,7 @@
       "note": "Homepage lists upcoming home matches (14., 21., 28.11.26) with times as text; niche sport.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 106,
+      "hits": 112,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5211,7 +6144,7 @@
       "note": "Current events for seniors (10.11., 19.11., Mittagessen dates) with place as text; the year is often omitted.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 40,
+      "hits": 42,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5232,7 +6165,7 @@
       "note": "Weekly recurring offers of AWO, parishes, choirs, Repair Café etc. by weekday, time and place; no specific dates.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 22,
+      "hits": 24,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5272,6 +6205,27 @@
       "rating": 2,
       "update_frequency": "unknown",
       "note": "Dated page could not be read via fetch; the shooting programme is only an image. Recheck by hand.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://skiclub-peiting.de/kalender/",
+      "domain": "skiclub-peiting.de",
+      "name": "Skiclub Peiting (TSV) – Kalender",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "rare",
+      "note": "Calendar grid empty for November 2026; RSS available.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -5493,6 +6447,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.sv-peiting.de/Termine/",
+      "domain": "sv-peiting.de",
+      "name": "Schützenverein 1882 Peiting – Termine",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 4,
+      "update_frequency": "monthly",
+      "note": "Winter shooting evenings, Nikolaus- and Christbaumschießen with date, time and place as text to 19.12.2026.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 1,
+      "last_hit": "2026-11-13",
+      "last_swept": "2026-11-13",
+      "last_result": "events",
+      "empty_runs": 0
+    },
+    {
       "url": "https://sv-snh.jimdoweb.com/",
       "domain": "sv-snh.jimdoweb.com",
       "name": "Schützenverein Schwabniederhofen",
@@ -5528,7 +6503,7 @@
       "note": "Text dates from Nov 2026 to the 100-year festival on 17–19.09.2027; separate pages /tennis/termine, /stockschiessen/infos-termine and /turnen/regelmaessige-termine.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 4,
+      "hits": 9,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5547,6 +6522,48 @@
       "rating": 1,
       "update_frequency": "unknown",
       "note": "Lists venues 19-30 km away, none in Altenstadt; no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.swipein.restaurant/en/place/hohenfurch",
+      "domain": "swipein.restaurant",
+      "name": "SwipeIn restaurant directory Hohenfurch",
+      "kind": "other",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "unknown",
+      "note": "Directory lists only restaurants in other towns and no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.swipein.restaurant/en/place/schongau-weilheim-schongau/category/beer-garden",
+      "domain": "swipein.restaurant",
+      "name": "swipein beer gardens Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Restaurant directory only, no events.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
       "hits": 0,
@@ -5612,6 +6629,27 @@
       "note": "Restaurant/café directory only, no events; useful only for venue names.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.swipein.restaurant/en/restaurant/city-cafe-schongau-bayern",
+      "domain": "swipein.restaurant",
+      "name": "swipein City Cafe Schongau",
+      "kind": "other",
+      "places": [
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Directory listing, no events.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -5745,6 +6783,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://tickets.hohenfurch.net",
+      "domain": "tickets.hohenfurch.net",
+      "name": "Lechgau-Trachtenfest 2026 Tickets (Trachtenverein)",
+      "kind": "other",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Festival 8–12 July 2026, already over.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://tickets.item-events.de/",
       "domain": "tickets.item-events.de",
       "name": "item events Ticketvorverkauf (Theaterverein Treibhaus festival play)",
@@ -5784,7 +6843,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://www.trachtenverein-hohenfurch.de/termine",
@@ -5850,6 +6909,48 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.tsv-altenstadt.de/fussball",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt Fußball",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Match overview loads via JavaScript ('Laden...'); no dates readable.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.tsv-altenstadt.de/hallensport/aktuelles",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt Hallensport/BRSG aktuelles",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Only 2007–2009 entries.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.tsv-altenstadt.de/skiclub",
       "domain": "tsv-altenstadt.de",
       "name": "TSV Altenstadt Skiabteilung",
@@ -5864,6 +6965,27 @@
       "note": "Only ski-course dates for the past Jan 2026 course; may be updated for winter 2026/27.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.tsv-altenstadt.de/tennis/termine-2015",
+      "domain": "tsv-altenstadt.de",
+      "name": "TSV Altenstadt Tennis Termine",
+      "kind": "club",
+      "places": [
+        "Altenstadt"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Says 'Aktuell stehen keine Termine an'.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -5927,7 +7049,7 @@
       "note": "News posts announce tournaments and courses (e.g. Stockturnier, Doppelturnier) with dates in the article text; the list shows dates garbled.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 12,
+      "hits": 13,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -5948,6 +7070,48 @@
       "note": "Rating lowered from 2: the page says 'Derzeit sind keine Termine vorhanden'; the department pages (Fußball, Handball, Stockschießen) have no dates either.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "http://www.ttc-birkland.de",
+      "domain": "ttc-birkland.de",
+      "name": "TTC Birkland",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Outdated (2022/23), links to mytischtennis.de.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "http://www.turnen-peiting.de",
+      "domain": "turnen-peiting.de",
+      "name": "TSV Turnen Peiting",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "unknown",
+      "note": "Only links to Veranstaltungen, Hallenbelegungsplan; no events on front page.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -6060,6 +7224,48 @@
       "empty_runs": 0
     },
     {
+      "url": "https://veranstaltungen.meinestadt.de/hohenfurch/wochenendtipps",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Veranstaltungen Hohenfurch Wochenendtipps",
+      "kind": "calendar",
+      "places": [
+        "Hohenfurch"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Current weekend list but mostly regional (Kaufbeuren, Marktoberdorf, Landsberg) and church services; no Hohenfurch events seen.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://veranstaltungen.meinestadt.de/peiting",
+      "domain": "veranstaltungen.meinestadt.de",
+      "name": "meinestadt.de Veranstaltungen Peiting",
+      "kind": "calendar",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "Regional aggregator; the Peiting page mostly lists events in Kaufbeuren, Schongau and other towns, few in Peiting itself.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://veranstaltungen.meinestadt.de/schongau",
       "domain": "veranstaltungen.meinestadt.de",
       "name": "meinestadt.de Schongau Veranstaltungen (start page)",
@@ -6074,7 +7280,7 @@
       "note": "Same aggregator as the known sub-pages; mixes in nearby towns.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 9,
+      "hits": 11,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6179,7 +7385,7 @@
       "note": "",
       "first_seen": "2026-11-12",
       "last_checked": null,
-      "hits": 41,
+      "hits": 47,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6204,7 +7410,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 1
+      "empty_runs": 2
     },
     {
       "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
@@ -6221,7 +7427,7 @@
       "note": "",
       "first_seen": "2026-11-13",
       "last_checked": null,
-      "hits": 15,
+      "hits": 43,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6242,7 +7448,7 @@
       "note": "51 Schongau events with date, time and address. Paginated with ?os=12&send=foo (12 per page). Same RCE-Event data as the city calendar.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 285,
+      "hits": 296,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6288,7 +7494,7 @@
       "last_hit": null,
       "last_swept": "2026-11-13",
       "last_result": "empty",
-      "empty_runs": 3
+      "empty_runs": 4
     },
     {
       "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
@@ -6305,7 +7511,7 @@
       "note": "Course list with date, time and place as text (Herbst/Winter 2026); vhs-peiting.de redirects here; programme booklets are also offered as PDFs.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 5,
+      "hits": 10,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6347,7 +7553,7 @@
       "note": "A few dates as text (25.11.2026 service in Verklärung Christi); some dates have no year and several posters have no text.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 21,
+      "hits": 23,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6480,6 +7686,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.weilheim-schongau.de/",
+      "domain": "weilheim-schongau.de",
+      "name": "Landkreis Weilheim-Schongau Veranstaltungskalender",
+      "kind": "calendar",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 2,
+      "update_frequency": "weekly",
+      "note": "The 'Nächste Termine' list shows mostly official or advisory events in Weilheim, Peißenberg and Schongau; no Peiting items seen; I found no direct calendar URL (/veranstaltungskalender gave 404).",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
       "url": "https://www.weilheim-schongau.de/aktuelles/veranstaltungen/",
       "domain": "weilheim-schongau.de",
       "name": "Landkreis Weilheim-Schongau – Veranstaltungen",
@@ -6536,6 +7763,28 @@
       "note": "Outdated 2018 flyer PDF.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": null,
+      "last_result": null,
+      "empty_runs": 0
+    },
+    {
+      "url": "https://www.weilheim-schongau.de/media/4527/2021-11-02-oeffentliche-sicherheit-und-ordnung.pdf",
+      "domain": "weilheim-schongau.de",
+      "name": "Landratsamt: Öffentliche Sicherheit und Ordnung (PDF)",
+      "kind": "other",
+      "places": [
+        "Altenstadt",
+        "Schongau"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 1,
+      "update_frequency": "rare",
+      "note": "Administrative PDF from 2021, not an event source.",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
       "hits": 0,
       "last_hit": null,
       "last_swept": null,
@@ -6746,7 +7995,7 @@
       "note": "Few dated events as text (Fair Woche 11-25 Sep, Lebendiger Adventskalender 11.12.2026 18:00); small organiser page.",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-12",
-      "hits": 7,
+      "hits": 8,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6767,7 +8016,7 @@
       "note": "Programme on the homepage includes Weihnachtsoratorium with Chor der Stadt Schongau on 20.12.2026 in St. Anna Schongau; most concerts are in the Wieskirche (Steingaden); /konzerte/ returns 404.",
       "first_seen": "2026-11-09",
       "last_checked": "2026-11-09",
-      "hits": 12,
+      "hits": 13,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",
@@ -6795,6 +8044,27 @@
       "empty_runs": 0
     },
     {
+      "url": "https://www.wsv-peiting-ramsau.de",
+      "domain": "wsv-peiting-ramsau.de",
+      "name": "WSV Peiting-Ramsau",
+      "kind": "club",
+      "places": [
+        "Peiting"
+      ],
+      "origin": "discovery",
+      "status": "active",
+      "rating": 3,
+      "update_frequency": "monthly",
+      "note": "News lists Skibasar and Christmas-market crafting dates; calendar at vereinslogistik.com (vid=16).",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "hits": 0,
+      "last_hit": null,
+      "last_swept": "2026-11-13",
+      "last_result": "empty",
+      "empty_runs": 1
+    },
+    {
       "url": "https://www2.erzbistum-muenchen.de/pfarrei/pv-peiting-hohenpeissenberg",
       "domain": "www2.erzbistum-muenchen.de",
       "name": "Pfarrverband Peiting-Hohenpeißenberg (Erzbistum München)",
@@ -6812,8 +8082,8 @@
       "hits": 0,
       "last_hit": null,
       "last_swept": "2026-11-13",
-      "last_result": "empty",
-      "empty_runs": 1
+      "last_result": "unreachable",
+      "empty_runs": 2
     },
     {
       "url": "https://xaver-peiting.de/events/",
@@ -6830,7 +8100,7 @@
       "note": "Whisky tastings, dinners and festivals listed as text with date, time, place and price into May 2027; niche but reliable.",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
-      "hits": 13,
+      "hits": 26,
       "last_hit": "2026-11-13",
       "last_swept": "2026-11-13",
       "last_result": "events",

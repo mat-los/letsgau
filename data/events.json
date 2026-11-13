@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:03:40Z",
+  "updated_at": "2026-11-13T23:52:23Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -169,6 +169,54 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-12-weihnachtsausstellung-im-deko-cafe-oafach-schea-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtsausstellung im Deko-Cafe oafach schea",
+        "en": "Christmas exhibition at Deko-Cafe oafach schea"
+      },
+      "description": {
+        "de": "Weihnachtsausstellung im Deko-Cafe mit Deko-Laden in einem Bauernhaus in Hohenfurch.",
+        "en": "Christmas exhibition at the Deko-Cafe with decor shop in a farmhouse in Hohenfurch."
+      },
+      "venue": {
+        "name": "Deko-Cafe oafach schea",
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-12",
+        "end_date": "2026-11-14",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-12",
+          "2026-11-13",
+          "2026-11-14"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.oafach-schea.de",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -351,6 +399,50 @@
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/durch-ein-ander-e36f7219713a77109dfb30bcd6f686dee.html",
           "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-13-gummiboot-rennen-in-der-ersten-drittelpause-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Gummiboot-Rennen in der ersten Drittelpause",
+        "en": "Rubber boat race in first intermission"
+      },
+      "description": {
+        "de": "Dreierteams schieben ein Gummiboot über die Eisfläche; Gewinn: 3 Freikarten. Anmeldung per DM oder E-Mail.",
+        "en": "Teams of three push a rubber boat across the ice; prize: 3 free tickets. Sign up by DM or email."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DfkxPD5yQdO/",
+          "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
@@ -705,7 +797,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-13",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-13-kinderspielenachmittag-am-freitag-schongau",
@@ -938,7 +1030,7 @@
         "family-kids",
         "religion"
       ],
-      "status": "scheduled",
+      "status": "unconfirmed",
       "postponed_to": null,
       "sources": [
         {
@@ -968,7 +1060,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
-      "misses": 1
+      "misses": 2
     },
     {
       "id": "2026-11-13-schafkopfen-fuer-anfaenger-peiting",
@@ -1072,17 +1164,17 @@
       "id": "2026-11-13-heimspiel-ec-peiting-ev-fuessen",
       "parent_id": null,
       "title": {
-        "de": "Heimspiel EC Peiting – EV Füssen",
-        "en": "Home game EC Peiting – EV Füssen"
+        "de": "EC Peiting – EV Füssen (Oberliga)",
+        "en": "EC Peiting vs EV Füssen (Oberliga)"
       },
       "description": {
-        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
-        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+        "de": "Eishockey-Heimderby des EC Peiting gegen den EV Füssen in der Oberliga Süd.",
+        "en": "Ice hockey home derby of EC Peiting against EV Füssen in the Oberliga Süd."
       },
       "venue": {
-        "name": "Eissporthalle Peiting",
+        "name": null,
         "place": "Peiting",
-        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-13",
@@ -1108,6 +1200,18 @@
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-ev-fuessen-e211ca553e38febf961b9b7299b304886.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dfq3DUhN44q/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfnRgsLS7X8/",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -1164,7 +1268,7 @@
       ],
       "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-13-dunkle-zeiten-dark-wave-gothic-mit-dj-a-n-a-schongau",
@@ -1174,17 +1278,17 @@
         "en": "Dunkle Zeiten – Dark Wave Gothic with DJ A.N.A."
       },
       "description": {
-        "de": "Gothic-Party mit Dark Wave im Reaktor. Einlass nur schwarz gekleidet oder dem Thema entsprechend. Eintritt 6 Euro.",
-        "en": "Dark wave gothic night at Reaktor. Admission only in black or fitting the theme. Entry 6 euros."
+        "de": "Dark-Wave- und Gothic-Abend im Reaktor. Einlass nur schwarz gekleidet oder passend zum Thema (Gothic, Endzeit). Eintritt 6 Euro.",
+        "en": "Dark wave and gothic night at Reaktor. Entry only in black or theme-appropriate dress (gothic, apocalypse). Admission 6 euros."
       },
       "venue": {
         "name": "Reaktor",
         "place": "Schongau",
-        "address": "Schützenhausstr. 1"
+        "address": "Schützenhausstr. 1, Schongau"
       },
       "schedule": {
         "start_date": "2026-11-13",
-        "end_date": "2026-11-13",
+        "end_date": null,
         "start_time": "21:00",
         "end_time": null,
         "all_day": false,
@@ -1450,6 +1554,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://allevents.in/schongau/all",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -1542,7 +1652,7 @@
       "venue": {
         "name": "Schongauer Brauhaus",
         "place": "Schongau",
-        "address": null
+        "address": "Altenstadter Str. 13, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-11-14",
@@ -2089,6 +2199,98 @@
       "misses": 0
     },
     {
+      "id": "2026-11-15-volkstrauertag-der-veteranen-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Volkstrauertag der Veteranen",
+        "en": "Volkstrauertag (Remembrance Day) by the veterans"
+      },
+      "description": {
+        "de": "Gedenken zum Volkstrauertag, veranstaltet von den Veteranen Hohenfurch; danach folgt die Jahreshauptversammlung (nur intern).",
+        "en": "Remembrance Day commemoration held by the Hohenfurch veterans; a members-only annual meeting follows afterwards."
+      },
+      "venue": {
+        "name": null,
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-15-gottesdienst-zum-volkstrauertag-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Gottesdienst zum Volkstrauertag",
+        "en": "Service for Volkstrauertag"
+      },
+      "description": {
+        "de": "Gottesdienst zum Volkstrauertag in der katholischen Pfarrkirche St. Michael.",
+        "en": "Memorial Day service at the Catholic parish church St. Michael."
+      },
+      "venue": {
+        "name": "Kath. Pfarrkirche St. Michael",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": null,
+        "start_time": "08:45",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8085735.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-15-mammuts-eislaufschule-schongau",
       "parent_id": null,
       "title": {
@@ -2184,21 +2386,21 @@
       ],
       "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-15-zwergerlgottesdienst-schongau",
       "parent_id": null,
       "title": {
         "de": "Zwergerlgottesdienst",
-        "en": "Zwergerl Service for Children and Families"
+        "en": "Zwergerl service for children"
       },
       "description": {
-        "de": "Kurzweiliger Gottesdienst für Kinder und Familien in der Dreifaltigkeitskirche.",
-        "en": "Short, lively service for children and families at the Dreifaltigkeitskirche."
+        "de": "Kurzweiliger Gottesdienst für alle Kinder und ihre Familien.",
+        "en": "Short service for all children and their families."
       },
       "venue": {
-        "name": "Dreifaltigkeitskirche",
+        "name": "Dreifaltigkeitskirche Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -2229,6 +2431,18 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8153900.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -2358,14 +2572,14 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenisches Friedensgebet",
-        "en": "Ecumenical Peace Prayer"
+        "en": "Ecumenical prayer for peace"
       },
       "description": {
-        "de": "Ökumenisches Friedensgebet in der Christuskirche Peiting.",
-        "en": "Ecumenical peace prayer at the Christuskirche in Peiting."
+        "de": "Friedensgebet in der Christuskirche.",
+        "en": "Prayer for peace in the Christuskirche."
       },
       "venue": {
-        "name": "Christuskirche Peiting",
+        "name": "Christuskirche",
         "place": "Peiting",
         "address": null
       },
@@ -2393,6 +2607,18 @@
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8101290.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -2453,26 +2679,80 @@
       "misses": 0
     },
     {
+      "id": "2026-11-16-adventskranzbinden-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Adventskranzbinden",
+        "en": "Advent Wreath Making"
+      },
+      "description": {
+        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
+        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+      },
+      "venue": {
+        "name": "Pfarrsaal Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-18",
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-16-offenes-tasting-mit-der-paul-john-distillery-peiting",
       "parent_id": null,
       "title": {
-        "de": "Offenes Whisky-Tasting mit Paul John Distillery",
-        "en": "Open Whisky Tasting with Paul John Distillery"
+        "de": "Offenes Tasting mit der Paul John Distillery",
+        "en": "Open Tasting with Paul John Distillery"
       },
       "description": {
-        "de": "Spontanes Tasting indischer Single Malts mit Asim Raza von der Paul John Distillery und Andreas Schwarz von Sprithöker. Eintritt 20 €.",
-        "en": "Spontaneous tasting of Indian single malts with Asim Raza of Paul John Distillery and Andreas Schwarz of Sprithöker. Admission 20 €."
+        "de": "Spontanes offenes Whisky-Tasting mit Asim Raza von der Paul John Distillery aus Indien in der Xaver Bar.",
+        "en": "Spontaneous open whisky tasting with Asim Raza of India's Paul John Distillery at the Xaver Bar."
       },
       "venue": {
         "name": "Xaver Bar",
         "place": "Peiting",
-        "address": null
+        "address": "Ammergauer Straße 11+16, Peiting"
       },
       "schedule": {
         "start_date": "2026-11-16",
         "end_date": null,
         "start_time": "20:00",
-        "end_time": null,
+        "end_time": "23:00",
         "all_day": false,
         "dates": null,
         "opening_hours": null
@@ -2538,6 +2818,12 @@
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/einkehren",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -2590,6 +2876,62 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-17-seniorentreff-spielenachmittag-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Seniorentreff: Spielenachmittag",
+        "en": "Seniors' meeting: games afternoon"
+      },
+      "description": {
+        "de": "Spielenachmittag für Senioren im Kirchenstüberl.",
+        "en": "Games afternoon for seniors in the Kirchenstüberl."
+      },
+      "venue": {
+        "name": "Kirchenstüberl in der Christuskirche",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-17",
+        "end_date": null,
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "seniors",
+      "tags": [
+        "seniors",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8026954.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -2769,11 +3111,11 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenischer Kinderbibeltag: Daniel – im Schutz der Engel",
-        "en": "Ecumenical Children's Bible Day: Daniel"
+        "en": "Ecumenical children's Bible day: Daniel"
       },
       "description": {
-        "de": "Kinderbibeltag am Buß- und Bettag im Katholischen Pfarrsaal Peiting.",
-        "en": "Children's Bible day on Repentance Day at the Catholic parish hall in Peiting."
+        "de": "Kinderbibeltag am Buß- und Bettag im katholischen Pfarrsaal.",
+        "en": "Children's Bible day on Day of Repentance in the Catholic parish hall."
       },
       "venue": {
         "name": "Katholischer Pfarrsaal",
@@ -2805,6 +3147,18 @@
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8231595.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -3504,7 +3858,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 8
+      "misses": 9
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -3699,6 +4053,62 @@
       "misses": 0
     },
     {
+      "id": "2026-11-20-film-des-monats-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Film des Monats",
+        "en": "Film of the month"
+      },
+      "description": {
+        "de": "Filmabend im Rainer-Endisch-Saal.",
+        "en": "Film evening in the Rainer-Endisch-Saal."
+      },
+      "venue": {
+        "name": "Rainer-Endisch-Saal",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-20",
+        "end_date": null,
+        "start_time": "19:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "theatre-cinema",
+      "tags": [
+        "theatre-cinema",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7913570.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-20-heimspiel-ec-peiting-stuttgart-rebels",
       "parent_id": null,
       "title": {
@@ -3741,6 +4151,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -3759,9 +4175,9 @@
         "en": "Ecumenical evening prayer in the basilica."
       },
       "venue": {
-        "name": "Basilika",
+        "name": "Basilika Altenstadt",
         "place": "Altenstadt",
-        "address": "86972 Altenstadt"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-20",
@@ -3796,6 +4212,24 @@
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7959614.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -4177,6 +4611,12 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -4281,6 +4721,18 @@
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/judo-37-spitzbubenturnier-mu14-mu17-ee7ca1c3c2e70463677a92a641ae4c810.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.judo-peiting.de",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://judo-peiting.de/event/37-spitzbubenturnier/",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -4604,6 +5056,55 @@
       "misses": 0
     },
     {
+      "id": "2026-11-22-ewigkeitssonntag-mit-verstorbenengedenken-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Ewigkeitssonntag mit Verstorbenengedenken",
+        "en": "Eternity Sunday with commemoration of the deceased"
+      },
+      "description": {
+        "de": "Gottesdienst zum Ewigkeitssonntag mit Gedenken der Verstorbenen in der Christuskirche.",
+        "en": "Eternity Sunday service remembering the deceased at the Christuskirche."
+      },
+      "venue": {
+        "name": "Christuskirche Peiting",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "09:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157386.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
       "parent_id": null,
       "title": {
@@ -4649,6 +5150,55 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-22-ewigkeitssonntag-mit-verstorbenengedenken-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Ewigkeitssonntag mit Verstorbenengedenken",
+        "en": "Eternity Sunday with commemoration of the deceased"
+      },
+      "description": {
+        "de": "Gottesdienst zum Ewigkeitssonntag mit Gedenken der Verstorbenen in der Martinskirche.",
+        "en": "Eternity Sunday service remembering the deceased at the Martinskirche."
+      },
+      "venue": {
+        "name": "Martinskirche",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "10:45",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7189475.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -4886,6 +5436,18 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -5037,6 +5599,62 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-25-oekumenisches-bibelgespraech-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Ökumenisches Bibelgespräch",
+        "en": "Ecumenical Bible discussion"
+      },
+      "description": {
+        "de": "Bibelgespräch in der Kapelle Schöneckerhaus.",
+        "en": "Bible discussion in the Schöneckerhaus chapel."
+      },
+      "venue": {
+        "name": "Kapelle Schöneckerhaus",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-25",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": "21:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8090281.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -5207,6 +5825,70 @@
       "misses": 0
     },
     {
+      "id": "2026-11-26-handarbeiten-im-cafe-anderl-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Handarbeiten im Café Anderl",
+        "en": "Handicrafts at Café Anderl"
+      },
+      "description": {
+        "de": "Gemütliche Handarbeitsrunde jeden 2. und 4. Donnerstag; eigene Projekte oder Wolle mitbringen.",
+        "en": "Cosy handicraft circle on every 2nd and 4th Thursday; bring your own projects or wool."
+      },
+      "venue": {
+        "name": "Asylhelferkreis Peiting",
+        "place": "Peiting",
+        "address": "Poststrasse 6, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-26",
+        "end_date": "2026-12-10",
+        "start_time": "15:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-26",
+          "2026-12-10"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/handarbeiten-im-cafe-anderl-e3d037627a16f99737a2d4e371a6fb60a.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/handarbeiten-im-cafe-anderl-ea935d30934c084a6b05465894695d307.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-26-walk-in-den-advent-hohenfurch",
       "parent_id": null,
       "title": {
@@ -5214,11 +5896,11 @@
         "en": "Walk into Advent"
       },
       "description": {
-        "de": "Adventsspaziergang der Turnabteilung mit Treffpunkt Sportheim.",
-        "en": "Advent walk by the gymnastics department, at the Sportheim."
+        "de": "Turnabteilung des SV Hohenfurch lädt zum Walk in den Advent am Sportheim ein.",
+        "en": "SV Hohenfurch gymnastics section invites to an Advent walk starting at the Sportheim."
       },
       "venue": {
-        "name": "Sportheim Hohenfurch",
+        "name": "Sportheim SV Hohenfurch",
         "place": "Hohenfurch",
         "address": null
       },
@@ -5336,6 +6018,18 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -5343,20 +6037,20 @@
       "misses": 0
     },
     {
-      "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
+      "id": "2026-11-27-herzogsaegmuehle-weihnachtsmarkt",
       "parent_id": null,
       "title": {
-        "de": "Weihnachtsmarkt am Rathausplatz",
-        "en": "Christmas Market at Rathausplatz"
+        "de": "Herzogsägmühle – Weihnachtsmarkt",
+        "en": "Herzogsägmühle Christmas Market"
       },
       "description": {
-        "de": "Peitinger Weihnachtsmarkt vor dem Rathaus mit Angeboten von Kindergärten, Vereinen und mehr, Freitag bis Sonntag.",
-        "en": "Peiting Christmas market in front of the town hall with stalls from kindergartens and clubs, Friday to Sunday."
+        "de": "Jährlicher Weihnachtsmarkt der Herzogsägmühle mit WerkstattLaden, MühlenMarkt, Gärtnerei sowie Licht- und Wachsmanufaktur.",
+        "en": "Annual Christmas market at Herzogsägmühle with workshop shop, mill market, nursery and candle and wax manufactory."
       },
       "venue": {
-        "name": "Rathausplatz am Brunnen",
-        "place": "Peiting",
-        "address": "Hauptplatz 2, 86971 Peiting"
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-27",
@@ -5372,8 +6066,8 @@
         "opening_hours": [
           {
             "days": "2026-11-27",
-            "from": "18:00",
-            "to": "18:00"
+            "from": "14:00",
+            "to": "14:00"
           },
           {
             "days": "2026-11-28,2026-11-29",
@@ -5382,33 +6076,34 @@
           }
         ]
       },
-      "primary_tag": "market-festival",
+      "primary_tag": "family-kids",
       "tags": [
+        "family-kids",
         "market-festival"
       ],
       "status": "scheduled",
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         },
         {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/herzogsaegmuehle-weihnachtsmarkt-e34635128016afc2ea14e1529ae60c06b.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtsmarkt-am-rathausplatz-e82701197c9080f9e3efd47ce6c536c12.html",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -5598,6 +6293,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -5648,6 +6349,49 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-posaunenchor-peissenberg-beim-weihnachtsmarkt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Posaunenchor Peißenberg beim Weihnachtsmarkt",
+        "en": "Posaunenchor Peißenberg at the Christmas market"
+      },
+      "description": {
+        "de": "Auftritt des Posaunenchors Peißenberg.",
+        "en": "Performance by the Peißenberg trombone choir."
+      },
+      "venue": {
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": null,
+        "start_time": "17:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-adventsbinden-bei-herr-lose-schongau",
       "parent_id": null,
       "title": {
@@ -5689,6 +6433,49 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-27-gospelchor-good-news-beim-weihnachtsmarkt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Gospelchor Good News beim Weihnachtsmarkt",
+        "en": "Gospel choir Good News at the Christmas market"
+      },
+      "description": {
+        "de": "Auftritt des Gospelchors Good News.",
+        "en": "Performance by the gospel choir Good News."
+      },
+      "venue": {
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -5744,6 +6531,83 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtsmarkt Peiting",
+        "en": "Christmas Market Peiting"
+      },
+      "description": {
+        "de": "Weihnachtsmarkt auf dem Hauptplatz an drei Tagen, laut Termin des Schützenvereins Peiting.",
+        "en": "Christmas market on the Hauptplatz over three days, as listed by the Peiting shooting club."
+      },
+      "venue": {
+        "name": "Hauptplatz",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": "2026-11-29",
+        "start_time": "19:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-27",
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtsmarkt-am-rathausplatz-e82701197c9080f9e3efd47ce6c536c12.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.sv-peiting.de/Termine/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6124,9 +6988,58 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-28-benefizkonzert-musik-im-pfaffenwinkel-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Benefizkonzert Musik im Pfaffenwinkel",
+        "en": "Benefit concert Musik im Pfaffenwinkel"
+      },
+      "description": {
+        "de": "Benefizkonzert in der Martinskirche während des Weihnachtsmarkts.",
+        "en": "Benefit concert in the Martinskirche during the Christmas market."
+      },
+      "venue": {
+        "name": "Martinskirche",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-28",
+        "end_date": null,
+        "start_time": "15:30",
+        "end_time": "16:30",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6170,6 +7083,49 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-28-peitinger-alphornblaeser-auf-dem-dorfplatz-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Peitinger Alphornbläser auf dem Dorfplatz",
+        "en": "Peiting alphorn players on the Dorfplatz"
+      },
+      "description": {
+        "de": "Alphornmusik auf dem Dorfplatz beim Weihnachtsmarkt.",
+        "en": "Alphorn music on the village square at the Christmas market."
+      },
+      "venue": {
+        "name": "Dorfplatz",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-28",
+        "end_date": null,
+        "start_time": "17:00",
+        "end_time": "18:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6352,6 +7308,68 @@
       "misses": 0
     },
     {
+      "id": "2026-11-29-1-advent-gottesdienst-mit-projektchor-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Gottesdienst zum 1. Advent mit Projektchor",
+        "en": "First Advent service with project choir"
+      },
+      "description": {
+        "de": "Adventsgottesdienst mit musikalischer Gestaltung durch einen Projektchor in der Martinskirche.",
+        "en": "Advent service with music by a project choir at the Martinskirche."
+      },
+      "venue": {
+        "name": "Martinskirche",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-29",
+        "end_date": null,
+        "start_time": "10:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion",
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157398.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-29-gottesdienst-zum-1-advent-mit-einfuehrung-der-schongau",
       "parent_id": null,
       "title": {
@@ -6391,6 +7409,92 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-29-vokalensemble-ammer-cantus-in-der-martinskirche-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Vokalensemble Ammer Cantus in der Martinskirche",
+        "en": "Vocal ensemble Ammer Cantus in the Martinskirche"
+      },
+      "description": {
+        "de": "Auftritt des Vokalensembles Ammer Cantus.",
+        "en": "Performance by the vocal ensemble Ammer Cantus."
+      },
+      "venue": {
+        "name": "Martinskirche",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-29",
+        "end_date": null,
+        "start_time": "13:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-29-nikolaus-mit-der-pferdekutsche-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Nikolaus mit der Pferdekutsche",
+        "en": "Nikolaus with horse-drawn carriage"
+      },
+      "description": {
+        "de": "Nikolaus kommt mit der Pferdekutsche auf den Dorfplatz, danach Kutschfahrten.",
+        "en": "St. Nicholas arrives by carriage on the Dorfplatz, followed by carriage rides."
+      },
+      "venue": {
+        "name": "Dorfplatz",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-29",
+        "end_date": null,
+        "start_time": "15:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6477,6 +7581,69 @@
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-heilbronner-ec-falken-e22be0a3a0ac0920c57d0ce7769f4f2a5.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-01-seniorentreff-ein-wuerdevoller-abschied-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Seniorentreff: Ein würdevoller Abschied",
+        "en": "Seniors' meeting: A dignified farewell"
+      },
+      "description": {
+        "de": "Vortrag von Manfred Echter beim Seniorentreff.",
+        "en": "Talk by Manfred Echter at the seniors' meeting."
+      },
+      "venue": {
+        "name": "Kirchenstüberl in der Christuskirche",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-01",
+        "end_date": null,
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "seniors",
+      "tags": [
+        "seniors",
+        "talk-workshop",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8082077.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -6576,6 +7743,57 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-02-kinder-kino-weihnachten-im-zaubereulenwald-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Kinder-Kino: Weihnachten im Zaubereulenwald",
+        "en": "Children's Cinema: Christmas in the Magic Owl Forest"
+      },
+      "description": {
+        "de": "Kinderkino im katholischen Pfarrsaal für alle Kinder.",
+        "en": "Children's film screening in the Catholic parish hall for all kids."
+      },
+      "venue": {
+        "name": "Katholischer Pfarrsaal",
+        "place": "Peiting",
+        "address": "Pfarrweg 3, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-02",
+        "end_date": null,
+        "start_time": "15:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "theatre-cinema",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/kinder-kino-weihnachten-im-zaubereulenwald-e4cd445604836fd4cb2f56fa48ebdf4b6.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6716,6 +7934,56 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-04-peitinger-bauernmarkt-nikolausmarkt",
+      "parent_id": null,
+      "title": {
+        "de": "Peitinger Bauernmarkt – Nikolausmarkt",
+        "en": "Peiting Farmers' Market – St. Nicholas Market"
+      },
+      "description": {
+        "de": "Bauernmarkt am oberen Hauptplatz bei der Pfarrkirche St. Michael, am 1. Freitag im Monat.",
+        "en": "Farmers' market at the upper Hauptplatz by St. Michael's church, held on the first Friday of the month."
+      },
+      "venue": {
+        "name": "Hauptplatz bei der Pfarrkirche St. Michael",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-04",
+        "end_date": null,
+        "start_time": "08:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/peitinger-bauernmarkt-nikolausmarkt-e71add28a847d92bfb6f3682efb828028.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -7140,6 +8408,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -7232,6 +8506,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-13",
@@ -7282,6 +8562,60 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-09-museum-im-kloesterle-ein-ausflug-in-die-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Museum im Klösterle... ein Ausflug in die Vergangenheit",
+        "en": "Museum im Klösterle – a trip into the past"
+      },
+      "description": {
+        "de": "Offenes Museum mit historischen Exponaten, präsentiert von ehrenamtlichen Mitarbeitern.",
+        "en": "Small museum with historical exhibits presented by volunteer staff."
+      },
+      "venue": {
+        "name": "Museum im Klösterle",
+        "place": "Peiting",
+        "address": "Kapellenstr. 1, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-09",
+        "end_date": "2026-12-30",
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-12-09",
+          "2026-12-16",
+          "2026-12-23",
+          "2026-12-30"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "art-culture",
+      "tags": [
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-ec5b1d6bbda70fc7bee4c3d7a294f47e2.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -7460,6 +8794,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
@@ -7508,6 +8848,55 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-11-heimspiel-ec-peiting-hoechstadt-alligators",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Höchstadt Alligators",
+        "en": "EC Peiting home game vs Höchstadt Alligators"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Heimspiel des EC Peiting in der Eissporthalle.",
+        "en": "Oberliga Süd home game of EC Peiting at the ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-11",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-hoechstadt-alligators-e038a9e66979a355bbc3e94d868a5d431.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -8155,6 +9544,56 @@
       "misses": 0
     },
     {
+      "id": "2026-12-19-im-reich-der-wildtiere-spuren-lesen-und-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Im Reich der Wildtiere – Spuren lesen und Lebensweisen verstehen",
+        "en": "In the Realm of Wild Animals – Reading Tracks"
+      },
+      "description": {
+        "de": "Geführte Wanderung der vhs Peiting zum Deuten von Fährten, Fraßspuren und weiteren Zeichen.",
+        "en": "Guided vhs hike learning to interpret animal tracks and feeding signs."
+      },
+      "venue": {
+        "name": "vhs Peiting",
+        "place": "Peiting",
+        "address": "Hauptplatz 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-19",
+        "end_date": null,
+        "start_time": "09:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "outdoor",
+      "tags": [
+        "outdoor",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/im-reich-der-wildtiere-spuren-lesen-und-lebensweisen-verstehen-ecc854df1bcd20f521d4ed60ae44a4eae.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-19-let-it-swing-das-weihnachtskonzert-der-sog-bigband-schongau",
       "parent_id": null,
       "title": {
@@ -8334,52 +9773,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
-      "parent_id": null,
-      "title": {
-        "de": "Weihnachtskonzert der Knappschafts- und Trachtenkapelle Peiting",
-        "en": "Christmas Concert of the Knappschafts- und Trachtenkapelle Peiting"
-      },
-      "description": {
-        "de": "Traditionelle Weihnachtskonzerte der Knappschafts- und Trachtenkapelle am 4. Advent und am 1. Weihnachtsfeiertag.",
-        "en": "Traditional Christmas concerts by the Knappschaftskapelle on 4th Advent and Christmas Day."
-      },
-      "venue": {
-        "name": null,
-        "place": "Peiting",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-20",
-        "end_date": "2026-12-25",
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-12-20",
-          "2026-12-25"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.knappschaftskapelle.de",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
       "id": "2026-12-20-ea-schongau-esc-geretsried",
       "parent_id": null,
       "title": {
@@ -8419,6 +9812,113 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-20-heimspiel-ec-peiting-selber-woelfe",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Selber Wölfe",
+        "en": "EC Peiting home game vs Selber Wölfe"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Heimspiel des EC Peiting in der Eissporthalle.",
+        "en": "Oberliga Süd home game of EC Peiting at the ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-20",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-selber-woelfe-eb6767eb60564d76de55bd9120b2b1362.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtskonzerte der Knappschafts- und Trachtenkapelle",
+        "en": "Christmas Concerts of the Knappschafts- und Trachtenkapelle"
+      },
+      "description": {
+        "de": "Zwei Weihnachtskonzerte der Knappschafts- und Trachtenkapelle Peiting in der Schlossberghalle.",
+        "en": "Two Christmas concerts by the Peiting miners' and traditional costume band at the Schlossberghalle."
+      },
+      "venue": {
+        "name": "Schlossberghalle",
+        "place": "Peiting",
+        "address": "Münchener Strasse 13, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-25",
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-12-20",
+          "2026-12-25"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.knappschaftskapelle.de",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtskonzerte-der-knappschafts-und-trachtenkapelle-e9ec5b8a080572a1d5afa3fb9590b1191.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -8602,6 +10102,55 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-26-heimspiel-ec-peiting-esv-kaufbeuren",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – ESV Kaufbeuren",
+        "en": "EC Peiting home game vs ESV Kaufbeuren"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Heimspiel des EC Peiting in der Eissporthalle.",
+        "en": "Oberliga Süd home game of EC Peiting at the ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-26",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-esvkaufbeuren-e1636aea46eaaea5603075d322e16fa29.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -8837,6 +10386,55 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-30-heimspiel-ec-peiting-ehf-passau-black-hawks",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – EHF Passau Black Hawks",
+        "en": "EC Peiting home game vs EHF Passau Black Hawks"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Heimspiel des EC Peiting in der Eissporthalle.",
+        "en": "Oberliga Süd home game of EC Peiting at the ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-30",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-ehf-passau-black-hawks-efc18799528b97796b9d44b8f7ba77878.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -9211,6 +10809,56 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-06-baeume-im-winter-gehoelze-auch-ohne-blaetter-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Bäume im Winter – Gehölze auch ohne Blätter erkennen",
+        "en": "Trees in Winter – Identifying Trees Without Leaves"
+      },
+      "description": {
+        "de": "Geführte Wanderung der vhs Peiting zur Bestimmung von Baumarten im Winter.",
+        "en": "Guided vhs hike on identifying tree species without leaves."
+      },
+      "venue": {
+        "name": "vhs Peiting",
+        "place": "Peiting",
+        "address": "Hauptplatz 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-01-06",
+        "end_date": null,
+        "start_time": "13:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "outdoor",
+      "tags": [
+        "outdoor",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/baeume-im-winter-gehoelze-auch-ohne-blaetter-erkennen-e6a76cd3613cdf5725be6c72b9e067f7a.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -9810,12 +11458,12 @@
       "id": "2027-01-30-ball-der-vereine-hohenfurch",
       "parent_id": null,
       "title": {
-        "de": "Ball der Vereine",
-        "en": "Clubs' Ball"
+        "de": "Ball der Vereine Hohenfurch",
+        "en": "Clubs' Ball Hohenfurch"
       },
       "description": {
-        "de": "Ball der Vereine, Termin des Sportvereins Hohenfurch.",
-        "en": "Clubs' ball, listed by Sportverein Hohenfurch."
+        "de": "Ball der Vereine des Sportvereins Hohenfurch 1927.",
+        "en": "Clubs' ball of Sportverein Hohenfurch 1927."
       },
       "venue": {
         "name": null,
@@ -9971,6 +11619,55 @@
       "sources": [
         {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/einkehren",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-16-halbes-hendl-im-cafe-und-wirtshaus-herzog-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Halbes Hendl im Café und Wirtshaus Herzog",
+        "en": "Half chicken at Café und Wirtshaus Herzog"
+      },
+      "description": {
+        "de": "Halbes Hendl mit Pommes oder Kartoffelsalat, solange der Vorrat reicht.",
+        "en": "Half chicken with fries or potato salad while supplies last."
+      },
+      "venue": {
+        "name": "Café und Wirtshaus Herzog",
+        "place": "Herzogsägmühle",
+        "address": "Dorfplatz 8, 86971 Peiting-Herzogsägmühle"
+      },
+      "schedule": {
+        "start_date": "2027-02-16",
+        "end_date": null,
+        "start_time": "11:30",
+        "end_time": "15:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/einkehren",
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -10676,6 +12373,55 @@
       "misses": 0
     },
     {
+      "id": "2027-04-13-harry-g-obacht-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Harry G: Obacht",
+        "en": "Harry G: Obacht"
+      },
+      "description": {
+        "de": "Comedy-Programm „Obacht“ von Harry G in der Schlossberghalle.",
+        "en": "Comedy show \"Obacht\" by Harry G at the Schlossberghalle."
+      },
+      "venue": {
+        "name": "Schlossberghalle",
+        "place": "Peiting",
+        "address": "Münchener Strasse 13, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-04-13",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "theatre-cinema",
+      "tags": [
+        "theatre-cinema"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/harry-g-obacht-ebde901202930a47c12d6cd724bb5e3fd.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-04-17-wertungsspiele-des-mon-bezirk-oberland-schongau",
       "parent_id": null,
       "title": {
@@ -10818,6 +12564,55 @@
       "misses": 0
     },
     {
+      "id": "2027-04-23-14-lange-museumsnacht-im-kloesterle-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "14. Lange Museumsnacht im Klösterle",
+        "en": "14th Long Museum Night at the Klösterle"
+      },
+      "description": {
+        "de": "Museumsnacht mit breit gefächertem Programm im Museum im Klösterle.",
+        "en": "Museum night with a varied programme at the Museum im Klösterle."
+      },
+      "venue": {
+        "name": "Museum im Klösterle",
+        "place": "Peiting",
+        "address": "Kapellenstr. 1, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-04-23",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "art-culture",
+      "tags": [
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/14-lange-museumsnacht-im-kloesterle-e7e32449d21db4ae9eccf111f9e81f6ed.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-04-24-8-kampf-aktivlauf-hohenfurch",
       "parent_id": null,
       "title": {
@@ -10945,6 +12740,58 @@
         {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
           "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-05-08-2-tages-flohmarkt-in-peiting-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "2 Tages Flohmarkt in Peiting/Herzogsägmühle",
+        "en": "Two-day flea market Peiting/Herzogsägmühle"
+      },
+      "description": {
+        "de": "Traditioneller zweitägiger Flohmarkt für Jedermann auf dem Dorfplatz Herzogsägmühle.",
+        "en": "Traditional two-day flea market for everyone at the Herzogsägmühle village square."
+      },
+      "venue": {
+        "name": "Herzogsägmühle Dorfplatz",
+        "place": "Herzogsägmühle",
+        "address": "Dorfplatz, 86971 Herzogsägmühle"
+      },
+      "schedule": {
+        "start_date": "2027-05-08",
+        "end_date": "2027-05-09",
+        "start_time": "07:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2027-05-08",
+          "2027-05-09"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/2-tages-flohmarkt-in-peiting-herzogsaegmuehle-e9032438282f83bf2b7ac3465c9bdada8.html",
+          "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }

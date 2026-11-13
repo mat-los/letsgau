@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:03:10Z",
+  "updated_at": "2026-11-13T23:51:48Z",
   "files": {
     "2444c78005282edc4ca286272d0ce808f5db6c7eac5a56556f52c1de39ed65e7": {
       "page_url": "https://www.reaktor-sog.de/",
@@ -1656,6 +1656,54 @@
             {
               "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
               "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "87ebad59c907a74960fd125a2fc69f32670a01018025cb2f9ac29f9d25c05ea4": {
+      "page_url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
+      "file_url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Volkstrauertag der Veteranen",
+            "en": "Volkstrauertag (Remembrance Day) by the veterans"
+          },
+          "description": {
+            "de": "Gedenken zum Volkstrauertag, veranstaltet von den Veteranen Hohenfurch; danach folgt die Jahreshauptversammlung (nur intern).",
+            "en": "Remembrance Day commemoration held by the Hohenfurch veterans; a members-only annual meeting follows afterwards."
+          },
+          "venue": {
+            "name": null,
+            "place": "Hohenfurch",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
+              "primary": true
             }
           ]
         }

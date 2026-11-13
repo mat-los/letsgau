@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:03:10Z",
+  "updated_at": "2026-11-13T23:51:48Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -460,6 +460,166 @@
       "status": "active",
       "first_seen": "2026-11-13",
       "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "diewerkfeuerwehr": {
+      "origin": "mined",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "cafecentralpeiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "cafebarsesar": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "gasthaus_zechenschenke": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "saliterhof_peiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "error",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": "(#4) Application request limit reached (code 4)"
+    },
+    "juze_peiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "knatra_peiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "lj_peiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "fapeiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "ecpeiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "feuerwehr_peiting": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "herzogsaegmuehle": {
+      "origin": "mined",
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "faschingsclub_hohenfurch": {
+      "origin": "mined",
+      "places": [
+        "Hohenfurch"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "landjugendhohenfurch": {
+      "origin": "mined",
+      "places": [
+        "Hohenfurch"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "ffw.hohenfurch": {
+      "origin": "mined",
+      "places": [
+        "Hohenfurch"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "werbegemeinschaftaltstschongau": {
+      "origin": "mined",
+      "places": [
+        "Schongau"
+      ],
+      "status": "new",
+      "first_seen": "2026-11-13",
+      "last_checked": null,
       "last_error": ""
     }
   },
@@ -2914,6 +3074,314 @@
           ]
         }
       ]
+    },
+    "18636648388013302": {
+      "username": "diewerkfeuerwehr",
+      "permalink": "https://www.instagram.com/p/DfHdL7LiDmp/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18088838906310760": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfcMEPauP-9/",
+      "posted": "2026-11-07",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18078030047448601": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfQCobquDsk/",
+      "posted": "2026-11-02",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17945270058368582": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfNgqI9uNAf/",
+      "posted": "2026-11-01",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18086637188686667": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfML85uO2wo/",
+      "posted": "2026-11-01",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18403620889225566": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/DfnGlP6OMpW/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17966745390216831": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/Dfh7rnnR4Bt/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18131718271857940": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/DfbtVhLCEW0/",
+      "posted": "2026-11-07",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18108798569211351": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/DfXXpJ-jv-N/",
+      "posted": "2026-11-05",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17963637219240051": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/De3_REcDq3h/",
+      "posted": "2026-10-24",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17912003406517162": {
+      "username": "fapeiting",
+      "permalink": "https://www.instagram.com/p/De3-p5ROBTP/",
+      "posted": "2026-10-24",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17916552957547311": {
+      "username": "faschingsclub_hohenfurch",
+      "permalink": "https://www.instagram.com/reel/Dfj22aUAvSn/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18358734508171096": {
+      "username": "feuerwehr_peiting",
+      "permalink": "https://www.instagram.com/p/DfmcEbfoYAT/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18100411325550839": {
+      "username": "feuerwehr_peiting",
+      "permalink": "https://www.instagram.com/p/DfIVACKtw_k/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17959202628017573": {
+      "username": "feuerwehr_peiting",
+      "permalink": "https://www.instagram.com/p/De9EG9Wt4G1/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17898064953412949": {
+      "username": "feuerwehr_peiting",
+      "permalink": "https://www.instagram.com/p/De9AmHRtmnS/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18134081182739809": {
+      "username": "herzogsaegmuehle",
+      "permalink": "https://www.instagram.com/p/DfCtG2ZlPyy/",
+      "posted": "2026-10-28",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18111149045080561": {
+      "username": "herzogsaegmuehle",
+      "permalink": "https://www.instagram.com/reel/De4TC7oFFqX/",
+      "posted": "2026-10-24",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18066882941524860": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfsnZmkOuIF/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18647988661021442": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/Dfq3DUhN44q/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "EC Peiting – EV Füssen (Oberliga)",
+            "en": "EC Peiting vs EV Füssen (Oberliga)"
+          },
+          "description": {
+            "de": "Eishockey-Heimderby des EC Peiting gegen den EV Füssen in der Oberliga Süd.",
+            "en": "Ice hockey home derby of EC Peiting against EV Füssen in the Oberliga Süd."
+          },
+          "venue": {
+            "name": null,
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfq3DUhN44q/",
+              "primary": true
+            },
+            {
+              "url": "https://www.instagram.com/reel/DfnRgsLS7X8/",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "18039339368891274": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/reel/DfnRgsLS7X8/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17905086066414254": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/reel/DfmytCBuk0m/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18131268979828199": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DfkxPD5yQdO/",
+      "posted": "2026-11-10",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Gummiboot-Rennen in der ersten Drittelpause",
+            "en": "Rubber boat race in first intermission"
+          },
+          "description": {
+            "de": "Dreierteams schieben ein Gummiboot über die Eisfläche; Gewinn: 3 Freikarten. Anmeldung per DM oder E-Mail.",
+            "en": "Teams of three push a rubber boat across the ice; prize: 3 free tickets. Sign up by DM or email."
+          },
+          "venue": {
+            "name": null,
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfkxPD5yQdO/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18093758705219209": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/reel/DfUwDL4Orrz/",
+      "posted": "2026-11-04",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18222598576346149": {
+      "username": "faschingsclub_hohenfurch",
+      "permalink": "https://www.instagram.com/p/DfmPobkjix1/",
+      "posted": "2026-11-11",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
     }
   },
   "rejected": {
@@ -2976,6 +3444,16 @@
       "checked": "2026-11-13",
       "reason": "profile does not name the place",
       "name": "Frontstage Concerts (Jugendzentrum Peiting)"
+    },
+    "sv_peiting": {
+      "checked": "2026-11-13",
+      "reason": "not_business",
+      "name": "Schützenverein 1882 Peiting"
+    },
+    "oafach_schea": {
+      "checked": "2026-11-13",
+      "reason": "profile does not name the place",
+      "name": "Oafach-Schea Deko-Café"
     }
   },
   "venues": {
@@ -3017,7 +3495,7 @@
       ],
       "website": "",
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12"
+      "last_seen": "2026-11-13"
     },
     "Ballenhaus Schongau": {
       "places": [
@@ -3253,9 +3731,9 @@
     },
     "Gasthof Janser": {
       "places": [
-        "Altenstadt"
+        "Hohenfurch"
       ],
-      "website": "https://www.gasthof-janser.de",
+      "website": "http://www.gasthof-janser.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -3263,7 +3741,7 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "https://www.lalocanda-altenstadt.de",
+      "website": "http://www.lalocanda-altenstadt.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -3615,7 +4093,7 @@
       "places": [
         "Peiting"
       ],
-      "website": "https://sesar-baeck.de",
+      "website": "https://sesar-baeck.de/index.html",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
     },
@@ -3735,7 +4213,7 @@
       "places": [
         "Hohenfurch"
       ],
-      "website": "http://www.negele-zeus.de",
+      "website": "https://www.negele-zeus.de",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
     },
@@ -3743,7 +4221,279 @@
       "places": [
         "Hohenfurch"
       ],
-      "website": "oafach-schea.de",
+      "website": "https://www.oafach-schea.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Ballenhaus (Bistro & Café)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://ballenhaus-schongau.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Bistro Gleich": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Bootshaus am Schongauer See": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Cafe Express": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "City Cafe": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Jeanscafe": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lagerhaus Cocktailbar": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.lagerhaus-schongau.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lagerhaus Restaurant": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.lagerhaus-schongau.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Löwenhof (Bar)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://loewenhof.bar",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Violett (Café, Pub)": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Hotel Holl": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lechwirt": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Restaurant Opatija zum Lindauer": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthaus Hack": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Schongauer Märchenwald": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.schongauer-maerchenwald.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café und Wirtshaus Herzog": {
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "website": "https://www.herzogsaegmuehle.de/einkehren",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Rainer-Endisch-Saal": {
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "website": "https://www.herzogsaegmuehle.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Schlossberghalle": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Martinskirche Herzogsägmühle": {
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "website": "https://www.herzogsaegmuehle.de/erleben/martinskirche",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café ANDERL": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Zechenschenke": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.zechenschenke.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café Central": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.central-bar-cafe.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Keppeler": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Saliterhof": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Sparkassensaal": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Schützenhaus Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.sv-peiting.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof „Zum Dragoner“": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.hotel-dragoner.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "„HERZOG“-Cafe Wirtshaus": {
+      "places": [
+        "Herzogsägmühle"
+      ],
+      "website": "http://www.herzogsaegmuehle.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Saliterhof Hofstüberl": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.alpakas-saliterhof.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof Piroska": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof Zeus": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Tennisheim SVH": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Landhotel und Gasthaus Wiedmann": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Landgasthof Voglerwirt": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
     }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "fingerprint": "sha256:675d331c8e4b0868",
-  "generated_at": "2026-11-13T22:41:30Z",
+  "fingerprint": "sha256:f95183c7e58a8c27",
+  "generated_at": "2026-11-13T23:25:15Z",
   "municipalities": [
     "Schongau 86956",
     "Altenstadt 86972",
@@ -178,7 +178,7 @@
       "lat": 47.819701,
       "lon": 10.938452,
       "origin": "municipality",
-      "municipality": "Peiting"
+      "municipality": "Herzogsägmühle"
     },
     {
       "name": "Hofen",
