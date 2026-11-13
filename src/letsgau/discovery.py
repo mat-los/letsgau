@@ -343,34 +343,6 @@ def answer_schema(with_coverage: bool = False, with_instagram: bool = False) -> 
     return obj(properties)
 
 
-LOOKUP = "instagram"
-"""Marker of the Instagram lookup call that follows the passes of a batch."""
-MAX_LOOKUP_VENUES = 40
-
-
-def lookup_schema() -> dict[str, Any]:
-    candidate = {
-        "type": "object",
-        "properties": {
-            "username": {"type": "string"},
-            "name": {"type": "string"},
-            "places": {"type": "array", "items": {"type": "string"}},
-            "website": {"type": "string"},
-        },
-        "required": ["username", "name", "places", "website"],
-        "additionalProperties": False,
-    }
-    return {
-        "type": "object",
-        "properties": {
-            "instagram_candidates": {"type": "array", "items": candidate},
-            "notes": {"type": "string"},
-        },
-        "required": ["instagram_candidates", "notes"],
-        "additionalProperties": False,
-    }
-
-
 @dataclass
 class Venue:
     """A café, bar, club or venue seen in a pass; its account is looked up by name."""
@@ -378,30 +350,6 @@ class Venue:
     name: str
     places: list[str]
     website: str = ""
-
-
-def render_lookup_prompt(
-    config: Config,
-    groups: Sequence[Any],
-    venues: Sequence[Venue],
-    known_accounts: Sequence[str],
-    max_searches: int,
-) -> str:
-    """The prompt of the Instagram lookup call (``prompts/instagram_lookup.md``)."""
-    env = Environment(
-        loader=FileSystemLoader(PROMPTS_DIR),
-        undefined=StrictUndefined,
-        keep_trailing_newline=True,
-        autoescape=False,
-    )
-    return env.get_template("instagram_lookup.md").render(
-        region=config.region,
-        groups=groups,
-        venues=venues[:MAX_LOOKUP_VENUES],
-        known_accounts=known_accounts,
-        max_searches=max_searches,
-        max_places=MAX_LOOKUP_VENUES,
-    )
 
 
 def render_prompt(
@@ -1010,21 +958,13 @@ def run(
     focuses: Sequence[Focus | None] = FOCUSES if depth.discovery_focus_passes else (None,)
     candidates: list[Candidate] = []
     venues_seen: dict[int, dict[str, Venue]] = {}  # batch -> folded name -> venue
-    calls: list[tuple[int, Any, Focus | str | None]] = []
+    calls: list[tuple[int, Any, Focus | None]] = []
     for n, batch in enumerate(batches, 1):
         calls += [(n, batch, focus) for focus in focuses]
-        if insta_on and config.instagram.ai_lookup:
-            calls.append((n, batch, LOOKUP))
     budget = config.limits.max_web_searches_per_run
     deadline = clock() + config.limits.max_runtime_minutes * 60
     for position, (number, batch, focus) in enumerate(calls):
-        label = f"batch {number}" + (
-            " (instagram)"
-            if focus == LOOKUP
-            else f" ({focus.id})"
-            if isinstance(focus, Focus)
-            else ""
-        )
+        label = f"batch {number}" + (f" ({focus.id})" if focus is not None else "")
         remaining = budget - result.usage.web_searches
         if remaining < 3:
             result.warnings.append(f"{label}: skipped, search budget used up")
@@ -1043,51 +983,6 @@ def run(
         per_call = max(
             3, min(depth.discovery_searches_per_request, remaining // (len(calls) - position))
         )
-        if focus == LOOKUP:
-            assert result.instagram_cache is not None
-            cache = result.instagram_cache
-            retry_after = today - timedelta(days=CANDIDATE_RETRY_DAYS)
-            skip = set(cache.accounts) | {
-                u for u, r in cache.rejected.items() if r.checked > retry_after
-            }
-            skip |= {c.username for c in candidates}
-            checklist = list(venues_seen.get(number, {}).values())
-            listed = {v.name.casefold() for v in checklist}
-            for s in known + recheck:
-                kind_ok = s.kind in (SourceKind.VENUE, SourceKind.CLUB)
-                if kind_ok and s.name and s.name.casefold() not in listed:
-                    listed.add(s.name.casefold())
-                    checklist.append(Venue(name=s.name, places=s.places[:1], website=s.url))
-            checklist = checklist[:MAX_LOOKUP_VENUES]
-            if not checklist:
-                print(f"discovery: {label}: skipped, no cafés, bars or venues to look up")
-                continue
-            per_call = max(3, min(remaining, len(checklist)))
-            request = AiRequest(
-                step=f"discovery {label}, call {position + 1}/{len(calls)}",
-                model=config.models.discovery,
-                prompt=render_lookup_prompt(config, batch, checklist, sorted(skip), per_call),
-                schema=lookup_schema(),
-                blocked_domains=blocked,
-                max_searches=per_call,
-            )
-            try:
-                answer = runner.run(request)
-            except AiError as exc:
-                result.warnings.append(f"{label}: {exc}")
-                continue
-            result.usage = result.usage.add(answer.usage)
-            found = collect_candidates(answer.data, batch_places=names, resolve=to_municipality)
-            candidates += found
-            print(
-                f"discovery: {label}: {len(found)} candidate(s): "
-                + (", ".join(c.username for c in found) or "none")
-            )
-            note = str(answer.data.get("notes") or "").strip()
-            if note:
-                print(f"discovery: note from {label}: {note}")
-            continue
-        assert not isinstance(focus, str)
         request = AiRequest(
             step=f"discovery {label}, call {position + 1}/{len(calls)}",
             model=config.models.discovery,

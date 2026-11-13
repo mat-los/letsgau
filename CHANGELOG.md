@@ -170,6 +170,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The Anthropic SDK is an optional extra (`pip install -e '.[api]'`), needed
+  only for `ai.auth: api_key`; the Run workflow installs it only when
+  `ANTHROPIC_API_KEY` is set.
 - Crawl answers: known events found again are listed by id in `known_seen`
   (status, and date or time only if they changed) instead of being written
   out again with title and description in two languages; page, sweep and
@@ -337,6 +340,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   not per batch.
 - The *Crawl check* workflow runs only on demand, no longer on pull requests that
   change a prompt: it uses about as much of the plan as a real run.
+
+### Removed
+
+- `instagram.ai_lookup` and discovery's AI Instagram lookup call
+  (`prompts/instagram_lookup.md`): it was off by default since the scheduled
+  lookup session replaced it. A config that still sets the key fails
+  validation; delete the line.
 
 ### Fixed
 

@@ -156,7 +156,8 @@ python -m letsgau run --job events --dry-run --limit-places 3
   environment so it never bills an API key. Runs count against the plan's usage
   limits; the cost shown is what the run would cost at API prices (the CLI's
   `total_cost_usd`), a measure of how much of the plan a run uses.
-- API mode needs `ANTHROPIC_API_KEY`; the cost shown is an estimate from token
+- API mode needs `ANTHROPIC_API_KEY` and the Anthropic SDK (`pip install -e
+  '.[api]'`; the Run workflow installs it when the secret is set); the cost shown is an estimate from token
   prices and $10 per 1,000 searches.
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
 - The merge runs in the same stage (also with `--dry-run`, which then only
@@ -218,9 +219,8 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   - the passes list the cafés, bars, pubs, clubs and venues they saw in
     `venues_seen`; the venues pass reads the municipality's own gastronomy
     and business directory for it;
-  - the AI lookup call per batch (`prompts/instagram_lookup.md`) is off by
-    default (`instagram.ai_lookup`): its search engine rarely shows Instagram
-    usernames. Instead, a **scheduled Claude Code session**
+  - the pipeline's own search rarely shows Instagram usernames, so a
+    **scheduled Claude Code session**
     (`prompts/instagram_session.md`, monthly after discovery) searches the
     accounts of the venues in `data/instagram.json` (`venues`) with the web
     search of a Claude Code session and proposes them in

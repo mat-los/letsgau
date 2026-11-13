@@ -198,7 +198,6 @@ docs/OPERATIONS.md.
 | `read_mined` | `true` | also read accounts found on pages the crawl reads or by discovery |
 | `api_version` | `""` | Graph API version such as `v24.0`; empty uses the app's default |
 | `prescreen` | `true` | before a post's images are read, a text-only call to `models.merge` drops posts whose caption is clearly not about an upcoming event (cached, not read again); when in doubt, a post is read |
-| `ai_lookup` | `false` | discovery's AI lookup call per batch ("<name> <town> instagram"); off because its search engine rarely shows usernames |
 
 ## `excluded_topics`
 

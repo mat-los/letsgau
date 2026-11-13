@@ -61,11 +61,17 @@ def config() -> Config:
 
 @pytest.fixture
 def thorough(config: Config) -> Config:
-    """The instance's depth settings: three focus passes, two municipalities per call; with
-    the AI Instagram lookup call switched on."""
+    """The instance's depth settings: three focus passes, two municipalities per call."""
     depth = load_config(REPO_ROOT / "instance" / "config.yaml").depth
-    insta = config.instagram.model_copy(update={"ai_lookup": True})
-    return config.model_copy(update={"depth": depth, "instagram": insta})
+    return config.model_copy(update={"depth": depth})
+
+
+def with_candidates(config: Config, tmp_path: Path, entries: list[dict[str, Any]]) -> Config:
+    """The config with an Instagram candidates file (as the scheduled lookup session writes)."""
+    listing = tmp_path / "candidates.yaml"
+    listing.write_text(json.dumps(entries), encoding="utf-8")  # JSON is valid YAML
+    sources = config.sources.model_copy(update={"instagram_candidates_file": str(listing)})
+    return config.model_copy(update={"sources": sources})
 
 
 @pytest.fixture
@@ -107,31 +113,17 @@ def data_dir(tmp_path: Path) -> Path:
 
 
 class FakeRunner:
-    """Answers the passes in order; the Instagram lookup calls get ``lookup`` (by default no
-    candidates) and are recorded separately in ``lookups``."""
+    """Answers the passes in order."""
 
-    def __init__(
-        self,
-        answers: list[dict[str, Any]] | None = None,
-        fail: bool = False,
-        lookup: list[dict[str, Any]] | None = None,
-    ) -> None:
+    def __init__(self, answers: list[dict[str, Any]] | None = None, fail: bool = False) -> None:
         self.answers = answers
         self.fail = fail
-        self.lookup = lookup or []
         self.requests: list[AiRequest] = []
-        self.lookups: list[AiRequest] = []
 
     def run(self, request: AiRequest) -> AiResult:
         if self.fail:
             self.requests.append(request)
             raise AiError("claude failed")
-        if "(instagram)" in request.step:
-            self.lookups.append(request)
-            n = len(self.lookups) - 1
-            data = self.lookup[n] if n < len(self.lookup) else {}
-            data = {"instagram_candidates": [], "notes": "", **data}
-            return AiResult(data=copy.deepcopy(data), usage=Usage(requests=1, web_searches=2))
         self.requests.append(request)
         data = answer() if self.answers is None else self.answers[len(self.requests) - 1]
         return AiResult(
@@ -168,7 +160,7 @@ def test_discovery_extends_sources_and_writes_suggestions(
     assert not any(u == "not a url" for u in by_url)
     assert len(result.added) == 3
     state = State.model_validate_json((data_dir / "state.json").read_text("utf-8"))
-    assert state.last_usage["discovery"].requests == 2  # the AI lookup is off by default
+    assert state.last_usage["discovery"].requests == 2
 
     suggested = (data_dir / "suggested.md").read_text(encoding="utf-8")
     assert "## Whitelist candidates" in suggested
@@ -232,7 +224,7 @@ def test_blacklisted_existing_source_is_marked(config: Config, data_dir: Path) -
 
 def coverage_answer(municipality: str, focus: str) -> dict[str, Any]:
     data: dict[str, Any] = {"sources": [], "blacklist_candidates": [], "notes": ""}
-    # a café seen in the pass, so that the batch's Instagram lookup has a checklist
+    # a café seen in the pass (stored for the scheduled Instagram lookup session)
     data["venues_seen"] = [{"name": f"Café {municipality}", "places": [], "website": ""}]
     data["coverage"] = [
         {"municipality": municipality, "category": f"{focus} a", "status": "found", "note": ""},
@@ -269,7 +261,7 @@ def test_focus_passes_run_three_calls_per_batch(
     assert "https://veranstaltungen.pfaffen-winkel.de/schongau/" in clubs
     assert "https://veranstaltungen.pfaffen-winkel.de/schongau/" not in official
     assert "coverage" in runner.requests[0].schema["properties"]
-    assert runner.requests[0].max_searches == 250 // 16  # 12 passes + 4 lookups share it
+    assert runner.requests[0].max_searches == 250 // 12  # the 12 passes share it
 
     assert len(result.coverage) == 2 * 11
     gaps = [c for c in result.coverage if c.status == "nothing_found"]
@@ -286,8 +278,8 @@ def test_focus_passes_spread_the_search_budget(thorough: Config, data_dir: Path)
     )
     runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
     result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY, limit_places=2)
-    # 1 batch: 3 passes + the Instagram lookup: 40 // 4, (40 - 6) // 3, (40 - 12) // 2
-    assert [r.max_searches for r in runner.requests] == [10, 11, 14]
+    # 1 batch, 3 passes: 40 // 3, (40 - 6) // 2, 40 - 12
+    assert [r.max_searches for r in runner.requests] == [13, 17, 20]
     assert not result.warnings
 
 
@@ -614,7 +606,7 @@ def test_social_media_is_never_a_source(config: Config, data_dir: Path) -> None:
 
 
 def test_instagram_candidates_are_checked_against_their_profile(
-    thorough: Config, data_dir: Path, capsys: pytest.CaptureFixture[str]
+    thorough: Config, data_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
     from letsgau import instagram
 
@@ -623,15 +615,18 @@ def test_instagram_candidates_are_checked_against_their_profile(
         rejected={"old.wrong": RejectedCandidate(checked=TODAY - timedelta(days=10))},
     )
     (data_dir / "instagram.json").write_text(known.model_dump_json(), encoding="utf-8")
-    lookup = {}
-    lookup["instagram_candidates"] = [
-        {"username": "jeanscafe", "name": "Jeanscafe", "places": ["Schongau"], "website": ""},
-        {"username": "@Cafe.Abroad", "name": "Café", "places": ["Schongau"], "website": ""},
-        {"username": "bar.site", "name": "Bar", "places": [], "website": "https://bar-site.de/"},
-        {"username": "private.one", "name": "Pub", "places": ["Herzogsägmühle"], "website": ""},
-        {"username": "old.wrong", "name": "Old", "places": ["Schongau"], "website": ""},
-    ]
-    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12, lookup=[lookup])
+    config = with_candidates(
+        thorough,
+        tmp_path,
+        [
+            {"username": "jeanscafe", "name": "Jeanscafe", "places": ["Schongau"]},
+            {"username": "@Cafe.Abroad", "name": "Café", "places": ["Schongau"]},
+            {"username": "bar.site", "name": "Bar", "website": "https://bar-site.de/"},
+            {"username": "private.one", "name": "Pub", "places": ["Herzogsägmühle"]},
+            {"username": "old.wrong", "name": "Old", "places": ["Schongau"]},
+        ],
+    )
+    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
 
     def profile(username: str, **fields: str) -> dict[str, Any]:
         return {"business_discovery": {"username": username, **fields}}
@@ -650,40 +645,34 @@ def test_instagram_candidates_are_checked_against_their_profile(
 
     env = {instagram.TOKEN_ENV: "t", instagram.USER_ENV: "178"}
     result = discovery.run(
-        thorough, runner=runner, data_dir=data_dir, today=TODAY, graph_get=graph, env=env
+        config, runner=runner, data_dir=data_dir, today=TODAY, graph_get=graph, env=env
     )
-    assert "instagram_candidates" not in runner.requests[2].schema["properties"]
-    assert len(runner.lookups) == 4  # one per batch, after its three passes
-    lookup_request = runner.lookups[0]
-    assert lookup_request.step == "discovery batch 1 (instagram), call 4/16"
-    assert "instagram_candidates" in lookup_request.schema["properties"]
-    assert '1. "Café Schongau Schongau instagram"' in lookup_request.prompt  # the checklist
+    assert len(runner.requests) == 12  # the passes only
     assert "venues_seen" in runner.requests[2].schema["properties"]
-    assert "old.wrong" in lookup_request.prompt  # known: not to be reported again
     assert asked == ["jeanscafe", "cafe.abroad", "bar.site", "private.one"]  # old.wrong: recent
     assert result.instagram_added == ["jeanscafe", "bar.site"]
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
     assert stored.accounts["jeanscafe"].origin == "mined"
     assert stored.accounts["jeanscafe"].places == ["Schongau"]
-    assert stored.accounts["bar.site"].places == ["Schongau", "Peiting"]  # the batch
+    assert "Peiting" in stored.accounts["bar.site"].places  # none given: every municipality
     assert stored.rejected["cafe.abroad"].reason == "profile does not name the place"
     assert stored.rejected["private.one"].reason == "not_business"
     assert "rejected: cafe.abroad, private.one" in capsys.readouterr().out
 
 
-def test_district_names_count_for_the_profile_check(thorough: Config, data_dir: Path) -> None:
+def test_district_names_count_for_the_profile_check(
+    thorough: Config, data_dir: Path, tmp_path: Path
+) -> None:
     from letsgau import instagram
 
-    lookup = {
-        "instagram_candidates": [
-            {"username": "hsm.cafe", "name": "Café", "places": ["Peiting"], "website": ""}
-        ]
-    }
+    config = with_candidates(
+        thorough, tmp_path, [{"username": "hsm.cafe", "name": "Café", "places": ["Peiting"]}]
+    )
     answers = [coverage_answer("Schongau", "x")] * 12
     bio = {"business_discovery": {"username": "hsm.cafe", "biography": "Café in Herzogsägmühle"}}
     result = discovery.run(
-        thorough,
-        runner=FakeRunner(answers=answers, lookup=[lookup]),
+        config,
+        runner=FakeRunner(answers=answers),
         data_dir=data_dir,
         today=TODAY,
         graph_get=lambda url: bio,
@@ -692,14 +681,12 @@ def test_district_names_count_for_the_profile_check(thorough: Config, data_dir: 
     assert result.instagram_added == ["hsm.cafe"]
 
 
-def test_candidates_without_token_are_not_checked(thorough: Config, data_dir: Path) -> None:
-    lookup = {
-        "instagram_candidates": [
-            {"username": "jeanscafe", "name": "Jeanscafe", "places": [], "website": ""}
-        ]
-    }
-    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12, lookup=[lookup])
-    result = discovery.run(thorough, runner=runner, data_dir=data_dir, today=TODAY, env={})
+def test_candidates_without_token_are_not_checked(
+    thorough: Config, data_dir: Path, tmp_path: Path
+) -> None:
+    config = with_candidates(thorough, tmp_path, [{"username": "jeanscafe", "name": "Jeanscafe"}])
+    runner = FakeRunner(answers=[coverage_answer("Schongau", "x")] * 12)
+    result = discovery.run(config, runner=runner, data_dir=data_dir, today=TODAY, env={})
     assert result.instagram_added == []
     assert any("candidate account(s) not checked" in w for w in result.warnings)
 
@@ -748,24 +735,6 @@ def test_unread_mined_accounts_are_checked_and_dropped_if_foreign(
     assert stored.rejected["schongau"].reason == "profile does not name the place"
 
 
-def test_lookup_checklist_from_the_venues_the_passes_saw(thorough: Config, data_dir: Path) -> None:
-    venues = coverage_answer("Schongau", "venues")
-    venues["venues_seen"] = [
-        {"name": "Jeanscafe", "places": ["Schongau"], "website": ""},
-        {"name": "Café Express", "places": ["Herzogsägmühle"], "website": "https://express.de"},
-        {"name": "jeanscafe", "places": ["Schongau"], "website": ""},  # duplicate
-    ]
-    answers = [coverage_answer("Schongau", "official"), coverage_answer("Schongau", "clubs")]
-    runner = FakeRunner(answers=[*answers, venues] + [coverage_answer("Peiting", "x")] * 9)
-    discovery.run(thorough, runner=runner, data_dir=data_dir, today=TODAY, env={})
-    prompt = runner.lookups[0].prompt
-    assert '"Jeanscafe Schongau instagram"' in prompt
-    assert '"Café Express Peiting instagram" (website: https://express.de)' in prompt
-    assert prompt.count("Jeanscafe Schongau instagram") == 1
-    assert '"Café Schongau Schongau instagram"' in prompt  # from the other passes
-    assert runner.lookups[0].max_searches == 3  # one search per place (3 distinct names)
-
-
 def test_discovery_stores_venues_and_checks_the_candidates_file(
     config: Config, data_dir: Path, tmp_path: Path
 ) -> None:
@@ -793,7 +762,6 @@ def test_discovery_stores_venues_and_checks_the_candidates_file(
         graph_get=lambda url: bio,
         env={instagram.TOKEN_ENV: "t", instagram.USER_ENV: "178"},
     )
-    assert runner.lookups == []  # the AI lookup is off by default
     assert result.instagram_added == ["jeanscafe"]
     stored = InstagramFile.model_validate_json((data_dir / "instagram.json").read_text("utf-8"))
     assert stored.venues["Jeanscafe"].places == ["Schongau"]

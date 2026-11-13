@@ -63,7 +63,8 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 3. **Secrets:** under *Settings → Secrets and variables → Actions* add
    `CLAUDE_CODE_OAUTH_TOKEN` (create it with `claude setup-token`; needs a
    Claude subscription). Without a subscription set `ai.auth: api_key` and add
-   `ANTHROPIC_API_KEY` instead.
+   `ANTHROPIC_API_KEY` instead; the workflow then also installs the Anthropic
+   SDK (`pip install -e '.[api]'`, needed only in that mode).
 4. **Enable GitHub Pages:** *Settings → Pages → Source: GitHub Actions*.
 5. **Start the first run:** *Actions → Run → Run workflow*, job `all`. It
    computes the places, discovers sources, crawls the events and publishes the

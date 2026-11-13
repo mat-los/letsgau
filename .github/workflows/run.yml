@@ -76,7 +76,7 @@ jobs:
           node-version: "22"
       - name: Install
         run: |
-          pip install -e .
+          if [ -n "$ANTHROPIC_API_KEY" ]; then pip install -e '.[api]'; else pip install -e .; fi
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
       - name: Run
         id: run

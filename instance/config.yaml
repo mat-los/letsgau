@@ -67,7 +67,6 @@ instagram:                              # reading Instagram business/creator acc
   read_mined: true                      # also read accounts linked from pages the crawl reads
   api_version: ""                       # Graph API version such as "v24.0"; empty = app default
   prescreen: true                       # skip the images of posts whose caption is clearly no event
-  ai_lookup: false                      # discovery's AI lookup call; off: its search rarely shows usernames
 
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"

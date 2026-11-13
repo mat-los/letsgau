@@ -381,8 +381,12 @@ class ApiRunner:
         if self._client is None:
             if not os.environ.get("ANTHROPIC_API_KEY"):
                 raise AiError("ANTHROPIC_API_KEY is not set (ai.auth: api_key)")
-            import anthropic
-
+            try:
+                import anthropic
+            except ImportError as exc:
+                raise AiError(
+                    "the Anthropic SDK is not installed (ai.auth: api_key): pip install -e '.[api]'"
+                ) from exc
             self._client = anthropic.Anthropic()
         return self._client
 

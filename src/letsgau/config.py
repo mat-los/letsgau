@@ -217,10 +217,6 @@ class InstagramConfig(_Strict):
     prescreen: bool = True
     """Before reading a post's images, a text-only call (``models.merge``) drops posts whose
     caption is clearly not about an upcoming event; when in doubt, a post is read."""
-    ai_lookup: bool = False
-    """Discovery's AI lookup call per batch ("<name> <town> instagram" searches). Off by
-    default: its search engine rarely shows usernames; the scheduled lookup session writes
-    ``sources.instagram_candidates_file`` instead."""
 
 
 class Tag(_Strict):

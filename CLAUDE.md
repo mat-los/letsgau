@@ -18,7 +18,7 @@ repo is English.
 | `instance/content/` | Markdown content pages (`*.de.md`, `*.en.md`) |
 | `examples/instance/` | templates with `{{PLACEHOLDER}}`s for `letsgau init` |
 | `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `pages`, `flyers`, `instagram`, `merge`, `ai_runner`, `build`, `feeds` |
-| `prompts/` | `discovery.md`, `instagram_lookup.md`, `instagram_session.md` (scheduled lookup session), `instagram_screen.md`, `events.md`, `merge.md` |
+| `prompts/` | `discovery.md`, `instagram_session.md` (scheduled lookup session), `instagram_screen.md`, `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |
 | `.github/workflows/` | `ci.yml` (lint + tests), `geo-check.yml` / `crawl-check.yml` / `site-check.yml` (live checks), `run.yml` (pipeline, Phase 6) |
