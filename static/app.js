@@ -37,19 +37,34 @@
     }, { passive: false });
   }
 
-  /* header slides away when scrolling down, back when scrolling up (transform only) */
-  var head = document.getElementById("top"), last = 0, compact = false;
+  /* header slides away when scrolling down, back when scrolling up (transform only); on a
+     phone it comes back slim (search row and dates), full only at the top of the page */
+  var head = document.getElementById("top"), last = 0, compact = false, slim = false;
+  var phone = window.matchMedia ? matchMedia("(max-width: 639px)") : { matches: false };
   function setCompact(on) {
     compact = on;
     head.style.transform = on ? "translateY(-100%)" : "";
     document.documentElement.style.setProperty("--head-h", (on ? 0 : head.offsetHeight) + "px");
   }
+  function setSlim(on) {
+    /* the header is in the page flow: when it shrinks, keep the content where it is; back
+       at the top it grows and pushes the content down, as on the first load */
+    var before = head.offsetHeight;
+    slim = on; head.classList.toggle("slim", on);
+    if (on) window.scrollBy(0, head.offsetHeight - before);
+    last = window.scrollY;
+    setCompact(compact);  /* new height for the sticky group headings */
+  }
   window.addEventListener("scroll", function () {
     var y = window.scrollY;
     if (Math.abs(y - last) < 12) return;
-    var want = y > 120 && y > last;
-    if (want !== compact) setCompact(want);
+    var down = y > last, want = y > 120 && down;
     last = y;
+    if (phone.matches && slim !== (y > 40)) {
+      if (!slim && down && y > head.offsetHeight) setSlim(true);
+      else if (slim && y <= 40) setSlim(false);
+    }
+    if (want !== compact) setCompact(want);
   }, { passive: true });
   /* layout reads happen after the first paint */
   function later(f) {
