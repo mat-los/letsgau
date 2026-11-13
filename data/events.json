@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T06:54:48Z",
+  "updated_at": "2026-11-13T08:55:15Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -220,7 +220,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-12-fibromyalgiesymposium-schongau",
@@ -421,7 +421,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
@@ -469,7 +469,7 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-e31977757c70a0ca3638ef42566530bfa.html",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/weibsdeifi-markt-in-schongau-e8407a89e99e67d1208d27fffb9e0fc80.html",
@@ -531,7 +531,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
@@ -727,7 +727,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen",
@@ -819,7 +819,7 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
@@ -831,6 +831,12 @@
           "url": "https://veranstaltungen.meinestadt.de/schongau/event-detail/42634079/156428579",
           "primary": false,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.meinestadt.de/schongau",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -1180,7 +1186,7 @@
           "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1461,6 +1467,12 @@
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": false,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -1808,6 +1820,12 @@
           "primary": true,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
@@ -1922,6 +1940,60 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-16-adventskranzbinden-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Adventskranzbinden",
+        "en": "Advent Wreath Making"
+      },
+      "description": {
+        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
+        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+      },
+      "venue": {
+        "name": "Pfarrsaal Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-18",
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -2058,7 +2130,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/vorlesen-fuer-kinder-ab-2-jahren-e7cbdbd1f152aee6fc64d30beb20c5592.html",
@@ -2133,6 +2205,12 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/pfarrei-altenstadt-begegnungscafe-e4e9faf2c1a6c03b51774264b1086c087.html",
           "primary": true,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -2323,7 +2401,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/die-einheit-der-stadt-die-stadt-als-einheit-e109fc80c8c07267caf5d79ac0349e166.html",
@@ -2497,7 +2575,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -2630,7 +2708,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 5
+      "misses": 6
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -2749,7 +2827,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://veranstaltungen.erlebe.bayern/schongau/",
@@ -2819,6 +2897,12 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/pfarrei-altenstadt-oekumenisches-abendgebet-e104cd59664dd198e37b83a21e924127c.html",
           "primary": false,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -3017,6 +3101,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-09"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -3293,6 +3383,12 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/kab-familienadvent-e3c2a0166a79a78f96698cfcbb8fe3c6c.html",
           "primary": true,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -3710,7 +3806,7 @@
           "url": "https://www.tsv-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://www.tsv-schongau.de/%f0%9f%a7%98-honigbaeryoga-beim-tsv-schongau-neuer-kurs-ab-november/",
@@ -3720,7 +3816,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -3810,6 +3906,12 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/kab-und-landjugend-quizabend-eee8f0e9864dc07755b0c4fd6d4c0049c.html",
           "primary": true,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -4150,6 +4252,12 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -4451,11 +4559,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -4539,11 +4647,11 @@
           "url": "https://vivace-schongau.de/?page_id=83",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -4675,11 +4783,11 @@
           "url": "https://rc77-altenstadt.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -4761,6 +4869,12 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-09",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -5091,7 +5205,7 @@
       "venue": {
         "name": "Marienplatz",
         "place": "Schongau",
-        "address": "Marienplatz, 86956 Schongau"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-12-04",
@@ -5141,11 +5255,11 @@
           }
         ]
       },
-      "primary_tag": "market-festival",
+      "primary_tag": "seniors",
       "tags": [
+        "seniors",
         "market-festival",
-        "family-kids",
-        "food-drink"
+        "art-culture"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -5588,6 +5702,12 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-11"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -5630,11 +5750,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -5853,6 +5973,12 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
@@ -5940,11 +6066,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6086,6 +6212,63 @@
       "misses": 0
     },
     {
+      "id": "2026-12-13-mammuts-eislaufschule-mit-badbesuch-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Mammuts Eislaufschule mit Badbesuch",
+        "en": "Mammuts ice skating school with pool visit"
+      },
+      "description": {
+        "de": "Eislaufschule der Mammuts, danach Badbesuch im Plantsch zum halben Preis (Termine ab 13.12.).",
+        "en": "Mammuts ice skating school, followed by a pool visit at Plantsch at 50% off (dates from 13 Dec)."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-13",
+        "end_date": "2027-02-28",
+        "start_time": "10:00",
+        "end_time": "12:00",
+        "all_day": false,
+        "dates": [
+          "2026-12-13",
+          "2026-12-20",
+          "2026-12-27",
+          "2027-01-03",
+          "2027-01-10",
+          "2027-01-17",
+          "2027-01-24",
+          "2027-01-31",
+          "2027-02-07",
+          "2027-02-14",
+          "2027-02-21",
+          "2027-02-28"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-14-lebendiger-adventskalender-hl-kreuz-kapelle-schongau",
       "parent_id": null,
       "title": {
@@ -6130,6 +6313,72 @@
       "misses": 0
     },
     {
+      "id": "2026-12-14-traum-und-duftreise-im-saunaland-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Traum- und Duftreise im Saunaland",
+        "en": "Dream and fragrance journey in the Saunaland"
+      },
+      "description": {
+        "de": "Kurze Entspannungsreise im Saunaland des Plantsch (Termine ab 14.12.).",
+        "en": "Short relaxation journey in the Plantsch sauna area (dates from 14 Dec)."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-14",
+        "end_date": "2027-05-05",
+        "start_time": "12:45",
+        "end_time": "13:00",
+        "all_day": false,
+        "dates": [
+          "2026-12-14",
+          "2026-12-16",
+          "2026-12-28",
+          "2026-12-30",
+          "2027-01-11",
+          "2027-01-13",
+          "2027-01-25",
+          "2027-01-27",
+          "2027-02-08",
+          "2027-02-10",
+          "2027-02-22",
+          "2027-02-24",
+          "2027-03-08",
+          "2027-03-10",
+          "2027-03-22",
+          "2027-03-24",
+          "2027-04-05",
+          "2027-04-07",
+          "2027-04-19",
+          "2027-04-21",
+          "2027-05-03",
+          "2027-05-05"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-17-jugendschwimm-abzeichen-abnahmetermin-schongau",
       "parent_id": null,
       "title": {
@@ -6166,11 +6415,76 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-18-kinderspielenachmittag-im-plantsch-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Kinderspielenachmittag im Plantsch",
+        "en": "Children's play afternoon at Plantsch"
+      },
+      "description": {
+        "de": "Wöchentlicher Spielenachmittag für Kinder am Freitag im Plantsch (Fortsetzung der Termine ab 18.12.).",
+        "en": "Weekly Friday play afternoon for children at the Plantsch pool (dates continuing from 18 Dec)."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-18",
+        "end_date": "2027-05-07",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "all_day": false,
+        "dates": [
+          "2026-12-18",
+          "2026-12-25",
+          "2027-01-01",
+          "2027-01-08",
+          "2027-01-15",
+          "2027-01-22",
+          "2027-01-29",
+          "2027-02-05",
+          "2027-02-12",
+          "2027-02-19",
+          "2027-02-26",
+          "2027-03-05",
+          "2027-03-12",
+          "2027-03-19",
+          "2027-03-26",
+          "2027-04-02",
+          "2027-04-09",
+          "2027-04-16",
+          "2027-04-23",
+          "2027-04-30",
+          "2027-05-07"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6438,11 +6752,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6494,6 +6808,49 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-25-welcome-home-christmas-party-2026-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Welcome Home – Christmas Party 2026",
+        "en": "Welcome Home – Christmas Party 2026"
+      },
+      "description": {
+        "de": "Traditionelle Weihnachtsparty im Bootshaus auf zwei Floors mit DJ MrOggman und Peter Candy, Strandfeuer, beheizter Tanzfläche und Glühwein. Ab 18 Jahren.",
+        "en": "Traditional Christmas party at the Bootshaus on two floors with DJs MrOggman and Peter Candy, beach fire, heated dance floor and mulled wine. 18+."
+      },
+      "venue": {
+        "name": "Bootshaus Schongau",
+        "place": "Schongau",
+        "address": "Lechuferstraße, 86956 Schongau"
+      },
+      "schedule": {
+        "start_date": "2026-12-25",
+        "end_date": null,
+        "start_time": "21:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/Dfq_cQnuw3H/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6622,11 +6979,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6685,6 +7042,55 @@
       "misses": 0
     },
     {
+      "id": "2026-12-26-fkk-badenacht-mit-lampion-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "FKK-Badenacht mit Lampion-Schwimmen",
+        "en": "Naturist bathing night with lantern swimming"
+      },
+      "description": {
+        "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-26",
+        "end_date": "2026-12-26",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/26-12-fkk-badenacht-mit-lampion-schwimmen/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-27-ea-schongau-ehc-koenigsbrunn",
       "parent_id": null,
       "title": {
@@ -6720,11 +7126,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6784,7 +7190,7 @@
       },
       "venue": {
         "name": "Gasthof Janser",
-        "place": "Altenstadt",
+        "place": "Schongau",
         "address": null
       },
       "schedule": {
@@ -6873,6 +7279,105 @@
       "misses": 0
     },
     {
+      "id": "2027-01-02-fundsachen-flohmarkt-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Fundsachen-Flohmarkt",
+        "en": "Lost-property flea market"
+      },
+      "description": {
+        "de": "Flohmarkt mit Fundsachen im Plantsch.",
+        "en": "Flea market selling lost-property items at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-02",
+        "end_date": "2027-01-02",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/2-januar-fundsachen-flohmarkt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-02-oeffentliches-meerjungfrauen-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Öffentliches Meerjungfrauen-Schwimmen",
+        "en": "Public mermaid swimming"
+      },
+      "description": {
+        "de": "Meerjungfrauen-Schwimmen für alle, jeden ersten Samstag im Monat (Termine ab Januar 2027).",
+        "en": "Mermaid swimming open to all on the first Saturday of each month (dates from January 2027)."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-02",
+        "end_date": "2027-05-01",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "all_day": false,
+        "dates": [
+          "2027-01-02",
+          "2027-02-06",
+          "2027-03-06",
+          "2027-04-03",
+          "2027-05-01"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-01-03-ea-schongau-esc-kempten",
       "parent_id": null,
       "title": {
@@ -6908,11 +7413,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -6995,11 +7500,11 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -7038,11 +7543,154 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-09-ea-schongau-u20-erc-lechbruck",
+      "parent_id": null,
+      "title": {
+        "de": "EA Schongau U20 – ERC Lechbruck",
+        "en": "EA Schongau U20 vs ERC Lechbruck"
+      },
+      "description": {
+        "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ERC Lechbruck.",
+        "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-09",
+        "end_date": null,
+        "start_time": "17:10",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-13-offene-trauergruppe-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Offene Trauergruppe",
+        "en": "Open Grief Group"
+      },
+      "description": {
+        "de": "Offenes Treffen für Trauernde unter Leitung einer Trauerbegleiterin, ohne Anmeldung.",
+        "en": "Open meeting for the bereaved led by a grief counsellor, no registration needed."
+      },
+      "venue": {
+        "name": "Gemeindehaus Schongau",
+        "place": "Schongau",
+        "address": "Blumenstraße 5"
+      },
+      "schedule": {
+        "start_date": "2027-01-13",
+        "end_date": "2027-02-17",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "all_day": false,
+        "dates": [
+          "2027-01-13",
+          "2027-02-17"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-evangelisch.de/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.schongau-evangelisch.de/offene-trauergruppe",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-14-gefuehrte-kinder-sauna-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Geführte Kinder-Sauna",
+        "en": "Guided children's sauna"
+      },
+      "description": {
+        "de": "Geführter Saunanachmittag für Kinder im Plantsch.",
+        "en": "Guided sauna afternoon for children at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-14",
+        "end_date": "2027-03-25",
+        "start_time": "15:00",
+        "end_time": "18:00",
+        "all_day": false,
+        "dates": [
+          "2027-01-14",
+          "2027-02-11",
+          "2027-03-25"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -7081,11 +7729,244 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-16-ea-schongau-u20-esv-buchloe",
+      "parent_id": null,
+      "title": {
+        "de": "EA Schongau U20 – ESV Buchloe",
+        "en": "EA Schongau U20 vs ESV Buchloe"
+      },
+      "description": {
+        "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ESV Buchloe.",
+        "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Buchloe."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-16",
+        "end_date": null,
+        "start_time": "17:10",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-21-abnahmetermin-jugendschwimm-abzeichen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Abnahmetermin Jugendschwimm-Abzeichen",
+        "en": "Youth swimming badge tests"
+      },
+      "description": {
+        "de": "Abnahme des Jugendschwimm-Abzeichens im Plantsch (Termine ab 21.01.2027).",
+        "en": "Youth swimming badge tests at Plantsch (dates from 21 Jan 2027)."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-21",
+        "end_date": "2027-04-15",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "all_day": false,
+        "dates": [
+          "2027-01-21",
+          "2027-02-25",
+          "2027-03-18",
+          "2027-04-15"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-23-ea-schongau-u20-esv-burgau",
+      "parent_id": null,
+      "title": {
+        "de": "EA Schongau U20 – ESV Burgau",
+        "en": "EA Schongau U20 vs ESV Burgau"
+      },
+      "description": {
+        "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ESV Burgau.",
+        "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Burgau."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-23",
+        "end_date": null,
+        "start_time": "17:10",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-23-disney-night-vollmond-saunanacht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Disney-Night Vollmond-Saunanacht",
+        "en": "Disney Night full-moon sauna night"
+      },
+      "description": {
+        "de": "Vollmond-Saunanacht mit Disney-Motto und Öffnung bis 23 Uhr.",
+        "en": "Full-moon sauna night with Disney theme, open until 11 pm."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-23",
+        "end_date": "2027-01-23",
+        "start_time": "19:45",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/23-1-disney-night-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-23-fkk-badenacht-mit-lampion-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "FKK-Badenacht mit Lampion-Schwimmen",
+        "en": "Naturist bathing night with lantern swimming"
+      },
+      "description": {
+        "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-23",
+        "end_date": "2027-01-23",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/23-1-fkk-badenacht-mit-lampion-schwimmen/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -7129,6 +8010,234 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-31-kinderfasching-zwergalumzug-im-schongauer",
+      "parent_id": null,
+      "title": {
+        "de": "Kinderfasching „Zwergalumzug“ im Schongauer Märchenwald",
+        "en": "Children's carnival \"Zwergalumzug\" at Schongauer Märchenwald"
+      },
+      "description": {
+        "de": "Zauberhafter Kinderfasching mit Umzug im Märchenwald. Schulen, Kindergärten und Vereine können sich zur Teilnahme melden.",
+        "en": "Magical children's carnival parade at the Märchenwald. Schools, kindergartens and clubs can sign up to take part."
+      },
+      "venue": {
+        "name": "Schongauer Märchenwald",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-31",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DfrGhixMPrv/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-20-90er-fete-vollmond-saunanacht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "90er-Fete Vollmond-Saunanacht",
+        "en": "90s party full-moon sauna night"
+      },
+      "description": {
+        "de": "Vollmond-Saunanacht im Motto der 90er mit Öffnung bis 23 Uhr.",
+        "en": "Full-moon sauna night with a 90s theme, open until 11 pm."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-02-20",
+        "end_date": "2027-02-20",
+        "start_time": "19:45",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/20-2-90er-fete-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-20-fkk-badenacht-mit-lampion-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "FKK-Badenacht mit Lampion-Schwimmen",
+        "en": "Naturist bathing night with lantern swimming"
+      },
+      "description": {
+        "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-02-20",
+        "end_date": "2027-02-20",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/20-2-fkk-badenacht-mit-lampion-schwimmen/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-27-ea-schongau-u20-sg-esv-tuerkheim-ev-bad",
+      "parent_id": null,
+      "title": {
+        "de": "EA Schongau U20 – SG ESV Türkheim/EV Bad Wörishofen",
+        "en": "EA Schongau U20 vs SG ESV Türkheim/EV Bad Wörishofen"
+      },
+      "description": {
+        "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen die SG Türkheim/Bad Wörishofen.",
+        "en": "Ice hockey, U20 state league: EA Schongau home game against SG Türkheim/Bad Wörishofen."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-02-27",
+        "end_date": null,
+        "start_time": "17:10",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-03-06-ea-schongau-u20-erc-lechbruck",
+      "parent_id": null,
+      "title": {
+        "de": "EA Schongau U20 – ERC Lechbruck",
+        "en": "EA Schongau U20 vs ERC Lechbruck"
+      },
+      "description": {
+        "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ERC Lechbruck.",
+        "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-03-06",
+        "end_date": null,
+        "start_time": "17:10",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -7182,6 +8291,104 @@
       "misses": 0
     },
     {
+      "id": "2027-03-20-kraeuterzauber-vollmond-saunanacht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Kräuterzauber Vollmond-Saunanacht",
+        "en": "Herbal magic full-moon sauna night"
+      },
+      "description": {
+        "de": "Vollmond-Saunanacht im Zeichen der Kräuter mit Öffnung bis 23 Uhr.",
+        "en": "Full-moon sauna night themed around herbs, open until 11 pm."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-03-20",
+        "end_date": "2027-03-20",
+        "start_time": "19:45",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/20-3-kraeuterzauber-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-03-20-fkk-badenacht-mit-lampion-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "FKK-Badenacht mit Lampion-Schwimmen",
+        "en": "Naturist bathing night with lantern swimming"
+      },
+      "description": {
+        "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-03-20",
+        "end_date": "2027-03-20",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/20-3-fkk-badenacht-mit-lampion-schwimmen/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-03-27-flohmarkt-schongau-festplatz",
       "parent_id": null,
       "title": {
@@ -7222,7 +8429,7 @@
           "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-e3b88ae3c280189c8903df30a02cadb5c.html",
@@ -7264,7 +8471,7 @@
           "url": "https://meine-flohmarkt-termine.de/ort/schongau",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
+          "last_seen": "2026-11-13"
         },
         {
           "url": "https://meine-flohmarkt-termine.de/de/plz-gebiet/869",
@@ -7369,6 +8576,153 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-04-17-krimi-sauna-vollmond-saunanacht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Krimi-Sauna Vollmond-Saunanacht",
+        "en": "Crime sauna full-moon sauna night"
+      },
+      "description": {
+        "de": "Vollmond-Saunanacht im Krimi-Stil mit Öffnung bis 23 Uhr.",
+        "en": "Crime-themed full-moon sauna night, open until 11 pm."
+      },
+      "venue": {
+        "name": "Plantsch Saunaland",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-04-17",
+        "end_date": "2027-04-17",
+        "start_time": "19:45",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/17-4-krimi-sauna-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-04-17-fkk-badenacht-mit-lampion-schwimmen-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "FKK-Badenacht mit Lampion-Schwimmen",
+        "en": "Naturist bathing night with lantern swimming"
+      },
+      "description": {
+        "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+        "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-04-17",
+        "end_date": "2027-04-17",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/17-4-fkk-badenacht-mit-lampion-schwimmen/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-04-24-fundsachen-flohmarkt-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Fundsachen-Flohmarkt",
+        "en": "Lost-property flea market"
+      },
+      "description": {
+        "de": "Flohmarkt mit Fundsachen im Plantsch.",
+        "en": "Flea market selling lost-property items at Plantsch."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-04-24",
+        "end_date": "2027-04-24",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.plantsch.de/veranstaltungen/24-april-fundsachen-flohmarkt/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     }

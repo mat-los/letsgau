@@ -1,0 +1,2617 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-13T08:54:51Z",
+  "pages": {
+    "https://www.schongau.de/veranstaltungen": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.juze-schongau.de/termine/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.pg-schongau.com/pfarrbrief/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://allevents.in/schongau": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://allevents.in/schongau/all": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://musikschule-pfaffenwinkel.de/termine/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "http://www.kirstein.de/Termine/": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 403: Forbidden",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 403: Forbidden",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "http://www.musik-zum-tagesausklang.de": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://brauhaus-schongau.reservix.de": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 403: Forbidden",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.altenstadt-obb.de/vereine/kultur": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.altenstadt-obb.de/vereine/sonstige": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.altenstadt-obb.de/vereine/sport": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.kinoprogramm.com/kino/schongau/lagerhauskino/": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 404: Not Found",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau.de/de/Mein-Schongau/Vereine": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau.de/de/Unser-Rathaus/Was-erledige-ich-wo/Dienstleistung?view=publish&item=service&id=3582": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://brauhaus-schongau.de/veranstaltungen/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.reaktor-sog.de/": {
+      "mode": "agent",
+      "reason": "no dates in the text (loaded by JavaScript?)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf": {
+      "mode": "agent",
+      "reason": "not HTML (application/pdf)",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://veranstaltungen.meinestadt.de/schongau/alle/alle": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 403: Forbidden",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://veranstaltungen.meinestadt.de/schongau": {
+      "mode": "agent",
+      "reason": "download failed: HTTP Error 403: Forbidden",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://lagerhauskino.pfaffen-winkel.net/": {
+      "mode": "agent",
+      "reason": "download failed: <urlopen error [Errno -2] Name or service not known>",
+      "sha256": "",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://veranstaltungen.pfaffen-winkel.de/schongau/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "0bb262d361f648bc3f927fa123d5cbf66513605c8e67585954209dddb2e07324",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Weibsdeifi-Markt in Schongau (Samstag)",
+            "en": "Weibsdeifi Market in Schongau (Saturday)"
+          },
+          "description": {
+            "de": "Second-Hand- und Flohmarkt für Frauen in der Passage Münzstraße, samstags ab 10 Uhr.",
+            "en": "Second-hand and flea market for women in the Münzstraße passage, Saturdays from 10:00."
+          },
+          "venue": {
+            "name": "Weibsdeifi-Markt",
+            "place": "Schongau",
+            "address": "Münzstr. 9 - Passage, 86952 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-11-21",
+            "start_time": "10:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-14",
+              "2026-11-21"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+              "primary": true
+            },
+            {
+              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-e31977757c70a0ca3638ef42566530bfa.html",
+              "primary": false
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-11-13-wochenmarkt-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-13-weibsdeifi-markt-freitag-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-13-museumsfuehrung-ja-so-ist-war-das-leben-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-17-vorlesen-fuer-kinder-ab-2-jahren-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-18-vortrag-die-einheit-der-stadt-die-stadt-als-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-19-vorhang-auf-fuer-schongaus-geschichte",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-20-spielenachmittag-fuer-1013-jaehrige-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-20-mit-wein-weib-und-wacht-durch-die-schongauer-nacht",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-11-27-themenfuehrung-in-s-licht-gerueckt-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-12-06-stadtfuehrung-im-advent-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        },
+        {
+          "id": "2026-12-11-stadtfuehrung-romantischer-advent-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/"
+        }
+      ]
+    },
+    "https://veranstaltungen.pfaffen-winkel.de/altenstadt/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "4073b19eee010a926f059255a12b8d1a3a199dce7867d08be223d4a52ea37f30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-15-pfarrei-altenstadt-kinderkirche-zu-st-martin",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/"
+        },
+        {
+          "id": "2026-11-18-pfarrei-altenstadt-begegnungscafe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/"
+        },
+        {
+          "id": "2026-11-20-oekumenisches-abendgebet-altenstadt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/"
+        },
+        {
+          "id": "2026-11-21-kab-familienadvent-altenstadt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/"
+        },
+        {
+          "id": "2026-11-25-kab-und-landjugend-quizabend-altenstadt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/"
+        }
+      ]
+    },
+    "https://lagerhauskino.pfaffenwinkel.net": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "64051eed181e9715c641bbd0d5f5093d172e628c9ba6fde896e5173cca41d916",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-13-kino-sinn-und-sinnlichkeit-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://lagerhauskino.pfaffenwinkel.net"
+        },
+        {
+          "id": "2026-11-12-kino-heimsuchung-eine-jahrhundertgeschichte-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://lagerhauskino.pfaffenwinkel.net"
+        },
+        {
+          "id": "2026-11-20-kino-chopin-eine-sonate-in-paris-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://lagerhauskino.pfaffenwinkel.net"
+        },
+        {
+          "id": "2026-11-26-kino-kommissar-jennerwein-hochsaison-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://lagerhauskino.pfaffenwinkel.net"
+        },
+        {
+          "id": "2026-11-27-kino-die-blutgraefin-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://lagerhauskino.pfaffenwinkel.net"
+        }
+      ]
+    },
+    "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "8fca59f88a7921561d397b2bf4bfb9cf1dc1310cf527b3d07b1249c0aa5233f8",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "EA Schongau U20 – ERC Lechbruck",
+            "en": "EA Schongau U20 vs ERC Lechbruck"
+          },
+          "description": {
+            "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ERC Lechbruck.",
+            "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-09",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "EA Schongau U20 – ESV Buchloe",
+            "en": "EA Schongau U20 vs ESV Buchloe"
+          },
+          "description": {
+            "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ESV Buchloe.",
+            "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Buchloe."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-16",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "EA Schongau U20 – ESV Burgau",
+            "en": "EA Schongau U20 vs ESV Burgau"
+          },
+          "description": {
+            "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ESV Burgau.",
+            "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Burgau."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-23",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "EA Schongau U20 – SG ESV Türkheim/EV Bad Wörishofen",
+            "en": "EA Schongau U20 vs SG ESV Türkheim/EV Bad Wörishofen"
+          },
+          "description": {
+            "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen die SG Türkheim/Bad Wörishofen.",
+            "en": "Ice hockey, U20 state league: EA Schongau home game against SG Türkheim/Bad Wörishofen."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-02-27",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "EA Schongau U20 – ERC Lechbruck",
+            "en": "EA Schongau U20 vs ERC Lechbruck"
+          },
+          "description": {
+            "de": "Eishockey, U20 Landesliga: Heimspiel der EA Schongau gegen ERC Lechbruck.",
+            "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-03-06",
+            "end_date": null,
+            "start_time": "17:10",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-11-14-ea-schongau-u20-sg-dachau-fuerstenfeldbruck",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/"
+        },
+        {
+          "id": "2026-11-28-ea-schongau-u20-esv-buchloe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/"
+        },
+        {
+          "id": "2026-11-15-ea-schongau-tev-miesbach",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-11-20-ea-schongau-erv-schweinfurt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-11-27-ea-schongau-esc-dorfen",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-11-29-ea-schongau-esv-burgau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-12-06-ea-schongau-ersc-amberg",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-12-11-ea-schongau-peissenberg-miners",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-12-20-ea-schongau-esc-geretsried",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2026-12-27-ea-schongau-ehc-koenigsbrunn",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2027-01-03-ea-schongau-esc-kempten",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2027-01-08-ea-schongau-vfe-ulm-neu-ulm",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        },
+        {
+          "id": "2027-01-15-ea-schongau-esv-buchloe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/"
+        }
+      ]
+    },
+    "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "c2e0144aa29d63511c5d767b32d8873589f935cbb83e00bc3ca7b0bcaea2793a",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-13-jugendtreff-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-15-zwergerlgottesdienst-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-10-singkreis-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-18-bewegungsgottesdienst-zum-buss-und-bettag-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        },
+        {
+          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+        }
+      ]
+    },
+    "https://www.vhs-pfaffenwinkel.de/kurse/kurssuche?tx_kuportal_search%5B__referrer%5D%5B%40extension%5D=KuPortal&tx_kuportal_search%5B__referrer%5D%5B%40controller%5D=Kurs&tx_kuportal_search%5B__referrer%5D%5B%40action%5D=filter&tx_kuportal_search%5B__referrer%5D%5Barguments%5D=YTowOnt9f476d3ea6f6e28bdae763596ff8896fba845b20f&tx_kuportal_search%5B__referrer%5D%5B%40request%5D=%7B%22%40extension%22%3A%22KuPortal%22%2C%22%40controller%22%3A%22Kurs%22%2C%22%40action%22%3A%22filter%22%7Df4f9f8536f95347e69cda9b48bcbaada588a277e&tx_kuportal_search%5B__trustedProperties%5D=%7B%22pKursFilter%22%3A%7B%22suchbegriff%22%3A1%2C%22kategorie%22%3A1%2C%22inst%22%3A1%7D%7Db7e3477fac52339cc24927ec07548ef377d79a25&tx_kuportal_search%5BpKursFilter%5D%5Bsuchbegriff%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Binst%5D=4#kw-kursuebersicht": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "87466b7a5181ecef718c3452b1a51917ff8aae65977f61de7eed48f43300e085",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "http://www.kolpingsfamilie-schongau.de/termine": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "6d189438c47681b52d501218147e2e549aea3e63b28d21b8960956676974304e",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-17-gedaechtnistraining-mit-senioren-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "http://www.kolpingsfamilie-schongau.de/termine"
+        },
+        {
+          "id": "2026-12-14-lebendiger-adventskalender-hl-kreuz-kapelle-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "http://www.kolpingsfamilie-schongau.de/termine"
+        },
+        {
+          "id": "2026-12-26-waldweihnacht-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "http://www.kolpingsfamilie-schongau.de/termine"
+        },
+        {
+          "id": "2026-12-29-frauenwanderung-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "http://www.kolpingsfamilie-schongau.de/termine"
+        }
+      ]
+    },
+    "https://www.plantsch.de/service/veranstaltungen/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "8c306209658403bfab4228d65ec461728c22e035a0109ed404453bd4132114cd",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Kinderspielenachmittag im Plantsch",
+            "en": "Children's play afternoon at Plantsch"
+          },
+          "description": {
+            "de": "Wöchentlicher Spielenachmittag für Kinder am Freitag im Plantsch (Fortsetzung der Termine ab 18.12.).",
+            "en": "Weekly Friday play afternoon for children at the Plantsch pool (dates continuing from 18 Dec)."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-18",
+            "end_date": "2027-05-07",
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-18",
+              "2026-12-25",
+              "2027-01-01",
+              "2027-01-08",
+              "2027-01-15",
+              "2027-01-22",
+              "2027-01-29",
+              "2027-02-05",
+              "2027-02-12",
+              "2027-02-19",
+              "2027-02-26",
+              "2027-03-05",
+              "2027-03-12",
+              "2027-03-19",
+              "2027-03-26",
+              "2027-04-02",
+              "2027-04-09",
+              "2027-04-16",
+              "2027-04-23",
+              "2027-04-30",
+              "2027-05-07"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Mammuts Eislaufschule mit Badbesuch",
+            "en": "Mammuts ice skating school with pool visit"
+          },
+          "description": {
+            "de": "Eislaufschule der Mammuts, danach Badbesuch im Plantsch zum halben Preis (Termine ab 13.12.).",
+            "en": "Mammuts ice skating school, followed by a pool visit at Plantsch at 50% off (dates from 13 Dec)."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-13",
+            "end_date": "2027-02-28",
+            "start_time": "10:00",
+            "end_time": "12:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-13",
+              "2026-12-20",
+              "2026-12-27",
+              "2027-01-03",
+              "2027-01-10",
+              "2027-01-17",
+              "2027-01-24",
+              "2027-01-31",
+              "2027-02-07",
+              "2027-02-14",
+              "2027-02-21",
+              "2027-02-28"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Traum- und Duftreise im Saunaland",
+            "en": "Dream and fragrance journey in the Saunaland"
+          },
+          "description": {
+            "de": "Kurze Entspannungsreise im Saunaland des Plantsch (Termine ab 14.12.).",
+            "en": "Short relaxation journey in the Plantsch sauna area (dates from 14 Dec)."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-14",
+            "end_date": "2027-05-05",
+            "start_time": "12:45",
+            "end_time": "13:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-14",
+              "2026-12-16",
+              "2026-12-28",
+              "2026-12-30",
+              "2027-01-11",
+              "2027-01-13",
+              "2027-01-25",
+              "2027-01-27",
+              "2027-02-08",
+              "2027-02-10",
+              "2027-02-22",
+              "2027-02-24",
+              "2027-03-08",
+              "2027-03-10",
+              "2027-03-22",
+              "2027-03-24",
+              "2027-04-05",
+              "2027-04-07",
+              "2027-04-19",
+              "2027-04-21",
+              "2027-05-03",
+              "2027-05-05"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Öffentliches Meerjungfrauen-Schwimmen",
+            "en": "Public mermaid swimming"
+          },
+          "description": {
+            "de": "Meerjungfrauen-Schwimmen für alle, jeden ersten Samstag im Monat (Termine ab Januar 2027).",
+            "en": "Mermaid swimming open to all on the first Saturday of each month (dates from January 2027)."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-02",
+            "end_date": "2027-05-01",
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2027-01-02",
+              "2027-02-06",
+              "2027-03-06",
+              "2027-04-03",
+              "2027-05-01"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Abnahmetermin Jugendschwimm-Abzeichen",
+            "en": "Youth swimming badge tests"
+          },
+          "description": {
+            "de": "Abnahme des Jugendschwimm-Abzeichens im Plantsch (Termine ab 21.01.2027).",
+            "en": "Youth swimming badge tests at Plantsch (dates from 21 Jan 2027)."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-21",
+            "end_date": "2027-04-15",
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2027-01-21",
+              "2027-02-25",
+              "2027-03-18",
+              "2027-04-15"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": null,
+          "title": {
+            "de": "FKK-Badenacht mit Lampion-Schwimmen",
+            "en": "Naturist bathing night with lantern swimming"
+          },
+          "description": {
+            "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+            "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-26",
+            "end_date": "2026-12-26",
+            "start_time": "20:00",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/26-12-fkk-badenacht-mit-lampion-schwimmen/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": null,
+          "title": {
+            "de": "Disney-Night Vollmond-Saunanacht",
+            "en": "Disney Night full-moon sauna night"
+          },
+          "description": {
+            "de": "Vollmond-Saunanacht mit Disney-Motto und Öffnung bis 23 Uhr.",
+            "en": "Full-moon sauna night with Disney theme, open until 11 pm."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-23",
+            "end_date": "2027-01-23",
+            "start_time": "19:45",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/23-1-disney-night-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e8",
+          "parent_ref": null,
+          "title": {
+            "de": "FKK-Badenacht mit Lampion-Schwimmen",
+            "en": "Naturist bathing night with lantern swimming"
+          },
+          "description": {
+            "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+            "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-23",
+            "end_date": "2027-01-23",
+            "start_time": "20:00",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/23-1-fkk-badenacht-mit-lampion-schwimmen/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e9",
+          "parent_ref": null,
+          "title": {
+            "de": "90er-Fete Vollmond-Saunanacht",
+            "en": "90s party full-moon sauna night"
+          },
+          "description": {
+            "de": "Vollmond-Saunanacht im Motto der 90er mit Öffnung bis 23 Uhr.",
+            "en": "Full-moon sauna night with a 90s theme, open until 11 pm."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-02-20",
+            "end_date": "2027-02-20",
+            "start_time": "19:45",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/20-2-90er-fete-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e10",
+          "parent_ref": null,
+          "title": {
+            "de": "FKK-Badenacht mit Lampion-Schwimmen",
+            "en": "Naturist bathing night with lantern swimming"
+          },
+          "description": {
+            "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+            "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-02-20",
+            "end_date": "2027-02-20",
+            "start_time": "20:00",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/20-2-fkk-badenacht-mit-lampion-schwimmen/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e11",
+          "parent_ref": null,
+          "title": {
+            "de": "Kräuterzauber Vollmond-Saunanacht",
+            "en": "Herbal magic full-moon sauna night"
+          },
+          "description": {
+            "de": "Vollmond-Saunanacht im Zeichen der Kräuter mit Öffnung bis 23 Uhr.",
+            "en": "Full-moon sauna night themed around herbs, open until 11 pm."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-03-20",
+            "end_date": "2027-03-20",
+            "start_time": "19:45",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/20-3-kraeuterzauber-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e12",
+          "parent_ref": null,
+          "title": {
+            "de": "FKK-Badenacht mit Lampion-Schwimmen",
+            "en": "Naturist bathing night with lantern swimming"
+          },
+          "description": {
+            "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+            "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-03-20",
+            "end_date": "2027-03-20",
+            "start_time": "20:00",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/20-3-fkk-badenacht-mit-lampion-schwimmen/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e13",
+          "parent_ref": null,
+          "title": {
+            "de": "Krimi-Sauna Vollmond-Saunanacht",
+            "en": "Crime sauna full-moon sauna night"
+          },
+          "description": {
+            "de": "Vollmond-Saunanacht im Krimi-Stil mit Öffnung bis 23 Uhr.",
+            "en": "Crime-themed full-moon sauna night, open until 11 pm."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-04-17",
+            "end_date": "2027-04-17",
+            "start_time": "19:45",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/17-4-krimi-sauna-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e14",
+          "parent_ref": null,
+          "title": {
+            "de": "FKK-Badenacht mit Lampion-Schwimmen",
+            "en": "Naturist bathing night with lantern swimming"
+          },
+          "description": {
+            "de": "Abendliche FKK-Badenacht mit Lampion-Schwimmen im Plantsch.",
+            "en": "Evening naturist bathing night with lantern swimming at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-04-17",
+            "end_date": "2027-04-17",
+            "start_time": "20:00",
+            "end_time": "23:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/17-4-fkk-badenacht-mit-lampion-schwimmen/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e15",
+          "parent_ref": null,
+          "title": {
+            "de": "Fundsachen-Flohmarkt",
+            "en": "Lost-property flea market"
+          },
+          "description": {
+            "de": "Flohmarkt mit Fundsachen im Plantsch.",
+            "en": "Flea market selling lost-property items at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-02",
+            "end_date": "2027-01-02",
+            "start_time": "14:00",
+            "end_time": "16:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/2-januar-fundsachen-flohmarkt/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e16",
+          "parent_ref": null,
+          "title": {
+            "de": "Fundsachen-Flohmarkt",
+            "en": "Lost-property flea market"
+          },
+          "description": {
+            "de": "Flohmarkt mit Fundsachen im Plantsch.",
+            "en": "Flea market selling lost-property items at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-04-24",
+            "end_date": "2027-04-24",
+            "start_time": "14:00",
+            "end_time": "16:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            },
+            {
+              "url": "https://www.plantsch.de/veranstaltungen/24-april-fundsachen-flohmarkt/",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e17",
+          "parent_ref": null,
+          "title": {
+            "de": "Geführte Kinder-Sauna",
+            "en": "Guided children's sauna"
+          },
+          "description": {
+            "de": "Geführter Saunanachmittag für Kinder im Plantsch.",
+            "en": "Guided sauna afternoon for children at Plantsch."
+          },
+          "venue": {
+            "name": "Plantsch Saunaland",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-14",
+            "end_date": "2027-03-25",
+            "start_time": "15:00",
+            "end_time": "18:00",
+            "all_day": false,
+            "dates": [
+              "2027-01-14",
+              "2027-02-11",
+              "2027-03-25"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.plantsch.de/service/veranstaltungen/",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-11-13-kinderspielenachmittag-am-freitag-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-11-15-mammuts-eislaufschule-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-11-16-traum-und-duftreise-im-saunaland-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-11-19-abnahmetermin-jugendschwimm-abzeichen-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-11-21-plantsch-friends-vollmond-saunanacht-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-11-21-fkk-badenacht-mit-lampion-schwimmen-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-12-05-freier-eintritt-fuer-ehrenamtskarte-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-12-05-oeffentliches-meerjungfrauen-schwimmen-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-12-06-25-jahre-plantsch-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-12-17-jugendschwimm-abzeichen-abnahmetermin-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        },
+        {
+          "id": "2026-12-26-christmas-party-vollmond-saunanacht-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.plantsch.de/service/veranstaltungen/"
+        }
+      ]
+    },
+    "https://www.pg-schongau.com/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "3dcaa9f0f79875cb2c8e0d058f7473f6ac7baacd78f12f4a94d411dc34e4c913",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-21-adventsbasar-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.pg-schongau.com/"
+        },
+        {
+          "id": "2026-11-22-benefizkonzert-mozart-messe-b-dur-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.pg-schongau.com/"
+        }
+      ]
+    },
+    "https://www.schwarz-gelb-schongau.de": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "1b27904e179148fd909a808f55bd981a9d708f3f987a78a03dee7ed0fab160f5",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-14-kegeln-maenner-2-vs-peissenberg-g1-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        },
+        {
+          "id": "2026-11-14-kegeln-maenner-1-vs-spg-alztal-1-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        },
+        {
+          "id": "2026-11-21-kegeln-bezirksvorentscheid-senioren-a-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        },
+        {
+          "id": "2026-11-28-kegeln-maenner-4-vs-eberfing-g1-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        },
+        {
+          "id": "2026-11-28-kegeln-maenner-3-vs-oberdiessen-2-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        },
+        {
+          "id": "2026-11-28-kegeln-frauen-1-vs-spg-seeshaupt-weilheim-g4-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schwarz-gelb-schongau.de"
+        }
+      ]
+    },
+    "https://www.schongau-mammuts.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "b3254c61b84fc2a42698198ee4ad2bb5770d41dcc570e0ae3302b7019fd9e2d0",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e18",
+          "parent_ref": null,
+          "title": {
+            "de": "Eishockey: EA Schongau U15 – Peissenberg Miners (Zusatz)",
+            "en": "Ice hockey: EA Schongau U15 vs Peissenberg Miners"
+          },
+          "description": {
+            "de": "Heimspiel der U15 der EA Schongau.",
+            "en": "Home game of EA Schongau's U15 team."
+          },
+          "venue": {
+            "name": "Eisstadion Schongau",
+            "place": "Schongau",
+            "address": "Lechuferstraße"
+          },
+          "schedule": {
+            "start_date": "2027-01-06",
+            "end_date": "2027-01-06",
+            "start_time": "10:30",
+            "end_time": "12:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-mammuts.de/",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-11-13-ea-schongau-1b-sg-oberstdorf-sonthofen",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2026-11-14-ea-schongau-u20-sg-dachau-fuerstenfeldbruck",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2026-11-15-ea-schongau-tev-miesbach",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2026-11-20-ea-schongau-erv-schweinfurt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2026-11-22-ea-schongau-1b-sg-senden-burgau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2026-11-28-ea-schongau-u20-esv-buchloe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        },
+        {
+          "id": "2027-01-06-eishockey-ea-schongau-u15-vs-peissenberg-miners",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/"
+        }
+      ]
+    },
+    "https://www.schongau-evangelisch.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "dff7bdb979bd470faad328d597f50f9bb5532602f0a5e264fffff93cd87d818f",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Offene Trauergruppe",
+            "en": "Open Grief Group"
+          },
+          "description": {
+            "de": "Offenes Treffen für Trauernde unter Leitung einer Trauerbegleiterin, ohne Anmeldung.",
+            "en": "Open meeting for the bereaved led by a grief counsellor, no registration needed."
+          },
+          "venue": {
+            "name": "Gemeindehaus Schongau",
+            "place": "Schongau",
+            "address": "Blumenstraße 5"
+          },
+          "schedule": {
+            "start_date": "2027-01-13",
+            "end_date": "2027-02-17",
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2027-01-13",
+              "2027-02-17"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongau-evangelisch.de/",
+              "primary": true
+            },
+            {
+              "url": "https://www.schongau-evangelisch.de/offene-trauergruppe",
+              "primary": false
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        },
+        {
+          "id": "2026-11-15-zwergerlgottesdienst-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        },
+        {
+          "id": "2026-11-18-bewegungsgottesdienst-zum-buss-und-bettag-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        },
+        {
+          "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        },
+        {
+          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        },
+        {
+          "id": "2026-11-29-gottesdienst-zum-1-advent-mit-einfuehrung-der-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/"
+        }
+      ]
+    },
+    "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "d0214d6629e4a8aad3671ff2dec498849dc025070b2bb0b36a5b804f2041bae5",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-20-mit-wein-weib-und-wacht-durch-die-schongauer-nacht",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
+        },
+        {
+          "id": "2026-11-27-themenfuehrung-in-s-licht-gerueckt-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
+        },
+        {
+          "id": "2026-12-06-stadtfuehrung-im-advent-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
+        },
+        {
+          "id": "2026-12-11-stadtfuehrung-romantischer-advent-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen"
+        }
+      ]
+    },
+    "https://www.schongauer-weihnachtszauber.com": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "ac8b33e3a724d69bb4d9e0d53fee03507aee655d95bd136993902613addfe30f",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
+          "title": {
+            "de": "Weihnachtszauber: Familientag",
+            "en": "Weihnachtszauber: Family Day"
+          },
+          "description": {
+            "de": "Familientag auf dem Schongauer Weihnachtszauber am Marienplatz.",
+            "en": "Family day at the Schongau Weihnachtszauber Christmas market on Marienplatz."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-07",
+            "end_date": "2026-12-14",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-12-07",
+              "2026-12-14"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongauer-weihnachtszauber.com",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
+          "title": {
+            "de": "Weihnachtszauber: Perchtenshow",
+            "en": "Weihnachtszauber: Perchten Show"
+          },
+          "description": {
+            "de": "Perchtenshow auf dem Schongauer Weihnachtszauber am Marienplatz.",
+            "en": "Perchten show at the Schongau Weihnachtszauber Christmas market on Marienplatz."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongauer-weihnachtszauber.com",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
+          "title": {
+            "de": "Weihnachtszauber: Seniorennachmittag",
+            "en": "Weihnachtszauber: Seniors' Afternoon"
+          },
+          "description": {
+            "de": "Seniorennachmittag auf dem Schongauer Weihnachtszauber am Marienplatz.",
+            "en": "Seniors' afternoon at the Schongau Weihnachtszauber Christmas market on Marienplatz."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-19",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "seniors",
+          "tags": [
+            "seniors",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.schongauer-weihnachtszauber.com",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "seen": [
+        {
+          "id": "2026-12-04-schongauer-weihnachtszauber",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongauer-weihnachtszauber.com"
+        }
+      ]
+    },
+    "https://seniorenbeirat-schongau.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "d7ac07bfb0122dce7efa5b74b5e164d2ed6b383d39264cb4c67da1ae15205619",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-17-geselliges-mittagessen-fuer-senioren-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://seniorenbeirat-schongau.de/"
+        },
+        {
+          "id": "2026-11-19-vorstellung-notfallmappe-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://seniorenbeirat-schongau.de/"
+        }
+      ]
+    },
+    "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "75e46cd33a9c292f2cf7516c8ce61b7d702bde3e5c58e5c6a39b5a6c8a12b6cb",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-13-museumsfuehrung-ja-so-ist-war-das-leben-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen"
+        },
+        {
+          "id": "2027-01-04-eine-zauber-hafte-nacht-rauhnaechte-im-stadtmuseum-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen"
+        }
+      ]
+    },
+    "https://fotogruppe-altenstadt.de/veranstaltungen": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "c50cbadb9189003f099d858291f89ee6f8ee72b39abeaa0f51d03db24fc58576",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-14-gruppenausstellung-fotogruppe-altenstadt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://fotogruppe-altenstadt.de/veranstaltungen"
+        },
+        {
+          "id": "2026-11-18-fotogruppe-altenstadt-clubabend",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://fotogruppe-altenstadt.de/veranstaltungen"
+        }
+      ]
+    },
+    "https://sv-snh.jimdoweb.com/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "0250fb2224cccaad20088912ce785d42759919b5f72b963abaf6cd5648d78174",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://meine-flohmarkt-termine.de/ort/schongau": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "f33bd92827b0917e93a5c7f4aa845bf17948ca5b06d0bd9cee8bb5b914548982",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2027-03-27-flohmarkt-schongau-festplatz",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://meine-flohmarkt-termine.de/ort/schongau"
+        }
+      ]
+    },
+    "https://vivace-schongau.de/?page_id=83": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "8318aa3e052387ac89208299237919b71c2ab513b6aeacfd54c0e1e4d562fcc6",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-25-gottesdienst-mit-vivace-oekumenischer-chor-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://vivace-schongau.de/?page_id=83"
+        },
+        {
+          "id": "2026-11-28-konzert-in-der-stadtpfarrkirche-mariae-himmelfahrt-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://vivace-schongau.de/?page_id=83"
+        }
+      ]
+    },
+    "https://www.orchester-schongau.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "ca5e3a2ecd390aa81d63b8b5782216519a066b4d05d915098f3d9d340629d998",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-14-herbstkonzert-des-orchesters-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.orchester-schongau.de/"
+        }
+      ]
+    },
+    "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "30fdb2f1a483047558f6201b786362f60023b04fcf0d5cdc03a205b0d0942bc4",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-12-04-schongauer-weihnachtszauber",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html"
+        },
+        {
+          "id": "2027-03-27-flohmarkt-schongau-festplatz",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html"
+        }
+      ]
+    },
+    "https://www.sc-schongau.de/termine/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "ed40c9ef99bb6cf8150625aabb835e2a4d2ae62abffe6c21bbc2ced73a5cd143",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.bayregio-wm.de/veranstaltungen/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "e597989bb6a9794b6b8452fa0d6cf4442ab6dd796e33618827e82a3bce6a5e73",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.bayregio-wm.de/veranstaltungen/"
+        }
+      ]
+    },
+    "https://www.tsv-schongau.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "49eb37c3966e68fad8789513905c88209067e6c67f3cd3e69c26605ad0b3e3bf",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-25-honigbaeryoga-tsv-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.tsv-schongau.de/"
+        }
+      ]
+    },
+    "https://www.wieskonzerte.de": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "71c2b785db65e1d4d0f2329102f15d3e9b3f96f19484b5c0915cf398a1c0e2dc",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.wieskonzerte.de"
+        }
+      ]
+    },
+    "https://www.vhs-pfaffenwinkel.de/vhs-schongau": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "cfeb5e62329c444bbd64b0a1f3bd307132ed847910dccd07cf80add9364e1a04",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://weltlaeden.de/schongau": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "613cf91b5f0a87f14dfd4e4c11233d75a496a802da09a25634b8aae6c6713884",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-12-11-lebendiger-adventskalender-im-weltladen-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://weltlaeden.de/schongau"
+        }
+      ]
+    },
+    "http://www.jaegerhaus-altenstadt.de": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "4d7a5b743956443bd65dc44435509550a4cb4c5cc49bd9dc69457b866c8e0029",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://rc77-altenstadt.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "dc766e27263d2deb0154c56d5994902029ccfd8418f919a5ec58917a62358342",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": [
+        {
+          "id": "2026-11-28-rc-77-altenstadt-adventwanderung-und",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://rc77-altenstadt.de/"
+        }
+      ]
+    },
+    "https://tango-oberland.de/veranstaltungen": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "4a2b8075a3373ccdb93d57fbbc4aac7dea2b0291242d60f359d8d85ccc2ae0bb",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://tickets.item-events.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "b8e03f422f79d607c72e3115b9f4f3d4dfa4efe509810b2591eaffbb26f24200",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.kulze.info/programm/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "d78234d0635662bfc06e040da52d5aae908183e0e322f3e30dfe3516a027217c",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau-belebt.de/news.html": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "b9a6ec03386576aae9991f82fc78c1dffeff286f28e6c9d0a9089dcd6556bdb4",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Stadt-und-Erlebnisfuehrungen-fuer-Kinder": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "0b73ba48e8b3befb1907a06ff540c0a0e656aac569b0767a3d964d10d0536db7",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Stadtfuehrungen": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "cc20cea253e91b12dfb03d81f961cd440bfef896b3c7c4db8cfde6e1173dc43b",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://www.schongauer-hexennacht.de": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "d31349e4a9c93045159b6d0ee5652fdfb942b604546b35658efb976b31f1ef3f",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    },
+    "https://meine-flohmarkt-termine.de/": {
+      "mode": "text",
+      "reason": "",
+      "sha256": "50dcb9c1df30e0946a6885674ac15213e69c1b75a45717b75079b9858d6fb6a3",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "last_changed": "2026-11-13",
+      "events": [],
+      "seen": []
+    }
+  }
+}

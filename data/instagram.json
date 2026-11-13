@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T08:41:46Z",
+  "updated_at": "2026-11-13T08:54:51Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -2296,6 +2296,121 @@
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
       "events": []
+    },
+    "18139108558736805": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/DfrO-xAjnwO/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17916202089303562": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DfrC2qCJ8_o/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18485993542112063": {
+      "username": "bootshaus_schongau",
+      "permalink": "https://www.instagram.com/p/Dfq_cQnuw3H/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Welcome Home – Christmas Party 2026",
+            "en": "Welcome Home – Christmas Party 2026"
+          },
+          "description": {
+            "de": "Traditionelle Weihnachtsparty im Bootshaus auf zwei Floors mit DJ MrOggman und Peter Candy, Strandfeuer, beheizter Tanzfläche und Glühwein. Ab 18 Jahren.",
+            "en": "Traditional Christmas party at the Bootshaus on two floors with DJs MrOggman and Peter Candy, beach fire, heated dance floor and mulled wine. 18+."
+          },
+          "venue": {
+            "name": "Bootshaus Schongau",
+            "place": "Schongau",
+            "address": "Lechuferstraße, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-25",
+            "end_date": null,
+            "start_time": "21:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfq_cQnuw3H/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17919696396523717": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/DfrGhixMPrv/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Kinderfasching „Zwergalumzug“ im Schongauer Märchenwald",
+            "en": "Children's carnival \"Zwergalumzug\" at Schongauer Märchenwald"
+          },
+          "description": {
+            "de": "Zauberhafter Kinderfasching mit Umzug im Märchenwald. Schulen, Kindergärten und Vereine können sich zur Teilnahme melden.",
+            "en": "Magical children's carnival parade at the Märchenwald. Schools, kindergartens and clubs can sign up to take part."
+          },
+          "venue": {
+            "name": "Schongauer Märchenwald",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-01-31",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfrGhixMPrv/",
+              "primary": true
+            }
+          ]
+        }
+      ]
     }
   },
   "rejected": {
