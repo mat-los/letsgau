@@ -175,6 +175,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Phone: the header no longer slides in and out. The search row and the date bar
+  stay pinned (about 130 px); coverage line, info links, Heute/Morgen and the
+  category tools scroll away with the page. This removes the empty gap at the top
+  and the flicker on small scroll movements.
 - Phone: after scrolling down, the header that slides back in is slim (search row
   and date bar, about a seventh of the screen instead of half); coverage line, info
   links, Heute/Morgen and the category tools return at the top of the page.
