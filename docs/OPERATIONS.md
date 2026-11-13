@@ -221,7 +221,9 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
   ones, syncs the whitelist in and marks blacklisted domains.
 - **Instagram** (with `sources.instagram_file`):
   - every pass reports the Instagram accounts it saw (`instagram_accounts`);
-    the venues pass runs `site:instagram.com <town> …` searches on purpose;
+    the venues pass runs `site:instagram.com <town> …` searches on purpose,
+    but the search tool ignores the `site:` operator, so they rarely find an
+    account (the scheduled session below does that job);
   - the passes list the cafés, bars, pubs, clubs and venues they saw in
     `venues_seen`; the venues pass reads the municipality's own gastronomy
     and business directory for it;
@@ -258,9 +260,9 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - Known sources are only listed in the prompt (not opened or reported again)
   if they are whitelisted, or were rated or had a hit in the last 90 days
   (`RECHECK_SOURCES_DAYS`); older ones are listed separately to be re-rated.
-- Usage: with Opus and 30 searches per pass about $4.35 at API prices for
-  Schongau alone (three passes); with the defaults (Sonnet, 20 searches, known
-  sources not re-read) roughly a third of that.
+- Usage: the run of 2026-11-13 for Schongau and Altenstadt (Sonnet, three
+  passes, 20 searches each) made 3 calls with 24 searches, about $0.80 at API
+  prices.
 
 ## Build the website
 
@@ -404,3 +406,8 @@ app permission (`permission`) stops the Instagram step for the whole run.
 Every run writes requests, searches, tokens, the estimated cost and the AI time
 to the GitHub job summary; the usage of the last events and discovery runs is
 also in `data/state.json` (`last_usage`).
+
+For reference, the events run of 2026-11-13 for two municipalities, before the
+page cache: 22 AI calls, 1.96 M input and 234 k output tokens, about $2 at API
+prices. Since then an unchanged source page costs no call, and known events are
+answered by id; compare the job summaries of later runs with these numbers.

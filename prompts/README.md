@@ -10,8 +10,13 @@ are thrown away.
 Prompts are Jinja2 templates. The answer format is not described in the prompt
 but enforced by a JSON schema (`crawl.answer_schema`).
 
-| File | Step | Phase |
+The model of each step is set in `models` in `instance/config.yaml` (Schongau:
+Sonnet for discovery and events, Haiku for the merge and the pre-screen).
+
+| File | Step | Rendered by |
 | --- | --- | --- |
-| `discovery.md` | find and rate sources per batch of municipalities and focus pass (Opus) | 7 ✓ |
-| `events.md` | crawl events (Sonnet); rendered per call: `pages` (source texts, no web), `sources` sweep, `flyers`, `instagram`, `recheck`, open `search`, or combined `all` | 2 ✓ |
-| `merge.md` | duplicate tie-break and topic filter (Haiku), one call per run | 3 ✓ |
+| `discovery.md` | find and rate sources per batch of municipalities and focus pass (`models.discovery`) | `discovery.render_prompt` |
+| `events.md` | crawl events (`models.events`); one mode per call: `pages` (source texts, no web), `sources` (agent sweep), `flyers`, `instagram`, `recheck`, open `search`, or combined `all` | `crawl.render_prompt` |
+| `merge.md` | duplicate tie-break and topic check (`models.merge`), one call per run | `merge.render_prompt` |
+| `instagram_screen.md` | Instagram pre-screen: drop posts whose caption is clearly no event before their images are read (`models.merge`) | `instagram.prescreen_posts` |
+| `instagram_session.md` | not used by the pipeline: the task of the scheduled Claude Code session that looks up venue accounts and proposes them in `instance/sources/instagram_candidates.yaml` | (scheduled session) |

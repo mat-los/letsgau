@@ -11,12 +11,9 @@ GitHub Pages. The site is equally usable by people on their phones, by search
 engines and by AI assistants.
 
 > **Status:** all phases of version 1 are implemented (geo, event crawl, merge,
-> website, AI readability, scheduler and workflow, discovery, content pages);
-> see [docs/ISSUES.md](docs/ISSUES.md).
+> website, AI readability, scheduler and workflow, discovery, content pages).
 > See [docs/CONCEPT.md](docs/CONCEPT.md) (German) for the full specification and
-> the phase plan, and [docs/ISSUES.md](docs/ISSUES.md) for the task list.
-
-<!-- Screenshot will be added in Phase 4. -->
+> the phase plan, and the GitHub issues for open work.
 
 ## How it works
 

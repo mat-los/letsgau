@@ -9,7 +9,8 @@ repo is English.
 | Path | What |
 | --- | --- |
 | `docs/CONCEPT.md` | full specification and phase plan (do not edit without being asked) |
-| `docs/ISSUES.md` | milestones, labels and issues per phase |
+| `docs/archive/ISSUES.md` | the one-off setup of milestones, labels and phase issues (historical) |
+| `docs/reviews/` | code and efficiency reviews with instructions for follow-up work |
 | `docs/ARCHITECTURE.md` | Mermaid diagrams: context, container, sequence, status |
 | `docs/DATA_MODEL.md`, `docs/CONFIGURATION.md`, `docs/OPERATIONS.md` | reference docs |
 | `docs/decisions/` | ADRs (`ADR-001` … `ADR-005`) |

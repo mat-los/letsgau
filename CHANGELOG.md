@@ -175,6 +175,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Docs: `ARCHITECTURE.md` rewritten from the current code (page cache,
+  flyers, Instagram, sweeps and re-checks; every module; Sonnet for
+  discovery), `prompts/README.md` lists every prompt, `docs/ISSUES.md` moved
+  to `docs/archive/`, ADR-005 got a status note, and outdated statements in
+  `OPERATIONS.md` and `README.md` were corrected.
 - Code structure: the crawl's flyer calls moved to `flyers.py`, its Instagram
   step and the candidate check (from `discovery.py`) to `instagram.py`;
   helpers that were copied between modules (URLs, prompt templates, JSON
