@@ -10,17 +10,17 @@ kommt deine Veranstaltung am sichersten in den Kalender:
    **Facebook und andere soziale Netzwerke** liest sie nicht: Sie
    erlauben nicht, ihre Seiten automatisch abzufragen. Steht eine Veranstaltung
    nur dort, fehlt sie hier.
-
-   Zwei Instagram-Fallen: Ein **gemeinsamer Beitrag** („Konto A und Konto B“)
-   gehört nur dem zuerst genannten Konto, und nur dort können wir ihn lesen. Und wir
-   schauen pro Suche nur die **neuesten {{ instagram_posts }} Beiträge** eines Kontos
-   an. Wer viel postet, sollte die Ankündigung kurz vorher noch einmal posten.
-2. **Alles Wichtige als Text schreiben:** den Titel, Datum, Uhrzeit, Ort und ein,
+2. **Bei Instagram zwei Fallen beachten:** Ein gemeinsamer Beitrag („Konto A und
+   Konto B“) gehört nur dem zuerst genannten Konto, und nur dort können wir ihn
+   lesen. Und wir schauen pro Suche nur die neuesten {{ instagram_posts }} Beiträge
+   eines Kontos an: Wer viel postet, sollte die Ankündigung kurz vorher noch einmal
+   posten.
+3. **Alles Wichtige als Text schreiben:** den Titel, Datum, Uhrzeit, Ort und ein,
    zwei Sätze, worum es geht. Nicht nur auf einem Plakat oder Flyer-Bild, denn ein
    Bild kann die KI nicht zuverlässig lesen.
-3. **Früh veröffentlichen**, am besten mindestens eine Woche vorher. Gesucht wird
+4. **Früh veröffentlichen**, am besten mindestens eine Woche vorher. Gesucht wird
    zweimal pro Woche, bis zu vier Wochen im Voraus.
-4. **Ein öffentlicher Kalender hilft, wenn man ihn lesen kann:** Trag die
+5. **Ein öffentlicher Kalender hilft, wenn man ihn lesen kann:** Trag die
    Veranstaltung auch in den Veranstaltungskalender deiner Gemeinde oder deines
    Landkreises ein. Manche Kalender zeigen ihre Termine aber erst nach einem
    Klick, nur in einer App oder nur als Bild. Dann kann sie die Seite nicht lesen.
