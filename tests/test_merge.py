@@ -593,3 +593,72 @@ def test_a_stored_event_on_an_excluded_topic_is_removed() -> None:
     result = apply(stored, [], decide=decide, today=DAY1, report=report)
     assert [e.title.de for e in result.events] == ["Adventskonzert"]
     assert report.excluded == {meeting.id: "members only"}
+
+
+# --- wrong municipality, per-day start times, single dates of a series ---------------
+
+
+def test_same_venue_on_a_shared_page_matches_across_municipalities() -> None:
+    url = "https://calendar.example/altenstadt/vdk-nikolausfeier"
+    venue = {"name": "Jakob-Pfeiffer-Haus", "place": "Altenstadt", "address": None}
+    a = ev("VdK Pfaffenwinkel, Nikolausfeier", "2026-12-12", "Altenstadt", time="14:00", url=url)
+    a = a.model_copy(update={"venue": a.venue.model_copy(update=venue)})
+    b = ev("VdK Pfaffenwinkel: Nikolausfeier", "2026-12-12", time="14:00", url=url)
+    b = b.model_copy(update={"venue": b.venue.model_copy(update={"name": "Jakob-Pfeiffer-Haus"})})
+    assert merge.same_place(b, a) and merge.candidate_score(b, a) >= merge.CLEAR
+    # the same venue name without a shared page is not enough ("Marienplatz" exists twice)
+    c = b.model_copy(update={"sources": ev("x", "2026-12-12").sources})
+    assert not merge.same_place(c, a) and merge.candidate_score(c, a) == 0.0
+    stored = EventsFile(updated_at="2026-11-10T00:00:00Z", events=[a, b])
+    merged, report = run(stored, [], DAY2)
+    assert len(merged.events) == 1 and len(report.merged_fuzzy) == 1
+
+
+def test_start_time_from_opening_hours_counts_for_the_slot() -> None:
+    hours = [
+        {"days": "2026-11-27,2027-01-06", "from": "18:00", "to": "18:00"},
+        {"days": "2027-02-12", "from": "19:00", "to": "19:00"},
+    ]
+    dates = ["2026-11-27", "2027-01-06", "2027-02-12"]
+    tour = ev("Ins Licht gerückt – Taschenlampenführung", "2026-11-27", end="2027-02-12")
+    tour = tour.model_copy(
+        update={
+            "schedule": tour.schedule.model_validate(
+                {**tour.schedule.model_dump(), "dates": dates, "opening_hours": hours}
+            )
+        }
+    )
+    other = ev("Themenführung In's Licht gerückt", "2026-11-27", end="2027-02-12", time="18:00")
+    other = other.model_copy(
+        update={"schedule": other.schedule.model_copy(update={"dates": tour.schedule.dates})}
+    )
+    assert merge.same_slot(other, tour)
+    late = other.model_copy(
+        update={"schedule": other.schedule.model_copy(update={"start_time": "22:00"})}
+    )
+    assert not merge.same_slot(late, tour) and merge.candidate_score(late, tour) == 0.0
+    # an opening-hour range is no start time
+    open_hours = [merge.OpeningHours(days="fri", from_="18:00", to="20:00")]
+    market = tour.model_copy(
+        update={"schedule": tour.schedule.model_copy(update={"opening_hours": open_hours})}
+    )
+    assert not merge.same_slot(other, market)
+
+
+def test_single_date_of_a_series_at_the_same_time_goes_to_the_ai() -> None:
+    series = ev("Fotogruppe Altenstadt: Clubabend", "2026-11-18", "Altenstadt", time="19:30")
+    series = series.model_copy(
+        update={
+            "schedule": series.schedule.model_copy(
+                update={
+                    "end_date": date(2026, 11, 25),
+                    "dates": [date(2026, 11, 18), date(2026, 11, 25)],
+                }
+            )
+        }
+    )
+    show = ev("Bilderschau der Fotogruppe Altenstadt", "2026-11-25", "Altenstadt", time="19:30")
+    unrelated = ev("Vortrag Sri Lanka", "2026-11-25", "Altenstadt", time="19:30")
+    assert merge.candidate_score(show, series) < merge.UNCLEAR
+    assert merge.same_slot(show, series)
+    assert not merge.same_slot(unrelated, series)  # a later day needs similar titles
