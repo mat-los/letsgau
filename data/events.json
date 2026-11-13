@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T09:03:48Z",
+  "updated_at": "2026-11-13T23:03:40Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -293,6 +293,70 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-13-durch-ein-ander-hinterglaskunst-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "DURCH-EIN-ANDER – Hinterglaskunst",
+        "en": "DURCH-EIN-ANDER – Reverse Glass Painting Exhibition"
+      },
+      "description": {
+        "de": "Ausstellung der Malerei und Hinterglaskunst der Ateliergemeinschaft Offene Werkstatt im Graficum.",
+        "en": "Exhibition of painting and reverse glass art by the Offene Werkstatt studio group at the Graficum."
+      },
+      "venue": {
+        "name": "Graficum",
+        "place": "Peiting",
+        "address": "Lorystraße 26, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": "2026-11-15",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-13",
+          "2026-11-14",
+          "2026-11-15"
+        ],
+        "opening_hours": [
+          {
+            "days": "2026-11-13",
+            "from": "19:00",
+            "to": "19:00"
+          },
+          {
+            "days": "2026-11-14,2026-11-15",
+            "from": "11:00",
+            "to": "11:00"
+          }
+        ]
+      },
+      "primary_tag": "art-culture",
+      "tags": [
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/durch-ein-ander-e36f7219713a77109dfb30bcd6f686dee.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -694,6 +758,56 @@
       "misses": 0
     },
     {
+      "id": "2026-11-13-die-magie-der-farbe-wochenende-mit-acrylfarben-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Die Magie der Farbe – Wochenende mit Acrylfarben malen",
+        "en": "The Magic of Colour – Acrylic Painting Weekend"
+      },
+      "description": {
+        "de": "vhs-Malkurs mit Acrylfarben über ein Wochenende.",
+        "en": "vhs acrylic painting course over a weekend."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": null,
+        "start_time": "16:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb207-201/f/1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-13-museumsfuehrung-ja-so-ist-war-das-leben-schongau",
       "parent_id": null,
       "title": {
@@ -782,6 +896,12 @@
           "primary": false,
           "first_seen": "2026-11-10",
           "last_seen": "2026-11-12"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -848,6 +968,55 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-13",
+      "misses": 1
+    },
+    {
+      "id": "2026-11-13-schafkopfen-fuer-anfaenger-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Schafkopfen für Anfänger",
+        "en": "Schafkopf for Beginners"
+      },
+      "description": {
+        "de": "vhs-Kurs: das Kartenspiel Schafkopf lernen.",
+        "en": "vhs course to learn the Bavarian card game Schafkopf."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": null,
+        "start_time": "19:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb109-500/f/1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -896,6 +1065,104 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-13-heimspiel-ec-peiting-ev-fuessen",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – EV Füssen",
+        "en": "Home game EC Peiting – EV Füssen"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
+        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-ev-fuessen-e211ca553e38febf961b9b7299b304886.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-13-vallesantacorde-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "VallesantaCorde",
+        "en": "VallesantaCorde"
+      },
+      "description": {
+        "de": "Abend im Grünen Salon in Peiting; nähere Angaben nicht genannt.",
+        "en": "Evening at the Grüner Salon in Peiting; no further details given."
+      },
+      "venue": {
+        "name": "Grüner Salon",
+        "place": "Peiting",
+        "address": "Bahnhofstr. 6a, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-13",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/vallesantacorde-ed8a8046d748a5dad2230be1855a979ce.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -1134,6 +1401,62 @@
       "misses": 0
     },
     {
+      "id": "2026-11-14-spielzeugbasar-in-der-schlossberghalle-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Spielzeugbasar Peiting",
+        "en": "Toy Bazaar Peiting"
+      },
+      "description": {
+        "de": "Basar mit gebrauchtem Spielzeug in Peiting.",
+        "en": "Bazaar selling second-hand toys in Peiting."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": "Münchener Str. 13, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-14",
+        "end_date": null,
+        "start_time": "09:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/spielzeugbasar-in-der-schlossberghalle-e1ada92aeb3236a5011c90b9ccfafb86f.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://allevents.in/schongau/spielzeugbasar-peiting/200030867149517",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
       "parent_id": null,
       "title": {
@@ -1193,6 +1516,12 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.meinestadt.de/schongau",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1213,7 +1542,7 @@
       "venue": {
         "name": "Schongauer Brauhaus",
         "place": "Schongau",
-        "address": "Altenstadter Str. 13, 86956 Schongau"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-14",
@@ -1252,6 +1581,12 @@
           "primary": false,
           "first_seen": "2026-11-10",
           "last_seen": "2026-11-10"
+        },
+        {
+          "url": "https://veranstaltungen.meinestadt.de/schongau",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
@@ -1392,15 +1727,15 @@
       "id": "2026-11-14-herbstkonzert-des-orchesters-schongau",
       "parent_id": null,
       "title": {
-        "de": "Herbstkonzert Orchester Schongau",
-        "en": "Orchester Schongau Autumn Concert"
+        "de": "Konzert des Stadtorchesters",
+        "en": "Town Orchestra Concert"
       },
       "description": {
-        "de": "Herbstkonzert im Rahmen des Aktionswochenendes der Alzheimer Gesellschaft, Eintritt frei.",
-        "en": "Autumn concert during the Alzheimer Society action weekend; free admission."
+        "de": "Musikalischer Abend mit dem Stadtorchester im Ballenhaus.",
+        "en": "Musical evening with the town orchestra at the Ballenhaus."
       },
       "venue": {
-        "name": "Ballenhaussaal",
+        "name": "Ballenhaus",
         "place": "Schongau",
         "address": null
       },
@@ -1424,6 +1759,12 @@
           "url": "https://www.orchester-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+          "primary": false,
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
@@ -1634,6 +1975,64 @@
       "misses": 0
     },
     {
+      "id": "2026-11-15-allgemeiner-lauf-in-der-peitinger-eishalle",
+      "parent_id": null,
+      "title": {
+        "de": "Allgemeiner Lauf in der Peitinger Eishalle",
+        "en": "Public Skating at Peiting Ice Rink"
+      },
+      "description": {
+        "de": "Öffentlicher Eislauf in der Eissporthalle Peiting.",
+        "en": "Public ice skating at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": "2026-11-18",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-15",
+          "2026-11-18"
+        ],
+        "opening_hours": [
+          {
+            "days": "2026-11-15",
+            "from": "15:30",
+            "to": "15:30"
+          },
+          {
+            "days": "2026-11-18",
+            "from": "13:40",
+            "to": "13:40"
+          }
+        ]
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-15-totenehrung-am-kriegerdenkmal-schongau",
       "parent_id": null,
       "title": {
@@ -1735,6 +2134,55 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-15-volkstrauertag-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Volkstrauertag",
+        "en": "National Day of Mourning (Volkstrauertag)"
+      },
+      "description": {
+        "de": "Gottesdienst in St. Anna, danach Gedenkfeier mit Kranzniederlegungen am Kriegerdenkmal im Klosterhof, mit Stadtkapelle und Chor.",
+        "en": "Service at St. Anna, then commemoration with wreath laying at the war memorial in the Klosterhof, with town band and choir."
+      },
+      "venue": {
+        "name": "St. Anna und Klosterhof",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": null,
+        "start_time": "10:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/Dfg9hU4D7fd/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -1893,9 +2341,64 @@
           "primary": false,
           "first_seen": "2026-11-12",
           "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-15-oekumenisches-friedensgebet-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Ökumenisches Friedensgebet",
+        "en": "Ecumenical Peace Prayer"
+      },
+      "description": {
+        "de": "Ökumenisches Friedensgebet in der Christuskirche Peiting.",
+        "en": "Ecumenical peace prayer at the Christuskirche in Peiting."
+      },
+      "venue": {
+        "name": "Christuskirche Peiting",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8101290.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -1950,57 +2453,89 @@
       "misses": 0
     },
     {
-      "id": "2026-11-16-adventskranzbinden-schongau",
+      "id": "2026-11-16-offenes-tasting-mit-der-paul-john-distillery-peiting",
       "parent_id": null,
       "title": {
-        "de": "Adventskranzbinden",
-        "en": "Advent Wreath Making"
+        "de": "Offenes Whisky-Tasting mit Paul John Distillery",
+        "en": "Open Whisky Tasting with Paul John Distillery"
       },
       "description": {
-        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
-        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+        "de": "Spontanes Tasting indischer Single Malts mit Asim Raza von der Paul John Distillery und Andreas Schwarz von Sprithöker. Eintritt 20 €.",
+        "en": "Spontaneous tasting of Indian single malts with Asim Raza of Paul John Distillery and Andreas Schwarz of Sprithöker. Admission 20 €."
       },
       "venue": {
-        "name": "Pfarrsaal Verklärung Christi",
-        "place": "Schongau",
+        "name": "Xaver Bar",
+        "place": "Peiting",
         "address": null
       },
       "schedule": {
         "start_date": "2026-11-16",
-        "end_date": "2026-11-18",
-        "start_time": "14:00",
+        "end_date": null,
+        "start_time": "20:00",
         "end_time": null,
         "all_day": false,
-        "dates": [
-          "2026-11-16",
-          "2026-11-17",
-          "2026-11-18"
-        ],
+        "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "food-drink",
       "tags": [
-        "talk-workshop",
-        "family-kids"
+        "food-drink"
       ],
       "status": "scheduled",
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         },
         {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+          "url": "https://www.instagram.com/p/DfiOzvCIgrL/",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
-        },
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-17-halbes-hendl-im-cafe-und-wirtshaus-herzog-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Halbes Hendl im Café und Wirtshaus Herzog",
+        "en": "Half Chicken Day at Café und Wirtshaus Herzog"
+      },
+      "description": {
+        "de": "Kulinarischer Termin im Café und Wirtshaus Herzog.",
+        "en": "Culinary special at Café und Wirtshaus Herzog."
+      },
+      "venue": {
+        "name": "Café und Wirtshaus Herzog",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-17",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
         {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
-          "primary": false,
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
@@ -2180,6 +2715,155 @@
       "misses": 0
     },
     {
+      "id": "2026-11-17-alle-lieben-knoedel-kochkurs-17-11-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Alle lieben Knödel – Kochkurs (17.11.)",
+        "en": "Everybody Loves Dumplings – Cooking Course (17 Nov)"
+      },
+      "description": {
+        "de": "vhs-Kochkurs zur Vielfalt der Knödelküche.",
+        "en": "vhs cooking course on the variety of dumplings."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-17",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-201/f/1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-18-oekumenischer-kinderbibeltag-daniel-im-schutz-der-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Ökumenischer Kinderbibeltag: Daniel – im Schutz der Engel",
+        "en": "Ecumenical Children's Bible Day: Daniel"
+      },
+      "description": {
+        "de": "Kinderbibeltag am Buß- und Bettag im Katholischen Pfarrsaal Peiting.",
+        "en": "Children's Bible day on Repentance Day at the Catholic parish hall in Peiting."
+      },
+      "venue": {
+        "name": "Katholischer Pfarrsaal",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-18",
+        "end_date": null,
+        "start_time": "09:00",
+        "end_time": "14:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8231595.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-18-museum-im-kloesterle-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Museum im Klösterle",
+        "en": "Museum im Klösterle"
+      },
+      "description": {
+        "de": "Öffnung des kleinen Heimatmuseums mit historischen Exponaten, präsentiert von Ehrenamtlichen.",
+        "en": "Opening of the small local museum with historical exhibits presented by volunteers."
+      },
+      "venue": {
+        "name": "Museum im Klösterle",
+        "place": "Peiting",
+        "address": "Kapellenstr. 1, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-18",
+        "end_date": null,
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "art-culture",
+      "tags": [
+        "art-culture"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-e0daf4af6ed82134338505e4638282919.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-18-pfarrei-altenstadt-begegnungscafe",
       "parent_id": null,
       "title": {
@@ -2227,6 +2911,56 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-18-alle-lieben-knoedel-kochkurs-18-11-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Alle lieben Knödel – Kochkurs (18.11.)",
+        "en": "Everybody Loves Dumplings – Cooking Course (18 Nov)"
+      },
+      "description": {
+        "de": "vhs-Kochkurs zur Vielfalt der Knödelküche.",
+        "en": "vhs cooking course on the variety of dumplings."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-18",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-204/f/1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -2631,6 +3365,56 @@
       "misses": 0
     },
     {
+      "id": "2026-11-19-yoga-und-entspannung-fuer-den-ruecken-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Yoga und Entspannung für den Rücken",
+        "en": "Yoga and Relaxation for the Back"
+      },
+      "description": {
+        "de": "vhs-Kurs mit Yoga und Entspannungsübungen für den Rücken.",
+        "en": "vhs course with yoga and relaxation exercises for the back."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-19",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb301-200/f/1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-19-eucharistische-anbetung-der-kolpingsfamilie-schongau",
       "parent_id": null,
       "title": {
@@ -2720,7 +3504,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 7
+      "misses": 8
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -2861,6 +3645,105 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-20-italiano-in-cucina-wochenendkurs-a1-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Italiano in Cucina – Wochenendkurs A1",
+        "en": "Italiano in Cucina – Weekend Course A1"
+      },
+      "description": {
+        "de": "Italienisch-Kochkurs mit Giorgia Stentella aus Calvi dell'Umbria, Level A1.",
+        "en": "Italian language and cooking course with Giorgia Stentella from Calvi dell'Umbria, level A1."
+      },
+      "venue": {
+        "name": "Ehem. Mädchenschule",
+        "place": "Peiting",
+        "address": "Bachstraße 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-20",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/italiano-in-cucina-wochenendkurs-level-a1-ee0e66bc29b2e09f0a3e10ea5adf0a8b4.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-20-heimspiel-ec-peiting-stuttgart-rebels",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Stuttgart Rebels",
+        "en": "Home game EC Peiting – Stuttgart Rebels"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
+        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-20",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-stuttgart-rebels-e3ecc7d7183c107bfa9e48baa319ffcfe.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -3359,6 +4242,55 @@
       "misses": 0
     },
     {
+      "id": "2026-11-21-judo-37-spitzbubenturnier-mu14-mu17-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Judo: 37. Spitzbubenturnier MU14 + MU17",
+        "en": "Judo: 37th Spitzbuben Tournament U14 + U17"
+      },
+      "description": {
+        "de": "Judoturnier für die Altersklassen U14 und U17 im Sportzentrum Birkenried.",
+        "en": "Judo tournament for U14 and U17 age groups at the Birkenried sports centre."
+      },
+      "venue": {
+        "name": "Sportzentrum Birkenried",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 10, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-21",
+        "end_date": null,
+        "start_time": "10:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/judo-37-spitzbubenturnier-mu14-mu17-ee7ca1c3c2e70463677a92a641ae4c810.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-21-kab-familienadvent-altenstadt",
       "parent_id": null,
       "title": {
@@ -3497,6 +4429,49 @@
       "misses": 0
     },
     {
+      "id": "2026-11-21-einsteiger-whisky-tasting-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Einsteiger Whisky-Tasting",
+        "en": "Beginners' Whisky Tasting"
+      },
+      "description": {
+        "de": "Genussreise quer durch Schottland für Whisky-Einsteiger in der Xaver Bar.",
+        "en": "A tasting trip through Scotland for whisky beginners at the Xaver Bar."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-21",
+        "end_date": null,
+        "start_time": "19:00",
+        "end_time": "22:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-21-plantsch-friends-vollmond-saunanacht-schongau",
       "parent_id": null,
       "title": {
@@ -3586,6 +4561,49 @@
       "misses": 0
     },
     {
+      "id": "2026-11-21-jahreskonzert-blaskapelle-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Jahreskonzert Blaskapelle Hohenfurch",
+        "en": "Annual Concert Blaskapelle Hohenfurch"
+      },
+      "description": {
+        "de": "Jahreskonzert der Blaskapelle Hohenfurch.",
+        "en": "Annual concert of the Hohenfurch brass band."
+      },
+      "venue": {
+        "name": null,
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-21",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.blaskapelle-hohenfurch.de/termine",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
       "parent_id": null,
       "title": {
@@ -3631,6 +4649,98 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-22-oekumenische-gedenkfeier-fuer-verstorbene-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner",
+        "en": "Ecumenical Memorial Service for Deceased Residents"
+      },
+      "description": {
+        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner im Altenheim.",
+        "en": "Ecumenical memorial service for deceased care home residents."
+      },
+      "venue": {
+        "name": "Altenheim",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "15:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-22-kirchenkonzert-der-blaskapelle-altenstadt",
+      "parent_id": null,
+      "title": {
+        "de": "Kirchenkonzert der Blaskapelle Altenstadt",
+        "en": "Church Concert by Blaskapelle Altenstadt"
+      },
+      "description": {
+        "de": "Die Blaskapelle Altenstadt lädt zu ihrem Kirchenkonzert in die Basilika Altenstadt ein.",
+        "en": "The Blaskapelle Altenstadt brass band invites you to its church concert in the Basilica of Altenstadt."
+      },
+      "venue": {
+        "name": "Basilika Altenstadt",
+        "place": "Altenstadt",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-22",
+        "end_date": null,
+        "start_time": "17:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DfsjnA-NLee/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -3730,6 +4840,55 @@
         }
       ],
       "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Hockey Club Tigers 1985",
+        "en": "Home game EC Peiting – Hockey Club Tigers 1985"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
+        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-24",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-hockey-club-tigers-1985-efce6af2fdaa73ea84357a58886f120a8.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -4048,6 +5207,50 @@
       "misses": 0
     },
     {
+      "id": "2026-11-26-walk-in-den-advent-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Walk in den Advent",
+        "en": "Walk into Advent"
+      },
+      "description": {
+        "de": "Adventsspaziergang der Turnabteilung mit Treffpunkt Sportheim.",
+        "en": "Advent walk by the gymnastics department, at the Sportheim."
+      },
+      "venue": {
+        "name": "Sportheim Hohenfurch",
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-26",
+        "end_date": null,
+        "start_time": "18:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "outdoor",
+      "tags": [
+        "outdoor",
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.svhohenfurch.de/sportverein",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-26-vortrag-sri-lanka-startet-wieder-durch-schongau",
       "parent_id": null,
       "title": {
@@ -4088,6 +5291,131 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Eva Karl Faltermeier – \"Ding Dong\"",
+        "en": "Eva Karl Faltermeier – \"Ding Dong\""
+      },
+      "description": {
+        "de": "Kabarettprogramm von Eva Karl Faltermeier in der Schlossberghalle.",
+        "en": "Cabaret show by Eva Karl Faltermeier at the Schlossberghalle."
+      },
+      "venue": {
+        "name": "Schlossberghalle",
+        "place": "Peiting",
+        "address": "Münchener Strasse 13, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-26",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "theatre-cinema",
+      "tags": [
+        "theatre-cinema"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/eva-karl-faltermeier-ding-dong-e19824058ba2c3807a725c30427b8ef85.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtsmarkt am Rathausplatz",
+        "en": "Christmas Market at Rathausplatz"
+      },
+      "description": {
+        "de": "Peitinger Weihnachtsmarkt vor dem Rathaus mit Angeboten von Kindergärten, Vereinen und mehr, Freitag bis Sonntag.",
+        "en": "Peiting Christmas market in front of the town hall with stalls from kindergartens and clubs, Friday to Sunday."
+      },
+      "venue": {
+        "name": "Rathausplatz am Brunnen",
+        "place": "Peiting",
+        "address": "Hauptplatz 2, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": "2026-11-29",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-27",
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        "opening_hours": [
+          {
+            "days": "2026-11-27",
+            "from": "18:00",
+            "to": "18:00"
+          },
+          {
+            "days": "2026-11-28,2026-11-29",
+            "from": "11:00",
+            "to": "11:00"
+          }
+        ]
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtsmarkt-am-rathausplatz-e82701197c9080f9e3efd47ce6c536c12.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
       "misses": 0
     },
     {
@@ -4938,6 +6266,49 @@
       "misses": 0
     },
     {
+      "id": "2026-11-28-scotch-malt-whisky-society-tasting-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Scotch Malt Whisky Society-Tasting",
+        "en": "Scotch Malt Whisky Society Tasting"
+      },
+      "description": {
+        "de": "Whisky-Tasting mit Musik und Abfüllungen der SMWS, präsentiert von Florian Burkhardt. Anmeldung erforderlich.",
+        "en": "Whisky tasting with music and SMWS bottlings presented by Florian Burkhardt. Registration required."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-28",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-11-28-hofparty-im-loewenhof-schongau",
       "parent_id": null,
       "title": {
@@ -5063,6 +6434,55 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-29-heimspiel-ec-peiting-heilbronner-ec-falken",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Heilbronner EC Falken",
+        "en": "Home game EC Peiting – Heilbronner EC Falken"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
+        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-29",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-heilbronner-ec-falken-e22be0a3a0ac0920c57d0ce7769f4f2a5.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -5770,6 +7190,55 @@
       "misses": 0
     },
     {
+      "id": "2026-12-06-heimspiel-ec-peiting-deggendorfer-sc",
+      "parent_id": null,
+      "title": {
+        "de": "Heimspiel EC Peiting – Deggendorfer SC",
+        "en": "Home game EC Peiting – Deggendorfer SC"
+      },
+      "description": {
+        "de": "Oberliga-Süd-Eishockey in der Peitinger Eissporthalle.",
+        "en": "Oberliga Süd ice hockey at the Peiting ice rink."
+      },
+      "venue": {
+        "name": "Eissporthalle Peiting",
+        "place": "Peiting",
+        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-12-06",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-deggendorfer-sc-ea8c87ec2e76fee09b887ca918f618147.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-07-familientag-auf-dem-weihnachtszauber-schongau",
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
@@ -6135,46 +7604,45 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
+      "id": "2026-12-11-white-label-tasting-age-matters-peiting",
       "parent_id": null,
       "title": {
-        "de": "40 Jahre Juze Jubiläum",
-        "en": "Juze 40th Anniversary"
+        "de": "White Label Tasting – Age Matters",
+        "en": "White Label Tasting – Age Matters"
       },
       "description": {
-        "de": "Jubiläumsfeier zum 40-jährigen Bestehen des Jugendzentrums Schongau mit Konzert. Weitere Infos folgen.",
-        "en": "Celebration of the Schongau youth centre's 40th anniversary, including a concert. More info to follow."
+        "de": "Verkostung von sechs White-Label-Abfüllungen von Sansibar Whisky in der Xaver Bar.",
+        "en": "Tasting of six Sansibar Whisky White Label bottlings at the Xaver Bar."
       },
       "venue": {
-        "name": "Juze Schongau",
-        "place": "Schongau",
-        "address": null
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
       },
       "schedule": {
-        "start_date": "2026-12-12",
+        "start_date": "2026-12-11",
         "end_date": null,
-        "start_time": null,
-        "end_time": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
         "all_day": false,
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "concert",
+      "primary_tag": "food-drink",
       "tags": [
-        "concert",
-        "party"
+        "food-drink"
       ],
       "status": "scheduled",
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+          "url": "https://xaver-peiting.de/events/",
           "primary": true,
-          "first_seen": "2026-11-12",
+          "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
       ],
-      "first_seen": "2026-11-12",
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6220,6 +7688,100 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
+        "en": "Overhead Compartment – Juze 40th Anniversary"
+      },
+      "description": {
+        "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
+        "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
+      },
+      "venue": {
+        "name": "Juze Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-13"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-13-weihnachtsmarkt-schongau-auftritt-blaskapelle",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtsmarkt Schongau (Auftritt Blaskapelle Hohenfurch)",
+        "en": "Schongau Christmas Market (Blaskapelle Hohenfurch appearance)"
+      },
+      "description": {
+        "de": "Termin der Blaskapelle Hohenfurch beim Weihnachtsmarkt in Schongau.",
+        "en": "Blaskapelle Hohenfurch appearance at the Schongau Christmas market."
+      },
+      "venue": {
+        "name": null,
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-13",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.blaskapelle-hohenfurch.de/termine",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -6648,6 +8210,49 @@
       "misses": 0
     },
     {
+      "id": "2026-12-19-the-last-drop-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "The Last Drop",
+        "en": "The Last Drop"
+      },
+      "description": {
+        "de": "All-you-can-taste-Abend mit vielen Whiskys, meist von unabhängigen Abfüllern.",
+        "en": "All-you-can-taste evening with many whiskies, mostly from independent bottlers."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-19",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
       "parent_id": null,
       "title": {
@@ -6725,6 +8330,52 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtskonzert der Knappschafts- und Trachtenkapelle Peiting",
+        "en": "Christmas Concert of the Knappschafts- und Trachtenkapelle Peiting"
+      },
+      "description": {
+        "de": "Traditionelle Weihnachtskonzerte der Knappschafts- und Trachtenkapelle am 4. Advent und am 1. Weihnachtsfeiertag.",
+        "en": "Traditional Christmas concerts by the Knappschaftskapelle on 4th Advent and Christmas Day."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-25",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-12-20",
+          "2026-12-25"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.knappschaftskapelle.de",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -7190,6 +8841,50 @@
       "misses": 0
     },
     {
+      "id": "2026-12-31-neujahrsanblasen-blaskapelle-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Neujahrsanblasen Blaskapelle Hohenfurch",
+        "en": "New Year Brass Serenade Hohenfurch"
+      },
+      "description": {
+        "de": "Traditionelles Neujahrsanblasen der Blaskapelle Hohenfurch.",
+        "en": "Traditional New Year brass serenade by the Hohenfurch brass band."
+      },
+      "venue": {
+        "name": null,
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-31",
+        "end_date": null,
+        "start_time": "09:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "market-festival"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.blaskapelle-hohenfurch.de/termine",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2026-12-31-silvester-im-gasthof-janser-schongau",
       "parent_id": null,
       "title": {
@@ -7606,6 +9301,49 @@
       "misses": 0
     },
     {
+      "id": "2027-01-09-barrel-selection-whisky-tasting-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Barrel Selection Whisky Tasting",
+        "en": "Barrel Selection Whisky Tasting"
+      },
+      "description": {
+        "de": "Acht Whiskys mit Thomas Talarczyk von Barrel Selection in der Xaver Bar.",
+        "en": "Eight whiskies with Thomas Talarczyk of Barrel Selection at the Xaver Bar."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-01-09",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-01-13-offene-trauergruppe-schongau",
       "parent_id": null,
       "title": {
@@ -7884,6 +9622,49 @@
       "misses": 0
     },
     {
+      "id": "2027-01-23-whisky-dinner-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Whisky Dinner",
+        "en": "Whisky Dinner"
+      },
+      "description": {
+        "de": "Sechs-Gänge-Menü kombiniert mit ausgewählten Whiskys im Hotel Dragoner und der Xaver Bar.",
+        "en": "Six-course dinner paired with selected whiskies at Hotel Dragoner and the Xaver Bar."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-01-23",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "21:30",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-01-23-disney-night-vollmond-saunanacht-schongau",
       "parent_id": null,
       "title": {
@@ -7982,6 +9763,93 @@
       "misses": 0
     },
     {
+      "id": "2027-01-29-kinderfasching-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Kinderfasching",
+        "en": "Children's Carnival"
+      },
+      "description": {
+        "de": "Kinderfasching der Turnabteilung des SV Hohenfurch im Pfarrheim.",
+        "en": "Children's carnival by the SV Hohenfurch gymnastics department at the parish hall."
+      },
+      "venue": {
+        "name": "Pfarrheim",
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-29",
+        "end_date": null,
+        "start_time": "14:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.svhohenfurch.de/sportverein",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-01-30-ball-der-vereine-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "Ball der Vereine",
+        "en": "Clubs' Ball"
+      },
+      "description": {
+        "de": "Ball der Vereine, Termin des Sportvereins Hohenfurch.",
+        "en": "Clubs' ball, listed by Sportverein Hohenfurch."
+      },
+      "venue": {
+        "name": null,
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-01-30",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.svhohenfurch.de/sportverein",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-01-31-fasching-im-schongauer-maerchenwald",
       "parent_id": null,
       "title": {
@@ -8060,6 +9928,92 @@
       "sources": [
         {
           "url": "https://www.instagram.com/p/DfrGhixMPrv/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-12-burgerabend-im-cafe-und-wirtshaus-herzog-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Burgerabend im Café und Wirtshaus Herzog",
+        "en": "Burger Night at Café und Wirtshaus Herzog"
+      },
+      "description": {
+        "de": "Burgerabend im Café und Wirtshaus Herzog.",
+        "en": "Burger night at Café und Wirtshaus Herzog."
+      },
+      "venue": {
+        "name": "Café und Wirtshaus Herzog",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-02-12",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-19-brothers-in-malt-whisky-tasting-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Brothers in Malt – Whisky-Tasting",
+        "en": "Brothers in Malt – Whisky Tasting"
+      },
+      "description": {
+        "de": "Tasting mit John-Enrik Schröder von Brothers in Malt in der Xaver Bar.",
+        "en": "Tasting with John-Enrik Schröder of Brothers in Malt at the Xaver Bar."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-02-19",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
@@ -8159,6 +10113,50 @@
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-2-fkk-badenacht-mit-lampion-schwimmen/",
           "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-02-20-xaver-lotto-7-aus-49-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Xaver Lotto 7 aus 49",
+        "en": "Xaver Lotto 7 out of 49"
+      },
+      "description": {
+        "de": "Tasting-Abend mit 49 nummerierten Flaschen, die per Lottoschein entdeckt werden.",
+        "en": "Tasting evening with 49 numbered bottles discovered via a lottery slip."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-02-20",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink",
+        "party"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
@@ -8303,6 +10301,49 @@
       "misses": 0
     },
     {
+      "id": "2027-03-13-the-last-drop-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "The Last Drop",
+        "en": "The Last Drop"
+      },
+      "description": {
+        "de": "Rund 120 Whiskys aus Anbruchflaschen der Bar zum freien Probieren.",
+        "en": "Around 120 opened whisky bottles from the bar to taste freely."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-03-13",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-03-20-kraeuterzauber-vollmond-saunanacht-schongau",
       "parent_id": null,
       "title": {
@@ -8392,6 +10433,49 @@
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-3-fkk-badenacht-mit-lampion-schwimmen/",
           "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-03-20-the-tasteful-8-whisky-tasting-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "The Tasteful 8 – Whisky-Tasting",
+        "en": "The Tasteful 8 – Whisky Tasting"
+      },
+      "description": {
+        "de": "Acht Whiskys der Reihe The Tasteful 8 mit Thomas Jeschke und Monika Pummer.",
+        "en": "Eight whiskies from the Tasteful 8 series with Thomas Jeschke and Monika Pummer."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-03-20",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }
@@ -8493,6 +10577,50 @@
         }
       ],
       "first_seen": "2026-11-10",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-04-03-fruehlingsfest-im-xaver-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Frühlingsfest im Xaver",
+        "en": "Spring Festival at Xaver"
+      },
+      "description": {
+        "de": "Frühlingsfest mit Whisky, Gin, Rum, Cocktails und Craft Bier in der Xaver Bar, Eintritt frei.",
+        "en": "Spring festival with whisky, gin, rum, cocktails and craft beer at the Xaver Bar, free entry."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-04-03",
+        "end_date": null,
+        "start_time": "14:00",
+        "end_time": "23:55",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-13",
       "misses": 0
     },
@@ -8690,6 +10818,49 @@
       "misses": 0
     },
     {
+      "id": "2027-04-24-8-kampf-aktivlauf-hohenfurch",
+      "parent_id": null,
+      "title": {
+        "de": "8-Kampf Aktivlauf",
+        "en": "8-Event Activity Run"
+      },
+      "description": {
+        "de": "Sportveranstaltung der Turnabteilung des SV Hohenfurch.",
+        "en": "Sports event by the SV Hohenfurch gymnastics department."
+      },
+      "venue": {
+        "name": null,
+        "place": "Hohenfurch",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-04-24",
+        "end_date": null,
+        "start_time": "10:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.svhohenfurch.de/sportverein",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
       "id": "2027-04-24-fundsachen-flohmarkt-schongau",
       "parent_id": null,
       "title": {
@@ -8730,6 +10901,93 @@
         {
           "url": "https://www.plantsch.de/veranstaltungen/24-april-fundsachen-flohmarkt/",
           "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-05-01-sporttag-der-vielfalt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Sporttag der Vielfalt",
+        "en": "Sports Day of Diversity"
+      },
+      "description": {
+        "de": "Gemeinsam aktiv sein und Spaß haben in Herzogsägmühle.",
+        "en": "Being active together and having fun in Herzogsägmühle."
+      },
+      "venue": {
+        "name": "Herzogsägmühle",
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2027-05-01",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "sports",
+      "tags": [
+        "sports",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-13"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2027-05-08-laphroaig-tasting-mit-marc-armin-giesler-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Laphroaig-Tasting mit Marc Armin Giesler",
+        "en": "Laphroaig Tasting with Marc Armin Giesler"
+      },
+      "description": {
+        "de": "Rauchiger Abend rund um die Destillerie Laphroaig in der Xaver Bar.",
+        "en": "A smoky evening dedicated to the Laphroaig distillery at the Xaver Bar."
+      },
+      "venue": {
+        "name": "Xaver Bar",
+        "place": "Peiting",
+        "address": "Ammergauer Straße 11+16, Peiting"
+      },
+      "schedule": {
+        "start_date": "2027-05-08",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://xaver-peiting.de/events/",
+          "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-13"
         }

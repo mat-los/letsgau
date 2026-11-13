@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "geo_fingerprint": "sha256:f0cc545b96b91580",
+  "geo_fingerprint": "sha256:675d331c8e4b0868",
   "force_discovery": false,
   "last_run": {
-    "geo": "2026-11-13T12:13:06Z",
-    "discovery": "2026-11-13T08:37:32Z",
-    "events": "2026-11-13T08:58:38Z",
-    "build": "2026-11-13T15:30:52Z"
+    "geo": "2026-11-13T22:38:36Z",
+    "discovery": "2026-11-13T22:38:36Z",
+    "events": "2026-11-13T22:38:36Z",
+    "build": "2026-11-13T22:38:36Z"
   },
   "last_usage": {
     "events": {
-      "requests": 8,
-      "web_searches": 0,
+      "requests": 15,
+      "web_searches": 1,
       "web_fetches": 0,
-      "input_tokens": 546283,
-      "output_tokens": 33186,
-      "cost_usd": 0.40199999999999997,
-      "duration_s": 140.3
+      "input_tokens": 852200,
+      "output_tokens": 70006,
+      "cost_usd": 1.3439999999999999,
+      "duration_s": 350.1
     },
     "discovery": {
-      "requests": 3,
-      "web_searches": 26,
+      "requests": 6,
+      "web_searches": 83,
       "web_fetches": 0,
-      "input_tokens": 844104,
-      "output_tokens": 37560,
-      "cost_usd": 0.8594999999999999,
-      "duration_s": 251.1
+      "input_tokens": 3646482,
+      "output_tokens": 207516,
+      "cost_usd": 2.8067,
+      "duration_s": 687.0
     }
   }
 }

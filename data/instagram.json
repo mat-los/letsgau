@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T09:03:25Z",
+  "updated_at": "2026-11-13T23:03:10Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -441,6 +441,26 @@
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-13",
       "last_error": ""
+    },
+    "gasthoflamprecht": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
+    },
+    "xaverlounge": {
+      "origin": "mined",
+      "places": [
+        "Peiting"
+      ],
+      "status": "active",
+      "first_seen": "2026-11-13",
+      "last_checked": "2026-11-13",
+      "last_error": ""
     }
   },
   "posts": {
@@ -574,7 +594,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "last_seen": "2026-11-13",
       "events": []
     },
     "17911610475590723": {
@@ -583,7 +603,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "last_seen": "2026-11-13",
       "events": []
     },
     "18016356413990769": {
@@ -1321,7 +1341,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "last_seen": "2026-11-13",
       "events": []
     },
     "18349780888271291": {
@@ -1852,7 +1872,7 @@
       "posted": "2026-11-10",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "last_seen": "2026-11-13",
       "events": []
     },
     "17966390355227538": {
@@ -1861,7 +1881,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "last_seen": "2026-11-13",
       "events": []
     },
     "18361007047173779": {
@@ -2411,6 +2431,489 @@
           ]
         }
       ]
+    },
+    "18118092536008536": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DfsqN_dFIPj/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18353849965270883": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/DfXIcQRoWcB/",
+      "posted": "2026-11-05",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18208195000372626": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/DfRSvYxo-aj/",
+      "posted": "2026-11-03",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18106072319296458": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/De_F747oPOp/",
+      "posted": "2026-10-27",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17898974661439703": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/De6huVcCFHe/",
+      "posted": "2026-10-25",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17877977598576626": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfMQMyjlbTN/",
+      "posted": "2026-11-01",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18030923357913268": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/reel/DfIpa_UqhyQ/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18105861080341300": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfHGnwHjKOe/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18346401727280248": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DfCD4y3gVBK/",
+      "posted": "2026-10-28",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18114862312875473": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfrTmqllPoy/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18182945275427848": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/reel/DfcPW0SCCrD/",
+      "posted": "2026-11-07",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18444054715183589": {
+      "username": "pgaltenstadt",
+      "permalink": "https://www.instagram.com/reel/DfscWw1RsVM/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18137203195661748": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/DfHPEakDprS/",
+      "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17926577496199374": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/De830dQOJ7X/",
+      "posted": "2026-10-26",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18122941648895005": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/De1TamWOYeS/",
+      "posted": "2026-10-23",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "17989166930886751": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DfeK58tAHSe/",
+      "posted": "2026-11-08",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18114543239151202": {
+      "username": "gasthoflamprecht",
+      "permalink": "https://www.instagram.com/reel/De2Q-dXsQ92/",
+      "posted": "2026-10-23",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18079194440754088": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/DfiOzvCIgrL/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Offenes Whisky-Tasting mit Paul John Distillery",
+            "en": "Open Whisky Tasting with Paul John Distillery"
+          },
+          "description": {
+            "de": "Spontanes Tasting indischer Single Malts mit Asim Raza von der Paul John Distillery und Andreas Schwarz von Sprithöker. Eintritt 20 €.",
+            "en": "Spontaneous tasting of Indian single malts with Asim Raza of Paul John Distillery and Andreas Schwarz of Sprithöker. Admission 20 €."
+          },
+          "venue": {
+            "name": "Xaver Bar",
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-16",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "food-drink",
+          "tags": [
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfiOzvCIgrL/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17904695823599376": {
+      "username": "xaverlounge",
+      "permalink": "https://www.instagram.com/p/DfAs2PRIS8e/",
+      "posted": "2026-10-27",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": []
+    },
+    "18417673135082511": {
+      "username": "blaskapelle_altenstadt",
+      "permalink": "https://www.instagram.com/p/DfsjnA-NLee/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Kirchenkonzert der Blaskapelle Altenstadt",
+            "en": "Church Concert by Blaskapelle Altenstadt"
+          },
+          "description": {
+            "de": "Die Blaskapelle Altenstadt lädt zu ihrem Kirchenkonzert in die Basilika Altenstadt ein.",
+            "en": "The Blaskapelle Altenstadt brass band invites you to its church concert in the Basilica of Altenstadt."
+          },
+          "venue": {
+            "name": "Basilika Altenstadt",
+            "place": "Altenstadt",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-22",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DfsjnA-NLee/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17990087574093805": {
+      "username": "juze_sog",
+      "permalink": "https://www.instagram.com/reel/DfsJFHSKZNL/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
+            "en": "Overhead Compartment – Juze 40th Anniversary"
+          },
+          "description": {
+            "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
+            "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
+          },
+          "venue": {
+            "name": "Juze Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18149373415604840": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Dfr51wHjxg4/",
+      "posted": "2026-11-13",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Geschichten des mittelalterlichen Schongaus",
+            "en": "Stories of Medieval Schongau"
+          },
+          "description": {
+            "de": "Spannende Einblicke in die Geschichte der Stadt Schongau im Stadtmuseum.",
+            "en": "Insights into the history of the town of Schongau at the town museum."
+          },
+          "venue": {
+            "name": "Stadtmuseum",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-13",
+            "end_date": null,
+            "start_time": "17:30",
+            "end_time": "19:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "art-culture"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Konzert des Stadtorchesters",
+            "en": "Town Orchestra Concert"
+          },
+          "description": {
+            "de": "Musikalischer Abend mit dem Stadtorchester im Ballenhaus.",
+            "en": "Musical evening with the town orchestra at the Ballenhaus."
+          },
+          "venue": {
+            "name": "Ballenhaus",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "EAS gegen TEV Miesbach",
+            "en": "EAS vs TEV Miesbach"
+          },
+          "description": {
+            "de": "Eishockey-Heimspiel des EAS Schongau gegen TEV Miesbach im Eisstadion.",
+            "en": "Ice hockey home game of EAS Schongau against TEV Miesbach at the ice stadium."
+          },
+          "venue": {
+            "name": "Eisstadion",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": null,
+            "start_time": "17:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18119879062807228": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Dfg9hU4D7fd/",
+      "posted": "2026-11-09",
+      "version": 1,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Volkstrauertag",
+            "en": "National Day of Mourning (Volkstrauertag)"
+          },
+          "description": {
+            "de": "Gottesdienst in St. Anna, danach Gedenkfeier mit Kranzniederlegungen am Kriegerdenkmal im Klosterhof, mit Stadtkapelle und Chor.",
+            "en": "Service at St. Anna, then commemoration with wreath laying at the war memorial in the Klosterhof, with town band and choir."
+          },
+          "venue": {
+            "name": "St. Anna und Klosterhof",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-15",
+            "end_date": null,
+            "start_time": "10:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Dfg9hU4D7fd/",
+              "primary": true
+            },
+            {
+              "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
+              "primary": false
+            }
+          ]
+        }
+      ]
     }
   },
   "rejected": {
@@ -2463,6 +2966,16 @@
       "checked": "2026-11-13",
       "reason": "profile does not name the place",
       "name": "Café Bistro Lion's"
+    },
+    "brettspieletage_peiting": {
+      "checked": "2026-11-13",
+      "reason": "not_business",
+      "name": "Peitinger Brettspieltage (Jugendzentrum Peiting)"
+    },
+    "frontstage_concerts": {
+      "checked": "2026-11-13",
+      "reason": "profile does not name the place",
+      "name": "Frontstage Concerts (Jugendzentrum Peiting)"
     }
   },
   "venues": {
@@ -2470,7 +2983,7 @@
       "places": [
         "Schongau"
       ],
-      "website": "https://www.reaktor-sog.de",
+      "website": "https://www.reaktor-sog.de/",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2518,7 +3031,7 @@
       "places": [
         "Schongau"
       ],
-      "website": "https://ballenhaus-schongau.de",
+      "website": "https://ballenhaus-schongau.de/",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2774,7 +3287,7 @@
       "places": [
         "Altenstadt"
       ],
-      "website": "https://www.alte-kutsche.de",
+      "website": "http://www.alte-kutsche.de",
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-13"
     },
@@ -2879,6 +3392,358 @@
         "Schongau"
       ],
       "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Lagerhaus / Lagerhauskino": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://lagerhauskino.pfaffenwinkel.net",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Alte Post": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café Restaurant Hotel Holl": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Weinstuben im Frauentor": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Restaurant Olympia": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Ristorante Pizzeria La Fontana": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Musikhaus Kirstein": {
+      "places": [
+        "Schongau"
+      ],
+      "website": "https://www.kirstein.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Restaurant Valentin": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Jägerhaus Altenstadt": {
+      "places": [
+        "Altenstadt"
+      ],
+      "website": "http://www.jaegerhaus-altenstadt.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café und Wirtshaus Herzog (Herzogsägmühle)": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.herzogsaegmuehle.de/einkehren",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Café ANDERL Begegnungscafé": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Schlossberghalle Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.peiting.de/freizeit/sport-und-freizeitinformationen/veranstaltungshalle/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Rainer-Endisch-Saal (Herzogsägmühle)": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.herzogsaegmuehle.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Museum im Klösterle": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.peiting.de/tourismus/kultur/peiting/museum-im-kloesterle/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "St. Ursula-Kapelle": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "https://www.ursula-kapelle.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Jugendzentrum Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://juze-peiting.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Sparkassensaal Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Mehrzweckhalle Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Eisstadion Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.ec-peiting.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthaus Zeus": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Talhof": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Aula der Grundschule Hohenfurch": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof „Zum Keppeler“": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof „Zum Dragoner“ / Hotel Dragoner": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.hotel-dragoner.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Landgasthof Lamprecht": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.gasthof-lamprecht.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Gasthof Zechenschenke": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.zechenschenke.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Restaurant Zauberhütte": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.zauberhuette.com",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Bäckerei und Cafe-bar Sesar": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://sesar-baeck.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Central – Cafe Bistro Bar": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.central-bar-cafe.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "„HERZOG“-Cafe Wirtshaus (Herzogsägmühle)": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.herzogsaegmuehle.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Olli's Schnaidbergstuben": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Saliterhof Hofstüberl (Alpakas Saliterhof)": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.alpakas-saliterhof.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Tai Phuc": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.taiphuc.de/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Xaver Bar & Lounge": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://xaver-peiting.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Stroblwirt": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Brauerei Clemens Härle": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Verein Forum Westtorhalle": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Wellenfreibad Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://www.peiting.de/tourismus/freizeit-und-sport/freizeit/baeder/",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Marktplatz Peiting e.V.": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "https://marktplatzpeiting.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "LiccAmbra e.V. – Kultur im AmmerLechLand": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Theatergemeinde Peiting": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Birkländer Musikanten": {
+      "places": [
+        "Peiting"
+      ],
+      "website": "http://www.birklaender-musikanten.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Hotel Negele / Restaurant Zeus": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "http://www.negele-zeus.de",
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    "Oafach Schea Deko Café": {
+      "places": [
+        "Hohenfurch"
+      ],
+      "website": "oafach-schea.de",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
     }

@@ -1,10 +1,12 @@
 {
   "schema_version": 1,
-  "fingerprint": "sha256:f0cc545b96b91580",
-  "generated_at": "2026-11-13T12:14:26Z",
+  "fingerprint": "sha256:675d331c8e4b0868",
+  "generated_at": "2026-11-13T22:41:30Z",
   "municipalities": [
     "Schongau 86956",
-    "Altenstadt 86972"
+    "Altenstadt 86972",
+    "Peiting 86971",
+    "Hohenfurch 86978"
   ],
   "places": [
     {
@@ -87,6 +89,330 @@
       "lon": 10.8789157,
       "origin": "municipality",
       "municipality": "Altenstadt"
+    },
+    {
+      "name": "Peiting",
+      "osm_id": "node/889285957",
+      "place_type": "town",
+      "lat": 47.7959863,
+      "lon": 10.9228731,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Aich",
+      "osm_id": "node/4823117366",
+      "place_type": "hamlet",
+      "lat": 47.8647081,
+      "lon": 10.9429848,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Aichen",
+      "osm_id": "node/4822398599",
+      "place_type": "hamlet",
+      "lat": 47.8706211,
+      "lon": 10.9331438,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Berg",
+      "osm_id": "node/4820615786",
+      "place_type": "hamlet",
+      "lat": 47.8621878,
+      "lon": 10.9363255,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Birkland",
+      "osm_id": "node/2832648790",
+      "place_type": "village",
+      "lat": 47.8574358,
+      "lon": 10.9511223,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Eselsberg",
+      "osm_id": "node/4822590612",
+      "place_type": "hamlet",
+      "lat": 47.875515,
+      "lon": 10.9400751,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Grabhof",
+      "osm_id": "node/4772952598",
+      "place_type": "hamlet",
+      "lat": 47.8132235,
+      "lon": 10.9474558,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hauptstadtwagner",
+      "osm_id": "node/4820616016",
+      "place_type": "hamlet",
+      "lat": 47.8527793,
+      "lon": 10.95675,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hausen",
+      "osm_id": "node/4756575762",
+      "place_type": "village",
+      "lat": 47.8048166,
+      "lon": 10.9448544,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Herzogsägmühle",
+      "osm_id": "node/2836036767",
+      "place_type": "village",
+      "lat": 47.819701,
+      "lon": 10.938452,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hofen",
+      "osm_id": "node/4820715107",
+      "place_type": "village",
+      "lat": 47.856147,
+      "lon": 10.9612765,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hohenbrand",
+      "osm_id": "node/5103374801",
+      "place_type": "hamlet",
+      "lat": 47.8030144,
+      "lon": 10.9594497,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hohenbrand",
+      "osm_id": "node/4773178820",
+      "place_type": "hamlet",
+      "lat": 47.802684,
+      "lon": 10.9784644,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hohenwart",
+      "osm_id": "node/4772952602",
+      "place_type": "hamlet",
+      "lat": 47.8139701,
+      "lon": 10.9351117,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Höfle",
+      "osm_id": "node/4696961748",
+      "place_type": "hamlet",
+      "lat": 47.7632132,
+      "lon": 10.8956361,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Kreut",
+      "osm_id": "node/1797346630",
+      "place_type": "hamlet",
+      "lat": 47.7774506,
+      "lon": 10.8707737,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Kurzenried",
+      "osm_id": "node/4697005996",
+      "place_type": "village",
+      "lat": 47.7751994,
+      "lon": 10.9065907,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Lamprecht",
+      "osm_id": "node/4696961749",
+      "place_type": "hamlet",
+      "lat": 47.7657184,
+      "lon": 10.9015142,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Langenried",
+      "osm_id": "node/4689150526",
+      "place_type": "hamlet",
+      "lat": 47.7597244,
+      "lon": 10.8927819,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Leitersberg",
+      "osm_id": "node/4820715081",
+      "place_type": "hamlet",
+      "lat": 47.8559855,
+      "lon": 10.9668528,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Lexe",
+      "osm_id": "node/3052449093",
+      "place_type": "neighbourhood",
+      "lat": 47.8058195,
+      "lon": 10.9277768,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Lexe",
+      "osm_id": "node/4770684986",
+      "place_type": "hamlet",
+      "lat": 47.8090852,
+      "lon": 10.9251568,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Luttenbach",
+      "osm_id": "node/4696961741",
+      "place_type": "hamlet",
+      "lat": 47.7677552,
+      "lon": 10.8977745,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Mößle",
+      "osm_id": "node/4794807882",
+      "place_type": "hamlet",
+      "lat": 47.8491107,
+      "lon": 10.9779024,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Oberobland",
+      "osm_id": "node/4795245137",
+      "place_type": "hamlet",
+      "lat": 47.8289742,
+      "lon": 10.9436837,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Oedenhof",
+      "osm_id": "node/4689150525",
+      "place_type": "hamlet",
+      "lat": 47.7637523,
+      "lon": 10.8786279,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Ramsau",
+      "osm_id": "node/4722605516",
+      "place_type": "hamlet",
+      "lat": 47.7727271,
+      "lon": 10.9365115,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Rettenbach",
+      "osm_id": "node/4794807848",
+      "place_type": "hamlet",
+      "lat": 47.849957,
+      "lon": 10.9810375,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Sachsen",
+      "osm_id": "node/4820715085",
+      "place_type": "hamlet",
+      "lat": 47.8570608,
+      "lon": 10.96729,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Sedlhof",
+      "osm_id": "node/4822398618",
+      "place_type": "hamlet",
+      "lat": 47.8605373,
+      "lon": 10.9445074,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Sperber",
+      "osm_id": "node/4825593569",
+      "place_type": "hamlet",
+      "lat": 47.8664078,
+      "lon": 10.9309673,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Sporer",
+      "osm_id": "node/4823117397",
+      "place_type": "hamlet",
+      "lat": 47.8549901,
+      "lon": 10.9682579,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Sägmühle",
+      "osm_id": "node/4820616148",
+      "place_type": "hamlet",
+      "lat": 47.8514402,
+      "lon": 10.9355418,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Weinland",
+      "osm_id": "node/4723751692",
+      "place_type": "hamlet",
+      "lat": 47.7912364,
+      "lon": 10.9047457,
+      "origin": "municipality",
+      "municipality": "Peiting"
+    },
+    {
+      "name": "Hohenfurch",
+      "osm_id": "node/2832648789",
+      "place_type": "village",
+      "lat": 47.8486753,
+      "lon": 10.8976036,
+      "origin": "municipality",
+      "municipality": "Hohenfurch"
+    },
+    {
+      "name": "Osteratsau",
+      "osm_id": "node/4881205858",
+      "place_type": "hamlet",
+      "lat": 47.8602284,
+      "lon": 10.9261179,
+      "origin": "municipality",
+      "municipality": "Hohenfurch"
     }
   ],
   "place_types": [],
