@@ -62,7 +62,7 @@ sources:
   instagram_candidates_file: "instance/sources/instagram_candidates.yaml"  # unconfirmed accounts, checked by profile
 
 instagram:                              # reading Instagram business/creator accounts
-  posts_per_account: 6                  # latest posts fetched per account and run
+  posts_per_account: 10                 # latest posts fetched per account and run
   max_post_age_days: 21                 # older posts are not read
   max_accounts_per_run: 100             # the list first, then accounts found on pages
   read_mined: true                      # also read accounts linked from pages the crawl reads

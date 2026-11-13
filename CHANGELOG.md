@@ -175,6 +175,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: `instagram.posts_per_account` 6 -> 10, so busy accounts lose fewer posts
+  between two events runs.
 - The daily Run workflow starts at 02:00 UTC instead of 04:17 UTC.
 - Category filter: "Zurücksetzen" looks like an action, not a category (no pill,
   muted, with a cross, at the end of the row).
