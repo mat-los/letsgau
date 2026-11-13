@@ -254,9 +254,17 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   .ev .body { margin: 0 16px 0 calc(4rem + 26px); }
 }
 @media (prefers-reduced-motion: reduce) { .top, .ev { transition: none; } }
-/* phone: below the top of the page the header that slides back in is slim (search row and
-   date bar); coverage line, info links, quick links and the filter tools wait at the top */
+/* phone: no sliding header. Only the search row and the date bar stay pinned (each sticky on
+   its own: the header box itself dissolves); coverage line, info links, quick links and the
+   filter tools scroll away with the page and are back at its top */
 @media (max-width: 639px) {
-  .top.slim .sub, .top.slim .quick, .top.slim .tools { display: none; }
-  .top.slim .dates { padding-bottom: 6px; }
+  .top { display: contents; }
+  .top > * { background: var(--brand); }
+  .bar { position: sticky; top: 0; z-index: 6; padding: 10px 12px 6px; }
+  .sub, .quick { margin: 0; padding: 0 12px 8px; }
+  .sub { padding-top: 2px; }
+  .dates-wrap { position: sticky; top: var(--bar-h, 52px); z-index: 6; padding: 0 12px;
+    border-bottom: 3px solid var(--gold); box-shadow: 0 2px 10px rgba(0, 0, 0, .12); }
+  .tools { margin: 0; }
+  .sec h2 { top: var(--pin-h, 132px); }
 }

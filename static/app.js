@@ -37,42 +37,42 @@
     }, { passive: false });
   }
 
-  /* header slides away when scrolling down, back when scrolling up (transform only); on a
-     phone it comes back slim (search row and dates), full only at the top of the page */
-  var head = document.getElementById("top"), last = 0, compact = false, slim = false;
+  /* desktop: the header slides away when scrolling down, back when scrolling up (transform
+     only). Phone: no sliding; CSS pins the search row and the date bar, and their heights
+     go into --bar-h / --pin-h for the sticky date bar and group headings */
+  var head = document.getElementById("top"), last = 0, compact = false;
   var phone = window.matchMedia ? matchMedia("(max-width: 639px)") : { matches: false };
   function setCompact(on) {
     compact = on;
     head.style.transform = on ? "translateY(-100%)" : "";
     document.documentElement.style.setProperty("--head-h", (on ? 0 : head.offsetHeight) + "px");
   }
-  function setSlim(on) {
-    /* the header is in the page flow: when it shrinks, keep the content where it is; back
-       at the top it grows and pushes the content down, as on the first load */
-    var before = head.offsetHeight;
-    slim = on; head.classList.toggle("slim", on);
-    if (on) window.scrollBy(0, head.offsetHeight - before);
-    last = window.scrollY;
-    setCompact(compact);  /* new height for the sticky group headings */
+  function pins() {
+    var top = head.querySelector(".bar"), dates = head.querySelector(".dates-wrap"), st = document.documentElement.style;
+    if (!top || !dates) return;
+    st.setProperty("--bar-h", top.offsetHeight + "px");
+    st.setProperty("--pin-h", top.offsetHeight + dates.offsetHeight + "px");
+  }
+  function layout() {
+    if (phone.matches) { if (compact) setCompact(false); head.style.transform = ""; pins(); }
+    else setCompact(false);
   }
   window.addEventListener("scroll", function () {
+    if (phone.matches) return;
     var y = window.scrollY;
     if (Math.abs(y - last) < 12) return;
-    var down = y > last, want = y > 120 && down;
-    last = y;
-    if (phone.matches && slim !== (y > 40)) {
-      if (!slim && down && y > head.offsetHeight) setSlim(true);
-      else if (slim && y <= 40) setSlim(false);
-    }
+    var want = y > 120 && y > last;
     if (want !== compact) setCompact(want);
+    last = y;
   }, { passive: true });
+  window.addEventListener("resize", layout);
   /* layout reads happen after the first paint */
   function later(f) {
     if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(f, 0); });
     else setTimeout(f, 0);
   }
   later(function () {
-    setCompact(false);
+    layout();
     var current = document.querySelector(".dates [aria-current]");
     if (current && bar) bar.scrollLeft = current.offsetLeft - (bar.clientWidth - current.offsetWidth) / 2;
     arrows();
