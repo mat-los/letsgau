@@ -9,17 +9,16 @@ surest way to get your event into the calendar:
    creator account. It does not read **Facebook or other social networks**: they
    do not allow their pages to be read automatically. An event that is only
    posted there is missing here.
-
-   Two Instagram traps: a **collaboration post** ("account A and account B")
-   belongs only to the account named first, and only there can we read it. And we
-   only look at the **latest {{ instagram_posts }} posts** of an account on each run.
-   If you post a lot, post the announcement again shortly before the event.
-2. **Write everything important as text:** the title, date, time, place and a
+2. **Mind two Instagram traps:** a collaboration post ("account A and account
+   B") belongs only to the account named first, and only there can we read it.
+   And we only look at the latest {{ instagram_posts }} posts of an account on each
+   run: if you post a lot, post the announcement again shortly before the event.
+3. **Write everything important as text:** the title, date, time, place and a
    sentence or two about what it is. Not only on a poster or flyer image, because
    the AI cannot read images reliably.
-3. **Publish early**, ideally at least a week before. The search runs twice a
+4. **Publish early**, ideally at least a week before. The search runs twice a
    week, up to four weeks ahead.
-4. **A public calendar helps if it can be read:** also add the event to the event
+5. **A public calendar helps if it can be read:** also add the event to the event
    calendar of your municipality or district. Some calendars only show their
    dates after a click, only in an app or only as an image, and then the site
    cannot read them. A simple test: if you can find your event with a normal web

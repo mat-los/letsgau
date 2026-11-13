@@ -397,6 +397,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- "Fehlt mein Event?": the numbered list was broken by the new Instagram note
+  (wrong indentation); the note is now its own list item.
 - Phone, light mode: the category/grouping strip is light again (since the pinned
   header it had the dark header background).
 - Re-checks skip events whose primary source is an Instagram or Facebook post:
