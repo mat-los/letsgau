@@ -6,7 +6,7 @@ invalid values abort with file, line and field:
 
 ```text
 error: invalid configuration in instance/config.yaml
-  instance/config.yaml:16: region.drive_time_minuts: unknown field (typo?)
+  instance/config.yaml:16: region.municipalitys: unknown field (typo?)
   instance/config.yaml:28: jobs.events: invalid schedule 'weekly:mon,thr'; ...
 ```
 
@@ -29,23 +29,27 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 
 | Key | Type | Meaning |
 | --- | --- | --- |
-| `label` | string | name of the center, used in the coverage sentence |
-| `center` | `{lat, lon}` | center point |
-| `drive_time_minutes` | 1–180 | drive time by car; a change triggers geo + discovery |
-| `place_types` | list | OSM place types: `city`, `town`, `village`, `hamlet`, `suburb` |
-| `include_places` | list | places added even if outside the isochrone |
-| `exclude_places` | list | places removed from the result |
+| `label` | string | name of the region, used in page titles |
+| `municipalities` | list | at least one `{ name, postcode }`; each needs a name, a postcode (4–5 digits) or both; a change triggers geo + discovery |
 
 Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
 
-- Only a change of `center` or `drive_time_minutes` fetches a new isochrone and
-  forces discovery. Changing `place_types`, `include_places` or
-  `exclude_places` recomputes the place list with the stored isochrone.
-- `include_places` names must match the OpenStreetMap `name` exactly (case is
-  ignored), e.g. `Landsberg am Lech`, `Weilheim in Oberbayern`. They are looked
-  up within max(50 km, 2 km × drive time) of the center, any place type; with
-  several hits the closest wins. Unknown names produce a warning.
-- `exclude_places` compares names case-insensitively with the computed list.
+- With a postcode, the places come from the OpenStreetMap postcode area; the
+  name (if given) then keeps only the places of that municipality, which helps
+  when a postcode covers several municipalities.
+- Without a postcode, the name must match the OSM municipality name
+  (`admin_level=8`, case is ignored). If several municipalities share the name,
+  the stage aborts and asks for the postcode.
+- Districts (villages, hamlets, suburbs) are found automatically; the coverage
+  sentence on the website lists the municipalities in config order.
+
+```yaml
+region:
+  label: "Schongau"
+  municipalities:
+    - { name: "Schongau", postcode: "86956" }
+    - { name: "Altenstadt", postcode: "86972" }
+```
 
 ## `window`
 

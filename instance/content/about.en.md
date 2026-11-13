@@ -1,7 +1,7 @@
 # About {{ site_name }}
 
-{{ site_name }} lists every public event found within a {{ drive_time_minutes }}-minute
-drive of {{ region_label }}, one page per day for the next {{ display_days }} days:
+{{ site_name }} lists every public event found in {{ municipalities }}, one page per
+day for the next {{ display_days }} days:
 concerts, markets, sports, culture, talks and everything else.
 
 [TODO: Why does this site exist? Tell the idea and your motivation in a few sentences.]

@@ -509,7 +509,7 @@ class PlaceGroup:
 
 
 def group_places(places: Sequence[Place]) -> list[PlaceGroup]:
-    """Group places by municipality, in order of the nearest place of each group."""
+    """Group places by municipality, in the order of the place list (the config order)."""
     groups: dict[str, PlaceGroup] = {}
     for place in places:
         name = place.municipality or place.name

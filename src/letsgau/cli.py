@@ -58,12 +58,12 @@ def _build_parser() -> argparse.ArgumentParser:
         "--limit-places",
         type=int,
         metavar="N",
-        help="events: only crawl the N nearest municipalities (for testing; geo lists all)",
+        help="events: only crawl the first N municipalities (for testing; geo lists all)",
     )
     run.add_argument(
         "--force",
         action="store_true",
-        help="recompute geo even if center, drive time and place filters are unchanged",
+        help="recompute geo even if the municipalities are unchanged",
     )
 
     sources = sub.add_parser(
@@ -78,10 +78,11 @@ def _build_parser() -> argparse.ArgumentParser:
     )
 
     init = sub.add_parser("init", help="set up a fresh instance in instance/ for a new region")
-    init.add_argument("--label", help="name of the center, e.g. Murnau")
-    init.add_argument("--lat", type=float, help="latitude of the center")
-    init.add_argument("--lon", type=float, help="longitude of the center")
-    init.add_argument("--minutes", type=int, help="drive time in minutes (default 30)")
+    init.add_argument("--label", help="name of the region for page titles, e.g. Murnau")
+    init.add_argument(
+        "--municipalities",
+        help='comma-separated, each name and/or postcode, e.g. "Murnau am Staffelsee 82418"',
+    )
     init.add_argument("--name", help="site name")
     init.add_argument("--base-url", help="public URL of the site")
     init.add_argument("--contact", help="contact email")
@@ -102,7 +103,7 @@ def _cmd_check(config_path: Path) -> int:
             print(f"warning: {content_dir / name}: {todo}", file=sys.stderr)
     print(
         f"OK: {config_path} is valid ({config.region.label}, "
-        f"{config.region.drive_time_minutes} min drive time, "
+        f"{len(config.region.municipalities)} municipalities, "
         f"{len(config.tags)} tags, auth={config.ai.auth})"
     )
     return 0
@@ -179,9 +180,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 key: getattr(args, key)
                 for key in (
                     "label",
-                    "lat",
-                    "lon",
-                    "minutes",
+                    "municipalities",
                     "name",
                     "base_url",
                     "contact",

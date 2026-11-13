@@ -1,8 +1,7 @@
 # Über {{ site_name }}
 
-{{ site_name }} zeigt alle öffentlich auffindbaren Veranstaltungen bis
-{{ drive_time_minutes }} Fahrminuten um {{ region_label }}, eine Seite pro Tag für die
-nächsten {{ display_days }} Tage: Konzerte, Märkte, Sport, Kultur, Vorträge und
+{{ site_name }} zeigt alle öffentlich auffindbaren Veranstaltungen in
+{{ municipalities }}, eine Seite pro Tag für die nächsten {{ display_days }} Tage: Konzerte, Märkte, Sport, Kultur, Vorträge und
 alles, was es sonst noch gibt.
 
 [TODO: Warum gibt es diese Seite? Erzähle in ein paar Sätzen die Idee und deine Motivation.]

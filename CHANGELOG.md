@@ -164,6 +164,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Instance: 2 new Instagram candidates for the profile check.
+- Region: `region.municipalities` (name and/or postcode each) replaces the drive-time area; the geo stage reads the places of each municipality from OpenStreetMap and no longer needs an OpenRouteService key. Old `places.json` files still load.
 - The header line names only the places: "Events in <center> und <places>"
   (center label plus `region.include_places`), without drive time and days.
 - The excluded-topics check also covers stored events, so a topic added later

@@ -53,8 +53,9 @@ class _DataModel(BaseModel):
 
 
 class PlaceOrigin(StrEnum):
-    AREA = "area"  # found inside the isochrone
-    INCLUDE = "include"  # added via region.include_places
+    MUNICIPALITY = "municipality"  # a place in one of region.municipalities
+    AREA = "area"  # legacy: found inside the drive-time isochrone (files before 2026-11)
+    INCLUDE = "include"  # legacy: added via region.include_places
 
 
 class Place(_DataModel):
@@ -66,10 +67,10 @@ class Place(_DataModel):
     lat: float = Field(ge=-90, le=90)
     lon: float = Field(ge=-180, le=180)
     drive_time_minutes: float | None = Field(default=None, ge=0)
-    """Drive time by car from the center (ORS matrix); ``None`` if not routable."""
+    """Legacy (drive-time area until 2026-11); ``None`` in new files."""
     distance_km: float | None = Field(default=None, ge=0)
-    """Road distance from the center in km; ``None`` if not routable."""
-    origin: PlaceOrigin = PlaceOrigin.AREA
+    """Legacy, like ``drive_time_minutes``."""
+    origin: PlaceOrigin = PlaceOrigin.MUNICIPALITY
     municipality: str | None = None
     """Municipality (OSM ``admin_level=8``, e.g. Peiting for Herzogsägmühle); the place's own
     name if it lies in none. ``None`` only in files written before Phase 2."""
@@ -80,14 +81,18 @@ class PlacesFile(_DataModel):
 
     schema_version: Literal[1] = 1
     fingerprint: str
-    """Hash of ``region.center`` and ``region.drive_time_minutes`` (see ``geo.fingerprint``)."""
+    """Hash of ``region.municipalities`` (see ``geo.fingerprint``)."""
     generated_at: datetime
-    center: dict[str, float]
-    drive_time_minutes: int
-    place_types: list[str]
+    municipalities: list[str] = []
+    """The configured municipalities as ``name`` / ``postcode`` / ``name postcode``."""
+    places: list[Place]
+    """The municipalities' places (main place first), in the order of the config."""
+    # Legacy inputs of the drive-time area (files before 2026-11); ignored.
+    center: dict[str, float] | None = None
+    drive_time_minutes: int | None = None
+    place_types: list[str] = []
     include_places: list[str] = []
     exclude_places: list[str] = []
-    places: list[Place]
 
 
 class State(_DataModel):

@@ -15,14 +15,12 @@ flowchart LR
   AI["Google and AI assistants"]
   SYS["Let's Gau<br/>GitHub repo + Actions + Pages"]
   CL["Claude<br/>Claude Code or Claude API"]
-  ORS["OpenRouteService"]
   OSM["OpenStreetMap Overpass"]
   WEB["Public websites<br/>municipalities, clubs, venues"]
   OP --> SYS
   U --> SYS
   AI --> SYS
   SYS --> CL
-  SYS --> ORS
   SYS --> OSM
   CL --> WEB
 ```
@@ -38,8 +36,7 @@ flowchart LR
     DATA[("data/*.json<br/>branch: data")]
     SITE["site/<br/>generated HTML"]
   end
-  ORS["OpenRouteService (HeiGIT)<br/>isochrone + matrix"]
-  OSM["OpenStreetMap Overpass<br/>places in area"]
+  OSM["OpenStreetMap Overpass<br/>places of the municipalities"]
   CL["Claude<br/>Opus, Sonnet, Haiku<br/>web search + fetch"]
   WEB["Public websites<br/>municipalities, clubs, venues"]
   PAGES["GitHub Pages<br/>custom domain"]
@@ -48,7 +45,6 @@ flowchart LR
   WF --> PY
   CFG --> PY
   PY <--> DATA
-  PY --> ORS
   PY --> OSM
   PY --> CL
   CL --> WEB
@@ -65,7 +61,7 @@ flowchart LR
 | `config` | load and validate `config.yaml` | 0 |
 | `cli` | command-line entry point | 0 |
 | `scheduler` | decide which jobs are due, run them in order, job summary | 6 ✓ |
-| `geo` | isochrone (ORS), places (Overpass), drive times (ORS matrix) | 1 ✓ |
+| `geo` | places of the configured municipalities (Overpass) | 1 ✓ |
 | `ai_runner` | Claude Code headless (subscription) or Claude API (api_key) | 2 ✓ |
 | `crawl` | event crawl per batch of places, validation | 2 ✓ |
 | `models` | Pydantic models for `data/*.json` | 2–3 |
@@ -87,8 +83,8 @@ sequenceDiagram
   participant B as Site build
   A->>S: start via cron or manually with job=...
   S->>S: read config.yaml + state.json, determine due jobs
-  alt center or drive time changed
-    S->>G: recompute isochrone and place list
+  alt municipalities changed
+    S->>G: recompute place list
     S->>D: force discovery
   end
   opt discovery due

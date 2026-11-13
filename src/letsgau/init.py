@@ -1,6 +1,6 @@
 """``letsgau init``: set up a fresh instance for a new region.
 
-Asks for (or takes as options) the center, drive time, site name, public URL,
+Asks for (or takes as options) the region label, the municipalities, site name, public URL,
 contact email and GitHub owner, then replaces ``instance/`` with fresh files
 from ``examples/instance/`` and fills in the values. The result is validated
 like any config. Generated data (``data/``, ``geo/``) lives on the ``data``
@@ -30,9 +30,7 @@ class InitError(Exception):
 @dataclass
 class Answers:
     label: str
-    lat: float
-    lon: float
-    minutes: int
+    municipalities: str
     name: str
     base_url: str
     contact: str
@@ -40,16 +38,19 @@ class Answers:
 
 
 QUESTIONS = (
-    ("label", "Name of the center (e.g. Murnau)", str),
-    ("lat", "Latitude of the center (e.g. 47.6798)", float),
-    ("lon", "Longitude of the center (e.g. 11.2006)", float),
-    ("minutes", "Drive time in minutes", int),
+    ("label", "Name of the region for page titles (e.g. Murnau)", str),
+    (
+        "municipalities",
+        "Municipalities, comma-separated, each name and/or postcode "
+        "(e.g. Murnau am Staffelsee 82418, Seehausen 82418)",
+        str,
+    ),
     ("name", "Site name", str),
     ("base_url", "Public URL (e.g. https://<owner>.github.io/letsgau)", str),
     ("contact", "Contact email", str),
     ("owner", "GitHub owner of your fork", str),
 )
-DEFAULTS = {"minutes": "30"}
+DEFAULTS: dict[str, str] = {}
 
 
 def ask(values: dict[str, object], prompt: Callable[[str], str] = input) -> Answers:
@@ -67,15 +68,25 @@ def ask(values: dict[str, object], prompt: Callable[[str], str] = input) -> Answ
                 value = None
         filled[key] = kind(value)  # type: ignore[operator]
     answers = Answers(**filled)  # type: ignore[arg-type]
-    if not -90 <= answers.lat <= 90 or not -180 <= answers.lon <= 180:
-        raise InitError("latitude/longitude out of range")
-    if not 1 <= answers.minutes <= 180:
-        raise InitError("drive time must be between 1 and 180 minutes")
+    if not parse_municipalities(answers.municipalities):
+        raise InitError("name at least one municipality (name and/or postcode)")
     if not re.match(r"^https?://\S+$", answers.base_url):
         raise InitError("the public URL must start with http:// or https://")
     if "@" not in answers.contact:
         raise InitError("the contact email needs an @")
     return answers
+
+
+def parse_municipalities(text: str) -> list[tuple[str, str]]:
+    """``"Schongau 86956, Altenstadt"`` -> ``[("Schongau", "86956"), ("Altenstadt", "")]``."""
+    result = []
+    for item in text.split(","):
+        words = item.split()
+        postcode = next((w for w in words if re.fullmatch(r"\d{4,5}", w)), "")
+        name = " ".join(w for w in words if w != postcode)
+        if name or postcode:
+            result.append((name, postcode))
+    return result
 
 
 def fill_config(text: str, a: Answers) -> str:
@@ -91,15 +102,14 @@ def fill_config(text: str, a: Answers) -> str:
     }
     for token, value in replacements.items():
         text = text.replace(token, value)
-    text = re.sub(
-        r"^  center: \{ lat: [-\d.]+, lon: [-\d.]+ \} *# \{\{CENTER\}\}.*$",
-        f"  center: {{ lat: {a.lat}, lon: {a.lon} }}  # center of the region",
-        text,
-        flags=re.M,
+    items = "".join(
+        f'    - {{ name: "{q(name)}", postcode: "{postcode}" }}\n'
+        for name, postcode in parse_municipalities(a.municipalities)
     )
     return re.sub(
-        r"^(  drive_time_minutes:) *\d+",
-        lambda m: f"{m.group(1)} {a.minutes}",
+        r"^  municipalities:.*\{\{MUNICIPALITIES\}\}.*\n"
+        r"    - \{ name: \"\{\{MUNICIPALITY\}\}\".*\n",
+        lambda _m: "  municipalities:                      # name and/or postcode each\n" + items,
         text,
         count=1,
         flags=re.M,
@@ -141,7 +151,7 @@ def run(
         shutil.rmtree(target)
     staging.rename(target)
     final = target / "config.yaml"
-    print(f"init: wrote {target}/ for {answers.label} ({answers.minutes} min)")
+    print(f"init: wrote {target}/ for {answers.label} ({answers.municipalities})")
     print("Next: fill the [TODO] markers in the content pages (letsgau check lists them),")
     print("then follow the setup steps in README.md (secrets, Pages, first run).")
     return final

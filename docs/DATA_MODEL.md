@@ -6,7 +6,7 @@ several pages. Past events are deleted during merge; Git history is the record.
 
 | File | Content |
 | --- | --- |
-| `data/places.json` | places in the area with coordinates and drive time, plus fingerprint of center and drive time |
+| `data/places.json` | places of the configured municipalities with coordinates, plus a fingerprint of the municipality list |
 | `data/sources.json` | known sources with origin, status and hit statistics |
 | `data/events.json` | all events from yesterday to `store_days` ahead (searched up to `crawl_days`) |
 | `data/flyers.json` | flyer files already read by the AI, by SHA-256 of the file, with the events found on them |
@@ -60,32 +60,28 @@ computed from, so the next run can tell whether anything changed.
 {
   "schema_version": 1,
   "fingerprint": "sha256:3f1c0a9b2d4e5f60",
-  "generated_at": "2026-11-08T04:00:00Z",
-  "center": { "lat": 47.811, "lon": 10.896 },
-  "drive_time_minutes": 30,
-  "place_types": ["city", "town", "village"],
-  "include_places": ["Landsberg am Lech"],
-  "exclude_places": [],
+  "generated_at": "2026-11-13T04:00:00Z",
+  "municipalities": ["Schongau 86956", "Altenstadt 86972"],
   "places": [
     { "name": "Schongau", "osm_id": "node/240040710", "place_type": "town",
-      "lat": 47.8116, "lon": 10.8966, "drive_time_minutes": 1.6, "distance_km": 0.6,
-      "origin": "area", "municipality": "Schongau" }
+      "lat": 47.8116, "lon": 10.8966, "origin": "municipality", "municipality": "Schongau" }
   ]
 }
 ```
 
 | Field | Rule |
 | --- | --- |
-| `fingerprint` | `sha256:` + first 16 hex chars of the hash of `center` (6 decimals) and `drive_time_minutes` |
-| `place_types`, `include_places`, `exclude_places` | copy of the config; a change recomputes the list with the stored isochrone |
+| `fingerprint` | `sha256:` + first 16 hex chars of the hash of `municipalities` |
+| `municipalities` | the configured municipalities as "name postcode"; a change recomputes the list and forces discovery |
 | `places[].osm_id` | OpenStreetMap element, e.g. `node/240040710` |
-| `places[].drive_time_minutes`, `distance_km` | by car from the center (ORS matrix), 1 decimal; `null` if not routable |
-| `places[].origin` | `area` (inside the isochrone) or `include` (from `include_places`) |
-| `places[].municipality` | municipality (OSM `admin_level=8`), e.g. `Peiting` for Herzogsägmühle; the place's own name if it lies in none (Phase 2, optional field; older files are refreshed once by the geo stage) |
-| order | by drive time, then name; places without drive time last |
+| `places[].origin` | `municipality`; older files also have `area` or `include` |
+| `places[].municipality` | municipality (OSM `admin_level=8`) the place belongs to, e.g. `Altenstadt` for Schwabniederhofen |
+| order | per municipality in config order, its main place first, then by name |
 
-The isochrone itself is stored unchanged as the ORS GeoJSON response in
-`geo/isochrone.geojson`.
+Files written before 2026-11 also carry `center`, `drive_time_minutes`,
+`place_types`, `include_places`, `exclude_places` and per place
+`drive_time_minutes` and `distance_km`. They still load (the fields are optional
+and ignored); the next geo run rewrites the file without them.
 
 ## State (`data/state.json`)
 

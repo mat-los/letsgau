@@ -6,8 +6,7 @@
 # throwaway data/ directory (so the crawl sees its sources), then
 # `letsgau run --job events --dry-run --limit-places N`. Writes nothing to the
 # repository; prints sources, coverage and events and uploads the raw AI answers
-# as an artifact for test fixtures. Needs the ORS_API_KEY and
-# CLAUDE_CODE_OAUTH_TOKEN secrets; ANTHROPIC_API_KEY must not be set, or Claude
+# as an artifact for test fixtures. Needs the CLAUDE_CODE_OAUTH_TOKEN secret; ANTHROPIC_API_KEY must not be set, or Claude
 # Code would bill it.
 name: Crawl check
 run-name: "Crawl check: ${{ inputs.limit_places }} place(s), dry run"
@@ -31,7 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}   # optional: Instagram accounts
       INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
@@ -56,7 +54,7 @@ jobs:
       - name: Require secrets
         run: |
           missing=0
-          for name in ORS_API_KEY CLAUDE_CODE_OAUTH_TOKEN; do
+          for name in CLAUDE_CODE_OAUTH_TOKEN; do
             if [ -z "${!name}" ]; then
               echo "::error::Secret $name is missing (Settings -> Secrets and variables -> Actions)"
               missing=1
@@ -90,17 +88,15 @@ jobs:
             cat crawl.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: Check whitelist URLs for the 30-minute area (informational)
+      - name: Check whitelist URLs (informational)
         # runs after a failed step too, but not after a cancel (always() kept it running)
         if: ${{ !cancelled() }}
         continue-on-error: true
         timeout-minutes: 10
         run: |
-          sed -E 's/^(  drive_time_minutes:) *[0-9]+/\1 30/' instance/config.yaml > /tmp/config-30.yaml
-          python -m letsgau --config /tmp/config-30.yaml run --job geo
-          python -m letsgau --config /tmp/config-30.yaml sources --check | tee sources.txt
+          python -m letsgau sources --check | tee sources.txt
           {
-            echo "### Whitelist URLs (30 min)"
+            echo "### Whitelist URLs"
             echo '```text'
             cat sources.txt
             echo '```'

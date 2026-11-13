@@ -206,8 +206,7 @@ def llms_txt(site: Site, coverage: dict[str, str]) -> str:
 Events are collected automatically by AI (Claude) from public websites and may be
 wrong or outdated. Please check with the organizer before you go.
 
-- Region: within a {c.region.drive_time_minutes}-minute drive of {c.region.label}
-  (center {c.region.center.lat}, {c.region.center.lon})
+- Municipalities: {", ".join(m.label for m in c.region.municipalities)}
 - Days ahead: {c.window.display_days}
 - Last updated: {site.generated_at.isoformat()}
 - Contact: {contact}

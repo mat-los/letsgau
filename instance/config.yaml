@@ -13,12 +13,10 @@ site:
   indexing: false                       # false = noindex on every page (not in search results yet)
 
 region:
-  label: "Schongau"                     # name of the center, used in the coverage sentence
-  center: { lat: 47.811, lon: 10.896 }  # approx. Schongau old town
-  drive_time_minutes: 5                 # TESTING value (target: 30); change triggers geo + discovery
-  place_types: [city, town, village]    # OSM place types, hamlets ignored
-  include_places: ["Altenstadt"]        # added even if outside the drive time (OSM name; the closest match, next to Schongau)
-  exclude_places: []                    # places deliberately left out
+  label: "Schongau"                     # name of the region in page titles
+  municipalities:                       # name and/or postcode each; districts are found automatically; a change triggers geo + discovery
+    - { name: "Schongau", postcode: "86956" }
+    - { name: "Altenstadt", postcode: "86972" }
 
 window:
   display_days: 21                      # how far ahead the website shows
