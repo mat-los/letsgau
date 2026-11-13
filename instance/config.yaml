@@ -11,6 +11,7 @@ site:
   feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"  # contact form (formhook; public, in the page)
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
   indexing: false                       # false = noindex on every page (not in search results yet)
+  goatcounter: "letsgau"                # GoatCounter code: cookieless visitor counts; "" = off
 
 region:
   label: "Schongau"                     # name of the region in page titles

@@ -108,3 +108,10 @@ def test_contact_email_or_form_is_required(instance_config_text: str) -> None:
     assert "set contact_email or feedback_form_endpoint" in problem
     with_mail = text.replace('feedback_form_endpoint: ""', 'contact_email: "a@b.de"')
     assert parse_config(with_mail).site.contact_email == "a@b.de"
+
+
+def test_goatcounter_code_must_be_a_bare_code(instance_config_text: str) -> None:
+    text = instance_config_text.replace(
+        'goatcounter: "letsgau"', 'goatcounter: "https://letsgau.goatcounter.com/count"'
+    )
+    assert any("goatcounter" in problem for problem in _problems(text))

@@ -21,10 +21,10 @@ FIXTURE = REPO_ROOT / "tests" / "fixtures" / "site" / "events.json"
 NOW = datetime(2026, 11, 13, 20, 0, tzinfo=UTC)
 
 
-def public_config(indexing: bool = True) -> Config:
-    """The instance config with ``site.indexing`` set explicitly."""
+def public_config(indexing: bool = True, goatcounter: str = "letsgau") -> Config:
+    """The instance config with ``site.indexing`` and ``site.goatcounter`` set explicitly."""
     config = load_config(CONFIG_PATH)
-    site = config.site.model_copy(update={"indexing": indexing})
+    site = config.site.model_copy(update={"indexing": indexing, "goatcounter": goatcounter})
     return config.model_copy(update={"site": site})
 
 
@@ -159,3 +159,26 @@ def test_page_metadata_for_sharing(site: Path) -> None:
     assert '<meta name="description" content="103 Events in und um Schongau' in page
     assert '<meta property="og:title"' in page and '<meta property="og:url"' in page
     assert 'hreflang="x-default"' in page
+
+
+GOATCOUNTER = (
+    '<script data-goatcounter="https://letsgau.goatcounter.com/count" async '
+    'src="https://gc.zgo.at/count.js"></script>'
+)
+
+
+def test_goatcounter_counts_every_page_and_is_named_in_the_privacy_page(site: Path) -> None:
+    for page in ("de/index.html", "de/2026-11-14/index.html", "en/privacy/index.html"):
+        assert GOATCOUNTER in (site / page).read_text(encoding="utf-8"), page
+    privacy = (site / "de" / "datenschutz" / "index.html").read_text(encoding="utf-8")
+    assert "Besucherzählung mit GoatCounter" in privacy and "kein Tracking" not in privacy
+    english = (site / "en" / "privacy" / "index.html").read_text(encoding="utf-8")
+    assert "Visitor count with GoatCounter" in english and "no tracking" not in english
+
+
+def test_without_goatcounter_nothing_is_counted(tmp_path: Path) -> None:
+    config = public_config(goatcounter="")
+    build.build(config, data_dir=tmp_path / "none", site_dir=tmp_path, now=NOW)
+    assert "goatcounter" not in (tmp_path / "de" / "index.html").read_text(encoding="utf-8")
+    privacy = (tmp_path / "en" / "privacy" / "index.html").read_text(encoding="utf-8")
+    assert "no tracking" in privacy and "GoatCounter" not in privacy

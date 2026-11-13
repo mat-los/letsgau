@@ -12,12 +12,31 @@ necessary data such as your IP address to deliver the site and protect it from
 abuse (Art. 6 (1) (f) GDPR). Details:
 [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
 
-## No cookies, no tracking
+{% if goatcounter %}## No cookies, only a visitor count
+
+The site sets no cookies and loads no external fonts. Your browser storage
+(`localStorage`) only keeps your filters, grouping and language; this data never
+leaves your device.
+
+## Visitor count with GoatCounter
+
+To see how many people use the site, we count page views with GoatCounter
+(goatcounter.com). Every page loads a small script from gc.zgo.at for this. It
+counts the page you open, the page you came from (referrer), your screen size,
+and the browser, operating system and country derived from your browser's user
+agent and IP address. GoatCounter sets no cookies and stores neither the IP
+address nor the user agent, only aggregated numbers. So that a reload is not
+counted twice, it recognises a visit for up to 8 hours by a key kept only in
+memory. We only see totals. The legal basis is our legitimate interest in usage
+statistics (Art. 6(1)(f) GDPR). With an ad or script blocker you are not counted;
+the site works all the same. Details:
+[GoatCounter privacy policy](https://www.goatcounter.com/help/privacy).
+{% else %}## No cookies, no tracking
 
 The site sets no cookies, uses no analytics or tracking services and loads no
 external fonts or scripts. Your browser storage (`localStorage`) only keeps your
 filters, grouping and language; this data never leaves your device.
-
+{% endif %}
 ## Feedback
 
 {% if feedback_endpoint %}The feedback form is sent to a form service

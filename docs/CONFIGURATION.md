@@ -23,6 +23,7 @@ Whitelist and blacklist are separate files next to it (`instance/sources/`).
 | `contact_email` | string, optional | address shown on the pages (imprint; about, missing event and privacy only without a form service). At least one of `contact_email` and `feedback_form_endpoint` must be set |
 | `feedback_form_endpoint` | URL or `""` | form service; empty = `mailto:` fallback |
 | `indexing` | bool | `true` (default): search engines and AI crawlers are welcome. `false`: every page gets `<meta name="robots" content="noindex">`, robots.txt no longer lists the sitemap or invites AI crawlers (crawling stays allowed so the `noindex` is seen), and the build warns. Use it until the site is ready to go public |
+| `goatcounter` | string, optional | GoatCounter site code (`<code>.goatcounter.com`, lower-case letters, digits, `-`). Set: every page loads GoatCounter's script, which counts page views without cookies or personal data, and the privacy page describes it. Empty (default): no counting, and the privacy page says so |
 | `timezone` | IANA name | time zone of the region (default `Europe/Berlin`); the website's "today" and the dates in `events.ics` use it |
 
 ## `region`
