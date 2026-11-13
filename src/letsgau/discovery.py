@@ -71,6 +71,13 @@ are only listed, so that the AI neither opens nor reports them again (saves toke
 stage reads the good ones twice a week anyway)."""
 WHITELIST_HITS = 3
 """Hits from which an active source is suggested for the whitelist."""
+DORMANT_AFTER_RUNS = 3
+"""Events runs in a row without an event (or unreachable) after which a source is dormant."""
+DORMANT_RETRY_DAYS = 28
+"""A dormant source is read again once this many days after its last sweep."""
+PAGINATION_PARAMS = frozenset({"os", "page", "seite", "offset"})
+"""Query parameters that only select a page of a list: URLs that differ only in them are
+one source."""
 
 
 class DiscoveryError(Exception):
@@ -193,11 +200,13 @@ class Coverage:
 
 
 def normalize_url(url: str) -> str:
-    """Comparable form: lower-case host without ``www.``, no trailing slash, no fragment."""
+    """Comparable form: lower-case host without ``www.``, no trailing slash, no fragment, no
+    pagination parameter (:data:`PAGINATION_PARAMS`)."""
     parts = urlsplit(url.strip())
     host = (parts.hostname or "").lower().removeprefix("www.")
     path = parts.path.rstrip("/")
-    query = f"?{parts.query}" if parts.query else ""
+    params = [p for p in parts.query.split("&") if p and p.split("=")[0] not in PAGINATION_PARAMS]
+    query = "?" + "&".join(params) if params else ""
     return f"{host}{path}{query}"
 
 
@@ -234,7 +243,31 @@ def load_sources(data_dir: Path = DATA_DIR) -> SourcesFile | None:
     path = data_dir / "sources.json"
     if not path.exists():
         return None
-    return SourcesFile.model_validate_json(path.read_text(encoding="utf-8"))
+    file = SourcesFile.model_validate_json(path.read_text(encoding="utf-8"))
+    return file.model_copy(update={"sources": collapse(file.sources)})
+
+
+def collapse(sources: Sequence[Source]) -> list[Source]:
+    """One entry per :func:`normalize_url` key: URL variants that differ only in a pagination
+    parameter (``?os=0`` / ``?os=10``) become the entry with the most hits, with the hits
+    summed and the better rating."""
+    groups: dict[str, list[Source]] = {}
+    for source in sources:
+        groups.setdefault(normalize_url(source.url), []).append(source)
+    result = []
+    for group in groups.values():
+        best = max(group, key=lambda s: (s.hits, s.rating or 0))
+        if len(group) > 1:
+            best = best.model_copy(
+                update={
+                    "hits": sum(s.hits for s in group),
+                    "rating": max((s.rating for s in group if s.rating), default=None),
+                    "places": sorted({p for s in group for p in s.places}),
+                    "last_hit": max((s.last_hit for s in group if s.last_hit), default=None),
+                }
+            )
+        result.append(best)
+    return result
 
 
 def save_sources(sources: SourcesFile, data_dir: Path = DATA_DIR) -> None:
@@ -701,21 +734,35 @@ def known_sources_for(
     exclude_urls: Iterable[str] = (),
     limit: int | None = MAX_KNOWN_PER_BATCH,
     skip_prefixes: Iterable[str] = (),
+    today: date | None = None,
 ) -> list[Source]:
     """Active, well-rated sources of these municipalities (for the crawl prompt).
 
     ``skip_prefixes`` are URL entries of the blacklist: a source whose URL starts with
-    one of them is not read (e.g. a second front end of the same event database).
+    one of them is not read (e.g. a second front end of the same event database). A dormant
+    source is included again :data:`DORMANT_RETRY_DAYS` after its last sweep (with
+    ``today``).
     """
     if sources is None:
         return []
+    retry = today - timedelta(days=DORMANT_RETRY_DAYS) if today else None
+
+    def readable(s: Source) -> bool:
+        if s.status is SourceStatus.ACTIVE:
+            return True
+        return (
+            s.status is SourceStatus.DORMANT
+            and retry is not None
+            and (s.last_swept is None or s.last_swept <= retry)
+        )
+
     wanted = {m.casefold() for m in municipalities}
     skip = {normalize_url(u) for u in exclude_urls}
     prefixes = [normalize_url(u) for u in skip_prefixes]
     picked = [
         s
         for s in sources.sources
-        if s.status is SourceStatus.ACTIVE
+        if readable(s)
         and s.origin is not SourceOrigin.WHITELIST
         and normalize_url(s.url) not in skip
         and not any(normalize_url(s.url).startswith(p) for p in prefixes)
@@ -776,6 +823,44 @@ def record_hits(
         updated_at=datetime.now(UTC).replace(microsecond=0),
         sources=sorted(by_key.values(), key=lambda s: (s.domain, s.url)),
     )
+
+
+def record_sweeps(
+    sources: SourcesFile | None, results: Mapping[str, str], today: date
+) -> tuple[SourcesFile | None, list[str]]:
+    """Store what this events run found on each source it read (``results``: URL ->
+    ``events`` | ``empty`` | ``unreachable``). After :data:`DORMANT_AFTER_RUNS` runs in a row
+    without an event a source becomes ``dormant``; an event makes it active again. Whitelist
+    entries are never made dormant. Returns the file and the newly dormant URLs."""
+    if sources is None or not results:
+        return sources, []
+    by_key = {normalize_url(url): result for url, result in results.items()}
+    dormant: list[str] = []
+    updated = []
+    for s in sources.sources:
+        result = by_key.get(normalize_url(s.url))
+        if result is None or s.status is SourceStatus.BLACKLISTED:
+            updated.append(s)
+            continue
+        empty_runs = 0 if result == "events" else s.empty_runs + 1
+        status = s.status
+        if result == "events":
+            status = SourceStatus.ACTIVE
+        elif empty_runs >= DORMANT_AFTER_RUNS and s.origin is not SourceOrigin.WHITELIST:
+            if status is SourceStatus.ACTIVE:
+                dormant.append(s.url)
+            status = SourceStatus.DORMANT
+        updated.append(
+            s.model_copy(
+                update={
+                    "last_swept": today,
+                    "last_result": result,
+                    "empty_runs": empty_runs,
+                    "status": status,
+                }
+            )
+        )
+    return sources.model_copy(update={"sources": updated}), dormant
 
 
 # --- suggestions ------------------------------------------------------------------------------

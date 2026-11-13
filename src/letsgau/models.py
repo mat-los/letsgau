@@ -44,6 +44,8 @@ class SourceOrigin(StrEnum):
 class SourceStatus(StrEnum):
     ACTIVE = "active"
     BLACKLISTED = "blacklisted"
+    DORMANT = "dormant"
+    """Several sweeps in a row found nothing; read again only after a pause."""
 
 
 class _DataModel(BaseModel):
@@ -257,6 +259,39 @@ class FlyerCacheFile(_DataModel):
     files: dict[str, FlyerCacheEntry] = {}
 
 
+# --- page cache ------------------------------------------------------------------------------
+
+
+class PageCacheEntry(_DataModel):
+    """One source page read as text (:mod:`letsgau.pages`), keyed by its URL."""
+
+    mode: Literal["text", "agent"]
+    """``text``: read from its text; ``agent``: not readable as text, read by the agent."""
+    reason: str = ""
+    """Why the page is read by the agent."""
+    sha256: str = ""
+    """Fingerprint of the page text (``text`` mode)."""
+    version: int
+    """Extraction version; entries of an older version are read again."""
+    first_seen: date
+    last_seen: date
+    """Last run that used the page; old entries are dropped."""
+    last_changed: date
+    """Last run in which the text (or the mode) changed."""
+    events: list[dict[str, Any]] = []
+    """Raw event candidates as the AI answered them (validated again on every use)."""
+    seen: list[dict[str, Any]] = []
+    """Known events the AI found again on the page (``known_seen``: id plus changes)."""
+
+
+class PagesFile(_DataModel):
+    """``data/pages.json``: source pages already read, so unchanged pages cost no AI call."""
+
+    schema_version: Literal[1] = 1
+    updated_at: datetime
+    pages: dict[str, PageCacheEntry] = {}
+
+
 class InstagramAccount(_DataModel):
     """One Instagram account in ``data/instagram.json``."""
 
@@ -339,6 +374,13 @@ class Source(_DataModel):
     hits: int = Field(default=0, ge=0)
     """Events found on this source in total (counted by the events stage)."""
     last_hit: date | None = None
+    last_swept: date | None = None
+    """Last events run that read this source."""
+    last_result: Literal["events", "empty", "unreachable"] | None = None
+    """What that run found there."""
+    empty_runs: int = Field(default=0, ge=0)
+    """Runs in a row without an event from this source (``dormant`` from
+    ``discovery.DORMANT_AFTER_RUNS``)."""
 
 
 class SourcesFile(_DataModel):

@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Page cache (`data/pages.json`, `src/letsgau/pages.py`): in sweep mode every
+  whitelist and known source is downloaded as text first. Unchanged pages
+  reuse the events read from them before (no AI call), changed pages go to a
+  *page* call without web access (`prompts/events.md`, mode `pages`), and only
+  pages that cannot be read as text (JavaScript calendars, PDFs, blocked
+  downloads) are still swept by the agent. Re-checks skip events whose source
+  page was read as text in the same run.
 - Instagram pre-screen (`instagram.prescreen`): a text-only call to the merge
   model drops posts whose caption is clearly not about an upcoming event before
   their images are read.
@@ -163,6 +170,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Crawl answers: known events found again are listed by id in `known_seen`
+  (status, and date or time only if they changed) instead of being written
+  out again with title and description in two languages; page, sweep and
+  re-check calls get the known events of their sources with their ids. Only
+  new events are written out in full.
+- Sources: every events run stores what it found on each source it read
+  (`last_swept`, `last_result`, `empty_runs` in `sources.json`); after 3 runs
+  in a row without an event a source becomes `dormant` and is skipped until
+  28 days after its last sweep, then read once more. URLs that differ only in
+  a pagination parameter (`?os=0` / `?os=10`) are now one source.
+- Workflows: GitHub Actions bumped to their current majors (Node 24; no more
+  Node 20 deprecation warnings), and the Claude Code CLI is pinned
+  (`CLAUDE_CODE_VERSION`, 2.1.323) instead of installing the latest release
+  on every run.
 - Instance: 2 new Instagram candidates for the profile check.
 - Region: `region.municipalities` (name and/or postcode each) replaces the drive-time area; the geo stage reads the places of each municipality from OpenStreetMap and no longer needs an OpenRouteService key. Old `places.json` files still load.
 - The header line names only the places: "Events in <center> und <places>"

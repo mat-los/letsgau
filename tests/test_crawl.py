@@ -616,6 +616,8 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
     assert runner.requests[8].max_searches == crawl.SWEEP_MAX_SEARCHES
     assert result.batches[0].calls == 10 and result.batches[0].error is None
     assert "Schongau" in result.covered_places
+    assert result.swept["https://club13.example/termine"] == "empty"
+    assert set(urls) <= set(result.swept)  # every source of a call that answered
 
 
 def test_recheck_skips_events_the_source_reading_found_again(

@@ -27,6 +27,21 @@ current date and merged like freshly read ones. Entries whose file has not been
 on its page for 30 days are dropped. Deleting the file only means every flyer
 is read again once.
 
+## Page cache (`data/pages.json`)
+
+Written by the events stage (sweep mode) for every whitelist and known source.
+`pages` maps the source URL to `mode` (`text`: read from its downloaded text;
+`agent`: not readable as text, read by the agent sweep, with the `reason`),
+`sha256` of the text (all pages of the list, up to 5, about 40,000 characters),
+`version`, `first_seen`, `last_seen`, `last_changed`, `events`: the raw
+event candidates the AI read from the text, all of them up to `store_days`,
+and `seen`: the known events it found there again (`known_seen`: id plus what
+changed). An
+unchanged text is not sent to the AI again; its cached candidates are validated
+against the current date and merged like freshly read ones. An `agent` page is
+not downloaded again for 28 days. Entries not used for 30 days are dropped;
+deleting the file only means every page is read again once.
+
 ## Instagram (`data/instagram.json`)
 
 Written by the events stage when `sources.instagram_file` is set; discovery
@@ -176,11 +191,17 @@ discovery and updated by every events run (ADR-004).
 | `kind` | `municipality`, `club`, `venue`, `calendar`, `press`, `other` |
 | `places` | municipalities the source covers |
 | `origin` | `whitelist`, `discovery` or `crawl` (found incidentally during an event run) |
-| `status` | `active` or `blacklisted`; the blacklist file always wins |
+| `status` | `active`, `blacklisted` or `dormant`; the blacklist file always wins |
 | `rating` | 1–5 from discovery (5: current dates as text, updated often), `null` if not rated |
 | `update_frequency` | `weekly`, `monthly`, `rare`, `unknown` |
 | `first_seen`, `last_checked` | first time known, last discovery check |
 | `hits`, `last_hit` | events found on this source in total; basis for whitelist suggestions (≥ 3 hits) |
+| `last_swept`, `last_result`, `empty_runs` | last events run that read the source, what it found there (`events`, `empty`, `unreachable`) and the runs in a row without an event. After 3 such runs a source becomes `dormant` (never a whitelist entry): the crawl leaves it out until 28 days after its last sweep, then reads it once more; an event makes it `active` again |
+
+URLs that differ only in a pagination parameter (`os`, `page`, `seite`,
+`offset`) are one source: they are combined when the file is loaded (the entry
+with the most hits stays, hits are summed, the best rating is kept). Files
+without the sweep fields load unchanged (defaults `null` / `0`).
 
 ## Schema changes
 

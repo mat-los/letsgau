@@ -12,11 +12,15 @@
    ``depth.crawl_sources_per_request`` > 0, *source sweeps* that each read a few
    known sources (whitelist, then discovered ones) completely, then one *open
    search* with a query checklist (:func:`search_queries`); with 0, one
-   combined call. Every page on the flyer list (``sources.flyers_file``) gets
-   its own call: :mod:`letsgau.flyers` downloads its posters/PDFs and the model
-   reads them without web access. The blacklist is passed as blocked domains and hard filtered
-   afterwards. The search budget ``limits.max_web_searches_per_run`` is spread
-   over the calls; ``limits.max_runtime_minutes`` stops starting new calls.
+   combined call. In sweep mode every source is first downloaded as text
+   (:mod:`letsgau.pages`): unchanged pages reuse the events read from them
+   before, changed pages go to *page* calls without web access, and only pages
+   that cannot be read as text are swept by the agent. Every page on the flyer
+   list (``sources.flyers_file``) gets its own call: :mod:`letsgau.flyers`
+   downloads its posters/PDFs and the model reads them without web access. The
+   blacklist is passed as blocked domains and hard filtered afterwards. The
+   search budget ``limits.max_web_searches_per_run`` is spread over the calls;
+   ``limits.max_runtime_minutes`` stops starting new calls.
 4. Every candidate is validated (:func:`to_event`): dates in the crawl window,
    place in the area, tags from the list, exactly one primary tag and source,
    no blacklisted source. Invalid entries are dropped and logged.
@@ -51,7 +55,7 @@ from pydantic import (
     model_validator,
 )
 
-from letsgau import flyers, instagram, merge
+from letsgau import flyers, instagram, merge, pages
 from letsgau.ai_runner import FILES_DIR, AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
@@ -65,6 +69,8 @@ from letsgau.models import (
     InstagramFile,
     InstagramPost,
     LocalizedText,
+    PageCacheEntry,
+    PagesFile,
     Place,
     PlacesFile,
     Schedule,
@@ -264,7 +270,8 @@ def _obj(properties: dict[str, Any]) -> dict[str, Any]:
 def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str, Any]:
     """JSON schema of one batch answer (strict: every field required, nulls allowed).
 
-    With ``files`` (flyer calls) every event also names the file it is printed on.
+    With ``files`` (flyer and page calls) every event also names the file it is printed on.
+    ``known_seen`` lists known events found again, by id, with only what changed.
     """
     text = _obj({"de": {"type": "string"}, "en": {"type": "string"}})
     day = {"type": "string", "format": "date"}
@@ -321,9 +328,20 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
             "result": {"type": "string", "enum": ["events_found", "no_events", "unreachable"]},
         }
     )
+    seen = _obj(
+        {
+            "id": {"type": "string"},
+            "status": {"type": "string", "enum": ["scheduled", "cancelled"]},
+            "start_date": _nullable(day),
+            "start_time": _nullable({"type": "string"}),
+            "source_url": _nullable({"type": "string"}),
+            **({"file": {"type": "string", "enum": list(files)}} if files else {}),
+        }
+    )
     return _obj(
         {
             "events": {"type": "array", "items": event},
+            "known_seen": {"type": "array", "items": seen},
             "checked_sources": {"type": "array", "items": checked},
             "instagram_accounts": {"type": "array", "items": {"type": "string"}},
             "notes": {"type": "string"},
@@ -487,6 +505,72 @@ def events_from_answer(
     return events, rejected
 
 
+def seen_events(
+    items: Iterable[Any],
+    known: Mapping[str, Event],
+    *,
+    config: Config,
+    blocked: Sequence[str],
+    today: date,
+) -> tuple[list[Event], list[Rejected]]:
+    """Known events the AI found again (``known_seen``: id plus what changed), as events with
+    the stored id, texts and tags, so the merge updates them without a full answer."""
+    store_end = today + timedelta(days=config.window.store_days)
+    found: list[Event] = []
+    rejected: list[Rejected] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        event = known.get(str(item.get("id") or ""))
+        if event is None:
+            rejected.append(Rejected(str(item.get("id")), "known_seen: unknown id"))
+            continue
+        s = event.schedule
+        update: dict[str, Any] = {}
+        if not s.dates and s.end_date in (None, s.start_date):  # only single days move
+            if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d", str(item.get("start_time") or "")):
+                update["start_time"] = item["start_time"]
+            try:
+                day = date.fromisoformat(str(item.get("start_date") or ""))
+            except ValueError:
+                day = None
+            if day is not None and today <= day <= store_end:
+                update |= {"start_date": day, "end_date": None}
+        status = event.status
+        if item.get("status") == "cancelled":
+            status = EventStatus.CANCELLED
+        elif status is EventStatus.UNCONFIRMED:
+            status = EventStatus.SCHEDULED
+        url = str(item.get("source_url") or "").strip()
+        if not url.startswith(("http://", "https://")) or is_blocked(url, blocked):
+            url = next(src.url for src in event.sources if src.primary)
+        found.append(
+            event.model_copy(
+                update={
+                    "schedule": s.model_copy(update=update),
+                    "status": status,
+                    "sources": [
+                        EventSource(url=url, primary=True, first_seen=today, last_seen=today)
+                    ],
+                    "last_verified": today,
+                    "misses": 0,
+                }
+            )
+        )
+    return found, rejected
+
+
+def known_for(call: CrawlCall, batch: Batch) -> list[Event]:
+    """Known events of the batch listed on the sources of a ``pages`` or ``sources`` call."""
+    if call.mode == "pages":
+        urls = [t.url for t in call.pages]
+    elif call.mode == "sources":
+        urls = [w.url for w in call.whitelist] + [s.url for s in call.sources]
+    else:
+        return []
+    return [e for e in batch.known if any(_same_source(u, s.url) for u in urls for s in e.sources)]
+
+
 # --- batches and prompt ---------------------------------------------------------------
 
 
@@ -596,6 +680,8 @@ SEARCHES_PER_SEARCH_CALL = 13
 part of the checklist; one long call with the whole checklist stopped after a few searches."""
 RECHECK_PER_CALL = 20
 """Known events per re-check call."""
+PAGE_CHARS_PER_CALL = 60_000
+"""Characters of source text per ``pages`` call (several changed pages share one call)."""
 
 
 def search_queries(
@@ -622,7 +708,7 @@ def search_queries(
 class CrawlCall:
     """One AI call of a batch: a combined call, a sweep over known sources, or the open search."""
 
-    mode: str  # "all" | "sources" | "flyers" | "instagram" | "recheck" | "search"
+    mode: str  # "all" | "pages" | "sources" | "flyers" | "instagram" | "recheck" | "search"
     whitelist: list[WhitelistEntry] = field(default_factory=list)
     sources: list[Any] = field(default_factory=list)
     flyer: FlyerEntry | None = None
@@ -631,6 +717,8 @@ class CrawlCall:
     """Known events of a ``recheck`` call."""
     queries: list[tuple[str, list[str]]] = field(default_factory=list)
     """Checklist part of a ``search`` call: (municipality, queries)."""
+    pages: list[pages.PageText] = field(default_factory=list)
+    """Downloaded source texts of a ``pages`` call."""
 
 
 def rotate_queries(
@@ -683,6 +771,8 @@ def plan_calls(
     recheck: Sequence[Event] = (),
     search_calls: int = 1,
     instagram: bool = False,
+    sweep: Sequence[Any] | None = None,
+    texts: Sequence[pages.PageText] = (),
 ) -> list[CrawlCall]:
     """Split a batch into source sweeps (``sources_per_request`` sources each), one call per
     flyer page, re-check calls for the known events of the deep-check window
@@ -691,6 +781,10 @@ def plan_calls(
 
     With ``sources_per_request == 0`` the batch is one combined call (``mode="all"``) plus
     the flyer calls. The Instagram step (``instagram``) comes last.
+
+    ``texts`` are changed source pages read as text: they come first, in ``pages`` calls of
+    up to :data:`PAGE_CHARS_PER_CALL` characters. ``sweep`` are the sources the agent reads
+    (default: all of the batch's whitelist and known sources).
     """
     flyer_calls = [CrawlCall("flyers", flyer=f) for f in batch.flyers]
     # last, so that accounts mined by every other call of the batch are read in the same run
@@ -701,8 +795,13 @@ def plan_calls(
             *flyer_calls,
             *instagram_calls,
         ]
-    items: list[Any] = [*batch.whitelist, *batch.sources]
+    items: list[Any] = [*batch.whitelist, *batch.sources] if sweep is None else list(sweep)
     calls = []
+    for text in texts:
+        size = sum(len(t.text) for t in calls[-1].pages) if calls else 0
+        if not calls or size + len(text.text) > PAGE_CHARS_PER_CALL:
+            calls.append(CrawlCall("pages"))
+        calls[-1].pages.append(text)
     for start in range(0, len(items), sources_per_request):
         chunk = items[start : start + sources_per_request]
         calls.append(
@@ -773,11 +872,13 @@ def render_prompt(
             else []
         ),
         later_events=[e for e in batch.known if deep_end < e.schedule.start_date <= window_end],
+        known_events=known_for(call, batch),
         sources=call.sources,
         covered_sources=[w.url for w in batch.whitelist]
         + [s.url for s in batch.sources]
         + [f.url for f in batch.flyers],
         flyer=call.flyer,
+        pages=[(f"page {i}", t.url, t.text) for i, t in enumerate(call.pages, 1)],
         files=[(f"{FILES_DIR}/{f.path.name}", f.url, f.kind) for f in files],
         posts=posts,
         mine_instagram=mine_instagram,
@@ -829,6 +930,11 @@ class CrawlResult:
     """Updated flyer cache (written by :func:`run` unless it is a dry run)."""
     instagram_cache: InstagramFile | None = None
     """Updated Instagram accounts and posts (written by :func:`run` unless a dry run)."""
+    page_cache: PagesFile | None = None
+    """Updated page cache (written by :func:`run` unless it is a dry run)."""
+    swept: dict[str, str] = field(default_factory=dict)
+    """Source URL -> ``events`` | ``empty`` | ``unreachable`` for every whitelist and known
+    source a successful call of this run read (see :func:`discovery.record_sweeps`)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -882,6 +988,7 @@ def crawl(
             [w.url for w in batch.whitelist],
             limit=None if sweeps else discovery.MAX_KNOWN_PER_BATCH,
             skip_prefixes=[e.url for e in blacklist if e.url],
+            today=today,
         )
 
     budget = config.limits.max_web_searches_per_run
@@ -920,6 +1027,70 @@ def crawl(
             get=graph_get or instagram.http_get,
             warnings=warnings,
         )
+    by_batch: dict[int, BatchReport] = {}
+
+    def report_of(batch: Batch) -> BatchReport:
+        if batch.number not in by_batch:
+            by_batch[batch.number] = BatchReport(batch.number, [g.name for g in batch.groups])
+            reports.append(by_batch[batch.number])
+        return by_batch[batch.number]
+
+    page_cache = _load(data_dir / "pages.json", PagesFile) or PagesFile(
+        updated_at=datetime.now(UTC).replace(microsecond=0)
+    )
+    checked_by_batch: dict[int, list[str]] = {}
+    read_sources: set[str] = set()  # source URLs read by a call that answered, or from text
+    text_read: set[str] = set()  # source pages read as text in this run
+    to_sweep: dict[int, list[Any]] = {}
+    changed: dict[int, list[pages.PageText]] = {}
+    for batch in batches:
+        if not sweeps:
+            continue
+        to_sweep[batch.number], changed[batch.number] = [], []
+        for item in [*batch.whitelist, *batch.sources]:
+            entry = page_cache.pages.get(item.url)
+            if pages.needs_agent(entry, today):
+                page_cache.pages[item.url] = entry.model_copy(update={"last_seen": today})
+                to_sweep[batch.number].append(item)
+                continue
+            try:
+                text = pages.read(item.url, fetch, robots)
+            except pages.PageError as exc:
+                page_cache.pages[item.url] = PageCacheEntry(
+                    mode="agent",
+                    reason=str(exc),
+                    version=pages.PAGE_CACHE_VERSION,
+                    first_seen=entry.first_seen if entry else today,
+                    last_seen=today,
+                    last_changed=today,
+                )
+                to_sweep[batch.number].append(item)
+                continue
+            if entry is not None and pages.unchanged(entry, text):
+                page_cache.pages[item.url] = entry.model_copy(update={"last_seen": today})
+                _add_items(
+                    entry.events,
+                    report_of(batch),
+                    events,
+                    config=config,
+                    index=index,
+                    blocked=blocked,
+                    today=today,
+                    seen=entry.seen,
+                    known={e.id: e for e in batch.known},
+                )
+                text_read.add(item.url)
+                read_sources.add(item.url)
+                checked_by_batch.setdefault(batch.number, []).append(item.url)
+            else:
+                changed[batch.number].append(text)
+        reused = len(batch.whitelist) + len(batch.sources) - len(to_sweep[batch.number])
+        reused -= len(changed[batch.number])
+        _log(
+            f"batch {batch.number}: pages: {reused} unchanged (reused), "
+            f"{len(changed[batch.number])} changed (read as text), "
+            f"{len(to_sweep[batch.number])} for the agent"
+        )
     plan = [
         (batch, call)
         for batch in batches
@@ -932,22 +1103,18 @@ def crawl(
                 1, round(config.depth.crawl_searches_per_request / SEARCHES_PER_SEARCH_CALL)
             ),
             instagram=insta_on,
+            sweep=to_sweep.get(batch.number),
+            texts=changed.get(batch.number, ()),
         )
     ]
-    by_batch: dict[int, BatchReport] = {}
-    checked_by_batch: dict[int, list[str]] = {}
+    unreachable: set[str] = set()  # URLs a call reported as unreachable
     for position, (batch, call) in enumerate(plan):
-        report = by_batch.get(batch.number)
-        if report is None:
-            report = by_batch[batch.number] = BatchReport(
-                batch.number, [g.name for g in batch.groups]
-            )
-            reports.append(report)
+        report = report_of(batch)
         several = sweeps > 0
         same_mode = [c for b, c in plan if b is batch and c.mode == call.mode]
         number = sum(1 for b, c in plan[: position + 1] if b is batch and c.mode == call.mode)
         tag = call.mode
-        if call.mode == "sources" or (len(same_mode) > 1 and call.mode != "flyers"):
+        if call.mode in ("sources", "pages") or (len(same_mode) > 1 and call.mode != "flyers"):
             tag = f"{call.mode} {number}"
         prefix = f"[{tag}] " if several else ""
         remaining = budget - usage.web_searches
@@ -957,7 +1124,14 @@ def crawl(
         if call.mode == "recheck":
             # the source calls of this run read the same pages: an event they reported
             # again is confirmed, only the others need a look at their own source
-            open_events = [e for e in call.events if not confirmed(e, events, municipality_of)]
+            # an event whose source page was read as text in this run is either among the
+            # events found there or no longer on it: no AI call needed either way
+            open_events = [
+                e
+                for e in call.events
+                if not confirmed(e, events, municipality_of)
+                and not any(_same_source(p, s.url) for p in text_read for s in e.sources)
+            ]
             if not open_events:
                 _log(
                     f"batch {batch.number}: {prefix}skipped, all {len(call.events)} events "
@@ -970,6 +1144,27 @@ def crawl(
                     f"{len(call.events)} events confirmed by the source reading"
                 )
             call = replace(call, events=open_events)
+        if call.mode == "pages":
+            done = _run_pages_call(
+                config,
+                runner,
+                batch,
+                call,
+                report,
+                events,
+                today=today,
+                blocked=blocked,
+                prompts_dir=prompts_dir,
+                index=index,
+                step=f"events batch {batch.number}/{len(batches)} ({tag})",
+                prefix=prefix,
+                cache=page_cache,
+            )
+            usage = usage.add(report.last_usage)
+            text_read.update(done)
+            read_sources.update(done)
+            checked_by_batch.setdefault(batch.number, []).extend(done)
+            continue
         if call.mode == "flyers":
             _run_flyer_call(
                 config,
@@ -1061,6 +1256,15 @@ def crawl(
         found, rejected = events_from_answer(
             result.data, config=config, places=index, blocked=blocked, today=today
         )
+        again, unknown = seen_events(
+            result.data.get("known_seen") or [],
+            {e.id: e for e in batch.known},
+            config=config,
+            blocked=blocked,
+            today=today,
+        )
+        found += again
+        rejected += unknown
         report.rejected += rejected
         for event in found:
             if event.id in events:
@@ -1075,6 +1279,14 @@ def crawl(
         checked = checked_by_batch.setdefault(batch.number, [])
         checked += [c.get("url", "") for c in result.data.get("checked_sources") or []]
         checked += result.fetched_urls
+        if call.mode in ("sources", "all"):
+            read_sources.update(w.url for w in call.whitelist)
+            read_sources.update(s.url for s in call.sources)
+        unreachable.update(
+            str(c.get("url", ""))
+            for c in result.data.get("checked_sources") or []
+            if c.get("result") == "unreachable"
+        )
         for title_reason in rejected:
             _log(f"batch {batch.number}: dropped {title_reason.title!r}: {title_reason.reason}")
 
@@ -1097,6 +1309,15 @@ def crawl(
         if report.error is None:
             covered.update(p.name for p in batch.places)
             covered.update(g.name for g in batch.groups)
+    event_urls = [src.url for e in events.values() for src in e.sources]
+    swept = {
+        url: "events"
+        if any(_same_source(url, u) for u in event_urls)
+        else "unreachable"
+        if any(_same_source(url, u) for u in unreachable)
+        else "empty"
+        for url in read_sources
+    }
     keep_after = today - timedelta(days=FLYER_CACHE_KEEP_DAYS)
     flyer_cache = flyer_cache.model_copy(
         update={
@@ -1114,7 +1335,134 @@ def crawl(
         municipality_of=municipality_of,
         flyer_cache=flyer_cache,
         instagram_cache=_prune_instagram(insta_cache, today, config) if insta_on else None,
+        page_cache=pages.prune(page_cache, today).model_copy(
+            update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
+        ),
+        swept=swept,
     )
+
+
+def _add_items(
+    items: Sequence[dict[str, Any]],
+    report: BatchReport,
+    events: dict[str, Event],
+    *,
+    config: Config,
+    index: PlaceIndex,
+    blocked: Sequence[str],
+    today: date,
+    seen: Sequence[dict[str, Any]] = (),
+    known: Mapping[str, Event] | None = None,
+) -> None:
+    """Validate raw event candidates and known events found again (fresh or cached) and add
+    them to ``events``."""
+    found, rejected = events_from_answer(
+        {"events": list(items)}, config=config, places=index, blocked=blocked, today=today
+    )
+    again, unknown = seen_events(seen, known or {}, config=config, blocked=blocked, today=today)
+    found += again
+    report.rejected += rejected + unknown
+    for event in found:
+        events[event.id] = merge.combine(events[event.id], event) if event.id in events else event
+    report.events += len(found)
+
+
+def _run_pages_call(
+    config: Config,
+    runner: Runner,
+    batch: Batch,
+    call: CrawlCall,
+    report: BatchReport,
+    events: dict[str, Event],
+    *,
+    today: date,
+    blocked: Sequence[str],
+    prompts_dir: Path,
+    index: PlaceIndex,
+    step: str,
+    prefix: str,
+    cache: PagesFile,
+) -> list[str]:
+    """Let the AI read changed source pages from their text (no web access); cache what it
+    found per page. Returns the URLs of the pages read (none if the call failed)."""
+    report.last_usage = Usage()
+    refs = [f"page {i}" for i in range(1, len(call.pages) + 1)]
+    request = AiRequest(
+        step=step,
+        model=config.models.events,
+        prompt=render_prompt(
+            config,
+            batch,
+            today=today,
+            blocked=blocked,
+            max_searches=0,
+            prompts_dir=prompts_dir,
+            call=call,
+        ),
+        schema=answer_schema(config.tag_ids, files=refs),
+        blocked_domains=blocked,
+        max_searches=0,
+        web=False,
+    )
+    try:
+        result = runner.run(request)
+    except AiError as exc:
+        _skip(report, prefix + str(exc))
+        _log(f"batch {batch.number}: {prefix}{exc}")
+        return []
+    report.calls += 1
+    report.last_usage = result.usage
+    report.usage = report.usage.add(result.usage)
+    note = str(result.data.get("notes") or "").strip()
+    if note:
+        report.notes = "\n".join(filter(None, [report.notes, prefix + note]))
+    by_page: dict[str, list[dict[str, Any]]] = {t.url: [] for t in call.pages}
+    for item in result.data.get("events") or []:
+        if not isinstance(item, dict):
+            continue
+        urls = [str(s.get("url", "")) for s in item.get("sources") or []]
+        owner = next(
+            (t for ref, t in zip(refs, call.pages, strict=True) if ref == item.get("file")),
+            next(
+                (t for t in call.pages if any(_same_source(t.url, u) for u in urls)),
+                call.pages[0],
+            ),
+        )
+        by_page[owner.url].append({k: v for k, v in item.items() if k != "file"})
+    seen_by_page: dict[str, list[dict[str, Any]]] = {t.url: [] for t in call.pages}
+    for item in result.data.get("known_seen") or []:
+        if not isinstance(item, dict):
+            continue
+        url = str(item.get("source_url") or "")
+        owner = next(
+            (t for ref, t in zip(refs, call.pages, strict=True) if ref == item.get("file")),
+            next((t for t in call.pages if _same_source(t.url, url)), call.pages[0]),
+        )
+        seen_by_page[owner.url].append({k: v for k, v in item.items() if k != "file"})
+    for text in call.pages:
+        old = cache.pages.get(text.url)
+        cache.pages[text.url] = PageCacheEntry(
+            mode="text",
+            sha256=text.sha256,
+            version=pages.PAGE_CACHE_VERSION,
+            first_seen=old.first_seen if old else today,
+            last_seen=today,
+            last_changed=today,
+            events=by_page[text.url],
+            seen=seen_by_page[text.url],
+        )
+    _add_items(
+        [item for items in by_page.values() for item in items],
+        report,
+        events,
+        config=config,
+        index=index,
+        blocked=blocked,
+        today=today,
+        seen=[item for items in seen_by_page.values() for item in items],
+        known={e.id: e for e in batch.known},
+    )
+    return [t.url for t in call.pages]
 
 
 def load_flyers(config: Config) -> list[FlyerEntry]:
@@ -1732,6 +2080,8 @@ def run(
         _write_json(events_path, merged.model_dump(mode="json", by_alias=True))
         if result.flyer_cache is not None and result.flyer_cache.files:
             _write_json(data_dir / "flyers.json", result.flyer_cache.model_dump(mode="json"))
+        if result.page_cache is not None and result.page_cache.pages:
+            _write_json(data_dir / "pages.json", result.page_cache.model_dump(mode="json"))
         if result.instagram_cache is not None and (
             result.instagram_cache.accounts or result.instagram_cache.posts
         ):
@@ -1752,7 +2102,13 @@ def run(
             sorted({e.domain for e in blacklist if e.domain}),
             today,
         )
-        discovery.save_sources(sources, data_dir)
+        swept, dormant = discovery.record_sweeps(sources, result.swept, today)
+        discovery.save_sources(swept or sources, data_dir)
+        with_events = sum(r == "events" for r in result.swept.values())
+        print(
+            f"crawl: sources: {len(result.swept)} read, {with_events} with events"
+            + (f"; now dormant: {', '.join(dormant)}" if dormant else "")
+        )
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
 

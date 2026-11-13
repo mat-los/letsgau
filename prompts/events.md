@@ -27,7 +27,7 @@ researchers handle the remaining sources and a general web search.
 - Open each source. Follow pagination ("weiter", page numbers, "?page=", "?os="), month views and
   category filters until the end of the window: a calendar showing 10 or 12 entries per page
   usually has several pages. Open detail pages when the list lacks the time or the place.
-- Report every event you find there, also ones that may be known already.
+- Report every event you find there (known ones in "known_seen", see below).
 - If a source has moved or shows no events, search for its current calendar page (at most
   {{ max_searches }} web searches in total) and say so in "notes".
 - Fetching pages does not count against the search limit.
@@ -37,6 +37,24 @@ researchers handle the remaining sources and a general web search.
 {%- for source in sources %}
 - {{ source.url }}{% if source.name %} ({{ source.name }}){% endif %}{% if source.note %}: {{ source.note }}{% endif %}
 {%- endfor %}
+{%- elif mode == "pages" %}
+
+You are one of several researchers working on this calendar. Below is the text of some of its
+known sources, downloaded just now (links in angle brackets; "--- next page" marks a following
+page of the same list). You have no web access in this task. Take every event between {{ today }}
+and {{ store_end }} from these texts (also the later ones: a page is only read again when it
+changes).
+
+- Report only what the text says. If it gives no time, use null; never guess a time or a place.
+- Sources: the page's URL as the primary source. If the text links the event's own detail page,
+  add that link as a second source.
+- In "file", give the page the event comes from, exactly as listed below ("page 1", ...).
+- In "checked_sources", list each page's URL with "events_found" or "no_events".
+{% for ref, url, text in pages %}
+### {{ ref }}: {{ url }}
+
+{{ text }}
+{% endfor %}
 {%- elif mode == "flyers" %}
 
 The files below were downloaded from {{ flyer.url }}{% if flyer.note %} ({{ flyer.note }}){% endif %}:
@@ -149,11 +167,28 @@ events). If you have found only a few, keep looking; do not stop after the first
 ## Known events to re-check (until {{ deep_check_end }})
 
 Open the source of each event below and check that date, time and place are still correct and
-whether it is cancelled ("abgesagt", "entfällt") or postponed ("verschoben"). Report every one you
-can still confirm (with corrected details), and report cancellations and postponements with the
-matching status.
+whether it is cancelled ("abgesagt", "entfällt") or postponed ("verschoben"). List every one you
+can still confirm in "known_seen" with its id (the first value of the line): "status" scheduled or
+cancelled, and "start_date" or "start_time" only if they changed (otherwise null), "source_url" the
+page where you checked it. A postponed event: write it out in "events" with status "postponed" and
+"postponed_to_date", and add it at its new date as a separate entry.
 {% for event in deep_check_events %}
-- {{ event.schedule.start_date }}{% if event.schedule.start_time %} {{ event.schedule.start_time }}{% endif %} | {{ event.title.de }} | {{ event.venue.place }} | {{ event.sources | selectattr("primary") | map(attribute="url") | first }}
+- {{ event.id }} | {{ event.schedule.start_date }}{% if event.schedule.start_time %} {{ event.schedule.start_time }}{% endif %} | {{ event.title.de }} | {{ event.venue.place }} | {{ event.sources | selectattr("primary") | map(attribute="url") | first }}
+{%- endfor %}
+{%- endif %}
+
+{%- if known_events %}
+
+## Known events on these sources
+
+These are in the calendar already. When you find one of them again, do not write it out in
+"events": list it in "known_seen" with its id (the first value of the line), "status" scheduled or
+cancelled, "start_date" or "start_time" only if they changed (otherwise null), and "source_url" the
+page where you saw it{% if mode == "pages" %} ("file": the page){% endif %}. Write out in "events" only events that are
+not in this list, and a postponed one (with status "postponed" and "postponed_to_date", plus a
+separate entry at its new date).
+{% for event in known_events %}
+- {{ event.id }} | {{ event.schedule.start_date }}{% if event.schedule.end_date and event.schedule.end_date != event.schedule.start_date %} to {{ event.schedule.end_date }}{% endif %}{% if event.schedule.start_time %} {{ event.schedule.start_time }}{% endif %} | {{ event.title.de }} | {{ event.venue.place }}
 {%- endfor %}
 {%- endif %}
 
@@ -236,6 +271,9 @@ matching status.
   otherwise an empty list. Do not search for them.
 {%- else %}
 - Answer "instagram_accounts" with an empty list.
+{%- endif %}
+{%- if not known_events and not (deep_check_events and mode in ("recheck", "all")) %}
+- Answer "known_seen" with an empty list.
 {%- endif %}
 - Use "notes" for anything the operator should know (e.g. a source that moved), otherwise "".
 

@@ -72,15 +72,33 @@ python -m letsgau run --job events --dry-run --limit-places 3
 - Places are grouped by municipality (`municipality` in `places.json`); the
   prompt lists each municipality with its districts, and events keep the exact
   district as their place.
-- With `depth.crawl_sources_per_request: N` (default 4) every batch is split
-  into *source sweeps*, *re-checks* and the *open search*:
+- With `depth.crawl_sources_per_request: N` (default 4) every whitelist and
+  known source is first downloaded as text (`src/letsgau/pages.py`: visible
+  text with detail links, up to 5 pages via "next" links, `robots.txt`
+  respected):
+  - unchanged since the last run (same SHA-256 in `data/pages.json`): the
+    events read from it then are used again, no AI call;
+  - changed: the text goes to a *page* call without web access (several pages
+    per call, up to about 60,000 characters), and the result is cached;
+  - not readable as text (download blocked, PDF, a calendar loaded by
+    JavaScript, no dates in the text): the source stays with the agent sweep
+    below, and text mode is tried again after 28 days.
+
+  The log shows `pages: N unchanged (reused), N changed (read as text), N for
+  the agent` per batch. Page, sweep and re-check calls get the known events of
+  their sources with their ids; the AI lists those it finds again in
+  `known_seen` (id, status, and date or time only if they changed) instead of
+  writing them out again in two languages, and writes out only new events. Then every batch is split into *source sweeps* (only
+  the agent sources), *re-checks* and the *open search*:
   - each sweep reads N known sources (whitelist first, then discovered ones)
     completely, following pagination to the end of the window, with at most 8
     searches to find moved pages;
   - each re-check call opens the sources of up to 20 known events of the next
     `deep_check_days` and reports date, time, cancellation or postponement.
     Events that a source call of the same run already reported again count as
-    confirmed and are left out; if none remain, the re-check call is skipped;
+    confirmed and are left out, and so are events whose source page was read
+    as text in this run (found there, or no longer listed: then the merge
+    counts a miss); if none remain, the re-check call is skipped;
   - the open search skips the known sources and runs a fixed query checklist
     per municipality (every month of the window, 15 topics, every district).
     Its budget, `depth.crawl_searches_per_request`, is split into calls of
@@ -225,6 +243,12 @@ python -m letsgau run --job discovery --dry-run --limit-places 2
 - The events stage gives each batch the active sources of its municipalities
   (rating ≥ 3 or ≥ 2 hits; all of them in sweep mode, at most 12 in combined
   mode) and counts hits per source after every run.
+- Every events run stores what it found on each source it read (`last_result`
+  in `sources.json`). A source without an event in 3 runs in a row becomes
+  `dormant` and is left out of the sweeps until 28 days after its last sweep;
+  then it is read once more, and an event makes it active again. Whitelist
+  entries are never made dormant. The log shows `crawl: sources: N read, N with
+  events; now dormant: …`.
 - Known sources are only listed in the prompt (not opened or reported again)
   if they are whitelisted, or were rated or had a hit in the last 90 days
   (`RECHECK_SOURCES_DAYS`); older ones are listed separately to be re-rated.
@@ -316,6 +340,12 @@ answer of every AI call and, in subscription mode, the transcript of each call
 (`*.transcript.jsonl`, every search query and fetched page). The log prints the
 search queries of each call as `… N searches: query | query | …`. Use it to see
 why an event was missed.
+
+The Claude Code CLI is pinned (`CLAUDE_CODE_VERSION` in `run.yml` and
+`crawl-check.yml`), because the pipeline relies on its flags (`--json-schema`,
+`--tools`, `--setting-sources`) and on its JSON output (`structured_output`,
+`modelUsage`). To update it, set the new version in both workflows, run the
+*Crawl check* workflow and merge only if it succeeds.
 
 One-time setup: *Settings → Pages → Source: GitHub Actions*, and the secrets
 below.

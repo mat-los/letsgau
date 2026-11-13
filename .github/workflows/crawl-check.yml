@@ -36,20 +36,21 @@ jobs:
       LIMIT_PLACES: ${{ inputs.limit_places || '3' }}
       LETSGAU_RECORD_DIR: ${{ github.workspace }}/recordings
       DISABLE_AUTOUPDATER: "1"
+      CLAUDE_CODE_VERSION: "2.1.323"   # pinned: the pipeline relies on its flags and JSON output; bump after a Crawl check
       PYTHONUNBUFFERED: "1"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
       - name: Install
         run: |
           pip install -e '.[dev]'
-          npm install -g @anthropic-ai/claude-code
+          npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
           claude --version
       - name: Require secrets
         run: |
@@ -109,7 +110,7 @@ jobs:
             echo "=== $f"
             python -c "import json,sys; print(json.dumps(json.load(open(sys.argv[1])), ensure_ascii=False, separators=(',', ':')))" "$f"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: crawl-recordings

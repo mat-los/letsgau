@@ -65,6 +65,7 @@ flowchart LR
 | `ai_runner` | Claude Code headless (subscription) or Claude API (api_key) | 2 ✓ |
 | `crawl` | event crawl per batch of places, validation | 2 ✓ |
 | `models` | Pydantic models for `data/*.json` | 2–3 |
+| `pages` | source pages as text with a SHA-256 cache, so unchanged pages cost no AI call | 2 ✓ |
 | `merge` | fuzzy dedupe, Haiku tie-break and topic check, status lifecycle, cleanup | 3 ✓ |
 | `build`, `feeds` | HTML DE/EN, JSON-LD, JSON, ICS, llms.txt, sitemap, robots | 4–5 ✓ |
 | `discovery` | find and rate sources, `sources.json`, suggestions, hit statistics | 7 ✓ |
