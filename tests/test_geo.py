@@ -92,7 +92,12 @@ def test_places_of_the_municipalities_in_config_order(config: Config, tmp_path: 
         ("Altenstadt", "Altenstadt"),  # main place first
         ("Schwabniederhofen", "Altenstadt"),
     ]
-    assert places.municipalities == ["Schongau 86956", "Altenstadt 86972"]
+    assert places.municipalities == [
+        "Schongau 86956",
+        "Altenstadt 86972",
+        "Peiting 86971",
+        "Hohenfurch 86978",
+    ]
     assert result.fingerprint_changed  # no file before: discovery is forced
     stored = PlacesFile.model_validate_json((tmp_path / "places.json").read_text("utf-8"))
     assert stored.places == places.places

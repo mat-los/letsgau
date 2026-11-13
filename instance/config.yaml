@@ -18,6 +18,8 @@ region:
   municipalities:                       # name and/or postcode each; districts are found automatically; a change triggers geo + discovery
     - { name: "Schongau", postcode: "86956" }
     - { name: "Altenstadt", postcode: "86972" }
+    - { name: "Peiting", postcode: "86971" }
+    - { name: "Hohenfurch", postcode: "86978" }
 
 window:
   display_days: 21                      # how far ahead the website shows
