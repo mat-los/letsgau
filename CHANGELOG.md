@@ -175,6 +175,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The daily Run workflow starts at 02:00 UTC instead of 04:17 UTC.
 - Category filter: "Zurücksetzen" looks like an action, not a category (no pill,
   muted, with a cross, at the end of the row).
 - Start page (`/de/`, `/en/`) and `/`: title and share preview without a date

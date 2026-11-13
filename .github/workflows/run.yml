@@ -10,7 +10,7 @@ run-name: >-
 
 on:
   schedule:
-    - cron: "17 4 * * *"   # daily, ~05:17 Berlin in winter; jobs decide what is due
+    - cron: "0 2 * * *"    # daily, 02:00 UTC (03:00 Berlin in winter, 04:00 in summer); jobs decide what is due
   workflow_dispatch:
     inputs:
       job:
