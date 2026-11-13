@@ -1,21 +1,11 @@
 {
   "schema_version": 1,
-  "fingerprint": "sha256:89db14d8b1ab7bc7",
-  "generated_at": "2026-11-12T19:42:56Z",
-  "center": {
-    "lat": 47.811,
-    "lon": 10.896
-  },
-  "drive_time_minutes": 5,
-  "place_types": [
-    "city",
-    "town",
-    "village"
+  "fingerprint": "sha256:f0cc545b96b91580",
+  "generated_at": "2026-11-13T12:14:26Z",
+  "municipalities": [
+    "Schongau 86956",
+    "Altenstadt 86972"
   ],
-  "include_places": [
-    "Altenstadt"
-  ],
-  "exclude_places": [],
   "places": [
     {
       "name": "Schongau",
@@ -23,9 +13,52 @@
       "place_type": "town",
       "lat": 47.8118973,
       "lon": 10.8972133,
-      "drive_time_minutes": 2.6,
-      "distance_km": 0.6,
-      "origin": "area",
+      "origin": "municipality",
+      "municipality": "Schongau"
+    },
+    {
+      "name": "Dornau",
+      "osm_id": "node/6127921110",
+      "place_type": "hamlet",
+      "lat": 47.8000146,
+      "lon": 10.8942693,
+      "origin": "municipality",
+      "municipality": "Schongau"
+    },
+    {
+      "name": "Dornauerfeld",
+      "osm_id": "node/2832648785",
+      "place_type": "neighbourhood",
+      "lat": 47.8054697,
+      "lon": 10.8907559,
+      "origin": "municipality",
+      "municipality": "Schongau"
+    },
+    {
+      "name": "Forchet",
+      "osm_id": "node/2832648783",
+      "place_type": "neighbourhood",
+      "lat": 47.8032598,
+      "lon": 10.878001,
+      "origin": "municipality",
+      "municipality": "Schongau"
+    },
+    {
+      "name": "Lechvorstadt",
+      "osm_id": "node/2832648786",
+      "place_type": "neighbourhood",
+      "lat": 47.8111658,
+      "lon": 10.9086502,
+      "origin": "municipality",
+      "municipality": "Schongau"
+    },
+    {
+      "name": "Schongau West",
+      "osm_id": "node/2832648784",
+      "place_type": "neighbourhood",
+      "lat": 47.8114078,
+      "lon": 10.8849454,
+      "origin": "municipality",
       "municipality": "Schongau"
     },
     {
@@ -34,10 +67,29 @@
       "place_type": "village",
       "lat": 47.823657,
       "lon": 10.8734632,
-      "drive_time_minutes": 7.8,
-      "distance_km": 3.2,
-      "origin": "include",
+      "origin": "municipality",
+      "municipality": "Altenstadt"
+    },
+    {
+      "name": "Pröbstl",
+      "osm_id": "node/4901532680",
+      "place_type": "hamlet",
+      "lat": 47.8303805,
+      "lon": 10.8567989,
+      "origin": "municipality",
+      "municipality": "Altenstadt"
+    },
+    {
+      "name": "Schwabniederhofen",
+      "osm_id": "node/2832694989",
+      "place_type": "village",
+      "lat": 47.8413572,
+      "lon": 10.8789157,
+      "origin": "municipality",
       "municipality": "Altenstadt"
     }
-  ]
+  ],
+  "place_types": [],
+  "include_places": [],
+  "exclude_places": []
 }
