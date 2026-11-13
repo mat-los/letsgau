@@ -10,6 +10,11 @@ kommt deine Veranstaltung am sichersten in den Kalender:
    **Facebook und andere soziale Netzwerke** liest sie nicht: Sie
    erlauben nicht, ihre Seiten automatisch abzufragen. Steht eine Veranstaltung
    nur dort, fehlt sie hier.
+
+   Zwei Instagram-Fallen: Ein **gemeinsamer Beitrag** („Konto A und Konto B“)
+   gehört nur dem zuerst genannten Konto, und nur dort können wir ihn lesen. Und wir
+   schauen pro Suche nur die **neuesten {{ instagram_posts }} Beiträge** eines Kontos
+   an. Wer viel postet, sollte die Ankündigung kurz vorher noch einmal posten.
 2. **Alles Wichtige als Text schreiben:** den Titel, Datum, Uhrzeit, Ort und ein,
    zwei Sätze, worum es geht. Nicht nur auf einem Plakat oder Flyer-Bild, denn ein
    Bild kann die KI nicht zuverlässig lesen.

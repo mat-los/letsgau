@@ -9,6 +9,11 @@ surest way to get your event into the calendar:
    creator account. It does not read **Facebook or other social networks**: they
    do not allow their pages to be read automatically. An event that is only
    posted there is missing here.
+
+   Two Instagram traps: a **collaboration post** ("account A and account B")
+   belongs only to the account named first, and only there can we read it. And we
+   only look at the **latest {{ instagram_posts }} posts** of an account on each run.
+   If you post a lot, post the announcement again shortly before the event.
 2. **Write everything important as text:** the title, date, time, place and a
    sentence or two about what it is. Not only on a poster or flyer image, because
    the AI cannot read images reliably.

@@ -670,6 +670,7 @@ def content_context(config: Config) -> dict[str, Any]:
         "base_url": config.site.base_url.rstrip("/"),
         "repo_url": f"https://github.com/{repo}",
         "feedback_endpoint": config.site.feedback_form_endpoint,
+        "instagram_posts": config.instagram.posts_per_account,
     }
 
 
