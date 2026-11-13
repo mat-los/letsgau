@@ -1,18 +1,12 @@
-# Live check of the geo stage against OpenRouteService and Overpass.
-# Runs on demand (Actions -> Geo check -> Run workflow) and on pull requests that
-# change this file. Writes nothing to data/; prints the place list and uploads
-# freshly recorded test fixtures as an artifact. Needs the ORS_API_KEY secret.
+# Live check of the geo stage against Overpass (OpenStreetMap): the places of the
+# municipalities in instance/config.yaml. Runs on demand (Actions -> Geo check -> Run
+# workflow) and on pull requests that change this file. Writes nothing to data/.
 name: Geo check
 run-name: >-
-  ${{ github.event_name == 'pull_request' && 'Geo check: workflow change'
-  || format('Geo check: {0} min', inputs.minutes) }}
+  ${{ github.event_name == 'pull_request' && 'Geo check: workflow change' || 'Geo check' }}
 
 on:
   workflow_dispatch:
-    inputs:
-      minutes:
-        description: "Drive time in minutes for the recorded check"
-        default: "30"
   pull_request:
     paths:
       - ".github/workflows/geo-check.yml"
@@ -29,8 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
-      MINUTES: ${{ inputs.minutes || '30' }}
       PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
@@ -40,46 +32,14 @@ jobs:
           cache: pip
       - name: Install
         run: pip install -e '.[dev]'
-      - name: Require ORS_API_KEY
-        run: |
-          if [ -z "$ORS_API_KEY" ]; then
-            echo "::error::Secret ORS_API_KEY is missing (Settings -> Secrets and variables -> Actions)"
-            exit 1
-          fi
-      - name: Connectivity (informational)
-        continue-on-error: true
-        timeout-minutes: 3
-        run: |
-          for url in \
-            https://api.heigit.org/openrouteservice/v2/health \
-            https://overpass-api.de/api/status \
-            https://overpass.private.coffee/api/status \
-            https://maps.mail.ru/osm/tools/overpass/api/status; do
-            curl -sS -m 20 -o /dev/null -w "%{http_code} %{time_total}s $url\n" "$url" || true
-          done
       - name: Geo stage with instance config (dry run)
-        timeout-minutes: 6
-        run: python -m letsgau run --job geo --dry-run
-      - name: Record fixtures (${{ env.MINUTES }} min, include Landsberg and Weilheim)
-        timeout-minutes: 8
+        timeout-minutes: 10
         run: |
-          python tests/fixtures/geo/record.py --minutes "$MINUTES" | tee places.txt
+          set -o pipefail
+          python -m letsgau run --job geo --dry-run --force | tee places.txt
           {
-            echo "### Places and municipalities within $MINUTES min"
+            echo "### Municipalities and places"
             echo '```text'
             cat places.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: Tests against the recorded fixtures (informational)
-        continue-on-error: true
-        run: pytest tests/test_geo.py -q
-      - name: Print recorded Overpass fixtures
-        run: |
-          for f in tests/fixtures/geo/overpass_*.json; do
-            echo "=== $f"
-            python -c "import json,sys; print(json.dumps(json.load(open(sys.argv[1])), ensure_ascii=False, separators=(',', ':')))" "$f"
-          done
-      - uses: actions/upload-artifact@v4
-        with:
-          name: geo-fixtures
-          path: tests/fixtures/geo/*.json

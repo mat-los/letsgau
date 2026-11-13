@@ -1,75 +1,65 @@
-"""Geo stage: isochrone (OpenRouteService), places in the area (Overpass), drive times.
+"""Geo stage: the configured municipalities and their places (OpenStreetMap, Overpass).
 
-Steps (see docs/CONCEPT.md, "Pipeline", step 2):
+The area is a list of municipalities (``region.municipalities``), each given by name and/or
+postcode, e.g. ``Schongau 86956`` and ``Altenstadt 86972``:
 
-1. Fingerprint = hash of ``region.center`` and ``region.drive_time_minutes``. If it
-   matches ``data/places.json`` and the place filters (``place_types``,
-   ``include_places``, ``exclude_places``) are unchanged, nothing is done.
-2. A changed fingerprint fetches a new isochrone (ORS, profile ``driving-car``) and
-   stores it as ``geo/isochrone.geojson``; ``state.json`` gets ``force_discovery``.
-   If only the filters changed, the stored isochrone is reused.
-3. Overpass returns all ``place`` nodes of the configured types in the isochrone's
-   bounding box; a point-in-polygon test keeps those inside the isochrone.
-   ``include_places`` are looked up by name nearby, ``exclude_places`` removed.
-4. ORS matrix gives the drive time from the center to every place.
+1. Fingerprint = hash of the municipality list. If it matches ``data/places.json``, nothing
+   is done; a change sets ``force_discovery`` in ``state.json``.
+2. For each municipality, Overpass returns the place nodes (town, village, hamlet, suburb,
+   ...) inside its boundary, with the municipality each one lies in:
+   - with a postcode: the places in that postcode area (``boundary=postal_code``), kept if
+     they lie in a municipality of the given name (with only a postcode: all of them);
+   - with only a name: the places in the municipality boundary (``admin_level=8``) of that
+     name; several municipalities of that name are an error (add the postcode).
+3. ``data/places.json`` lists the places in the order of the config, each municipality's
+   main place (the one with its name) first. Districts (Ortsteile) map event places such as
+   "Schwabniederhofen" to their municipality.
 
-OpenRouteService is hosted by HeiGIT. The old host ``api.openrouteservice.org`` was
-deprecated in 2026 in favour of ``api.heigit.org/openrouteservice``; the key is sent
-in the ``Authorization`` header. Both can be overridden with the ``ORS_BASE_URL``
-and ``OVERPASS_URL`` environment variables; ``OVERPASS_URL`` may list several
-instances separated by commas, which are tried in order.
+No API key is needed. ``OVERPASS_URL`` may list Overpass instances separated by commas,
+which are tried in order.
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
-import math
 import os
 import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from collections.abc import Callable, Iterable, Sequence
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Protocol
 
 from letsgau import __version__
-from letsgau.config import Config, RegionConfig
+from letsgau.config import Config, Municipality, RegionConfig
 from letsgau.models import Place, PlaceOrigin, PlacesFile, State
 
-ORS_BASE_URL = "https://api.heigit.org/openrouteservice"
 OVERPASS_URLS = (
     "https://overpass-api.de/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
     "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
 )
 """Public Overpass instances, tried in order until one answers."""
-ORS_PROFILE = "driving-car"
 USER_AGENT = f"letsgau/{__version__} (+https://github.com/mat-los/letsgau)"
-
-MATRIX_CHUNK = 500
-"""Destinations per ORS matrix request (one source each), well below plan limits."""
-INCLUDE_SEARCH_MIN_KM = 50.0
-"""Minimum radius around the center in which ``include_places`` are looked up."""
+PLACE_TYPES = ("city", "town", "village", "hamlet", "suburb", "quarter", "neighbourhood")
+"""OSM place types taken as places (and districts) of a municipality."""
 
 DATA_DIR = Path("data")
-GEO_DIR = Path("geo")
 
 Json = dict[str, Any]
 
 
 class GeoError(Exception):
-    """Raised for missing credentials or failed/invalid API responses."""
+    """Raised for failed or invalid Overpass responses and ambiguous municipalities."""
 
 
 class Http(Protocol):
     """Minimal HTTP interface so tests can replay recorded responses."""
-
-    def post_json(self, url: str, body: Json, headers: dict[str, str]) -> Json: ...
 
     def post_form(self, url: str, data: dict[str, str]) -> Json: ...
 
@@ -88,14 +78,6 @@ class UrllibHttp:
         self.retries = retries
         self.timeout = timeout
         self.sleep = sleep
-
-    def post_json(self, url: str, body: Json, headers: dict[str, str]) -> Json:
-        all_headers = {
-            "Content-Type": "application/json; charset=utf-8",
-            "Accept": "application/json, application/geo+json",
-            **headers,
-        }
-        return self._request(url, json.dumps(body).encode("utf-8"), all_headers)
 
     def post_form(self, url: str, data: dict[str, str]) -> Json:
         payload = urllib.parse.urlencode(data).encode("utf-8")
@@ -146,91 +128,18 @@ def _log(message: str) -> None:
 # --- fingerprint -------------------------------------------------------------
 
 
+def _key(m: Municipality) -> str:
+    return " ".join(x for x in (m.name.strip(), m.postcode) if x)
+
+
 def fingerprint(region: RegionConfig) -> str:
-    """Stable hash of center and drive time; a change triggers geo + discovery."""
-    payload = {
-        "lat": round(region.center.lat, 6),
-        "lon": round(region.center.lon, 6),
-        "drive_time_minutes": region.drive_time_minutes,
-    }
-    digest = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
+    """Stable hash of the municipality list; a change triggers geo + discovery."""
+    payload = [_key(m) for m in region.municipalities]
+    digest = hashlib.sha256(json.dumps(payload).encode()).hexdigest()
     return f"sha256:{digest[:16]}"
 
 
-def _filters_unchanged(region: RegionConfig, places: PlacesFile) -> bool:
-    return (
-        places.place_types == list(region.place_types)
-        and places.include_places == list(region.include_places)
-        and places.exclude_places == list(region.exclude_places)
-    )
-
-
-# --- geometry ----------------------------------------------------------------
-
-Ring = Sequence[Sequence[float]]  # [[lon, lat], ...]
-
-
-def _polygons(geometry: Json) -> list[list[Ring]]:
-    """Return a list of polygons (each a list of rings) from a GeoJSON geometry."""
-    kind = geometry.get("type")
-    if kind == "Polygon":
-        return [geometry["coordinates"]]
-    if kind == "MultiPolygon":
-        return list(geometry["coordinates"])
-    raise GeoError(f"unsupported isochrone geometry type: {kind!r}")
-
-
-def isochrone_polygons(isochrone: Json) -> list[list[Ring]]:
-    """All polygons of all features of an ORS isochrone FeatureCollection."""
-    features = isochrone.get("features") or []
-    if not features:
-        raise GeoError("isochrone response contains no features")
-    result: list[list[Ring]] = []
-    for feature in features:
-        result.extend(_polygons(feature["geometry"]))
-    return result
-
-
-def _in_ring(lon: float, lat: float, ring: Ring) -> bool:
-    inside = False
-    n = len(ring)
-    for i in range(n):
-        x1, y1 = ring[i][0], ring[i][1]
-        x2, y2 = ring[(i + 1) % n][0], ring[(i + 1) % n][1]
-        if (y1 > lat) != (y2 > lat):
-            x_cross = x1 + (lat - y1) * (x2 - x1) / (y2 - y1)
-            if lon < x_cross:
-                inside = not inside
-    return inside
-
-
-def point_in_polygons(lon: float, lat: float, polygons: Iterable[list[Ring]]) -> bool:
-    """True if the point lies in any polygon (outer ring minus holes)."""
-    for rings in polygons:
-        if not rings or not _in_ring(lon, lat, rings[0]):
-            continue
-        if not any(_in_ring(lon, lat, hole) for hole in rings[1:]):
-            return True
-    return False
-
-
-def bbox(polygons: Iterable[list[Ring]]) -> tuple[float, float, float, float]:
-    """(south, west, north, east) of all outer rings."""
-    lons: list[float] = []
-    lats: list[float] = []
-    for rings in polygons:
-        lons.extend(p[0] for p in rings[0])
-        lats.extend(p[1] for p in rings[0])
-    return min(lats), min(lons), max(lats), max(lons)
-
-
-def _bbox_around(lat: float, lon: float, radius_km: float) -> tuple[float, float, float, float]:
-    dlat = radius_km / 111.32
-    dlon = radius_km / (111.32 * max(math.cos(math.radians(lat)), 0.01))
-    return lat - dlat, lon - dlon, lat + dlat, lon + dlon
-
-
-# --- API calls ----------------------------------------------------------------
+# --- Overpass ----------------------------------------------------------------
 
 
 @dataclass
@@ -238,8 +147,6 @@ class Clients:
     """Everything that talks to the network; replaced by fakes in tests."""
 
     http: Http
-    ors_api_key: str
-    ors_base_url: str = ORS_BASE_URL
     overpass_urls: tuple[str, ...] = OVERPASS_URLS
     # Public Overpass instances are often all at capacity for a few minutes; when every
     # instance fails, wait and go through the list again (60 s, then 120 s).
@@ -248,58 +155,10 @@ class Clients:
 
     @classmethod
     def from_env(cls, http: Http | None = None) -> Clients:
-        key = os.environ.get("ORS_API_KEY", "").strip()
-        if not key:
-            raise GeoError(
-                "ORS_API_KEY is not set; create a free key at https://account.heigit.org "
-                "and put it into .env (local) or the repository secrets (GitHub)"
-            )
         return cls(
             http=http or UrllibHttp(),
-            ors_api_key=key,
-            ors_base_url=os.environ.get("ORS_BASE_URL", ORS_BASE_URL).rstrip("/"),
             overpass_urls=_url_list(os.environ.get("OVERPASS_URL", "")) or OVERPASS_URLS,
         )
-
-    def _ors(self, endpoint: str, body: Json) -> Json:
-        url = f"{self.ors_base_url}/v2/{endpoint}/{ORS_PROFILE}"
-        response = self.http.post_json(url, body, {"Authorization": self.ors_api_key})
-        if "error" in response:
-            raise GeoError(f"ORS {endpoint} error: {response['error']}")
-        return response
-
-    def isochrone(self, lat: float, lon: float, minutes: int) -> Json:
-        """Area reachable by car within ``minutes`` (GeoJSON FeatureCollection)."""
-        body = {"locations": [[lon, lat]], "range": [minutes * 60], "range_type": "time"}
-        return self._ors("isochrones", body)
-
-    def drive_times(
-        self, center: tuple[float, float], points: Sequence[tuple[float, float]]
-    ) -> list[tuple[float | None, float | None]]:
-        """(seconds, metres) from ``center`` to each point; points are (lat, lon)."""
-        result: list[tuple[float | None, float | None]] = []
-        for start in range(0, len(points), MATRIX_CHUNK):
-            chunk = points[start : start + MATRIX_CHUNK]
-            locations = [[center[1], center[0]]] + [[lon, lat] for lat, lon in chunk]
-            body = {
-                "locations": locations,
-                "sources": [0],
-                "destinations": list(range(1, len(locations))),
-                "metrics": ["duration", "distance"],
-                "units": "m",
-            }
-            response = self._ors("matrix", body)
-            try:
-                durations = response["durations"][0]
-                distances = response.get("distances", [[None] * len(chunk)])[0]
-            except (KeyError, IndexError, TypeError) as exc:
-                raise GeoError("ORS matrix response has no durations") from exc
-            if len(durations) != len(chunk):
-                raise GeoError(
-                    f"ORS matrix returned {len(durations)} durations for {len(chunk)} places"
-                )
-            result.extend(zip(durations, distances, strict=True))
-        return result
 
     def overpass(self, query: str) -> list[Json]:
         """Run a query on the first Overpass instance that answers, in up to ``overpass_rounds``."""
@@ -330,16 +189,14 @@ def _url_list(value: str) -> tuple[str, ...]:
     return tuple(u.strip() for u in value.split(",") if u.strip())
 
 
-def _type_regex(place_types: Sequence[str]) -> str:
-    return "^(" + "|".join(place_types) + ")$"
-
-
 def _quote(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
 MUNICIPALITY_FILTER = '["boundary"="administrative"]["admin_level"="8"]["name"]'
 """OSM municipalities (in Germany: Gemeinde, Markt, Stadt)."""
+
+_TYPES = "^(" + "|".join(PLACE_TYPES) + ")$"
 
 _WITH_MUNICIPALITY = (
     "foreach.places->.p(\n"
@@ -352,43 +209,46 @@ _WITH_MUNICIPALITY = (
 """Outputs each place node followed by the municipality area(s) it lies in."""
 
 
-def area_query(place_types: Sequence[str], box: tuple[float, float, float, float]) -> str:
-    """Overpass QL: place nodes of the given types in a bounding box, with municipalities."""
-    s, w, n, e = box
-    return (
-        f"[out:json][timeout:180];\n"
-        f'node["place"~"{_type_regex(place_types)}"]["name"]({s:.5f},{w:.5f},{n:.5f},{e:.5f})'
-        f"->.places;\n{_WITH_MUNICIPALITY}"
-    )
+def municipality_query(m: Municipality) -> str:
+    """Overpass QL: the place nodes of one municipality, each followed by its municipality.
+
+    With only a name, the municipality areas of that name are output first (``out ids``),
+    so an ambiguous name can be detected.
+    """
+    head = "[out:json][timeout:180];\n"
+    if m.postcode:
+        scope = f'area["boundary"="postal_code"]["postal_code"={_quote(m.postcode)}]->.scope;\n'
+    else:
+        scope = (
+            f'area["boundary"="administrative"]["admin_level"="8"]["name"={_quote(m.name.strip())}]'
+            "->.scope;\n.scope out ids;\n"
+        )
+    places = f'node(area.scope)["place"~"{_TYPES}"]["name"]->.places;\n'
+    return head + scope + places + _WITH_MUNICIPALITY
 
 
-def include_query(names: Sequence[str], box: tuple[float, float, float, float]) -> str:
-    """Overpass QL: place nodes (any type) with one of the given names, with municipalities."""
-    s, w, n, e = box
-    lines = "".join(
-        f'  node["place"]["name"={_quote(name)}]({s:.5f},{w:.5f},{n:.5f},{e:.5f});\n'
-        for name in names
-    )
-    return f"[out:json][timeout:180];\n(\n{lines})->.places;\n{_WITH_MUNICIPALITY}"
+def parse_places(elements: Sequence[Json]) -> tuple[list[Place], int]:
+    """Place nodes from an Overpass answer, and the number of leading municipality areas.
 
-
-def parse_places(elements: Sequence[Json], origin: PlaceOrigin) -> list[Place]:
-    """Place nodes from an Overpass answer; an ``area`` after a node is its municipality."""
+    An ``area`` after a node is the municipality that node lies in; areas before the first
+    node are the scope areas of a name-only query.
+    """
     places: list[Place] = []
+    scopes = 0
     for element in elements:
         kind = element.get("type")
         tags = element.get("tags", {})
         if kind == "node" and "name" in tags:
-            places.append(_to_place(element, origin))
-        elif kind == "area" and places and places[-1].municipality is None and "name" in tags:
-            places[-1].municipality = tags["name"]
-    for place in places:
-        if place.municipality is None:
-            place.municipality = place.name
-    return places
+            places.append(_to_place(element))
+        elif kind == "area":
+            if not places:
+                scopes += 1
+            elif places[-1].municipality is None and "name" in tags:
+                places[-1].municipality = tags["name"]
+    return places, scopes
 
 
-def _to_place(element: Json, origin: PlaceOrigin) -> Place:
+def _to_place(element: Json) -> Place:
     tags = element.get("tags", {})
     return Place(
         name=tags["name"],
@@ -396,12 +256,24 @@ def _to_place(element: Json, origin: PlaceOrigin) -> Place:
         place_type=tags.get("place", "unknown"),
         lat=element["lat"],
         lon=element["lon"],
-        origin=origin,
+        origin=PlaceOrigin.MUNICIPALITY,
     )
 
 
-def _distance2(place: Place, lat: float, lon: float) -> float:
-    return (place.lat - lat) ** 2 + (place.lon - lon) ** 2
+def municipality_places(clients: Clients, m: Municipality) -> list[Place]:
+    """The places of one configured municipality, its main place first."""
+    places, scopes = parse_places(clients.overpass(municipality_query(m)))
+    name = m.name.strip().casefold()
+    if not m.postcode and scopes > 1:
+        raise GeoError(
+            f"{m.name!r}: {scopes} municipalities of this name in OpenStreetMap; "
+            "add its postcode in region.municipalities"
+        )
+    if name:
+        places = [p for p in places if (p.municipality or "").casefold() == name]
+    places = [p for p in places if p.municipality]
+    places.sort(key=lambda p: (p.name.casefold() != (p.municipality or "").casefold(), p.name))
+    return places
 
 
 # --- stage --------------------------------------------------------------------
@@ -422,109 +294,59 @@ def compute(
     clients: Clients | None = None,
     *,
     data_dir: Path = DATA_DIR,
-    geo_dir: Path = GEO_DIR,
     dry_run: bool = False,
     force: bool = False,
     now: datetime | None = None,
 ) -> GeoResult:
-    """Recompute places if needed and write ``places.json``, ``state.json`` and the isochrone.
+    """Recompute the places if the municipality list changed; write ``places.json``.
 
-    ``clients`` defaults to :meth:`Clients.from_env` and is only created when
-    something has to be recomputed, so an unchanged run needs no API key.
+    A run on a file from the drive-time era recomputes once; discovery is forced only if
+    the set of municipalities differs from the stored one.
     """
     region = config.region
     fp = fingerprint(region)
     places_path = data_dir / "places.json"
     state_path = data_dir / "state.json"
-    iso_path = geo_dir / "isochrone.geojson"
 
     previous = _load(places_path, PlacesFile)
     state = _load(state_path, State) or State()
-    fingerprint_changed = previous is None or previous.fingerprint != fp
-    need_isochrone = force or fingerprint_changed or not iso_path.exists()
-
-    # Files from before the municipality lookup are refreshed once (no new isochrone).
-    outdated = previous is not None and any(p.municipality is None for p in previous.places)
-    if not need_isochrone and not outdated and _filters_unchanged(region, previous):
+    if previous is not None and previous.fingerprint == fp and not force:
         return GeoResult(False, False, previous, [])
 
     clients = clients or Clients.from_env()
     warnings: list[str] = []
-    lat, lon = region.center.lat, region.center.lon
+    places: list[Place] = []
+    seen: set[str] = set()
+    for m in region.municipalities:
+        found = municipality_places(clients, m)
+        if not found:
+            warnings.append(f"{_key(m)!r}: no places found in OpenStreetMap")
+        for place in found:
+            if place.osm_id not in seen:
+                seen.add(place.osm_id)
+                places.append(place)
+    if not places:
+        raise GeoError("no places found for any municipality in region.municipalities")
 
-    if need_isochrone:
-        isochrone = clients.isochrone(lat, lon, region.drive_time_minutes)
-    else:
-        isochrone = json.loads(iso_path.read_text(encoding="utf-8"))
-    polygons = isochrone_polygons(isochrone)
-
-    # Places inside the isochrone.
-    found: dict[str, Place] = {}
-    elements = clients.overpass(area_query(region.place_types, bbox(polygons)))
-    for place in parse_places(elements, PlaceOrigin.AREA):
-        if place.place_type in region.place_types and point_in_polygons(
-            place.lon, place.lat, polygons
-        ):
-            found.setdefault(place.name.casefold(), place)
-
-    # include_places: look up by name near the center, closest match wins.
-    missing = [n for n in region.include_places if n.casefold() not in found]
-    if missing:
-        radius = max(INCLUDE_SEARCH_MIN_KM, region.drive_time_minutes * 2.0)
-        candidates: dict[str, Place] = {}
-        elements = clients.overpass(include_query(missing, _bbox_around(lat, lon, radius)))
-        for place in parse_places(elements, PlaceOrigin.INCLUDE):
-            key = place.name.casefold()
-            if key not in candidates or _distance2(place, lat, lon) < _distance2(
-                candidates[key], lat, lon
-            ):
-                candidates[key] = place
-        for name in missing:
-            if name.casefold() in candidates:
-                found[name.casefold()] = candidates[name.casefold()]
-            else:
-                warnings.append(
-                    f"include_places: {name!r} not found in OpenStreetMap within {radius:.0f} km"
-                )
-
-    # exclude_places.
-    for name in region.exclude_places:
-        if found.pop(name.casefold(), None) is None:
-            warnings.append(f"exclude_places: {name!r} is not in the place list")
-
-    # Drive times.
-    places = list(found.values())
-    times = clients.drive_times((lat, lon), [(p.lat, p.lon) for p in places]) if places else []
-    for place, (seconds, metres) in zip(places, times, strict=True):
-        place.drive_time_minutes = None if seconds is None else round(seconds / 60, 1)
-        place.distance_km = None if metres is None else round(metres / 1000, 1)
-        if seconds is None:
-            warnings.append(f"no drive time for {place.name!r} (not routable)")
-    places.sort(key=lambda p: (p.drive_time_minutes is None, p.drive_time_minutes or 0, p.name))
+    before = {p.municipality or p.name for p in previous.places} if previous else set()
+    after = {p.municipality or p.name for p in places}
+    changed = before != after
 
     now = now or datetime.now(UTC).replace(microsecond=0)
     result = PlacesFile(
         fingerprint=fp,
         generated_at=now,
-        center={"lat": lat, "lon": lon},
-        drive_time_minutes=region.drive_time_minutes,
-        place_types=list(region.place_types),
-        include_places=list(region.include_places),
-        exclude_places=list(region.exclude_places),
+        municipalities=[_key(m) for m in region.municipalities],
         places=places,
     )
-
     if not dry_run:
-        if need_isochrone:
-            _write_json(iso_path, isochrone)
-        _write_json(places_path, result.model_dump(mode="json"))
+        _write_json(places_path, result.model_dump(mode="json", exclude_none=True))
         state.geo_fingerprint = fp
-        if fingerprint_changed:
+        if changed:
             state.force_discovery = True
         state.last_run["geo"] = now
         _write_json(state_path, state.model_dump(mode="json"))
-
-    return GeoResult(True, fingerprint_changed, result, warnings)
+    return GeoResult(True, changed, result, warnings)
 
 
 def _load[T: (PlacesFile, State)](path: Path, model: type[T]) -> T | None:
@@ -550,7 +372,6 @@ def run(
     clients: Clients | None = None,
 ) -> GeoResult:
     """CLI entry point. ``limit_places`` is ignored: the place list is always complete."""
-    region = config.region
     result = compute(config, clients, dry_run=dry_run, force=force)
     assert result.places is not None
     if not result.recomputed:
@@ -561,16 +382,15 @@ def run(
         return result
     for warning in result.warnings:
         print(f"warning: geo: {warning}", file=sys.stderr)
+    municipalities: dict[str, list[str]] = {}
+    for place in result.places.places:
+        municipalities.setdefault(place.municipality or place.name, []).append(place.name)
     print(
-        f"geo: {len(result.places.places)} places within {region.drive_time_minutes} min "
-        f"of {region.label} ({result.places.fingerprint})"
+        f"geo: {len(municipalities)} municipalities, {len(result.places.places)} places "
+        f"({result.places.fingerprint})"
         + ("; discovery will be forced" if result.fingerprint_changed else "")
         + ("; dry run, nothing written" if dry_run else "")
     )
-    municipalities = {p.municipality or p.name for p in result.places.places}
-    print(f"geo: {len(municipalities)} municipalities")
-    for place in result.places.places:
-        minutes = "?" if place.drive_time_minutes is None else f"{place.drive_time_minutes:g}"
-        where = "" if place.municipality in (None, place.name) else f", {place.municipality}"
-        print(f"  {minutes:>5} min  {place.name} ({place.place_type}{where}, {place.origin})")
+    for name, names in municipalities.items():
+        print(f"  {name}: {', '.join(names)}")
     return result

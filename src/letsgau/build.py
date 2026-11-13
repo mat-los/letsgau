@@ -317,10 +317,10 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "t": t,
         "root": "../" * depth,
         "base_url": config.site.base_url.rstrip("/") + "/",
-        # "Events in Schongau und Altenstadt": the center and the places added with
-        # include_places
+        # "Events in Schongau und Altenstadt": the configured municipalities
         "coverage": t(
-            "coverage", places=join_names(t, [config.region.label, *config.region.include_places])
+            "coverage",
+            places=join_names(t, [m.label for m in config.region.municipalities]),
         ),
         "updated": f"{format_date(t, local.date(), 'short')} {local:%H:%M}",
         "updated_iso": site.generated_at.isoformat(),
@@ -603,7 +603,7 @@ def content_context(config: Config) -> dict[str, Any]:
     return {
         "site_name": config.site.name,
         "region_label": config.region.label,
-        "drive_time_minutes": config.region.drive_time_minutes,
+        "municipalities": ", ".join(m.label for m in config.region.municipalities),
         "display_days": config.window.display_days,
         "contact_email": config.site.contact_email,
         "base_url": config.site.base_url.rstrip("/"),

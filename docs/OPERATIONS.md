@@ -29,47 +29,34 @@ python -m letsgau run --job geo --dry-run
 python -m letsgau run --job geo
 ```
 
-- Writes `data/places.json`, `data/state.json` and `geo/isochrone.geojson`
-  (gitignored on `main`; the bot commits them to the `data` branch in Phase 6).
-- Skips everything if center, drive time and place filters are unchanged; such a
-  run needs no `ORS_API_KEY`. `--force` recomputes anyway.
-- A changed center or drive time fetches a new isochrone and sets
-  `force_discovery` in `state.json`. Changing only `place_types`,
-  `include_places` or `exclude_places` reuses the stored isochrone.
-- Warnings name `include_places` that were not found and `exclude_places` that
-  were not in the list. Check the printed list for plausibility after a change.
-- Each place gets its municipality (OSM `admin_level=8`) from the same Overpass
-  query; the event crawl batches by municipality. A `places.json` without
-  municipalities is refreshed once with the stored isochrone.
-- Membership comes from the isochrone, drive times from the matrix; at the
-  edge a place can show slightly more than `drive_time_minutes` (e.g. 31 min
-  for 30). For Schongau, 30 minutes give about 105 places, 5 minutes only
-  Schongau itself (live check 2026-11-08).
-- Requests per recomputation: 1 isochrone, 1–2 Overpass queries, 1 matrix
-  request per 500 places. Overpass queries take about 30–40 s.
+- Writes `data/places.json` and `data/state.json` (the bot commits them to the
+  `data` branch).
+- Looks up every municipality of `region.municipalities` in OpenStreetMap with
+  one Overpass query each: by postcode area (`boundary=postal_code`) if a
+  postcode is given, else by the municipality boundary (`admin_level=8`) with
+  that name. The result is the municipality and its districts (towns, villages,
+  hamlets, suburbs); the event crawl batches by municipality.
+- A name without postcode that matches more than one municipality aborts with
+  "add its postcode".
+- Skips everything if the municipality list is unchanged; `--force` recomputes
+  anyway. A changed list of municipalities sets `force_discovery` in
+  `state.json`.
+- Overpass queries take a few seconds to about 40 s each.
 
 ### Live check on GitHub
 
-*Actions → Geo check → Run workflow* (input: drive time, default 30) runs the
-geo stage as a dry run with the `ORS_API_KEY` secret, prints the place list in
-the job summary and uploads freshly recorded fixtures (`geo-fixtures`
-artifact). It also runs on pull requests that change the workflow file.
+*Actions → Geo check → Run workflow* runs the geo stage as a dry run with the
+instance config and prints the municipalities and their places in the job
+summary. It also runs on pull requests that change the workflow file.
 
 ### External services
 
 | Service | Default URL | Override |
 | --- | --- | --- |
-| OpenRouteService (HeiGIT) | `https://api.heigit.org/openrouteservice` (`/v2/isochrones/driving-car`, `/v2/matrix/driving-car`) | `ORS_BASE_URL` |
 | Overpass API | `https://overpass-api.de/api/interpreter`, then `overpass.private.coffee`, then `maps.mail.ru` (first that answers; if all fail, the list is retried after 60 s and 120 s) | `OVERPASS_URL` (comma-separated list) |
 
-The ORS key goes into the `Authorization` header. HeiGIT deprecated the old host
-`api.openrouteservice.org` in 2026 and moved key management to
-[account.heigit.org](https://account.heigit.org); existing keys work on the new
-host. Every request is logged to stderr with status and duration (`geo: POST ...`).
-Daily and per-minute quotas are shown in the HeiGIT dashboard; a daily
-limit answers `403`, the per-minute limit `429` (retried with back-off). Very
-long drive times may exceed the isochrone range allowed by the free plan; ORS
-then returns an error that the stage prints.
+Every request is logged to stderr with status and duration (`geo: POST ...`).
+No API key is needed.
 
 ## Event crawl
 
@@ -182,8 +169,7 @@ the 30-minute area and shows the result in the job summary.
 
 *Actions → Crawl check → Run workflow* (input: number of places, default 3)
 computes the places for the instance config, runs discovery into a throwaway
-`data/` and then the crawl as a dry run, with `ORS_API_KEY` and
-`CLAUDE_CODE_OAUTH_TOKEN`. Results appear only in the job summary and the
+`data/` and then the crawl as a dry run, with `CLAUDE_CODE_OAUTH_TOKEN`. Results appear only in the job summary and the
 `crawl-recordings` artifact. It is manual only: a run uses about as much of the
 plan as a real run (roughly $6 at API prices for one municipality with the
 thorough `depth` settings), so use it for bigger prompt changes before merging;
@@ -276,8 +262,8 @@ the build. The build also writes `/<lang>/feedback/`, `/<lang>/changelog/`
 python -m letsgau init
 ```
 
-Asks for center, drive time, site name, URL, contact and GitHub owner (or takes
-`--label --lat --lon --minutes --name --base-url --contact --owner --yes`) and
+Asks for region label, municipalities, site name, URL, contact and GitHub owner (or
+takes `--label --municipalities --name --base-url --contact --owner --yes`) and
 replaces `instance/` with fresh files from `examples/instance/`.
 
 Machine-readable outputs (`src/letsgau/feeds.py`), all generated by the build:
@@ -309,7 +295,7 @@ What `--job auto` does (`src/letsgau/scheduler.py`):
 
 | Stage | When |
 | --- | --- |
-| `geo` | always; does nothing unless center, drive time or place filters changed |
+| `geo` | always; does nothing unless the municipalities changed |
 | `discovery` | when its schedule is due, or forced after a geo change (`force_discovery`) |
 | `events` | when its schedule is due |
 | `build` | when its schedule is due (default daily) and after every events run |
@@ -340,7 +326,6 @@ below.
 | --- | --- |
 | `CLAUDE_CODE_OAUTH_TOKEN` | `ai.auth: subscription` (create with `claude setup-token`); must not be combined with `ANTHROPIC_API_KEY` in the same environment |
 | `ANTHROPIC_API_KEY` | `ai.auth: api_key` |
-| `ORS_API_KEY` | geo stage (OpenRouteService); free key from [account.heigit.org](https://account.heigit.org) |
 | `INSTAGRAM_ACCESS_TOKEN` | optional: reading Instagram accounts (see below); without it, Instagram is skipped |
 | `INSTAGRAM_USER_ID` | optional: the ID of your own Instagram professional account |
 

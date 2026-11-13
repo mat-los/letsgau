@@ -3,8 +3,8 @@
 The workflow starts once a day (``--job auto``). This module reads
 ``config.yaml`` and ``data/state.json`` and runs only what is due:
 
-* ``geo`` always runs; it does nothing unless center, drive time or the place
-  filters changed (then it sets ``force_discovery``).
+* ``geo`` always runs; it does nothing unless the municipalities changed
+  (then it sets ``force_discovery``).
 * ``discovery`` and ``events`` are due when their most recent scheduled day
   (``jobs`` in ``config.yaml``, today or earlier) is after their last successful
   run, so a missed run is caught up and a changed frequency applies at once.

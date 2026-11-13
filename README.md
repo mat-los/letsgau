@@ -1,8 +1,8 @@
 # Let's Gau
 
 **Let's Gau** is an open-source event calendar. An AI collects all publicly
-listed events within a configurable drive time around a center point (default:
-30 minutes around Schongau, Bavaria) and publishes them as a static,
+listed events in a configurable list of municipalities (default: Schongau and
+Altenstadt, Bavaria) and publishes them as a static,
 mobile-first website with one page per day for the next three weeks.
 
 It runs without a server: GitHub Actions starts a Python pipeline, Claude
@@ -50,8 +50,8 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
    python -m letsgau init
    ```
 
-   `init` asks for the center (name, latitude, longitude), drive time, site
-   name, public URL, contact email and your GitHub user name, and replaces
+   `init` asks for the region label, the municipalities (name and/or postcode,
+   e.g. `Murnau am Staffelsee 82418, Seehausen`), site name, public URL, contact email and your GitHub user name, and replaces
    `instance/` with fresh files. Then fill the `[TODO]` markers in
    `instance/content/` (about text, imprint) and check everything:
 
@@ -61,8 +61,7 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
    Commit and push `instance/`.
 3. **Secrets:** under *Settings → Secrets and variables → Actions* add
-   `ORS_API_KEY` (free key from [account.heigit.org](https://account.heigit.org))
-   and `CLAUDE_CODE_OAUTH_TOKEN` (create it with `claude setup-token`; needs a
+   `CLAUDE_CODE_OAUTH_TOKEN` (create it with `claude setup-token`; needs a
    Claude subscription). Without a subscription set `ai.auth: api_key` and add
    `ANTHROPIC_API_KEY` instead.
 4. **Enable GitHub Pages:** *Settings → Pages → Source: GitHub Actions*.
@@ -115,7 +114,7 @@ python -m letsgau check
 ruff check . && ruff format --check . && pytest
 ```
 
-Compute the places within the drive time (needs `ORS_API_KEY` in `.env`):
+Compute the places of the configured municipalities (OpenStreetMap, no key needed):
 
 ```bash
 python -m letsgau run --job geo --dry-run

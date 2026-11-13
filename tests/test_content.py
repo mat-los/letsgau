@@ -18,9 +18,7 @@ CONFIG_PATH = REPO_ROOT / "instance" / "config.yaml"
 NOW = datetime(2026, 11, 13, 20, 0, tzinfo=UTC)
 MURNAU = {
     "label": "Murnau",
-    "lat": 47.6798,
-    "lon": 11.2006,
-    "minutes": 25,
+    "municipalities": "Murnau am Staffelsee 82418, Seehausen",
     "name": "Was geht in Murnau",
     "base_url": "https://example-fork.github.io/letsgau/",
     "contact": "hallo@example.org",
@@ -69,7 +67,7 @@ def test_content_pages_exist_in_both_languages(site: Path, de: str, en: str) -> 
 def test_content_values_come_from_the_config(site: Path) -> None:
     about = read(site, "de/about")
     assert "<h1>Über Let&#39;s Gau</h1>" in about
-    assert "bis\n5 Fahrminuten um Schongau" in about or "5 Fahrminuten um Schongau" in about
+    assert "Veranstaltungen in\nSchongau, Altenstadt" in about
     missing = read(site, "de/fehlt-mein-event")
     assert "<strong>Facebook und andere soziale Netzwerke</strong> liest sie nicht" in missing
     assert "als Text schreiben" in missing and "Titel, Datum, Uhrzeit, Ort" in missing
@@ -198,8 +196,10 @@ def test_init_creates_a_fresh_instance(tmp_path: Path, capsys: pytest.CaptureFix
     assert not (target / "old.txt").exists()
     config = load_config(config_path)
     assert config.region.label == "Murnau"
-    assert (config.region.center.lat, config.region.center.lon) == (47.6798, 11.2006)
-    assert config.region.drive_time_minutes == 25
+    assert [(m.name, m.postcode) for m in config.region.municipalities] == [
+        ("Murnau am Staffelsee", "82418"),
+        ("Seehausen", ""),
+    ]
     assert config.site.base_url == "https://example-fork.github.io/letsgau"
     assert config.site.owner == "example-fork"
     assert find_placeholders(config_path.read_text(encoding="utf-8")) == []
@@ -226,7 +226,7 @@ def test_fork_builds_without_original_data(
     assert main(["run", "--job", "build"]) == 0
     site = tmp_path / "site"
     day = (site / "de" / "index.html").read_text(encoding="utf-8")
-    assert "Events in Murnau" in day
+    assert "Events in Murnau am Staffelsee und Seehausen" in day
     assert "Für diesen Tag sind noch keine Events bekannt." in day  # no data copied
     assert not (site / "CNAME").exists()  # github.io address
     for path in site.rglob("*.html"):
@@ -242,9 +242,11 @@ def test_init_validates_and_aborts(tmp_path: Path) -> None:
     assert target.exists()
     with pytest.raises(init_cmd.InitError, match="http"):
         init_cmd.run({**MURNAU, "base_url": "example.org"}, target=target, yes=True)
-    answers = iter(["Murnau", "47.68", "11.2", "", "X", "https://x.github.io", "a@b.c", "x"])
+    with pytest.raises(init_cmd.InitError, match="municipality"):
+        init_cmd.run({**MURNAU, "municipalities": " , "}, target=target, yes=True)
+    answers = iter(["Murnau", "82418", "X", "https://x.github.io", "a@b.c", "x"])
     config = init_cmd.run({}, target=tmp_path / "fresh", prompt=lambda _q: next(answers))
-    assert load_config(config).region.drive_time_minutes == 30  # default
+    assert load_config(config).region.municipalities[0].postcode == "82418"  # postcode only
 
 
 def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) -> None:

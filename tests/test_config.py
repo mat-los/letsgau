@@ -41,11 +41,16 @@ def _line_of(text: str, needle: str) -> int:
 
 
 def test_typo_reports_line_and_field(instance_config_text: str) -> None:
-    text = instance_config_text.replace("drive_time_minutes:", "drive_time_minuts:")
-    line = _line_of(text, "drive_time_minuts")
+    text = instance_config_text.replace("  municipalities:", "  municipalitys:")
+    line = _line_of(text, "municipalitys")
     problems = _problems(text)
-    assert f"config.yaml:{line}: region.drive_time_minuts: unknown field (typo?)" in problems
-    assert any("region.drive_time_minutes: required field is missing" in p for p in problems)
+    assert f"config.yaml:{line}: region.municipalitys: unknown field (typo?)" in problems
+    assert any("region.municipalities: required field is missing" in p for p in problems)
+
+
+def test_a_municipality_needs_a_name_or_a_postcode(instance_config_text: str) -> None:
+    text = instance_config_text.replace('{ name: "Altenstadt", postcode: "86972" }', "{ }")
+    assert any("name, a postcode or both" in p for p in _problems(text))
 
 
 def test_invalid_value_reports_line_of_value(instance_config_text: str) -> None:

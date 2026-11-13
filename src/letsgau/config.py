@@ -1,11 +1,11 @@
 """Load and validate ``instance/config.yaml``.
 
 The configuration is parsed with PyYAML and validated with Pydantic. Unknown
-keys are rejected, so a typo such as ``drive_time_minuts`` fails loudly. Every
+keys are rejected, so a typo such as ``municipalitys`` fails loudly. Every
 validation error is reported with the file, the line number and the dotted
 path of the offending field, e.g.::
 
-    instance/config.yaml:16: region.drive_time_minuts: unknown field
+    instance/config.yaml:16: region.municipalitys: unknown field
 """
 
 from __future__ import annotations
@@ -88,18 +88,33 @@ class SiteConfig(_Strict):
         return value
 
 
-class Coordinates(_Strict):
-    lat: float = Field(ge=-90, le=90)
-    lon: float = Field(ge=-180, le=180)
+class Municipality(_Strict):
+    """A municipality (Gemeinde, Markt, Stadt) in the area, by name and/or postcode.
+
+    The postcode tells apart municipalities of the same name (there are several Altenstadts);
+    with only a postcode, every municipality in that postcode area is taken.
+    """
+
+    name: str = ""
+    postcode: str = Field(default="", pattern=r"^(\d{4,5})?$")
+
+    @model_validator(mode="after")
+    def _name_or_postcode(self) -> Municipality:
+        if not self.name.strip() and not self.postcode:
+            raise ValueError("a municipality needs a name, a postcode or both")
+        return self
+
+    @property
+    def label(self) -> str:
+        return self.name.strip() or self.postcode
 
 
 class RegionConfig(_Strict):
     label: str = Field(min_length=1)
-    center: Coordinates
-    drive_time_minutes: int = Field(ge=1, le=180)
-    place_types: list[Literal["city", "town", "village", "hamlet", "suburb"]] = Field(min_length=1)
-    include_places: list[str] = []
-    exclude_places: list[str] = []
+    """Name of the region in page titles ("Was ist los in und um <label>")."""
+    municipalities: list[Municipality] = Field(min_length=1)
+    """The municipalities whose events are collected, in this order (the first is the main
+    one). Their districts (Ortsteile) are found automatically."""
 
 
 class WindowConfig(_Strict):
