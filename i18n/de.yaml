@@ -7,6 +7,8 @@ today: "Heute"
 tomorrow: "Morgen"
 last_updated: "Zuletzt aktualisiert"
 ai_notice: "Events werden automatisch per KI gesammelt und können falsch oder veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen."
+title_suffix: "Events rund um {region}"
+search_title: "Suche: {q}"
 day_title: "Was ist los in und um {label} am {date}"
 day_description: "{count} Events in und um {label} am {date}: Konzerte, Märkte, Sport, Kultur und mehr."
 weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]

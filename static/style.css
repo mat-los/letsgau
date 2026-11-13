@@ -254,3 +254,9 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   .ev .body { margin: 0 16px 0 calc(4rem + 26px); }
 }
 @media (prefers-reduced-motion: reduce) { .top, .ev { transition: none; } }
+/* phone: below the top of the page the header that slides back in is slim (search row and
+   date bar); coverage line, info links, quick links and the filter tools wait at the top */
+@media (max-width: 639px) {
+  .top.slim .sub, .top.slim .quick, .top.slim .tools { display: none; }
+  .top.slim .dates { padding-bottom: 6px; }
+}

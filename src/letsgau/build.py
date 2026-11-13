@@ -383,6 +383,7 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
         is_index=is_index,
         canonical=page_path(lang, day),
         title=t("day_title", label=site.config.region.label, date=date_text),
+        page_label=date_text,
         description=t(
             "day_description", count=view.count, label=site.config.region.label, date=date_text
         ),
@@ -573,7 +574,12 @@ def build(
     write(
         site_dir / "index.html",
         env.get_template("redirect.html").render(
-            langs=config.site.languages, default=config.default_language, site=site
+            langs=config.site.languages,
+            default=config.default_language,
+            site=site,
+            title_suffix=Texts(load_i18n(config.default_language))(
+                "title_suffix", region=config.region.label
+            ),
         ),
     )
     for page in pages:

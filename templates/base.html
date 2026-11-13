@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ config.site.name }} {{ config.region.label }}</title>
+{% set doc_suffix = t('title_suffix', region=config.region.label) %}
+<title>{{ config.site.name }} - {{ page_label if page_label is defined else title }} - {{ doc_suffix }}</title>
 <meta name="description" content="{{ description }}">
 {% if not config.site.indexing %}<meta name="robots" content="noindex">
 {% endif %}<link rel="canonical" href="{{ base_url }}{{ canonical }}">
@@ -53,7 +54,7 @@
 </header>
 <main id="main">
 {% block main %}{% endblock %}
-<div id="results" class="results" hidden aria-live="polite" data-labels='{{ {"hits": t("search_hits"), "none": t("search_none"), "more": t("search_more"), "min": t("search_min"), "error": t("search_error"), "load": t("search_load"), "source": t("source"), "day": t("search_day"), "cancelled": t("status_cancelled"), "postponed": t("status_postponed"), "unconfirmed": t("status_unconfirmed")} | tojson_compact }}'></div>
+<div id="results" class="results" hidden aria-live="polite" data-labels='{{ {"hits": t("search_hits"), "none": t("search_none"), "more": t("search_more"), "min": t("search_min"), "error": t("search_error"), "load": t("search_load"), "source": t("source"), "day": t("search_day"), "cancelled": t("status_cancelled"), "postponed": t("status_postponed"), "unconfirmed": t("status_unconfirmed"), "title": config.site.name ~ " - " ~ t("search_title") ~ " - " ~ doc_suffix} | tojson_compact }}'></div>
 </main>
 <footer class="foot">
   <p class="notice">{{ t('ai_notice') }}</p>

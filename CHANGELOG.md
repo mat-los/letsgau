@@ -175,6 +175,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Phone: after scrolling down, the header that slides back in is slim (search row
+  and date bar, about a seventh of the screen instead of half); coverage line, info
+  links, Heute/Morgen and the category tools return at the top of the page.
+- Browser tab titles name the page: "<site> - Samstag, 14. November 2026 - Events
+  rund um <region>", "<site> - Über die Seite - …", and "<site> - Suche: <query> - …"
+  while search results are shown.
 - Website: the end date ("bis 20.12.", "letzter Tag", "noch bis …") is shown only for
   events that run on every day from start to end (Christmas market, exhibition,
   festival weekend). A series with gaps (weekly market, course, film screenings)
