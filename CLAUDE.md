@@ -17,7 +17,7 @@ repo is English.
 | `instance/sources/` | `whitelist.yaml`, `blacklist.yaml`, `flyers.yaml` (pages read as images/PDFs), `instagram.yaml` (Instagram accounts), `instagram_candidates.yaml` (unconfirmed, checked by profile), `suggested.md` |
 | `instance/content/` | Markdown content pages (`*.de.md`, `*.en.md`) |
 | `examples/instance/` | templates with `{{PLACEHOLDER}}`s for `letsgau init` |
-| `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `pages`, `flyers`, `instagram`, `merge`, `ai_runner`, `build`, `feeds` |
+| `src/letsgau/` | `cli`, `init`, `scheduler`, `config`, `models`, `geo`, `discovery`, `crawl`, `pages`, `flyers`, `instagram`, `merge`, `ai_runner`, `build`, `feeds`, `util` |
 | `prompts/` | `discovery.md`, `instagram_session.md` (scheduled lookup session), `instagram_screen.md`, `events.md`, `merge.md` |
 | `templates/`, `static/`, `i18n/` | Jinja2 templates, CSS/JS, UI strings (`de.yaml`, `en.yaml`) |
 | `tests/` | pytest; AI responses are recorded fixtures, tests never call an AI |

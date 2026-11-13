@@ -30,6 +30,7 @@ from zoneinfo import ZoneInfo
 
 from letsgau.config import WEEKDAYS, Config
 from letsgau.models import State, Usage
+from letsgau.util import DATA_DIR, logger
 
 JOBS = ("auto", "geo", "discovery", "events", "build", "all")
 """Values accepted by ``letsgau run --job`` and the workflow_dispatch input."""
@@ -88,7 +89,6 @@ def is_due(schedule: Schedule, last_run: datetime | None, today: date, tz: ZoneI
 
 # --- execution ------------------------------------------------------------------------
 
-DATA_DIR = Path("data")
 StageFn = Callable[..., Any]
 
 
@@ -289,5 +289,4 @@ def write_summary(report: RunReport, *, dry_run: bool = False) -> None:
     print(f"run: {status}")
 
 
-def _log(message: str) -> None:
-    print(f"run: {message}", file=sys.stderr, flush=True)
+_log = logger("run")

@@ -175,6 +175,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Code structure: the crawl's flyer calls moved to `flyers.py`, its Instagram
+  step and the candidate check (from `discovery.py`) to `instagram.py`;
+  helpers that were copied between modules (URLs, prompt templates, JSON
+  files, logging) live in `util.py`. No behaviour change.
 - Open search: runs every other events run by default (new option
   `depth.open_search`: `every_run`, `alternate`, `off`), and every checklist
   query carries the municipality's postcode (`Altenstadt Veranstaltungen

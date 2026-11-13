@@ -35,12 +35,12 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoes
 from letsgau import feeds
 from letsgau.config import DEFAULT_CONFIG_PATH, Config, find_placeholders
 from letsgau.models import Event, EventsFile, EventStatus, PlacesFile
+from letsgau.util import DATA_DIR
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TEMPLATES_DIR = REPO_ROOT / "templates"
 STATIC_DIR = REPO_ROOT / "static"
 I18N_DIR = REPO_ROOT / "i18n"
-DATA_DIR = Path("data")
 SITE_DIR = Path("site")
 WEEKDAY_KEYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 

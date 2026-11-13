@@ -27,7 +27,6 @@ import json
 import os
 import shutil
 import subprocess
-import sys
 import tempfile
 import time
 from collections.abc import Callable, Sequence
@@ -37,6 +36,7 @@ from typing import Any, Protocol
 
 from letsgau.config import Config
 from letsgau.models import Usage
+from letsgau.util import logger
 
 REQUIRED_ENV = {
     "subscription": "CLAUDE_CODE_OAUTH_TOKEN",
@@ -118,10 +118,6 @@ def estimate_cost(model: str, input_tokens: int, output_tokens: int, searches: i
         + searches / 1000 * WEB_SEARCH_USD_PER_1000,
         4,
     )
-
-
-def _log(message: str) -> None:
-    print(f"ai: {message}", file=sys.stderr, flush=True)
 
 
 def _record(step: str, data: Any) -> None:
@@ -504,3 +500,6 @@ def _api_usage(message: Any, model: str) -> Usage:
         output_tokens=output_tokens,
         cost_usd=estimate_cost(model, input_tokens, output_tokens, searches),
     )
+
+
+_log = logger("ai")
