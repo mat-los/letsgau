@@ -141,12 +141,17 @@ Status lifecycle: see [ARCHITECTURE.md](ARCHITECTURE.md#event-status-lifecycle).
 
 Merge rules (Phase 3, `src/letsgau/merge.py`):
 
-- **Same event:** equal `id`, or overlapping dates, same municipality, start
-  times at most 2 h apart (when both are known) and similar titles (normalized:
+- **Same event:** equal `id`, or overlapping dates, same municipality (or the
+  same venue name on a shared source page, for an event a listing files under
+  the wrong municipality), start times at most 2 h apart on a shared day (when
+  both are known; a day's start time is `start_time` or that day's
+  `opening_hours` entry with `from` = `to`) and similar titles (normalized:
   lower case, umlauts, without filler words, place names and years). Similarity
   ≥ 0.85 merges directly, 0.5–0.85 is decided by the merge model, and so is any
-  pair with the same day, start time and municipality (also two stored events,
-  so old duplicates get cleaned up). A program item never matches a main event.
+  pair with the same first day, start time and municipality, or the same start
+  time on a later shared day (one date of a series) with similarity ≥ 0.4 (also
+  two stored events, so old duplicates get cleaned up). A program item never
+  matches a main event.
 - **On a match** the stored `id` and `first_seen` stay, texts, schedule, tags
   and status come from the crawl (a single day of a known multi-day event keeps
   the full range), sources are appended, `misses` is reset, `unconfirmed`

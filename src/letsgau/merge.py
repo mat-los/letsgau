@@ -3,8 +3,10 @@
 Steps (docs/CONCEPT.md, "Pipeline", step 5):
 
 1. **Deterministic matching.** A crawled event matches a stored one if the ids are
-   equal, or if the dates overlap, the place is in the same municipality, the
-   start times (when both are known) are at most two hours apart and the
+   equal, or if the dates overlap, the place is in the same municipality (or both
+   name the same venue on a shared source page), the start times on a shared day
+   (``start_time`` or that day's ``opening_hours``, when both are known) are at
+   most two hours apart and the
    normalized titles are similar (:func:`title_similarity`). Clear matches are
    merged: the stored id stays, texts/schedule/status come from the crawl,
    sources are appended.
@@ -33,12 +35,16 @@ from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from letsgau.build import hours_today
 from letsgau.models import Event, EventsFile, EventSource, EventStatus, OpeningHours, Schedule
 
 CLEAR = 0.85
 """Title similarity from which a pair is merged without asking the AI."""
 UNCLEAR = 0.5
 """Title similarity from which a pair is sent to the AI tie-break."""
+SERIES_SLOT = 0.4
+"""Title similarity from which a single event on one day of a series at the same start time
+goes to the AI tie-break (see :func:`same_slot`)."""
 MAX_TIME_GAP_MINUTES = 120
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
 
@@ -110,6 +116,66 @@ def _minutes(value: str | None) -> int | None:
     return int(hours) * 60 + int(minutes)
 
 
+def _all_days(s: Schedule) -> set[date]:
+    """Every day of a schedule: its ``dates``, or each day of the range."""
+    if s.dates:
+        return set(s.dates)
+    return {s.start_date + timedelta(days=i) for i in range((s.last_date - s.start_date).days + 1)}
+
+
+def _shared_days(a: Event, b: Event) -> set[date]:
+    if a.schedule.start_date > b.schedule.last_date or b.schedule.start_date > a.schedule.last_date:
+        return set()
+    return _all_days(a.schedule) & _all_days(b.schedule)
+
+
+def _start_on(event: Event, day: date) -> int | None:
+    """Start time on ``day`` in minutes: that day's ``opening_hours`` entry if it is a start time
+    (``from`` equals ``to``: a screening, a guided tour on three dates at 18:00 and 19:00),
+    else ``start_time``. Opening-hour ranges (a market open 14:00 to 18:00) are no start time."""
+    if event.schedule.all_day:
+        return None
+    hours = hours_today(event, day)
+    if hours and ":" in hours and len(hours) == 5:  # "20:00", not a range
+        return _minutes(hours)
+    return _minutes(event.schedule.start_time)
+
+
+def _times_on_shared_days(a: Event, b: Event) -> list[tuple[date, int, int]]:
+    """(day, start of ``a``, start of ``b``) on each shared day where both starts are known."""
+    result = []
+    for day in sorted(_shared_days(a, b)):
+        ta, tb = _start_on(a, day), _start_on(b, day)
+        if ta is not None and tb is not None:
+            result.append((day, ta, tb))
+    return result
+
+
+def _venue_key(name: str | None) -> str:
+    text = unicodedata.normalize("NFKD", (name or "").lower().translate(_UMLAUTS))
+    return "".join(re.findall(r"[a-z0-9]+", text.encode("ascii", "ignore").decode()))
+
+
+def same_place(new: Event, old: Event, municipality_of: Mapping[str, str] | None = None) -> bool:
+    """Same municipality, or the same named venue on a shared source page.
+
+    The second case catches an event that one listing files under the wrong municipality
+    (a venue in Schongau on the Altenstadt page of a regional calendar). Both conditions are
+    needed: a venue name alone is not unique ("Marienplatz", "Pfarrsaal" exist in several
+    places)."""
+    m = municipality_of or {}
+    place_a = m.get(new.venue.place, new.venue.place).casefold()
+    place_b = m.get(old.venue.place, old.venue.place).casefold()
+    if place_a == place_b:
+        return True
+    venue = _venue_key(new.venue.name)
+    return (
+        bool(venue)
+        and venue == _venue_key(old.venue.name)
+        and bool({s.url for s in new.sources} & {s.url for s in old.sources})
+    )
+
+
 def _active_days(s: Schedule) -> set[date] | None:
     """The single days of a schedule with ``dates``; ``None`` for a continuous range."""
     return set(s.dates) if s.dates else None
@@ -131,15 +197,7 @@ def days_overlap(a: Schedule, b: Schedule) -> bool:
 def covers(a: Schedule, b: Schedule) -> bool:
     """True if every day of ``b`` is a day of ``a`` and ``a`` has more days."""
 
-    def days(s: Schedule) -> set[date]:
-        if s.dates:
-            return set(s.dates)
-        return {
-            s.start_date + timedelta(days=i) for i in range((s.last_date - s.start_date).days + 1)
-        }
-
-    da, db = days(a), days(b)
-    return db < da
+    return _all_days(b) < _all_days(a)
 
 
 def candidate_score(
@@ -151,17 +209,16 @@ def candidate_score(
     """
     if (new.parent_id is None) != (old.parent_id is None):
         return 0.0
+    if not same_place(new, old, municipality_of):
+        return 0.0
+    if not days_overlap(new.schedule, old.schedule):
+        return 0.0
+    times = _times_on_shared_days(new, old)
+    if times and min(abs(ta - tb) for _, ta, tb in times) > MAX_TIME_GAP_MINUTES:
+        return 0.0
     m = municipality_of or {}
     place_a = m.get(new.venue.place, new.venue.place).casefold()
     place_b = m.get(old.venue.place, old.venue.place).casefold()
-    if place_a != place_b:
-        return 0.0
-    a, b = new.schedule, old.schedule
-    if not days_overlap(a, b):
-        return 0.0
-    ta, tb = _minutes(a.start_time), _minutes(b.start_time)
-    if ta is not None and tb is not None and abs(ta - tb) > MAX_TIME_GAP_MINUTES:
-        return 0.0
     # venue names count like place names: "Lagerhaus-Kino: Heimsuchung" = "Heimsuchung"
     places = {new.venue.place, old.venue.place, place_a, place_b}
     places |= {v for v in (new.venue.name, old.venue.name) if v}
@@ -183,22 +240,25 @@ def clear_by_source(
 
 
 def same_slot(new: Event, old: Event, municipality_of: Mapping[str, str] | None = None) -> bool:
-    """Same day, same start time (both known) and same municipality, same role.
+    """Same start time (both known) on a shared day, same place, same role.
 
     Such pairs go to the AI tie-break even when their titles share few words
-    ("Fibromyalgiesymposium in Schongau" vs. "Symposium Fibromyalgie").
+    ("Fibromyalgiesymposium in Schongau" vs. "Symposium Fibromyalgie"). The start time of a
+    day may come from ``opening_hours`` (see :func:`_start_on`). On the first day of both any
+    title qualifies; on a later shared day (a single event on one date of a series:
+    "Clubabend" on 18 and 25 Nov vs. "Bilderschau" on 25 Nov) the titles need a score of at
+    least :data:`SERIES_SLOT`, or every weekly series would pair with every event at its time.
     """
     if (new.parent_id is None) != (old.parent_id is None):
         return False
-    m = municipality_of or {}
-    a, b = new.schedule, old.schedule
-    return (
-        a.start_date == b.start_date
-        and a.start_time is not None
-        and a.start_time == b.start_time
-        and m.get(new.venue.place, new.venue.place).casefold()
-        == m.get(old.venue.place, old.venue.place).casefold()
-    )
+    if not same_place(new, old, municipality_of):
+        return False
+    same_time = [day for day, ta, tb in _times_on_shared_days(new, old) if ta == tb]
+    if not same_time:
+        return False
+    if new.schedule.start_date == old.schedule.start_date in same_time:
+        return True
+    return candidate_score(new, old, municipality_of) >= SERIES_SLOT
 
 
 # --- combining ----------------------------------------------------------------------

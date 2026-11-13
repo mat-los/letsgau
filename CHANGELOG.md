@@ -319,6 +319,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Merge: an event filed under the wrong municipality now matches its duplicate when
+  both name the same venue on a shared source page; a per-day start time from
+  `opening_hours` counts for the time check and the same-slot tie-break; a single
+  event on a later day of a series at the same start time goes to the tie-break
+  when the titles are loosely similar. The members-only topic in
+  `excluded_topics` names club parties, rehearsals and closed-group invitations.
 - Duplicates: words of the venue name and prefixes like "Film:" no longer
   count when titles are compared; pairs in the same slot that share a source
   page are merged without the AI (they survived a failed tie-break); stored
