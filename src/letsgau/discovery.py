@@ -68,6 +68,8 @@ WHITELIST_HITS = 3
 """Hits from which an active source is suggested for the whitelist."""
 DORMANT_AFTER_RUNS = 3
 """Events runs in a row without an event (or unreachable) after which a source is dormant."""
+DORMANT_MIN_DAYS = 7
+"""...and the days these runs must span: manual runs close together do not pause a source."""
 DORMANT_RETRY_DAYS = 28
 """A dormant source is read again once this many days after its last sweep."""
 PAGINATION_PARAMS = frozenset({"os", "page", "seite", "offset"})
@@ -512,10 +514,9 @@ def known_sources_for(
     def readable(s: Source) -> bool:
         if s.status is SourceStatus.ACTIVE:
             return True
-        return (
-            s.status is SourceStatus.DORMANT
-            and retry is not None
-            and (s.last_swept is None or s.last_swept <= retry)
+        return s.status is SourceStatus.DORMANT and (
+            not _long_streak(s, s.last_swept)  # paused by a too short streak: read again
+            or (retry is not None and (s.last_swept is None or s.last_swept <= retry))
         )
 
     wanted = {m.casefold() for m in municipalities}
@@ -587,13 +588,31 @@ def record_hits(
     )
 
 
+def _streak_start(s: Source) -> date:
+    """First run of the source's current streak without an event; for files written before
+    ``empty_since`` existed the earliest possible day, its ``first_seen``."""
+    return s.empty_since or s.first_seen
+
+
+def _long_streak(s: Source, until: date | None) -> bool:
+    """True if the streak without an event is long enough for ``dormant``: at least
+    :data:`DORMANT_AFTER_RUNS` runs over at least :data:`DORMANT_MIN_DAYS` days."""
+    return (
+        s.empty_runs >= DORMANT_AFTER_RUNS
+        and until is not None
+        and (until - _streak_start(s)).days >= DORMANT_MIN_DAYS
+    )
+
+
 def record_sweeps(
     sources: SourcesFile | None, results: Mapping[str, str], today: date
 ) -> tuple[SourcesFile | None, list[str]]:
     """Store what this events run found on each source it read (``results``: URL ->
     ``events`` | ``empty`` | ``unreachable``). After :data:`DORMANT_AFTER_RUNS` runs in a row
-    without an event a source becomes ``dormant``; an event makes it active again. Whitelist
-    entries are never made dormant. Returns the file and the newly dormant URLs."""
+    without an event, spanning at least :data:`DORMANT_MIN_DAYS` days, a source becomes
+    ``dormant``; an event makes it active again, and so does a sweep of a source that was
+    paused by a shorter streak. Whitelist entries are never made dormant. Returns the file and
+    the newly dormant URLs."""
     if sources is None or not results:
         return sources, []
     by_key = {normalize_url(url): result for url, result in results.items()}
@@ -604,23 +623,22 @@ def record_sweeps(
         if result is None or s.status is SourceStatus.BLACKLISTED:
             updated.append(s)
             continue
-        empty_runs = 0 if result == "events" else s.empty_runs + 1
-        status = s.status
         if result == "events":
-            status = SourceStatus.ACTIVE
-        elif empty_runs >= DORMANT_AFTER_RUNS and s.origin is not SourceOrigin.WHITELIST:
-            if status is SourceStatus.ACTIVE:
+            swept = s.model_copy(update={"empty_runs": 0, "empty_since": None})
+        else:
+            swept = s.model_copy(
+                update={
+                    "empty_runs": s.empty_runs + 1,
+                    "empty_since": (s.empty_since or s.first_seen) if s.empty_runs else today,
+                }
+            )
+        status = SourceStatus.ACTIVE
+        if _long_streak(swept, today) and s.origin is not SourceOrigin.WHITELIST:
+            if s.status is SourceStatus.ACTIVE:
                 dormant.append(s.url)
             status = SourceStatus.DORMANT
         updated.append(
-            s.model_copy(
-                update={
-                    "last_swept": today,
-                    "last_result": result,
-                    "empty_runs": empty_runs,
-                    "status": status,
-                }
-            )
+            swept.model_copy(update={"last_swept": today, "last_result": result, "status": status})
         )
     return sources.model_copy(update={"sources": updated}), dormant
 

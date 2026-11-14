@@ -381,7 +381,10 @@ class Source(_DataModel):
     """What that run found there."""
     empty_runs: int = Field(default=0, ge=0)
     """Runs in a row without an event from this source (``dormant`` from
-    ``discovery.DORMANT_AFTER_RUNS``)."""
+    ``discovery.DORMANT_AFTER_RUNS`` runs over ``discovery.DORMANT_MIN_DAYS`` days)."""
+    empty_since: date | None = None
+    """Day of the first of these runs; ``None`` without such runs (and in files written
+    before 2026-11-14, where ``first_seen`` stands in for it)."""
 
 
 class SourcesFile(_DataModel):

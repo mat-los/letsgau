@@ -441,21 +441,67 @@ def test_sources_without_events_become_dormant_and_come_back() -> None:
     url = "https://quiet.example/termine"
     file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=[_source(url)])
     newly: list[str] = []
-    for run in range(discovery.DORMANT_AFTER_RUNS):
+    days = [TODAY, TODAY + timedelta(days=3), TODAY + timedelta(days=discovery.DORMANT_MIN_DAYS)]
+    for run, day in enumerate(days):
         result = "unreachable" if run == 0 else "empty"
-        updated, newly = discovery.record_sweeps(file, {url: result}, TODAY)
+        updated, newly = discovery.record_sweeps(file, {url: result}, day)
         assert updated is not None
         file = updated
     source = file.sources[0]
     assert source.status is SourceStatus.DORMANT and newly == [url]
     assert (source.empty_runs, source.last_result) == (discovery.DORMANT_AFTER_RUNS, "empty")
+    assert source.empty_since == TODAY
     # left out of the sweeps until the retry pause is over
-    assert discovery.known_sources_for(file, ["Peiting"], today=TODAY + timedelta(days=1)) == []
-    later = TODAY + timedelta(days=discovery.DORMANT_RETRY_DAYS)
+    assert discovery.known_sources_for(file, ["Peiting"], today=days[-1] + timedelta(days=1)) == []
+    later = days[-1] + timedelta(days=discovery.DORMANT_RETRY_DAYS)
     assert [s.url for s in discovery.known_sources_for(file, ["Peiting"], today=later)] == [url]
     updated, newly = discovery.record_sweeps(file, {url: "events"}, later)
     assert updated is not None and newly == []
     assert (updated.sources[0].status, updated.sources[0].empty_runs) == (SourceStatus.ACTIVE, 0)
+    assert updated.sources[0].empty_since is None
+
+
+def test_runs_close_together_do_not_pause_a_source() -> None:
+    url = "https://new.example/termine"
+    file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=[_source(url)])
+    for day in (TODAY, TODAY, TODAY + timedelta(days=1), TODAY + timedelta(days=4)):
+        updated, newly = discovery.record_sweeps(file, {url: "empty"}, day)
+        assert updated is not None and newly == []
+        file = updated
+    source = file.sources[0]
+    assert (source.status, source.empty_runs, source.empty_since) == (
+        SourceStatus.ACTIVE,
+        4,
+        TODAY,
+    )
+    # the next empty run a week after the first one pauses it
+    updated, newly = discovery.record_sweeps(file, {url: "empty"}, TODAY + timedelta(days=7))
+    assert updated is not None and newly == [url]
+
+
+def test_a_source_paused_by_a_short_streak_is_read_again() -> None:
+    """Files written before ``empty_since``: three runs within a day paused a new source."""
+    url = "https://paused.example/termine"
+    paused = _source(
+        url,
+        status=SourceStatus.DORMANT,
+        empty_runs=3,
+        last_swept=TODAY + timedelta(days=1),
+        last_result="empty",
+    )
+    file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=[paused])
+    next_run = TODAY + timedelta(days=3)
+    assert [s.url for s in discovery.known_sources_for(file, ["Peiting"], today=next_run)] == [url]
+    updated, newly = discovery.record_sweeps(file, {url: "empty"}, next_run)
+    assert updated is not None and newly == []
+    assert (updated.sources[0].status, updated.sources[0].empty_since) == (
+        SourceStatus.ACTIVE,
+        TODAY,  # first_seen stands in for the start of the streak
+    )
+    # an old source paused after a long streak stays paused
+    old = paused.model_copy(update={"first_seen": TODAY - timedelta(days=60)})
+    file = SourcesFile(updated_at="2026-11-09T00:00:00Z", sources=[old])
+    assert discovery.known_sources_for(file, ["Peiting"], today=next_run) == []
 
 
 def test_whitelist_sources_are_never_dormant() -> None:
