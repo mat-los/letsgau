@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-14T07:46:38Z",
+  "updated_at": "2026-11-14T18:24:25Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -57,10 +57,10 @@
       "places": [
         "Schongau"
       ],
-      "status": "active",
+      "status": "error",
       "first_seen": "2026-11-12",
       "last_checked": "2026-11-14",
-      "last_error": ""
+      "last_error": "(#4) Application request limit reached (code 4)"
     },
     "mein.schongau": {
       "origin": "mined",
@@ -513,7 +513,7 @@
       "last_error": ""
     },
     "juze_peiting": {
-      "origin": "mined",
+      "origin": "whitelist",
       "places": [
         "Peiting"
       ],
@@ -3446,6 +3446,24 @@
       "username": "saliterhof_peiting",
       "permalink": "https://www.instagram.com/p/DfHYD01xnUG/",
       "posted": "2026-10-30",
+      "version": 1,
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "events": []
+    },
+    "17942101329403197": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/reel/DftwPWMiUF1/",
+      "posted": "2026-11-14",
+      "version": 1,
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "events": []
+    },
+    "17902909632674429": {
+      "username": "saliterhof_peiting",
+      "permalink": "https://www.instagram.com/p/DfuWbZmRJcH/",
+      "posted": "2026-11-14",
       "version": 1,
       "first_seen": "2026-11-14",
       "last_seen": "2026-11-14",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-14T07:47:11Z",
+  "updated_at": "2026-11-14T18:24:51Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -1770,7 +1770,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-14-ea-schongau-u20-sg-dachau-fuerstenfeldbruck",
@@ -2284,6 +2284,49 @@
       "misses": 0
     },
     {
+      "id": "2026-11-15-gottesdienst-in-der-dreifaltigkeitskirche-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Gottesdienst in der Dreifaltigkeitskirche",
+        "en": "Church service at Dreifaltigkeitskirche"
+      },
+      "description": {
+        "de": "Gottesdienst am Sonntag in der Dreifaltigkeitskirche Schongau, laut meinestadt.de.",
+        "en": "Sunday service at the Dreifaltigkeitskirche in Schongau, as listed on meinestadt.de."
+      },
+      "venue": {
+        "name": "Dreifaltigkeitskirche",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": null,
+        "start_time": "10:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "religion",
+      "tags": [
+        "religion"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
+          "primary": true,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        }
+      ],
+      "first_seen": "2026-11-14",
+      "last_verified": "2026-11-14",
+      "misses": 0
+    },
+    {
       "id": "2026-11-15-mammuts-eislaufschule-schongau",
       "parent_id": null,
       "title": {
@@ -2379,21 +2422,21 @@
       ],
       "first_seen": "2026-11-13",
       "last_verified": "2026-11-14",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-15-zwergerlgottesdienst-schongau",
       "parent_id": null,
       "title": {
         "de": "Zwergerlgottesdienst",
-        "en": "Zwergerl service for children"
+        "en": "Toddler Service"
       },
       "description": {
-        "de": "Kurzweiliger Gottesdienst für alle Kinder und ihre Familien.",
-        "en": "Short service for all children and their families."
+        "de": "Gottesdienst für die ganz Kleinen und ihre Familien in der Dreifaltigkeitskirche.",
+        "en": "Service for toddlers and their families at the Dreifaltigkeitskirche."
       },
       "venue": {
-        "name": "Dreifaltigkeitskirche Schongau",
+        "name": "Dreifaltigkeitskirche",
         "place": "Schongau",
         "address": null
       },
@@ -2406,10 +2449,10 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "family-kids",
+      "primary_tag": "religion",
       "tags": [
-        "family-kids",
-        "religion"
+        "religion",
+        "family-kids"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -2436,6 +2479,12 @@
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8153900.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-14",
           "last_seen": "2026-11-14"
         }
       ],
@@ -2565,14 +2614,14 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenisches Friedensgebet",
-        "en": "Ecumenical prayer for peace"
+        "en": "Ecumenical Prayer for Peace"
       },
       "description": {
-        "de": "Ökumenisches Friedensgebet in der Christuskirche.",
-        "en": "Ecumenical prayer for peace at the Christuskirche."
+        "de": "Ökumenisches Friedensgebet in der Christuskirche Peiting.",
+        "en": "Ecumenical prayer for peace at the Christuskirche in Peiting."
       },
       "venue": {
-        "name": "Christuskirche Peiting",
+        "name": "Christuskirche",
         "place": "Peiting",
         "address": null
       },
@@ -2614,7 +2663,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -2672,26 +2721,80 @@
       "misses": 0
     },
     {
+      "id": "2026-11-16-adventskranzbinden-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Adventskranzbinden",
+        "en": "Advent Wreath Making"
+      },
+      "description": {
+        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
+        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+      },
+      "venue": {
+        "name": "Pfarrsaal Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-18",
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+          "primary": false,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        }
+      ],
+      "first_seen": "2026-11-14",
+      "last_verified": "2026-11-14",
+      "misses": 0
+    },
+    {
       "id": "2026-11-16-offenes-tasting-mit-der-paul-john-distillery-peiting",
       "parent_id": null,
       "title": {
-        "de": "Offenes Whisky-Tasting mit Paul John Distillery",
-        "en": "Open Whisky Tasting with Paul John Distillery"
+        "de": "Offenes Tasting mit der Paul John Distillery",
+        "en": "Open Tasting with Paul John Distillery"
       },
       "description": {
-        "de": "Spontanes Tasting indischer Single Malts mit Asim Raza von der Paul John Distillery und Andreas Schwarz von Sprithöker. Eintritt 20 €.",
-        "en": "Spontaneous tasting of Indian single malts with Asim Raza of Paul John Distillery and Andreas Schwarz of Sprithöker. Admission 20 €."
+        "de": "Spontanes offenes Whisky-Tasting mit Asim Raza von der Paul John Distillery aus Indien in der Xaver Bar.",
+        "en": "Spontaneous open whisky tasting with Asim Raza of India's Paul John Distillery at the Xaver Bar."
       },
       "venue": {
         "name": "Xaver Bar",
         "place": "Peiting",
-        "address": null
+        "address": "Ammergauer Straße 11+16, Peiting"
       },
       "schedule": {
         "start_date": "2026-11-16",
         "end_date": null,
         "start_time": "20:00",
-        "end_time": null,
+        "end_time": "23:00",
         "all_day": false,
         "dates": null,
         "opening_hours": null
@@ -2823,11 +2926,11 @@
       "parent_id": null,
       "title": {
         "de": "Seniorentreff: Spielenachmittag",
-        "en": "Seniors' meeting: games afternoon"
+        "en": "Seniors' Meeting: Games Afternoon"
       },
       "description": {
-        "de": "Spielenachmittag beim Seniorentreff im Kirchenstüberl.",
-        "en": "Games afternoon at the seniors' meeting in the Kirchenstüberl."
+        "de": "Spielenachmittag für Senioren im Kirchenstüberl der Christuskirche.",
+        "en": "Games afternoon for seniors in the Kirchenstüberl of the Christuskirche."
       },
       "venue": {
         "name": "Kirchenstüberl in der Christuskirche",
@@ -2867,7 +2970,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -3050,11 +3153,11 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenischer Kinderbibeltag: Daniel – im Schutz der Engel",
-        "en": "Ecumenical children's Bible day: Daniel"
+        "en": "Ecumenical Children's Bible Day: Daniel – Protected by Angels"
       },
       "description": {
-        "de": "Kinderbibeltag am Buß- und Bettag im katholischen Pfarrsaal.",
-        "en": "Children's Bible day on Buß- und Bettag in the Catholic parish hall."
+        "de": "Kinderbibeltag im Katholischen Pfarrsaal Peiting zur Geschichte von Daniel.",
+        "en": "Children's Bible day in the Catholic parish hall about the story of Daniel."
       },
       "venue": {
         "name": "Katholischer Pfarrsaal",
@@ -3100,7 +3203,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -3797,7 +3900,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 10
+      "misses": 11
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -3996,7 +4099,7 @@
       "parent_id": null,
       "title": {
         "de": "Film des Monats",
-        "en": "Film of the month"
+        "en": "Film of the Month"
       },
       "description": {
         "de": "Filmabend im Rainer-Endisch-Saal in Herzogsägmühle.",
@@ -4040,7 +4143,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -4114,7 +4217,7 @@
         "en": "Ecumenical evening prayer in the basilica."
       },
       "venue": {
-        "name": "Basilika Altenstadt",
+        "name": "Basilika",
         "place": "Altenstadt",
         "address": null
       },
@@ -4171,7 +4274,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
@@ -4773,7 +4876,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-14",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-21-kegeln-bezirksvorentscheid-senioren-a-schongau",
@@ -4998,15 +5101,15 @@
       "id": "2026-11-22-ewigkeitssonntag-mit-verstorbenengedenken-peiting",
       "parent_id": null,
       "title": {
-        "de": "Ewigkeitssonntag mit Verstorbenengedenken",
-        "en": "Eternity Sunday with commemoration of the deceased"
+        "de": "Gottesdienst zum Ewigkeitssonntag mit Verstorbenengedenken",
+        "en": "Eternity Sunday Service with Remembrance of the Deceased"
       },
       "description": {
-        "de": "Gottesdienst zum Ewigkeitssonntag mit Gedenken der Verstorbenen in der Christuskirche.",
-        "en": "Eternity Sunday service remembering the deceased at the Christuskirche."
+        "de": "Gedenkgottesdienst zum Ewigkeitssonntag in der Christuskirche.",
+        "en": "Memorial service for Eternity Sunday at the Christuskirche."
       },
       "venue": {
-        "name": "Christuskirche Peiting",
+        "name": "Christuskirche",
         "place": "Peiting",
         "address": null
       },
@@ -5036,6 +5139,12 @@
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157386.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-14",
           "last_seen": "2026-11-14"
         }
       ],
@@ -5096,12 +5205,12 @@
       "id": "2026-11-22-ewigkeitssonntag-mit-verstorbenengedenken-herzogsaegmuehle",
       "parent_id": null,
       "title": {
-        "de": "Ewigkeitssonntag mit Verstorbenengedenken",
-        "en": "Eternity Sunday with commemoration of the deceased"
+        "de": "Gottesdienst zum Ewigkeitssonntag mit Verstorbenengedenken",
+        "en": "Eternity Sunday Service with Remembrance of the Deceased"
       },
       "description": {
-        "de": "Gottesdienst zum Ewigkeitssonntag mit Gedenken der Verstorbenen in der Martinskirche.",
-        "en": "Eternity Sunday service remembering the deceased at the Martinskirche."
+        "de": "Gedenkgottesdienst zum Ewigkeitssonntag in der Martinskirche.",
+        "en": "Memorial service for Eternity Sunday at the Martinskirche."
       },
       "venue": {
         "name": "Martinskirche",
@@ -5134,6 +5243,12 @@
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7189475.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-14",
           "last_seen": "2026-11-14"
         }
       ],
@@ -5558,11 +5673,11 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenisches Bibelgespräch",
-        "en": "Ecumenical Bible discussion"
+        "en": "Ecumenical Bible Discussion"
       },
       "description": {
-        "de": "Gespräch anhand von Bibelabschnitten in der Kapelle Schöneckerhaus.",
-        "en": "Discussion of Bible passages in the Schöneckerhaus chapel."
+        "de": "Gesprächsabend zur Bibel in der Kapelle Schöneckerhaus.",
+        "en": "Bible discussion evening in the Schöneckerhaus chapel."
       },
       "venue": {
         "name": "Kapelle Schöneckerhaus",
@@ -5578,10 +5693,10 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "religion",
       "tags": [
-        "talk-workshop",
-        "religion"
+        "religion",
+        "talk-workshop"
       ],
       "status": "scheduled",
       "postponed_to": null,
@@ -5602,7 +5717,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -5847,8 +5962,8 @@
         "en": "Walk into Advent"
       },
       "description": {
-        "de": "Adventlicher Spaziergang der Turnabteilung des SV Hohenfurch, Treffpunkt am Sportheim.",
-        "en": "Advent walk organised by the SV Hohenfurch gymnastics section, starting at the Sportheim."
+        "de": "Adventsspaziergang der Turnabteilung mit Treffpunkt Sportheim.",
+        "en": "Advent walk by the gymnastics department, at the Sportheim."
       },
       "venue": {
         "name": "Sportheim Hohenfurch",
@@ -6466,7 +6581,7 @@
           "url": "http://www.kirstein.de/Termine/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/",
@@ -7295,7 +7410,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
@@ -7597,7 +7712,7 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
@@ -11410,11 +11525,11 @@
       "parent_id": null,
       "title": {
         "de": "Ball der Vereine",
-        "en": "Clubs' ball"
+        "en": "Clubs' Ball"
       },
       "description": {
-        "de": "Ball der Vereine des Sportvereins Hohenfurch 1927.",
-        "en": "Clubs' ball of Sportverein Hohenfurch 1927."
+        "de": "Ball der Vereine, Termin des Sportvereins Hohenfurch.",
+        "en": "Clubs' ball, listed by Sportverein Hohenfurch."
       },
       "venue": {
         "name": null,
