@@ -184,6 +184,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Instance: the Peiting youth centre's Instagram account is read on every run.
 - A source becomes `dormant` only if its 3 runs without an event span at least
   7 days (new `empty_since` in `sources.json`, optional). Manual runs close
   together no longer pause new sources; sources paused by a shorter streak are
