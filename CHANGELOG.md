@@ -184,6 +184,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- A source becomes `dormant` only if its 3 runs without an event span at least
+  7 days (new `empty_since` in `sources.json`, optional). Manual runs close
+  together no longer pause new sources; sources paused by a shorter streak are
+  read again.
 - Bundled instance: further pages of the Peiting tourism calendar and the
   Herzogsägmühle events page on the whitelist, the Hohenfurch newsletter PDF
   as a flyer source.

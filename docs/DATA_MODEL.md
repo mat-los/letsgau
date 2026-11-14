@@ -196,7 +196,7 @@ discovery and updated by every events run (ADR-004).
 | `update_frequency` | `weekly`, `monthly`, `rare`, `unknown` |
 | `first_seen`, `last_checked` | first time known, last discovery check |
 | `hits`, `last_hit` | events found on this source in total; basis for whitelist suggestions (≥ 3 hits) |
-| `last_swept`, `last_result`, `empty_runs` | last events run that read the source, what it found there (`events`, `empty`, `unreachable`) and the runs in a row without an event. After 3 such runs a source becomes `dormant` (never a whitelist entry): the crawl leaves it out until 28 days after its last sweep, then reads it once more; an event makes it `active` again |
+| `last_swept`, `last_result`, `empty_runs`, `empty_since` | last events run that read the source, what it found there (`events`, `empty`, `unreachable`), the runs in a row without an event and the day of the first of them (optional; older files use `first_seen` instead). After 3 such runs over at least 7 days a source becomes `dormant` (never a whitelist entry): the crawl leaves it out until 28 days after its last sweep, then reads it once more; an event makes it `active` again |
 
 URLs that differ only in a pagination parameter (`os`, `page`, `seite`,
 `offset`) are one source: they are combined when the file is loaded (the entry
