@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:52:23Z",
+  "updated_at": "2026-11-14T07:47:11Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -44,7 +44,7 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.meinestadt.de/schongau/alle/alle",
@@ -54,7 +54,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -115,7 +115,7 @@
           "url": "https://lagerhauskino.pfaffenwinkel.net",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://lagerhauskino.pfaffen-winkel.net",
@@ -125,50 +125,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-12-tag-der-ewigen-anbetung-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Tag der ewigen Anbetung",
-        "en": "Day of Perpetual Adoration"
-      },
-      "description": {
-        "de": "Tag der ewigen Anbetung der Pfarrei Mariae Himmelfahrt mit Mitwirkung der Kolpingsfamilie.",
-        "en": "Day of perpetual adoration of the parish Mariae Himmelfahrt, with participation of the Kolping family."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-12",
-        "end_date": null,
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://www.kolpingsfamilie-schongau.de/termine",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -212,11 +169,11 @@
           "url": "https://www.oafach-schea.de",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -263,84 +220,11 @@
           "url": "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-12-fibromyalgiesymposium-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Fibromyalgiesymposium in Schongau",
-        "en": "Fibromyalgia Symposium in Schongau"
-      },
-      "description": {
-        "de": "Symposium zum Thema Fibromyalgie im Saal des Ballenhauses.",
-        "en": "Symposium on fibromyalgia in the hall of the Ballenhaus."
-      },
-      "venue": {
-        "name": "Saal des Historischen Ballenhauses",
-        "place": "Schongau",
-        "address": "Marienplatz 2, 86956 Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-11-12",
-        "end_date": null,
-        "start_time": "18:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/fibromyalgiesymposium-in-schongau-e345d8f0fbf2db786a4b1e640be6f39dd.html",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-10"
-        },
-        {
-          "url": "https://veranstaltungen.erlebe.bayern/schongau/",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-09"
-        },
-        {
-          "url": "http://veranstaltungen.erlebe.bayern/schongau/fibromyalgiesymposium-in-schongau-e345d8f0fbf2db786a4b1e640be6f39dd.html",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-11"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-12",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -394,7 +278,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/durch-ein-ander-e36f7219713a77109dfb30bcd6f686dee.html",
@@ -404,7 +288,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -507,7 +391,7 @@
           "url": "https://lagerhauskino.pfaffenwinkel.net",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://lagerhauskino.pfaffen-winkel.net",
@@ -523,7 +407,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -583,7 +467,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
@@ -631,17 +515,23 @@
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-e31977757c70a0ca3638ef42566530bfa.html",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/weibsdeifi-markt-in-schongau-e8407a89e99e67d1208d27fffb9e0fc80.html",
           "primary": false,
           "first_seen": "2026-11-11",
           "last_seen": "2026-11-11"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-ec6c29266ecf041f55695efbaa7aec2cb.html",
+          "primary": false,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -693,7 +583,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=10&send=foo",
@@ -735,7 +625,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Wochenmarkt",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/wochenmarkt-edd9c3259216fc06da3623871249f6c88.html",
@@ -751,7 +641,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -842,11 +732,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -945,7 +835,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/museumsfuehrung-ja-so-ist-war-das-leben-e7794e47cb98393d8d3db85d90418a311.html",
@@ -997,7 +887,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1147,7 +1037,7 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
@@ -1157,7 +1047,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1376,11 +1266,11 @@
           "url": "https://fotogruppe-altenstadt.de/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1441,7 +1331,7 @@
           "url": "https://allevents.in/schongau/all",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://allevents.in/schongau/lumora-das-weihnachtsmärchen/200029783260824",
@@ -1457,7 +1347,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1497,11 +1387,11 @@
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1541,7 +1431,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/spielzeugbasar-in-der-schlossberghalle-e1ada92aeb3236a5011c90b9ccfafb86f.html",
@@ -1559,11 +1449,11 @@
           "url": "https://allevents.in/schongau/all",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1607,13 +1497,13 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.meinestadt.de/schongau/event-detail/42572547/156270847",
@@ -1631,11 +1521,11 @@
           "url": "https://veranstaltungen.meinestadt.de/schongau",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1678,13 +1568,13 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu9.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/braukurse/",
@@ -1696,11 +1586,11 @@
           "url": "https://veranstaltungen.meinestadt.de/schongau",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1739,11 +1629,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1783,11 +1673,11 @@
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1826,11 +1716,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1869,17 +1759,17 @@
           "url": "https://www.orchester-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1918,23 +1808,68 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-14-nachtflohmarkt-kurzenried",
+      "parent_id": null,
+      "title": {
+        "de": "Nachtflohmarkt",
+        "en": "Night Flea Market"
+      },
+      "description": {
+        "de": "Trödeln und Feischeln im Eventstadl mit Vintage-Schätzen, Secondhand, Musik, Streetfood und Barbetrieb.",
+        "en": "Flea market in the event barn with vintage finds, secondhand goods, music, street food and a bar."
+      },
+      "venue": {
+        "name": "Saliterhof Eventstadl",
+        "place": "Kurzenried",
+        "address": "Kurzenried 3, Peiting"
+      },
+      "schedule": {
+        "start_date": "2026-11-14",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "22:00",
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "party",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DfhID7zMbDN/",
+          "primary": true,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        }
+      ],
+      "first_seen": "2026-11-14",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -1977,23 +1912,23 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu9.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu13.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2033,11 +1968,11 @@
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2077,11 +2012,11 @@
           "url": "https://www.instagram.com/p/DfaI2Dktyqt/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2135,11 +2070,69 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-15-basteln-fuer-den-peitinger-christkindlmarkt",
+      "parent_id": null,
+      "title": {
+        "de": "Basteln für den Peitinger Christkindlmarkt",
+        "en": "Crafting for the Peiting Christmas Market"
+      },
+      "description": {
+        "de": "Bastelnachmittag des WSV Peiting-Ramsau für den Christkindlmarkt in Peiting.",
+        "en": "Crafting session by WSV Peiting-Ramsau for the Peiting Christmas market."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-15",
+        "end_date": "2026-11-20",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-15",
+          "2026-11-20"
+        ],
+        "opening_hours": [
+          {
+            "days": "2026-11-15",
+            "from": "15:00",
+            "to": "15:00"
+          },
+          {
+            "days": "2026-11-20",
+            "from": "16:00",
+            "to": "16:00"
+          }
+        ]
+      },
+      "primary_tag": "market-festival",
+      "tags": [
+        "market-festival",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.wsv-peiting-ramsau.de",
+          "primary": true,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        }
+      ],
+      "first_seen": "2026-11-14",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2179,23 +2172,23 @@
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2234,11 +2227,11 @@
           "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2277,17 +2270,17 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8085735.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2332,11 +2325,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2375,18 +2368,18 @@
           "url": "https://www.instagram.com/p/Dfg9hU4D7fd/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
-      "misses": 1
+      "last_verified": "2026-11-14",
+      "misses": 0
     },
     {
       "id": "2026-11-15-zwergerlgottesdienst-schongau",
@@ -2425,29 +2418,29 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8153900.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2493,11 +2486,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2536,35 +2529,35 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-mammuts.de/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/DfmUurOD3iZ/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfo5gjIDAUg/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfr51wHjxg4/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2575,11 +2568,11 @@
         "en": "Ecumenical prayer for peace"
       },
       "description": {
-        "de": "Friedensgebet in der Christuskirche.",
-        "en": "Prayer for peace in the Christuskirche."
+        "de": "Ökumenisches Friedensgebet in der Christuskirche.",
+        "en": "Ecumenical prayer for peace at the Christuskirche."
       },
       "venue": {
-        "name": "Christuskirche",
+        "name": "Christuskirche Peiting",
         "place": "Peiting",
         "address": null
       },
@@ -2603,19 +2596,19 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8101290.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -2625,7 +2618,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2671,88 +2664,34 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-16-adventskranzbinden-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Adventskranzbinden",
-        "en": "Advent Wreath Making"
-      },
-      "description": {
-        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
-        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
-      },
-      "venue": {
-        "name": "Pfarrsaal Verklärung Christi",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-16",
-        "end_date": "2026-11-18",
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-16",
-          "2026-11-17",
-          "2026-11-18"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
       "id": "2026-11-16-offenes-tasting-mit-der-paul-john-distillery-peiting",
       "parent_id": null,
       "title": {
-        "de": "Offenes Tasting mit der Paul John Distillery",
-        "en": "Open Tasting with Paul John Distillery"
+        "de": "Offenes Whisky-Tasting mit Paul John Distillery",
+        "en": "Open Whisky Tasting with Paul John Distillery"
       },
       "description": {
-        "de": "Spontanes offenes Whisky-Tasting mit Asim Raza von der Paul John Distillery aus Indien in der Xaver Bar.",
-        "en": "Spontaneous open whisky tasting with Asim Raza of India's Paul John Distillery at the Xaver Bar."
+        "de": "Spontanes Tasting indischer Single Malts mit Asim Raza von der Paul John Distillery und Andreas Schwarz von Sprithöker. Eintritt 20 €.",
+        "en": "Spontaneous tasting of Indian single malts with Asim Raza of Paul John Distillery and Andreas Schwarz of Sprithöker. Admission 20 €."
       },
       "venue": {
         "name": "Xaver Bar",
         "place": "Peiting",
-        "address": "Ammergauer Straße 11+16, Peiting"
+        "address": null
       },
       "schedule": {
         "start_date": "2026-11-16",
         "end_date": null,
         "start_time": "20:00",
-        "end_time": "23:00",
+        "end_time": null,
         "all_day": false,
         "dates": null,
         "opening_hours": null
@@ -2768,17 +2707,17 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/DfiOzvCIgrL/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2817,17 +2756,17 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.herzogsaegmuehle.de/einkehren",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2872,11 +2811,11 @@
           "url": "https://seniorenbeirat-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2887,8 +2826,8 @@
         "en": "Seniors' meeting: games afternoon"
       },
       "description": {
-        "de": "Spielenachmittag für Senioren im Kirchenstüberl.",
-        "en": "Games afternoon for seniors in the Kirchenstüberl."
+        "de": "Spielenachmittag beim Seniorentreff im Kirchenstüberl.",
+        "en": "Games afternoon at the seniors' meeting in the Kirchenstüberl."
       },
       "venue": {
         "name": "Kirchenstüberl in der Christuskirche",
@@ -2916,13 +2855,13 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8026954.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -2932,7 +2871,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -2973,11 +2912,11 @@
           "url": "http://www.kolpingsfamilie-schongau.de/termine",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3019,7 +2958,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/vorlesen-fuer-kinder-ab-2-jahren-e7cbdbd1f152aee6fc64d30beb20c5592.html",
@@ -3053,7 +2992,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3093,17 +3032,17 @@
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-201/f/1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3115,7 +3054,7 @@
       },
       "description": {
         "de": "Kinderbibeltag am Buß- und Bettag im katholischen Pfarrsaal.",
-        "en": "Children's Bible day on Day of Repentance in the Catholic parish hall."
+        "en": "Children's Bible day on Buß- und Bettag in the Catholic parish hall."
       },
       "venue": {
         "name": "Katholischer Pfarrsaal",
@@ -3143,19 +3082,19 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8231595.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -3165,7 +3104,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3204,7 +3143,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-e0daf4af6ed82134338505e4638282919.html",
@@ -3214,7 +3153,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3261,11 +3200,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3305,17 +3244,17 @@
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-204/f/1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3354,17 +3293,17 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3404,17 +3343,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu10.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3457,11 +3396,11 @@
           "url": "https://fotogruppe-altenstadt.de/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3501,7 +3440,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/die-einheit-der-stadt-die-stadt-als-einheit-e109fc80c8c07267caf5d79ac0349e166.html",
@@ -3535,7 +3474,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3575,11 +3514,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3619,23 +3558,23 @@
           "url": "https://seniorenbeirat-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3675,7 +3614,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.rce-event.de/output.php?id=1246&mode=printlist&os=0&send=foo",
@@ -3715,7 +3654,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3755,17 +3694,17 @@
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb301-200/f/1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3804,17 +3743,17 @@
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3858,7 +3797,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 9
+      "misses": 10
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -3910,17 +3849,17 @@
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -3977,7 +3916,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.erlebe.bayern/schongau/",
@@ -3999,7 +3938,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4039,7 +3978,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/italiano-in-cucina-wochenendkurs-level-a1-ee0e66bc29b2e09f0a3e10ea5adf0a8b4.html",
@@ -4049,7 +3988,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4060,8 +3999,8 @@
         "en": "Film of the month"
       },
       "description": {
-        "de": "Filmabend im Rainer-Endisch-Saal.",
-        "en": "Film evening in the Rainer-Endisch-Saal."
+        "de": "Filmabend im Rainer-Endisch-Saal in Herzogsägmühle.",
+        "en": "Film evening in the Rainer-Endisch-Saal at Herzogsägmühle."
       },
       "venue": {
         "name": "Rainer-Endisch-Saal",
@@ -4089,13 +4028,13 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7913570.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -4105,7 +4044,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4144,7 +4083,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-stuttgart-rebels-e3ecc7d7183c107bfa9e48baa319ffcfe.html",
@@ -4156,11 +4095,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4202,7 +4141,7 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/pfarrei-altenstadt-oekumenisches-abendgebet-e104cd59664dd198e37b83a21e924127c.html",
@@ -4214,19 +4153,19 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7959614.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -4236,7 +4175,7 @@
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4275,17 +4214,17 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-mammuts.de/",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4330,7 +4269,7 @@
           "url": "https://lagerhauskino.pfaffenwinkel.net",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://lagerhauskino.pfaffen-winkel.net",
@@ -4340,7 +4279,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4405,7 +4344,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?os=12&send=foo",
@@ -4435,11 +4374,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4479,17 +4418,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu11.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4550,7 +4489,7 @@
           "url": "https://www.pg-schongau.com/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/adventsbasar-e42e6d16fbcdd5b4aea18dd174af4c797.html",
@@ -4604,23 +4543,23 @@
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4674,11 +4613,11 @@
           "url": "https://www.instagram.com/p/DfPU40KqF4q/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4717,7 +4656,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/judo-37-spitzbubenturnier-mu14-mu17-ee7ca1c3c2e70463677a92a641ae4c810.html",
@@ -4729,7 +4668,7 @@
           "url": "http://www.judo-peiting.de",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://judo-peiting.de/event/37-spitzbubenturnier/",
@@ -4739,7 +4678,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4785,11 +4724,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4829,11 +4768,11 @@
           "url": "https://www.instagram.com/p/Dff163TCKiP/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4873,11 +4812,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4916,11 +4855,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -4960,11 +4899,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5005,11 +4944,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5048,11 +4987,11 @@
           "url": "https://www.blaskapelle-hohenfurch.de/termine",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5091,17 +5030,17 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157386.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5140,17 +5079,17 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5189,17 +5128,17 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail7189475.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5238,17 +5177,17 @@
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5287,11 +5226,11 @@
           "url": "https://www.instagram.com/p/DfsjnA-NLee/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5330,11 +5269,11 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5374,23 +5313,23 @@
           "url": "https://www.pg-schongau.com/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/pfarrbrief/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5441,17 +5380,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5491,11 +5430,11 @@
           "url": "https://vivace-schongau.de/?page_id=83",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5539,7 +5478,7 @@
           "url": "https://www.tsv-schongau.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.tsv-schongau.de/%f0%9f%a7%98-honigbaeryoga-beim-tsv-schongau-neuer-kurs-ab-november/",
@@ -5549,7 +5488,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5595,11 +5534,23 @@
           "url": "https://musikschule-pfaffenwinkel.de/termine/",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "primary": false,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/junge-kuenstler-in-concert-e267674da0d8d5a3369fe18ebca367f7f.html",
+          "primary": false,
+          "first_seen": "2026-11-14",
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5610,8 +5561,8 @@
         "en": "Ecumenical Bible discussion"
       },
       "description": {
-        "de": "Bibelgespräch in der Kapelle Schöneckerhaus.",
-        "en": "Bible discussion in the Schöneckerhaus chapel."
+        "de": "Gespräch anhand von Bibelabschnitten in der Kapelle Schöneckerhaus.",
+        "en": "Discussion of Bible passages in the Schöneckerhaus chapel."
       },
       "venue": {
         "name": "Kapelle Schöneckerhaus",
@@ -5639,13 +5590,13 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8090281.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -5655,7 +5606,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5701,11 +5652,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5760,7 +5711,7 @@
           "url": "https://lagerhauskino.pfaffenwinkel.net",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://lagerhauskino.pfaffen-winkel.net",
@@ -5770,7 +5721,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5811,17 +5762,17 @@
           "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "primary": true,
           "first_seen": "2026-11-11",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-11",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5863,29 +5814,29 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/handarbeiten-im-cafe-anderl-e3d037627a16f99737a2d4e371a6fb60a.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/handarbeiten-im-cafe-anderl-ea935d30934c084a6b05465894695d307.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -5896,11 +5847,11 @@
         "en": "Walk into Advent"
       },
       "description": {
-        "de": "Turnabteilung des SV Hohenfurch lädt zum Walk in den Advent am Sportheim ein.",
-        "en": "SV Hohenfurch gymnastics section invites to an Advent walk starting at the Sportheim."
+        "de": "Adventlicher Spaziergang der Turnabteilung des SV Hohenfurch, Treffpunkt am Sportheim.",
+        "en": "Advent walk organised by the SV Hohenfurch gymnastics section, starting at the Sportheim."
       },
       "venue": {
-        "name": "Sportheim SV Hohenfurch",
+        "name": "Sportheim Hohenfurch",
         "place": "Hohenfurch",
         "address": null
       },
@@ -5925,11 +5876,11 @@
           "url": "https://www.svhohenfurch.de/sportverein",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6023,17 +5974,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6088,29 +6039,29 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/herzogsaegmuehle-weihnachtsmarkt-e34635128016afc2ea14e1529ae60c06b.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6166,7 +6117,7 @@
           "url": "https://lagerhauskino.pfaffenwinkel.net",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://lagerhauskino.pfaffen-winkel.net",
@@ -6176,7 +6127,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6238,7 +6189,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-ins-licht-gerueckt-e9a08d8ee7a0b4ff8e456f55eb4bfeaf4.html",
@@ -6286,7 +6237,7 @@
           "url": "https://www.instagram.com/p/DfpplZuJT0t/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
@@ -6298,11 +6249,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6341,11 +6292,11 @@
           "url": "https://seniorenbeirat-schongau.de/regelmaessige-veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6384,11 +6335,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6471,11 +6422,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6521,17 +6472,17 @@
           "url": "https://www.kirstein.de/Nach-Marke/Taylor/Taylor-Tone-Show-2026/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/DfonND4GyFj/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6574,19 +6525,19 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtsmarkt-am-rathausplatz-e82701197c9080f9e3efd47ce6c536c12.html",
@@ -6598,17 +6549,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.sv-peiting.de/Termine/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6720,11 +6671,11 @@
           "url": "https://www.instagram.com/p/DfhV81Sqc3L/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6763,11 +6714,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6807,11 +6758,11 @@
           "url": "https://www.instagram.com/p/DfpxhUHm7vz/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6851,11 +6802,11 @@
           "url": "https://vivace-schongau.de/?page_id=83",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6894,11 +6845,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6937,11 +6888,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -6987,17 +6938,17 @@
           "url": "https://rc77-altenstadt.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7036,11 +6987,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7079,11 +7030,11 @@
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7122,11 +7073,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7165,17 +7116,17 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7214,11 +7165,11 @@
           "url": "https://www.instagram.com/p/De9VsDKKFyf/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7257,11 +7208,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7300,11 +7251,11 @@
           "url": "https://www.instagram.com/p/DfWnAnTqVBX/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7350,23 +7301,23 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157398.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7405,11 +7356,11 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7448,11 +7399,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7491,11 +7442,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7534,11 +7485,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7577,7 +7528,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-heilbronner-ec-falken-e22be0a3a0ac0920c57d0ce7769f4f2a5.html",
@@ -7589,11 +7540,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7604,8 +7555,8 @@
         "en": "Seniors' meeting: A dignified farewell"
       },
       "description": {
-        "de": "Vortrag von Manfred Echter beim Seniorentreff.",
-        "en": "Talk by Manfred Echter at the seniors' meeting."
+        "de": "Seniorentreff mit Vortrag von Manfred Echter im Kirchenstüberl.",
+        "en": "Seniors' meeting with a talk by Manfred Echter in the Kirchenstüberl."
       },
       "venue": {
         "name": "Kirchenstüberl in der Christuskirche",
@@ -7634,13 +7585,13 @@
           "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8082077.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -7650,7 +7601,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7689,11 +7640,11 @@
           "url": "https://www.instagram.com/p/Dfm1JRaiE0D/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7733,17 +7684,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu11.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7784,17 +7735,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/kinder-kino-weihnachten-im-zaubereulenwald-e4cd445604836fd4cb2f56fa48ebdf4b6.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7918,23 +7869,23 @@
           "url": "https://www.schongauer-weihnachtszauber.com",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/p/Dfkj7PXRX2I/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -7974,17 +7925,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/peitinger-bauernmarkt-nikolausmarkt-e71add28a847d92bfb6f3682efb828028.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8023,17 +7974,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8072,19 +8023,19 @@
           "url": "https://www.reaktor-sog.de/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://allevents.in/schongau/all",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
@@ -8094,7 +8045,7 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8135,11 +8086,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8179,11 +8130,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8222,17 +8173,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu12.jpg",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8315,11 +8266,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8365,7 +8316,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-stadtfuehrung-im-advent-e2ab364fb7f98047e99a93647f89fc8fd.html",
@@ -8413,11 +8364,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8456,11 +8407,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8499,7 +8450,7 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?suche&spezial=1",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-deggendorfer-sc-ea8c87ec2e76fee09b887ca918f618147.html",
@@ -8511,11 +8462,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8606,17 +8557,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-ec5b1d6bbda70fc7bee4c3d7a294f47e2.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8763,7 +8714,7 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Erlebnisfuehrungen",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/themenfuehrung-romantischer-advent-in-schongau-e2b86c8e25fc90878166c2074bab6995d.html",
@@ -8799,11 +8750,11 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/?suche&spezial=1",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8844,11 +8795,11 @@
           "url": "https://weltlaeden.de/schongau",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8887,17 +8838,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-hoechstadt-alligators-e038a9e66979a355bbc3e94d868a5d431.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8936,11 +8887,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -8979,17 +8930,17 @@
           "url": "https://www.reaktor-sog.de/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Sepp-und-Hubi.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9028,11 +8979,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9117,17 +9068,17 @@
           "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9167,11 +9118,11 @@
           "url": "https://www.blaskapelle-hohenfurch.de/termine",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9224,11 +9175,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9268,11 +9219,11 @@
           "url": "http://www.kolpingsfamilie-schongau.de/termine",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9334,11 +9285,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9378,11 +9329,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9443,11 +9394,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9486,17 +9437,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu13.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9580,17 +9531,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/im-reich-der-wildtiere-spuren-lesen-und-lebensweisen-verstehen-ecc854df1bcd20f521d4ed60ae44a4eae.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9641,11 +9592,11 @@
           "url": "https://www.instagram.com/p/DfUZTENowuM/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9684,11 +9635,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9759,17 +9710,17 @@
           "url": "https://www.bayregio-wm.de/veranstaltungen/",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.wieskonzerte.de",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9808,11 +9759,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9851,17 +9802,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-selber-woelfe-eb6767eb60564d76de55bd9120b2b1362.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9903,23 +9854,23 @@
           "url": "https://www.knappschaftskapelle.de",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtskonzerte-der-knappschafts-und-trachtenkapelle-e9ec5b8a080572a1d5afa3fb9590b1191.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9961,17 +9912,17 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu14-1.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10010,11 +9961,11 @@
           "url": "https://www.instagram.com/p/Dfq_cQnuw3H/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10055,11 +10006,11 @@
           "url": "http://www.kolpingsfamilie-schongau.de/termine",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10098,11 +10049,11 @@
           "url": "https://schlossbergler.de/wp-content/uploads/2026/02/Vereinstermine2026.pdf",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10141,17 +10092,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-esvkaufbeuren-e1636aea46eaaea5603075d322e16fa29.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10191,11 +10142,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10234,23 +10185,23 @@
           "url": "https://www.reaktor-sog.de/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Queen-Party-2026.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/10/Sepp-und-Hubi.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10289,7 +10240,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/26-12-fkk-badenacht-mit-lampion-schwimmen/",
@@ -10299,7 +10250,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10338,11 +10289,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10382,11 +10333,11 @@
           "url": "http://www.kolpingsfamilie-schongau.de/termine",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10425,17 +10376,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-ehf-passau-black-hawks-efc18799528b97796b9d44b8f7ba77878.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10475,11 +10426,11 @@
           "url": "https://www.blaskapelle-hohenfurch.de/termine",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10519,11 +10470,11 @@
           "url": "https://www.instagram.com/p/Dfh10ikqI81/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10564,23 +10515,23 @@
           "url": "https://brauhaus-schongau.de/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu14-1.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://brauhaus-schongau.de/wp-content/uploads/2026/09/Broschuere-2026-27-end-neu8.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10619,7 +10570,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/2-januar-fundsachen-flohmarkt/",
@@ -10629,7 +10580,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10675,11 +10626,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10718,11 +10669,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10762,11 +10713,11 @@
           "url": "https://www.schongau.de/de/Schongau-erleben/Schongau-entdecken/Stadt-und-Erlebnisfuehrungen/Museumsfuehrungen",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10805,11 +10756,11 @@
           "url": "https://www.schongau-mammuts.de/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10849,17 +10800,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/baeume-im-winter-gehoelze-auch-ohne-blaetter-erkennen-e6a76cd3613cdf5725be6c72b9e067f7a.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10898,11 +10849,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10941,11 +10892,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -10984,11 +10935,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11031,17 +10982,17 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.schongau-evangelisch.de/offene-trauergruppe",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11084,11 +11035,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11127,11 +11078,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11170,11 +11121,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11219,11 +11170,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11262,11 +11213,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11305,11 +11256,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11348,7 +11299,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/23-1-disney-night-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -11358,7 +11309,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11397,7 +11348,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/23-1-fkk-badenacht-mit-lampion-schwimmen/",
@@ -11407,7 +11358,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11447,19 +11398,19 @@
           "url": "https://www.svhohenfurch.de/sportverein",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
       "id": "2027-01-30-ball-der-vereine-hohenfurch",
       "parent_id": null,
       "title": {
-        "de": "Ball der Vereine Hohenfurch",
-        "en": "Clubs' Ball Hohenfurch"
+        "de": "Ball der Vereine",
+        "en": "Clubs' ball"
       },
       "description": {
         "de": "Ball der Vereine des Sportvereins Hohenfurch 1927.",
@@ -11490,11 +11441,11 @@
           "url": "https://www.svhohenfurch.de/sportverein",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11534,11 +11485,11 @@
           "url": "https://www.instagram.com/p/DfmPH4jsQoO/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11578,11 +11529,11 @@
           "url": "https://www.instagram.com/p/DfrGhixMPrv/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11621,17 +11572,17 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.herzogsaegmuehle.de/einkehren",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11670,11 +11621,11 @@
           "url": "https://www.herzogsaegmuehle.de/einkehren",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11713,11 +11664,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11756,7 +11707,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-2-90er-fete-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -11766,7 +11717,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11805,7 +11756,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-2-fkk-badenacht-mit-lampion-schwimmen/",
@@ -11815,7 +11766,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11855,11 +11806,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11898,11 +11849,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11941,11 +11892,11 @@
           "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -11984,17 +11935,17 @@
           "url": "https://www.reaktor-sog.de/",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12033,11 +11984,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12076,7 +12027,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-3-kraeuterzauber-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -12086,7 +12037,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12125,7 +12076,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-3-fkk-badenacht-mit-lampion-schwimmen/",
@@ -12135,7 +12086,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12174,11 +12125,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12222,7 +12173,7 @@
           "url": "https://krencky24.de/troedelmarkt-flohmarkt_plzgebiet_869.html",
           "primary": true,
           "first_seen": "2026-11-10",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.erlebe.bayern/schongau/flohmarkt-in-schongau-am-festplatz-fuer-jedermann-e3b88ae3c280189c8903df30a02cadb5c.html",
@@ -12264,7 +12215,7 @@
           "url": "https://meine-flohmarkt-termine.de/ort/schongau",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://meine-flohmarkt-termine.de/de/plz-gebiet/869",
@@ -12274,7 +12225,7 @@
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12314,11 +12265,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12408,17 +12359,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/harry-g-obacht-ebde901202930a47c12d6cd724bb5e3fd.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12458,11 +12409,11 @@
           "url": "https://www.instagram.com/p/Dfh_9w8oQR9/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12501,7 +12452,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/17-4-krimi-sauna-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -12511,7 +12462,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12550,7 +12501,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/17-4-fkk-badenacht-mit-lampion-schwimmen/",
@@ -12560,7 +12511,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12599,17 +12550,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/14-lange-museumsnacht-im-kloesterle-e7e32449d21db4ae9eccf111f9e81f6ed.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12648,11 +12599,11 @@
           "url": "https://www.svhohenfurch.de/sportverein",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12691,7 +12642,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/24-april-fundsachen-flohmarkt/",
@@ -12701,7 +12652,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12741,11 +12692,11 @@
           "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12787,17 +12738,17 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/2-tages-flohmarkt-in-peiting-herzogsaegmuehle-e9032438282f83bf2b7ac3465c9bdada8.html",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -12836,11 +12787,11 @@
           "url": "https://xaver-peiting.de/events/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-13"
+          "last_seen": "2026-11-14"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-13",
+      "last_verified": "2026-11-14",
       "misses": 0
     }
   ]

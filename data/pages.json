@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T23:51:48Z",
+  "updated_at": "2026-11-14T07:46:38Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -8,7 +8,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -19,7 +19,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -30,7 +30,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -41,7 +41,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -52,7 +52,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -63,7 +63,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -74,7 +74,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -85,7 +85,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -96,7 +96,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -107,7 +107,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -173,7 +173,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -206,7 +206,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -217,7 +217,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -228,7 +228,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -239,7 +239,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -250,7 +250,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -269,12 +269,104 @@
     "https://veranstaltungen.pfaffen-winkel.de/schongau/": {
       "mode": "text",
       "reason": "",
-      "sha256": "a1e519c142ee4d9a52aa268761b1cf60dc06c1dba9ac824063fdf9af38d3ecf5",
+      "sha256": "3745fb8c8ab1fd5c61b2a89e378dcad66395803599430ab6482ad8a0f371b611",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "last_changed": "2026-11-13",
-      "events": [],
+      "last_seen": "2026-11-14",
+      "last_changed": "2026-11-14",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Weibsdeifi-Markt in Schongau (Samstag)",
+            "en": "Weibsdeifi Market in Schongau (Saturday)"
+          },
+          "description": {
+            "de": "Second-Hand-Flohmarkt für Frauen in der Passage in der Münzstraße.",
+            "en": "Second-hand flea market for women in the passage on Münzstraße."
+          },
+          "venue": {
+            "name": "Weibsdeifi-Markt",
+            "place": "Schongau",
+            "address": "Münzstr. 9 - Passage, 86952 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-14",
+            "end_date": "2026-11-21",
+            "start_time": "10:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-14",
+              "2026-11-21"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+              "primary": true
+            },
+            {
+              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-e31977757c70a0ca3638ef42566530bfa.html",
+              "primary": false
+            },
+            {
+              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-ec6c29266ecf041f55695efbaa7aec2cb.html",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Junge Künstler in Concert",
+            "en": "Young Artists in Concert"
+          },
+          "description": {
+            "de": "Konzertabend der Musikschule Pfaffenwinkel mit Beiträgen der Schülerinnen und Schüler.",
+            "en": "Concert evening of the Musikschule Pfaffenwinkel with performances by its students."
+          },
+          "venue": {
+            "name": "Musikschule Pfaffenwinkel e.V.",
+            "place": "Schongau",
+            "address": "Marienplatz 7, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-11-25",
+            "end_date": null,
+            "start_time": "18:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+              "primary": true
+            },
+            {
+              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/junge-kuenstler-in-concert-e267674da0d8d5a3369fe18ebca367f7f.html",
+              "primary": false
+            }
+          ]
+        }
+      ],
       "seen": [
         {
           "id": "2026-11-13-weibsdeifi-markt-freitag-schongau",
@@ -361,7 +453,7 @@
       "sha256": "f0b361ef8da168b99b8e318859348c75c30d827468ca2da33cc8d549b1a44f17",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -415,7 +507,7 @@
       "sha256": "b81aec219ac21a2581c64d5481e10a1025048976d4a8b780d9bdab41b0a9c067",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -462,7 +554,7 @@
       "sha256": "8fca59f88a7921561d397b2bf4bfb9cf1dc1310cf527b3d07b1249c0aa5233f8",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -756,7 +848,7 @@
       "sha256": "695089e37c0607b32e452b11f8e10be7137fde862590b94dc5c307b128ba6e4e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -903,7 +995,7 @@
       "sha256": "87466b7a5181ecef718c3452b1a51917ff8aae65977f61de7eed48f43300e085",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -914,7 +1006,7 @@
       "sha256": "6d189438c47681b52d501218147e2e549aea3e63b28d21b8960956676974304e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -954,7 +1046,7 @@
       "sha256": "73d020e1a722457bb17b806fa643a88de3d1241ccd0040152cd721defcb51ebd",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1162,7 +1254,7 @@
       "sha256": "3dcaa9f0f79875cb2c8e0d058f7473f6ac7baacd78f12f4a94d411dc34e4c913",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1188,7 +1280,7 @@
       "sha256": "1b27904e179148fd909a808f55bd981a9d708f3f987a78a03dee7ed0fab160f5",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1242,7 +1334,7 @@
       "sha256": "b3c028c0eb82ae3515cda3adaf5b813335de0f998ad2fba551d10893b378e7f9",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1303,7 +1395,7 @@
       "sha256": "dff7bdb979bd470faad328d597f50f9bb5532602f0a5e264fffff93cd87d818f",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -1404,7 +1496,7 @@
       "sha256": "d0214d6629e4a8aad3671ff2dec498849dc025070b2bb0b36a5b804f2041bae5",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1444,7 +1536,7 @@
       "sha256": "ac8b33e3a724d69bb4d9e0d53fee03507aee655d95bd136993902613addfe30f",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -1584,7 +1676,7 @@
       "sha256": "d7ac07bfb0122dce7efa5b74b5e164d2ed6b383d39264cb4c67da1ae15205619",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1610,7 +1702,7 @@
       "sha256": "75e46cd33a9c292f2cf7516c8ce61b7d702bde3e5c58e5c6a39b5a6c8a12b6cb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1636,7 +1728,7 @@
       "sha256": "c50cbadb9189003f099d858291f89ee6f8ee72b39abeaa0f51d03db24fc58576",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1673,7 +1765,7 @@
       "sha256": "f33bd92827b0917e93a5c7f4aa845bf17948ca5b06d0bd9cee8bb5b914548982",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1692,7 +1784,7 @@
       "sha256": "8318aa3e052387ac89208299237919b71c2ab513b6aeacfd54c0e1e4d562fcc6",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1718,7 +1810,7 @@
       "sha256": "ca5e3a2ecd390aa81d63b8b5782216519a066b4d05d915098f3d9d340629d998",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1737,7 +1829,7 @@
       "sha256": "30fdb2f1a483047558f6201b786362f60023b04fcf0d5cdc03a205b0d0942bc4",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1774,7 +1866,7 @@
       "sha256": "36f4f41eed937ecfa4cf41cde0a4a6a42ed60a01e9f3718ead80eac33f34ef28",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1793,7 +1885,7 @@
       "sha256": "49eb37c3966e68fad8789513905c88209067e6c67f3cd3e69c26605ad0b3e3bf",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1812,7 +1904,7 @@
       "sha256": "71c2b785db65e1d4d0f2329102f15d3e9b3f96f19484b5c0915cf398a1c0e2dc",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1842,7 +1934,7 @@
       "sha256": "613cf91b5f0a87f14dfd4e4c11233d75a496a802da09a25634b8aae6c6713884",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1872,7 +1964,7 @@
       "sha256": "dc766e27263d2deb0154c56d5994902029ccfd8418f919a5ec58917a62358342",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1965,11 +2057,11 @@
     "https://meine-flohmarkt-termine.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "dd28c34099b88a2ad7445c43b24b53fad883cda11612b19df89059b1f43adfe8",
+      "sha256": "5fac3fbb2b4ea9580a029af3d756a80800e77abefd076ab2da5d0fc9ff8283c2",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "last_changed": "2026-11-13",
+      "last_seen": "2026-11-14",
+      "last_changed": "2026-11-14",
       "events": [],
       "seen": []
     },
@@ -1979,7 +2071,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -1990,7 +2082,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2001,7 +2093,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2012,7 +2104,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2023,7 +2115,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2034,7 +2126,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2045,7 +2137,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2056,7 +2148,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2067,7 +2159,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2078,7 +2170,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2089,7 +2181,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2100,7 +2192,7 @@
       "sha256": "c9fa2d24fa800b0db464956ed5ad2d80da206a9d88db01f4c58c887344a4b9dd",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2254,7 +2346,7 @@
       "sha256": "8d59317974eb897475e9643283dd27f632da7098ca2e022e8154dcade40f25b7",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2442,7 +2534,7 @@
       "sha256": "75b9c18f8c36b5ff540d3db62486d483334ae92dee32802031a46dbfdd92fe16",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2570,7 +2662,7 @@
       "sha256": "89f9198e3b74d373ae011c6ddea3a4940b7439f1e5ac789cdd0081d7382d233b",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2736,7 +2828,7 @@
       "sha256": "511aa52fbb315a1dc5818fe06dda182f51163844e79bedcd9817354d11441891",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2962,7 +3054,7 @@
       "sha256": "d805262de01540b7c5d8827415da902a32be1a88a14c59b5aadae6d3565e7a69",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -3470,7 +3562,7 @@
       "sha256": "bef960cab5717f8a5345447d8d9cf09f235771048e54724d6a9e35932b68aabe",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3481,7 +3573,7 @@
       "sha256": "9600c5a700e790cc4a0cad438e7e9e5f6e273760ac7ccdb3021e100881a6be82",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3492,7 +3584,7 @@
       "sha256": "bd9a64230a6d3b75c7963b7d5c5a3f1d6f395e78988763553d13a31df3953cda",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -3545,7 +3637,7 @@
       "sha256": "b12b86be038f07434001461b1e53000eb1eaa19a19a4de71e5aa7ef8bd3bd74d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3556,7 +3648,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3567,7 +3659,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3578,7 +3670,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3589,7 +3681,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -3600,7 +3692,7 @@
       "sha256": "6f41804d9f7093b9b1e4c35391ab45022cd2e5d9db9e6d1320a40e3a791c4918",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -3744,7 +3836,7 @@
       "sha256": "dd6745f21851c7d5c20032cf7c8f3fff65718fd9ea4dc61989e26bbb4c2cb933",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -4159,7 +4251,7 @@
       "sha256": "79c6092a12a6b0e519bd63821ae487d29d3c18f67cf72cf0e5845fbd06011107",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -4385,7 +4477,7 @@
       "sha256": "3f42cc4ec6792363b6da7de51d85b24e0ebce5d25a00b2f4969e094f4b53e023",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -4396,7 +4488,7 @@
       "sha256": "38c772bbcef7911e1d1a7bf752e0baced11555b08caed999f92027559d854d3a",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -4920,7 +5012,7 @@
       "sha256": "4144735f19756e3cfe170c27fef0c64f595aeae68f08b64ad2c338d14f78b5a7",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -4975,7 +5067,7 @@
       "sha256": "eac6decb00de7b925df7689aca7b0813c33688c531c5d0be353de0d11da956db",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -5026,56 +5118,21 @@
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "f7a857affd0fefd815382bd80fed4366b1ba70ddf00ea386ee86d3262bf84858",
+      "sha256": "3619903b1f795f0da45b3caff3b04e63a5bf07db8bec2e2d4f0e7e8f07ff21c9",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "last_changed": "2026-11-13",
-      "events": [
+      "last_seen": "2026-11-14",
+      "last_changed": "2026-11-14",
+      "events": [],
+      "seen": [
         {
-          "ref": "e1",
-          "parent_ref": null,
-          "title": {
-            "de": "37. Spitzbubenturnier",
-            "en": "37th Spitzbubenturnier (judo tournament)"
-          },
-          "description": {
-            "de": "Judoturnier der Judoabteilung des TSV Peiting, ganztägig.",
-            "en": "Judo tournament organised by the TSV Peiting judo department, all day."
-          },
-          "venue": {
-            "name": null,
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-11-21",
-            "end_date": null,
-            "start_time": null,
-            "end_time": null,
-            "all_day": true,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "sports",
-          "tags": [
-            "sports"
-          ],
+          "id": "2026-11-21-judo-37-spitzbubenturnier-mu14-mu17-peiting",
           "status": "scheduled",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "http://www.judo-peiting.de",
-              "primary": true
-            },
-            {
-              "url": "https://judo-peiting.de/event/37-spitzbubenturnier/",
-              "primary": false
-            }
-          ]
+          "start_date": null,
+          "start_time": null,
+          "source_url": "http://www.judo-peiting.de"
         }
-      ],
-      "seen": []
+      ]
     },
     "http://www.kleintierzuchtverein-peiting.de": {
       "mode": "text",
@@ -5083,7 +5140,7 @@
       "sha256": "62c0e19285bfc3c33c50483b9032898fab1d0ffd68eb02d274baa821c3550d8b",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -5094,7 +5151,7 @@
       "sha256": "26b9385ee556fa2c3df9aae8462a8f7c982a1425845dec88218660b430ed4183",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -5105,7 +5162,7 @@
       "sha256": "7d24e78e9d6114357cdd67b488c1c9ab59ba094eb052d0b46fa6f97157c1b84a",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -5116,7 +5173,7 @@
       "sha256": "da1476f5b8a1c66e980d8a08a877767f02e45a994f6f79a08de16f1dd75382c2",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -5181,7 +5238,7 @@
       "sha256": "3761800d26965afb9591280ef7c5c3a370163c5b63d8ee4625d1dd37523705af",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -5506,7 +5563,7 @@
       "sha256": "fd18aa5a74acdccb16294fc1f15c7a54bad2e00d8b637265fd5783de65d06dc4",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -5517,7 +5574,7 @@
       "sha256": "bd12d16bbdf31ceb5e6e4d56ffae904a07b8fd7a506551d6bdf87a3cb25c9c5d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
