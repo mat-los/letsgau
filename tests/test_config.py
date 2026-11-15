@@ -49,7 +49,7 @@ def test_typo_reports_line_and_field(instance_config_text: str) -> None:
 
 
 def test_a_municipality_needs_a_name_or_a_postcode(instance_config_text: str) -> None:
-    text = instance_config_text.replace('{ name: "Altenstadt", postcode: "86972" }', "{ }")
+    text = instance_config_text.replace('{ name: "Hohenfurch", postcode: "86978" }', "{ }")
     assert any("name, a postcode or both" in p for p in _problems(text))
 
 

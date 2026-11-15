@@ -415,6 +415,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- CI: tests that read the bundled instance config expect Schwabniederhofen as a
+  separate district of Altenstadt (they failed after it was added).
 - Search: a hit of a multi-day event is still listed on its first day only, but now
   says that it goes on, as on the day pages: an end badge ("bis 20.11.") for an event
   that runs every day, a "+N Termine" badge and the next dates for a series (#119).
