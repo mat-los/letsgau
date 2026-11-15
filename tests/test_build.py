@@ -351,7 +351,39 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
     html = page(site, "de/2026-11-14")
     assert "&#34;day&#34;:&#34;Zum Tag&#34;" in html
     assert 'id="results"' in html and "assets/search.js" in html
-    assert (site / "assets" / "search.js").stat().st_size < 5_000
+    assert (site / "assets" / "search.js").stat().st_size < 5_500
+
+
+def test_search_hit_says_that_it_lasts_beyond_its_day() -> None:
+    """#119: a multi-day hit is listed on its first day only, so it says it goes on."""
+    daily = ev(start_time="10:00", end_date="2026-11-20")
+    daily.id = "daily"
+    series = ev(
+        start_time="20:00", end_date="2026-11-28", dates=["2026-11-14", "2026-11-21", "2026-11-28"]
+    )
+    series.id = "series"
+    last = ev(start_date="2026-11-12", end_date="2026-11-14")
+    last.id = "last"
+    single = ev(start_time="19:00")
+    single.id = "single"
+    days = [SATURDAY.fromordinal(SATURDAY.toordinal() + i) for i in range(21)]
+    site = build.Site(
+        config=load_config(CONFIG_PATH),
+        events=[daily, series, last, single],
+        places=None,
+        today=SATURDAY,
+        days=days,
+        generated_at=NOW,
+    )
+    hits = {e["h"]: e for e in build.search_index(site, "de")["events"]}
+    assert hits["daily"]["u"] == ""  # the time column shows only times
+    assert hits["daily"]["r"] == "bis 20.11." and "c" not in hits["daily"]
+    assert hits["last"]["r"] == "letzter Tag"
+    assert hits["series"]["c"] == "+2 Termine"
+    assert hits["series"]["m"] == "Weitere Termine: Sa 21.11. 20:00, Sa 28.11. 20:00"
+    assert not {"r", "c", "m"} & hits["single"].keys()
+    en = {e["h"]: e for e in build.search_index(site, "en")["events"]}
+    assert en["series"]["c"] == "+2 dates"
 
 
 def build_days() -> list[date]:

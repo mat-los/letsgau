@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `region.municipalities[].separate`: districts that count as an area of their
   own (own group on the website, own entry in the crawl and discovery prompts,
   never merged with events of the parent municipality). The bundled instance
-  lists Herzogsägmühle under Peiting.
+  lists Herzogsägmühle under Peiting and Schwabniederhofen under Altenstadt.
 - Bundled instance: Peiting (86971) and Hohenfurch (86978) added to
   `region.municipalities`.
 - `site.goatcounter`: optional cookieless visitor counting with GoatCounter.
@@ -415,6 +415,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Search: a hit of a multi-day event is still listed on its first day only, but now
+  says that it goes on, as on the day pages: an end badge ("bis 20.11.") for an event
+  that runs every day, a "+N Termine" badge and the next dates for a series (#119).
 - "Fehlt mein Event?": the numbered list was broken by the new Instagram note
   (wrong indentation); the note is now its own list item.
 - Phone, light mode: the category/grouping strip is light again (since the pinned

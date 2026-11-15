@@ -435,12 +435,14 @@ def venue_line(event: Event) -> str:
 def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
-    Entry keys: ``d`` day, ``u`` time column (start time, or "until ..." for an event that
-    runs every day), ``n`` title, ``p`` place, ``g`` tags, ``h`` link anchor, ``t``
-    description, ``v`` venue line, ``l`` primary source URL (``t``, ``v``, ``l`` for the
-    expanded hit), ``s`` folded search text (title, place, venue, description, main event and
-    the category names in every language), ``x`` status (only when not scheduled: cancelled,
-    postponed, unconfirmed).
+    Entry keys: ``d`` day, ``u`` time column (start time or empty), ``n`` title, ``p`` place,
+    ``g`` tags, ``h`` link anchor, ``t`` description, ``v`` venue line, ``l`` primary source
+    URL (``t``, ``v``, ``l`` for the expanded hit), ``s`` folded search text (title, place,
+    venue, description, main event and the category names in every language), ``x`` status
+    (only when not scheduled: cancelled, postponed, unconfirmed). A hit that lasts beyond its
+    day says so (#119): ``r`` the end badge of an event that runs every day ("bis 20.11."),
+    or for a series with gaps ``c`` the number of later dates ("+3 Termine") and ``m`` the
+    next ones ("Weitere Termine: ...").
     """
     t = Texts(load_i18n(lang))
     by_id = {e.id: e for e in site.events}
@@ -456,12 +458,17 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
             continue
         parent = by_id.get(event.parent_id) if event.parent_id else None
         time = time_on(event, day)
-        if time is not None:
-            when = time
-        elif runs_daily(event):
-            when = t("until_short", date=format_date(t, event.schedule.last_date, "short"))
-        else:
-            when = ""
+        lasts: dict[str, Any] = {}
+        if runs_daily(event):
+            last = event.schedule.last_date
+            lasts["r"] = (
+                t("last_day")
+                if last == day
+                else t("until_short", date=format_date(t, last, "short"))
+            )
+        elif later := len({d for d in event.schedule.dates or () if d > day}):
+            lasts["c"] = t("later_dates", count=later) if later > 1 else t("later_date")
+            lasts["m"] = more_dates(t, event, day)
         anchor = event.id
         if parent is not None and not active_on(parent, day):
             anchor = ""  # shown as a standalone copy there, which has no anchor
@@ -483,7 +490,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                 sort_key(event, day),
                 {
                     "d": day.isoformat(),
-                    "u": when,
+                    "u": time or "",
                     "n": getattr(event.title, lang),
                     "p": event.venue.place,
                     "g": event.tags,
@@ -492,6 +499,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                     "v": venue_line(event),
                     "l": next((s.url for s in event.sources if s.primary), event.sources[0].url),
                     "s": fold(text),
+                    **lasts,
                     **(
                         {"x": event.status.value}
                         if event.status is not EventStatus.SCHEDULED

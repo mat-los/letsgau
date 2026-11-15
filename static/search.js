@@ -56,8 +56,11 @@
         var c = el("details", "ev t-" + e.g[0] + (e.x ? " st-" + e.x : "")), s = el("summary"), b = el("div", "body");
         s.appendChild(el("span", "time" + (/:/.test(e.u) ? "" : " untimed"), e.u));
         s.appendChild(el("span", "title", e.n)); s.appendChild(el("span", "place", e.p));
-        if (e.x) { var m = el("span", "meta"); m.appendChild(el("span", "badge " + e.x, L[e.x])); s.appendChild(m); }
+        var m = el("span", "meta"); s.appendChild(m);  /* status; lasts beyond this day (#119) */
+        if (e.x) m.appendChild(el("span", "badge " + e.x, L[e.x]));
+        if (e.r || e.c) m.appendChild(el("span", e.r ? "span" : "prog", e.r || e.c));
         b.appendChild(el("p", "desc", e.t)); if (e.v) b.appendChild(el("p", "venue", e.v));
+        if (e.m) b.appendChild(el("p", "until", e.m));
         var p = el("p", "src", L.source + ": "), a = el("a", "", e.l.replace(/^https?:\/\//, ""));
         a.href = e.l; a.rel = "nofollow noopener"; a.target = "_blank"; p.appendChild(a); b.appendChild(p);
         a = el("a", "to-day", L.day + " →"); a.href = root + lang + "/" + e.d + "/" + (e.h ? "#" + e.h : "");

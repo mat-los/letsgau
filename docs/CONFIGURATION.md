@@ -49,15 +49,16 @@ Notes for the geo stage (see [OPERATIONS.md](OPERATIONS.md#geo-stage)):
   by place on the website, its own entry in the crawl and discovery prompts,
   and events there are never merged with similar events of the parent
   municipality. Use it for a district that is a destination in itself (e.g.
-  Herzogsägmühle, a village of Peiting). The geo log warns if the name is not
-  found. Changing the list triggers geo + discovery.
+  Herzogsägmühle, a village of Peiting, or Schwabniederhofen in Altenstadt).
+  The geo log warns if the name is not found. Changing the list triggers geo +
+  discovery.
 
 ```yaml
 region:
   label: "Schongau"
   municipalities:
     - { name: "Schongau", postcode: "86956" }
-    - { name: "Altenstadt", postcode: "86972" }
+    - { name: "Altenstadt", postcode: "86972", separate: ["Schwabniederhofen"] }
     - { name: "Peiting", postcode: "86971", separate: ["Herzogsägmühle"] }
 ```
 
