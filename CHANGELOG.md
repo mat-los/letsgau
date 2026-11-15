@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Review of 2026-11-15 (`docs/reviews/2026-11-15-product-review.md`): cost, Instagram API
+  use, design, event quality and feature suggestions.
 - `region.municipalities[].separate`: districts that count as an area of their
   own (own group on the website, own entry in the crawl and discovery prompts,
   never merged with events of the parent municipality). The bundled instance
