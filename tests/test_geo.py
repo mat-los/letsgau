@@ -91,7 +91,7 @@ def test_places_of_the_municipalities_in_config_order(config: Config, tmp_path: 
     assert [(p.name, p.municipality) for p in places.places] == [
         ("Schongau", "Schongau"),
         ("Altenstadt", "Altenstadt"),  # main place first
-        ("Schwabniederhofen", "Altenstadt"),
+        ("Schwabniederhofen", "Schwabniederhofen"),  # separate district: an area of its own
     ]
     assert places.municipalities == [
         "Schongau 86956",
@@ -143,6 +143,16 @@ def test_a_legacy_file_is_recomputed_without_forcing_discovery(
                 "drive_time_minutes": 7.8,
                 "origin": "include",
                 "municipality": "Altenstadt",
+            },
+            {
+                "name": "Schwabniederhofen",
+                "osm_id": "node/5",
+                "place_type": "village",
+                "lat": 47.8,
+                "lon": 10.9,
+                "drive_time_minutes": 8.1,
+                "origin": "area",
+                "municipality": "Schwabniederhofen",
             },
         ],
     }
