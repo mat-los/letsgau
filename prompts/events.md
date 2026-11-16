@@ -209,7 +209,19 @@ separate entry at its new date).
   up to the end of the window.
 - Regular church services (Sunday or weekday masses, regular worship) are not events. Special
   services and religious occasions are: e.g. St. Martin's procession, Advent or Taizé prayers,
-  pilgrimages, patronal and parish festivals, special services for an occasion.
+  pilgrimages, patronal and parish festivals, special services for an occasion (Christmette, a
+  Festgottesdienst with choir or orchestra, a service with a concert, children's Bible days).
+- "kind" says what an entry is:
+  - "event": a dated happening open to the public with its own programme, which someone would
+    plan to attend (concert, festival, market, performance, film, talk, party, tournament,
+    first-team match, guided tour, exhibition, special service).
+  - "routine": the same thing every week or month without a programme of its own (prayer groups,
+    Bible study, weekly club, youth or senior groups such as a games afternoon or a lunch,
+    regular training, public skating hours, lower-league, reserve and youth matches).
+  - "course": a course or workshop that needs a booking (cooking, language, yoga, vhs).
+  - "offer": not an event (a menu special or theme dinner without a programme, a discount or
+    free entry, opening hours of a museum, pool or sauna, an appointment such as a badge test, a
+    collection, helpers preparing an event). Report it with "kind": "offer"; it is not listed.
 - Only individual events. Never report a summary entry for a venue or a calendar, such as
   "Kino-Programm", "aktuelle Filme", "Veranstaltungen im November" or "Ausstellungen im Museum".
   For a cinema, report each film as its own entry with the film in the title; a film shown on
@@ -245,12 +257,18 @@ separate entry at its new date).
 {%- endfor %}
 {%- if tags | selectattr("id", "equalto", "seniors") | list %}
   Events made for older people (Seniorennachmittag, Seniorenclub, Seniorentreff, courses for
-  seniors) also get "seniors".
+  seniors) also get "seniors". Only these: an event that seniors may like too (a Christmas
+  market, a concert) does not get "seniors".
 {%- endif %}
 {%- if tags | selectattr("id", "equalto", "religion") | list %}
   An event organised by a parish, church or religious community (in a church or parish hall, or
   announced by a parish) also gets "religion" as one of its tags, even when another category is
-  the main one (e.g. a parish painting group: "art-culture" and "religion").
+  the main one (e.g. a parish painting group: "art-culture" and "religion"). "religion" is the
+  primary tag only for worship and religious occasions; a church concert is "concert".
+{%- endif %}
+{%- if tags | selectattr("id", "equalto", "market-festival") | list %}
+  A commemoration (Volkstrauertag, Totenehrung) is not "art-culture". A Christmas market is
+  "market-festival".
 {%- endif %}
 - Status: "scheduled" normally, "cancelled" if the event is called off, "postponed" if it moved;
   for a postponed event also report the new date in "postponed_to_date" and add the event at its

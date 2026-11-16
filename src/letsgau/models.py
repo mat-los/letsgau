@@ -26,6 +26,18 @@ class EventStatus(StrEnum):
     UNCONFIRMED = "unconfirmed"
 
 
+class EventKind(StrEnum):
+    """What kind of entry an event is; the site folds ``routine`` and ``course`` entries."""
+
+    EVENT = "event"
+    """A one-off or special occasion: concert, festival, market, performance, talk."""
+    ROUTINE = "routine"
+    """Recurring routine: regular worship and prayer groups, weekly club or senior groups,
+    training, lower-league and youth matches."""
+    COURSE = "course"
+    """A course or workshop that needs a booking."""
+
+
 class SourceKind(StrEnum):
     MUNICIPALITY = "municipality"
     CLUB = "club"
@@ -209,6 +221,8 @@ class Event(_DataModel):
     primary_tag: str
     tags: list[str] = Field(min_length=1, max_length=3)
     status: EventStatus = EventStatus.SCHEDULED
+    kind: EventKind | None = None
+    """``None``: not classified yet (files from before the field; the merge classifies them)."""
     postponed_to: str | None = None
     sources: list[EventSource] = Field(min_length=1)
     first_seen: date

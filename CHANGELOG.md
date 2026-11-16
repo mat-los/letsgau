@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `sources.venues_file` (`instance/sources/venues.yaml`): venues and the place they are in.
+  A known venue overrides the place the AI gave a new event, and stored events are moved
+  (or dropped, for `place: null`) on the next events run. Seeded with Gasthof Janser
+  (Schwabniederhofen), the Jakob-Pfeiffer-Haus and two Herzogsägmühle venues.
+- Events get a `kind`: `event`, `routine` or `course`. The crawl reports it, and entries it
+  calls `offer` (menu specials, discounts, opening hours, appointments) are dropped. The day
+  pages show routine entries and courses folded at the end as "Regelmäßiges & Kurse".
+  Stored events without a kind are classified once by the merge model, which also
+  re-checks the primary tag of new events (e.g. a Christmas market is not *Senioren*).
+- Job summary: one line with the share of each kind and of religion as primary tag in the
+  display window, and the number of offers dropped.
 - Review of 2026-11-15 (`docs/reviews/2026-11-15-product-review.md`): cost, Instagram API
   use, design, event quality and feature suggestions.
 - `region.municipalities[].separate`: districts that count as an area of their
@@ -186,6 +197,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Crawl prompt: a definition of "event" (special services that count, such as the
+  Christmette or a Festgottesdienst with choir), the `kind` field, and tag rules: *Senioren*
+  only for events made for older people, *Religion* as primary tag only for worship, a
+  commemoration is not *Kunst & Kultur*.
 - Instance: the Peiting youth centre's Instagram account is read on every run.
 - A source becomes `dormant` only if its 3 runs without an event span at least
   7 days (new `empty_since` in `sources.json`, optional). Manual runs close

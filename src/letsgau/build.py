@@ -34,7 +34,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoes
 
 from letsgau import feeds
 from letsgau.config import DEFAULT_CONFIG_PATH, Config, find_placeholders
-from letsgau.models import Event, EventsFile, EventStatus, PlacesFile
+from letsgau.models import Event, EventKind, EventsFile, EventStatus, PlacesFile
 from letsgau.util import DATA_DIR
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -213,6 +213,8 @@ class DayView:
     day: date
     rows: list[Row]
     count: int
+    routine: list[Row] = field(default_factory=list)
+    """Routine entries and courses (``Event.kind``), shown folded after the other rows."""
 
 
 def sort_key(event: Event, day: date | None = None) -> tuple[bool, str, str]:
@@ -249,7 +251,13 @@ def day_view(events: Sequence[Event], day: date) -> DayView:
     for row in rows:
         row.children = children.get(row.event.id, [])
     count = len(rows) + sum(len(r.children) for r in rows)
-    return DayView(day=day, rows=rows + copies, count=count)
+    folded = [r for r in rows if r.event.kind in FOLDED_KINDS]
+    main = [r for r in rows if r.event.kind not in FOLDED_KINDS]
+    return DayView(day=day, rows=main + copies, count=count, routine=folded)
+
+
+FOLDED_KINDS = (EventKind.ROUTINE, EventKind.COURSE)
+"""Kinds shown folded at the end of a day ("Regelmäßiges & Kurse")."""
 
 
 # --- rendering ----------------------------------------------------------------------

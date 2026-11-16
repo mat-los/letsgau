@@ -24,7 +24,17 @@ from letsgau.crawl import (
     slugify,
     to_event,
 )
-from letsgau.models import Event, EventsFile, EventStatus, Place, PlacesFile, State, Usage
+from letsgau.models import (
+    Event,
+    EventKind,
+    EventsFile,
+    EventStatus,
+    Place,
+    PlacesFile,
+    State,
+    Usage,
+)
+from test_merge import ev as merge_ev
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = REPO_ROOT / "tests" / "fixtures" / "crawl"
@@ -71,6 +81,7 @@ def make_config(tmp_path: Path, sweeps: int = 0, store_days: int = 28, **limits:
             "whitelist_file": str(FIXTURES / "whitelist.yaml"),
             "blacklist_file": str(FIXTURES / "blacklist.yaml"),
             "flyers_file": "",
+            "venues_file": "",
             "instagram_file": "",
         }
     )
@@ -1050,3 +1061,94 @@ def test_events_from_social_posts_are_not_rechecked(tmp_path: Path, data_dir: Pa
     recheck = next(r.prompt for r in runner.requests if "(recheck" in r.step)
     assert post.title.de not in recheck.split("## Known events to re-check")[1]
     assert crawl._from_social_post(post) and not crawl._from_social_post(deep[1])
+
+
+# --- kind of entry, venues file ---------------------------------------------------------
+
+
+def test_kind_is_taken_and_offers_are_dropped(config: Config) -> None:
+    assert _to_event(config, _candidate()).kind is None  # answers cached before the field
+    assert _to_event(config, _candidate(kind="routine")).kind is EventKind.ROUTINE
+    with pytest.raises(ValueError, match=r"not an event \(offer\)"):
+        _to_event(config, _candidate(kind="offer"))
+    schema = crawl.answer_schema(["sports"])["properties"]["events"]["items"]
+    assert schema["properties"]["kind"]["enum"] == ["event", "routine", "course", "offer"]
+    assert "kind" in schema["required"]
+
+
+def _venue_index(*entries: crawl.VenueEntry) -> PlaceIndex:
+    places = [
+        Place(name=n, osm_id="node/1", place_type="village", lat=0, lon=0) for n in PLACE_NAMES
+    ]
+    return PlaceIndex(places, entries)
+
+
+def test_a_known_venue_overrides_the_place(config: Config) -> None:
+    index = _venue_index(
+        crawl.VenueEntry(name="Gasthof Janser", place="Altenstadt"),
+        crawl.VenueEntry(name="Stadthalle Weilheim", place=None),
+        crawl.VenueEntry(name="Nirgendwo-Saal", place="Atlantis"),
+    )
+    assert index.warnings == [
+        "venues: place 'Atlantis' of 'Nirgendwo-Saal' is not in the area; ignored"
+    ]
+    assert index.venue("Gasthof Janser, Schwabniederhofen") == (True, "Altenstadt")
+    assert index.venue("Stadthalle  WEILHEIM") == (True, None)
+    assert index.venue("Pfarrsaal") == (False, None)
+    assert index.venue(None) == (False, None)
+
+    def make(venue: str) -> Event:
+        cand = _candidate(venue={"name": venue, "place": "Schongau", "address": None})
+        return to_event(cand, config=config, places=index, blocked=[], today=TODAY)
+
+    assert make("Gasthof Janser").venue.place == "Altenstadt"
+    assert make("Pfarrsaal").venue.place == "Schongau"
+    with pytest.raises(ValueError, match="outside the area"):
+        make("Stadthalle Weilheim")
+
+
+def test_stored_events_are_moved_by_the_venues_file() -> None:
+    index = _venue_index(
+        crawl.VenueEntry(name="Gasthof Janser", place="Altenstadt"),
+        crawl.VenueEntry(name="Stadthalle Weilheim", place=None),
+    )
+
+    def stored(title: str, venue: str) -> Event:
+        return merge_ev(title, "2026-12-31", venue={"name": venue, "place": "Schongau"})
+
+    events, changes = crawl.relocate(
+        [
+            stored("Silvester", "Gasthof Janser"),
+            stored("Konzert", "Stadthalle Weilheim"),
+            stored("Markt", "Marienplatz"),
+        ],
+        index,
+    )
+    assert [(e.title.de, e.venue.place) for e in events] == [
+        ("Silvester", "Altenstadt"),
+        ("Markt", "Schongau"),
+    ]
+    assert changes == [
+        "moved 'Silvester' from Schongau to Altenstadt",
+        "removed 'Konzert': venue 'Stadthalle Weilheim' is outside",
+    ]
+
+
+def test_kind_shares_line() -> None:
+    def make(title: str, kind: str | None, tag: str = "concert") -> Event:
+        return merge_ev(title, "2026-11-10", kind=kind, primary_tag=tag, tags=[tag])
+
+    events = [
+        make("Konzert", "event"),
+        make("Gottesdienst", "routine", "religion"),
+        make("Kochkurs", "course"),
+        make("Alt", None),
+        merge_ev("Später", "2027-01-10"),  # outside the display window
+    ]
+    line = crawl.kind_shares(events, TODAY, 21, offers=2)
+    assert line == (
+        "shown in the next 21 days: 4 entries, event 1 (25 %), routine 1 (25 %), "
+        "course 1 (25 %), unclassified 1; religion as primary tag 1 (25 %); "
+        "offers dropped in this run: 2"
+    )
+    assert crawl.kind_shares([], TODAY, 21) == "shown: no events in the display window"

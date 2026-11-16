@@ -204,6 +204,9 @@ class SourcesConfig(_Strict):
     instagram_file: str = ""
     """Instagram accounts read on every events run (``{username, places, note}``); empty =
     Instagram off (no reading, no mining of account names)."""
+    venues_file: str = ""
+    """Venues and the place they are in (``{name, place, note}``; ``place: null`` = outside
+    the area): a known venue overrides the place the AI gave. Empty = none."""
     instagram_candidates_file: str = ""
     """Candidate Instagram accounts (``{username, name, places, website, found_on}``), e.g.
     written by the scheduled lookup session; each is checked against its profile before it is

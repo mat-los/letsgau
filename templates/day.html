@@ -24,13 +24,20 @@
 {% block main %}
 <h1 class="day">{{ fmt(day) }} <small>{{ t('events_count', count=view.count) }}</small></h1>
 <div id="list" data-labels='{{ {"no_match": t("no_match"), "tags": tag_label} | tojson_compact }}'>
-{% if not view.rows %}
+{% if not view.rows and not view.routine %}
 <p class="empty">{{ t('no_events') }}</p>
 {% endif %}
 {% if view.rows %}
 <section class="sec">
 {% for r in view.rows %}{{ ev.row(r, day) }}{% endfor %}
 </section>
+{% endif %}
+{% if view.routine %}
+{#- routine entries and courses (Event.kind), folded; filters hide the box when none match -#}
+<details class="sec routine"{% if not view.rows %} open{% endif %}>
+<summary>{{ t('routine', count=view.routine | length) }}</summary>
+{% for r in view.routine %}{{ ev.row(r, day) }}{% endfor %}
+</details>
 {% endif %}
 <p class="empty nomatch" hidden>{{ t('no_match') }}</p>
 </div>

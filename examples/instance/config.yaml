@@ -58,6 +58,7 @@ sources:
   whitelist_file: "instance/sources/whitelist.yaml"   # always checked on every event run
   blacklist_file: "instance/sources/blacklist.yaml"   # never used as a source
   flyers_file: "instance/sources/flyers.yaml"         # pages read as images/PDFs (posters, flyers)
+  venues_file: "instance/sources/venues.yaml"         # venues and their place (overrides the place the AI gave)
   instagram_file: "instance/sources/instagram.yaml"   # Instagram accounts (needs the INSTAGRAM_* secrets)
   instagram_candidates_file: "instance/sources/instagram_candidates.yaml"  # unconfirmed accounts, checked by profile
 
