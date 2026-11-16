@@ -39,7 +39,7 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 from urllib.parse import urlsplit
 
 import yaml
@@ -57,6 +57,7 @@ from letsgau.ai_runner import FILES_DIR, AiError, AiRequest, Runner, make_runner
 from letsgau.config import Config
 from letsgau.models import (
     Event,
+    EventKind,
     EventsFile,
     EventSource,
     EventStatus,
@@ -181,7 +182,23 @@ class BlacklistEntry(_Strict):
         return self
 
 
-def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry, InstagramEntry)](
+class VenueEntry(_Strict):
+    """A venue and the place it is in (``sources.venues_file``); ``place: null`` = outside the
+    area. Matched on the venue name, ignoring case, spaces and punctuation; the entry's name
+    may be a part of the event's venue name ("Gasthof Janser" matches "Gasthof Janser,
+    Schwabniederhofen")."""
+
+    name: str = Field(min_length=4)
+    place: str | None
+    note: str = ""
+
+
+def load_venues(config: Config) -> list[VenueEntry]:
+    path = config.sources.venues_file
+    return _load_list(Path(path), VenueEntry) if path and Path(path).exists() else []
+
+
+def _load_list[T: (WhitelistEntry, FlyerEntry, BlacklistEntry, InstagramEntry, VenueEntry)](
     path: Path, model: type[T]
 ) -> list[T]:
     if not path.exists():
@@ -218,14 +235,36 @@ def event_id(start: date, title: str, place: str) -> str:
 
 
 class PlaceIndex:
-    """Maps place names from the AI to canonical names in ``places.json``."""
+    """Maps place names from the AI to canonical names in ``places.json``, and known venues
+    (``sources.venues_file``) to the place they are in."""
 
-    def __init__(self, places: Sequence[Place]) -> None:
+    def __init__(self, places: Sequence[Place], venues: Sequence[VenueEntry] = ()) -> None:
         self.names = {p.name.casefold(): p.name for p in places}
         # Municipality names are valid places too (e.g. Fuchstal has no place node).
         for place in places:
             if place.municipality:
                 self.names.setdefault(place.municipality.casefold(), place.municipality)
+        self.venues: list[tuple[str, str | None]] = []
+        """(venue key, canonical place or None for outside the area), longest key first."""
+        self.warnings: list[str] = []
+        for entry in venues:
+            place = self.resolve(entry.place) if entry.place else None
+            if entry.place and place is None:
+                self.warnings.append(
+                    f"venues: place {entry.place!r} of {entry.name!r} is not in the area; ignored"
+                )
+                continue
+            self.venues.append((merge.venue_key(entry.name), place))
+        self.venues.sort(key=lambda v: -len(v[0]))
+
+    def venue(self, name: str | None) -> tuple[bool, str | None]:
+        """``(True, place)`` for a known venue (place ``None``: outside the area), else
+        ``(False, None)``."""
+        key = merge.venue_key(name)
+        for known, place in self.venues if key else ():
+            if known and known in key:
+                return True, place
+        return False, None
 
     def resolve(self, name: str | None) -> str | None:
         if not name:
@@ -238,6 +277,25 @@ class PlaceIndex:
             if known.startswith(key + " ") or key.startswith(known + " "):
                 return canonical
         return None
+
+
+def relocate(events: Iterable[Event], index: PlaceIndex) -> tuple[list[Event], list[str]]:
+    """Apply the venues file to stored events: a known venue moves its events to its place,
+    and drops them if it is outside the area. Returns the events and a log line per change."""
+    kept: list[Event] = []
+    changes: list[str] = []
+    for event in events:
+        known, place = index.venue(event.venue.name)
+        if known and place is None:
+            changes.append(f"removed {event.title.de!r}: venue {event.venue.name!r} is outside")
+            continue
+        if known and place != event.venue.place:
+            changes.append(f"moved {event.title.de!r} from {event.venue.place} to {place}")
+            event = event.model_copy(
+                update={"venue": event.venue.model_copy(update={"place": place})}
+            )
+        kept.append(event)
+    return kept, changes
 
 
 # --- AI answer ----------------------------------------------------------------------
@@ -303,6 +361,7 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
             "primary_tag": tag,
             "tags": {"type": "array", "items": tag},
             "status": {"type": "string", "enum": ["scheduled", "cancelled", "postponed"]},
+            "kind": {"type": "string", "enum": ["event", "routine", "course", "offer"]},
             "postponed_to_date": _nullable(day),
             "sources": {
                 "type": "array",
@@ -324,6 +383,7 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
             "start_date": _nullable(day),
             "start_time": _nullable({"type": "string"}),
             "source_url": _nullable({"type": "string"}),
+            "kind": {"type": "string", "enum": ["event", "routine", "course", "offer"]},
             **({"file": {"type": "string", "enum": list(files)}} if files else {}),
         }
     )
@@ -355,6 +415,8 @@ class Candidate(BaseModel):
     primary_tag: str
     tags: list[str]
     status: EventStatus = EventStatus.SCHEDULED
+    kind: Literal["event", "routine", "course", "offer"] | None = None
+    """``None`` in answers cached before the field existed."""
     postponed_to_date: date | None = None
     sources: list[CandidateSource] = []
 
@@ -392,13 +454,19 @@ def to_event(
     pattern = config.excluded_title(candidate.title.de)
     if pattern is not None:
         raise ValueError(f"excluded title pattern {pattern!r}")
+    if candidate.kind == "offer":
+        raise ValueError("not an event (offer)")
     schedule = candidate.schedule
     if schedule.last_date < today:
         raise ValueError(f"already over ({schedule.last_date})")
     if schedule.start_date > store_end:
         raise ValueError(f"starts after store_days ({schedule.start_date})")
 
-    place = places.resolve(candidate.venue.place)
+    known_venue, place = places.venue(candidate.venue.name)
+    if known_venue and place is None:
+        raise ValueError(f"venue {candidate.venue.name!r} is outside the area (venues file)")
+    if place is None:
+        place = places.resolve(candidate.venue.place)
     if place is None and parent is not None:
         place = parent.venue.place
     if place is None:
@@ -439,6 +507,7 @@ def to_event(
         primary_tag=candidate.primary_tag,
         tags=tags,
         status=candidate.status,
+        kind=EventKind(candidate.kind) if candidate.kind else None,
         sources=[
             EventSource(url=u.url, primary=i == primary_index, first_seen=today, last_seen=today)
             for i, u in enumerate(urls)
@@ -536,11 +605,13 @@ def seen_events(
         url = str(item.get("source_url") or "").strip()
         if not url.startswith(("http://", "https://")) or is_blocked(url, blocked):
             url = next(src.url for src in event.sources if src.primary)
+        kind = item.get("kind")
         found.append(
             event.model_copy(
                 update={
                     "schedule": s.model_copy(update=update),
                     "status": status,
+                    "kind": EventKind(kind) if kind in EventKind._value2member_map_ else event.kind,
                     "sources": [
                         EventSource(url=url, primary=True, first_seen=today, last_seen=today)
                     ],
@@ -944,6 +1015,8 @@ class CrawlResult:
     swept: dict[str, str] = field(default_factory=dict)
     """Source URL -> ``events`` | ``empty`` | ``unreachable`` for every whitelist and known
     source a successful call of this run read (see :func:`discovery.record_sweeps`)."""
+    index: PlaceIndex | None = None
+    """Places and venues of this run (the merge applies the venues file to stored events)."""
 
 
 def _same_source(url: str, checked: str) -> bool:
@@ -976,14 +1049,15 @@ def crawl(
     blacklist = _load_list(Path(config.sources.blacklist_file), BlacklistEntry)
     blocked = sorted({e.domain for e in blacklist if e.domain})
     existing = load_json(data_dir / "events.json", EventsFile, CrawlError)
-    known = [e for e in (existing.events if existing else []) if e.parent_id is None]
+    index = PlaceIndex(places_file.places, load_venues(config))
+    stored, _ = relocate(existing.events if existing else [], index)
+    known = [e for e in stored if e.parent_id is None]
 
     groups = group_places(places_file.places)
     skipped: list[str] = []
     if limit_places is not None:
         skipped = [g.name for g in groups[limit_places:]]
         groups = groups[:limit_places]
-    index = PlaceIndex(places_file.places)
     flyer_list = flyers.load_flyers(config)
     batches = make_batches(groups, config.limits.places_per_request, whitelist, known, flyer_list)
     from letsgau import discovery  # late import: discovery imports this module
@@ -1005,7 +1079,9 @@ def crawl(
     usage = Usage()
     events: dict[str, Event] = {}
     reports: list[BatchReport] = []
-    warnings: list[str] = []
+    warnings: list[str] = list(index.warnings)
+    if config.sources.venues_file and not Path(config.sources.venues_file).exists():
+        warnings.append(f"{config.sources.venues_file} not found; no venue corrections")
     if config.sources.flyers_file and not Path(config.sources.flyers_file).exists():
         warnings.append(f"{config.sources.flyers_file} not found; no flyer pages are read")
     fetch = fetch or flyers.http_fetch
@@ -1360,6 +1436,7 @@ def crawl(
             update={"updated_at": datetime.now(UTC).replace(microsecond=0)}
         ),
         swept=swept,
+        index=index,
     )
 
 
@@ -1555,6 +1632,11 @@ def run(
 
     events_path = data_dir / "events.json"
     existing = load_json(events_path, EventsFile, CrawlError)
+    if existing is not None and result.index is not None:
+        relocated, changes = relocate(existing.events, result.index)
+        for line in changes:
+            print(f"crawl: venues: {line}")
+        existing = existing.model_copy(update={"events": relocated})
     report = merge.MergeReport()
     merged = merge.apply(
         existing,
@@ -1564,7 +1646,9 @@ def run(
         municipality_of=result.municipality_of,
         deep_check_days=config.window.deep_check_days,
         unconfirmed_after=config.events.unconfirmed_after_misses,
-        decide=merge.ai_decider(runner, config.models.merge, config.excluded_topics),
+        decide=merge.ai_decider(
+            runner, config.models.merge, config.excluded_topics, config.tag_ids
+        ),
         report=report,
         excluded_title=config.excluded_title,
     )
@@ -1574,7 +1658,12 @@ def run(
         f"({len(report.merged_fuzzy)} by similarity), {len(report.cancelled)} cancelled, "
         f"{len(report.postponed)} postponed, {len(report.unconfirmed)} now unconfirmed, "
         f"{len(report.excluded)} excluded by topic, {len(report.deleted)} past deleted"
+        + (f", {len(report.retagged)} retagged" if report.retagged else "")
     )
+    offers = sum("(offer)" in r.reason for b in result.batches for r in b.rejected) + sum(
+        reason == merge.OFFER for reason in report.excluded.values()
+    )
+    print(f"crawl: {kind_shares(merged.events, today, config.window.display_days, offers)}")
     if not dry_run:
         write_json(events_path, merged.model_dump(mode="json", by_alias=True))
         if result.flyer_cache is not None and result.flyer_cache.files:
@@ -1610,6 +1699,32 @@ def run(
         )
         print(f"crawl: wrote {events_path} ({len(merged.events)} events)")
     return result
+
+
+FOLDABLE_KINDS = (EventKind.EVENT, EventKind.ROUTINE, EventKind.COURSE)
+"""The kinds a stored event can have (``offer`` is removed by the merge)."""
+
+
+def kind_shares(events: Sequence[Event], today: date, days: int, offers: int = 0) -> str:
+    """One summary line on what the calendar shows in its display window: entries by kind,
+    the share of religion as primary tag, and the offers dropped in this run."""
+    end = today + timedelta(days=days)
+    shown = [e for e in events if e.schedule.start_date < end and e.schedule.last_date >= today]
+    if not shown:
+        return "shown: no events in the display window"
+    by_kind = {k: sum(e.kind is k for e in shown) for k in FOLDABLE_KINDS}
+    unclassified = sum(e.kind is None for e in shown)
+    religion = sum(e.primary_tag == "religion" for e in shown)
+
+    def pct(n: int) -> str:
+        return f"{n} ({round(100 * n / len(shown))} %)"
+
+    return (
+        f"shown in the next {days} days: {len(shown)} entries, "
+        + ", ".join(f"{k.value} {pct(n)}" for k, n in by_kind.items())
+        + (f", unclassified {unclassified}" if unclassified else "")
+        + f"; religion as primary tag {pct(religion)}; offers dropped in this run: {offers}"
+    )
 
 
 # --- source check (letsgau sources) -----------------------------------------------------

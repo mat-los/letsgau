@@ -1,0 +1,18 @@
+# Venues and the place they are in. A known venue overrides the place the AI gave an event
+# (a regional calendar often lists an event on the page of a neighbouring municipality), and
+# stored events are moved on the next events run. `place: null` = outside the area: events
+# there are dropped. Matching ignores case, spaces and punctuation; the name may be a part of
+# the event's venue name ("Gasthof Janser" also matches "Gasthof Janser, Schwabniederhofen").
+# Use specific names only: "Marienplatz" or "Pfarrsaal" exist in several places.
+# Format: list of { name, place, note }.
+- name: "Gasthof Janser"
+  place: "Schwabniederhofen"
+  note: "inn in Schwabniederhofen; filed under Schongau by a listing"
+- name: "Jakob-Pfeiffer-Haus"
+  place: "Schongau"
+  note: "VdK and senior events; once filed under Altenstadt"
+- name: "Martinskirche Herzogsägmühle"
+  place: "Herzogsägmühle"
+  note: "church of the Diakoniedorf; concerts were filed under Schongau"
+- name: "Café und Wirtshaus Herzog"
+  place: "Herzogsägmühle"

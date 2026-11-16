@@ -1,0 +1,7 @@
+# Venues and the place they are in. A known venue overrides the place the AI gave an event
+# (a regional calendar often lists an event on the page of a neighbouring municipality), and
+# stored events are moved on the next events run. `place: null` = outside the area: events
+# there are dropped. Matching ignores case, spaces and punctuation; the name may be a part of
+# the event's venue name. Use specific names only ("Marienplatz" exists in many places).
+# Format: list of { name, place, note }.
+[]

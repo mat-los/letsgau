@@ -170,9 +170,18 @@ python -m letsgau run --job events --dry-run --limit-places 3
 - `LETSGAU_RECORD_DIR=dir` saves every raw AI answer (for test fixtures).
 - The merge runs in the same stage (also with `--dry-run`, which then only
   prints its summary): `merge: N new, N updated (N by similarity), N cancelled,
-  N postponed, N now unconfirmed, N excluded by topic, N past deleted`.
-  Unclear duplicates and the topic check of new events cost one call to the
-  merge model (Haiku) per run; if that call fails, unclear pairs stay separate.
+  N postponed, N now unconfirmed, N excluded by topic, N past deleted, N retagged`.
+  Unclear duplicates, the topic check of new events and the classification of
+  new events and of stored events without a `kind` (kind, primary tag) cost
+  one call to the merge model (Haiku) per run; if that call fails, unclear
+  pairs stay separate and nothing is reclassified. Only the crawl model removes
+  entries as offers (`removed '…': not an event (offer)`): it read the source,
+  the merge model sees one line per event.
+  After it, one line shows what the site lists in its display window:
+  `crawl: shown in the next 21 days: N entries, event N (x %), routine N (x %),
+  course N (x %); religion as primary tag N (x %); offers dropped in this run: N`.
+  Before the merge, the venues file (`sources.venues_file`) is applied to the
+  stored events: `crawl: venues: moved '…' from Schongau to Schwabniederhofen`.
   Merged without that call: a title similarity of at least 0.85 (words of the
   place and venue names and prefixes like "Film:" do not count), and pairs in
   the same slot (day, start time, municipality) that share a source page and

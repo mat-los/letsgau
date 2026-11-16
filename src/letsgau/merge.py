@@ -32,7 +32,15 @@ from difflib import SequenceMatcher
 from typing import Any
 
 from letsgau.build import hours_today
-from letsgau.models import Event, EventsFile, EventSource, EventStatus, OpeningHours, Schedule
+from letsgau.models import (
+    Event,
+    EventKind,
+    EventsFile,
+    EventSource,
+    EventStatus,
+    OpeningHours,
+    Schedule,
+)
 from letsgau.util import PROMPTS_DIR, UMLAUTS, logger, prompt_env
 
 CLEAR = 0.85
@@ -146,7 +154,8 @@ def _times_on_shared_days(a: Event, b: Event) -> list[tuple[date, int, int]]:
     return result
 
 
-def _venue_key(name: str | None) -> str:
+def venue_key(name: str | None) -> str:
+    """Venue name as lower-case letters and digits (``Gasthof Janser`` -> ``gasthofjanser``)."""
     text = unicodedata.normalize("NFKD", (name or "").lower().translate(UMLAUTS))
     return "".join(re.findall(r"[a-z0-9]+", text.encode("ascii", "ignore").decode()))
 
@@ -163,10 +172,10 @@ def same_place(new: Event, old: Event, municipality_of: Mapping[str, str] | None
     place_b = m.get(old.venue.place, old.venue.place).casefold()
     if place_a == place_b:
         return True
-    venue = _venue_key(new.venue.name)
+    venue = venue_key(new.venue.name)
     return (
         bool(venue)
-        and venue == _venue_key(old.venue.name)
+        and venue == venue_key(old.venue.name)
         and bool({s.url for s in new.sources} & {s.url for s in old.sources})
     )
 
@@ -318,6 +327,7 @@ def combine(old: Event, new: Event) -> Event:
             **texts,
             "id": old.id,
             "status": status,
+            "kind": new.kind or old.kind,
             "schedule": schedule,
             "tags": merge_tags(new, old),
             "sources": merge_sources(old.sources, new.sources),
@@ -345,13 +355,24 @@ class Decisions:
     """Numbers of the pairs that are the same event."""
     excluded: dict[str, str] = field(default_factory=dict)
     """Event id -> matching excluded topic."""
+    kinds: dict[str, str] = field(default_factory=dict)
+    """Event id -> ``event`` | ``routine`` | ``course`` (classification task)."""
+    primary: dict[str, str] = field(default_factory=dict)
+    """Event id -> the primary tag the merge model would give it."""
 
 
-Decide = Callable[[Sequence[Pair], Sequence[Event]], Decisions]
-"""AI step: (unclear pairs, new events) -> decisions."""
+Decide = Callable[..., Decisions]
+"""AI step: ``(unclear pairs, events for the topic check, events to classify) -> decisions``;
+the third argument is optional."""
+
+OFFER = "not an event (offer)"
+"""Reason for a known event the crawl found again and called an offer (``MergeReport.excluded``).
+Only the crawl model, which read the source, removes entries as offers: the merge model sees one
+line per event and, in the live test, called a Christmas market and themed sauna nights offers."""
+KINDS = ("event", "routine", "course")
 
 
-def decision_schema() -> dict[str, Any]:
+def decision_schema(tag_ids: Sequence[str] = ()) -> dict[str, Any]:
     pair = {
         "type": "object",
         "properties": {"pair": {"type": "integer"}, "same_event": {"type": "boolean"}},
@@ -364,35 +385,59 @@ def decision_schema() -> dict[str, Any]:
         "required": ["id", "topic"],
         "additionalProperties": False,
     }
+    classified = {
+        "type": "object",
+        "properties": {
+            "id": {"type": "string"},
+            "kind": {"type": "string", "enum": list(KINDS)},
+            "primary_tag": {"type": "string", **({"enum": list(tag_ids)} if tag_ids else {})},
+        },
+        "required": ["id", "kind", "primary_tag"],
+        "additionalProperties": False,
+    }
     return {
         "type": "object",
         "properties": {
             "pairs": {"type": "array", "items": pair},
             "excluded": {"type": "array", "items": excluded},
+            "classified": {"type": "array", "items": classified},
         },
-        "required": ["pairs", "excluded"],
+        "required": ["pairs", "excluded", "classified"],
         "additionalProperties": False,
     }
 
 
-def render_prompt(pairs: Sequence[Pair], new_events: Sequence[Event], topics: Sequence[str]) -> str:
+def render_prompt(
+    pairs: Sequence[Pair],
+    new_events: Sequence[Event],
+    topics: Sequence[str],
+    classify: Sequence[Event] = (),
+    tag_ids: Sequence[str] = (),
+) -> str:
     env = prompt_env(PROMPTS_DIR)
-    return env.get_template("merge.md").render(pairs=pairs, new_events=new_events, topics=topics)
+    return env.get_template("merge.md").render(
+        pairs=pairs, new_events=new_events, topics=topics, classify=classify, tag_ids=tag_ids
+    )
 
 
-def ai_decider(runner: Any, model: str, topics: Sequence[str]) -> Decide:
+def ai_decider(
+    runner: Any, model: str, topics: Sequence[str], tag_ids: Sequence[str] = ()
+) -> Decide:
     """A :data:`Decide` that asks the merge model in one call per run."""
     from letsgau.ai_runner import AiError, AiRequest
 
-    def decide(pairs: Sequence[Pair], new_events: Sequence[Event]) -> Decisions:
+    def decide(
+        pairs: Sequence[Pair], new_events: Sequence[Event], classify: Sequence[Event] = ()
+    ) -> Decisions:
         check = list(new_events) if topics else []
-        if not pairs and not check:
+        classify = list(classify)
+        if not pairs and not check and not classify:
             return Decisions()
         request = AiRequest(
             step="merge",
             model=model,
-            prompt=render_prompt(pairs, check, topics),
-            schema=decision_schema(),
+            prompt=render_prompt(pairs, check, topics, classify, tag_ids),
+            schema=decision_schema(tag_ids),
             web=False,
         )
         try:
@@ -401,6 +446,8 @@ def ai_decider(runner: Any, model: str, topics: Sequence[str]) -> Decide:
             _log(f"AI tie-break failed, unclear pairs are kept separate: {exc}")
             return Decisions()
         known_ids = {e.id for e in check}
+        listed = {e.id for e in classify}
+        answers = [x for x in data.get("classified") or [] if x.get("id") in listed]
         return Decisions(
             same={int(p["pair"]) for p in data.get("pairs", []) if p.get("same_event")},
             excluded={
@@ -408,13 +455,21 @@ def ai_decider(runner: Any, model: str, topics: Sequence[str]) -> Decide:
                 for x in data.get("excluded", [])
                 if x.get("id") in known_ids
             },
+            kinds={x["id"]: x["kind"] for x in answers if x.get("kind") in KINDS},
+            primary={
+                x["id"]: x["primary_tag"]
+                for x in answers
+                if x.get("primary_tag") and (not tag_ids or x["primary_tag"] in tag_ids)
+            },
         )
 
     return decide
 
 
-def no_ai(_pairs: Sequence[Pair], _new: Sequence[Event]) -> Decisions:
-    """Decider without AI: unclear pairs stay separate, no topic check."""
+def no_ai(
+    _pairs: Sequence[Pair], _new: Sequence[Event], _classify: Sequence[Event] = ()
+) -> Decisions:
+    """Decider without AI: unclear pairs stay separate, no topic check, no classification."""
     return Decisions()
 
 
@@ -433,6 +488,22 @@ class MergeReport:
     missed: list[str] = field(default_factory=list)
     unconfirmed: list[str] = field(default_factory=list)
     deleted: list[str] = field(default_factory=list)
+    retagged: list[tuple[str, str, str]] = field(default_factory=list)
+    """(id, old primary tag, new primary tag) changed by the classification task."""
+    classified: list[str] = field(default_factory=list)
+    """Ids of events that got their ``kind`` from the merge model."""
+
+
+def classify(event: Event, kind: str | None, primary: str | None) -> Event:
+    """Set an unclassified event's kind and move ``primary`` to the front of its tags (at most
+    :data:`MAX_TAGS`)."""
+    update: dict[str, Any] = {}
+    if event.kind is None and kind in ("event", "routine", "course"):
+        update["kind"] = EventKind(kind)
+    if primary and primary != event.primary_tag:
+        tags = [primary, *(t for t in event.tags if t != primary)][:MAX_TAGS]
+        update |= {"primary_tag": primary, "tags": tags}
+    return event.model_copy(update=update) if update else event
 
 
 def apply(
@@ -514,11 +585,15 @@ def apply(
         if target[i] is None:
             pool[event.id] = event
 
-    # 2. One AI call: unclear pairs and the topic check of new events.
+    # 2. One AI call: unclear pairs, the topic check of new events and the classification
+    #    (kind, primary tag) of new events and of stored events without a kind.
     new_events = [e for i, e in enumerate(crawled) if target[i] is None]
     # stored events are checked too, so a topic added to excluded_topics later also removes
     # what is already in the calendar (cheap: one line per event for the merge model)
-    decisions = decide([*stored_pairs, *pairs], [*new_events, *open_events])
+    unclassified = [e for e in open_events if e.kind is None]
+    decisions = decide(
+        [*stored_pairs, *pairs], [*new_events, *open_events], [*new_events, *unclassified]
+    )
     alias: dict[str, str] = {}  # removed stored duplicate -> kept stored event
     for pair in [*clear_stored, *stored_pairs]:
         if pair.number and pair.number not in decisions.same:
@@ -578,6 +653,24 @@ def apply(
         _log(f"removed {events[key].title.de!r}: excluded topic {decisions.excluded[key]!r}")
         del events[key]
         found.discard(key)
+
+    for key in [k for k, e in events.items() if e.kind is EventKind.OFFER]:
+        report.excluded[key] = OFFER
+        _log(f"removed {events[key].title.de!r}: {OFFER}")
+        del events[key]
+        found.discard(key)
+
+    for key, kind in decisions.kinds.items():
+        if key not in events:
+            continue
+        before = events[key]
+        events[key] = classify(before, kind, decisions.primary.get(key))
+        if before.kind is None and events[key].kind is not None:
+            report.classified.append(key)
+        if events[key].primary_tag != before.primary_tag:
+            new_tag = events[key].primary_tag
+            report.retagged.append((key, before.primary_tag, new_tag))
+            _log(f"{before.title.de!r}: primary tag {before.primary_tag} -> {new_tag}")
 
     for key in found:
         status = events[key].status

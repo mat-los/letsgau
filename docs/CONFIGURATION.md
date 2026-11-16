@@ -129,7 +129,7 @@ optional; the defaults are the thorough settings.
 ## `sources`
 
 Paths of `whitelist_file`, `blacklist_file` and (optional) `flyers_file`,
-`instagram_file` and `instagram_candidates_file`.
+`venues_file`, `instagram_file` and `instagram_candidates_file`.
 
 ```yaml
 # whitelist.yaml – always checked explicitly on every event run
@@ -159,6 +159,21 @@ page order (no logos, icons, SVG/GIF or images under 20 KB; robots.txt is
 respected), and one AI call per page, without web access, reads them and
 extracts the events. The URL may also point straight to an image or PDF. An
 empty `flyers_file` or a missing file means no flyer pages (the crawl warns).
+
+`venues_file` names venues and the place they are in:
+
+```yaml
+- name: "Gasthof Janser"
+  place: "Schwabniederhofen"  # a place or municipality of the area; null = outside
+  note: "filed under Schongau by a listing"
+```
+
+A known venue overrides the place the AI gave an event, both for new events
+and, on the next events run, for stored ones; a venue with `place: null` drops
+its events. The name is matched ignoring case, spaces and punctuation, and may
+be a part of the event's venue name. Use specific names only: "Marienplatz" or
+"Pfarrsaal" exist in several places. A place that is not in the area is
+ignored with a warning; a missing file means no corrections (the crawl warns).
 
 `{municipality_slug}` is replaced by the slug of each municipality (lower case,
 umlauts as `ae`/`oe`/`ue`/`ss`, spaces as `-`), restricted to `places` if given.

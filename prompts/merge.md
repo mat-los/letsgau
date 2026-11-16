@@ -40,3 +40,34 @@ and the topic. Only clear cases; when in doubt, keep the event.
 
 Answer "excluded" with an empty list.
 {%- endif %}
+{%- if classify %}
+
+## Task 3: kind and main category
+
+For every entry below, answer in "classified" with its id:
+
+- "kind":
+  - "event": a dated happening open to the public with its own programme, which someone
+    would plan to attend: concerts, festivals, markets, performances, films, talks, parties,
+    tournaments and first-team matches, guided tours, exhibitions, special services
+    (Christmette, a Festgottesdienst with choir or orchestra, a service with a concert,
+    children's Bible days, processions, pilgrimages).
+  - "routine": the same thing every week or month without a programme of its own: regular
+    worship, prayer groups, Bible study, Eucharistic adoration, weekly club, youth or senior
+    groups (games afternoons, lunch, handicrafts), regular training, public skating hours,
+    lower-league, reserve and youth matches.
+  - "course": a course or workshop that needs a booking (cooking, brewing, language, yoga,
+    painting, vhs courses), also with several dates.
+  When in doubt, "event". A Christmas market, a themed night or a party is an event.
+- "primary_tag": the main category, one of: {{ tag_ids | join(", ") }}. Keep the given one
+  unless it is clearly wrong. "seniors" only for events made specifically for older people.
+  "religion" as the main category only for worship and religious occasions; a church concert is
+  "concert". A commemoration (Volkstrauertag, Totenehrung) is not "art-culture": use "religion"
+  when it is a service, otherwise "talk-workshop". A Christmas market is "market-festival".
+{% for event in classify %}
+- {{ event.id }} | {{ event.title.de }} | {{ event.venue.name or "" }}, {{ event.venue.place }} | tags: {{ event.tags | join(", ") }} (main: {{ event.primary_tag }}){% if event.schedule.dates %} | {{ event.schedule.dates | length }} dates{% endif %} | {{ event.description.de }}
+{%- endfor %}
+{%- else %}
+
+Answer "classified" with an empty list.
+{%- endif %}
