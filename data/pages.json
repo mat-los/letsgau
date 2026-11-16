@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T09:39:45Z",
+  "updated_at": "2026-11-16T12:10:04Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -789,43 +789,87 @@
     "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982": {
       "mode": "text",
       "reason": "",
-      "sha256": "3fe71115b20f41b235a9b2799ac8597e6bdcf3b5db359c1dd286ca964eeb3dfb",
+      "sha256": "747a22d14523b63a0b21c67c5692c453206aa108673054ea42f684ab1576084e",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-16",
       "last_changed": "2026-11-16",
       "events": [
         {
-          "ref": "e6",
+          "ref": "e1",
           "parent_ref": null,
           "title": {
-            "de": "Singkreis",
-            "en": "Singing circle"
+            "de": "Gottesdienst zum 1. Advent mit Abendmahl",
+            "en": "First Advent Service with Communion"
           },
           "description": {
-            "de": "Offener Singkreis im Evangelischen Gemeindehaus Schongau unter Leitung von Till Twardy.",
-            "en": "Singing circle in the Protestant parish hall in Schongau, led by Till Twardy."
+            "de": "Gottesdienst mit Abendmahl und Einführung der Sekretärinnen, anschließend Kirchenkaffee.",
+            "en": "Service with communion and introduction of the parish secretaries, followed by church coffee."
           },
           "venue": {
-            "name": "Evang. Gemeindehaus Schongau (Saal)",
+            "name": "Dreifaltigkeitskirche Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-29",
+            "end_date": null,
+            "start_time": "10:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+              "primary": true
+            },
+            {
+              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157412.html?popup=3",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Kirchenkonzert – Swing im Advent",
+            "en": "Church Concert – Swing in Advent"
+          },
+          "description": {
+            "de": "Adventliches Kirchenkonzert mit Swing in der Dreifaltigkeitskirche.",
+            "en": "Advent church concert with swing music in the Dreifaltigkeitskirche."
+          },
+          "venue": {
+            "name": "Dreifaltigkeitskirche Schongau",
             "place": "Schongau",
             "address": null
           },
           "schedule": {
             "start_date": "2026-12-01",
             "end_date": null,
-            "start_time": "18:30",
+            "start_time": "19:30",
             "end_time": null,
             "all_day": false,
             "dates": null,
             "opening_hours": null
           },
-          "primary_tag": "art-culture",
+          "primary_tag": "concert",
           "tags": [
-            "art-culture",
+            "concert",
             "religion"
           ],
           "status": "scheduled",
+          "kind": "event",
           "postponed_to_date": null,
           "sources": [
             {
@@ -833,93 +877,7 @@
               "primary": true
             },
             {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8000203.html?popup=3",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e7",
-          "parent_ref": null,
-          "title": {
-            "de": "(R)Auszeit: Mikro-Pilgern im Forchetwald",
-            "en": "(R)Auszeit: micro pilgrimage in the Forchet forest"
-          },
-          "description": {
-            "de": "Eine Stunde Morgenrunde als Mikro-Pilgern auf Wald- und Feldwegen, Treffpunkt Parkplatz Forchetwald.",
-            "en": "One-hour morning micro pilgrimage on forest and field paths, meeting at the Forchetwald car park."
-          },
-          "venue": {
-            "name": "Parkplatz Forchetwald (Ecke Säulingstr./Zugspitzstr.)",
-            "place": "Forchet",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-05",
-            "end_date": null,
-            "start_time": "09:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "outdoor",
-          "tags": [
-            "outdoor",
-            "religion"
-          ],
-          "status": "scheduled",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-              "primary": true
-            },
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8303487.html?popup=3",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e8",
-          "parent_ref": null,
-          "title": {
-            "de": "Kirche Kunterbunt – Café Kunterbunt Adventswerkstatt",
-            "en": "Kirche Kunterbunt – Café Kunterbunt Advent workshop"
-          },
-          "description": {
-            "de": "Adventswerkstatt der Kirche Kunterbunt in der Freien evangelischen Gemeinde Schongau.",
-            "en": "Advent workshop of Kirche Kunterbunt at the Free Evangelical Church in Schongau."
-          },
-          "venue": {
-            "name": "Freie evang. Gemeinde FEG",
-            "place": "Schongau",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-05",
-            "end_date": null,
-            "start_time": "15:00",
-            "end_time": "18:00",
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "family-kids",
-          "tags": [
-            "family-kids",
-            "religion"
-          ],
-          "status": "scheduled",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-              "primary": true
-            },
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8303768.html?popup=3",
+              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8308103.html?popup=3",
               "primary": false
             }
           ]
@@ -931,49 +889,72 @@
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "routine"
         },
         {
           "id": "2026-11-18-oekumenischer-kinderbibeltag-daniel-im-schutz-der-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-11-18-bewegungsgottesdienst-zum-buss-und-bettag-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-11-20-oekumenisches-abendgebet-altenstadt",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-11-22-ewigkeitssonntag-gottesdienst-mit-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-01-singkreis-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "routine"
+        },
+        {
+          "id": "2026-12-05-r-auszeit-mikro-pilgern-im-forchetwald",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982"
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         }
       ]
     },
@@ -1692,7 +1673,7 @@
     "https://www.bayregio-wm.de/veranstaltungen/": {
       "mode": "text",
       "reason": "",
-      "sha256": "6ce80c1d7edd5ebdb85fd19a71028bd806b5c0e3fcb5e11a39483e6b36042d2a",
+      "sha256": "6b3ef80ca7e5ed9fd357769bd98f8c14431f8ed5546f841e6779b7efd0882db2",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-16",
@@ -1704,7 +1685,8 @@
           "status": "scheduled",
           "start_date": null,
           "start_time": "11:00",
-          "source_url": "https://www.bayregio-wm.de/veranstaltungen/"
+          "source_url": "https://www.bayregio-wm.de/veranstaltungen/",
+          "kind": "event"
         }
       ]
     },
@@ -1886,7 +1868,7 @@
     "https://meine-flohmarkt-termine.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "6a73cad12547ceb9834a8e7445026391c589b7d63f063b273981fb7504342c91",
+      "sha256": "dd4bef4be4cc38d04fab877aae0d87f81f12a3161eb7f76b6de39f1dd0e00b3b",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-16",
@@ -3823,7 +3805,7 @@
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "2e964982df527cb94e07bcb5167b5d15e76542ece045b82aac46cc88b520f883",
+      "sha256": "9afc41b71f51bedbabf199c71bce7617b5b03d67b2d3ee6efc0f4540bca3e844",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-16",
@@ -3835,7 +3817,8 @@
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
-          "source_url": "http://www.judo-peiting.de"
+          "source_url": "http://www.judo-peiting.de",
+          "kind": "event"
         }
       ]
     },

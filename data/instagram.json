@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T09:39:45Z",
+  "updated_at": "2026-11-16T12:10:04Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -3753,6 +3753,65 @@
           "sources": [
             {
               "url": "https://www.instagram.com/p/Dfy4VEdiu2A/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18241064767321183": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DfzUGv8lMTl/",
+      "posted": "2026-11-16",
+      "version": 1,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "events": []
+    },
+    "18138004204661907": {
+      "username": "lagerhausschongau",
+      "permalink": "https://www.instagram.com/reel/DfzJX6PtcQZ/",
+      "posted": "2026-11-16",
+      "version": 1,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Dinner & Dance mit DJ Blastom",
+            "en": "Dinner & Dance with DJ Blastom"
+          },
+          "description": {
+            "de": "Restaurant- und Barbetrieb ab 18 Uhr, ab 21 Uhr legt DJ Blastom House, Hip-Hop und Charts auf.",
+            "en": "Restaurant and bar from 6 pm; from 9 pm DJ Blastom plays house, hip-hop and charts."
+          },
+          "venue": {
+            "name": "Lagerhaus Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-21",
+            "end_date": null,
+            "start_time": "21:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "food-drink"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/DfzJX6PtcQZ/",
               "primary": true
             }
           ]

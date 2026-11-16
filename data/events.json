@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T09:40:33Z",
+  "updated_at": "2026-11-16T12:12:54Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -38,6 +38,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -109,6 +110,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -166,6 +168,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -224,6 +227,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -293,6 +297,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -369,6 +374,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -485,6 +491,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -589,6 +596,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -636,6 +644,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -747,6 +756,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -811,7 +821,8 @@
         "theatre-cinema",
         "market-festival"
       ],
-      "status": "scheduled",
+      "status": "unconfirmed",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -835,7 +846,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 1
+      "misses": 2
     },
     {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
@@ -872,6 +883,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -943,6 +955,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -1008,6 +1021,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1078,6 +1092,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1116,12 +1131,14 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "art-culture",
+      "primary_tag": "talk-workshop",
       "tags": [
+        "talk-workshop",
         "art-culture",
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1144,49 +1161,6 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-14",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-15-volkstrauertag-der-veteranen-hohenfurch",
-      "parent_id": null,
-      "title": {
-        "de": "Volkstrauertag der Veteranen",
-        "en": "Volkstrauertag (Remembrance Day) by the veterans"
-      },
-      "description": {
-        "de": "Gedenken zum Volkstrauertag, veranstaltet von den Veteranen Hohenfurch; danach folgt die Jahreshauptversammlung (nur intern).",
-        "en": "Remembrance Day commemoration held by the Hohenfurch veterans; a members-only annual meeting follows afterwards."
-      },
-      "venue": {
-        "name": null,
-        "place": "Hohenfurch",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-15",
-        "end_date": null,
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
-        }
-      ],
-      "first_seen": "2026-11-13",
       "last_verified": "2026-11-14",
       "misses": 0
     },
@@ -1220,6 +1194,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1269,6 +1244,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -1318,6 +1294,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -1361,6 +1338,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1411,6 +1389,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1479,6 +1458,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1528,6 +1508,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1595,6 +1576,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1657,6 +1639,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1706,13 +1689,14 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "food-drink",
+      "primary_tag": "sports",
       "tags": [
+        "sports",
         "food-drink",
-        "family-kids",
-        "talk-workshop"
+        "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -1723,6 +1707,67 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-16",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-16-adventskranzbinden-im-pfarrsaal-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Adventskranzbinden",
+        "en": "Advent Wreath Making"
+      },
+      "description": {
+        "de": "Helfer binden Adventskränze für den Adventsbasar; Kaffee und Kuchen gibt es dazu.",
+        "en": "Helpers make Advent wreaths for the Advent bazaar; coffee and cake provided."
+      },
+      "venue": {
+        "name": "Pfarrsaal Verklärung Christi",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-18",
+        "start_time": "14:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids",
+        "talk-workshop"
+      ],
+      "status": "scheduled",
+      "kind": "course",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.pg-schongau.com/pfarrbrief/",
+          "primary": true,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/46_So-32.pdf",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-16",
       "last_verified": "2026-11-16",
       "misses": 0
     },
@@ -1756,6 +1801,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1805,6 +1851,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -1860,6 +1907,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -1904,6 +1952,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -1965,6 +2014,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2010,6 +2060,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2056,6 +2107,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2129,6 +2181,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2173,6 +2226,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -2237,6 +2291,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2256,6 +2311,12 @@
           "primary": false,
           "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/allgemeiner-lauf-in-der-peitinger-eishalle-ed32d7d8a1b944e26fb4509dca50dadb0.html",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
         }
       ],
       "first_seen": "2026-11-13",
@@ -2267,11 +2328,11 @@
       "parent_id": null,
       "title": {
         "de": "Ökumenischer Kinderbibeltag: Daniel – im Schutz der Engel",
-        "en": "Ecumenical children's Bible day: Daniel"
+        "en": "Ecumenical Children's Bible Day: Daniel – Protected by Angels"
       },
       "description": {
-        "de": "Kinderbibeltag im katholischen Pfarrsaal.",
-        "en": "Children's Bible day in the Catholic parish hall."
+        "de": "Kinderbibeltag am Buß- und Bettag mit ökumenischem Team im Katholischen Pfarrsaal.",
+        "en": "Children's Bible day on Repentance Day run by an ecumenical team in the Catholic parish hall."
       },
       "venue": {
         "name": "Katholischer Pfarrsaal",
@@ -2293,6 +2354,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2317,64 +2379,6 @@
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": false,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-18-museum-im-kloesterle-peiting",
-      "parent_id": null,
-      "title": {
-        "de": "Museum im Klösterle",
-        "en": "Museum im Klösterle"
-      },
-      "description": {
-        "de": "Besuch des kleinen Heimatmuseums in Peiting mit Exponaten, präsentiert von ehrenamtlichen Mitarbeitern.",
-        "en": "Visit the small local museum in Peiting with historic exhibits presented by volunteers."
-      },
-      "venue": {
-        "name": "Museum im Klösterle",
-        "place": "Peiting",
-        "address": "Kapellenstr. 1, 86971 Peiting"
-      },
-      "schedule": {
-        "start_date": "2026-11-18",
-        "end_date": "2026-11-25",
-        "start_time": "14:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-11-18",
-          "2026-11-25"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "art-culture",
-      "tags": [
-        "art-culture"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-e0daf4af6ed82134338505e4638282919.html",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "primary": false,
-          "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
         }
       ],
@@ -2414,6 +2418,7 @@
         "seniors"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2464,6 +2469,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -2513,6 +2519,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2563,6 +2570,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2616,6 +2624,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2660,6 +2669,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2704,50 +2714,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-19-abnahmetermin-jugendschwimm-abzeichen-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Abnahmetermin Jugendschwimm-Abzeichen",
-        "en": "Youth swimming badge tests"
-      },
-      "description": {
-        "de": "Abnahme des Jugendschwimm-Abzeichens im Plantsch.",
-        "en": "Youth swimming badge examination at Plantsch."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-19",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": "17:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.plantsch.de/service/veranstaltungen/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
       "id": "2026-11-19-vorstellung-notfallmappe-schongau",
       "parent_id": null,
       "title": {
@@ -2778,6 +2744,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2834,6 +2801,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2908,12 +2876,13 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "sports",
       "tags": [
-        "talk-workshop",
-        "sports"
+        "sports",
+        "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -2963,6 +2932,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -3012,6 +2982,7 @@
         "talk-workshop"
       ],
       "status": "unconfirmed",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3023,7 +2994,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 12
+      "misses": 13
     },
     {
       "id": "2026-11-20-familien-helfen-familien-weihnachtspaeckchen-schongau",
@@ -3069,6 +3040,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3118,6 +3090,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -3198,6 +3171,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -3231,8 +3205,8 @@
         "en": "Film of the Month"
       },
       "description": {
-        "de": "Filmabend im Rainer-Endisch-Saal in Herzogsägmühle.",
-        "en": "Film evening in the Rainer-Endisch-Saal in Herzogsägmühle."
+        "de": "Filmabend der evangelischen Kirchengemeinde im Rainer-Endisch-Saal.",
+        "en": "Film evening by the Protestant parish in the Rainer-Endisch-Saal."
       },
       "venue": {
         "name": "Rainer-Endisch-Saal",
@@ -3254,6 +3228,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3309,6 +3284,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3352,7 +3328,7 @@
         "en": "Ecumenical evening prayer in the basilica."
       },
       "venue": {
-        "name": "Basilika Altenstadt",
+        "name": "Basilika",
         "place": "Altenstadt",
         "address": null
       },
@@ -3373,6 +3349,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3446,6 +3423,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3501,6 +3479,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3552,6 +3531,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3650,6 +3630,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3715,6 +3696,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3845,6 +3827,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3888,6 +3871,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -3956,6 +3940,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4006,6 +3991,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4050,6 +4036,7 @@
         "seniors"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4093,6 +4080,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4137,6 +4125,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4182,6 +4171,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4225,6 +4215,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4239,15 +4230,60 @@
       "misses": 0
     },
     {
+      "id": "2026-11-21-dinner-dance-mit-dj-blastom-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Dinner & Dance mit DJ Blastom",
+        "en": "Dinner & Dance with DJ Blastom"
+      },
+      "description": {
+        "de": "Restaurant- und Barbetrieb ab 18 Uhr, ab 21 Uhr legt DJ Blastom House, Hip-Hop und Charts auf.",
+        "en": "Restaurant and bar from 6 pm; from 9 pm DJ Blastom plays house, hip-hop and charts."
+      },
+      "venue": {
+        "name": "Lagerhaus Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-21",
+        "end_date": null,
+        "start_time": "21:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/DfzJX6PtcQZ/",
+          "primary": true,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-16",
+      "last_verified": "2026-11-16",
+      "misses": 0
+    },
+    {
       "id": "2026-11-22-ewigkeitssonntag-mit-verstorbenengedenken-peiting",
       "parent_id": null,
       "title": {
         "de": "Gottesdienst zum Ewigkeitssonntag mit Verstorbenengedenken",
-        "en": "Eternity Sunday service with remembrance of the deceased"
+        "en": "Eternity Sunday Service with Remembrance of the Departed"
       },
       "description": {
-        "de": "Gedenkgottesdienst in der Christuskirche.",
-        "en": "Memorial service in the Christuskirche."
+        "de": "Gottesdienst zum Ewigkeitssonntag in der Christuskirche mit Gedenken der Verstorbenen.",
+        "en": "Eternity Sunday service in the Christuskirche remembering the departed."
       },
       "venue": {
         "name": "Christuskirche",
@@ -4268,6 +4304,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4323,6 +4360,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4347,11 +4385,11 @@
       "parent_id": null,
       "title": {
         "de": "Gottesdienst zum Ewigkeitssonntag mit Verstorbenengedenken",
-        "en": "Eternity Sunday service with remembrance of the deceased"
+        "en": "Eternity Sunday Service with Remembrance of the Departed"
       },
       "description": {
-        "de": "Gedenkgottesdienst in der Martinskirche.",
-        "en": "Memorial service in the Martinskirche."
+        "de": "Gottesdienst zum Ewigkeitssonntag in der Martinskirche mit Gedenken der Verstorbenen.",
+        "en": "Eternity Sunday service in the Martinskirche remembering the departed."
       },
       "venue": {
         "name": "Martinskirche",
@@ -4372,6 +4410,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4394,105 +4433,6 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-22-oekumenische-gedenkfeier-fuer-verstorbene-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner",
-        "en": "Ecumenical Memorial Service for Deceased Residents"
-      },
-      "description": {
-        "de": "Ökumenische Gedenkfeier für verstorbene Heimbewohner im Altenheim.",
-        "en": "Ecumenical memorial service for deceased care home residents."
-      },
-      "venue": {
-        "name": "Altenheim",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-22",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.pg-schongau.com/pfarrbrief/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/47_So-33.pdf",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-22-allgemeiner-lauf-in-der-peitinger-eishalle",
-      "parent_id": null,
-      "title": {
-        "de": "Allgemeiner Lauf in der Peitinger Eishalle",
-        "en": "Public ice skating in the Peiting ice rink"
-      },
-      "description": {
-        "de": "Öffentlicher Eislauf in der Eissporthalle Peiting.",
-        "en": "Public skating session at the Peiting ice sports hall."
-      },
-      "venue": {
-        "name": "Eissporthalle Peiting",
-        "place": "Peiting",
-        "address": "Alfons-Peter-Str. 4, 86971 Peiting"
-      },
-      "schedule": {
-        "start_date": "2026-11-22",
-        "end_date": null,
-        "start_time": "15:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "primary": true,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/allgemeiner-lauf-in-der-peitinger-eishalle-ed32d7d8a1b944e26fb4509dca50dadb0.html",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-16",
       "last_verified": "2026-11-16",
       "misses": 0
     },
@@ -4526,6 +4466,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4569,6 +4510,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -4613,6 +4555,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4668,6 +4611,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4736,6 +4680,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4784,6 +4729,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -4804,7 +4750,7 @@
       "misses": 0
     },
     {
-      "id": "2026-11-25-museum-im-kloesterle-ein-ausflug-in-die-peiting",
+      "id": "2026-11-18-museum-im-kloesterle-peiting",
       "parent_id": null,
       "title": {
         "de": "Museum im Klösterle... ein Ausflug in die Vergangenheit",
@@ -4836,11 +4782,24 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/museum-im-kloesterle-ein-ausflug-in-die-vergangenheit-e0daf4af6ed82134338505e4638282919.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
+          "primary": false,
           "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
         },
@@ -4851,7 +4810,7 @@
           "last_seen": "2026-11-16"
         }
       ],
-      "first_seen": "2026-11-16",
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-16",
       "misses": 0
     },
@@ -4886,6 +4845,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4948,6 +4908,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -5004,6 +4965,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5069,6 +5031,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5120,6 +5083,7 @@
         "seniors"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5172,6 +5136,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -5246,6 +5211,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5289,6 +5255,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5332,6 +5299,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5409,12 +5377,13 @@
           }
         ]
       },
-      "primary_tag": "family-kids",
+      "primary_tag": "market-festival",
       "tags": [
-        "family-kids",
-        "market-festival"
+        "market-festival",
+        "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5505,6 +5474,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5571,6 +5541,7 @@
         "outdoor"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5680,6 +5651,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5723,6 +5695,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5767,6 +5740,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -5810,6 +5784,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5854,6 +5829,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5913,6 +5889,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5998,6 +5975,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6071,6 +6049,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6114,6 +6093,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6158,6 +6138,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6202,6 +6183,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6245,6 +6227,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -6288,6 +6271,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -6332,6 +6316,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6387,6 +6372,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6430,6 +6416,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6473,6 +6460,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6516,6 +6504,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -6565,6 +6554,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6608,6 +6598,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6651,6 +6642,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6666,80 +6658,6 @@
     },
     {
       "id": "2026-11-29-1-advent-gottesdienst-mit-projektchor-herzogsaegmuehle",
-      "parent_id": null,
-      "title": {
-        "de": "Adventsgottesdienst mit Gospelchor",
-        "en": "Advent service with gospel choir"
-      },
-      "description": {
-        "de": "Gottesdienst zum 1. Advent in der Martinskirche, gestaltet vom Gospelchorprojekt mit Mondi Benoit.",
-        "en": "First Advent service at Martinskirche with the gospel choir project led by Mondi Benoit."
-      },
-      "venue": {
-        "name": "Martinskirche Herzogsägmühle",
-        "place": "Herzogsägmühle",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-29",
-        "end_date": null,
-        "start_time": "10:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion",
-        "concert"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
-        },
-        {
-          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157398.html?popup=3",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
-        },
-        {
-          "url": "https://www.schongau-evangelisch.de/",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.schongau-evangelisch.de/gospelchorprojekt-im-herbst",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-29-gospelgottesdienst-in-der-martinskirche-herzogsaegmuehle",
       "parent_id": null,
       "title": {
         "de": "Gospelgottesdienst in der Martinskirche",
@@ -6769,16 +6687,47 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157398.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-14"
+        },
+        {
+          "url": "https://www.schongau-evangelisch.de/",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.schongau-evangelisch.de/gospelchorprojekt-im-herbst",
+          "primary": false,
           "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
         }
       ],
-      "first_seen": "2026-11-16",
+      "first_seen": "2026-11-13",
       "last_verified": "2026-11-16",
       "misses": 0
     },
@@ -6812,12 +6761,25 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
           "url": "https://www.schongau-evangelisch.de/",
           "primary": true,
           "first_seen": "2026-11-12",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8157412.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
         }
       ],
@@ -6855,6 +6817,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6898,6 +6861,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6941,6 +6905,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6984,6 +6949,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7047,6 +7013,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7102,6 +7069,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7146,6 +7114,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -7196,6 +7165,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7212,6 +7182,57 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-16",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-01-kirchenkonzert-swing-im-advent-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Kirchenkonzert – Swing im Advent",
+        "en": "Church Concert – Swing in Advent"
+      },
+      "description": {
+        "de": "Adventliches Kirchenkonzert mit Swing in der Dreifaltigkeitskirche.",
+        "en": "Advent church concert with swing music in the Dreifaltigkeitskirche."
+      },
+      "venue": {
+        "name": "Dreifaltigkeitskirche Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-01",
+        "end_date": null,
+        "start_time": "19:30",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "religion"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "primary": true,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8308103.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-16",
       "last_verified": "2026-11-16",
       "misses": 0
     },
@@ -7247,6 +7268,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7297,6 +7319,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -7380,13 +7403,14 @@
           }
         ]
       },
-      "primary_tag": "seniors",
+      "primary_tag": "market-festival",
       "tags": [
-        "seniors",
         "market-festival",
+        "seniors",
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7449,6 +7473,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7498,6 +7523,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7547,6 +7573,7 @@
         "concert"
       ],
       "status": "postponed",
+      "kind": "event",
       "postponed_to": "2027-03-12-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
       "sources": [
         {
@@ -7570,51 +7597,6 @@
         {
           "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
           "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-05-freier-eintritt-fuer-ehrenamtskarte-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Freier Eintritt für Ehrenamtskarte-Inhaber",
-        "en": "Free admission for Ehrenamtskarte holders"
-      },
-      "description": {
-        "de": "Freier Eintritt in Bad und Sauna für Inhaber der Ehrenamtskarte.",
-        "en": "Free entry to pool and sauna for volunteer card holders."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": "09:00",
-        "end_time": "22:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "food-drink",
-        "sports"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.plantsch.de/service/veranstaltungen/",
-          "primary": true,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-16"
         }
@@ -7654,6 +7636,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7674,57 +7657,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-05-cafe-kaffeekanne-hat-geoeffnet-peiting",
-      "parent_id": null,
-      "title": {
-        "de": "Café Kaffeekanne hat geöffnet",
-        "en": "Café Kaffeekanne open"
-      },
-      "description": {
-        "de": "Cafébesuch zugunsten der Projektstelle für kreative Kinder- und Jugendarbeit in der Christuskirche Peiting.",
-        "en": "Café visit supporting the creative children's and youth work project in the Christuskirche, Peiting."
-      },
-      "venue": {
-        "name": "Kirchenstüberl und Kirchenraum Christuskirche",
-        "place": "Peiting",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": "10:30",
-        "end_time": "12:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "food-drink",
-      "tags": [
-        "food-drink",
-        "family-kids",
-        "religion"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "primary": true,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8255587.html?popup=3",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-16",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
       "id": "2026-12-05-cafe-kaffeekanne-kinderworkshop-peiting",
       "parent_id": null,
       "title": {
@@ -7732,11 +7664,11 @@
         "en": "Café Kaffeekanne"
       },
       "description": {
-        "de": "Offenes Café in Kirchenstüberl und Christuskirche, zuvor Kinderworkshop (9–10:30 Uhr).",
-        "en": "Open café in the Kirchenstüberl and church; children's workshop beforehand (9–10:30)."
+        "de": "Café zugunsten der Projektstelle für kreative Kinder- und Jugendarbeit, im Kirchenstüberl der Christuskirche.",
+        "en": "Café in support of the creative children's and youth work project, in the Christuskirche parish room."
       },
       "venue": {
-        "name": "Kirchenstüberl und Christuskirche",
+        "name": "Kirchenstüberl und Kirchenraum, Christuskirche",
         "place": "Peiting",
         "address": null
       },
@@ -7756,6 +7688,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7772,6 +7705,12 @@
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8255587.html?popup=3",
           "primary": false,
           "first_seen": "2026-11-16",
           "last_seen": "2026-11-16"
@@ -7812,6 +7751,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7862,6 +7802,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7905,6 +7846,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7954,6 +7896,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -7998,6 +7941,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8042,6 +7986,7 @@
         "outdoor"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8139,6 +8084,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8182,6 +8128,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8247,6 +8194,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8295,6 +8243,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8351,6 +8300,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8410,6 +8360,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8458,6 +8409,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8539,6 +8491,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8582,6 +8535,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8643,6 +8597,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8686,6 +8641,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8735,6 +8691,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8780,6 +8737,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8791,6 +8749,51 @@
       ],
       "first_seen": "2026-11-10",
       "last_verified": "2026-11-13",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-12-streumix-konzert-zum-40-jaehrigen-juze-jubilaeum-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Streumix – Konzert zum 40-jährigen Juze-Jubiläum",
+        "en": "Streumix – concert for the Juze 40th anniversary"
+      },
+      "description": {
+        "de": "Die Band Streumix spielt als zweite Band im Rahmen des 40-jährigen Jubiläums des Jugendzentrums.",
+        "en": "The band Streumix plays as the second band for the youth centre's 40th anniversary."
+      },
+      "venue": {
+        "name": "Juze Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "party"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
+          "primary": true,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-16",
+      "last_verified": "2026-11-16",
       "misses": 0
     },
     {
@@ -8823,6 +8826,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -8866,6 +8870,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8910,6 +8915,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -8966,6 +8972,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9023,6 +9030,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -9067,6 +9075,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9128,11 +9137,13 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "talk-workshop",
+      "primary_tag": "sports",
       "tags": [
+        "sports",
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -9144,50 +9155,6 @@
       ],
       "first_seen": "2026-11-13",
       "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-17-jugendschwimm-abzeichen-abnahmetermin-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Jugendschwimm-Abzeichen Abnahmetermin",
-        "en": "Youth Swimming Badge Examination"
-      },
-      "description": {
-        "de": "Abnahme der Jugendschwimm-Abzeichen im Plantsch Schongau.",
-        "en": "Youth swimming badge tests at the Plantsch pool in Schongau."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": "Lechuferstraße 6, 86956 Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-12-17",
-        "end_date": "2026-12-17",
-        "start_time": "15:00",
-        "end_time": "17:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.plantsch.de/service/veranstaltungen/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-14"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-14",
       "misses": 0
     },
     {
@@ -9242,17 +9209,18 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
+          "last_seen": "2026-11-16"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-14",
+      "last_verified": "2026-11-16",
       "misses": 0
     },
     {
@@ -9285,6 +9253,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9335,6 +9304,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9379,6 +9349,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9428,6 +9399,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9483,6 +9455,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9540,6 +9513,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9578,6 +9552,65 @@
       "misses": 0
     },
     {
+      "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Weihnachtskonzert der Knappschafts- und Trachtenkapelle Peiting",
+        "en": "Christmas Concert of the Knappschafts- und Trachtenkapelle Peiting"
+      },
+      "description": {
+        "de": "Traditionelle Weihnachtskonzerte der Knappschafts- und Trachtenkapelle am 4. Advent und am 1. Weihnachtsfeiertag.",
+        "en": "Traditional Christmas concerts by the Knappschaftskapelle on 4th Advent and Christmas Day."
+      },
+      "venue": {
+        "name": null,
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-25",
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": [
+          "2026-12-20",
+          "2026-12-25"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.knappschaftskapelle.de",
+          "primary": true,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-16"
+        },
+        {
+          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtskonzerte-der-knappschafts-und-trachtenkapelle-e9ec5b8a080572a1d5afa3fb9590b1191.html",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-14"
+        }
+      ],
+      "first_seen": "2026-11-13",
+      "last_verified": "2026-11-16",
+      "misses": 0
+    },
+    {
       "id": "2026-12-20-ea-schongau-esc-geretsried",
       "parent_id": null,
       "title": {
@@ -9607,6 +9640,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9650,6 +9684,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9660,64 +9695,6 @@
         },
         {
           "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-selber-woelfe-eb6767eb60564d76de55bd9120b2b1362.html",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-16",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
-      "parent_id": null,
-      "title": {
-        "de": "Weihnachtskonzerte der Knappschafts- und Trachtenkapelle",
-        "en": "Christmas Concerts of the Knappschafts- und Trachtenkapelle"
-      },
-      "description": {
-        "de": "Zwei Weihnachtskonzerte der Knappschafts- und Trachtenkapelle Peiting in der Schlossberghalle.",
-        "en": "Two Christmas concerts by the Peiting miners' and traditional costume band at the Schlossberghalle."
-      },
-      "venue": {
-        "name": "Schlossberghalle",
-        "place": "Peiting",
-        "address": "Münchener Strasse 13, 86971 Peiting"
-      },
-      "schedule": {
-        "start_date": "2026-12-20",
-        "end_date": "2026-12-25",
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": [
-          "2026-12-20",
-          "2026-12-25"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "scheduled",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.knappschaftskapelle.de",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/weihnachtskonzerte-der-knappschafts-und-trachtenkapelle-e9ec5b8a080572a1d5afa3fb9590b1191.html",
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-14"
@@ -9760,6 +9737,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9809,6 +9787,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9854,6 +9833,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9892,11 +9872,13 @@
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "art-culture",
+      "primary_tag": "religion",
       "tags": [
+        "religion",
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9940,6 +9922,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -9990,17 +9973,18 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-14"
+          "last_seen": "2026-11-16"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-14",
+      "last_verified": "2026-11-16",
       "misses": 0
     },
     {
@@ -10033,6 +10017,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10088,13 +10073,14 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
+          "last_seen": "2026-11-16"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/26-12-fkk-badenacht-mit-lampion-schwimmen/",
@@ -10104,7 +10090,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-14",
+      "last_verified": "2026-11-16",
       "misses": 0
     },
     {
@@ -10137,6 +10123,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10181,6 +10168,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10224,6 +10212,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10280,6 +10269,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10306,7 +10296,7 @@
       },
       "venue": {
         "name": "Gasthof Janser",
-        "place": "Schongau",
+        "place": "Schwabniederhofen",
         "address": null
       },
       "schedule": {
@@ -10324,6 +10314,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10369,6 +10360,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10424,6 +10416,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10480,6 +10473,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10523,6 +10517,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10567,6 +10562,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10610,6 +10606,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10653,6 +10650,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -10697,6 +10695,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10752,6 +10751,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10795,6 +10795,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -10838,6 +10839,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10885,6 +10887,7 @@
         "religion"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -10938,6 +10941,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10981,6 +10985,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11024,6 +11029,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -11073,6 +11079,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11116,6 +11123,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -11159,6 +11167,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11202,6 +11211,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11251,6 +11261,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11301,6 +11312,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11344,6 +11356,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11388,6 +11401,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11432,6 +11446,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11475,6 +11490,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11524,6 +11540,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11567,6 +11584,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11610,6 +11628,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11659,6 +11678,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11709,6 +11729,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11752,6 +11773,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -11795,6 +11817,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -11838,6 +11861,7 @@
         "concert"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11887,6 +11911,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11930,6 +11955,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -11979,6 +12005,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12028,6 +12055,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12076,6 +12104,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12168,6 +12197,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12213,6 +12243,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12262,6 +12293,7 @@
         "theatre-cinema"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12318,6 +12350,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12361,6 +12394,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12410,6 +12444,7 @@
         "party"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12459,6 +12494,7 @@
         "art-culture"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12514,6 +12550,7 @@
         "sports"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12557,6 +12594,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12607,6 +12645,7 @@
         "family-kids"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12653,6 +12692,7 @@
         "market-festival"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -12702,6 +12742,7 @@
         "food-drink"
       ],
       "status": "scheduled",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
