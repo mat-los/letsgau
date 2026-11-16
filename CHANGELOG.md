@@ -417,6 +417,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Header: when the site was built the day before (the daily run starts late), "Heute" and
+  "Morgen" now point to the real today and tomorrow, and past days leave the date bar.
 - CI: tests that read the bundled instance config expect Schwabniederhofen as a
   separate district of Altenstadt (they failed after it was added).
 - Search: a hit of a multi-day event is still listed on its first day only, but now
