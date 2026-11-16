@@ -17,18 +17,15 @@
   if (body.getAttribute("data-index") && body.getAttribute("data-day") < today) {
     location.replace(root + lang + "/" + today + "/" + location.hash); return;
   }
-  /* the header is built with the build day: if that was yesterday, "Heute"/"Morgen" point to the
-     real days and past days leave the date bar */
-  var quick = document.querySelectorAll(".quick a"), now = new Date();
-  if (quick.length === 2 && quick[0].getAttribute("href").indexOf(today) < 0) {
-    var day = body.getAttribute("data-day");
-    [today, iso(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1))].forEach(function (d, i) {
-      quick[i].href = root + lang + "/" + d + "/";
-      if (d === day) quick[i].setAttribute("aria-current", "page"); else quick[i].removeAttribute("aria-current");
+  /* built yesterday: Heute/Morgen to the real days, no past days */
+  var q = document.querySelectorAll(".quick a"), n = new Date();
+  if (q.length == 2 && q[0].getAttribute("href").indexOf(today) < 0) {
+    [today, iso(new Date(+n + 864e5))].forEach(function (d, i) {
+      q[i].href = root + lang + "/" + d + "/";
+      q[i][d == body.getAttribute("data-day") ? "setAttribute" : "removeAttribute"]("aria-current", "page");
     });
     [].forEach.call(document.querySelectorAll(".dates a"), function (a) {
-      var m = /(\d{4}-\d\d-\d\d)\/$/.exec(a.getAttribute("href"));
-      if (m && m[1] < today) a.hidden = true;
+      a.hidden = a.getAttribute("href").slice(-11, -1) < today;
     });
   }
   /* date bar: arrow buttons and the mouse wheel page it on desktop */
