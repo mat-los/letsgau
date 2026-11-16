@@ -17,6 +17,17 @@
   if (body.getAttribute("data-index") && body.getAttribute("data-day") < today) {
     location.replace(root + lang + "/" + today + "/" + location.hash); return;
   }
+  /* built yesterday: Heute/Morgen to the real days, no past days */
+  var q = document.querySelectorAll(".quick a"), n = new Date();
+  if (q.length == 2 && q[0].getAttribute("href").indexOf(today) < 0) {
+    [today, iso(new Date(+n + 864e5))].forEach(function (d, i) {
+      q[i].href = root + lang + "/" + d + "/";
+      q[i][d == body.getAttribute("data-day") ? "setAttribute" : "removeAttribute"]("aria-current", "page");
+    });
+    [].forEach.call(document.querySelectorAll(".dates a"), function (a) {
+      a.hidden = a.getAttribute("href").slice(-11, -1) < today;
+    });
+  }
   /* date bar: arrow buttons and the mouse wheel page it on desktop */
   var bar = document.querySelector(".dates"), prevBtn = document.querySelector(".dates-nav.prev"),
     nextBtn = document.querySelector(".dates-nav.next");
