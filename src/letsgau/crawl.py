@@ -383,6 +383,7 @@ def answer_schema(tag_ids: Sequence[str], files: Sequence[str] = ()) -> dict[str
             "start_date": _nullable(day),
             "start_time": _nullable({"type": "string"}),
             "source_url": _nullable({"type": "string"}),
+            "kind": {"type": "string", "enum": ["event", "routine", "course", "offer"]},
             **({"file": {"type": "string", "enum": list(files)}} if files else {}),
         }
     )
@@ -604,11 +605,13 @@ def seen_events(
         url = str(item.get("source_url") or "").strip()
         if not url.startswith(("http://", "https://")) or is_blocked(url, blocked):
             url = next(src.url for src in event.sources if src.primary)
+        kind = item.get("kind")
         found.append(
             event.model_copy(
                 update={
                     "schedule": s.model_copy(update=update),
                     "status": status,
+                    "kind": EventKind(kind) if kind in EventKind._value2member_map_ else event.kind,
                     "sources": [
                         EventSource(url=url, primary=True, first_seen=today, last_seen=today)
                     ],
@@ -1698,6 +1701,10 @@ def run(
     return result
 
 
+FOLDABLE_KINDS = (EventKind.EVENT, EventKind.ROUTINE, EventKind.COURSE)
+"""The kinds a stored event can have (``offer`` is removed by the merge)."""
+
+
 def kind_shares(events: Sequence[Event], today: date, days: int, offers: int = 0) -> str:
     """One summary line on what the calendar shows in its display window: entries by kind,
     the share of religion as primary tag, and the offers dropped in this run."""
@@ -1705,7 +1712,7 @@ def kind_shares(events: Sequence[Event], today: date, days: int, offers: int = 0
     shown = [e for e in events if e.schedule.start_date < end and e.schedule.last_date >= today]
     if not shown:
         return "shown: no events in the display window"
-    by_kind = {k: sum(e.kind is k for e in shown) for k in EventKind}
+    by_kind = {k: sum(e.kind is k for e in shown) for k in FOLDABLE_KINDS}
     unclassified = sum(e.kind is None for e in shown)
     religion = sum(e.primary_tag == "religion" for e in shown)
 

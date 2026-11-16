@@ -36,6 +36,9 @@ class EventKind(StrEnum):
     training, lower-league and youth matches."""
     COURSE = "course"
     """A course or workshop that needs a booking."""
+    OFFER = "offer"
+    """Not an event (menu special, discount, opening hours, appointment): set by the crawl on a
+    known event it finds again; the merge removes such events, so it is never stored."""
 
 
 class SourceKind(StrEnum):

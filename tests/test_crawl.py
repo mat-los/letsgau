@@ -1152,3 +1152,23 @@ def test_kind_shares_line() -> None:
         "offers dropped in this run: 2"
     )
     assert crawl.kind_shares([], TODAY, 21) == "shown: no events in the display window"
+
+
+def test_known_events_found_again_carry_their_kind(config: Config) -> None:
+    menu = merge_ev("Halbes Hendl", "2026-11-21")
+    group = merge_ev("Spielenachmittag", "2026-11-20", kind="event")
+    known = {menu.id: menu, group.id: group}
+    items = [
+        {"id": menu.id, "status": "scheduled", "kind": "offer"},
+        {"id": group.id, "status": "scheduled", "kind": "routine"},
+    ]
+    found, rejected = crawl.seen_events(items, known, config=config, blocked=[], today=TODAY)
+    assert not rejected
+    assert {e.id: e.kind for e in found} == {menu.id: EventKind.OFFER, group.id: EventKind.ROUTINE}
+    # older cached answers without "kind" keep the stored one
+    found, _ = crawl.seen_events(
+        [{"id": group.id, "status": "scheduled"}], known, config=config, blocked=[], today=TODAY
+    )
+    assert found[0].kind is EventKind.EVENT
+    seen = crawl.answer_schema(["sports"])["properties"]["known_seen"]["items"]
+    assert seen["properties"]["kind"]["enum"] == ["event", "routine", "course", "offer"]

@@ -16,8 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Events get a `kind`: `event`, `routine` or `course`. The crawl reports it, and entries it
   calls `offer` (menu specials, discounts, opening hours, appointments) are dropped. The day
   pages show routine entries and courses folded at the end as "Regelmäßiges & Kurse".
-  Stored events without a kind are classified once by the merge model, which also
-  re-checks the primary tag of new events (e.g. a Christmas market is not *Senioren*).
+  Known events found again get their kind from the crawl too (an offer is removed); the
+  merge model classifies the rest once and re-checks the primary tag of new events (e.g. a
+  Christmas market is not *Senioren*), but never removes anything.
 - Job summary: one line with the share of each kind and of religion as primary tag in the
   display window, and the number of offers dropped.
 - Review of 2026-11-15 (`docs/reviews/2026-11-15-product-review.md`): cost, Instagram API

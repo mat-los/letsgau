@@ -170,7 +170,7 @@ Open the source of each event below and check that date, time and place are stil
 whether it is cancelled ("abgesagt", "entfällt") or postponed ("verschoben"). List every one you
 can still confirm in "known_seen" with its id (the first value of the line): "status" scheduled or
 cancelled, and "start_date" or "start_time" only if they changed (otherwise null), "source_url" the
-page where you checked it. A postponed event: write it out in "events" with status "postponed" and
+page where you checked it, and its "kind" (see the rules). A postponed event: write it out in "events" with status "postponed" and
 "postponed_to_date", and add it at its new date as a separate entry.
 {% for event in deep_check_events %}
 - {{ event.id }} | {{ event.schedule.start_date }}{% if event.schedule.start_time %} {{ event.schedule.start_time }}{% endif %} | {{ event.title.de }} | {{ event.venue.place }} | {{ event.sources | selectattr("primary") | map(attribute="url") | first }}
@@ -183,8 +183,9 @@ page where you checked it. A postponed event: write it out in "events" with stat
 
 These are in the calendar already. When you find one of them again, do not write it out in
 "events": list it in "known_seen" with its id (the first value of the line), "status" scheduled or
-cancelled, "start_date" or "start_time" only if they changed (otherwise null), and "source_url" the
-page where you saw it{% if mode == "pages" %} ("file": the page){% endif %}. Write out in "events" only events that are
+cancelled, "start_date" or "start_time" only if they changed (otherwise null), "source_url" the
+page where you saw it{% if mode == "pages" %} ("file": the page){% endif %}, and its "kind" (see the rules; "offer"
+removes it from the calendar). Write out in "events" only events that are
 not in this list, and a postponed one (with status "postponed" and "postponed_to_date", plus a
 separate entry at its new date).
 {% for event in known_events %}

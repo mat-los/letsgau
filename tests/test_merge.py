@@ -669,7 +669,7 @@ def test_single_date_of_a_series_at_the_same_time_goes_to_the_ai() -> None:
 # --- kind and primary tag (classification task) -----------------------------------------
 
 
-def test_the_merge_model_classifies_and_retags_and_drops_offers() -> None:
+def test_the_merge_model_classifies_and_retags_but_never_removes() -> None:
     old = ev("Seniorennachmittag", "2026-11-20")  # stored before `kind` existed
     market = ev(
         "Schongauer Weihnachtszauber",
@@ -677,20 +677,23 @@ def test_the_merge_model_classifies_and_retags_and_drops_offers() -> None:
         primary_tag="seniors",
         tags=["seniors", "market-festival"],
     )
-    menu = ev("Halbes Hendl im Wirtshaus", "2026-11-21", kind="event")
-    stored = EventsFile(updated_at="2026-11-12T00:00:00Z", events=[old, market])
+    menu = ev("Halbes Hendl im Wirtshaus", "2026-11-21")
+    stored = EventsFile(updated_at="2026-11-12T00:00:00Z", events=[old, market, menu])
+    # the crawl found the menu special again and called it an offer (known_seen)
+    seen_menu = menu.model_copy(update={"kind": EventKind.OFFER})
     asked: list[set[str]] = []
 
     def decide(pairs: Any, events: Any, classify: Any = ()) -> Decisions:
         asked.append({e.id for e in classify})
         return Decisions(
-            kinds={old.id: "routine", market.id: "event", menu.id: "offer"},
+            kinds={old.id: "routine", market.id: "event"},
             primary={old.id: "seniors", market.id: "market-festival"},
         )
 
     report = MergeReport()
-    result = apply(stored, [menu], decide=decide, today=DAY1, report=report)
-    # new events and stored ones without a kind are classified
+    result = apply(stored, [seen_menu], decide=decide, today=DAY1, report=report)
+    # stored events without a kind are classified (the menu too: the crawl answers in the
+    # same run, and an offer from the crawl wins)
     assert asked == [{old.id, market.id, menu.id}]
     by_id = {e.id: e for e in result.events}
     assert menu.id not in by_id and report.excluded[menu.id] == merge.OFFER
@@ -703,7 +706,17 @@ def test_the_merge_model_classifies_and_retags_and_drops_offers() -> None:
     }
     assert set(report.classified) == {old.id, market.id}
 
-    # classified events are not asked again; a kind from the crawl is kept
+    # the merge model cannot remove anything: "offer" is not among its kinds
+    market2 = ev("Christkindlmarkt", "2026-12-05")
+
+    def says_offer(pairs: Any, events: Any, classify: Any = ()) -> Decisions:
+        return Decisions(kinds={market2.id: "offer"})
+
+    kept = apply(None, [market2], decide=says_offer, today=DAY1)
+    assert [(e.title.de, e.kind) for e in kept.events] == [("Christkindlmarkt", None)]
+    assert "offer" not in merge.KINDS
+
+    # classified events are not asked again
     again = apply(result, [], decide=decide, today=DAY1)
     assert asked[-1] == set()
     assert {e.id: e.kind for e in again.events}[old.id] is EventKind.ROUTINE
@@ -726,5 +739,5 @@ def test_merge_prompt_lists_the_entries_to_classify() -> None:
     assert '"classified" with an empty list' in merge.render_prompt([], [], [])
     schema = merge.decision_schema(["religion"])
     item = schema["properties"]["classified"]["items"]["properties"]
-    assert item["kind"]["enum"] == ["event", "routine", "course", "offer"]
+    assert item["kind"]["enum"] == ["event", "routine", "course"]
     assert item["primary_tag"]["enum"] == ["religion"]

@@ -356,7 +356,7 @@ class Decisions:
     excluded: dict[str, str] = field(default_factory=dict)
     """Event id -> matching excluded topic."""
     kinds: dict[str, str] = field(default_factory=dict)
-    """Event id -> ``event`` | ``routine`` | ``course`` | ``offer`` (classification task)."""
+    """Event id -> ``event`` | ``routine`` | ``course`` (classification task)."""
     primary: dict[str, str] = field(default_factory=dict)
     """Event id -> the primary tag the merge model would give it."""
 
@@ -366,8 +366,10 @@ Decide = Callable[..., Decisions]
 the third argument is optional."""
 
 OFFER = "not an event (offer)"
-"""Reason for an entry the merge model classifies as an offer (``MergeReport.excluded``)."""
-KINDS = ("event", "routine", "course", "offer")
+"""Reason for a known event the crawl found again and called an offer (``MergeReport.excluded``).
+Only the crawl model, which read the source, removes entries as offers: the merge model sees one
+line per event and, in the live test, called a Christmas market and themed sauna nights offers."""
+KINDS = ("event", "routine", "course")
 
 
 def decision_schema(tag_ids: Sequence[str] = ()) -> dict[str, Any]:
@@ -494,7 +496,7 @@ class MergeReport:
 
 def classify(event: Event, kind: str | None, primary: str | None) -> Event:
     """Set an unclassified event's kind and move ``primary`` to the front of its tags (at most
-    :data:`MAX_TAGS`); an offer is not handled here."""
+    :data:`MAX_TAGS`)."""
     update: dict[str, Any] = {}
     if event.kind is None and kind in ("event", "routine", "course"):
         update["kind"] = EventKind(kind)
@@ -652,14 +654,14 @@ def apply(
         del events[key]
         found.discard(key)
 
+    for key in [k for k, e in events.items() if e.kind is EventKind.OFFER]:
+        report.excluded[key] = OFFER
+        _log(f"removed {events[key].title.de!r}: {OFFER}")
+        del events[key]
+        found.discard(key)
+
     for key, kind in decisions.kinds.items():
         if key not in events:
-            continue
-        if kind == "offer":
-            report.excluded[key] = OFFER
-            _log(f"removed {events[key].title.de!r}: {OFFER}")
-            del events[key]
-            found.discard(key)
             continue
         before = events[key]
         events[key] = classify(before, kind, decisions.primary.get(key))

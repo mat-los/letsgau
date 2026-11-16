@@ -172,9 +172,11 @@ python -m letsgau run --job events --dry-run --limit-places 3
   prints its summary): `merge: N new, N updated (N by similarity), N cancelled,
   N postponed, N now unconfirmed, N excluded by topic, N past deleted, N retagged`.
   Unclear duplicates, the topic check of new events and the classification of
-  new events and of stored events without a `kind` (kind, primary tag; an
-  `offer` is removed) cost one call to the merge model (Haiku) per run; if that
-  call fails, unclear pairs stay separate and nothing is reclassified.
+  new events and of stored events without a `kind` (kind, primary tag) cost
+  one call to the merge model (Haiku) per run; if that call fails, unclear
+  pairs stay separate and nothing is reclassified. Only the crawl model removes
+  entries as offers (`removed '…': not an event (offer)`): it read the source,
+  the merge model sees one line per event.
   After it, one line shows what the site lists in its display window:
   `crawl: shown in the next 21 days: N entries, event N (x %), routine N (x %),
   course N (x %); religion as primary tag N (x %); offers dropped in this run: N`.

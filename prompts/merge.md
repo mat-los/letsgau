@@ -58,10 +58,7 @@ For every entry below, answer in "classified" with its id:
     lower-league, reserve and youth matches.
   - "course": a course or workshop that needs a booking (cooking, brewing, language, yoga,
     painting, vhs courses), also with several dates.
-  - "offer": not an event: a menu special or theme dinner without a programme (e.g. "Halbes
-    Hendl", "Schnitzeltag"), a discount or free entry, opening hours of a museum, pool or
-    sauna, an appointment or service (a badge test, a collection, a drop-off), helpers
-    preparing an event.
+  When in doubt, "event". A Christmas market, a themed night or a party is an event.
 - "primary_tag": the main category, one of: {{ tag_ids | join(", ") }}. Keep the given one
   unless it is clearly wrong. "seniors" only for events made specifically for older people.
   "religion" as the main category only for worship and religious occasions; a church concert is

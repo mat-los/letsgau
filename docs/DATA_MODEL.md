@@ -149,7 +149,7 @@ start date, start time and id.
 | `primary_tag` | exactly one; drives grouping by category |
 | `tags` | 1–3 from the fixed list, includes `primary_tag` |
 | `status` | `scheduled`, `postponed`, `cancelled` or `unconfirmed` |
-| `kind` | `event` (one-off or special occasion), `routine` (regular worship and prayer groups, weekly club or senior groups, training, lower-league and youth matches) or `course` (needs a booking); the site shows `routine` and `course` folded at the end of a day as "Regelmäßiges & Kurse". `null` = not classified yet: files from before the field load unchanged, and the merge model classifies such events on the next events run (that is the migration). Entries the crawl or the merge model call `offer` (menu specials, discounts, opening hours, appointments) are never stored |
+| `kind` | `event` (one-off or special occasion), `routine` (regular worship and prayer groups, weekly club or senior groups, training, lower-league and youth matches) or `course` (needs a booking); the site shows `routine` and `course` folded at the end of a day as "Regelmäßiges & Kurse". `null` = not classified yet: files from before the field load unchanged; the crawl reports the kind of every known event it finds again (`known_seen`), and the merge model classifies the rest on the next events run (that is the migration). An entry the crawl calls `offer` (menu specials, discounts, opening hours, appointments) is dropped, or removed by the merge if it was stored; the merge model never removes anything |
 | `sources` | all occurrences; exactly one is `primary`, preferably the organizer's page |
 | `misses` | consecutive runs in which the event was not found in the deep-check window |
 
