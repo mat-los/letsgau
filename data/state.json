@@ -3,20 +3,20 @@
   "geo_fingerprint": "sha256:14f3ae2a0bf56dbc",
   "force_discovery": false,
   "last_run": {
-    "geo": "2026-11-18T09:52:07Z",
+    "geo": "2026-11-19T09:59:30Z",
     "discovery": "2026-11-16T09:09:32Z",
-    "events": "2026-11-16T11:59:14Z",
-    "build": "2026-11-18T09:52:07Z"
+    "events": "2026-11-19T09:59:30Z",
+    "build": "2026-11-19T09:59:30Z"
   },
   "last_usage": {
     "events": {
-      "requests": 17,
-      "web_searches": 8,
+      "requests": 25,
+      "web_searches": 4,
       "web_fetches": 0,
-      "input_tokens": 1261147,
-      "output_tokens": 61167,
-      "cost_usd": 1.2212000000000003,
-      "duration_s": 305.70000000000005
+      "input_tokens": 1500707,
+      "output_tokens": 97681,
+      "cost_usd": 2.3252000000000006,
+      "duration_s": 545.6999999999999
     },
     "discovery": {
       "requests": 9,

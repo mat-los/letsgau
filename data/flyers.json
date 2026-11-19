@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T12:10:04Z",
+  "updated_at": "2026-11-19T10:13:01Z",
   "files": {
     "2444c78005282edc4ca286272d0ce808f5db6c7eac5a56556f52c1de39ed65e7": {
       "page_url": "https://www.reaktor-sog.de/",
@@ -8,7 +8,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e2",
@@ -113,7 +113,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e3",
@@ -169,7 +169,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e4",
@@ -263,7 +263,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "159d64f4bd9fa41b9049659101743b85f820c3377ce8432e0f39db1d4e6e4647": {
@@ -272,7 +272,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "92e5f7ff4a2320ec69f41879a006bdfa3644c19026e9874110abe23e45949634": {
@@ -281,7 +281,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "e601481bbcbe6cd2dd902a9e22cc9bcbacc3af0811dd0b7b48df7408df4a94dd": {
@@ -290,7 +290,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e9",
@@ -393,7 +393,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "a3d3365a1b91258d5ffc82a07acb1f9d107eea78104a7b91046cd4662980a2f7": {
@@ -402,7 +402,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "e4b2ba620bae6475d2e82aa8e97557229c023eed14b876d194676fc9214985e9": {
@@ -411,7 +411,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "089465046e389be5abd8e43e78cf21a7fe2e27de41227e6545de7a076521f35f": {
@@ -420,7 +420,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "912e689bd4b2ede77745b966c94469c647b29caaf2a7ee0adee40f7c4640c48b": {
@@ -429,7 +429,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e1",
@@ -535,7 +535,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e3",
@@ -588,7 +588,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e4",
@@ -684,7 +684,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e6",
@@ -778,7 +778,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e8",
@@ -830,7 +830,7 @@
       "kind": "image",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": []
     },
     "fc2fa6e268b0a1d7a4b70dec3b33e9fb103cecc550c59c8dee44433739946b0c": {
@@ -1172,7 +1172,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-10",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e1",
@@ -1298,7 +1298,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e1",
@@ -1667,7 +1667,7 @@
       "kind": "pdf",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-19",
       "events": [
         {
           "ref": "e1",
@@ -1704,6 +1704,329 @@
             {
               "url": "https://www.hohenfurch.de/fileadmin/Gemeinden/Hohenfurch/Schoenach-Kurier/Ausgabe_70_Internet.pdf",
               "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18b77d052d2f4e6fea55c86912c7e04a20dc40140ba53708254183110a3b5c32": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/BalkanParty.png",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Balkan Party",
+            "en": "Balkan Party"
+          },
+          "description": {
+            "de": "Balkan-Party mit DJ Sasha im Reaktor Schongau. Eintritt 6 Euro.",
+            "en": "Balkan party with DJ Sasha at the Reaktor in Schongau. Admission 6 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/BalkanParty.png",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "f482847243be349b5373eb92788e7a334a86a4ebf3bee06accbe337caab0e9ec": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/EuleAllstars.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Eule Allstars Band",
+            "en": "Eule Allstars Band"
+          },
+          "description": {
+            "de": "Livekonzert der Eule Allstars Band im Reaktor. Abendkasse 10 Euro.",
+            "en": "Live concert by the Eule Allstars Band at the Reaktor. Box office 10 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-11-28",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/EuleAllstars.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "f89006d1eb3a2fc33cb9f37af54eef0a56b18eb0d652479aace414e1382d2383": {
+      "page_url": "https://www.reaktor-sog.de/",
+      "file_url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/Hard-and-Heavy-1.jpg",
+      "kind": "image",
+      "version": 1,
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Hard & Heavy",
+            "en": "Hard & Heavy"
+          },
+          "description": {
+            "de": "Rock- und Metal-Party mit DJ Sepperman, DJ Hubi und DJ BC im Reaktor. Eintritt 6 Euro.",
+            "en": "Rock and metal party with DJ Sepperman, DJ Hubi and DJ BC at the Reaktor. Admission 6 euros."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": "Schützenhausstr. 1"
+          },
+          "schedule": {
+            "start_date": "2026-12-11",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.reaktor-sog.de/",
+              "primary": true
+            },
+            {
+              "url": "http://www.reaktor-sog.de/wp-content/uploads/2026/11/Hard-and-Heavy-1.jpg",
+              "primary": false
+            }
+          ]
+        }
+      ]
+    },
+    "2e5b3530d0dd2924eff9086dd3af818a72d3ffed7f958e7368e2fc680f5422c9": {
+      "page_url": "https://www.pg-schongau.com/pfarrbrief/",
+      "file_url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/48_So-Christkoenig.pdf",
+      "kind": "pdf",
+      "version": 1,
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Adventsbasar im Pfarrsaal Verklärung Christi",
+            "en": "Advent bazaar at Verklärung Christi parish hall"
+          },
+          "description": {
+            "de": "Basar mit Adventskranzsegnung, Kaffee, Kuchen, Waffeln, Handwerk und fairem Handel; Musik der Musikschule Pfaffenwinkel, Pfarrbücherei geöffnet.",
+            "en": "Bazaar with blessing of Advent wreaths, coffee, cake, crafts and fair trade goods; music by the Musikschule Pfaffenwinkel, parish library open."
+          },
+          "venue": {
+            "name": "Pfarrsaal Verklärung Christi",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-21",
+            "end_date": "2026-11-22",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-21",
+              "2026-11-22"
+            ],
+            "opening_hours": [
+              {
+                "days": "2026-11-21",
+                "from": "13:00",
+                "to": "17:00"
+              },
+              {
+                "days": "2026-11-22",
+                "from": "11:00",
+                "to": "16:00"
+              }
+            ]
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "religion",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/48_So-Christkoenig.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Familiengottesdienst / Kinderkirche an den Adventssonntagen",
+            "en": "Family service / children's church on Advent Sundays"
+          },
+          "description": {
+            "de": "Familiengottesdienst bzw. Kinderkirche zum Thema „Wir gehen auf Schatzsuche“; am 1. Advent in der Heilig-Geist-Spitalkirche St. Anna.",
+            "en": "Family service or children's church on the theme 'Wir gehen auf Schatzsuche'; on the 1st Advent in the Heilig-Geist-Spitalkirche St. Anna."
+          },
+          "venue": {
+            "name": null,
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-29",
+            "end_date": "2026-12-20",
+            "start_time": "10:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-29",
+              "2026-12-06",
+              "2026-12-13",
+              "2026-12-20"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "religion",
+          "tags": [
+            "religion",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/48_So-Christkoenig.pdf",
+              "primary": false
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Silvester-Party für Familien mit Kindern",
+            "en": "New Year's Eve party for families with children"
+          },
+          "description": {
+            "de": "Silvesterfeier für Familien mit Kindern im Pfarrsaal Altenstadt; Anmeldung erforderlich, begrenzte Teilnehmerzahl.",
+            "en": "New Year's Eve party for families with children in the Altenstadt parish hall; registration required, limited places."
+          },
+          "venue": {
+            "name": "Pfarrsaal Altenstadt",
+            "place": "Altenstadt",
+            "address": "Jahnstr. 10"
+          },
+          "schedule": {
+            "start_date": "2026-12-31",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party",
+            "family-kids",
+            "religion"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.pg-schongau.com/pfarrbrief/",
+              "primary": true
+            },
+            {
+              "url": "https://www.pg-schongau.com/wp-content/uploads/2026/11/48_So-Christkoenig.pdf",
+              "primary": false
             }
           ]
         }
