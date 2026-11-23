@@ -81,15 +81,21 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     assert 'href="../imprint/"' in privacy
     for rel in ("de/about", "en/about", "de/fehlt-mein-event", "en/missing-event"):
         assert 'href="../feedback/"' in read(site, rel), rel
-    # the email address is shown in the imprint only; the other pages point to the form
-    mail = 'href="mailto:letsgau@tutamail.com"'
-    assert mail in read(site, "de/impressum") and mail in read(site, "en/imprint")
+    # the address is shown in the imprint only, assembled by mail.js: the HTML holds the
+    # parts, never "user@domain" or a mailto link (simple scrapers find nothing)
+    mail = (
+        '<a class="mail" data-u="letsgau" data-d="tutamail.com">letsgau [at] tutamail [dot] com</a>'
+    )
+    for rel in ("de/impressum", "en/imprint"):
+        imprint = read(site, rel)
+        assert mail in imprint and 'assets/mail.js" defer' in imprint, rel
+    assert "mail.js" not in read(site, "de/about")  # loaded only where needed
     for path in site.rglob("*"):
         if path.suffix in (".html", ".txt", ".json", ".ics", ".xml"):
-            if path.parent.name in ("impressum", "imprint"):
-                continue
             text = path.read_text(encoding="utf-8")
-            assert 'href="mailto:' not in text, path
+            assert 'href="mailto:' not in text and "letsgau@tutamail.com" not in text, path
+    script = (site / "assets" / "mail.js").read_text(encoding="utf-8")
+    assert 'a.href = "mailto:" + m' in script
 
 
 def test_footer_links_every_content_page(site: Path) -> None:
@@ -129,9 +135,11 @@ def test_feedback_without_endpoint_uses_mailto(tmp_path: Path) -> None:
     assert "<form" not in page
     assert "/issues/new/choose" in page
     # without a form service the pages show the address (forks without a form)
-    assert 'href="mailto:hallo@letsgau.de"' in read(site, "de/about")
+    assert '<a class="mail" data-u="hallo" data-d="letsgau.de">' in read(site, "de/about")
     assert "Kontakt: <a" in read(site, "de/datenschutz")
-    assert 'href="mailto:hallo@letsgau.de"' in read(site, "de/impressum")
+    assert "hallo [at] letsgau [dot] de</a>" in read(site, "de/impressum")
+    missing = read(site, "de/fehlt-mein-event")
+    assert 'data-u="hallo" data-d="letsgau.de" data-s="Quelle%20vorschlagen"' in missing
     assert "- Contact: hallo@letsgau.de" in (site / "llms.txt").read_text(encoding="utf-8")
 
 
@@ -164,10 +172,20 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
     assert "form service" in privacy
 
 
-def test_todo_markers_are_reported(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+def test_todo_markers_are_reported(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch
+) -> None:
     config = load_config(CONFIG_PATH)
-    # the bundled instance has none left
-    assert build.content_todos(config, REPO_ROOT / "instance" / "content") == []
+    instance = REPO_ROOT / "instance" / "content"
+    # the imprint name is not in the repository: without the variable it is a TODO
+    monkeypatch.delenv("LETSGAU_IMPRINT_NAME", raising=False)
+    assert {name for name, _ in build.content_todos(config, instance)} == {
+        "imprint.de.md",
+        "imprint.en.md",
+    }
+    # with it, the bundled instance has none left
+    monkeypatch.setenv("LETSGAU_IMPRINT_NAME", "Erika Mustermann")
+    assert build.content_todos(config, instance) == []
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
     assert "[TODO:" not in capsys.readouterr().err
     content = tmp_path / "content"
@@ -264,3 +282,17 @@ def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) ->
         assert "assets/app.js" in html, rel
         assert 'type="search" id="q"' in header, rel  # search on every page
         assert 'id="results"' in html and "assets/search.js" in html, rel
+
+
+def test_imprint_name_comes_from_the_environment(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("LETSGAU_IMPRINT_NAME", "Erika Mustermann")
+    config = load_config(CONFIG_PATH)
+    build.build(config, data_dir=tmp_path / "none", site_dir=tmp_path / "site")
+    imprint = read(tmp_path / "site", "de/impressum")
+    assert imprint.count("Erika Mustermann") == 2 and "[TODO" not in imprint
+    assert '<meta name="robots" content="noindex">' in imprint
+    for path in (tmp_path / "site").rglob("*"):
+        if path.is_file() and path.parent.name not in ("impressum", "imprint"):
+            assert "Mustermann" not in path.read_text(encoding="utf-8", errors="ignore"), path

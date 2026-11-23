@@ -39,7 +39,10 @@ business and creator accounts, not for private ones.
 
 **Facebook and other social networks** are not included: they do not allow their
 pages to be read automatically. An event that is only posted there is missing
-here. [Is your event missing?](../missing-event/)
+here.
+
+**Is your event missing, or do you organize events yourself?** How the site finds
+events and how yours gets here is explained under [Is my event missing?](../missing-event/)
 
 **Note:** Events are collected automatically by AI and may be wrong or outdated.
 Please check with the organizer before you go.
@@ -47,6 +50,6 @@ Please check with the organizer before you go.
 ## Contact
 
 Suggestions, criticism or something missing? {% if feedback_endpoint %}Write to me using the
-[feedback form](../feedback/).{% else %}Write to [{{ contact_email }}](mailto:{{ contact_email }})
+[feedback form](../feedback/).{% else %}Write to {{ mail_link() }}
 or use the [feedback form](../feedback/).{% endif %} The code is open source:
 [{{ repo_url }}]({{ repo_url }}).

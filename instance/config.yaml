@@ -4,14 +4,15 @@
 
 site:
   name: "Let's Gau"                     # site name shown in the header
-  base_url: "https://letsgau.de"        # public URL; domain not registered yet
+  base_url: "https://letsgau.de"        # public URL (custom domain on GitHub Pages; the build writes CNAME)
   languages: [de, en]                   # first entry = default language
   owner: "mat-los"                      # must match the GitHub repo owner, else build aborts
   contact_email: "letsgau@tutamail.com"  # optional: shown on the pages (imprint, about) if set
   feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"  # contact form (formhook; public, in the page)
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
-  indexing: false                       # false = noindex on every page (not in search results yet)
+  indexing: true                        # false = noindex on every page; imprint and feedback are always noindex
   goatcounter: "letsgau"                # GoatCounter code: cookieless visitor counts; "" = off
+  share_image: "instance/share.png"     # PNG 1200x630 shown when a page is shared; "" = none
 
 region:
   label: "Schongau"                     # name of the region in page titles

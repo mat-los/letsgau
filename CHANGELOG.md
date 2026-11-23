@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `site.share_image`: a PNG (1200 x 630) for link previews (`og:image`, large Twitter
+  card); the bundled instance ships `instance/share.png`.
+- `apple-touch-icon` and `site.webmanifest` (icons 192/512 px) for "add to home screen".
+- `{{ mail_link() }}` in content pages: the contact address is assembled by a small
+  script (`static/mail.js`), so the HTML never contains it in plain form; without
+  JavaScript it reads "user [at] domain [dot] tld".
+
+### Changed
+
+- Go live (#106): the bundled instance sets `site.indexing: true`. The imprint and the
+  feedback page always carry `noindex` and are left out of the sitemap.
+- About page: a short paragraph points organizers to "Fehlt mein Event?".
+- The operator's name in the imprint comes from the repository variable `IMPRINT_NAME`
+  (`LETSGAU_IMPRINT_NAME` in the build), so it is no longer in the public repository;
+  `LICENSE` and `pyproject.toml` name the GitHub account instead.
+
 ### Removed
 
 - The changelog page (`/<lang>/changelog/`, "Änderungen" in the footer): too technical

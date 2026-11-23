@@ -40,7 +40,9 @@ Das geht nur bei Business- und Creator-Konten, nicht bei privaten.
 
 **Facebook und andere soziale Netzwerke** sind nicht dabei: Sie erlauben nicht,
 ihre Seiten automatisch abzufragen. Steht ein Event nur dort, fehlt es hier.
-[Fehlt dein Event?](../fehlt-mein-event/)
+
+**Dein Event fehlt oder du veranstaltest selbst etwas?** Wie die Seite Events findet
+und wie dein Event hierher kommt, steht unter [Fehlt mein Event?](../fehlt-mein-event/)
 
 **Hinweis:** Die Events werden automatisch per KI gesammelt und können falsch oder
 veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen.
@@ -49,6 +51,6 @@ veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen.
 
 Vorschläge, Kritik oder fehlt etwas? {% if feedback_endpoint %}Schreib mir gern über das
 [Feedback-Formular](../feedback/).{% else %}Schreib an
-[{{ contact_email }}](mailto:{{ contact_email }}) oder nutze das
+{{ mail_link() }} oder nutze das
 [Feedback-Formular](../feedback/).{% endif %} Der Code ist Open Source:
 [{{ repo_url }}]({{ repo_url }}).

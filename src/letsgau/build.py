@@ -15,6 +15,7 @@ GitHub Actions), so a copied configuration never goes live in a fork.
 
 from __future__ import annotations
 
+import html
 import json
 import os
 import re
@@ -27,6 +28,7 @@ from datetime import UTC, date, datetime, timedelta
 from functools import cached_property
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -320,6 +322,10 @@ class Site:
 HEADER_PAGES = ("about", "missing-event")
 """Content pages linked in the header; the others are linked in the footer."""
 
+NOINDEX_PAGES = ("imprint",)
+"""Content pages kept out of search results (and the sitemap) even with ``site.indexing``:
+the imprint carries the owner's name; the feedback page is noindex too."""
+
 
 def make_env() -> Environment:
     env = Environment(
@@ -333,6 +339,27 @@ def make_env() -> Environment:
         v, ensure_ascii=False, separators=(",", ":")
     )
     return env
+
+
+def web_manifest(config: Config) -> str:
+    """``site.webmanifest``: name, start page and icons for "add to home screen"."""
+    t = Texts(load_i18n(config.default_language))
+    icons = [
+        {"src": f"assets/icon-{size}.png", "sizes": f"{size}x{size}", "type": "image/png"}
+        for size in (192, 512)
+    ]
+    icons.append({"src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml"})
+    manifest = {
+        "name": f"{config.site.name} - {t('title_suffix', region=config.region.label)}",
+        "short_name": config.site.name,
+        "start_url": f"{config.default_language}/",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#f7f6f1",
+        "theme_color": "#22211e",
+        "icons": icons,
+    }
+    return json.dumps(manifest, ensure_ascii=False, indent=1) + "\n"
 
 
 def page_path(lang: str, day: date | None = None) -> str:
@@ -631,6 +658,12 @@ def build(
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True)
     shutil.copytree(STATIC_DIR, site_dir / "assets", ignore=shutil.ignore_patterns("*.md"))
+    if config.site.share_image:
+        image = REPO_ROOT / config.site.share_image
+        if not image.is_file():
+            raise BuildError(f"site.share_image: {config.site.share_image} not found")
+        shutil.copyfile(image, site_dir / "share.png")
+    write(site_dir / "site.webmanifest", web_manifest(config))
 
     for lang in config.site.languages:
         for day in site.days:
@@ -672,9 +705,9 @@ def build(
     coverage = {lang: base_context(site, lang, 0)["coverage"] for lang in config.site.languages}
     by_name: dict[str, dict[str, str]] = {}
     for page in pages:
-        by_name.setdefault(page.name, {})[page.lang] = f"{page.path}/"
+        if page.name not in NOINDEX_PAGES:  # noindex pages stay out of the sitemap
+            by_name.setdefault(page.name, {})[page.lang] = f"{page.path}/"
     extra = [paths for paths in by_name.values() if len(paths) == len(config.site.languages)]
-    extra.append({lang: f"{FEEDBACK_PATH}/" for lang in config.site.languages})
     feeds.write_all(site, site_dir, coverage, extra)
     for lang in config.site.languages:
         write(
@@ -711,6 +744,19 @@ class ContentPage:
     todos: list[str]
 
 
+def mail_link(address: str, subject: str = "") -> str:
+    """The contact address as a link that simple scrapers do not find: the HTML holds only
+    the parts and "user [at] domain [dot] tld"; ``static/mail.js`` builds the mailto link."""
+    if "@" not in address:
+        return address
+    user, domain = address.split("@", 1)
+    shown = f"{user} [at] {domain.replace('.', ' [dot] ')}"
+    attrs = f'class="mail" data-u="{html.escape(user)}" data-d="{html.escape(domain)}"'
+    if subject:
+        attrs += f' data-s="{html.escape(quote(subject))}"'
+    return f"<a {attrs}>{html.escape(shown)}</a>"
+
+
 def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
     """Values for the Jinja placeholders of the content pages; ``municipalities`` is
     "A, B und C" in ``lang`` (without a language: "A, B, C")."""
@@ -718,10 +764,14 @@ def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
     names = [m.label for m in config.region.municipalities]
     return {
         "site_name": config.site.name,
+        # the operator's name for the imprint, from the environment (repository variable
+        # IMPRINT_NAME in the workflow), so it is not in the public repository
+        "imprint_name": os.environ.get("LETSGAU_IMPRINT_NAME", "").strip(),
         "region_label": config.region.label,
         "municipalities": join_names(Texts(load_i18n(lang)), names) if lang else ", ".join(names),
         "display_days": config.window.display_days,
         "contact_email": config.site.contact_email,
+        "mail_link": lambda subject="": mail_link(config.site.contact_email, subject),
         "base_url": config.site.base_url.rstrip("/"),
         "repo_url": f"https://github.com/{repo}",
         "feedback_endpoint": config.site.feedback_form_endpoint,
@@ -798,6 +848,7 @@ def render_content(env: Environment, site: Site, page: ContentPage) -> str:
         canonical=f"{page.lang}/{page.path}/",
         alternates={lang: f"{lang}/{path}/" for lang, path in alternates.items()},
         content=page.html,
+        noindex=page.name in NOINDEX_PAGES,
     )
     return env.get_template("page.html").render(**ctx)
 
@@ -817,6 +868,7 @@ def render_feedback(env: Environment, site: Site, lang: str, intro: ContentPage 
         endpoint=site.config.site.feedback_form_endpoint,
         kinds=FEEDBACK_KINDS,
         repo_url=content_context(site.config)["repo_url"],
+        noindex=True,
     )
     return env.get_template("feedback.html").render(**ctx)
 
