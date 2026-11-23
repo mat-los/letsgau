@@ -826,3 +826,43 @@ def test_occasion_groups_and_answers_are_checked() -> None:
     assert "occasions" in schema["required"]
     prompt = merge.render_prompt([], [], [], groups=groups)
     assert "Task 4: acts of one occasion" in prompt and a.id in prompt
+
+
+def test_merge_without_ai_ignores_occasion_groups() -> None:
+    """The default decider takes the groups argument too (a crash in a local check)."""
+    acts = [band("Streumix"), band("Yokio")]
+    result = apply(None, acts, today=DAY1)
+    assert {e.parent_id for e in result.events} == {None} and len(result.events) == 2
+
+
+def test_a_lone_item_with_nearly_the_same_title_is_folded_into_its_main_event() -> None:
+    """Live case: the occasion grouping put "25 Jahre Plantsch - Geburtstagsfeier" (website,
+    09:00) under "25 Jahre Plantsch - Jubiläumsfeier" (Instagram, 11:00) as its only item."""
+    main = ev(
+        "25 Jahre Plantsch – Jubiläumsfeier",
+        "2026-12-06",
+        time="11:00",
+        url="https://instagram.com/p/x",
+    )
+    item = ev(
+        "25 Jahre Plantsch – Geburtstagsfeier",
+        "2026-12-06",
+        time="09:00",
+        url="https://plantsch.de/v",
+        parent_id=main.id,
+    )
+    band_main = ev("Rockabend", "2026-12-06", time="20:00")
+    band_item = ev("Rockabend: Yokio", "2026-12-06", time="21:00", parent_id=band_main.id)
+    stored = EventsFile(
+        updated_at="2026-11-10T00:00:00Z", events=[main, item, band_main, band_item]
+    )
+    report = MergeReport()
+    result = apply(stored, [], today=DAY1, report=report)
+    by_id = {e.id: e for e in result.events}
+    assert item.id not in by_id and by_id[main.id].title.de == main.title.de
+    assert {s.url for s in by_id[main.id].sources} == {
+        "https://instagram.com/p/x",
+        "https://plantsch.de/v",
+    }
+    assert (item.id, main.id) in report.merged_fuzzy
+    assert by_id[band_item.id].parent_id == band_main.id  # a real programme item stays

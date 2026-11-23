@@ -56,6 +56,9 @@ SERIES_SLOT = 0.4
 """Title similarity from which a single event on one day of a series at the same start time
 goes to the AI tie-break (see :func:`same_slot`)."""
 MAX_TIME_GAP_MINUTES = 120
+FOLD_SIMILARITY = 0.7
+"""Title similarity from which a main event's only programme item on the same day is the
+same occasion again and is folded into it (see :func:`fold_lone_items`)."""
 
 _STOPWORDS = frozenset(
     {
@@ -554,9 +557,13 @@ def ai_decider(
 
 
 def no_ai(
-    _pairs: Sequence[Pair], _new: Sequence[Event], _classify: Sequence[Event] = ()
+    _pairs: Sequence[Pair],
+    _new: Sequence[Event],
+    _classify: Sequence[Event] = (),
+    _groups: Sequence[Sequence[Event]] = (),
 ) -> Decisions:
-    """Decider without AI: unclear pairs stay separate, no topic check, no classification."""
+    """Decider without AI: unclear pairs stay separate, no topic check, no classification,
+    no grouping of occasions."""
     return Decisions()
 
 
@@ -581,6 +588,44 @@ class MergeReport:
     """Ids of events that got their ``kind`` from the merge model."""
     grouped: list[tuple[str, list[str]]] = field(default_factory=list)
     """(main event id, programme item ids) of acts grouped into one occasion."""
+
+
+def fold_lone_items(events: dict[str, Event]) -> list[tuple[str, str]]:
+    """Fold a main event's only programme item into it (in place) when both are on the same
+    single day and their titles are nearly the same: two sources of one occasion that the
+    occasion grouping put under each other ("25 Jahre Plantsch - Jubiläumsfeier" with the item
+    "25 Jahre Plantsch - Geburtstagsfeier"). The main event keeps its texts and gets the item's
+    sources. Returns (item id, main id) pairs."""
+    children: dict[str, list[Event]] = {}
+    for event in events.values():
+        if event.parent_id in events:
+            children.setdefault(event.parent_id, []).append(event)
+    folded = []
+    for main_id, items in children.items():
+        main = events[main_id]
+        if len(items) != 1:
+            continue
+        item = items[0]
+        if (
+            item.schedule.start_date != main.schedule.start_date
+            or item.schedule.last_date != item.schedule.start_date
+            or main.schedule.last_date != main.schedule.start_date
+            or title_similarity(item.title.de, main.title.de) < FOLD_SIMILARITY
+            # "Rockabend: Yokio" under "Rockabend" names an act: a real programme item
+            or set(title_tokens(main.title.de)) < set(title_tokens(item.title.de))
+        ):
+            continue
+        events[main_id] = main.model_copy(
+            update={
+                "tags": merge_tags(main, item),
+                "sources": merge_sources(main.sources, item.sources),
+                "first_seen": min(main.first_seen, item.first_seen),
+                "last_verified": max(main.last_verified, item.last_verified),
+            }
+        )
+        del events[item.id]
+        folded.append((item.id, main_id))
+    return folded
 
 
 def group_occasion(events: dict[str, Event], occasion: Occasion) -> tuple[str, list[str]] | None:
@@ -802,6 +847,12 @@ def apply(
         if grouped:
             report.grouped.append(grouped)
             _log(f"grouped {', '.join(grouped[1])} under {grouped[0]}")
+    for item_id, main_id in fold_lone_items(events):
+        report.merged_fuzzy.append((item_id, main_id))
+        if item_id in found:
+            found.discard(item_id)
+            found.add(main_id)
+        _log(f"folded {item_id} into {main_id}: the same occasion")
 
     for key, kind in decisions.kinds.items():
         if key not in events:

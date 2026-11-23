@@ -183,6 +183,9 @@ python -m letsgau run --job events --dry-run --limit-places 3
   main event with the model's title and description and makes the acts its programme
   items (`grouped … under …`, `N occasions grouped`). Such a main event has no source
   page of its own: it counts as found whenever one of its items is found again.
+  A main event whose only item is on the same day with a nearly identical title (two
+  sources of the occasion itself, not an act) is folded into one entry
+  (`folded … into …: the same occasion`).
   After it, one line shows what the site lists in its display window:
   `crawl: shown in the next 21 days: N entries, event N (x %), routine N (x %),
   course N (x %); religion as primary tag N (x %); offers dropped in this run: N`.
