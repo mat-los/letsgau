@@ -190,3 +190,27 @@ def test_without_goatcounter_nothing_is_counted(tmp_path: Path) -> None:
     assert "goatcounter" not in (tmp_path / "de" / "index.html").read_text(encoding="utf-8")
     privacy = (tmp_path / "en" / "privacy" / "index.html").read_text(encoding="utf-8")
     assert "no tracking" in privacy and "GoatCounter" not in privacy
+
+
+def test_share_image_icons_and_manifest(site: Path) -> None:
+    page = (site / "de" / "2026-11-14" / "index.html").read_text(encoding="utf-8")
+    assert '<meta property="og:image" content="https://letsgau.de/share.png">' in page
+    assert '<meta name="twitter:card" content="summary_large_image">' in page
+    assert '<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">' in page
+    assert '<link rel="manifest" href="../../site.webmanifest">' in page
+    root = (site / "index.html").read_text(encoding="utf-8")
+    assert 'property="og:image" content="https://letsgau.de/share.png"' in root
+    assert (site / "share.png").read_bytes()[:4] == b"\x89PNG"
+    for icon in ("apple-touch-icon.png", "icon-192.png", "icon-512.png"):
+        assert (site / "assets" / icon).is_file(), icon
+    manifest = json.loads((site / "site.webmanifest").read_text(encoding="utf-8"))
+    assert manifest["short_name"] == "Let's Gau" and manifest["start_url"] == "de/"
+    assert {i["sizes"] for i in manifest["icons"]} >= {"192x192", "512x512"}
+
+
+def test_share_image_is_optional(tmp_path: Path) -> None:
+    config = public_config()
+    config = config.model_copy(update={"site": config.site.model_copy(update={"share_image": ""})})
+    build.build(config, data_dir=tmp_path / "none", site_dir=tmp_path / "site", now=NOW)
+    page = (tmp_path / "site" / "de" / "index.html").read_text(encoding="utf-8")
+    assert "og:image" not in page and not (tmp_path / "site" / "share.png").exists()

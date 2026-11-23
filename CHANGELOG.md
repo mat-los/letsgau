@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `site.share_image`: a PNG (1200 x 630) for link previews (`og:image`, large Twitter
+  card); the bundled instance ships `instance/share.png`.
+- `apple-touch-icon` and `site.webmanifest` (icons 192/512 px) for "add to home screen".
+
 ### Changed
 
 - Go live (#106): the bundled instance sets `site.indexing: true`. The imprint and the

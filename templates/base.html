@@ -22,9 +22,17 @@
 <meta property="og:url" content="{{ base_url }}{{ share_url if share_url is defined else canonical }}">
 <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
 <meta name="theme-color" content="#22211e">
+{% set share_image = config.site.base_url.rstrip('/') ~ '/share.png' if config.site.share_image else '' %}
+{% if share_image %}<meta property="og:image" content="{{ share_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{% endif %}
 <link rel="stylesheet" href="{{ root }}assets/style.css">
 <style>{% for tag in config.tags %}.t-{{ tag.id }},[data-primary="{{ tag.id }}"]{--c:var(--p{{ loop.index0 % 12 + 1 }})}{% endfor %}</style>
 <link rel="icon" href="{{ root }}assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ root }}assets/apple-touch-icon.png">
+<link rel="manifest" href="{{ root }}site.webmanifest">
 {% block head %}{% endblock %}
 <script>document.documentElement.classList.add("js");try{var c=(JSON.parse(localStorage.getItem("lg.v1"))||{}).cats;if(c===false||c===undefined&&matchMedia("(max-width: 639px)").matches)document.documentElement.classList.add("cats-closed")}catch(e){}</script>
 </head>

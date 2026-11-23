@@ -62,6 +62,9 @@ class SiteConfig(_Strict):
     """False adds ``noindex`` to every page and stops inviting crawlers in robots.txt."""
     goatcounter: str = Field(default="", pattern=r"^([a-z0-9-]+|\{\{[A-Z_]+\}\})?$")
     """GoatCounter site code (``<code>.goatcounter.com``); empty = no visitor counting."""
+    share_image: str = Field(default="", pattern=r"^(\S+\.png)?$")
+    """PNG (1200 x 630) shown when a page is shared (``og:image``), path relative to the
+    repository root; empty = none."""
 
     @model_validator(mode="after")
     def _some_contact(self) -> SiteConfig:

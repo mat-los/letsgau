@@ -12,6 +12,7 @@ site:
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
   indexing: true                        # false = noindex on every page (hidden from search engines)
   goatcounter: ""                       # optional GoatCounter code: cookieless visitor counts; "" = off
+  share_image: ""                       # optional PNG 1200x630 shown when a page is shared; "" = none
 
 region:
   label: "{{REGION_LABEL}}"             # name of the region in page titles

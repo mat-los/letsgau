@@ -339,6 +339,27 @@ def make_env() -> Environment:
     return env
 
 
+def web_manifest(config: Config) -> str:
+    """``site.webmanifest``: name, start page and icons for "add to home screen"."""
+    t = Texts(load_i18n(config.default_language))
+    icons = [
+        {"src": f"assets/icon-{size}.png", "sizes": f"{size}x{size}", "type": "image/png"}
+        for size in (192, 512)
+    ]
+    icons.append({"src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml"})
+    manifest = {
+        "name": f"{config.site.name} - {t('title_suffix', region=config.region.label)}",
+        "short_name": config.site.name,
+        "start_url": f"{config.default_language}/",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#f7f6f1",
+        "theme_color": "#22211e",
+        "icons": icons,
+    }
+    return json.dumps(manifest, ensure_ascii=False, indent=1) + "\n"
+
+
 def page_path(lang: str, day: date | None = None) -> str:
     """Site-relative path of a page, e.g. ``de/2026-11-14/``."""
     return f"{lang}/{day.isoformat()}/" if day else f"{lang}/"
@@ -635,6 +656,12 @@ def build(
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True)
     shutil.copytree(STATIC_DIR, site_dir / "assets", ignore=shutil.ignore_patterns("*.md"))
+    if config.site.share_image:
+        image = REPO_ROOT / config.site.share_image
+        if not image.is_file():
+            raise BuildError(f"site.share_image: {config.site.share_image} not found")
+        shutil.copyfile(image, site_dir / "share.png")
+    write(site_dir / "site.webmanifest", web_manifest(config))
 
     for lang in config.site.languages:
         for day in site.days:
