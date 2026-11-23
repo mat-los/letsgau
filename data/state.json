@@ -3,21 +3,21 @@
   "geo_fingerprint": "sha256:14f3ae2a0bf56dbc",
   "force_discovery": false,
   "last_run": {
-    "geo": "2026-11-22T09:29:14Z",
+    "geo": "2026-11-23T10:27:56Z",
     "discovery": "2026-11-16T09:09:32Z",
-    "events": "2026-11-19T09:59:30Z",
-    "build": "2026-11-23T09:44:01Z"
+    "events": "2026-11-23T10:27:56Z",
+    "build": "2026-11-23T10:27:56Z"
   },
   "last_failed": {},
   "last_usage": {
     "events": {
-      "requests": 25,
-      "web_searches": 4,
+      "requests": 24,
+      "web_searches": 6,
       "web_fetches": 0,
-      "input_tokens": 1500707,
-      "output_tokens": 97681,
-      "cost_usd": 2.3252000000000006,
-      "duration_s": 545.6999999999999
+      "input_tokens": 1563631,
+      "output_tokens": 114036,
+      "cost_usd": 2.6027,
+      "duration_s": 561.8
     },
     "discovery": {
       "requests": 9,

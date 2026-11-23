@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-19T10:13:01Z",
+  "updated_at": "2026-11-23T10:42:33Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -9,7 +9,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "reaktor_sog": {
@@ -19,7 +19,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "musikhaus_kirstein": {
@@ -29,7 +29,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "stadt.schongau": {
@@ -39,7 +39,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "weltladen_schongau": {
@@ -49,7 +49,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongau": {
@@ -59,7 +59,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "mein.schongau": {
@@ -69,7 +69,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "bistro.cafe.ballenhaus": {
@@ -79,7 +79,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "stadtkapelle_schongau_e.v._": {
@@ -89,7 +89,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "lionsclubschongau": {
@@ -99,7 +99,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "weinstuben.schongau": {
@@ -109,7 +109,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "faschingsgesellschaft_schongau": {
@@ -119,7 +119,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongauer_maerchenwald": {
@@ -129,7 +129,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "juze_sog": {
@@ -139,7 +139,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "plantsch_schongau": {
@@ -149,7 +149,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "soghandball": {
@@ -159,7 +159,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "tcschongau": {
@@ -169,7 +169,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "alpenverein.schongau": {
@@ -179,7 +179,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "thw_schongau": {
@@ -189,7 +189,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongau_triathlon": {
@@ -199,7 +199,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "birishpub.zumhuterer": {
@@ -209,7 +209,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "lagerhausschongau": {
@@ -219,7 +219,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "violet_schongau": {
@@ -229,7 +229,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "herrlose___": {
@@ -239,7 +239,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "lagerhauskino": {
@@ -249,7 +249,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongauer_brauhaus": {
@@ -259,7 +259,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "roessle_biergarten_schongau": {
@@ -269,7 +269,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "cafe_express_schongau": {
@@ -279,7 +279,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "cafe_express_schongau_": {
@@ -289,7 +289,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongauer_weihnachtszauber": {
@@ -299,7 +299,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "schongauer_sommer": {
@@ -309,7 +309,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "csd_schongau": {
@@ -319,7 +319,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "poolparty.schongau": {
@@ -329,7 +329,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "ea_schongau": {
@@ -339,7 +339,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "jeanscafe": {
@@ -349,7 +349,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "bootshaus_schongau": {
@@ -359,7 +359,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "tierheim_schongau": {
@@ -369,7 +369,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "ea_schongau_1b": {
@@ -379,7 +379,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "blaskapelle_altenstadt": {
@@ -389,7 +389,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "feuerwehr_altenstadt_i.ob": {
@@ -399,7 +399,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "rehkitzrettung_altenstadt": {
@@ -409,7 +409,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "gasthof_janser": {
@@ -419,7 +419,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "pizzeria.trattoria.la.locanda": {
@@ -429,7 +429,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "pgaltenstadt": {
@@ -439,7 +439,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-12",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "gasthoflamprecht": {
@@ -449,7 +449,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "xaverlounge": {
@@ -459,7 +459,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "diewerkfeuerwehr": {
@@ -469,7 +469,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "cafecentralpeiting": {
@@ -479,7 +479,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "cafebarsesar": {
@@ -489,7 +489,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "gasthaus_zechenschenke": {
@@ -499,7 +499,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "saliterhof_peiting": {
@@ -509,7 +509,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "juze_peiting": {
@@ -519,7 +519,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "knatra_peiting": {
@@ -529,7 +529,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "lj_peiting": {
@@ -539,7 +539,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "fapeiting": {
@@ -549,7 +549,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "ecpeiting": {
@@ -559,7 +559,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "feuerwehr_peiting": {
@@ -569,7 +569,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "herzogsaegmuehle": {
@@ -579,7 +579,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "faschingsclub_hohenfurch": {
@@ -589,7 +589,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "landjugendhohenfurch": {
@@ -599,7 +599,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "ffw.hohenfurch": {
@@ -609,7 +609,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     },
     "werbegemeinschaftaltstschongau": {
@@ -619,7 +619,7 @@
       ],
       "status": "active",
       "first_seen": "2026-11-13",
-      "last_checked": "2026-11-19",
+      "last_checked": "2026-11-23",
       "last_error": ""
     }
   },
@@ -630,7 +630,7 @@
       "posted": "2026-11-05",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -772,7 +772,7 @@
       "posted": "2026-11-10",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -820,7 +820,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -868,7 +868,7 @@
       "posted": "2026-11-04",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18127699678803939": {
@@ -934,7 +934,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18148630999569354": {
@@ -943,7 +943,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18125987605998485": {
@@ -952,7 +952,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18035239931894100": {
@@ -970,7 +970,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -1028,7 +1028,7 @@
       "posted": "2026-11-07",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18120125659948651": {
@@ -1104,7 +1104,7 @@
       "posted": "2026-11-12",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17938960617127889": {
@@ -1122,7 +1122,7 @@
       "posted": "2026-11-10",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -1510,7 +1510,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18136110277637056": {
@@ -1528,7 +1528,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18027188948944748": {
@@ -1537,7 +1537,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18106217012288035": {
@@ -1546,7 +1546,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18116976560585275": {
@@ -1555,7 +1555,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -1604,7 +1604,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -1667,7 +1667,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18130847135478389": {
@@ -1685,7 +1685,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18118771417824800": {
@@ -1694,7 +1694,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18120738224072789": {
@@ -1703,7 +1703,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18607001602065958": {
@@ -1712,7 +1712,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18375244900246127": {
@@ -1721,7 +1721,7 @@
       "posted": "2026-11-04",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18352833406267921": {
@@ -1730,7 +1730,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18126635956859874": {
@@ -1748,7 +1748,7 @@
       "posted": "2026-11-08",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -1797,7 +1797,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17990542563080081": {
@@ -1824,7 +1824,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -1873,7 +1873,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18445469806134133": {
@@ -1882,7 +1882,7 @@
       "posted": "2026-11-05",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18136611878499445": {
@@ -1891,7 +1891,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18183769273426071": {
@@ -2050,7 +2050,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -2099,7 +2099,7 @@
       "posted": "2026-11-04",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e3",
@@ -2174,7 +2174,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18419674732156887": {
@@ -2210,7 +2210,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18122082536279188": {
@@ -2264,7 +2264,7 @@
       "posted": "2026-11-06",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18400542907201042": {
@@ -2273,7 +2273,7 @@
       "posted": "2026-11-03",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18108034139461622": {
@@ -2340,7 +2340,7 @@
       "posted": "2026-11-10",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18134644489863927": {
@@ -2349,7 +2349,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18168714595485756": {
@@ -2358,7 +2358,7 @@
       "posted": "2026-11-02",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18105980960010715": {
@@ -2367,7 +2367,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18016213160966789": {
@@ -2376,7 +2376,7 @@
       "posted": "2026-11-12",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -2425,7 +2425,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-12",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -2483,7 +2483,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17916202089303562": {
@@ -2501,7 +2501,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -2549,7 +2549,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -2607,7 +2607,7 @@
       "posted": "2026-11-05",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18208195000372626": {
@@ -2616,7 +2616,7 @@
       "posted": "2026-11-03",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18106072319296458": {
@@ -2697,7 +2697,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18137203195661748": {
@@ -2751,7 +2751,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -2808,7 +2808,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -2856,7 +2856,7 @@
       "posted": "2026-11-13",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e3",
@@ -3126,7 +3126,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17966745390216831": {
@@ -3135,7 +3135,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18131718271857940": {
@@ -3144,7 +3144,7 @@
       "posted": "2026-11-07",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18108798569211351": {
@@ -3153,7 +3153,7 @@
       "posted": "2026-11-05",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17963637219240051": {
@@ -3180,7 +3180,7 @@
       "posted": "2026-11-10",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18358734508171096": {
@@ -3189,7 +3189,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18100411325550839": {
@@ -3380,7 +3380,7 @@
       "posted": "2026-11-11",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18120310894983286": {
@@ -3398,7 +3398,7 @@
       "posted": "2026-11-09",
       "version": 1,
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -3466,7 +3466,7 @@
       "posted": "2026-11-14",
       "version": 1,
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18064306958569186": {
@@ -3475,7 +3475,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18151440220561739": {
@@ -3493,7 +3493,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17914452051561936": {
@@ -3502,7 +3502,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18113558294227726": {
@@ -3511,7 +3511,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17971337730196786": {
@@ -3520,7 +3520,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18148644436582882": {
@@ -3529,7 +3529,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18101672414443609": {
@@ -3538,7 +3538,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18128106991911378": {
@@ -3547,7 +3547,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18103245611649316": {
@@ -3565,7 +3565,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18135087757705446": {
@@ -3574,7 +3574,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17937791505411444": {
@@ -3583,7 +3583,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -3641,7 +3641,7 @@
       "posted": "2026-11-14",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18112253828243785": {
@@ -3650,7 +3650,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -3699,7 +3699,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18093442304694650": {
@@ -3708,7 +3708,7 @@
       "posted": "2026-11-15",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17946383064094942": {
@@ -3717,7 +3717,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -3765,7 +3765,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18138004204661907": {
@@ -3774,7 +3774,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -3824,7 +3824,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18088909961317652": {
@@ -3833,7 +3833,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18078249701466449": {
@@ -3842,7 +3842,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17958576681272506": {
@@ -3851,7 +3851,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18095974808276995": {
@@ -3860,7 +3860,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17910693981597466": {
@@ -3869,7 +3869,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18130390102898138": {
@@ -3878,7 +3878,7 @@
       "posted": "2026-11-16",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18026304158931235": {
@@ -3887,7 +3887,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18137525461582290": {
@@ -3896,7 +3896,7 @@
       "posted": "2026-11-19",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17999261337104367": {
@@ -3905,7 +3905,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18181656325433771": {
@@ -3914,7 +3914,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18065921801526287": {
@@ -3923,7 +3923,7 @@
       "posted": "2026-11-19",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -3972,7 +3972,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "17916031728507905": {
@@ -3981,7 +3981,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -4034,7 +4034,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e3",
@@ -4084,7 +4084,7 @@
       "posted": "2026-11-19",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18122654198065834": {
@@ -4093,7 +4093,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18121957564991299": {
@@ -4102,7 +4102,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": []
     },
     "18124112993603588": {
@@ -4111,7 +4111,7 @@
       "posted": "2026-11-18",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e1",
@@ -4161,7 +4161,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e2",
@@ -4211,7 +4211,7 @@
       "posted": "2026-11-17",
       "version": 1,
       "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "last_seen": "2026-11-23",
       "events": [
         {
           "ref": "e3",
@@ -4269,6 +4269,1430 @@
           ]
         }
       ]
+    },
+    "18075674459494880": {
+      "username": "loewenhof_schongau",
+      "permalink": "https://www.instagram.com/p/DgAA45hKQGV/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18120900788592905": {
+      "username": "violet_schongau",
+      "permalink": "https://www.instagram.com/p/DgDswlPqoU-/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18138806368662353": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/p/Df9gCzyIrFH/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18120367048997653": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DgD59W1FM9F/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18125046163947550": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Df-u5-2ilje/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17918522715545524": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Df-ubAaCqck/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17956687116083765": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/Df9EaT2gRtW/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18016543481986033": {
+      "username": "alpenverein.schongau",
+      "permalink": "https://www.instagram.com/p/DgDBM97kaMm/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18048989078833380": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DgCKh9uNh3X/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18122800112057362": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/reel/Df-poZuOI6f/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18183328405441215": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/Df-mAo_uhZG/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18119394508821309": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/Df9E75GOWCz/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18116800475156826": {
+      "username": "gasthaus_zechenschenke",
+      "permalink": "https://www.instagram.com/reel/DgBACFLug4n/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17931171147427188": {
+      "username": "jeanscafe",
+      "permalink": "https://www.instagram.com/reel/Df97ur5x_Zp/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18130790494858621": {
+      "username": "lionsclubschongau",
+      "permalink": "https://www.instagram.com/p/Df9trNkMjvG/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18436106185149651": {
+      "username": "mein.schongau",
+      "permalink": "https://www.instagram.com/p/DgDL5JQJRSd/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17931627228181896": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/reel/DgC6gYFFR4z/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18399353590162027": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DgCb0wfmd3o/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18034749332860633": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Df92yPHCmHA/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18146975500514319": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/Df7Wlrfge7c/",
+      "posted": "2026-11-19",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18029228318926603": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/Df9lte2O2AN/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18382586074243714": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/Df9Op04DsX_/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17997387210103625": {
+      "username": "herrlose___",
+      "permalink": "https://www.instagram.com/reel/DgAsDRcokMf/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17994935916062257": {
+      "username": "schongauer_weihnachtszauber",
+      "permalink": "https://www.instagram.com/p/Df7k5ggET6u/",
+      "posted": "2026-11-19",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Schongauer Weihnachtszauber",
+            "en": "Schongau Christmas Magic Market"
+          },
+          "description": {
+            "de": "Weihnachtsmarkt auf dem Marienplatz mit Bühnenprogramm, Kinderaktionen, Kindereisenbahn und Kutschfahrten.",
+            "en": "Christmas market on Marienplatz with stage programme, children's activities, mini train and carriage rides."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-04",
+            "end_date": "2026-12-20",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e2",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Eröffnung Weihnachtszauber mit Stadtkapelle Schongau",
+            "en": "Christmas Magic opening with Stadtkapelle Schongau"
+          },
+          "description": {
+            "de": "Eröffnung durch den Bürgermeister und Segnung durch die Pfarrer, danach Konzert der Stadtkapelle Schongau.",
+            "en": "Opening by the mayor and blessing by the priests, followed by a concert of the town band."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-04",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": "21:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e3",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Blaskapelle Kinsau",
+            "en": "Blaskapelle Kinsau brass band"
+          },
+          "description": {
+            "de": "Auftritt der Blaskapelle Kinsau beim Weihnachtszauber.",
+            "en": "Brass band performance at the Christmas market."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-04",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": "19:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e4",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Steve Bohem live",
+            "en": "Steve Bohem live"
+          },
+          "description": {
+            "de": "Live-Musik mit Steve Bohem beim Weihnachtszauber.",
+            "en": "Live music with Steve Bohem at the Christmas market."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-05",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": "20:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e5",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Besuch des Nikolaus mit Geschenken",
+            "en": "St. Nicholas visit with gifts"
+          },
+          "description": {
+            "de": "Der Nikolaus besucht den Weihnachtszauber und bringt Geschenke für Kinder.",
+            "en": "St. Nicholas visits the market and brings gifts for children."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-06",
+            "end_date": null,
+            "start_time": "16:00",
+            "end_time": "18:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e6",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Schmidtreissend",
+            "en": "Schmidtreissend"
+          },
+          "description": {
+            "de": "Auftritt Schmidtreissend beim Weihnachtszauber.",
+            "en": "Schmidtreissend performance at the Christmas market."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-06",
+            "end_date": "2026-12-10",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-12-06",
+              "2026-12-10"
+            ],
+            "opening_hours": [
+              {
+                "days": "2026-12-06",
+                "from": "17:30",
+                "to": "20:30"
+              },
+              {
+                "days": "2026-12-10",
+                "from": "17:30",
+                "to": "20:30"
+              }
+            ]
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e7",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Lebendiger Adventskalender",
+            "en": "Living Advent calendar"
+          },
+          "description": {
+            "de": "Lebendiger Adventskalender mit Einfahrt in der Löwenstraße.",
+            "en": "Living Advent calendar at the Löwenstraße entrance."
+          },
+          "venue": {
+            "name": "Löwenstraße",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-06",
+            "end_date": null,
+            "start_time": "18:00",
+            "end_time": "18:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e8",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Familientag mit Ballonzauber und Weihnachtsgeschichten",
+            "en": "Family day with balloon magic and Christmas stories"
+          },
+          "description": {
+            "de": "Familientag mit ermäßigten Preisen, Ballonzauber, Geschichten mit Frau Funke und Schohu, Nikolaus on Tour.",
+            "en": "Family day with reduced prices, balloon magic, stories and St. Nicholas on tour."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-07",
+            "end_date": "2026-12-14",
+            "start_time": "16:00",
+            "end_time": "19:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-07",
+              "2026-12-14"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e9",
+          "parent_ref": "e1",
+          "title": {
+            "de": "BigBand Welfengymnasium und Musikschule Pfaffenwinkel",
+            "en": "Big band of Welfengymnasium and Musikschule Pfaffenwinkel"
+          },
+          "description": {
+            "de": "Konzert der BigBand des Welfengymnasiums und der Musikschule.",
+            "en": "Concert by the school big band and music school."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-07",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e10",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Seniorennachmittag mit Bergsteigerchor und Musikkapelle Schwabbruck",
+            "en": "Seniors' afternoon with mountaineers' choir and Musikkapelle Schwabbruck"
+          },
+          "description": {
+            "de": "Seniorennachmittag mit ermäßigten Preisen und Bestuhlung, Auftritte von Bergsteigerchor und Musikkapelle.",
+            "en": "Seniors' afternoon with reduced prices and seating, choir and brass band performances."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-09",
+            "end_date": null,
+            "start_time": "16:00",
+            "end_time": "19:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "seniors",
+          "tags": [
+            "seniors",
+            "market-festival",
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e11",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Perchten Lechroaner Pass",
+            "en": "Perchten Lechroaner Pass"
+          },
+          "description": {
+            "de": "Perchtenlauf der Lechroaner Pass beim Weihnachtszauber.",
+            "en": "Perchten run by Lechroaner Pass at the Christmas market."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "17:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e12",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Raul Westley live",
+            "en": "Raul Westley live"
+          },
+          "description": {
+            "de": "Live-Auftritt von Raul Westley.",
+            "en": "Live performance by Raul Westley."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": "21:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e13",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Weihnachtsbasteln des Lions Club",
+            "en": "Christmas crafts with Lions Club"
+          },
+          "description": {
+            "de": "Basteln für Kinder von 4 bis 10 Jahren in der Musikschule, Anmeldung per E-Mail nötig.",
+            "en": "Crafts for children aged 4–10 at the music school; registration by email required."
+          },
+          "venue": {
+            "name": "Musikschule Pfaffenwinkel",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e14",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Magdalena Echtler live",
+            "en": "Magdalena Echtler live"
+          },
+          "description": {
+            "de": "Live-Auftritt von Magdalena Echtler.",
+            "en": "Live performance by Magdalena Echtler."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-13",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": "20:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e15",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Samira und Dario live",
+            "en": "Samira und Dario live"
+          },
+          "description": {
+            "de": "Live-Auftritt von Samira und Dario.",
+            "en": "Live performance by Samira und Dario."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-14",
+            "end_date": null,
+            "start_time": "19:00",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e16",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Vorspielen der Musikschule",
+            "en": "Music school recital"
+          },
+          "description": {
+            "de": "Schülervorspiel der Musikschule beim Weihnachtszauber.",
+            "en": "Music school students' recital at the Christmas market."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-17",
+            "end_date": null,
+            "start_time": "16:00",
+            "end_time": "20:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e17",
+          "parent_ref": "e1",
+          "title": {
+            "de": "FlatOut live",
+            "en": "FlatOut live"
+          },
+          "description": {
+            "de": "Live-Auftritt der Band FlatOut.",
+            "en": "Live performance by the band FlatOut."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-19",
+            "end_date": null,
+            "start_time": "18:30",
+            "end_time": "21:30",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "ref": "e18",
+          "parent_ref": "e1",
+          "title": {
+            "de": "Männerchor Schloßberger, Trachtenverein und Bläsergruppe",
+            "en": "Men's choir, costume club and brass group"
+          },
+          "description": {
+            "de": "Auftritt von Männerchor Schloßberger, Trachtenverein Schongau und Bläsergruppe der Stadtkapelle.",
+            "en": "Performance by men's choir, costume club and brass group of the town band."
+          },
+          "venue": {
+            "name": "Marienplatz",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-20",
+            "end_date": null,
+            "start_time": "15:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7k5ggET6u/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18011891441783402": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DgDj0MhOVVN/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18101734616416545": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DgCuoFzOg6A/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17932499367181813": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/reel/DgCt92-Od8g/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18133115842876066": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DgBAu-6yqTP/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e19",
+          "parent_ref": null,
+          "title": {
+            "de": "EC Peiting – Heilbronner Falken (Tag der Sportvereine)",
+            "en": "EC Peiting vs Heilbronner Falken (Sports Clubs Day)"
+          },
+          "description": {
+            "de": "Eishockey-Heimspiel gegen Heilbronn; Vereine der Region erhalten nach Anmeldung freien Eintritt.",
+            "en": "Ice hockey home game against Heilbronn; regional clubs get free entry after registering."
+          },
+          "venue": {
+            "name": "Eisstadion Peiting",
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-29",
+            "end_date": null,
+            "start_time": "18:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgBAu-6yqTP/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18060753479566988": {
+      "username": "herzogsaegmuehle",
+      "permalink": "https://www.instagram.com/p/Df7aAN7FdGX/",
+      "posted": "2026-11-19",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Weihnachtsmarkt im Dorf Herzogsägmühle",
+            "en": "Christmas Market in Herzogsägmühle Village"
+          },
+          "description": {
+            "de": "Weihnachtsmarkt mit Punsch, Gospel, Kinderprogramm, Kutschfahrten, Blasmusik und Handgemachtem; die Läden im Dorf sind geöffnet.",
+            "en": "Christmas market with punch, gospel, children's programme, carriage rides, brass music and handmade goods; village shops open."
+          },
+          "venue": {
+            "name": "Dorf Herzogsägmühle",
+            "place": "Herzogsägmühle",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-29",
+            "start_time": "11:00",
+            "end_time": "17:00",
+            "all_day": false,
+            "dates": [
+              "2026-11-27",
+              "2026-11-28",
+              "2026-11-29"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df7aAN7FdGX/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17983569852122885": {
+      "username": "juze_sog",
+      "permalink": "https://www.instagram.com/reel/Df7iwOwq1BK/",
+      "posted": "2026-11-19",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Juze-Jubiläum: Mumuzumundi live",
+            "en": "Juze Anniversary: Mumuzumundi live"
+          },
+          "description": {
+            "de": "Konzert zum 40-jährigen Jubiläum des Jugendzentrums Schongau mit der Band Mumuzumundi.",
+            "en": "Concert for the 40th anniversary of the Schongau youth centre featuring the band Mumuzumundi."
+          },
+          "venue": {
+            "name": "Juze Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/Df7iwOwq1BK/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17979515025127065": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/reel/Df__E4SnKi3/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18154692316545376": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/reel/Df9y_dJAvP5/",
+      "posted": "2026-11-20",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Taylor Tone Show",
+            "en": "Taylor Tone Show"
+          },
+          "description": {
+            "de": "Gitarrenabend mit Experte Simon Tächl, Angeboten und Verlosung einer Taylor GS Mini. Eintritt frei, Anmeldung erforderlich.",
+            "en": "Guitar evening with expert Simon Tächl, offers and a raffle for a Taylor GS Mini. Free entry, registration required."
+          },
+          "venue": {
+            "name": "Musikhaus Kirstein",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": null,
+            "start_time": "18:30",
+            "end_time": "21:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "talk-workshop",
+          "tags": [
+            "talk-workshop",
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/reel/Df9y_dJAvP5/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18112780517190204": {
+      "username": "plantsch_schongau",
+      "permalink": "https://www.instagram.com/p/Df_1bzTCQNb/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "25 Jahre Plantsch – Jubiläumsfeier",
+            "en": "Plantsch 25th Anniversary Celebration"
+          },
+          "description": {
+            "de": "Jubiläumsprogramm mit Showaufgüssen, Kinderanimation, Nikolaus-Verlosung, Ballonglühen und Beats & Badehosen ab 18 Uhr.",
+            "en": "Anniversary programme with show sauna infusions, children's entertainment, Nikolaus raffle, balloon glow and Beats & Badehosen from 6 pm."
+          },
+          "venue": {
+            "name": "Plantsch",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-06",
+            "end_date": null,
+            "start_time": "11:00",
+            "end_time": "22:00",
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "family-kids",
+          "tags": [
+            "family-kids",
+            "party"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/Df_1bzTCQNb/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18137140537815409": {
+      "username": "saliterhof_peiting",
+      "permalink": "https://www.instagram.com/p/DgC79I1MXYQ/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e5",
+          "parent_ref": null,
+          "title": {
+            "de": "Christkindlmarkt am Saliterhof",
+            "en": "Christkindl Market at Saliterhof"
+          },
+          "description": {
+            "de": "Weihnachtszauber im Eventstadl mit Schmankerln, Glühwein, Handgemachtem, Musik, Alpakas, Kinderbasteln und Christbaumverkauf.",
+            "en": "Christmas market in the event barn with treats, mulled wine, handmade gifts, music, alpacas, children's crafts and Christmas tree sales."
+          },
+          "venue": {
+            "name": "Saliterhof, Eventstadl",
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": "2026-12-13",
+            "start_time": "11:00",
+            "end_time": "20:00",
+            "all_day": false,
+            "dates": [
+              "2026-12-12",
+              "2026-12-13"
+            ],
+            "opening_hours": null
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival",
+            "family-kids"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgC79I1MXYQ/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18107506880014368": {
+      "username": "schongauer_maerchenwald",
+      "permalink": "https://www.instagram.com/p/Df65pmcMtZT/",
+      "posted": "2026-11-19",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18087190289708467": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DgDKa9BjMRs/",
+      "posted": "2026-11-22",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Stadtführung im Advent",
+            "en": "Advent City Tour"
+          },
+          "description": {
+            "de": "Rundgang durch die Schongauer Altstadt mit Erasmuskapelle, Hl.-Kreuz-Kapelle und Stadtmauer, begleitet von Orgelspiel. Anmeldung erforderlich, 11 € pro Person.",
+            "en": "Guided walk through Schongau's old town with chapels and city wall, accompanied by organ music. Registration required, €11 per person."
+          },
+          "venue": {
+            "name": "Tourist Information Schongau",
+            "place": "Schongau",
+            "address": "Weinstraße 11, 86956 Schongau"
+          },
+          "schedule": {
+            "start_date": "2026-12-06",
+            "end_date": null,
+            "start_time": "15:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "art-culture",
+          "tags": [
+            "art-culture",
+            "outdoor"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgDKa9BjMRs/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "17971113633016169": {
+      "username": "stadt.schongau",
+      "permalink": "https://www.instagram.com/p/DgAcc6KiCVu/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17978240187155584": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/DgFAn66DrZK/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "Weihnachtsmarkt der Herzogsägmühle",
+            "en": "Herzogsägmühle Christmas Market"
+          },
+          "description": {
+            "de": "Weihnachtsmarkt mit vielen Ständen, darunter der Stand des Tierheims mit Adventskränzen, Strickwaren, Deko und Plätzchen.",
+            "en": "Christmas market with many stalls, including the animal shelter's stand with Advent wreaths, knitwear, decorations and cookies."
+          },
+          "venue": {
+            "name": "Herzogsägmühle",
+            "place": "Herzogsägmühle",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-27",
+            "end_date": "2026-11-29",
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": [
+              "2026-11-27",
+              "2026-11-28",
+              "2026-11-29"
+            ],
+            "opening_hours": [
+              {
+                "days": "2026-11-27,2026-11-28",
+                "from": "11:00",
+                "to": "19:00"
+              },
+              {
+                "days": "2026-11-29",
+                "from": "11:00",
+                "to": "17:00"
+              }
+            ]
+          },
+          "primary_tag": "market-festival",
+          "tags": [
+            "market-festival"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgFAn66DrZK/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18646703230003796": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/p/Df9RdW3OHCp/",
+      "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
     }
   },
   "rejected": {
