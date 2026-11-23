@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T22:21:05Z",
+  "updated_at": "2026-11-23T22:43:59Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -657,7 +657,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 6
+      "misses": 7
     },
     {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
@@ -1033,7 +1033,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-16",
-      "misses": 4
+      "misses": 5
     },
     {
       "id": "2026-11-15-allgemeiner-lauf-in-der-peitinger-eishalle",
@@ -2347,7 +2347,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 4
+      "misses": 5
     },
     {
       "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
@@ -2789,7 +2789,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -2890,7 +2890,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 3
+      "misses": 4
     },
     {
       "id": "2026-11-27-gospelchor-good-news-beim-weihnachtsmarkt-herzogsaegmuehle",
@@ -3384,63 +3384,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-28-rc-77-altenstadt-adventwanderung-und",
-      "parent_id": null,
-      "title": {
-        "de": "Adventwanderung Altenstadt",
-        "en": "Advent Hike Altenstadt"
-      },
-      "description": {
-        "de": "Rundwanderung (ca. 9 km) ab Römerstein zur Basilika, dort Andacht um 17:00, danach Essen im Bistro LIONS.",
-        "en": "Circular hike of about 9 km from the Römerstein to the Basilika, devotion at 17:00, then a meal at Bistro LIONS."
-      },
-      "venue": {
-        "name": "Römerstein",
-        "place": "Altenstadt",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "14:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "outdoor",
-      "tags": [
-        "outdoor",
-        "religion"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/rc-77-altenstadt-adventwanderung-und-jahresabschluss-ecde0903654d379d5ac0243d93b430c90.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-12"
-        },
-        {
-          "url": "https://rc77-altenstadt.de/",
-          "primary": false,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-28-benefizkonzert-musik-im-pfaffenwinkel-herzogsaegmuehle",
       "parent_id": null,
       "title": {
@@ -3926,6 +3869,56 @@
         }
       ],
       "first_seen": "2026-11-13",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-11-30-traum-duftreise-sauna-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Traum- & Duftreise (Sauna)",
+        "en": "Dream & Fragrance Journey (sauna)"
+      },
+      "description": {
+        "de": "Kurzer Saunaaufguss im Plantsch, montags und mittwochs um 12:45 Uhr.",
+        "en": "Short sauna infusion session at Plantsch, Mondays and Wednesdays at 12:45."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-30",
+        "end_date": "2026-12-16",
+        "start_time": "12:45",
+        "end_time": "13:00",
+        "all_day": false,
+        "dates": [
+          "2026-11-30",
+          "2026-12-02",
+          "2026-12-14",
+          "2026-12-16"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "food-drink",
+      "tags": [
+        "food-drink",
+        "outdoor"
+      ],
+      "status": "scheduled",
+      "kind": "routine",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -4779,68 +4772,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-05-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
-        "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
-      },
-      "description": {
-        "de": "Konzert von Ton Steine Scherben im Reaktor; der ursprüngliche Termin am 5. Dezember 2026 wurde verschoben.",
-        "en": "Ton Steine Scherben concert at Reaktor; the original date of 5 December 2026 was postponed."
-      },
-      "venue": {
-        "name": "Reaktor",
-        "place": "Schongau",
-        "address": "Schützenhausstr. 1, Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "postponed",
-      "kind": "event",
-      "postponed_to": "2027-03-12-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
-      "sources": [
-        {
-          "url": "https://www.reaktor-sog.de/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://allevents.in/schongau/all",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-12-05-r-auszeit-mikro-pilgern-im-forchetwald",
       "parent_id": null,
       "title": {
@@ -5043,7 +4974,7 @@
         "sports"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -5145,6 +5076,68 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-09",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-05-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Kai und Funky von Ton Steine Scherben feat. Birte Volta",
+        "en": "Kai and Funky of Ton Steine Scherben feat. Birte Volta"
+      },
+      "description": {
+        "de": "Konzert im Reaktor Sog in Schongau mit Mitgliedern von Ton Steine Scherben und Birte Volta.",
+        "en": "Concert at Reaktor Sog in Schongau with members of Ton Steine Scherben and Birte Volta."
+      },
+      "venue": {
+        "name": "Reaktor Sog",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-05",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.reaktor-sog.de/",
+          "primary": true,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://allevents.in/schongau/all",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-16"
         }
       ],
       "first_seen": "2026-11-09",
@@ -5308,11 +5301,11 @@
       "parent_id": null,
       "title": {
         "de": "25 Jahre Plantsch – Jubiläumsfeier",
-        "en": "25 Years Plantsch – Anniversary Celebration"
+        "en": "Plantsch 25th Anniversary Celebration"
       },
       "description": {
-        "de": "Geburtstagsfeier und Jubiläumsprogramm zum 25-jährigen Bestehen des Plantsch am 6. Dezember 2026, mit Showaufgüssen, Kinderanimation, Nikolaus-Verlosung, Ballonglühen und Beats & Badehosen ab 18 Uhr.",
-        "en": "Birthday celebration and anniversary programme for the 25th anniversary of the Plantsch pool on 6 December 2026, with show infusions, children's entertainment, St. Nicholas raffle, balloon glow and Beats & Badehosen from 6 pm."
+        "de": "Jubiläumsprogramm mit Showaufgüssen, Kinderanimation, Nikolaus-Verlosung, Ballonglühen und Beats & Badehosen ab 18 Uhr.",
+        "en": "Anniversary programme with show sauna infusions, children's entertainment, Nikolaus raffle, balloon glow and Beats & Badehosen from 6 pm."
       },
       "venue": {
         "name": "Plantsch",
@@ -5322,16 +5315,16 @@
       "schedule": {
         "start_date": "2026-12-06",
         "end_date": null,
-        "start_time": "09:00",
-        "end_time": null,
+        "start_time": "11:00",
+        "end_time": "22:00",
         "all_day": false,
         "dates": null,
         "opening_hours": null
       },
-      "primary_tag": "party",
+      "primary_tag": "family-kids",
       "tags": [
-        "party",
-        "family-kids"
+        "family-kids",
+        "party"
       ],
       "status": "scheduled",
       "kind": "event",
@@ -5347,51 +5340,6 @@
           "url": "https://www.instagram.com/p/Df_1bzTCQNb/",
           "primary": false,
           "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-06-25-jahre-plantsch-schongau",
-      "parent_id": "2026-12-06-25-jahre-plantsch-jubilaeumsfeier-schongau",
-      "title": {
-        "de": "25 Jahre Plantsch – Geburtstagsfeier",
-        "en": "Plantsch 25th anniversary celebration"
-      },
-      "description": {
-        "de": "Geburtstagsfeier zum 25-jährigen Bestehen des Plantsch.",
-        "en": "Birthday celebration for 25 years of Plantsch."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-06",
-        "end_date": null,
-        "start_time": "09:00",
-        "end_time": "22:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "party",
-      "tags": [
-        "party",
-        "family-kids"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.plantsch.de/service/veranstaltungen/",
-          "primary": true,
-          "first_seen": "2026-11-09",
           "last_seen": "2026-11-23"
         }
       ],
@@ -6523,6 +6471,63 @@
       "misses": 0
     },
     {
+      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
+      "title": {
+        "de": "40 Jahre Juze Jubiläum",
+        "en": "Juze 40th Anniversary"
+      },
+      "description": {
+        "de": "Jubiläumsfeier zum 40-jährigen Bestehen des Jugendzentrums Schongau mit Konzert. Weitere Infos folgen.",
+        "en": "Celebration of the Schongau youth centre's 40th anniversary, including a concert. More info to follow."
+      },
+      "venue": {
+        "name": "Juze Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "party"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-12-12-juze-jubilaeum-mumuzumundi-live-schongau",
       "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
@@ -6800,75 +6805,18 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
-      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
-      "title": {
-        "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
-        "en": "Overhead Compartment – Juze 40th Anniversary"
-      },
-      "description": {
-        "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
-        "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
-      },
-      "venue": {
-        "name": "Juze Schongau",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert",
-        "party"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "parent_id": null,
       "title": {
-        "de": "40 Jahre Juze – Jubiläumskonzert",
-        "en": "40 Years Juze – Anniversary Concert"
+        "de": "Jubiläumskonzert 40 Jahre Juze",
+        "en": "Juze 40th Anniversary Concert"
       },
       "description": {
-        "de": "Vier Bands feiern am 12. Dezember 2026 das 40-jährige Jubiläum des Jugendzentrums Schongau: Overhead Compartment, Yokio, Streumix und Mumuzumundi.",
-        "en": "Four bands celebrate the 40th anniversary of the Schongau youth centre on 12 December 2026: Overhead Compartment, Yokio, Streumix and Mumuzumundi."
+        "de": "Vier Bands feiern 40 Jahre Jugendzentrum: streumix_band, yokioband, overheadcompartment und Mumuzumundi. Eintritt 5 €.",
+        "en": "Four bands celebrate 40 years of the youth centre: streumix_band, yokioband, overheadcompartment and Mumuzumundi. Admission €5."
       },
       "venue": {
-        "name": "Juze Schongau",
+        "name": "Jugendzentrum Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -6912,6 +6860,12 @@
           "url": "https://www.instagram.com/reel/Df2X7J9KkWF/",
           "primary": false,
           "first_seen": "2026-11-19",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/p/DgFyEBdKQBz/",
+          "primary": false,
+          "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
       ],
@@ -6971,18 +6925,18 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-jubilaeumskonzert-40-jahre-juze-schongau",
-      "parent_id": null,
+      "id": "2026-12-12-overhead-compartment-40-jahre-juze-jubilaeum-schongau",
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
-        "de": "Jubiläumskonzert 40 Jahre Juze",
-        "en": "Juze 40th Anniversary Concert"
+        "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
+        "en": "Overhead Compartment – Juze 40th Anniversary"
       },
       "description": {
-        "de": "Vier Bands feiern 40 Jahre Jugendzentrum: streumix_band, yokioband, overheadcompartment und Mumuzumundi. Eintritt 5 €.",
-        "en": "Four bands celebrate 40 years of the youth centre: streumix_band, yokioband, overheadcompartment and Mumuzumundi. Admission €5."
+        "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
+        "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
       },
       "venue": {
-        "name": "Jugendzentrum Schongau",
+        "name": "Juze Schongau",
         "place": "Schongau",
         "address": null
       },
@@ -7004,7 +6958,7 @@
       "postponed_to": null,
       "sources": [
         {
-          "url": "https://www.instagram.com/p/DgFyEBdKQBz/",
+          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
           "primary": true,
           "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
@@ -7986,6 +7940,12 @@
           "primary": false,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-14"
+        },
+        {
+          "url": "https://www.knappschaftskapelle.de/termine/",
+          "primary": false,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-13",
@@ -8965,7 +8925,7 @@
         "sports"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -10681,17 +10641,17 @@
       "id": "2027-04-13-harry-g-obacht-peiting",
       "parent_id": null,
       "title": {
-        "de": "Harry G: Obacht",
-        "en": "Harry G: Obacht"
+        "de": "Harry G – Obacht",
+        "en": "Harry G – Obacht"
       },
       "description": {
-        "de": "Comedy-Programm „Obacht“ von Harry G in der Schlossberghalle.",
-        "en": "Comedy show \"Obacht\" by Harry G at the Schlossberghalle."
+        "de": "Bayerische Comedy live mit Harry G in Peiting.",
+        "en": "Bavarian stand-up comedy show with Harry G in Peiting."
       },
       "venue": {
-        "name": "Schlossberghalle",
+        "name": null,
         "place": "Peiting",
-        "address": "Münchener Strasse 13, 86971 Peiting"
+        "address": null
       },
       "schedule": {
         "start_date": "2027-04-13",
@@ -10726,6 +10686,12 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "primary": false,
           "first_seen": "2026-11-16",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.eventfinder.de/peiting/veranstaltungen/",
+          "primary": false,
+          "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
       ],
