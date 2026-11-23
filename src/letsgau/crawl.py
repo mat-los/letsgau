@@ -575,7 +575,10 @@ def seen_events(
     today: date,
 ) -> tuple[list[Event], list[Rejected]]:
     """Known events the AI found again (``known_seen``: id plus what changed), as events with
-    the stored id, texts and tags, so the merge updates them without a full answer."""
+    the stored id, texts and tags, so the merge updates them without a full answer.
+
+    A known event whose title matches ``excluded_title_patterns`` is rejected: the merge
+    removes it from storage, and a copy from here would add it again."""
     store_end = today + timedelta(days=config.window.store_days)
     found: list[Event] = []
     rejected: list[Rejected] = []
@@ -585,6 +588,11 @@ def seen_events(
         event = known.get(str(item.get("id") or ""))
         if event is None:
             rejected.append(Rejected(str(item.get("id")), "known_seen: unknown id"))
+            continue
+        pattern = config.excluded_title(event.title.de)
+        if pattern is not None:
+            reason = f"known_seen: excluded title pattern {pattern!r}"
+            rejected.append(Rejected(event.title.de, reason))
             continue
         s = event.schedule
         update: dict[str, Any] = {}

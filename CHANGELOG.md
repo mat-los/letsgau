@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- A stored event that `excluded_title_patterns` removes is no longer added back by the
+  crawl's `known_seen` answer (a bowling league match survived a live run that way).
+
 ### Changed
 
 - Bundled instance: church services of any kind (masses, Gottesdienst, Christmette,
