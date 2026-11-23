@@ -1172,3 +1172,16 @@ def test_known_events_found_again_carry_their_kind(config: Config) -> None:
     assert found[0].kind is EventKind.EVENT
     seen = crawl.answer_schema(["sports"])["properties"]["known_seen"]["items"]
     assert seen["properties"]["kind"]["enum"] == ["event", "routine", "course", "offer"]
+
+
+def test_known_events_with_an_excluded_title_are_not_added_again(config: Config) -> None:
+    """A stored event that a new title pattern excludes is removed by the merge; the crawl's
+    known_seen copy must not bring it back (a bowling league match did in a live run)."""
+    bowling = merge_ev("Kegeln: Zugspitzpokal gegen Seeshaupt (Frauen)", "2026-11-24")
+    concert = merge_ev("Adventskonzert", "2026-11-24")
+    patterns = config.model_copy(update={"excluded_title_patterns": [r"\bkegeln\b"]})
+    known = {bowling.id: bowling, concert.id: concert}
+    items = [{"id": e.id, "status": "scheduled"} for e in (bowling, concert)]
+    found, rejected = crawl.seen_events(items, known, config=patterns, blocked=[], today=TODAY)
+    assert [e.id for e in found] == [concert.id]
+    assert [r.reason for r in rejected] == [r"known_seen: excluded title pattern '\\bkegeln\\b'"]
