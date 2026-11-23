@@ -60,6 +60,9 @@
 <footer class="foot">
   <p class="notice">{{ t('ai_notice') }}</p>
   <p class="updated">{{ t('last_updated') }}: <time datetime="{{ updated_iso }}">{{ updated }}</time></p>
+  {% if job_runs %}
+  <p class="runs">{% for r in job_runs %}<span class="run{% if r.failed %} failed{% endif %}" title="{{ r.note }}">{{ r.label }} {{ r.when }} <span role="img" aria-label="{{ r.note }}">{{ '⚠' if r.failed else '✓' }}</span></span>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  {% endif %}
   <nav class="links">
     {% for slug, label in (site.content_pages.get(lang) or {}).items() %}<a href="{{ root }}{{ lang }}/{{ slug }}/">{{ label }}</a>{% endfor %}
     <a href="{{ root }}data/events.{{ lang }}.ics">{{ t('nav_data') }}</a>

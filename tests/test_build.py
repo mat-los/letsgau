@@ -467,3 +467,31 @@ def test_routine_entries_and_courses_are_listed_with_the_other_events() -> None:
         "2026-11-14-concert",
     ]
     assert view.count == 3
+
+
+def test_footer_shows_the_last_run_of_each_job(tmp_path: Path) -> None:
+    from letsgau.models import State
+
+    data = tmp_path / "data"
+    data.mkdir()
+    events = EventsFile(updated_at=NOW, events=[ev()])
+    (data / "events.json").write_text(events.model_dump_json(), encoding="utf-8")
+    state = State(
+        last_run={
+            "events": datetime(2026, 11, 13, 5, 10, tzinfo=UTC),
+            "discovery": datetime(2026, 11, 9, 5, 0, tzinfo=UTC),
+        },
+        last_failed={"events": datetime(2026, 11, 14, 5, 12, tzinfo=UTC)},
+    )
+    (data / "state.json").write_text(state.model_dump_json(), encoding="utf-8")
+    build.build(load_config(CONFIG_PATH), data_dir=data, site_dir=tmp_path / "site", now=NOW)
+    html = page(tmp_path / "site", "de/2026-11-14")
+    runs = re.search(r'<p class="runs">(.*?)</p>', html)
+    assert runs is not None
+    assert runs.group(1) == (
+        '<span class="run failed" title="Fehler beim letzten Lauf; zuletzt erfolgreich: '
+        '13.11. 06:10">Termine 14.11. 06:12 <span role="img" aria-label="Fehler beim letzten '
+        'Lauf; zuletzt erfolgreich: 13.11. 06:10">⚠</span></span> · '
+        '<span class="run" title="OK">Quellensuche 9.11. 06:00 <span role="img" '
+        'aria-label="OK">✓</span></span>'
+    )

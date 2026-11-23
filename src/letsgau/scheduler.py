@@ -127,11 +127,17 @@ def load_state(data_dir: Path = DATA_DIR) -> State:
     return State.model_validate_json(path.read_text(encoding="utf-8"))
 
 
-def save_run(stage: str, now: datetime, data_dir: Path = DATA_DIR) -> None:
+def save_run(stage: str, now: datetime, data_dir: Path = DATA_DIR, *, ok: bool = True) -> None:
+    """Record a run of ``stage``: a successful one in ``last_run``, a failed one in
+    ``last_failed`` (cleared again by the next successful run)."""
     state = load_state(data_dir)
-    state.last_run[stage] = now
-    if stage == "discovery":
-        state.force_discovery = False
+    if ok:
+        state.last_run[stage] = now
+        state.last_failed.pop(stage, None)
+        if stage == "discovery":
+            state.force_discovery = False
+    else:
+        state.last_failed[stage] = now
     path = data_dir / "state.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(state.model_dump_json(indent=2) + "\n", encoding="utf-8")
@@ -200,6 +206,8 @@ def execute(
             print(f"error: stage {stage!r}: {exc}", file=sys.stderr)
             report.stages.append(StageResult(stage, "failed", str(exc)))
             failed_before_build = True
+            if not dry_run:  # before the build, so the site footer shows it
+                save_run(stage, now, data_dir, ok=False)
             continue
         seconds = (datetime.now(UTC) - started).total_seconds()
         report.stages.append(StageResult(stage, "ok", reason, result, round(seconds, 1)))

@@ -122,6 +122,9 @@ class State(_DataModel):
     """Set when the geo fingerprint changes; cleared by the discovery stage (Phase 7)."""
     last_run: dict[str, datetime] = {}
     """Last successful run per job (``geo``, ``discovery``, ``events``, ``build``)."""
+    last_failed: dict[str, datetime] = {}
+    """Last failed run per job; removed by the job's next successful run, so an entry means
+    the job's latest run failed. Shown in the site footer."""
     last_usage: dict[str, Usage] = {}
     """AI usage of the last run per job (searches, tokens, cost, duration)."""
 

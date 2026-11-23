@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Site footer: below "Zuletzt aktualisiert" a small line with the latest run of the
+  events, discovery and geo jobs, ✓ when it succeeded, ⚠ (with the last successful run as
+  tooltip) when it failed. `data/state.json` gets `last_failed`. (#128)
 - `sources.venues_file` (`instance/sources/venues.yaml`): venues and the place they are in.
   A known venue overrides the place the AI gave a new event, and stored events are moved
   (or dropped, for `place: null`) on the next events run. Seeded with Gasthof Janser
