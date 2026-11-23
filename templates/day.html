@@ -34,8 +34,8 @@
       <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
       <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
     </div>
-    <p class="fp-label">{{ t('filters') }} <span>· {{ t('filter_hint') }}</span></p>
-    <div class="chips" id="chips" role="group" aria-label="{{ t('filters') }}">
+    <p class="fp-label">{{ t('filter_by_category') }} <span>· {{ t('filter_hint') }}</span></p>
+    <div class="chips" id="chips" role="group" aria-label="{{ t('filter_by_category') }}">
       {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
     </div>
     <div class="fp-foot"><button type="button" class="fp-reset" id="reset" disabled>{{ t('reset') }}</button><button type="button" class="fp-show" data-close>{{ t('filter_show') }}</button></div>
