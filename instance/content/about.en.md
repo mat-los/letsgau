@@ -50,6 +50,6 @@ Please check with the organizer before you go.
 ## Contact
 
 Suggestions, criticism or something missing? {% if feedback_endpoint %}Write to me using the
-[feedback form](../feedback/).{% else %}Write to [{{ contact_email }}](mailto:{{ contact_email }})
+[feedback form](../feedback/).{% else %}Write to {{ mail_link() }}
 or use the [feedback form](../feedback/).{% endif %} The code is open source:
 [{{ repo_url }}]({{ repo_url }}).

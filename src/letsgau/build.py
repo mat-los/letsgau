@@ -15,6 +15,7 @@ GitHub Actions), so a copied configuration never goes live in a fork.
 
 from __future__ import annotations
 
+import html
 import json
 import os
 import re
@@ -27,6 +28,7 @@ from datetime import UTC, date, datetime, timedelta
 from functools import cached_property
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -742,6 +744,19 @@ class ContentPage:
     todos: list[str]
 
 
+def mail_link(address: str, subject: str = "") -> str:
+    """The contact address as a link that simple scrapers do not find: the HTML holds only
+    the parts and "user [at] domain [dot] tld"; ``static/mail.js`` builds the mailto link."""
+    if "@" not in address:
+        return address
+    user, domain = address.split("@", 1)
+    shown = f"{user} [at] {domain.replace('.', ' [dot] ')}"
+    attrs = f'class="mail" data-u="{html.escape(user)}" data-d="{html.escape(domain)}"'
+    if subject:
+        attrs += f' data-s="{html.escape(quote(subject))}"'
+    return f"<a {attrs}>{html.escape(shown)}</a>"
+
+
 def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
     """Values for the Jinja placeholders of the content pages; ``municipalities`` is
     "A, B und C" in ``lang`` (without a language: "A, B, C")."""
@@ -756,6 +771,7 @@ def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
         "municipalities": join_names(Texts(load_i18n(lang)), names) if lang else ", ".join(names),
         "display_days": config.window.display_days,
         "contact_email": config.site.contact_email,
+        "mail_link": lambda subject="": mail_link(config.site.contact_email, subject),
         "base_url": config.site.base_url.rstrip("/"),
         "repo_url": f"https://github.com/{repo}",
         "feedback_endpoint": config.site.feedback_form_endpoint,

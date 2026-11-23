@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `site.share_image`: a PNG (1200 x 630) for link previews (`og:image`, large Twitter
   card); the bundled instance ships `instance/share.png`.
 - `apple-touch-icon` and `site.webmanifest` (icons 192/512 px) for "add to home screen".
+- `{{ mail_link() }}` in content pages: the contact address is assembled by a small
+  script (`static/mail.js`), so the HTML never contains it in plain form; without
+  JavaScript it reads "user [at] domain [dot] tld".
 
 ### Changed
 

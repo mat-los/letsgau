@@ -51,6 +51,6 @@ veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen.
 
 Vorschläge, Kritik oder fehlt etwas? {% if feedback_endpoint %}Schreib mir gern über das
 [Feedback-Formular](../feedback/).{% else %}Schreib an
-[{{ contact_email }}](mailto:{{ contact_email }}) oder nutze das
+{{ mail_link() }} oder nutze das
 [Feedback-Formular](../feedback/).{% endif %} Der Code ist Open Source:
 [{{ repo_url }}]({{ repo_url }}).

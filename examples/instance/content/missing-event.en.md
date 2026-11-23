@@ -23,6 +23,6 @@ surest way to get your event into the calendar:
 Still missing? {% if feedback_endpoint %}Send the address of your website using the
 [feedback form](../feedback/) (type: event or source missing).{% else %}Send the address of
 your website to
-[{{ contact_email }}](mailto:{{ contact_email }}?subject=Source%20suggestion) or use the
+{{ mail_link('Source suggestion') }} or use the
 [feedback form](../feedback/).{% endif %} After a short check it is added to the list of
 sources that are checked on every run.

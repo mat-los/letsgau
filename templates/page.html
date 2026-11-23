@@ -6,3 +6,5 @@
 {{ content | safe }}
 </article>
 {% endblock %}
+{% block scripts %}{% if 'class="mail"' in content %}<script src="{{ root }}assets/mail.js" defer></script>
+{% endif %}{% endblock %}

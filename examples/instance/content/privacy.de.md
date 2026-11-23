@@ -2,7 +2,7 @@
 
 ## Verantwortlicher
 
-Siehe [Impressum](../impressum/){% if not feedback_endpoint %}. Kontakt: [{{ contact_email }}](mailto:{{ contact_email }}){% endif %}
+Siehe [Impressum](../impressum/){% if not feedback_endpoint %}. Kontakt: {{ mail_link() }}{% endif %}
 
 ## Hosting
 

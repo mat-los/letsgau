@@ -30,6 +30,6 @@ kommt deine Veranstaltung am sichersten in den Kalender:
 Fehlt sie trotzdem? {% if feedback_endpoint %}Schick die Adresse deiner Webseite über das
 [Feedback-Formular](../feedback/) (Art: Event oder Quelle fehlt).{% else %}Schick die Adresse
 deiner Webseite an
-[{{ contact_email }}](mailto:{{ contact_email }}?subject=Quelle%20vorschlagen) oder nutze
+{{ mail_link('Quelle vorschlagen') }} oder nutze
 das [Feedback-Formular](../feedback/).{% endif %} Nach einer kurzen Prüfung kommt sie auf die
 Liste der Quellen, die bei jedem Lauf abgefragt werden.

@@ -6,7 +6,7 @@ Information according to § 5 of the German Digital Services Act (DDG):
 [TODO: Street and number]
 [TODO: Postcode and town]
 
-**Contact:** {% if contact_email %}[{{ contact_email }}](mailto:{{ contact_email }}){% else %}via the [contact form](../feedback/){% endif %}
+**Contact:** {% if contact_email %}{{ mail_link() }}{% else %}via the [contact form](../feedback/){% endif %}
 
 **Responsible for the content** according to § 18 (2) MStV: [TODO: name, address as above]
 
