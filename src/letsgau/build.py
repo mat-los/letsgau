@@ -722,6 +722,9 @@ def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
     names = [m.label for m in config.region.municipalities]
     return {
         "site_name": config.site.name,
+        # the operator's name for the imprint, from the environment (repository variable
+        # IMPRINT_NAME in the workflow), so it is not in the public repository
+        "imprint_name": os.environ.get("LETSGAU_IMPRINT_NAME", "").strip(),
         "region_label": config.region.label,
         "municipalities": join_names(Texts(load_i18n(lang)), names) if lang else ", ".join(names),
         "display_days": config.window.display_days,

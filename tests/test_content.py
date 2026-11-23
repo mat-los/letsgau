@@ -164,10 +164,20 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
     assert "form service" in privacy
 
 
-def test_todo_markers_are_reported(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+def test_todo_markers_are_reported(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch
+) -> None:
     config = load_config(CONFIG_PATH)
-    # the bundled instance has none left
-    assert build.content_todos(config, REPO_ROOT / "instance" / "content") == []
+    instance = REPO_ROOT / "instance" / "content"
+    # the imprint name is not in the repository: without the variable it is a TODO
+    monkeypatch.delenv("LETSGAU_IMPRINT_NAME", raising=False)
+    assert {name for name, _ in build.content_todos(config, instance)} == {
+        "imprint.de.md",
+        "imprint.en.md",
+    }
+    # with it, the bundled instance has none left
+    monkeypatch.setenv("LETSGAU_IMPRINT_NAME", "Erika Mustermann")
+    assert build.content_todos(config, instance) == []
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
     assert "[TODO:" not in capsys.readouterr().err
     content = tmp_path / "content"
@@ -264,3 +274,17 @@ def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) ->
         assert "assets/app.js" in html, rel
         assert 'type="search" id="q"' in header, rel  # search on every page
         assert 'id="results"' in html and "assets/search.js" in html, rel
+
+
+def test_imprint_name_comes_from_the_environment(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("LETSGAU_IMPRINT_NAME", "Erika Mustermann")
+    config = load_config(CONFIG_PATH)
+    build.build(config, data_dir=tmp_path / "none", site_dir=tmp_path / "site")
+    imprint = read(tmp_path / "site", "de/impressum")
+    assert imprint.count("Erika Mustermann") == 2 and "[TODO" not in imprint
+    assert '<meta name="robots" content="noindex">' in imprint
+    for path in (tmp_path / "site").rglob("*"):
+        if path.is_file() and path.parent.name not in ("impressum", "imprint"):
+            assert "Mustermann" not in path.read_text(encoding="utf-8", errors="ignore"), path

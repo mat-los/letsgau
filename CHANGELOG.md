@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Go live (#106): the bundled instance sets `site.indexing: true`. The imprint and the
   feedback page always carry `noindex` and are left out of the sitemap.
 - About page: a short paragraph points organizers to "Fehlt mein Event?".
+- The operator's name in the imprint comes from the repository variable `IMPRINT_NAME`
+  (`LETSGAU_IMPRINT_NAME` in the build), so it is no longer in the public repository;
+  `LICENSE` and `pyproject.toml` name the GitHub account instead.
 
 ### Removed
 

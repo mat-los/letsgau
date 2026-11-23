@@ -380,6 +380,12 @@ below.
 | `INSTAGRAM_ACCESS_TOKEN` | optional: reading Instagram accounts (see below); without it, Instagram is skipped |
 | `INSTAGRAM_USER_ID` | optional: the ID of your own Instagram professional account |
 
+## Repository variables
+
+| Variable | Needed for |
+| --- | --- |
+| `IMPRINT_NAME` | the operator's name in the imprint (`{{ imprint_name }}` in `instance/content/imprint.*.md`). It is set under *Settings → Secrets and variables → Actions → Variables*, not in the repository, so the public code does not contain it. The imprint page carries `noindex`, so search engines do not show it. Without the variable the imprint keeps a `[TODO]` marker and the build warns. Locally: `LETSGAU_IMPRINT_NAME` |
+
 Locally, put them into `.env` (see `.env.example`). In API mode, set a monthly
 spend limit in the Anthropic Console.
 
