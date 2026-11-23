@@ -4,7 +4,28 @@
 {{ municipalities }}, eine Seite pro Tag für die nächsten {{ display_days }} Tage: Konzerte,
 Märkte, Sport, Kultur, Vorträge und alles, was es sonst noch gibt.
 
-[TODO: Warum gibt es diese Seite? Erzähle in ein paar Sätzen die Idee und deine Motivation.]
+## Warum es diese Seite gibt
+
+„In Schongau ist nichts los“, das hört man oft. Gleichzeitig verpasst man vieles und
+erfährt erst hinterher, dass etwas war.
+
+Ich wollte deshalb eine Seite, auf der ich alles finde, was rund um Schongau los ist.
+Daraus wurde ein kleines KI-Projekt: Eine KI sucht die Termine selbstständig zusammen.
+Als ich mit den Ergebnissen zufrieden war, habe ich die Seite für alle geöffnet.
+
+## Wer dahintersteckt
+
+- Ein privates Projekt nebenbei, ohne kommerziellen Hintergrund.
+- Keine Werbung, kein Sponsor: Die Kosten trage ich selbst.
+- Deshalb bleibt das Gebiet vorerst auf Schongau und die Nachbargemeinden beschränkt.
+  Ein größerer Radius wäre möglich, kostet aber mehr KI-Rechenzeit.
+
+## Keine Magie
+
+Die Technik dahinter ist einfach. Ich habe keine Zeile Code selbst geschrieben, sondern
+die Seite im Gespräch mit [Claude Code](https://claude.com/claude-code) gebaut, einer KI
+zum Programmieren. Gehostet wird sie auf GitHub Pages, der gesamte Code ist Open Source
+auf GitHub.
 
 ## Wie es funktioniert
 
@@ -26,7 +47,7 @@ veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen.
 
 ## Kontakt
 
-Fehlt etwas oder stimmt etwas nicht? {% if feedback_endpoint %}Schreib uns über das
+Vorschläge, Kritik oder fehlt etwas? {% if feedback_endpoint %}Schreib mir gern über das
 [Feedback-Formular](../feedback/).{% else %}Schreib an
 [{{ contact_email }}](mailto:{{ contact_email }}) oder nutze das
 [Feedback-Formular](../feedback/).{% endif %} Der Code ist Open Source:

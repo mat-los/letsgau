@@ -164,13 +164,17 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
     assert "form service" in privacy
 
 
-def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
-    todos = build.content_todos(load_config(CONFIG_PATH), REPO_ROOT / "instance" / "content")
-    files = {name for name, _ in todos}
-    assert {"about.de.md", "about.en.md"} <= files
-    assert "privacy.de.md" not in files and "imprint.de.md" not in files
+def test_todo_markers_are_reported(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    config = load_config(CONFIG_PATH)
+    # the bundled instance has none left
+    assert build.content_todos(config, REPO_ROOT / "instance" / "content") == []
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
-    assert "about.de.md: [TODO: Warum gibt es diese Seite?" in capsys.readouterr().err
+    assert "[TODO:" not in capsys.readouterr().err
+    content = tmp_path / "content"
+    shutil.copytree(REPO_ROOT / "instance" / "content", content)
+    about = content / "about.de.md"
+    about.write_text(about.read_text(encoding="utf-8") + "\n[TODO: Motivation]\n", "utf-8")
+    assert build.content_todos(config, content) == [("about.de.md", "[TODO: Motivation]")]
 
 
 # --- acceptance #27: CNAME from base_url ---------------------------------------------------

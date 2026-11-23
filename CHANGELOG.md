@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   per § 18 MStV); `site.contact_email` set. The about page lists the municipalities as
   "in den Gemeinden A, B, C und D" (`municipalities` in content pages is joined with the
   page language's "und"/"and").
+- Bundled instance: the about page tells why the site exists, who is behind it (private,
+  no ads, own costs, area kept small) and how it was built (Claude Code, GitHub Pages,
+  open source); no `[TODO]` markers are left in `instance/content/`.
 - Bundled instance: church services of any kind (masses, Gottesdienst, Christmette,
   Rorate, devotions, rosary, adoration, confession) are excluded, by title patterns and an
   `excluded_topics` entry; stored ones are removed on the next events run. Church concerts,
