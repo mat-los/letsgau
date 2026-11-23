@@ -1,8 +1,8 @@
 # Über {{ site_name }}
 
-{{ site_name }} zeigt alle öffentlich auffindbaren Veranstaltungen in
-{{ municipalities }}, eine Seite pro Tag für die nächsten {{ display_days }} Tage: Konzerte, Märkte, Sport, Kultur, Vorträge und
-alles, was es sonst noch gibt.
+{{ site_name }} zeigt alle öffentlich auffindbaren Veranstaltungen in den Gemeinden
+{{ municipalities }}, eine Seite pro Tag für die nächsten {{ display_days }} Tage: Konzerte,
+Märkte, Sport, Kultur, Vorträge und alles, was es sonst noch gibt.
 
 [TODO: Warum gibt es diese Seite? Erzähle in ein paar Sätzen die Idee und deine Motivation.]
 

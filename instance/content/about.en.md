@@ -1,6 +1,6 @@
 # About {{ site_name }}
 
-{{ site_name }} lists every public event found in {{ municipalities }}, one page per
+{{ site_name }} lists every public event found in the municipalities of {{ municipalities }}, one page per
 day for the next {{ display_days }} days:
 concerts, markets, sports, culture, talks and everything else.
 

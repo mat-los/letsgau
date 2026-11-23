@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import pytest
@@ -103,6 +104,7 @@ def test_contact_email_or_form_is_required(instance_config_text: str) -> None:
         'feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"',
         'feedback_form_endpoint: ""',
     )
+    text = re.sub(r"\n  contact_email: .*", "", text)
     assert 'feedback_form_endpoint: ""' in text
     (problem,) = _problems(text)
     assert "set contact_email or feedback_form_endpoint" in problem

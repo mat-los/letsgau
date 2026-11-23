@@ -717,12 +717,15 @@ class ContentPage:
     todos: list[str]
 
 
-def content_context(config: Config) -> dict[str, Any]:
+def content_context(config: Config, lang: str | None = None) -> dict[str, Any]:
+    """Values for the Jinja placeholders of the content pages; ``municipalities`` is
+    "A, B und C" in ``lang`` (without a language: "A, B, C")."""
     repo = os.environ.get("GITHUB_REPOSITORY") or f"{config.site.owner}/letsgau"
+    names = [m.label for m in config.region.municipalities]
     return {
         "site_name": config.site.name,
         "region_label": config.region.label,
-        "municipalities": ", ".join(m.label for m in config.region.municipalities),
+        "municipalities": join_names(Texts(load_i18n(lang)), names) if lang else ", ".join(names),
         "display_days": config.window.display_days,
         "contact_email": config.site.contact_email,
         "base_url": config.site.base_url.rstrip("/"),
@@ -733,12 +736,14 @@ def content_context(config: Config) -> dict[str, Any]:
     }
 
 
-def render_markdown(text: str, config: Config) -> tuple[str, str, list[str]]:
+def render_markdown(
+    text: str, config: Config, lang: str | None = None
+) -> tuple[str, str, list[str]]:
     """Fill config values (Jinja) and convert to HTML; returns (title, html, todos)."""
     import markdown
 
     filled = Environment(undefined=StrictUndefined, autoescape=False).from_string(text)
-    body = filled.render(**content_context(config)).strip()
+    body = filled.render(**content_context(config, lang)).strip()
     title = ""
     if body.startswith("# "):
         first, _, body = body.partition("\n")
@@ -759,7 +764,7 @@ def load_content(
             if not path.exists():
                 continue
             text = path.read_text(encoding="utf-8")
-            title, html, todos = render_markdown(text, config)
+            title, html, todos = render_markdown(text, config, lang)
             slug = CONTENT_PAGES.get(name, {}).get(lang, name)
             pages.append(ContentPage(name, lang, slug, title or name, html, todos))
     return pages

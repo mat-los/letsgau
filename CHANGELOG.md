@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bundled instance: imprint filled in (name and contact email `letsgau@tutamail.com`,
+  per § 18 MStV); `site.contact_email` set. The about page lists the municipalities as
+  "in den Gemeinden A, B, C und D" (`municipalities` in content pages is joined with the
+  page language's "und"/"and").
+
 ### Fixed
 
 - A stored event that `excluded_title_patterns` removes is no longer added back by the

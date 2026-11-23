@@ -67,7 +67,9 @@ def test_content_pages_exist_in_both_languages(site: Path, de: str, en: str) -> 
 def test_content_values_come_from_the_config(site: Path) -> None:
     about = read(site, "de/about")
     assert "<h1>Über Let&#39;s Gau</h1>" in about
-    assert "Veranstaltungen in\nSchongau, Altenstadt" in about
+    assert "in den Gemeinden\nSchongau, Altenstadt, Peiting und Hohenfurch," in about
+    english = read(site, "en/about")
+    assert "municipalities of Schongau, Altenstadt, Peiting and Hohenfurch" in english
     missing = read(site, "de/fehlt-mein-event")
     assert "<strong>Facebook und andere soziale Netzwerke</strong> liest sie nicht" in missing
     assert "als Text schreiben" in missing and "Titel, Datum, Uhrzeit, Ort" in missing
@@ -75,17 +77,20 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     assert "Websuche" in missing  # how to tell whether a public calendar can be read
     privacy = read(site, "en/privacy")
     assert "no cookies" in privacy.lower() and "localStorage" in privacy
-    # the instance has only a contact form: no email address on any page
+    # with a contact form, the privacy page names the form service
     assert "form service" in privacy and "formhook" in privacy
     assert 'href="../imprint/"' in privacy
     for rel in ("de/about", "en/about", "de/fehlt-mein-event", "en/missing-event"):
         assert 'href="../feedback/"' in read(site, rel), rel
-    assert 'über das <a href="../feedback/">Kontaktformular</a>' in read(site, "de/impressum")
-    assert 'via the <a href="../feedback/">contact form</a>' in read(site, "en/imprint")
+    # the email address is shown in the imprint only; the other pages point to the form
+    mail = 'href="mailto:letsgau@tutamail.com"'
+    assert mail in read(site, "de/impressum") and mail in read(site, "en/imprint")
     for path in site.rglob("*"):
         if path.suffix in (".html", ".txt", ".json", ".ics", ".xml"):
+            if path.parent.name in ("impressum", "imprint"):
+                continue
             text = path.read_text(encoding="utf-8")
-            assert 'href="mailto:' not in text and "@letsgau.de" not in text, path
+            assert 'href="mailto:' not in text, path
 
 
 def test_footer_links_every_content_page(site: Path) -> None:
@@ -169,10 +174,10 @@ def test_changelog_page(site: Path) -> None:
 def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
     todos = build.content_todos(load_config(CONFIG_PATH), REPO_ROOT / "instance" / "content")
     files = {name for name, _ in todos}
-    assert {"imprint.de.md", "imprint.en.md", "about.de.md"} <= files
-    assert "privacy.de.md" not in files
+    assert {"about.de.md", "about.en.md"} <= files
+    assert "privacy.de.md" not in files and "imprint.de.md" not in files
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
-    assert "imprint.de.md: [TODO: Vor- und Nachname]" in capsys.readouterr().err
+    assert "about.de.md: [TODO: Warum gibt es diese Seite?" in capsys.readouterr().err
 
 
 # --- acceptance #27: CNAME from base_url ---------------------------------------------------
