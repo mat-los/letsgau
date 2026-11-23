@@ -521,13 +521,16 @@ def write(path: Path, text: str) -> None:
 
 
 def _load_events(data_dir: Path) -> list[Event]:
+    """The stored events the site shows: postponed ones are left out everywhere (day pages,
+    search, feeds); the event at its new date is a separate entry."""
     path = data_dir / "events.json"
     if not path.exists():
         return []
     try:
-        return EventsFile.model_validate_json(path.read_text(encoding="utf-8")).events
+        events = EventsFile.model_validate_json(path.read_text(encoding="utf-8")).events
     except ValueError as exc:
         raise BuildError(f"{path} is invalid: {exc}") from exc
+    return [e for e in events if e.status is not EventStatus.POSTPONED]
 
 
 def _load_places(data_dir: Path) -> PlacesFile | None:

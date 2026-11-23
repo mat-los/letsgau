@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Postponed events are hidden completely on the site (day pages, search, JSON, iCal,
+  JSON-LD); the event at its new date stays. (#127)
 - The folded "Regelmäßiges & Kurse" box on the day pages: routine entries and courses are
   listed with the other events again (`Event.kind` stays, offers are still dropped).
 
