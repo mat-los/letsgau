@@ -27,7 +27,7 @@ class EventStatus(StrEnum):
 
 
 class EventKind(StrEnum):
-    """What kind of entry an event is; the site folds ``routine`` and ``course`` entries."""
+    """What kind of entry an event is (reported by the crawl; ``offer`` entries are dropped)."""
 
     EVENT = "event"
     """A one-off or special occasion: concert, festival, market, performance, talk."""

@@ -449,7 +449,7 @@ def test_series_show_their_next_dates_instead_of_an_end(tmp_path: Path) -> None:
     )
 
 
-def test_routine_entries_and_courses_are_folded_at_the_end(tmp_path: Path) -> None:
+def test_routine_entries_and_courses_are_listed_with_the_other_events() -> None:
     concert = ev(start_time="20:00").model_copy(update={"id": "2026-11-14-concert"})
     group = ev(start_time="14:00").model_copy(
         update={"id": "2026-11-14-group", "kind": EventKind.ROUTINE}
@@ -458,26 +458,9 @@ def test_routine_entries_and_courses_are_folded_at_the_end(tmp_path: Path) -> No
         update={"id": "2026-11-14-course", "kind": EventKind.COURSE}
     )
     view = day_view([concert, group, course], SATURDAY)
-    assert [r.event.id for r in view.rows] == ["2026-11-14-concert"]
-    assert [r.event.id for r in view.routine] == ["2026-11-14-course", "2026-11-14-group"]
+    assert [r.event.id for r in view.rows] == [
+        "2026-11-14-course",
+        "2026-11-14-group",
+        "2026-11-14-concert",
+    ]
     assert view.count == 3
-
-    (tmp_path / "data").mkdir()
-    events = EventsFile(updated_at=NOW, events=[concert, group, course])
-    (tmp_path / "data" / "events.json").write_text(events.model_dump_json(), encoding="utf-8")
-    build.build(
-        load_config(CONFIG_PATH), data_dir=tmp_path / "data", site_dir=tmp_path / "site", now=NOW
-    )
-    html = page(tmp_path / "site", "de/2026-11-14")
-    main, folded = html.split('<details class="sec routine">')
-    assert 'id="2026-11-14-concert"' in main and 'id="2026-11-14-group"' not in main
-    assert "<summary>Regelmäßiges &amp; Kurse (2)</summary>" in folded
-    assert 'id="2026-11-14-group"' in folded and 'id="2026-11-14-course"' in folded
-
-    # a day with only routine entries shows them open
-    only = EventsFile(updated_at=NOW, events=[group])
-    (tmp_path / "data" / "events.json").write_text(only.model_dump_json(), encoding="utf-8")
-    build.build(
-        load_config(CONFIG_PATH), data_dir=tmp_path / "data", site_dir=tmp_path / "site", now=NOW
-    )
-    assert '<details class="sec routine" open>' in page(tmp_path / "site", "de/2026-11-14")
