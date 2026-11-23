@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T12:46:35Z",
+  "updated_at": "2026-11-23T22:20:24Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -558,21 +558,13 @@
     "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/": {
       "mode": "text",
       "reason": "",
-      "sha256": "412cff1f8628da366ea449d3e2e936d3f81146e762403f00a396cdd9f1d4298d",
+      "sha256": "25f1d84314cf4b4983de036a332509dd792702925a7b8746dbbabbc9c0ef3468",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
-        {
-          "id": "2026-11-20-ea-schongau-erv-schweinfurt",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
-          "kind": "event"
-        },
         {
           "id": "2026-11-27-ea-schongau-esc-dorfen",
           "status": "scheduled",
@@ -644,54 +636,6 @@
           "start_time": null,
           "source_url": "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/",
           "kind": "event"
-        },
-        {
-          "id": "2026-11-28-ea-schongau-u20-esv-buchloe",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-01-09-ea-schongau-u20-erc-lechbruck",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-01-16-ea-schongau-u20-esv-buchloe",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-01-23-ea-schongau-u20-esv-burgau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-02-27-ea-schongau-u20-sg-esv-tuerkheim-ev-bad",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-03-06-ea-schongau-u20-erc-lechbruck",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "kind": "routine"
         }
       ]
     },
@@ -1013,30 +957,13 @@
     "https://www.schongau-mammuts.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "ef4b4224abb91f532e9a1b0c8ab74044bd3480a0624a97883e7f0bdecc2fb5e8",
+      "sha256": "ed8b197c27ed14538d07d345d06402b53e18b39201cceba35d07c8599279ac85",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
       "last_changed": "2026-11-23",
       "events": [],
-      "seen": [
-        {
-          "id": "2026-11-22-ea-schongau-1b-sg-senden-burgau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/",
-          "kind": "routine"
-        },
-        {
-          "id": "2027-01-06-eishockey-ea-schongau-u15-vs-peissenberg-miners",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schongau-mammuts.de/",
-          "kind": "routine"
-        }
-      ]
+      "seen": []
     },
     "https://www.schongau-evangelisch.de/": {
       "mode": "text",
@@ -1141,22 +1068,22 @@
     "https://www.schongauer-weihnachtszauber.com": {
       "mode": "text",
       "reason": "",
-      "sha256": "106834ac8c96e3f3ab6696079476eced914ba753666e4034e3ea22d94c7183a8",
+      "sha256": "f38c52c734482b1b0fbb819b30798caf99bb7c71e6513febb7348949891cd25d",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
       "last_changed": "2026-11-23",
       "events": [
         {
-          "ref": "e3",
+          "ref": "e2",
           "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
           "title": {
-            "de": "Familientage auf dem Weihnachtszauber",
-            "en": "Family Days at the Weihnachtszauber"
+            "de": "Familientage beim Schongauer Weihnachtszauber",
+            "en": "Family days at the Schongau Weihnachtszauber"
           },
           "description": {
-            "de": "Familientage auf dem Schongauer Weihnachtszauber am Marienplatz.",
-            "en": "Family days at the Schongau Weihnachtszauber on Marienplatz."
+            "de": "Familientage auf dem Weihnachtszauber am Marienplatz.",
+            "en": "Family days at the Christmas market on Marienplatz."
           },
           "venue": {
             "name": "Marienplatz",
@@ -1191,15 +1118,15 @@
           ]
         },
         {
-          "ref": "e4",
+          "ref": "e3",
           "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
           "title": {
-            "de": "Perchtenshow auf dem Weihnachtszauber",
-            "en": "Perchten Show at the Weihnachtszauber"
+            "de": "Perchtenshow beim Schongauer Weihnachtszauber",
+            "en": "Perchten show at the Schongau Weihnachtszauber"
           },
           "description": {
-            "de": "Perchtenshow auf dem Schongauer Weihnachtszauber am Marienplatz.",
-            "en": "Perchten show at the Schongau Weihnachtszauber on Marienplatz."
+            "de": "Perchtenshow auf dem Weihnachtszauber am Marienplatz.",
+            "en": "Perchten show at the Christmas market on Marienplatz."
           },
           "venue": {
             "name": "Marienplatz",
@@ -1231,15 +1158,15 @@
           ]
         },
         {
-          "ref": "e5",
+          "ref": "e4",
           "parent_ref": "2026-12-04-schongauer-weihnachtszauber",
           "title": {
-            "de": "Seniorennachmittag auf dem Weihnachtszauber",
-            "en": "Seniors' Afternoon at the Weihnachtszauber"
+            "de": "Seniorennachmittag beim Schongauer Weihnachtszauber",
+            "en": "Senior afternoon at the Schongau Weihnachtszauber"
           },
           "description": {
-            "de": "Seniorennachmittag auf dem Schongauer Weihnachtszauber am Marienplatz.",
-            "en": "Seniors' afternoon at the Schongau Weihnachtszauber on Marienplatz."
+            "de": "Seniorennachmittag auf dem Weihnachtszauber am Marienplatz.",
+            "en": "Senior afternoon at the Christmas market on Marienplatz."
           },
           "venue": {
             "name": "Marienplatz",
@@ -1618,7 +1545,7 @@
     "https://www.bayregio-wm.de/veranstaltungen/": {
       "mode": "text",
       "reason": "",
-      "sha256": "619dcaf0bdb4d67dff09fbeec5775a3e64752441de2763f536068338cfcf58d9",
+      "sha256": "c04ac8cc7c5ddfbf1d0ce19d95ce8f96122faa5290acf6c534f1adaf8e9e90f8",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
@@ -3099,46 +3026,44 @@
     "https://www.evangelische-termine.de/veranstaltungen?vid=1940": {
       "mode": "text",
       "reason": "",
-      "sha256": "de4f747d3302e2cb49c00b826dace6e6e0c1621db40454300bfbaf7096b78079",
+      "sha256": "0c7c387d0bd82707e26bded9d763dd35a7c4e3a598ce3cb06147a37608035865",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
       "last_changed": "2026-11-23",
       "events": [
         {
-          "ref": "e2",
+          "ref": "e1",
           "parent_ref": null,
           "title": {
-            "de": "Ökumenisches Bibelgespräch",
-            "en": "Ecumenical Bible discussion"
+            "de": "Adventskonzert mit der Chorinitiative",
+            "en": "Advent concert with the Chorinitiative"
           },
           "description": {
-            "de": "Gesprächsabend über Bibelabschnitte in der Kapelle Schöneckerhaus.",
-            "en": "Evening discussing Bible passages in the Schöneckerhaus chapel."
+            "de": "Adventskonzert der Chorinitiative in der Christuskirche Peiting.",
+            "en": "Advent concert by the Chorinitiative in the Christuskirche in Peiting."
           },
           "venue": {
-            "name": "Kapelle Schöneckerhaus",
+            "name": "Christuskirche Peiting",
             "place": "Peiting",
             "address": null
           },
           "schedule": {
-            "start_date": "2026-12-09",
+            "start_date": "2026-12-12",
             "end_date": null,
-            "start_time": "19:30",
-            "end_time": "21:00",
+            "start_time": "20:00",
+            "end_time": null,
             "all_day": false,
-            "dates": [
-              "2026-12-09"
-            ],
+            "dates": null,
             "opening_hours": null
           },
-          "primary_tag": "religion",
+          "primary_tag": "concert",
           "tags": [
-            "religion",
-            "talk-workshop"
+            "concert",
+            "religion"
           ],
           "status": "scheduled",
-          "kind": "routine",
+          "kind": "event",
           "postponed_to_date": null,
           "sources": [
             {
@@ -3146,7 +3071,7 @@
               "primary": true
             },
             {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8090283.html?popup=3",
+              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8321929.html?popup=3",
               "primary": false
             }
           ]
@@ -3162,20 +3087,12 @@
           "kind": "routine"
         },
         {
-          "id": "2026-11-23-montagsandacht-in-der-martinskirche-herzogsaegmuehle",
+          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-11-24-andacht-in-der-kapelle-schoeneckerhaus-peiting",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "routine"
+          "kind": "event"
         },
         {
           "id": "2026-12-01-seniorentreff-ein-wuerdevoller-abschied-peiting",
@@ -3194,20 +3111,12 @@
           "kind": "event"
         },
         {
-          "id": "2026-12-06-gottesdienst-am-2-advent-nikolaustag-peiting",
+          "id": "2026-12-09-oekumenisches-bibelgespraech-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-29-1-advent-gottesdienst-mit-projektchor-herzogsaegmuehle",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "event"
+          "kind": "routine"
         }
       ]
     },
@@ -3269,7 +3178,7 @@
     "https://www.sv-peiting.de/Termine/": {
       "mode": "text",
       "reason": "",
-      "sha256": "cdff947ecfcb6d440da7ed3b4f19984fdab27e4d4ff23b3ddf3f4d08d5a4f77b",
+      "sha256": "eac6decb00de7b925df7689aca7b0813c33688c531c5d0be353de0d11da956db",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
@@ -3289,7 +3198,7 @@
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "d323843c4bb6d9a7456fd9fa6a888ec6fbd8a499d04c45ccf73a0ddb24b398b1",
+      "sha256": "af4f5e82a0a6ed9b89e440c3125e7ace15219bb4b184d2b788272647eec65583",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T12:47:18Z",
+  "updated_at": "2026-11-23T22:21:05Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -657,7 +657,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 5
+      "misses": 6
     },
     {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
@@ -1033,7 +1033,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-16",
-      "misses": 3
+      "misses": 4
     },
     {
       "id": "2026-11-15-allgemeiner-lauf-in-der-peitinger-eishalle",
@@ -1586,50 +1586,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-24-kegeln-zugspitzpokal-gegen-seeshaupt-frauen-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Zugspitzpokal gegen Seeshaupt (Frauen)",
-        "en": "Skittles: Zugspitzpokal vs. Seeshaupt (women)"
-      },
-      "description": {
-        "de": "Pokalspiel der Frauen von Schwarz-Gelb Schongau gegen Seeshaupt.",
-        "en": "Cup match of the Schwarz-Gelb Schongau women against Seeshaupt."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-24",
-        "end_date": null,
-        "start_time": "19:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-19",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
       "parent_id": null,
       "title": {
@@ -1690,6 +1646,12 @@
           "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
           "primary": false,
           "first_seen": "2026-11-16",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/p/DgFzyJcu9d4/",
+          "primary": false,
+          "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
       ],
@@ -2209,6 +2171,12 @@
           "primary": false,
           "first_seen": "2026-11-19",
           "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": false,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-11",
@@ -2379,7 +2347,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 3
+      "misses": 4
     },
     {
       "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
@@ -2821,7 +2789,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
-      "kind": "event",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2922,7 +2890,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 2
+      "misses": 3
     },
     {
       "id": "2026-11-27-gospelchor-good-news-beim-weihnachtsmarkt-herzogsaegmuehle",
@@ -3962,56 +3930,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-30-traum-und-duftreise-im-saunaland-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Traum- und Duftreise im Saunaland",
-        "en": "Dream and Fragrance Journey in the Sauna Area"
-      },
-      "description": {
-        "de": "Kurze Entspannungsreise mit Düften im Saunaland des Plantsch, jeweils montags und mittwochs.",
-        "en": "Short relaxation session with scents in the Plantsch sauna area, on Mondays and Wednesdays."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-30",
-        "end_date": "2026-12-16",
-        "start_time": "12:45",
-        "end_time": "13:00",
-        "all_day": false,
-        "dates": [
-          "2026-11-30",
-          "2026-12-02",
-          "2026-12-14",
-          "2026-12-16"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop",
-        "food-drink"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.plantsch.de/service/veranstaltungen/",
-          "primary": true,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-23",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-12-01-seniorentreff-ein-wuerdevoller-abschied-peiting",
       "parent_id": null,
       "title": {
@@ -4848,6 +4766,12 @@
           "primary": false,
           "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://veranstaltungen.meinestadt.de/schongau",
+          "primary": false,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-09",
@@ -5119,7 +5043,7 @@
         "sports"
       ],
       "status": "scheduled",
-      "kind": "event",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -5224,6 +5148,50 @@
         }
       ],
       "first_seen": "2026-11-09",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-05-nikolausparty-im-lagerhaus-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Nikolausparty im Lagerhaus",
+        "en": "Nikolaus Party at Lagerhaus"
+      },
+      "description": {
+        "de": "Partynacht mit DJ Blastom (22–01 Uhr) und DJ Vybz (ab 01 Uhr) im Lagerhaus Schongau.",
+        "en": "Party night with DJ Blastom (22:00–01:00) and DJ Vybz (from 01:00) at Lagerhaus Schongau."
+      },
+      "venue": {
+        "name": "Lagerhaus Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-05",
+        "end_date": null,
+        "start_time": "22:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DgGPUWPNbHQ/",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -5336,8 +5304,59 @@
       "misses": 0
     },
     {
-      "id": "2026-12-06-25-jahre-plantsch-schongau",
+      "id": "2026-12-06-25-jahre-plantsch-jubilaeumsfeier-schongau",
       "parent_id": null,
+      "title": {
+        "de": "25 Jahre Plantsch – Jubiläumsfeier",
+        "en": "25 Years Plantsch – Anniversary Celebration"
+      },
+      "description": {
+        "de": "Geburtstagsfeier und Jubiläumsprogramm zum 25-jährigen Bestehen des Plantsch am 6. Dezember 2026, mit Showaufgüssen, Kinderanimation, Nikolaus-Verlosung, Ballonglühen und Beats & Badehosen ab 18 Uhr.",
+        "en": "Birthday celebration and anniversary programme for the 25th anniversary of the Plantsch pool on 6 December 2026, with show infusions, children's entertainment, St. Nicholas raffle, balloon glow and Beats & Badehosen from 6 pm."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-06",
+        "end_date": null,
+        "start_time": "09:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "party",
+      "tags": [
+        "party",
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/p/Df_1bzTCQNb/",
+          "primary": false,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-09",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-06-25-jahre-plantsch-schongau",
+      "parent_id": "2026-12-06-25-jahre-plantsch-jubilaeumsfeier-schongau",
       "title": {
         "de": "25 Jahre Plantsch – Geburtstagsfeier",
         "en": "Plantsch 25th anniversary celebration"
@@ -5377,51 +5396,6 @@
         }
       ],
       "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-06-25-jahre-plantsch-jubilaeumsfeier-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "25 Jahre Plantsch – Jubiläumsfeier",
-        "en": "Plantsch 25th Anniversary Celebration"
-      },
-      "description": {
-        "de": "Jubiläumsprogramm mit Showaufgüssen, Kinderanimation, Nikolaus-Verlosung, Ballonglühen und Beats & Badehosen ab 18 Uhr.",
-        "en": "Anniversary programme with show sauna infusions, children's entertainment, Nikolaus raffle, balloon glow and Beats & Badehosen from 6 pm."
-      },
-      "venue": {
-        "name": "Plantsch",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-06",
-        "end_date": null,
-        "start_time": "11:00",
-        "end_time": "22:00",
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "family-kids",
-      "tags": [
-        "family-kids",
-        "party"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.instagram.com/p/Df_1bzTCQNb/",
-          "primary": true,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-23",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -6550,7 +6524,7 @@
     },
     {
       "id": "2026-12-12-juze-jubilaeum-mumuzumundi-live-schongau",
-      "parent_id": null,
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
         "de": "Juze-Jubiläum: Mumuzumundi live",
         "en": "Juze Anniversary: Mumuzumundi live"
@@ -6594,7 +6568,7 @@
     },
     {
       "id": "2026-12-12-streumix-konzert-zum-40-jaehrigen-juze-jubilaeum-schongau",
-      "parent_id": null,
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
         "de": "Streumix – Konzert zum 40-jährigen Juze-Jubiläum",
         "en": "Streumix – concert for the Juze 40th anniversary"
@@ -6827,7 +6801,7 @@
     },
     {
       "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
-      "parent_id": null,
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
         "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
         "en": "Overhead Compartment – Juze 40th Anniversary"
@@ -6883,8 +6857,166 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-yokio-40-jahre-juze-schongau",
+      "id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "parent_id": null,
+      "title": {
+        "de": "40 Jahre Juze – Jubiläumskonzert",
+        "en": "40 Years Juze – Anniversary Concert"
+      },
+      "description": {
+        "de": "Vier Bands feiern am 12. Dezember 2026 das 40-jährige Jubiläum des Jugendzentrums Schongau: Overhead Compartment, Yokio, Streumix und Mumuzumundi.",
+        "en": "Four bands celebrate the 40th anniversary of the Schongau youth centre on 12 December 2026: Overhead Compartment, Yokio, Streumix and Mumuzumundi."
+      },
+      "venue": {
+        "name": "Juze Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "party"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/Df7iwOwq1BK/",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+          "primary": false,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/Df2X7J9KkWF/",
+          "primary": false,
+          "first_seen": "2026-11-19",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-12-adventskonzert-mit-der-chorinitiative-peiting",
+      "parent_id": null,
+      "title": {
+        "de": "Adventskonzert mit der Chorinitiative",
+        "en": "Advent concert with the Chorinitiative"
+      },
+      "description": {
+        "de": "Adventskonzert der Chorinitiative in der Christuskirche Peiting.",
+        "en": "Advent concert by the Chorinitiative in the Christuskirche in Peiting."
+      },
+      "venue": {
+        "name": "Christuskirche Peiting",
+        "place": "Peiting",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "religion"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8321929.html?popup=3",
+          "primary": false,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-12-jubilaeumskonzert-40-jahre-juze-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Jubiläumskonzert 40 Jahre Juze",
+        "en": "Juze 40th Anniversary Concert"
+      },
+      "description": {
+        "de": "Vier Bands feiern 40 Jahre Jugendzentrum: streumix_band, yokioband, overheadcompartment und Mumuzumundi. Eintritt 5 €.",
+        "en": "Four bands celebrate 40 years of the youth centre: streumix_band, yokioband, overheadcompartment and Mumuzumundi. Admission €5."
+      },
+      "venue": {
+        "name": "Jugendzentrum Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/p/DgFyEBdKQBz/",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
+      "id": "2026-12-12-yokio-40-jahre-juze-schongau",
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
         "de": "Yokio – 40 Jahre Juze Schongau",
         "en": "Yokio – 40 years Juze Schongau"
@@ -8783,7 +8915,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/2-januar-fundsachen-flohmarkt/",
@@ -8793,7 +8925,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -8840,11 +8972,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9220,11 +9352,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9396,7 +9528,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/23-1-disney-night-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -9406,7 +9538,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9446,7 +9578,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/23-1-fkk-badenacht-mit-lampion-schwimmen/",
@@ -9456,7 +9588,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9911,7 +10043,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-2-90er-fete-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -9921,7 +10053,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9961,7 +10093,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-2-fkk-badenacht-mit-lampion-schwimmen/",
@@ -9971,7 +10103,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -10023,17 +10155,17 @@
       "id": "2027-03-12-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
       "parent_id": null,
       "title": {
-        "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
-        "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
+        "de": "Ton Steine Scherben: Keine Macht für Niemand",
+        "en": "Ton Steine Scherben: Keine Macht für Niemand"
       },
       "description": {
-        "de": "Nachholtermin des Konzerts von Ton Steine Scherben im Reaktor.",
-        "en": "Rescheduled Ton Steine Scherben concert at Reaktor."
+        "de": "Konzert mit Kai & Funky von Ton Steine Scherben feat. Birte Volta. Vorverkauf ab Dezember.",
+        "en": "Concert with Kai & Funky of Ton Steine Scherben feat. Birte Volta. Advance sales from December."
       },
       "venue": {
         "name": "Reaktor",
         "place": "Schongau",
-        "address": "Schützenhausstr. 1, Schongau"
+        "address": null
       },
       "schedule": {
         "start_date": "2027-03-12",
@@ -10062,6 +10194,12 @@
           "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
           "primary": false,
           "first_seen": "2026-11-10",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/p/DgFq1W9IyLJ/",
+          "primary": false,
+          "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
       ],
@@ -10194,7 +10332,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-3-kraeuterzauber-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -10204,7 +10342,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -10244,7 +10382,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/20-3-fkk-badenacht-mit-lampion-schwimmen/",
@@ -10254,7 +10392,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -10677,7 +10815,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/17-4-krimi-sauna-vollmond-saunanacht-mit-langer-oeffnungszeit-bis-23-uhr/",
@@ -10687,7 +10825,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -10727,7 +10865,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/17-4-fkk-badenacht-mit-lampion-schwimmen/",
@@ -10737,7 +10875,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -10877,7 +11015,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/24-april-fundsachen-flohmarkt/",
@@ -10887,7 +11025,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T12:46:35Z",
+  "updated_at": "2026-11-23T22:20:24Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -5702,6 +5702,220 @@
       "first_seen": "2026-11-23",
       "last_seen": "2026-11-23",
       "events": []
+    },
+    "18037801358911235": {
+      "username": "ea_schongau",
+      "permalink": "https://www.instagram.com/p/DgGP3t9lRGa/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17934683769164225": {
+      "username": "musikhaus_kirstein",
+      "permalink": "https://www.instagram.com/p/DgFpzUHho5m/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "17999628392834119": {
+      "username": "lagerhausschongau",
+      "permalink": "https://www.instagram.com/p/DgGPUWPNbHQ/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e1",
+          "parent_ref": null,
+          "title": {
+            "de": "Nikolausparty im Lagerhaus",
+            "en": "Nikolaus Party at Lagerhaus"
+          },
+          "description": {
+            "de": "Partynacht mit DJ Blastom (22–01 Uhr) und DJ Vybz (ab 01 Uhr) im Lagerhaus Schongau.",
+            "en": "Party night with DJ Blastom (22:00–01:00) and DJ Vybz (from 01:00) at Lagerhaus Schongau."
+          },
+          "venue": {
+            "name": "Lagerhaus Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-05",
+            "end_date": null,
+            "start_time": "22:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "party",
+          "tags": [
+            "party"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgGPUWPNbHQ/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18108179021201501": {
+      "username": "ecpeiting",
+      "permalink": "https://www.instagram.com/p/DgFzyJcu9d4/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e2",
+          "parent_ref": null,
+          "title": {
+            "de": "EC Peiting – Heimspiel",
+            "en": "EC Peiting home game"
+          },
+          "description": {
+            "de": "Heimspiel des EC Peiting im Peitinger Eisstadion.",
+            "en": "EC Peiting home ice hockey game at the Peiting ice stadium."
+          },
+          "venue": {
+            "name": "Eisstadion Peiting",
+            "place": "Peiting",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-11-24",
+            "end_date": null,
+            "start_time": "19:30",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "sports",
+          "tags": [
+            "sports"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgFzyJcu9d4/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18189987028416832": {
+      "username": "juze_sog",
+      "permalink": "https://www.instagram.com/p/DgFyEBdKQBz/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e3",
+          "parent_ref": null,
+          "title": {
+            "de": "Jubiläumskonzert 40 Jahre Juze",
+            "en": "Juze 40th Anniversary Concert"
+          },
+          "description": {
+            "de": "Vier Bands feiern 40 Jahre Jugendzentrum: streumix_band, yokioband, overheadcompartment und Mumuzumundi. Eintritt 5 €.",
+            "en": "Four bands celebrate 40 years of the youth centre: streumix_band, yokioband, overheadcompartment and Mumuzumundi. Admission €5."
+          },
+          "venue": {
+            "name": "Jugendzentrum Schongau",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2026-12-12",
+            "end_date": null,
+            "start_time": "20:00",
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgFyEBdKQBz/",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "18040282892656938": {
+      "username": "reaktor_sog",
+      "permalink": "https://www.instagram.com/p/DgFq1W9IyLJ/",
+      "posted": "2026-11-23",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": [
+        {
+          "ref": "e4",
+          "parent_ref": null,
+          "title": {
+            "de": "Ton Steine Scherben: Keine Macht für Niemand",
+            "en": "Ton Steine Scherben: Keine Macht für Niemand"
+          },
+          "description": {
+            "de": "Konzert mit Kai & Funky von Ton Steine Scherben feat. Birte Volta. Vorverkauf ab Dezember.",
+            "en": "Concert with Kai & Funky of Ton Steine Scherben feat. Birte Volta. Advance sales from December."
+          },
+          "venue": {
+            "name": "Reaktor",
+            "place": "Schongau",
+            "address": null
+          },
+          "schedule": {
+            "start_date": "2027-03-12",
+            "end_date": null,
+            "start_time": null,
+            "end_time": null,
+            "all_day": false,
+            "dates": null,
+            "opening_hours": null
+          },
+          "primary_tag": "concert",
+          "tags": [
+            "concert"
+          ],
+          "status": "scheduled",
+          "kind": "event",
+          "postponed_to_date": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/p/DgFq1W9IyLJ/",
+              "primary": true
+            }
+          ]
+        }
+      ]
     }
   },
   "rejected": {
