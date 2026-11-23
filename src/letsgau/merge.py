@@ -14,6 +14,9 @@ Steps (docs/CONCEPT.md, "Pipeline", step 5):
    :data:`CLEAR`) are decided by the merge model (default Haiku) with yes/no. The
    same call checks every new and stored event against ``excluded_topics``;
    matches are dropped (new) or removed (stored) and logged.
+   The same call groups acts of one occasion: entries at the same venue on the same day
+   that a club announced one post per band (:func:`occasion_groups`). The merge model names
+   the occasion; the code adds a main event and makes the acts its programme items.
 3. **Status.** Cancellations and postponements come from the crawl. Events in
    the deep-check window that were not found again although their municipality
    was crawled get ``misses + 1``; at ``events.unconfirmed_after_misses`` they
@@ -25,6 +28,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from collections import Counter
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
@@ -38,6 +42,7 @@ from letsgau.models import (
     EventsFile,
     EventSource,
     EventStatus,
+    LocalizedText,
     OpeningHours,
     Schedule,
 )
@@ -326,6 +331,7 @@ def combine(old: Event, new: Event) -> Event:
         update={
             **texts,
             "id": old.id,
+            "parent_id": new.parent_id or old.parent_id,
             "status": status,
             "kind": new.kind or old.kind,
             "schedule": schedule,
@@ -359,11 +365,42 @@ class Decisions:
     """Event id -> ``event`` | ``routine`` | ``course`` (classification task)."""
     primary: dict[str, str] = field(default_factory=dict)
     """Event id -> the primary tag the merge model would give it."""
+    occasions: list[Occasion] = field(default_factory=list)
+    """Acts of one occasion (task 4): grouped under a main event."""
+
+
+@dataclass
+class Occasion:
+    """Entries the merge model calls acts of one occasion, with the occasion's texts."""
+
+    ids: list[str]
+    title: LocalizedText
+    description: LocalizedText
+
+
+def occasion_groups(events: Iterable[Event]) -> list[list[Event]]:
+    """Candidates for task 4: single-day events at the same named venue on the same day,
+    two or more per group. Programme items, series and cancelled events are left out."""
+    by_key: dict[tuple[date, str, str], list[Event]] = {}
+    for event in events:
+        s = event.schedule
+        if (
+            event.parent_id
+            or not event.venue.name
+            or s.dates
+            or s.last_date != s.start_date
+            or event.status in (EventStatus.CANCELLED, EventStatus.POSTPONED)
+        ):
+            continue
+        key = (s.start_date, event.venue.place.casefold(), venue_key(event.venue.name))
+        by_key.setdefault(key, []).append(event)
+    return [group for group in by_key.values() if len(group) >= 2]
 
 
 Decide = Callable[..., Decisions]
-"""AI step: ``(unclear pairs, events for the topic check, events to classify) -> decisions``;
-the third argument is optional."""
+"""AI step: ``(unclear pairs, events for the topic check, events to classify, occasion
+groups) -> decisions``; the last two arguments are optional (groups are passed only when
+there are any)."""
 
 OFFER = "not an event (offer)"
 """Reason for a known event the crawl found again and called an offer (``MergeReport.excluded``).
@@ -395,14 +432,28 @@ def decision_schema(tag_ids: Sequence[str] = ()) -> dict[str, Any]:
         "required": ["id", "kind", "primary_tag"],
         "additionalProperties": False,
     }
+    text = {"type": "string"}
+    occasion = {
+        "type": "object",
+        "properties": {
+            "ids": {"type": "array", "items": {"type": "string"}},
+            "title_de": text,
+            "title_en": text,
+            "description_de": text,
+            "description_en": text,
+        },
+        "required": ["ids", "title_de", "title_en", "description_de", "description_en"],
+        "additionalProperties": False,
+    }
     return {
         "type": "object",
         "properties": {
             "pairs": {"type": "array", "items": pair},
             "excluded": {"type": "array", "items": excluded},
             "classified": {"type": "array", "items": classified},
+            "occasions": {"type": "array", "items": occasion},
         },
-        "required": ["pairs", "excluded", "classified"],
+        "required": ["pairs", "excluded", "classified", "occasions"],
         "additionalProperties": False,
     }
 
@@ -413,11 +464,43 @@ def render_prompt(
     topics: Sequence[str],
     classify: Sequence[Event] = (),
     tag_ids: Sequence[str] = (),
+    groups: Sequence[Sequence[Event]] = (),
 ) -> str:
     env = prompt_env(PROMPTS_DIR)
     return env.get_template("merge.md").render(
-        pairs=pairs, new_events=new_events, topics=topics, classify=classify, tag_ids=tag_ids
+        pairs=pairs,
+        new_events=new_events,
+        topics=topics,
+        classify=classify,
+        tag_ids=tag_ids,
+        groups=groups,
     )
+
+
+def parse_occasions(items: Iterable[Any], groups: Sequence[Sequence[Event]]) -> list[Occasion]:
+    """The model's occasions that name two or more ids of one candidate group."""
+    group_of = {e.id: i for i, group in enumerate(groups) for e in group}
+    found: list[Occasion] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        ids = list(dict.fromkeys(str(i) for i in item.get("ids") or []))
+        texts = [
+            str(item.get(k) or "").strip()
+            for k in ("title_de", "title_en", "description_de", "description_en")
+        ]
+        if len(ids) < 2 or not all(texts) or any(i not in group_of for i in ids):
+            continue
+        if len({group_of[i] for i in ids}) != 1:
+            continue
+        found.append(
+            Occasion(
+                ids,
+                LocalizedText(de=texts[0], en=texts[1]),
+                LocalizedText(de=texts[2], en=texts[3]),
+            )
+        )
+    return found
 
 
 def ai_decider(
@@ -427,16 +510,19 @@ def ai_decider(
     from letsgau.ai_runner import AiError, AiRequest
 
     def decide(
-        pairs: Sequence[Pair], new_events: Sequence[Event], classify: Sequence[Event] = ()
+        pairs: Sequence[Pair],
+        new_events: Sequence[Event],
+        classify: Sequence[Event] = (),
+        groups: Sequence[Sequence[Event]] = (),
     ) -> Decisions:
         check = list(new_events) if topics else []
         classify = list(classify)
-        if not pairs and not check and not classify:
+        if not pairs and not check and not classify and not groups:
             return Decisions()
         request = AiRequest(
             step="merge",
             model=model,
-            prompt=render_prompt(pairs, check, topics, classify, tag_ids),
+            prompt=render_prompt(pairs, check, topics, classify, tag_ids, groups),
             schema=decision_schema(tag_ids),
             web=False,
         )
@@ -461,6 +547,7 @@ def ai_decider(
                 for x in answers
                 if x.get("primary_tag") and (not tag_ids or x["primary_tag"] in tag_ids)
             },
+            occasions=parse_occasions(data.get("occasions") or [], groups),
         )
 
     return decide
@@ -492,6 +579,56 @@ class MergeReport:
     """(id, old primary tag, new primary tag) changed by the classification task."""
     classified: list[str] = field(default_factory=list)
     """Ids of events that got their ``kind`` from the merge model."""
+    grouped: list[tuple[str, list[str]]] = field(default_factory=list)
+    """(main event id, programme item ids) of acts grouped into one occasion."""
+
+
+def group_occasion(events: dict[str, Event], occasion: Occasion) -> tuple[str, list[str]] | None:
+    """Make the acts of ``occasion`` programme items of a main event (in place). An act that
+    already is a main event (has programme items) stays the main event; otherwise one is
+    added with the occasion's texts, the acts' earliest start time, their most common tags
+    and their sources. Returns (main id, item ids) or ``None`` if nothing was grouped."""
+    from letsgau.crawl import event_id  # crawl imports this module
+
+    members = [events[i] for i in occasion.ids if i in events and not events[i].parent_id]
+    if len(members) < 2:
+        return None
+    parents = {e.parent_id for e in events.values() if e.parent_id}
+    main = next((m for m in members if m.id in parents), None)
+    if main is None:
+        first = members[0]
+        day = first.schedule.start_date
+        main_id = event_id(day, occasion.title.de, first.venue.place)
+        if main_id in events and main_id not in occasion.ids:
+            return None  # an unrelated event with the same id
+        times = sorted(t for m in members if (t := m.schedule.start_time))
+        counts = Counter(t for m in members for t in m.tags)
+        primary = Counter(m.primary_tag for m in members).most_common(1)[0][0]
+        tags = [primary, *(t for t, _ in counts.most_common() if t != primary)][:MAX_TAGS]
+        sources, seen = [], set()
+        for m in members:
+            src = next(s for s in m.sources if s.primary)
+            if src.url not in seen:
+                seen.add(src.url)
+                sources.append(src.model_copy(update={"primary": not sources}))
+        main = Event(
+            id=main_id,
+            title=occasion.title,
+            description=occasion.description,
+            venue=first.venue,
+            schedule=Schedule(start_date=day, start_time=times[0] if times else None),
+            primary_tag=primary,
+            tags=tags,
+            kind=EventKind.EVENT,
+            sources=sources,
+            first_seen=min(m.first_seen for m in members),
+            last_verified=max(m.last_verified for m in members),
+        )
+        events[main_id] = main
+    items = [m for m in members if m.id != main.id]
+    for m in items:
+        events[m.id] = m.model_copy(update={"parent_id": main.id})
+    return main.id, [m.id for m in items]
 
 
 def classify(event: Event, kind: str | None, primary: str | None) -> Event:
@@ -591,9 +728,9 @@ def apply(
     # stored events are checked too, so a topic added to excluded_topics later also removes
     # what is already in the calendar (cheap: one line per event for the merge model)
     unclassified = [e for e in open_events if e.kind is None]
-    decisions = decide(
-        [*stored_pairs, *pairs], [*new_events, *open_events], [*new_events, *unclassified]
-    )
+    args = ([*stored_pairs, *pairs], [*new_events, *open_events], [*new_events, *unclassified])
+    groups = occasion_groups([*open_events, *new_events])
+    decisions = decide(*args, groups) if groups else decide(*args)
     alias: dict[str, str] = {}  # removed stored duplicate -> kept stored event
     for pair in [*clear_stored, *stored_pairs]:
         if pair.number and pair.number not in decisions.same:
@@ -660,6 +797,12 @@ def apply(
         del events[key]
         found.discard(key)
 
+    for occasion in decisions.occasions:
+        grouped = group_occasion(events, occasion)
+        if grouped:
+            report.grouped.append(grouped)
+            _log(f"grouped {', '.join(grouped[1])} under {grouped[0]}")
+
     for key, kind in decisions.kinds.items():
         if key not in events:
             continue
@@ -678,6 +821,23 @@ def apply(
             report.cancelled.append(key)
         elif status is EventStatus.POSTPONED:
             report.postponed.append(key)
+
+    # A programme item found again confirms its main event (a main event made from acts of
+    # one occasion has no source page of its own).
+    for key in list(found):
+        main_id = events[key].parent_id
+        if main_id in events and main_id not in found:
+            found.add(main_id)
+            main = events[main_id]
+            events[main_id] = main.model_copy(
+                update={
+                    "misses": 0,
+                    "last_verified": max(main.last_verified, events[key].last_verified),
+                    "status": EventStatus.SCHEDULED
+                    if main.status is EventStatus.UNCONFIRMED
+                    else main.status,
+                }
+            )
 
     # Status of stored events that were not found again.
     if covered_places is not None:

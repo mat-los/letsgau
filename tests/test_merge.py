@@ -741,3 +741,88 @@ def test_merge_prompt_lists_the_entries_to_classify() -> None:
     item = schema["properties"]["classified"]["items"]["properties"]
     assert item["kind"]["enum"] == ["event", "routine", "course"]
     assert item["primary_tag"]["enum"] == ["religion"]
+
+
+# --- acts of one occasion (task 4) ----------------------------------------------------------
+
+
+def band(name: str, time: str | None = "20:00", **extra: Any) -> Event:
+    event = ev(f"{name} – 40 Jahre Juze", "2026-12-12", time=time, **extra)
+    return event.model_copy(
+        update={"venue": event.venue.model_copy(update={"name": "Juze Schongau"})}
+    )
+
+
+def juze_occasion(*ids: str) -> merge.Occasion:
+    return merge.Occasion(
+        list(ids),
+        merge.LocalizedText(de="40 Jahre Juze – Jubiläumskonzert", en="40 years Juze"),
+        merge.LocalizedText(de="Jubiläum mit vier Bands.", en="Anniversary with four bands."),
+    )
+
+
+def test_acts_of_one_occasion_become_programme_items() -> None:
+    """Live case: the Juze announced each band of its anniversary in an Instagram post of its
+    own; the crawl stored four events at the same venue and day."""
+    acts = [band("Overhead Compartment"), band("Streumix", None), band("Yokio"), band("Mumu")]
+    stored = EventsFile(updated_at="2026-11-10T00:00:00Z", events=acts[:3])
+    seen: list[list[str]] = []
+
+    def decide(pairs: Any, events: Any, classify: Any = (), groups: Any = ()) -> Decisions:
+        seen.extend([[e.id for e in g] for g in groups])
+        return Decisions(occasions=[juze_occasion(*(e.id for e in groups[0]))])
+
+    report = MergeReport()
+    result = apply(stored, [acts[3]], decide=decide, today=DAY1, report=report)
+    assert len(seen) == 1 and set(seen[0]) == {a.id for a in acts}  # one candidate group
+    by_id = {e.id: e for e in result.events}
+    main = by_id["2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau"]
+    assert main.parent_id is None and main.title.de == "40 Jahre Juze – Jubiläumskonzert"
+    assert main.schedule.start_time == "20:00" and main.venue.name == "Juze Schongau"
+    assert len(main.sources) == 4 and sum(s.primary for s in main.sources) == 1
+    assert {by_id[a.id].parent_id for a in acts} == {main.id}
+    assert report.grouped == [(main.id, [a.id for a in acts])]
+
+    # next run: the crawl finds one act again; it stays an item, and the main event (which
+    # has no source page of its own) is confirmed instead of missed
+    again = acts[1].model_copy(update={"parent_id": None})
+    later = apply(
+        result,
+        [again],
+        today=DAY1,
+        covered_places=["Schongau"],
+        deep_check_days=60,
+    )
+    by_id = {e.id: e for e in later.events}
+    assert by_id[acts[1].id].parent_id == main.id
+    assert by_id[main.id].misses == 0
+
+
+def test_occasion_groups_and_answers_are_checked() -> None:
+    other = ev("Markt", "2026-12-12")  # no venue name: never grouped
+    elsewhere = band("Yokio").model_copy(
+        update={
+            "schedule": band("Yokio").schedule.model_copy(
+                update={"start_date": date(2026, 12, 13)}
+            ),
+            "id": "2026-12-13-yokio",
+        }
+    )
+    a, b = band("Streumix"), band("Yokio")
+    groups = merge.occasion_groups([a, b, other, elsewhere])
+    assert [[e.id for e in g] for g in groups] == [[a.id, b.id]]
+    good = {
+        "ids": [a.id, b.id],
+        "title_de": "T",
+        "title_en": "T",
+        "description_de": "D",
+        "description_en": "D",
+    }
+    assert len(merge.parse_occasions([good], groups)) == 1
+    assert merge.parse_occasions([{**good, "ids": [a.id]}], groups) == []  # one act only
+    assert merge.parse_occasions([{**good, "ids": [a.id, other.id]}], groups) == []
+    assert merge.parse_occasions([{**good, "title_de": ""}], groups) == []
+    schema = merge.decision_schema()
+    assert "occasions" in schema["required"]
+    prompt = merge.render_prompt([], [], [], groups=groups)
+    assert "Task 4: acts of one occasion" in prompt and a.id in prompt

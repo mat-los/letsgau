@@ -1667,6 +1667,7 @@ def run(
         f"{len(report.postponed)} postponed, {len(report.unconfirmed)} now unconfirmed, "
         f"{len(report.excluded)} excluded by topic, {len(report.deleted)} past deleted"
         + (f", {len(report.retagged)} retagged" if report.retagged else "")
+        + (f", {len(report.grouped)} occasions grouped" if report.grouped else "")
     )
     offers = sum("(offer)" in r.reason for b in result.batches for r in b.rejected) + sum(
         reason == merge.OFFER for reason in report.excluded.values()
