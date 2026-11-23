@@ -21,6 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The folded "Regelmäßiges & Kurse" box on the day pages: routine entries and courses are
   listed with the other events again (`Event.kind` stays, offers are still dropped).
 
+### Changed
+
+- Bundled instance: only sports events with spectators. Title patterns drop bowling
+  (Kegeln) league matches, youth teams (U7–U23) and reserve/lower teams (1b, Herren 2,
+  2. Mannschaft); an `excluded_topics` entry keeps only first-team home games in spectator
+  sports (ice hockey, football, basketball, handball, volleyball), plus tournaments, races
+  and sports festivals.
+
 ### Added
 
 - `docs/brand/`: the site icon as SVG and as 1024 px / 2048 px PNG.

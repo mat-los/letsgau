@@ -75,6 +75,7 @@ instagram:                              # reading Instagram business/creator acc
 
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"
+  - "League and season matches that are no event for spectators. Keep only home games of a club's first team in a spectator sport (ice hockey, football, basketball, handball, volleyball), e.g. EC Peiting or EA Schongau. Exclude matches of reserve, second or lower teams (1b, II, Herren 2), youth and senior teams, and all league matches in bowling (Kegeln), darts, table tennis, billiards, shooting and chess. Tournaments, races, runs and sports festivals open to spectators are not excluded"
   - "Church services and worship of any kind, also special ones: masses, Gottesdienst, Wortgottesfeier, Christmette, Rorate, devotions (Andacht, Maiandacht), rosary, Eucharistic adoration, prayer services, confession times. Church concerts, processions such as the St. Martin's procession, pilgrimages, parish festivals and Christmas markets are not excluded"
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
@@ -104,6 +105,13 @@ excluded_title_patterns:                # regexes (case-insensitive) on the Germ
   - '\banbetung\b'
   - '\bbeicht'                          # Beichtgelegenheit
   - '\bmorgenlob\b|\babendlob\b'
+  # league matches that are no event (excluded_topics has the full rule)
+  - '\bkegeln\b'                        # bowling league matches (not "Preiskegeln")
+  - '\bU\s?(1[0-9]|2[0-3]|[7-9])\b'     # youth teams U7 to U23 (not "U2")
+  - '\b1b\b'                            # reserve team ("EA Schongau 1b")
+  - '\b(2\.|zweite|3\.|dritte)\s*Mannschaft\b'
+  - '\breserve\b'
+  - '\b(männer|herren|frauen|damen)\s+[2-9]\b'   # "Herren 2", a lower team
 
 tags:                                   # fixed list, the AI must not invent new ones
   - { id: concert,         de: "Konzert",            en: "Concert" }
