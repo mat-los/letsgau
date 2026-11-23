@@ -209,7 +209,10 @@ def test_day_page_has_header_elements(site: Path) -> None:
     assert 'id="filter-btn" aria-haspopup="dialog" aria-controls="fpanel"' in html
     assert '<div id="fpanel" class="fpanel" hidden>' in html
     assert html.index('id="filter-btn"') < html.index("</header>") < html.index('id="fpanel"')
-    assert '<button type="button" class="fp-show" data-close>102 Events anzeigen</button>' in html
+    assert '<button type="button" class="fp-show" data-close>Anzeigen</button>' in html
+    # grouping comes first in the panel; no event count (it would only hold for this day)
+    panel = html[html.index('id="fpanel"') :]
+    assert panel.index('data-group="none"') < panel.index('data-tag="concert"')
     assert '<div id="active" class="active-filters" hidden></div>' in html
     assert "cats-toggle" not in html and "cats-closed" not in html
     assert "<h2>Vormittag</h2>" not in html and "Ganztägig" not in html
