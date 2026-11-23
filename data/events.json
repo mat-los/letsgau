@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T10:43:38Z",
+  "updated_at": "2026-11-23T12:47:18Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -360,7 +360,7 @@
         "food-drink"
       ],
       "status": "scheduled",
-      "kind": "event",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -657,7 +657,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 4
+      "misses": 5
     },
     {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
@@ -694,7 +694,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "course",
       "postponed_to": null,
       "sources": [
         {
@@ -707,7 +707,7 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://veranstaltungen.meinestadt.de/schongau/event-detail/42572547/156270847",
@@ -1033,7 +1033,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-16",
-      "misses": 2
+      "misses": 3
     },
     {
       "id": "2026-11-15-allgemeiner-lauf-in-der-peitinger-eishalle",
@@ -1470,50 +1470,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-22-ea-schongau-1b-sg-senden-burgau",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau 1b – SG Senden/Burgau",
-        "en": "EA Schongau 1b vs. SG Senden/Burgau"
-      },
-      "description": {
-        "de": "Eishockey-Heimspiel der 1b-Mannschaft in der Bezirksliga.",
-        "en": "Ice hockey home game of the 1b team in the Bezirksliga."
-      },
-      "venue": {
-        "name": "Eisstadion Schongau",
-        "place": "Schongau",
-        "address": "Lechuferstraße, Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-11-22",
-        "end_date": null,
-        "start_time": "18:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-22-benefizkonzert-mozart-messe-b-dur-schongau",
       "parent_id": null,
       "title": {
@@ -1665,7 +1621,7 @@
         {
           "url": "https://www.schwarz-gelb-schongau.de",
           "primary": true,
-          "first_seen": "2026-11-19",
+          "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
       ],
@@ -2246,7 +2202,7 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-16"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "http://www.evangelische-termine.de/veranstaltungen?vid=1940",
@@ -2423,7 +2379,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 2
+      "misses": 3
     },
     {
       "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
@@ -2699,7 +2655,7 @@
         "en": "Christmas market with punch, gospel, children's programme, carriage rides, brass music and handmade goods; village shops open."
       },
       "venue": {
-        "name": null,
+        "name": "Dorf Herzogsägmühle",
         "place": "Herzogsägmühle",
         "address": null
       },
@@ -2716,11 +2672,11 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "concert",
+      "primary_tag": "market-festival",
       "tags": [
-        "concert",
+        "market-festival",
         "family-kids",
-        "market-festival"
+        "concert"
       ],
       "status": "scheduled",
       "kind": "event",
@@ -2792,6 +2748,50 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-maerchenerzaehlerin-beim-weihnachtsmarkt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Märchenerzählerin beim Weihnachtsmarkt",
+        "en": "Storyteller at the Christmas market"
+      },
+      "description": {
+        "de": "Märchenerzählerin beim Herzogsägmühler Weihnachtsmarkt.",
+        "en": "Fairy-tale storyteller at the Herzogsägmühle Christmas market."
+      },
+      "venue": {
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": null,
+        "start_time": "16:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "family-kids",
+      "tags": [
+        "family-kids"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-repair-cafe-schongau",
       "parent_id": null,
       "title": {
@@ -2836,6 +2836,50 @@
       "misses": 0
     },
     {
+      "id": "2026-11-27-posaunenchor-peissenberg-beim-weihnachtsmarkt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Posaunenchor Peißenberg beim Weihnachtsmarkt",
+        "en": "Posaunenchor Peißenberg at the Christmas market"
+      },
+      "description": {
+        "de": "Auftritt des Posaunenchors Peißenberg.",
+        "en": "Performance by the Peißenberg trombone choir."
+      },
+      "venue": {
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": null,
+        "start_time": "17:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-11-27-adventsbinden-bei-herr-lose-schongau",
       "parent_id": null,
       "title": {
@@ -2865,7 +2909,7 @@
         "talk-workshop",
         "family-kids"
       ],
-      "status": "scheduled",
+      "status": "unconfirmed",
       "kind": "course",
       "postponed_to": null,
       "sources": [
@@ -2878,7 +2922,51 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 1
+      "misses": 2
+    },
+    {
+      "id": "2026-11-27-gospelchor-good-news-beim-weihnachtsmarkt-herzogsaegmuehle",
+      "parent_id": null,
+      "title": {
+        "de": "Gospelchor Good News beim Weihnachtsmarkt",
+        "en": "Gospel choir Good News at the Christmas market"
+      },
+      "description": {
+        "de": "Auftritt des Gospelchors Good News.",
+        "en": "Performance by the gospel choir Good News."
+      },
+      "venue": {
+        "name": null,
+        "place": "Herzogsägmühle",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-27",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.herzogsaegmuehle.de/erleben/veranstaltungen/weihnachtsmarkt",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
     },
     {
       "id": "2026-11-27-taylor-tone-show-2026-schongau",
@@ -3328,94 +3416,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-28-kegeln-maenner-4-vs-eberfing-g1-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Männer 4 gegen Eberfing G1",
-        "en": "Bowling: Men 4 vs Eberfing G1"
-      },
-      "description": {
-        "de": "Kegel-Punktspiel des SKK Schwarz-Gelb Schongau.",
-        "en": "Skittles league match of SKK Schwarz-Gelb Schongau."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "11:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-28-kegeln-maenner-3-vs-oberdiessen-2-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Männer 3 gegen Oberdiessen 2",
-        "en": "Bowling: Men 3 vs Oberdiessen 2"
-      },
-      "description": {
-        "de": "Kegel-Punktspiel des SKK Schwarz-Gelb Schongau.",
-        "en": "Skittles league match of SKK Schwarz-Gelb Schongau."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "13:45",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-28-rc-77-altenstadt-adventwanderung-und",
       "parent_id": null,
       "title": {
@@ -3517,50 +3517,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-28-kegeln-frauen-1-vs-spg-seeshaupt-weilheim-g4-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Frauen 1 gegen SpG Seeshaupt/Weilheim G4",
-        "en": "Bowling: Women 1 vs SpG Seeshaupt/Weilheim G4"
-      },
-      "description": {
-        "de": "Kegel-Punktspiel des SKK Schwarz-Gelb Schongau.",
-        "en": "Skittles league match of SKK Schwarz-Gelb Schongau."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "16:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-28-peitinger-alphornblaeser-auf-dem-dorfplatz-herzogsaegmuehle",
       "parent_id": null,
       "title": {
@@ -3601,56 +3557,6 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-11-28-ea-schongau-u20-esv-buchloe",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – ESV Buchloe",
-        "en": "EA Schongau U20 vs. ESV Buchloe"
-      },
-      "description": {
-        "de": "Eishockey-Heimspiel der U20-Junioren.",
-        "en": "Ice hockey home game of the U20 juniors."
-      },
-      "venue": {
-        "name": "Eisstadion Schongau",
-        "place": "Schongau",
-        "address": "Lechuferstraße, Schongau"
-      },
-      "schedule": {
-        "start_date": "2026-11-28",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
-        },
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -4056,6 +3962,56 @@
       "misses": 0
     },
     {
+      "id": "2026-11-30-traum-und-duftreise-im-saunaland-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Traum- und Duftreise im Saunaland",
+        "en": "Dream and Fragrance Journey in the Sauna Area"
+      },
+      "description": {
+        "de": "Kurze Entspannungsreise mit Düften im Saunaland des Plantsch, jeweils montags und mittwochs.",
+        "en": "Short relaxation session with scents in the Plantsch sauna area, on Mondays and Wednesdays."
+      },
+      "venue": {
+        "name": "Plantsch",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-11-30",
+        "end_date": "2026-12-16",
+        "start_time": "12:45",
+        "end_time": "13:00",
+        "all_day": false,
+        "dates": [
+          "2026-11-30",
+          "2026-12-02",
+          "2026-12-14",
+          "2026-12-16"
+        ],
+        "opening_hours": null
+      },
+      "primary_tag": "talk-workshop",
+      "tags": [
+        "talk-workshop",
+        "food-drink"
+      ],
+      "status": "scheduled",
+      "kind": "routine",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.plantsch.de/service/veranstaltungen/",
+          "primary": true,
+          "first_seen": "2026-11-23",
+          "last_seen": "2026-11-23"
+        }
+      ],
+      "first_seen": "2026-11-23",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-12-01-seniorentreff-ein-wuerdevoller-abschied-peiting",
       "parent_id": null,
       "title": {
@@ -4309,7 +4265,7 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-19",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-16",
@@ -4538,8 +4494,8 @@
         "en": "Schongau Christmas Magic Market"
       },
       "description": {
-        "de": "Weihnachtsmarkt auf dem Marienplatz mit Bühnenprogramm, Kinderaktionen, Kindereisenbahn und Kutschfahrten.",
-        "en": "Christmas market on Marienplatz with stage programme, children's activities, mini train and carriage rides."
+        "de": "Weihnachtsmarkt in der Schongauer Altstadt mit Bühnenprogramm, Kunsthandwerk, Kindereisenbahn, Perchtenshow, Nikolausbesuch, Kutschfahrten, Familien- und Seniorennachmittag.",
+        "en": "Christmas market in Schongau's old town with daily stage program, crafts, kids' train, Perchten show, St. Nicholas visit, carriage rides, family and senior afternoons."
       },
       "venue": {
         "name": "Marienplatz",
@@ -4552,8 +4508,47 @@
         "start_time": null,
         "end_time": null,
         "all_day": false,
-        "dates": null,
-        "opening_hours": null
+        "dates": [
+          "2026-12-04",
+          "2026-12-05",
+          "2026-12-06",
+          "2026-12-07",
+          "2026-12-08",
+          "2026-12-09",
+          "2026-12-10",
+          "2026-12-11",
+          "2026-12-12",
+          "2026-12-13",
+          "2026-12-14",
+          "2026-12-15",
+          "2026-12-16",
+          "2026-12-17",
+          "2026-12-18",
+          "2026-12-19",
+          "2026-12-20"
+        ],
+        "opening_hours": [
+          {
+            "days": "mon-thu",
+            "from": "16:00",
+            "to": "21:00"
+          },
+          {
+            "days": "fri",
+            "from": "16:00",
+            "to": "22:00"
+          },
+          {
+            "days": "sat",
+            "from": "14:00",
+            "to": "22:00"
+          },
+          {
+            "days": "sun",
+            "from": "14:00",
+            "to": "21:00"
+          }
+        ]
       },
       "primary_tag": "seniors",
       "tags": [
@@ -4807,17 +4802,17 @@
       "id": "2026-12-04-comedy-lounge-mit-florian-simbeck-schongau",
       "parent_id": null,
       "title": {
-        "de": "Comedy Lounge",
-        "en": "Comedy Lounge"
+        "de": "Comedy Lounge mit Florian Simbeck",
+        "en": "Comedy Lounge with Florian Simbeck"
       },
       "description": {
-        "de": "Comedy-Abend im Schongauer Brauhaus mit Stand-up-Programm.",
-        "en": "Comedy evening at the Schongauer Brauhaus with a stand-up programme."
+        "de": "Stand-up-Abend mit Moderator Florian Simbeck und drei Comedians.",
+        "en": "Stand-up comedy night hosted by Florian Simbeck with three comedians."
       },
       "venue": {
         "name": "Schongauer Brauhaus",
         "place": "Schongau",
-        "address": null
+        "address": "Altenstadter Str. 13, 86956 Schongau"
       },
       "schedule": {
         "start_date": "2026-12-04",
@@ -5086,7 +5081,7 @@
           "url": "https://www.schongau-evangelisch.de/",
           "primary": false,
           "first_seen": "2026-11-19",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-16",
@@ -5124,7 +5119,7 @@
         "sports"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -6691,94 +6686,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-kegeln-maenner-2-gegen-grossweil-g1-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Männer 2 gegen Grossweil G1",
-        "en": "Skittles: Men 2 vs Grossweil G1"
-      },
-      "description": {
-        "de": "Heimspiel der Männer 2 des SKK Schwarz-Gelb Schongau gegen Grossweil G1.",
-        "en": "Home league match of SKK Schwarz-Gelb Schongau men's team 2 against Grossweil G1."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "12:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-16",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-12-kegeln-maenner-1-gegen-penzberg-g1-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kegeln: Männer 1 gegen Penzberg G1",
-        "en": "Skittles: Men 1 vs Penzberg G1"
-      },
-      "description": {
-        "de": "Heimspiel der Männer 1 des SKK Schwarz-Gelb Schongau gegen Penzberg G1.",
-        "en": "Home league match of SKK Schwarz-Gelb Schongau men's team 1 against Penzberg G1."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schwarz-gelb-schongau.de",
-          "primary": true,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-16",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-12-12-weihnachtsbasteln-des-lions-club-schongau",
       "parent_id": "2026-12-04-schongauer-weihnachtszauber",
       "title": {
@@ -7283,10 +7190,10 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "concert",
+      "primary_tag": "religion",
       "tags": [
-        "concert",
-        "religion"
+        "religion",
+        "concert"
       ],
       "status": "scheduled",
       "kind": "routine",
@@ -7446,10 +7353,10 @@
         ],
         "opening_hours": null
       },
-      "primary_tag": "family-kids",
+      "primary_tag": "religion",
       "tags": [
-        "family-kids",
-        "religion"
+        "religion",
+        "family-kids"
       ],
       "status": "scheduled",
       "kind": "routine",
@@ -8334,11 +8241,11 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-12",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         }
       ],
       "first_seen": "2026-11-12",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -8434,7 +8341,7 @@
           "url": "https://www.plantsch.de/service/veranstaltungen/",
           "primary": true,
           "first_seen": "2026-11-13",
-          "last_seen": "2026-11-19"
+          "last_seen": "2026-11-23"
         },
         {
           "url": "https://www.plantsch.de/veranstaltungen/26-12-fkk-badenacht-mit-lampion-schwimmen/",
@@ -8444,7 +8351,7 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-19",
+      "last_verified": "2026-11-23",
       "misses": 0
     },
     {
@@ -9074,50 +8981,6 @@
       "misses": 0
     },
     {
-      "id": "2027-01-06-eishockey-ea-schongau-u15-vs-peissenberg-miners",
-      "parent_id": null,
-      "title": {
-        "de": "Eishockey: EA Schongau U15 vs. Peissenberg Miners",
-        "en": "Ice hockey: EA Schongau U15 vs. Peissenberg Miners"
-      },
-      "description": {
-        "de": "Heimspiel der U15-Schüler.",
-        "en": "Home game of the U15 youth team."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-01-06",
-        "end_date": "2027-01-06",
-        "start_time": "10:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2027-01-06-baeume-im-winter-gehoelze-auch-ohne-blaetter-peiting",
       "parent_id": null,
       "title": {
@@ -9215,50 +9078,6 @@
         }
       ],
       "first_seen": "2026-11-10",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2027-01-09-ea-schongau-u20-erc-lechbruck",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – ERC Lechbruck",
-        "en": "EA Schongau U20 vs. ERC Lechbruck"
-      },
-      "description": {
-        "de": "Eishockey, Landesliga U20: Heimspiel des EA Schongau gegen den ERC Lechbruck.",
-        "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-01-09",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-13",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -9453,50 +9272,6 @@
       "misses": 0
     },
     {
-      "id": "2027-01-16-ea-schongau-u20-esv-buchloe",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – ESV Buchloe",
-        "en": "EA Schongau U20 vs. ESV Buchloe"
-      },
-      "description": {
-        "de": "Eishockey, Landesliga U20: Heimspiel des EA Schongau gegen den ESV Buchloe.",
-        "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Buchloe."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-01-16",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2027-01-16-zoom-tasting-peiting",
       "parent_id": null,
       "title": {
@@ -9537,50 +9312,6 @@
         }
       ],
       "first_seen": "2026-11-19",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2027-01-23-ea-schongau-u20-esv-burgau",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – ESV Burgau",
-        "en": "EA Schongau U20 vs. ESV Burgau"
-      },
-      "description": {
-        "de": "Eishockey, Landesliga U20: Heimspiel des EA Schongau gegen den ESV Burgau.",
-        "en": "Ice hockey, U20 state league: EA Schongau home game against ESV Burgau."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-01-23",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-13",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -10279,94 +10010,6 @@
       "sources": [
         {
           "url": "https://xaver-peiting.de/events/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2027-02-27-ea-schongau-u20-sg-esv-tuerkheim-ev-bad",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – SG Türkheim/Bad Wörishofen",
-        "en": "EA Schongau U20 vs. SG Türkheim/Bad Wörishofen"
-      },
-      "description": {
-        "de": "Eishockey, Landesliga U20: Heimspiel des EA Schongau gegen die SG ESV Türkheim/EV Bad Wörishofen.",
-        "en": "Ice hockey, U20 state league: EA Schongau home game against SG ESV Türkheim/EV Bad Wörishofen."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-02-27",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2027-03-06-ea-schongau-u20-erc-lechbruck",
-      "parent_id": null,
-      "title": {
-        "de": "EA Schongau U20 – ERC Lechbruck",
-        "en": "EA Schongau U20 vs. ERC Lechbruck"
-      },
-      "description": {
-        "de": "Eishockey, Landesliga U20: Heimspiel des EA Schongau gegen den ERC Lechbruck.",
-        "en": "Ice hockey, U20 state league: EA Schongau home game against ERC Lechbruck."
-      },
-      "venue": {
-        "name": null,
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2027-03-06",
-        "end_date": null,
-        "start_time": "17:10",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "sports",
-      "tags": [
-        "sports"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-mammuts.de/hockey-round/u-20-junioren/",
           "primary": true,
           "first_seen": "2026-11-13",
           "last_seen": "2026-11-23"

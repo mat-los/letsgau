@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T10:42:33Z",
+  "updated_at": "2026-11-23T12:46:35Z",
   "accounts": {
     "loewenhof_schongau": {
       "origin": "whitelist",
@@ -5689,6 +5689,15 @@
       "username": "tierheim_schongau",
       "permalink": "https://www.instagram.com/p/Df9RdW3OHCp/",
       "posted": "2026-11-21",
+      "version": 1,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "events": []
+    },
+    "18078906479758685": {
+      "username": "tierheim_schongau",
+      "permalink": "https://www.instagram.com/reel/DgFNl-7Osev/",
+      "posted": "2026-11-23",
       "version": 1,
       "first_seen": "2026-11-23",
       "last_seen": "2026-11-23",

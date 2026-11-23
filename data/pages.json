@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T10:42:33Z",
+  "updated_at": "2026-11-23T12:46:35Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -1041,63 +1041,39 @@
     "https://www.schongau-evangelisch.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "e413d32462bd6ff69fa3ffc448dd78a7b5615606825ec27f7e503b7b56322a6b",
+      "sha256": "d15a33805010aafea90a01a811880e31b3c4b00ea3167b1e1b16e735ae3ca640",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
       "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e4",
-          "parent_ref": null,
-          "title": {
-            "de": "(R)Auszeit: Morgenrunde im Forchetwald",
-            "en": "(R)Auszeit: Morning walk in the Forchetwald"
-          },
-          "description": {
-            "de": "Geführte Morgenrunde mit Impulsen, ca. eine Stunde auf Wald- und Feldwegen, Treffpunkt Parkplatz Forchetwald.",
-            "en": "Guided morning walk with reflections, about an hour on forest paths; meet at the Forchetwald car park."
-          },
-          "venue": {
-            "name": "Parkplatz Forchetwald (Ecke Säulingstr./Zugspitzstr.)",
-            "place": "Forchet",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2027-01-30",
-            "end_date": "2027-02-13",
-            "start_time": "09:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": [
-              "2027-01-30",
-              "2027-02-13"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "outdoor",
-          "tags": [
-            "outdoor",
-            "religion"
-          ],
-          "status": "scheduled",
-          "kind": "event",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.schongau-evangelisch.de/",
-              "primary": true
-            },
-            {
-              "url": "https://www.schongau-evangelisch.de/rauszeit-eine-stunde-morgenrunde",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "events": [],
       "seen": [
         {
-          "id": "2026-11-29-gottesdienst-zum-1-advent-mit-einfuehrung-der-schongau",
+          "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/",
+          "kind": "course"
+        },
+        {
+          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-01-kirchenkonzert-swing-im-advent-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-05-kirche-kunterbunt-cafe-kunterbunt-adventswerkstatt-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -1111,6 +1087,14 @@
           "start_time": null,
           "source_url": "https://www.schongau-evangelisch.de/",
           "kind": "routine"
+        },
+        {
+          "id": "2027-01-30-r-auszeit-morgenrunde-im-forchetwald",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-evangelisch.de/",
+          "kind": "event"
         }
       ]
     },
@@ -1829,7 +1813,7 @@
     "https://meine-flohmarkt-termine.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "d2f63605f90bbbb9d811f34fd8cdbe0960a561562c4c15a54ebc85b8655c99a3",
+      "sha256": "bc346b571d6bb3730e476c57479add8c3372ba732e0fbb96473f4532634d36ac",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
@@ -3285,61 +3269,27 @@
     "https://www.sv-peiting.de/Termine/": {
       "mode": "text",
       "reason": "",
-      "sha256": "eac6decb00de7b925df7689aca7b0813c33688c531c5d0be353de0d11da956db",
+      "sha256": "cdff947ecfcb6d440da7ed3b4f19984fdab27e4d4ff23b3ddf3f4d08d5a4f77b",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
-      "last_changed": "2026-11-13",
-      "events": [
+      "last_changed": "2026-11-23",
+      "events": [],
+      "seen": [
         {
-          "ref": "e1",
-          "parent_ref": null,
-          "title": {
-            "de": "Weihnachtsmarkt Peiting",
-            "en": "Christmas Market Peiting"
-          },
-          "description": {
-            "de": "Weihnachtsmarkt auf dem Hauptplatz an drei Tagen, laut Termin des Schützenvereins Peiting.",
-            "en": "Christmas market on the Hauptplatz over three days, as listed by the Peiting shooting club."
-          },
-          "venue": {
-            "name": "Hauptplatz",
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-11-27",
-            "end_date": "2026-11-29",
-            "start_time": "19:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": [
-              "2026-11-27",
-              "2026-11-28",
-              "2026-11-29"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "market-festival",
-          "tags": [
-            "market-festival"
-          ],
+          "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
           "status": "scheduled",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.sv-peiting.de/Termine/",
-              "primary": true
-            }
-          ]
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.sv-peiting.de/Termine/",
+          "kind": "event"
         }
-      ],
-      "seen": []
+      ]
     },
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "bfdd32e3fc86aa3576eb7fac39036415ecf089c5bc77ac9e576112e70a771a10",
+      "sha256": "d323843c4bb6d9a7456fd9fa6a888ec6fbd8a499d04c45ccf73a0ddb24b398b1",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",
