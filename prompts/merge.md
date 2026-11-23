@@ -9,7 +9,8 @@ Each pair below was found by the crawl and looks similar to an event that is alr
 Decide for each pair whether both entries describe the same event (same occasion at the same
 place and time, possibly with a different title, spelling or language). Different performances,
 different days of a series that is stored separately, or different events at the same venue are
-not the same event. But if one entry is a series (a date range) and the other is a single date of
+not the same event (separately announced acts of one occasion are grouped in task 4, not here).
+But if one entry is a series (a date range) and the other is a single date of
 that same series (same organiser, same activity, same place and time), they are the same event:
 answer true, and the series is kept.
 {% for pair in pairs %}
@@ -70,4 +71,28 @@ For every entry below, answer in "classified" with its id:
 {%- else %}
 
 Answer "classified" with an empty list.
+{%- endif %}
+{%- if groups %}
+
+## Task 4: acts of one occasion
+
+Each group below lists entries at the same venue on the same day. Youth centres, clubs and bars
+often announce every band or act of one concert evening, festival or anniversary in a post of
+its own, so the crawl stored one entry per act. If two or more entries of a group are acts of
+one occasion (the same anniversary, festival, concert evening or party night), answer them in
+"occasions": their ids, and a title and a short description (one or two sentences, naming the
+acts) of the whole occasion in German ("title_de", "description_de") and English ("title_en",
+"description_en"), e.g. "40 Jahre Juze – Jubiläumskonzert". If an entry of the group already is
+the main event of that occasion, include its id. Unrelated events at the same venue (an
+afternoon market and an evening concert, two separate film screenings) are not one occasion.
+When in doubt, leave the group out.
+{% for group in groups %}
+Group {{ loop.index }}:
+{%- for event in group %}
+- {{ event.id }} | {{ event.title.de }}{% if event.schedule.start_time %} | {{ event.schedule.start_time }}{% endif %} | {{ event.venue.name }}, {{ event.venue.place }} | {{ event.description.de }}
+{%- endfor %}
+{% endfor %}
+{%- else %}
+
+Answer "occasions" with an empty list.
 {%- endif %}

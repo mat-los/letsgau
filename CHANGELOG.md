@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Merge: acts of one occasion announced separately (e.g. each band of the Juze
+  anniversary in its own Instagram post) are grouped. The merge model names the occasion,
+  the merge adds a main event and makes the acts its programme items. A stored programme
+  item keeps its link when the crawl finds it again.
+
 ### Changed
 
 - Day pages: categories and grouping moved into a filter panel (bottom sheet on phones,

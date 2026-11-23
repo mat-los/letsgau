@@ -177,6 +177,12 @@ python -m letsgau run --job events --dry-run --limit-places 3
   pairs stay separate and nothing is reclassified. Only the crawl model removes
   entries as offers (`removed '…': not an event (offer)`): it read the source,
   the merge model sees one line per event.
+  The same call groups acts of one occasion: entries at the same named venue on the
+  same day (e.g. a youth centre announcing each band of its anniversary in a post of
+  its own) are shown to the model; for the ones it calls one occasion, the merge adds a
+  main event with the model's title and description and makes the acts its programme
+  items (`grouped … under …`, `N occasions grouped`). Such a main event has no source
+  page of its own: it counts as found whenever one of its items is found again.
   After it, one line shows what the site lists in its display window:
   `crawl: shown in the next 21 days: N entries, event N (x %), routine N (x %),
   course N (x %); religion as primary tag N (x %); offers dropped in this run: N`.

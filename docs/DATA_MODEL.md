@@ -142,7 +142,7 @@ start date, start time and id.
 | Field | Rule |
 | --- | --- |
 | `id` | stable: start date + slug of the German title and the place (umlauts as `ae`/`oe`/`ue`/`ss`; the place is left out if the title already contains it), e.g. `2026-11-28-weihnachtsmarkt-schongau`; never changes on merge |
-| `parent_id` | set for program items (e.g. a band at a medieval market); venue is inherited from the parent |
+| `parent_id` | set for program items (e.g. a band at a medieval market); venue is inherited from the parent. The merge also sets it when it groups separately announced acts of one occasion under a main event it adds; a crawl result without it keeps the stored link |
 | `title`, `description` | always DE and EN; proper names unchanged; description ≤ `description_max_chars`, own words |
 | `schedule.start_time` | `null` if unknown; never guessed |
 | `schedule.dates` | list of single days if not continuous (e.g. only Advent weekends) |
