@@ -554,9 +554,13 @@ def ai_decider(
 
 
 def no_ai(
-    _pairs: Sequence[Pair], _new: Sequence[Event], _classify: Sequence[Event] = ()
+    _pairs: Sequence[Pair],
+    _new: Sequence[Event],
+    _classify: Sequence[Event] = (),
+    _groups: Sequence[Sequence[Event]] = (),
 ) -> Decisions:
-    """Decider without AI: unclear pairs stay separate, no topic check, no classification."""
+    """Decider without AI: unclear pairs stay separate, no topic check, no classification,
+    no grouping of occasions."""
     return Decisions()
 
 

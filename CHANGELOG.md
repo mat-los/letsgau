@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   anniversary in its own Instagram post) are grouped. The merge model names the occasion,
   the merge adds a main event and makes the acts its programme items. A stored programme
   item keeps its link when the crawl finds it again.
+- The merge without AI (`no_ai`) no longer crashes when there are occasion groups.
 
 ### Changed
 

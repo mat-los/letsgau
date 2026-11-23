@@ -826,3 +826,10 @@ def test_occasion_groups_and_answers_are_checked() -> None:
     assert "occasions" in schema["required"]
     prompt = merge.render_prompt([], [], [], groups=groups)
     assert "Task 4: acts of one occasion" in prompt and a.id in prompt
+
+
+def test_merge_without_ai_ignores_occasion_groups() -> None:
+    """The default decider takes the groups argument too (a crash in a local check)."""
+    acts = [band("Streumix"), band("Yokio")]
+    result = apply(None, acts, today=DAY1)
+    assert {e.parent_id for e in result.events} == {None} and len(result.events) == 2
