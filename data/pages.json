@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T22:43:03Z",
+  "updated_at": "2026-11-23T22:58:58Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -3198,7 +3198,7 @@
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "23e6aaed9e8d0b0f121dfd37be956515081aab30cfbb6ba4d2964aadcd3d4059",
+      "sha256": "3fe40802ea3d1f40eb7fae4dbebb0d9d96589f23aff6b716cea037c6d1bf25bd",
       "version": 1,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-23",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T22:43:59Z",
+  "updated_at": "2026-11-23T22:59:32Z",
   "events": [
     {
       "id": "2026-11-10-singkreis-schongau",
@@ -657,7 +657,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-14",
-      "misses": 7
+      "misses": 8
     },
     {
       "id": "2026-11-14-kirchekreativ-gemeinsames-malen-mit-acrylfarben-schongau",
@@ -1033,7 +1033,7 @@
       ],
       "first_seen": "2026-11-09",
       "last_verified": "2026-11-16",
-      "misses": 5
+      "misses": 6
     },
     {
       "id": "2026-11-15-allgemeiner-lauf-in-der-peitinger-eishalle",
@@ -1890,62 +1890,6 @@
       "misses": 0
     },
     {
-      "id": "2026-11-25-ms-selbsthilfegruppentreff-peiting",
-      "parent_id": null,
-      "title": {
-        "de": "MS-Selbsthilfegruppentreff",
-        "en": "MS Self-Help Group Meeting"
-      },
-      "description": {
-        "de": "Treffen der MS-Selbsthilfegruppe Peiting/Schongau im Begegnungscafé.",
-        "en": "Meeting of the MS self-help group Peiting/Schongau at the Begegnungscafé."
-      },
-      "venue": {
-        "name": "Begegnungscafe",
-        "place": "Peiting",
-        "address": "Postststrasse 6, 86971 Peiting"
-      },
-      "schedule": {
-        "start_date": "2026-11-25",
-        "end_date": null,
-        "start_time": "18:30",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "primary": true,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/ms-selbsthilfegruppentreff-eb250b509792fa13808c21bc518b44cc4.html",
-          "primary": false,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "primary": false,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-23",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-11-25-oekumenisches-bibelgespraech-peiting",
       "parent_id": null,
       "title": {
@@ -2347,7 +2291,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 5
+      "misses": 6
     },
     {
       "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
@@ -2789,7 +2733,7 @@
         "talk-workshop"
       ],
       "status": "scheduled",
-      "kind": "event",
+      "kind": "routine",
       "postponed_to": null,
       "sources": [
         {
@@ -2890,7 +2834,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-12",
-      "misses": 4
+      "misses": 5
     },
     {
       "id": "2026-11-27-gospelchor-good-news-beim-weihnachtsmarkt-herzogsaegmuehle",
@@ -3336,7 +3280,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-23",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-28-konzert-in-der-stadtpfarrkirche-mariae-himmelfahrt-schongau",
@@ -3613,7 +3557,7 @@
       ],
       "first_seen": "2026-11-12",
       "last_verified": "2026-11-23",
-      "misses": 0
+      "misses": 1
     },
     {
       "id": "2026-11-29-vokalensemble-ammer-cantus-in-der-martinskirche-herzogsaegmuehle",
@@ -3908,7 +3852,7 @@
         "outdoor"
       ],
       "status": "scheduled",
-      "kind": "routine",
+      "kind": "event",
       "postponed_to": null,
       "sources": [
         {
@@ -4232,57 +4176,6 @@
         }
       ],
       "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-02-pfarrei-altenstadt-trauercafe",
-      "parent_id": null,
-      "title": {
-        "de": "Pfarrei Altenstadt: Trauercafe",
-        "en": "Parish Altenstadt: Grief café"
-      },
-      "description": {
-        "de": "Trauercafé im Pfarrsaal.",
-        "en": "Grief support café in the parish hall."
-      },
-      "venue": {
-        "name": "Pfarrsaal",
-        "place": "Altenstadt",
-        "address": "86972 Altenstadt"
-      },
-      "schedule": {
-        "start_date": "2026-12-02",
-        "end_date": null,
-        "start_time": "15:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "religion",
-      "tags": [
-        "religion",
-        "food-drink"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "http://veranstaltungen.pfaffen-winkel.de/altenstadt/pfarrei-altenstadt-trauercafe-e5f8e54df9a21215d319d645a0dd7815b.html",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-13"
-        },
-        {
-          "url": "https://veranstaltungen.pfaffen-winkel.de/altenstadt/",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-12",
       "last_verified": "2026-11-23",
       "misses": 0
     },
@@ -4772,6 +4665,68 @@
       "misses": 0
     },
     {
+      "id": "2026-12-05-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
+      "parent_id": null,
+      "title": {
+        "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
+        "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
+      },
+      "description": {
+        "de": "Konzert von Ton Steine Scherben im Reaktor; der ursprüngliche Termin am 5. Dezember 2026 wurde verschoben.",
+        "en": "Ton Steine Scherben concert at Reaktor; the original date of 5 December 2026 was postponed."
+      },
+      "venue": {
+        "name": "Reaktor",
+        "place": "Schongau",
+        "address": "Schützenhausstr. 1, Schongau"
+      },
+      "schedule": {
+        "start_date": "2026-12-05",
+        "end_date": null,
+        "start_time": null,
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert"
+      ],
+      "status": "postponed",
+      "kind": "event",
+      "postponed_to": "2027-03-12-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
+      "sources": [
+        {
+          "url": "https://www.reaktor-sog.de/",
+          "primary": true,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://allevents.in/schongau/all",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
+          "primary": false,
+          "first_seen": "2026-11-09",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-09",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-12-05-r-auszeit-mikro-pilgern-im-forchetwald",
       "parent_id": null,
       "title": {
@@ -5076,68 +5031,6 @@
           "primary": false,
           "first_seen": "2026-11-09",
           "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-09",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-05-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Kai und Funky von Ton Steine Scherben feat. Birte Volta",
-        "en": "Kai and Funky of Ton Steine Scherben feat. Birte Volta"
-      },
-      "description": {
-        "de": "Konzert im Reaktor Sog in Schongau mit Mitgliedern von Ton Steine Scherben und Birte Volta.",
-        "en": "Concert at Reaktor Sog in Schongau with members of Ton Steine Scherben and Birte Volta."
-      },
-      "venue": {
-        "name": "Reaktor Sog",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-05",
-        "end_date": null,
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.reaktor-sog.de/",
-          "primary": true,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.reaktor-sog.de/wp-content/uploads/2026/09/Ton-Steine-Scherben.jpg",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://allevents.in/schongau/all",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://allevents.in/schongau/kai-und-funky-von-ton-steine-scherben-featbirte-volta-in-schongau-im-reaktor/200029934108805",
-          "primary": false,
-          "first_seen": "2026-11-09",
-          "last_seen": "2026-11-16"
         }
       ],
       "first_seen": "2026-11-09",
@@ -6471,63 +6364,6 @@
       "misses": 0
     },
     {
-      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
-      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
-      "title": {
-        "de": "40 Jahre Juze Jubiläum",
-        "en": "Juze 40th Anniversary"
-      },
-      "description": {
-        "de": "Jubiläumsfeier zum 40-jährigen Bestehen des Jugendzentrums Schongau mit Konzert. Weitere Infos folgen.",
-        "en": "Celebration of the Schongau youth centre's 40th anniversary, including a concert. More info to follow."
-      },
-      "venue": {
-        "name": "Juze Schongau",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": null,
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert",
-        "party"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
-          "primary": true,
-          "first_seen": "2026-11-12",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
-          "primary": false,
-          "first_seen": "2026-11-16",
-          "last_seen": "2026-11-16"
-        }
-      ],
-      "first_seen": "2026-11-12",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2026-12-12-juze-jubilaeum-mumuzumundi-live-schongau",
       "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "title": {
@@ -6805,6 +6641,63 @@
       "misses": 0
     },
     {
+      "id": "2026-12-12-40-jahre-juze-jubilaeum-schongau",
+      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
+      "title": {
+        "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
+        "en": "Overhead Compartment – Juze 40th Anniversary"
+      },
+      "description": {
+        "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
+        "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
+      },
+      "venue": {
+        "name": "Juze Schongau",
+        "place": "Schongau",
+        "address": null
+      },
+      "schedule": {
+        "start_date": "2026-12-12",
+        "end_date": null,
+        "start_time": "20:00",
+        "end_time": null,
+        "all_day": false,
+        "dates": null,
+        "opening_hours": null
+      },
+      "primary_tag": "concert",
+      "tags": [
+        "concert",
+        "party"
+      ],
+      "status": "scheduled",
+      "kind": "event",
+      "postponed_to": null,
+      "sources": [
+        {
+          "url": "https://www.instagram.com/reel/DfPyqxgxjvZ/",
+          "primary": true,
+          "first_seen": "2026-11-12",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
+          "primary": false,
+          "first_seen": "2026-11-13",
+          "last_seen": "2026-11-23"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DfxQcUnK3jP/",
+          "primary": false,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16"
+        }
+      ],
+      "first_seen": "2026-11-12",
+      "last_verified": "2026-11-23",
+      "misses": 0
+    },
+    {
       "id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
       "parent_id": null,
       "title": {
@@ -6916,50 +6809,6 @@
         {
           "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8321929.html?popup=3",
           "primary": false,
-          "first_seen": "2026-11-23",
-          "last_seen": "2026-11-23"
-        }
-      ],
-      "first_seen": "2026-11-23",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
-      "id": "2026-12-12-overhead-compartment-40-jahre-juze-jubilaeum-schongau",
-      "parent_id": "2026-12-12-40-jahre-juze-jubilaeumskonzert-schongau",
-      "title": {
-        "de": "Overhead Compartment – 40 Jahre Juze Jubiläum",
-        "en": "Overhead Compartment – Juze 40th Anniversary"
-      },
-      "description": {
-        "de": "Die Band Overhead Compartment ist Band Nr. 1 für das 40-jährige Jubiläum des Jugendzentrums Schongau.",
-        "en": "The band Overhead Compartment is act no. 1 for the 40th anniversary of the Schongau youth centre."
-      },
-      "venue": {
-        "name": "Juze Schongau",
-        "place": "Schongau",
-        "address": null
-      },
-      "schedule": {
-        "start_date": "2026-12-12",
-        "end_date": null,
-        "start_time": "20:00",
-        "end_time": null,
-        "all_day": false,
-        "dates": null,
-        "opening_hours": null
-      },
-      "primary_tag": "concert",
-      "tags": [
-        "concert"
-      ],
-      "status": "scheduled",
-      "kind": "event",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.instagram.com/reel/DfsJFHSKZNL/",
-          "primary": true,
           "first_seen": "2026-11-23",
           "last_seen": "2026-11-23"
         }
@@ -9218,60 +9067,6 @@
       "misses": 0
     },
     {
-      "id": "2027-01-13-offene-trauergruppe-schongau",
-      "parent_id": null,
-      "title": {
-        "de": "Offene Trauergruppe",
-        "en": "Open Grief Group"
-      },
-      "description": {
-        "de": "Offenes Treffen für Trauernde unter Leitung einer Trauerbegleiterin, ohne Anmeldung.",
-        "en": "Open meeting for the bereaved led by a grief counsellor, no registration needed."
-      },
-      "venue": {
-        "name": "Gemeindehaus Schongau",
-        "place": "Schongau",
-        "address": "Blumenstraße 5"
-      },
-      "schedule": {
-        "start_date": "2027-01-13",
-        "end_date": "2027-02-17",
-        "start_time": "15:00",
-        "end_time": "17:00",
-        "all_day": false,
-        "dates": [
-          "2027-01-13",
-          "2027-02-17"
-        ],
-        "opening_hours": null
-      },
-      "primary_tag": "talk-workshop",
-      "tags": [
-        "talk-workshop",
-        "religion"
-      ],
-      "status": "scheduled",
-      "kind": "routine",
-      "postponed_to": null,
-      "sources": [
-        {
-          "url": "https://www.schongau-evangelisch.de/",
-          "primary": true,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-23"
-        },
-        {
-          "url": "https://www.schongau-evangelisch.de/offene-trauergruppe",
-          "primary": false,
-          "first_seen": "2026-11-13",
-          "last_seen": "2026-11-14"
-        }
-      ],
-      "first_seen": "2026-11-13",
-      "last_verified": "2026-11-23",
-      "misses": 0
-    },
-    {
       "id": "2027-01-14-gefuehrte-kinder-sauna-schongau",
       "parent_id": null,
       "title": {
@@ -10115,17 +9910,17 @@
       "id": "2027-03-12-ton-steine-scherben-feat-birte-volta-keine-macht-schongau",
       "parent_id": null,
       "title": {
-        "de": "Ton Steine Scherben: Keine Macht für Niemand",
-        "en": "Ton Steine Scherben: Keine Macht für Niemand"
+        "de": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand",
+        "en": "Ton Steine Scherben feat. Birte Volta – Keine Macht für Niemand"
       },
       "description": {
-        "de": "Konzert mit Kai & Funky von Ton Steine Scherben feat. Birte Volta. Vorverkauf ab Dezember.",
-        "en": "Concert with Kai & Funky of Ton Steine Scherben feat. Birte Volta. Advance sales from December."
+        "de": "Nachholtermin des Konzerts von Ton Steine Scherben im Reaktor.",
+        "en": "Rescheduled Ton Steine Scherben concert at Reaktor."
       },
       "venue": {
         "name": "Reaktor",
         "place": "Schongau",
-        "address": null
+        "address": "Schützenhausstr. 1, Schongau"
       },
       "schedule": {
         "start_date": "2027-03-12",
