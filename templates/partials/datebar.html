@@ -2,6 +2,7 @@
 <nav class="quick" aria-label="{{ t('date_bar') }}">
   <a href="{{ root }}{{ lang }}/{{ quick.today.isoformat() }}/"{% if current_day == quick.today %} aria-current="page"{% endif %}>{{ t('today') }}</a>
   <a href="{{ root }}{{ lang }}/{{ quick.tomorrow.isoformat() }}/"{% if current_day == quick.tomorrow %} aria-current="page"{% endif %}>{{ t('tomorrow') }}</a>
+  {% if view is defined %}<button type="button" class="filter-btn js-only" id="filter-btn" aria-haspopup="dialog" aria-controls="fpanel" aria-expanded="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>{{ t('filter') }}<span class="cnt" hidden></span></button>{% endif %}
 </nav>
 <div class="dates-wrap">
 <button type="button" class="dates-nav prev js-only" aria-label="{{ t('dates_earlier') }}" hidden>‹</button>

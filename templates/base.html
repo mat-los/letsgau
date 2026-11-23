@@ -34,7 +34,7 @@
 <link rel="apple-touch-icon" href="{{ root }}assets/apple-touch-icon.png">
 <link rel="manifest" href="{{ root }}site.webmanifest">
 {% block head %}{% endblock %}
-<script>document.documentElement.classList.add("js");try{var c=(JSON.parse(localStorage.getItem("lg.v1"))||{}).cats;if(c===false||c===undefined&&matchMedia("(max-width: 639px)").matches)document.documentElement.classList.add("cats-closed")}catch(e){}</script>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-lang="{{ lang }}" data-root="{{ root }}"{% block body_attrs %}{% endblock %}>
 <a class="skip" href="#main">{{ t('skip') }}</a>

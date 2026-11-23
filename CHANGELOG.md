@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Day pages: categories and grouping moved into a filter panel (bottom sheet on phones,
+  dialog on desktop), opened by a "Filter" button next to Heute/Morgen that shows the
+  number of active filters. Active filters appear as a row above the list; tapping one
+  removes it. The old filter strip under the header is gone.
+
 ### Added
 
 - `site.share_image`: a PNG (1200 x 630) for link previews (`og:image`, large Twitter
