@@ -13,6 +13,10 @@ not the same event (separately announced acts of one occasion are grouped in tas
 But if one entry is a series (a date range) and the other is a single date of
 that same series (same organiser, same activity, same place and time), they are the same event:
 answer true, and the series is kept.
+Two entries for the same occasion at the same venue on the same day whose titles differ only
+slightly ("25 Jahre Plantsch – Geburtstagsfeier" and "25 Jahre Plantsch – Jubiläumsfeier") are
+the same event even if their start times differ: one source often gives the opening time, the
+other the start of the programme. Answer true.
 {% for pair in pairs %}
 Pair {{ pair.number }}:
 - A: {{ pair.new.title.de }} | {{ pair.new.schedule.start_date }}{% if pair.new.schedule.end_date and pair.new.schedule.end_date != pair.new.schedule.start_date %} to {{ pair.new.schedule.end_date }}{% endif %}{% if pair.new.schedule.start_time %} {{ pair.new.schedule.start_time }}{% endif %} | {{ pair.new.venue.name or "" }}, {{ pair.new.venue.place }} | {{ pair.new.description.de }}
@@ -85,6 +89,8 @@ acts) of the whole occasion in German ("title_de", "description_de") and English
 "description_en"), e.g. "40 Jahre Juze – Jubiläumskonzert". If an entry of the group already is
 the main event of that occasion, include its id. Unrelated events at the same venue (an
 afternoon market and an evening concert, two separate film screenings) are not one occasion.
+Two entries that both describe the whole occasion (not single acts) are duplicates, not acts:
+leave them out here.
 When in doubt, leave the group out.
 {% for group in groups %}
 Group {{ loop.index }}:
