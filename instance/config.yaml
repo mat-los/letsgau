@@ -77,7 +77,8 @@ instagram:                              # reading Instagram business/creator acc
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"
   - "League and season matches that are no event for spectators. Keep only home games of a club's first team in a spectator sport (ice hockey, football, basketball, handball, volleyball), e.g. EC Peiting or EA Schongau. Exclude matches of reserve, second or lower teams (1b, II, Herren 2), youth and senior teams, and all league matches in bowling (Kegeln), darts, table tennis, billiards, shooting and chess. Tournaments, races, runs and sports festivals open to spectators are not excluded"
-  - "Church services and worship of any kind, also special ones: masses, Gottesdienst, Wortgottesfeier, Christmette, Rorate, devotions (Andacht, Maiandacht), rosary, Eucharistic adoration, prayer services, confession times. Church concerts, processions such as the St. Martin's procession, pilgrimages, parish festivals and Christmas markets are not excluded"
+  - "Self-help and support groups and their meetings: Selbsthilfegruppe (e.g. for multiple sclerosis, cancer, addiction), Anonyme Alkoholiker, grief groups (Trauergruppe, Trauercafé), groups for relatives (Angehörigengruppe) and similar discussion circles for people affected"
+  - "Church services and worship of any kind, also special ones: masses, Gottesdienst, Wortgottesfeier, Christmette, Rorate, devotions (Andacht, Maiandacht), rosary, Eucharistic adoration, prayer services, confession times. Church concerts, processions such as the St. Martin's procession, pilgrimages, parish festivals and Christmas markets are not excluded, nor is an event that only has a short devotion or blessing as one part of its programme (an Advent walk with an Andacht, a market opened with a blessing)"
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
   - "Events only for members or a closed group: annual general meetings (Jahreshauptversammlung, Hauptversammlung), a club's own year-end, Christmas, St. Nicholas or New Year's Eve party (Jahresabschlussfeier, Weihnachtsfeier, Nikolausfeier, Silvesterfeier eines Vereins, also of its youth group), a club's commemoration day, members' outings such as company visits, internal club evenings, members' shooting practice, club shooting contests and their prize-giving, rehearsals (Probe) and preparation meetings of a choir or nativity play, confirmation classes (Konfirmandenunterricht), helpers' work sessions, invitations to a specific group (baptism families, care-home residents) and training sessions not open to the public"
@@ -106,6 +107,10 @@ excluded_title_patterns:                # regexes (case-insensitive) on the Germ
   - '\banbetung\b'
   - '\bbeicht'                          # Beichtgelegenheit
   - '\bmorgenlob\b|\babendlob\b'
+  # self-help and support groups (excluded_topics has the full rule)
+  - 'selbsthilfegruppe'                 # also MS-Selbsthilfegruppentreff
+  - '\banonyme alkoholiker\b'
+  - '\btrauer(gruppe|café|cafe|kreis)\b'
   # league matches that are no event (excluded_topics has the full rule)
   - '\bkegeln\b'                        # bowling league matches (not "Preiskegeln")
   - '\bU\s?(1[0-9]|2[0-3]|[7-9])\b'     # youth teams U7 to U23 (not "U2")
