@@ -164,14 +164,6 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   padding: 14px 0 6px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
   background: var(--bg); }
 .sec h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-/* routine entries and courses: folded box after the day's events */
-.routine { margin-top: 18px; }
-.routine > summary { display: flex; align-items: center; gap: 8px; padding: 10px 0 6px; cursor: pointer; list-style: none;
-  font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.routine > summary::-webkit-details-marker { display: none; }
-.routine > summary::before { content: "▸"; transition: transform .15s; }
-.routine[open] > summary::before { transform: rotate(90deg); }
-.routine > summary::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
 .ev { margin: 8px 0; border: 1px solid var(--line); border-left: 4px solid var(--c, var(--line));
   border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); transition: box-shadow .15s; }

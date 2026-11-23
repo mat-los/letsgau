@@ -75,6 +75,7 @@ instagram:                              # reading Instagram business/creator acc
 
 excluded_topics:                        # topic blacklist: never include such events
   - "First-aid courses and similar mandatory courses"
+  - "Church services and worship of any kind, also special ones: masses, Gottesdienst, Wortgottesfeier, Christmette, Rorate, devotions (Andacht, Maiandacht), rosary, Eucharistic adoration, prayer services, confession times. Church concerts, processions such as the St. Martin's procession, pilgrimages, parish festivals and Christmas markets are not excluded"
   - "Events in strip clubs, swinger clubs and erotic events"
   - "Events by far-right parties and groups"
   - "Events only for members or a closed group: annual general meetings (Jahreshauptversammlung, Hauptversammlung), a club's own year-end, Christmas, St. Nicholas or New Year's Eve party (Jahresabschlussfeier, Weihnachtsfeier, Nikolausfeier, Silvesterfeier eines Vereins, also of its youth group), a club's commemoration day, members' outings such as company visits, internal club evenings, members' shooting practice, club shooting contests and their prize-giving, rehearsals (Probe) and preparation meetings of a choir or nativity play, confirmation classes (Konfirmandenunterricht), helpers' work sessions, invitations to a specific group (baptism families, care-home residents) and training sessions not open to the public"
@@ -89,6 +90,20 @@ excluded_title_patterns:                # regexes (case-insensitive) on the Germ
   - '\w*verein\b.*\b(Jahresabschluss\w*|Weihnachtsfeier|Nikolausfeier)\b'
   - '\bÜbungsschießen\b'
   - '\bPreisverteilung\b.*schießen'
+  # church services of any kind (excluded_topics has the same rule for titles these miss)
+  - 'gottesdienst'                      # also Fest-, Familien-, Wortgottesdienst
+  - 'gottesfeier'                       # Wortgottesfeier
+  - 'eucharisti'                        # Eucharistiefeier, Eucharistische Anbetung
+  - '\b(heilige|hl\.)\s*messe\b'
+  - '\b\w*(vorabend|sonntags|abend|früh|feld|berg|wallfahrts|rorate|pfarr|jugend|schüler|requiem|seelen|toten)messe\b'
+  - '^\s*messe\b(?!\s+in\s+[a-h]\S*[\s-]*(moll|dur))'   # a title starting with "Messe", not "Messe in h-Moll"
+  - '\b(christ)?mette\b'
+  - '\brorate\b'
+  - 'andacht(en)?\b'                    # Andacht, Maiandacht, Adventsandacht
+  - '\brosenkranz'
+  - '\banbetung\b'
+  - '\bbeicht'                          # Beichtgelegenheit
+  - '\bmorgenlob\b|\babendlob\b'
 
 tags:                                   # fixed list, the AI must not invent new ones
   - { id: concert,         de: "Konzert",            en: "Concert" }

@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bundled instance: church services of any kind (masses, Gottesdienst, Christmette,
+  Rorate, devotions, rosary, adoration, confession) are excluded, by title patterns and an
+  `excluded_topics` entry; stored ones are removed on the next events run. Church concerts,
+  processions, pilgrimages and parish festivals stay.
+
+### Removed
+
+- The folded "Regelmäßiges & Kurse" box on the day pages: routine entries and courses are
+  listed with the other events again (`Event.kind` stays, offers are still dropped).
+
 ### Added
 
 - `sources.venues_file` (`instance/sources/venues.yaml`): venues and the place they are in.
@@ -14,8 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (or dropped, for `place: null`) on the next events run. Seeded with Gasthof Janser
   (Schwabniederhofen), the Jakob-Pfeiffer-Haus and two Herzogsägmühle venues.
 - Events get a `kind`: `event`, `routine` or `course`. The crawl reports it, and entries it
-  calls `offer` (menu specials, discounts, opening hours, appointments) are dropped. The day
-  pages show routine entries and courses folded at the end as "Regelmäßiges & Kurse".
+  calls `offer` (menu specials, discounts, opening hours, appointments) are dropped.
   Known events found again get their kind from the crawl too (an offer is removed); the
   merge model classifies the rest once and re-checks the primary tag of new events (e.g. a
   Christmas market is not *Senioren*), but never removes anything.

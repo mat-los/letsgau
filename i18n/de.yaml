@@ -19,7 +19,6 @@ months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August",
 date_long: "{weekday}, {day}. {month} {year}"
 date_short: "{day}.{month_num}."
 no_events: "Für diesen Tag sind noch keine Events bekannt."
-routine: "Regelmäßiges & Kurse ({count})"
 until: "noch bis {date}"
 until_short: "bis {date}"
 more_dates: "Weitere Termine: {dates}"
