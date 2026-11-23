@@ -31,7 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `docs/brand/`: the site icon as SVG and as 1024 px / 2048 px PNG.
 - Site footer: below "Zuletzt aktualisiert" a small line with the latest run of the
   events, discovery and geo jobs, ✓ when it succeeded, ⚠ (with the last successful run as
   tooltip) when it failed. `data/state.json` gets `last_failed`. (#128)
