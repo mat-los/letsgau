@@ -95,7 +95,7 @@
   var q = document.getElementById("q"), reset = document.getElementById("reset");
   var chips = [].slice.call(document.querySelectorAll(".chip[data-tag]"));
   var btn = document.getElementById("filter-btn"), cnt = btn && btn.querySelector(".cnt"),
-    row = document.getElementById("active"), showBtn = document.querySelector(".fp-show");
+    row = document.getElementById("active");
 
   function words(el, a) { return (el.getAttribute(a) || "").split(" ").filter(Boolean); }
   function passTags(tags) {
@@ -134,7 +134,6 @@
     var on = Object.keys(state.tags);
     if (reset) reset.disabled = !on.length;
     if (btn) { btn.classList.toggle("on", !!on.length); cnt.textContent = on.length; cnt.hidden = !on.length; }
-    if (showBtn) showBtn.textContent = labels.show.replace("{n}", shown);
     /* active filters as a row above the list: tap one to remove it */
     if (row) {
       row.textContent = ""; row.hidden = !on.length;

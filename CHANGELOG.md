@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   dialog on desktop), opened by a "Filter" button next to Heute/Morgen that shows the
   number of active filters. Active filters appear as a row above the list; tapping one
   removes it. The old filter strip under the header is gone.
+- Filter panel: grouping comes first; the button reads "Anzeigen" without an event count
+  (the count would only hold for the current day); the categories are headed "Nach
+  Kategorie filtern".
 
 ### Added
 
