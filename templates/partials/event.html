@@ -4,7 +4,6 @@
 
 {% macro status_badge(event) -%}
 {% if event.status == Status.CANCELLED %}<span class="badge cancelled">{{ t('status_cancelled') }}</span>
-{% elif event.status == Status.POSTPONED %}<span class="badge postponed">{{ t('status_postponed') }}</span>
 {% elif event.status == Status.UNCONFIRMED %}<span class="badge unconfirmed">{{ t('status_unconfirmed') }}</span>
 {% endif %}
 {%- endmacro %}
@@ -18,10 +17,6 @@
   {% if runs_daily(event) %}<p class="until">{{ t('until', date=fmt(event.schedule.last_date, 'short')) }}{% set hours = hours_today(event, day) %}{% if hours %} · {{ t('today_hours' if '–' in hours else 'today_at') }} {{ hours }}{% endif %}</p>
   {% elif is_multi_day(event) %}{% set hours = hours_today(event, day) %}{% if hours %}<p class="until">{{ t('today_hours' if '–' in hours else 'today_at') }} {{ hours }}</p>{% endif %}{% set more = more_dates(event, day) %}{% if more %}<p class="until">{{ more }}</p>{% endif %}
   {% elif event.schedule.end_time %}<p class="until">{{ event.schedule.start_time }}–{{ event.schedule.end_time }}</p>{% endif %}
-  {% if event.status == Status.POSTPONED and event.postponed_to %}
-  {% set new_day = event.postponed_to[:10] %}
-  <p class="moved"><a href="{{ root }}{{ lang }}/{{ new_day }}/#{{ event.postponed_to }}">{{ t('postponed_to', date=new_day) }}</a></p>
-  {% endif %}
   {% set primary = event.sources | selectattr('primary') | first %}
   <p class="src">{{ t('source') }}: <a href="{{ primary.url }}" rel="nofollow noopener" target="_blank">{{ primary.url | replace('https://', '') | replace('http://', '') | truncate(48, True, '…') }}</a>
   {% set others = event.sources | rejectattr('primary') | list %}

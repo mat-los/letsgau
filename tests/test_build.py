@@ -22,7 +22,7 @@ from letsgau.build import (
 )
 from letsgau.cli import main
 from letsgau.config import load_config
-from letsgau.models import Event, EventKind, EventsFile
+from letsgau.models import Event, EventKind, EventsFile, EventStatus
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = REPO_ROOT / "instance" / "config.yaml"
@@ -33,7 +33,9 @@ SATURDAY = date(2026, 11, 14)
 
 @pytest.fixture(scope="module")
 def events() -> list[Event]:
-    return EventsFile.model_validate_json(FIXTURE.read_text(encoding="utf-8")).events
+    """The fixture events the site shows (postponed ones are hidden)."""
+    stored = EventsFile.model_validate_json(FIXTURE.read_text(encoding="utf-8")).events
+    return [e for e in stored if e.status is not EventStatus.POSTPONED]
 
 
 @pytest.fixture(scope="module")
@@ -162,7 +164,7 @@ def test_times_per_date_win_over_the_weekday() -> None:
 
 def test_day_view_nests_program_items(events: list[Event]) -> None:
     view = day_view(events, SATURDAY)
-    assert view.count == 103
+    assert view.count == 102
     parent = next(r for r in view.rows if r.children)
     assert parent.event.title.de == "Basteln für Kinder #1"
     assert [c.title.de for c in parent.children] == [
@@ -199,7 +201,7 @@ def test_day_page_has_header_elements(site: Path) -> None:
     assert 'class="dates-nav prev js-only" aria-label="Frühere Tage"' in html
     assert 'class="dates-nav next js-only" aria-label="Spätere Tage"' in html
     assert len(re.findall(r'class="d( we)?"', html)) == 21  # date bar
-    assert re.search(r'<span class="dn">14</span><span class="n">103</span>', html)
+    assert re.search(r'<span class="dn">14</span><span class="n">102</span>', html)
     assert 'class="chip t-concert" data-tag="concert"' in html
     assert 'data-group="place"' in html
     assert 'data-group="none" aria-pressed="true">Keine</button>' in html
@@ -235,8 +237,9 @@ def test_status_and_program_display(site: Path) -> None:
     assert (
         'class="ev st-cancelled' in html and '<span class="badge cancelled">Abgesagt</span>' in html
     )
-    assert '<span class="badge postponed">Verschoben</span>' in html
-    assert 'href="../../de/2026-11-21/#2026-11-21-ev7b">Neuer Termin: 2026-11-21</a>' in html
+    # postponed events are hidden completely; the event at its new date is shown
+    assert "badge postponed" not in html and "Neuer Termin" not in html
+    assert 'id="2026-11-14-ev7"' not in html
     assert '<span class="badge unconfirmed">Nicht mehr bestätigt</span>' in html
     assert '<span class="prog">heute 3 Programmpunkte</span>' in html
     assert "im Rahmen von Basteln für Kinder #1" in html
@@ -464,3 +467,31 @@ def test_routine_entries_and_courses_are_listed_with_the_other_events() -> None:
         "2026-11-14-concert",
     ]
     assert view.count == 3
+
+
+def test_footer_shows_the_last_run_of_each_job(tmp_path: Path) -> None:
+    from letsgau.models import State
+
+    data = tmp_path / "data"
+    data.mkdir()
+    events = EventsFile(updated_at=NOW, events=[ev()])
+    (data / "events.json").write_text(events.model_dump_json(), encoding="utf-8")
+    state = State(
+        last_run={
+            "events": datetime(2026, 11, 13, 5, 10, tzinfo=UTC),
+            "discovery": datetime(2026, 11, 9, 5, 0, tzinfo=UTC),
+        },
+        last_failed={"events": datetime(2026, 11, 14, 5, 12, tzinfo=UTC)},
+    )
+    (data / "state.json").write_text(state.model_dump_json(), encoding="utf-8")
+    build.build(load_config(CONFIG_PATH), data_dir=data, site_dir=tmp_path / "site", now=NOW)
+    html = page(tmp_path / "site", "de/2026-11-14")
+    runs = re.search(r'<p class="runs">(.*?)</p>', html)
+    assert runs is not None
+    assert runs.group(1) == (
+        '<span class="run failed" title="Fehler beim letzten Lauf; zuletzt erfolgreich: '
+        '13.11. 06:10">Termine 14.11. 06:12 <span role="img" aria-label="Fehler beim letzten '
+        'Lauf; zuletzt erfolgreich: 13.11. 06:10">⚠</span></span> · '
+        '<span class="run" title="OK">Quellensuche 9.11. 06:00 <span role="img" '
+        'aria-label="OK">✓</span></span>'
+    )

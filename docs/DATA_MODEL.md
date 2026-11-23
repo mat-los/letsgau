@@ -108,6 +108,7 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
 | `geo_fingerprint` | fingerprint of the last geo computation |
 | `force_discovery` | set to `true` when the geo fingerprint changes; the discovery stage clears it (Phase 7) |
 | `last_run` | map job name → UTC timestamp of the last successful run |
+| `last_failed` | map job name → UTC timestamp of the last failed run; removed by the job's next successful run, so an entry means its latest run failed. Optional: files without it load unchanged. The site footer shows, next to "Zuletzt aktualisiert" (the build), the latest run of `events`, `discovery` and `geo` with ✓ or ⚠ |
 | `last_usage` | map job name → AI usage of the last run: `requests`, `web_searches`, `web_fetches`, `input_tokens`, `output_tokens`, `cost_usd` (cost at API prices; in subscription mode the CLI's `total_cost_usd`, not billed), `duration_s` (Phase 2) |
 
 ## Event

@@ -129,7 +129,9 @@ stateDiagram-v2
 ```
 
 A cancelled event stays visible until its date. A postponement creates a new
-event on the new date; `postponed_to` on the old event points to it.
+event on the new date; `postponed_to` on the old event points to it. The site
+hides postponed events completely (day pages, search, feeds); only the event at
+the new date is shown.
 
 ## Key decisions
 

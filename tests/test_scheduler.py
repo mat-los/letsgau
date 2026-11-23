@@ -146,6 +146,12 @@ def test_failed_stage_still_builds_and_marks_failure(tmp_path: Path) -> None:
     assert report.failed
     assert "events" not in scheduler.load_state(data).last_run
     assert "build" in scheduler.load_state(data).last_run
+    assert scheduler.load_state(data).last_failed == {"events": at(MONDAY)}
+
+    # the next successful run clears the failure
+    scheduler.execute(CONFIG, "events", Stages().runners(), data_dir=data, now=at(MONDAY, 9))
+    saved = scheduler.load_state(data)
+    assert saved.last_failed == {} and saved.last_run["events"] == at(MONDAY, 9)
 
 
 def test_events_job_also_rebuilds_the_site(tmp_path: Path) -> None:

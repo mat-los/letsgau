@@ -49,7 +49,7 @@ def ld_graph(site: Path, rel: str) -> list[dict]:
 
 def test_json_ld_has_one_event_per_main_event(site: Path) -> None:
     graph = ld_graph(site, "de/2026-11-14")
-    assert len(graph) == 100  # program items are subEvents
+    assert len(graph) == 99  # program items are subEvents
     for item in graph:
         assert item["@type"] == "Event"
         assert item["name"] and item["startDate"] and item["description"]
@@ -65,7 +65,7 @@ def test_json_ld_status_times_and_program(site: Path) -> None:
     assert timed["startDate"].endswith("+01:00")  # Europe/Berlin in November
     statuses = {i["eventStatus"] for i in graph.values()}
     assert "https://schema.org/EventCancelled" in statuses
-    assert "https://schema.org/EventPostponed" in statuses
+    assert "https://schema.org/EventPostponed" not in statuses  # hidden
     parent = graph["Basteln für Kinder #1"]
     assert [s["name"] for s in parent["subEvent"]] == [
         "Programmpunkt 0",
@@ -93,7 +93,7 @@ def test_llms_txt(site: Path) -> None:
 
 def test_public_events_json_drops_internal_fields(site: Path) -> None:
     data = json.loads((site / "data" / "events.json").read_text(encoding="utf-8"))
-    assert len(data["events"]) == 103
+    assert len(data["events"]) == 102  # without the postponed one
     assert all("misses" not in e for e in data["events"])
     EventsFile.model_validate({**data, "events": [{**e, "misses": 0} for e in data["events"]]})
 
@@ -103,7 +103,7 @@ def test_ics_feed(site: Path) -> None:
     text = raw.decode("utf-8")
     assert text.startswith("BEGIN:VCALENDAR\r\n") and text.endswith("END:VCALENDAR\r\n")
     assert all(len(line.encode()) <= 75 for line in text.split("\r\n"))
-    assert text.count("BEGIN:VEVENT") == 103
+    assert text.count("BEGIN:VEVENT") == 102
     assert "STATUS:CANCELLED" in text and "STATUS:TENTATIVE" in text
     assert "DTSTART:20261114T083000Z" in text  # 09:30 in Berlin
     assert "DTSTART;VALUE=DATE:20261112\r\nDTEND;VALUE=DATE:20261120" in text  # multi-day
@@ -156,7 +156,7 @@ def test_plain_html_contains_every_event(site: Path) -> None:
 
 def test_page_metadata_for_sharing(site: Path) -> None:
     page = (site / "de" / "2026-11-14" / "index.html").read_text(encoding="utf-8")
-    assert '<meta name="description" content="103 Events in und um Schongau' in page
+    assert '<meta name="description" content="102 Events in und um Schongau' in page
     assert '<meta property="og:title"' in page and '<meta property="og:url"' in page
     assert 'hreflang="x-default"' in page
 

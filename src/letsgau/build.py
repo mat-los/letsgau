@@ -34,7 +34,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoes
 
 from letsgau import feeds
 from letsgau.config import DEFAULT_CONFIG_PATH, Config, find_placeholders
-from letsgau.models import Event, EventsFile, EventStatus, PlacesFile
+from letsgau.models import Event, EventsFile, EventStatus, PlacesFile, State
 from letsgau.util import DATA_DIR
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -300,6 +300,8 @@ class Site:
     header_pages: dict[str, dict[str, str]] = field(default_factory=dict)
     """lang -> path -> title of the pages linked in the header (about, missing event)."""
     warnings: list[str] = field(default_factory=list)
+    state: State = field(default_factory=State)
+    """``data/state.json``: the last runs of the jobs, shown in the footer."""
 
     @cached_property
     def date_bar(self) -> list[tuple[date, int]]:
@@ -357,6 +359,7 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         ),
         "updated": f"{format_date(t, local.date(), 'short')} {local:%H:%M}",
         "updated_iso": site.generated_at.isoformat(),
+        "job_runs": job_runs(t, site.state, ZoneInfo(config.site.timezone)),
         "tag_label": {tag.id: getattr(tag, lang) for tag in config.tags},
         "fmt": lambda d, style="long": format_date(t, d, style),
         "date_bar": site.date_bar,
@@ -521,13 +524,59 @@ def write(path: Path, text: str) -> None:
 
 
 def _load_events(data_dir: Path) -> list[Event]:
+    """The stored events the site shows: postponed ones are left out everywhere (day pages,
+    search, feeds); the event at its new date is a separate entry."""
     path = data_dir / "events.json"
     if not path.exists():
         return []
     try:
-        return EventsFile.model_validate_json(path.read_text(encoding="utf-8")).events
+        events = EventsFile.model_validate_json(path.read_text(encoding="utf-8")).events
     except ValueError as exc:
         raise BuildError(f"{path} is invalid: {exc}") from exc
+    return [e for e in events if e.status is not EventStatus.POSTPONED]
+
+
+def _load_state(data_dir: Path) -> State:
+    path = data_dir / "state.json"
+    if not path.exists():
+        return State()
+    try:
+        return State.model_validate_json(path.read_text(encoding="utf-8"))
+    except ValueError:  # the footer line is not worth failing the build
+        return State()
+
+
+FOOTER_JOBS = ("events", "discovery", "geo")
+"""Jobs whose last run the footer shows, next to "last updated" (the build)."""
+
+
+@dataclass
+class JobRun:
+    """One job in the footer: its label, when it last ran, and whether that run failed."""
+
+    label: str
+    when: str
+    failed: bool
+    note: str
+    """Tooltip: OK, or the failure and the last successful run."""
+
+
+def job_runs(t: Texts, state: State, tz: ZoneInfo) -> list[JobRun]:
+    """The footer's run line: per job its latest run (a failed one if that came last)."""
+
+    def stamp(at: datetime) -> str:
+        local = at.astimezone(tz)
+        return f"{format_date(t, local.date(), 'short')} {local:%H:%M}"
+
+    runs = []
+    for job in FOOTER_JOBS:
+        ok, failed = state.last_run.get(job), state.last_failed.get(job)
+        if failed and (ok is None or failed >= ok):
+            note = t("run_failed") + (f"; {t('run_last_ok')}: {stamp(ok)}" if ok else "")
+            runs.append(JobRun(t(f"run_{job}"), stamp(failed), True, note))
+        elif ok:
+            runs.append(JobRun(t(f"run_{job}"), stamp(ok), False, t("run_ok")))
+    return runs
 
 
 def _load_places(data_dir: Path) -> PlacesFile | None:
@@ -562,6 +611,7 @@ def build(
         today=today,
         days=[today + timedelta(days=i) for i in range(config.window.display_days)],
         generated_at=now,
+        state=_load_state(data_dir),
     )
     env = make_env()
     pages = load_content(config, content_dir)
