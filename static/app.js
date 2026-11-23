@@ -1,4 +1,4 @@
-/* Let's Gau – date bar arrows and compact header on every page; filters, search,
+/* Let's Gau – date bar arrows and compact header on every page; filter panel, search,
    grouping and swipe on day pages. Everything works without it. */
 (function () {
   "use strict";
@@ -94,6 +94,8 @@
   var labels = JSON.parse(list.getAttribute("data-labels"));
   var q = document.getElementById("q"), reset = document.getElementById("reset");
   var chips = [].slice.call(document.querySelectorAll(".chip[data-tag]"));
+  var btn = document.getElementById("filter-btn"), cnt = btn && btn.querySelector(".cnt"),
+    row = document.getElementById("active"), showBtn = document.querySelector(".fp-show");
 
   function words(el, a) { return (el.getAttribute(a) || "").split(" ").filter(Boolean); }
   function passTags(tags) {
@@ -129,10 +131,25 @@
       sec.hidden = !sec.querySelector(".ev:not([hidden])");
     });
     var none = list.querySelector(".nomatch"); if (none) none.hidden = shown > 0 || !rows.length;
-    if (reset) reset.hidden = !active;
-    if (cnt) {
-      var n = 0; for (var k in state.tags) if (state.tags[k]) n++;
-      cnt.textContent = n ? String(n) : ""; cnt.hidden = !n;
+    var on = Object.keys(state.tags);
+    if (reset) reset.disabled = !on.length;
+    if (btn) { btn.classList.toggle("on", !!on.length); cnt.textContent = on.length; cnt.hidden = !on.length; }
+    if (showBtn) showBtn.textContent = labels.show.replace("{n}", shown);
+    /* active filters as a row above the list: tap one to remove it */
+    if (row) {
+      row.textContent = ""; row.hidden = !on.length;
+      on.forEach(function (t) {
+        var b = document.createElement("button"), name = labels.tags[t] || t;
+        b.type = "button"; b.className = "af t-" + t + (state.tags[t] === "out" ? " out" : "");
+        b.textContent = (state.tags[t] === "out" ? labels.without.replace("{tag}", name) : name) + " ✕";
+        b.title = labels.remove;
+        b.addEventListener("click", function () { delete state.tags[t]; changed(); });
+        row.appendChild(b);
+      });
+      if (on.length) {
+        var all = document.createElement("button"); all.type = "button"; all.className = "af-reset";
+        all.textContent = labels.reset_all; all.addEventListener("click", clearAll); row.appendChild(all);
+      }
     }
     chips.forEach(function (c) {
       var s = state.tags[c.getAttribute("data-tag")] || "";
@@ -140,31 +157,35 @@
     });
   }
 
+  function changed() { save(); apply(); document.dispatchEvent(new Event("lg:filter")); }
+  function clearAll() {
+    state.tags = {}; changed();
+    if (q && q.value) { q.value = ""; q.dispatchEvent(new Event("input")); }
+  }
   chips.forEach(function (c) {
     c.addEventListener("click", function () {
       var t = c.getAttribute("data-tag"), s = state.tags[t];
       state.tags[t] = !s ? "in" : s === "in" ? "out" : undefined;
       if (!state.tags[t]) delete state.tags[t];
-      save(); apply(); document.dispatchEvent(new Event("lg:filter"));
+      changed();
     });
   });
-  /* category chips fold in and out (remembered; base.html applies it before paint) */
-  var toggle = document.getElementById("cats-toggle"), html = document.documentElement;
-  var cnt = toggle && toggle.querySelector(".cnt");
-  function showCats(open) {
-    html.classList.toggle("cats-closed", !open);
-    if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  if (reset) reset.addEventListener("click", clearAll);
+
+  /* filter panel: opened by the button in the date bar row, closed by the backdrop,
+     the cross, "show N events" or Escape */
+  var panel = document.getElementById("fpanel"), html = document.documentElement;
+  function openPanel(open) {
+    if (!panel || !btn) return;
+    panel.hidden = !open; html.classList.toggle("panel-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    (open ? panel.querySelector(".fp-x") : btn).focus();
   }
-  if (toggle) {
-    showCats(state.cats === undefined ? !matchMedia("(max-width: 639px)").matches : state.cats);
-    toggle.addEventListener("click", function () {
-      state.cats = html.classList.contains("cats-closed"); save(); showCats(state.cats);
-    });
-  }
-  if (reset) reset.addEventListener("click", function () {
-    state.tags = {}; save(); apply();
-    if (q && q.value) { q.value = ""; q.dispatchEvent(new Event("input")); }
+  if (btn) btn.addEventListener("click", function () { openPanel(true); });
+  if (panel) [].forEach.call(panel.querySelectorAll("[data-close]"), function (el) {
+    el.addEventListener("click", function () { openPanel(false); });
   });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && panel && !panel.hidden) openPanel(false); });
   if (q) q.addEventListener("input", apply);  /* only the reset button; search.js searches */
 
   /* grouping: none = page order (untimed first, then by start time);

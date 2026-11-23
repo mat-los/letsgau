@@ -4,26 +4,11 @@
 <script type="application/ld+json">{{ ld | tojson }}</script>
 {% endblock %}
 {% block body_attrs %} data-day="{{ day.isoformat() }}"{% if is_index %} data-index="1"{% endif %}{% endblock %}
-{% block header_more %}
-<div class="tools js-only">
-  <div class="tools-row">
-  <button type="button" class="cats-toggle" id="cats-toggle" aria-controls="chips" aria-expanded="true">{{ t('filters') }}<span class="cnt" hidden></span></button>
-  <div class="group" role="group" aria-label="{{ t('group_by') }}">
-    <span>{{ t('group_by') }}:</span>
-    <button type="button" data-group="none" aria-pressed="true">{{ t('group_none') }}</button>
-    <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
-    <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
-  </div>
-  </div>
-  <div class="chips" id="chips" role="group" aria-label="{{ t('filters') }}" title="{{ t('filter_hint') }}">
-    {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
-    <button type="button" class="chip reset" id="reset" hidden>{{ t('reset') }}</button>
-  </div>
-</div>
-{% endblock %}
 {% block main %}
+{#- active filters (filled by app.js); the panel below sets them -#}
+<div id="active" class="active-filters" hidden></div>
 <h1 class="day">{{ fmt(day) }} <small>{{ t('events_count', count=view.count) }}</small></h1>
-<div id="list" data-labels='{{ {"no_match": t("no_match"), "tags": tag_label} | tojson_compact }}'>
+<div id="list" data-labels='{{ {"no_match": t("no_match"), "tags": tag_label, "show": t("filter_show"), "without": t("filter_without"), "remove": t("filter_remove"), "reset_all": t("filter_reset_all")} | tojson_compact }}'>
 {% if not view.rows %}
 <p class="empty">{{ t('no_events') }}</p>
 {% endif %}
@@ -38,4 +23,22 @@
   {% if prev_day %}<a rel="prev" href="{{ root }}{{ lang }}/{{ prev_day.isoformat() }}/">← {{ t('prev_day') }}</a>{% else %}<span></span>{% endif %}
   {% if next_day %}<a rel="next" href="{{ root }}{{ lang }}/{{ next_day.isoformat() }}/">{{ t('next_day') }} →</a>{% endif %}
 </nav>
+{#- filter panel: categories and grouping; opened by the Filter button in the date bar -#}
+<div id="fpanel" class="fpanel" hidden>
+  <div class="fp-back" data-close></div>
+  <div class="fp-sheet" role="dialog" aria-modal="true" aria-labelledby="fp-title">
+    <div class="fp-head"><h2 id="fp-title">{{ t('filter') }}</h2><button type="button" class="fp-x" data-close aria-label="{{ t('close') }}">✕</button></div>
+    <p class="fp-label">{{ t('filters') }} <span>· {{ t('filter_hint') }}</span></p>
+    <div class="chips" id="chips" role="group" aria-label="{{ t('filters') }}">
+      {% for tag in config.tags %}<button type="button" class="chip t-{{ tag.id }}" data-tag="{{ tag.id }}" aria-pressed="false">{{ tag[lang] }}</button>{% endfor %}
+    </div>
+    <p class="fp-label">{{ t('group_by') }}</p>
+    <div class="group" role="group" aria-label="{{ t('group_by') }}">
+      <button type="button" data-group="none" aria-pressed="true">{{ t('group_none') }}</button>
+      <button type="button" data-group="category" aria-pressed="false">{{ t('group_category') }}</button>
+      <button type="button" data-group="place" aria-pressed="false">{{ t('group_place') }}</button>
+    </div>
+    <div class="fp-foot"><button type="button" class="fp-reset" id="reset" disabled>{{ t('reset') }}</button><button type="button" class="fp-show" data-close>{{ t('filter_show', n=view.count) }}</button></div>
+  </div>
+</div>
 {% endblock %}

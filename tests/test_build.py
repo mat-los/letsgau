@@ -205,7 +205,13 @@ def test_day_page_has_header_elements(site: Path) -> None:
     assert 'class="chip t-concert" data-tag="concert"' in html
     assert 'data-group="place"' in html
     assert 'data-group="none" aria-pressed="true">Keine</button>' in html
-    assert 'id="cats-toggle" aria-controls="chips" aria-expanded="true">Kategorien' in html
+    # categories and grouping sit in the filter panel, opened by the button in the date bar
+    assert 'id="filter-btn" aria-haspopup="dialog" aria-controls="fpanel"' in html
+    assert '<div id="fpanel" class="fpanel" hidden>' in html
+    assert html.index('id="filter-btn"') < html.index("</header>") < html.index('id="fpanel"')
+    assert '<button type="button" class="fp-show" data-close>102 Events anzeigen</button>' in html
+    assert '<div id="active" class="active-filters" hidden></div>' in html
+    assert "cats-toggle" not in html and "cats-closed" not in html
     assert "<h2>Vormittag</h2>" not in html and "Ganztägig" not in html
     assert 'rel="prev" href="../../de/2026-11-13/"' in html
     assert 'rel="next" href="../../de/2026-11-15/"' in html
@@ -279,7 +285,7 @@ def test_metadata_and_links(site: Path) -> None:
 
 def test_assets_are_small_and_local(site: Path) -> None:
     js = (site / "assets" / "app.js").stat().st_size
-    assert js < 12_000  # budget raised from 10 KB for search, folding and the date bar
+    assert js < 14_000  # raised from 10 KB (search, folding, date bar) and 12 KB (filter panel)
     html = page(site, "de/2026-11-14")
     assert "https://fonts" not in html and "cdn" not in html.lower()
 
