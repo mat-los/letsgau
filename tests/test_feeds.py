@@ -114,9 +114,11 @@ def test_ics_feed(site: Path) -> None:
 
 def test_sitemap_and_robots(site: Path) -> None:
     sitemap = (site / "sitemap.xml").read_text(encoding="utf-8")
-    assert sitemap.count("<url>") == 52  # (21 days + 4 content pages + feedback) x 2 languages
-    assert "<loc>https://letsgau.de/de/impressum/</loc>" in sitemap
-    assert 'hreflang="en" href="https://letsgau.de/en/imprint/"' in sitemap
+    # (21 days + about, missing event, privacy) x 2 languages; imprint and feedback are noindex
+    assert sitemap.count("<url>") == 48
+    assert "<loc>https://letsgau.de/de/datenschutz/</loc>" in sitemap
+    assert 'hreflang="en" href="https://letsgau.de/en/privacy/"' in sitemap
+    assert "impressum" not in sitemap and "imprint" not in sitemap and "feedback" not in sitemap
     assert (
         '<xhtml:link rel="alternate" hreflang="en" href="https://letsgau.de/en/2026-11-14/"/>'
         in sitemap
@@ -126,6 +128,12 @@ def test_sitemap_and_robots(site: Path) -> None:
         assert f"User-agent: {bot}\nAllow: /" in robots
     assert "Sitemap: https://letsgau.de/sitemap.xml" in robots
     assert 'name="robots"' not in (site / "de" / "2026-11-14" / "index.html").read_text()
+    # with indexing on, only the imprint and the feedback page carry noindex
+    noindex = '<meta name="robots" content="noindex">'
+    for page in ("de/impressum", "en/imprint", "de/feedback", "en/feedback"):
+        assert noindex in (site / page / "index.html").read_text(encoding="utf-8"), page
+    for page in ("de/about", "de/fehlt-mein-event", "de/datenschutz", "de"):
+        assert noindex not in (site / page / "index.html").read_text(encoding="utf-8"), page
 
 
 def test_indexing_false_hides_the_site(tmp_path: Path) -> None:

@@ -320,6 +320,10 @@ class Site:
 HEADER_PAGES = ("about", "missing-event")
 """Content pages linked in the header; the others are linked in the footer."""
 
+NOINDEX_PAGES = ("imprint",)
+"""Content pages kept out of search results (and the sitemap) even with ``site.indexing``:
+the imprint carries the owner's name; the feedback page is noindex too."""
+
 
 def make_env() -> Environment:
     env = Environment(
@@ -672,9 +676,9 @@ def build(
     coverage = {lang: base_context(site, lang, 0)["coverage"] for lang in config.site.languages}
     by_name: dict[str, dict[str, str]] = {}
     for page in pages:
-        by_name.setdefault(page.name, {})[page.lang] = f"{page.path}/"
+        if page.name not in NOINDEX_PAGES:  # noindex pages stay out of the sitemap
+            by_name.setdefault(page.name, {})[page.lang] = f"{page.path}/"
     extra = [paths for paths in by_name.values() if len(paths) == len(config.site.languages)]
-    extra.append({lang: f"{FEEDBACK_PATH}/" for lang in config.site.languages})
     feeds.write_all(site, site_dir, coverage, extra)
     for lang in config.site.languages:
         write(
@@ -798,6 +802,7 @@ def render_content(env: Environment, site: Site, page: ContentPage) -> str:
         canonical=f"{page.lang}/{page.path}/",
         alternates={lang: f"{lang}/{path}/" for lang, path in alternates.items()},
         content=page.html,
+        noindex=page.name in NOINDEX_PAGES,
     )
     return env.get_template("page.html").render(**ctx)
 
@@ -817,6 +822,7 @@ def render_feedback(env: Environment, site: Site, lang: str, intro: ContentPage 
         endpoint=site.config.site.feedback_form_endpoint,
         kinds=FEEDBACK_KINDS,
         repo_url=content_context(site.config)["repo_url"],
+        noindex=True,
     )
     return env.get_template("feedback.html").render(**ctx)
 

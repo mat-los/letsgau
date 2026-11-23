@@ -7,7 +7,7 @@
 {% set doc_label = page_label if page_label is defined else title %}
 <title>{{ config.site.name }} - {% if doc_label %}{{ doc_label }} - {% endif %}{{ doc_suffix }}</title>
 <meta name="description" content="{{ description }}">
-{% if not config.site.indexing %}<meta name="robots" content="noindex">
+{% if not config.site.indexing or noindex is defined and noindex %}<meta name="robots" content="noindex">
 {% endif %}<link rel="canonical" href="{{ base_url }}{{ canonical }}">
 {% set alt = alternates if alternates is defined else {} %}
 {% macro other_url(other) %}{{ alt[other] if other in alt else canonical | replace(lang ~ '/', other ~ '/', 1) }}{% endmacro %}

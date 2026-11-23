@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Go live (#106): the bundled instance sets `site.indexing: true`. The imprint and the
+  feedback page always carry `noindex` and are left out of the sitemap.
+- About page: a short paragraph points organizers to "Fehlt mein Event?".
+
 ### Removed
 
 - The changelog page (`/<lang>/changelog/`, "Änderungen" in the footer): too technical

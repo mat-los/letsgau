@@ -10,7 +10,7 @@ site:
   contact_email: "letsgau@tutamail.com"  # optional: shown on the pages (imprint, about) if set
   feedback_form_endpoint: "https://formhook.app/f/fh_JNXIIbcjfUatEDM3yXzTWygLzvbkKTeo"  # contact form (formhook; public, in the page)
   timezone: "Europe/Berlin"             # IANA time zone; decides what "today" is
-  indexing: false                       # false = noindex on every page (not in search results yet)
+  indexing: true                        # false = noindex on every page; imprint and feedback are always noindex
   goatcounter: "letsgau"                # GoatCounter code: cookieless visitor counts; "" = off
 
 region:
