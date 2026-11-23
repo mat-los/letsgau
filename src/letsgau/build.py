@@ -598,7 +598,6 @@ def build(
     site_dir: Path = SITE_DIR,
     now: datetime | None = None,
     content_dir: Path | None = None,
-    changelog: Path | None = None,
 ) -> Site:
     """Render the whole site into ``site_dir`` (replacing it)."""
     content_dir = content_dir or CONTENT_DIR
@@ -628,7 +627,6 @@ def build(
     for lang in config.site.languages:
         t = Texts(load_i18n(lang))
         site.content_pages.setdefault(lang, {})[FEEDBACK_PATH] = t("nav_feedback")
-        site.content_pages[lang]["changelog"] = t("nav_changelog")
     if site_dir.exists():
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True)
@@ -666,10 +664,6 @@ def build(
         write(
             site_dir / lang / FEEDBACK_PATH / "index.html",
             render_feedback(env, site, lang, intros.get(lang)),
-        )
-        write(
-            site_dir / lang / "changelog" / "index.html",
-            render_changelog(env, site, lang, changelog or REPO_ROOT / "CHANGELOG.md"),
         )
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
     cname = custom_domain(config.site.base_url)
@@ -825,23 +819,6 @@ def render_feedback(env: Environment, site: Site, lang: str, intro: ContentPage 
         repo_url=content_context(site.config)["repo_url"],
     )
     return env.get_template("feedback.html").render(**ctx)
-
-
-def render_changelog(env: Environment, site: Site, lang: str, path: Path) -> str:
-    import markdown
-
-    ctx = base_context(site, lang, depth=2)
-    text = path.read_text(encoding="utf-8") if path.exists() else ""
-    text = re.sub(r"^# .*\n", "", text, count=1)
-    ctx.update(
-        title=ctx["t"]("nav_changelog"),
-        description=ctx["coverage"],
-        canonical=f"{lang}/changelog/",
-        alternates={other: f"{other}/changelog/" for other in site.config.site.languages},
-        intro=ctx["t"]("changelog_intro"),
-        content=markdown.markdown(text, extensions=["extra"], output_format="html"),
-    )
-    return env.get_template("page.html").render(**ctx)
 
 
 def run(

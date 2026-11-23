@@ -8,7 +8,7 @@ Jinja2 templates rendered by `src/letsgau/build.py` (autoescaped).
 | `day.html` | day page: quick links, date bar, tag chips, grouping, sorted event list, pager |
 | `partials/event.html` | macros for one event row (`<details>`, works without JavaScript) |
 | `redirect.html` | `/`: jumps to the stored language (`localStorage`), else the default language |
-| `page.html` | content pages from `instance/content/*.md` and the changelog |
+| `page.html` | content pages from `instance/content/*.md` |
 | `feedback.html` | feedback form (`site.feedback_form_endpoint`) or `mailto:` links, link to the issue forms |
 
 UI strings come from `i18n/<lang>.yaml`; event texts are bilingual in the data.

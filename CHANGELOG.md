@@ -7,12 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
+### Removed
 
-- Bundled instance: imprint filled in (name and contact email `letsgau@tutamail.com`,
-  per § 18 MStV); `site.contact_email` set. The about page lists the municipalities as
-  "in den Gemeinden A, B, C und D" (`municipalities` in content pages is joined with the
-  page language's "und"/"and").
+- The changelog page (`/<lang>/changelog/`, "Änderungen" in the footer): too technical
+  for visitors. `CHANGELOG.md` stays in the repository.
 
 ### Fixed
 
@@ -21,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Bundled instance: imprint filled in (name and contact email `letsgau@tutamail.com`,
+  per § 18 MStV); `site.contact_email` set. The about page lists the municipalities as
+  "in den Gemeinden A, B, C und D" (`municipalities` in content pages is joined with the
+  page language's "und"/"and").
 - Bundled instance: church services of any kind (masses, Gottesdienst, Christmette,
   Rorate, devotions, rosary, adoration, confession) are excluded, by title patterns and an
   `excluded_topics` entry; stored ones are removed on the next events run. Church concerts,

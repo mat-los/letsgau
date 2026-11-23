@@ -1,4 +1,4 @@
-"""Tests for Phase 8: content pages, feedback, changelog, CNAME, `letsgau init`, fork test."""
+"""Tests for Phase 8: content pages, feedback, CNAME, `letsgau init`, fork test."""
 
 from __future__ import annotations
 
@@ -54,7 +54,6 @@ def read(site: Path, rel: str) -> str:
         ("impressum", "imprint"),
         ("datenschutz", "privacy"),
         ("feedback", "feedback"),
-        ("changelog", "changelog"),
     ],
 )
 def test_content_pages_exist_in_both_languages(site: Path, de: str, en: str) -> None:
@@ -101,9 +100,9 @@ def test_footer_links_every_content_page(site: Path) -> None:
         "Impressum",
         "Datenschutz",
         "Feedback",
-        "Änderungen",
     ):
         assert f">{label}</a>" in day
+    assert ">Änderungen</a>" not in day and not (site / "de" / "changelog").exists()
 
 
 def test_feedback_without_endpoint_uses_mailto(tmp_path: Path) -> None:
@@ -163,12 +162,6 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
     assert (tmp_path / "site" / "assets" / "feedback.js").stat().st_size < 1_500
     privacy = read(tmp_path / "site", "en/privacy")
     assert "form service" in privacy
-
-
-def test_changelog_page(site: Path) -> None:
-    page = read(site, "de/changelog")
-    assert "Der Text kommt direkt aus dem Code-Repository" in page
-    assert "<h2>[Unreleased]</h2>" in page
 
 
 def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
@@ -255,7 +248,7 @@ def test_init_validates_and_aborts(tmp_path: Path) -> None:
 
 
 def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) -> None:
-    for rel in ("de/about", "de/impressum", "de/feedback", "de/changelog", "de/2026-11-14"):
+    for rel in ("de/about", "de/impressum", "de/feedback", "de/2026-11-14"):
         html = read(site, rel)
         header, _, rest = html.partition("</header>")
         assert header.count('class="d') >= 21, rel  # date bar with all days
