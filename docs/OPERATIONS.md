@@ -297,8 +297,8 @@ python -m letsgau run --job build
 Content pages come from `instance/content/<page>.<lang>.md` (about,
 missing-event, imprint, privacy, optional feedback intro); config values are
 filled in, `[TODO: ...]` markers are listed by `letsgau check` and reported by
-the build. The build also writes `/<lang>/feedback/`, `/<lang>/changelog/`
-(from `CHANGELOG.md`) and `CNAME` for a custom domain in `base_url`.
+the build. The build also writes `/<lang>/feedback/` and `CNAME` for a custom
+domain in `base_url`.
 
 ## Set up a new region
 

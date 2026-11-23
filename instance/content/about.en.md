@@ -1,10 +1,30 @@
 # About {{ site_name }}
 
-{{ site_name }} lists every public event found in {{ municipalities }}, one page per
+{{ site_name }} lists every public event found in the municipalities of {{ municipalities }}, one page per
 day for the next {{ display_days }} days:
 concerts, markets, sports, culture, talks and everything else.
 
-[TODO: Why does this site exist? Tell the idea and your motivation in a few sentences.]
+## Why this site exists
+
+"There's nothing going on in Schongau" is something you hear a lot. At the same time, you
+miss a lot and only find out afterwards that something happened.
+
+So I wanted a site where I can find everything that's on around Schongau. It became a
+small AI project: an AI collects the events on its own. Once I was happy with the
+results, I opened the site to everyone.
+
+## Who is behind it
+
+- A private side project with no commercial background.
+- No ads, no sponsor: I pay the costs myself.
+- That's why the area is limited to Schongau and its neighbouring municipalities for now.
+  A larger radius would be possible, but it costs more AI computing time.
+
+## No magic
+
+The technology behind it is simple. I didn't write a single line of code myself; I built
+the site by talking to [Claude Code](https://claude.com/claude-code), an AI for
+programming. It is hosted on GitHub Pages, and all the code is open source on GitHub.
 
 ## How it works
 
@@ -26,7 +46,7 @@ Please check with the organizer before you go.
 
 ## Contact
 
-Something missing or wrong? {% if feedback_endpoint %}Write to us using the
+Suggestions, criticism or something missing? {% if feedback_endpoint %}Write to me using the
 [feedback form](../feedback/).{% else %}Write to [{{ contact_email }}](mailto:{{ contact_email }})
 or use the [feedback form](../feedback/).{% endif %} The code is open source:
 [{{ repo_url }}]({{ repo_url }}).

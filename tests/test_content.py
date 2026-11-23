@@ -1,4 +1,4 @@
-"""Tests for Phase 8: content pages, feedback, changelog, CNAME, `letsgau init`, fork test."""
+"""Tests for Phase 8: content pages, feedback, CNAME, `letsgau init`, fork test."""
 
 from __future__ import annotations
 
@@ -54,7 +54,6 @@ def read(site: Path, rel: str) -> str:
         ("impressum", "imprint"),
         ("datenschutz", "privacy"),
         ("feedback", "feedback"),
-        ("changelog", "changelog"),
     ],
 )
 def test_content_pages_exist_in_both_languages(site: Path, de: str, en: str) -> None:
@@ -67,7 +66,9 @@ def test_content_pages_exist_in_both_languages(site: Path, de: str, en: str) -> 
 def test_content_values_come_from_the_config(site: Path) -> None:
     about = read(site, "de/about")
     assert "<h1>Über Let&#39;s Gau</h1>" in about
-    assert "Veranstaltungen in\nSchongau, Altenstadt" in about
+    assert "in den Gemeinden\nSchongau, Altenstadt, Peiting und Hohenfurch," in about
+    english = read(site, "en/about")
+    assert "municipalities of Schongau, Altenstadt, Peiting and Hohenfurch" in english
     missing = read(site, "de/fehlt-mein-event")
     assert "<strong>Facebook und andere soziale Netzwerke</strong> liest sie nicht" in missing
     assert "als Text schreiben" in missing and "Titel, Datum, Uhrzeit, Ort" in missing
@@ -75,17 +76,20 @@ def test_content_values_come_from_the_config(site: Path) -> None:
     assert "Websuche" in missing  # how to tell whether a public calendar can be read
     privacy = read(site, "en/privacy")
     assert "no cookies" in privacy.lower() and "localStorage" in privacy
-    # the instance has only a contact form: no email address on any page
+    # with a contact form, the privacy page names the form service
     assert "form service" in privacy and "formhook" in privacy
     assert 'href="../imprint/"' in privacy
     for rel in ("de/about", "en/about", "de/fehlt-mein-event", "en/missing-event"):
         assert 'href="../feedback/"' in read(site, rel), rel
-    assert 'über das <a href="../feedback/">Kontaktformular</a>' in read(site, "de/impressum")
-    assert 'via the <a href="../feedback/">contact form</a>' in read(site, "en/imprint")
+    # the email address is shown in the imprint only; the other pages point to the form
+    mail = 'href="mailto:letsgau@tutamail.com"'
+    assert mail in read(site, "de/impressum") and mail in read(site, "en/imprint")
     for path in site.rglob("*"):
         if path.suffix in (".html", ".txt", ".json", ".ics", ".xml"):
+            if path.parent.name in ("impressum", "imprint"):
+                continue
             text = path.read_text(encoding="utf-8")
-            assert 'href="mailto:' not in text and "@letsgau.de" not in text, path
+            assert 'href="mailto:' not in text, path
 
 
 def test_footer_links_every_content_page(site: Path) -> None:
@@ -96,9 +100,9 @@ def test_footer_links_every_content_page(site: Path) -> None:
         "Impressum",
         "Datenschutz",
         "Feedback",
-        "Änderungen",
     ):
         assert f">{label}</a>" in day
+    assert ">Änderungen</a>" not in day and not (site / "de" / "changelog").exists()
 
 
 def test_feedback_without_endpoint_uses_mailto(tmp_path: Path) -> None:
@@ -160,19 +164,17 @@ def test_feedback_form_with_endpoint(tmp_path: Path) -> None:
     assert "form service" in privacy
 
 
-def test_changelog_page(site: Path) -> None:
-    page = read(site, "de/changelog")
-    assert "Der Text kommt direkt aus dem Code-Repository" in page
-    assert "<h2>[Unreleased]</h2>" in page
-
-
-def test_todo_markers_are_reported(capsys: pytest.CaptureFixture[str]) -> None:
-    todos = build.content_todos(load_config(CONFIG_PATH), REPO_ROOT / "instance" / "content")
-    files = {name for name, _ in todos}
-    assert {"imprint.de.md", "imprint.en.md", "about.de.md"} <= files
-    assert "privacy.de.md" not in files
+def test_todo_markers_are_reported(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    config = load_config(CONFIG_PATH)
+    # the bundled instance has none left
+    assert build.content_todos(config, REPO_ROOT / "instance" / "content") == []
     assert main(["--config", str(CONFIG_PATH), "check"]) == 0
-    assert "imprint.de.md: [TODO: Vor- und Nachname]" in capsys.readouterr().err
+    assert "[TODO:" not in capsys.readouterr().err
+    content = tmp_path / "content"
+    shutil.copytree(REPO_ROOT / "instance" / "content", content)
+    about = content / "about.de.md"
+    about.write_text(about.read_text(encoding="utf-8") + "\n[TODO: Motivation]\n", "utf-8")
+    assert build.content_todos(config, content) == [("about.de.md", "[TODO: Motivation]")]
 
 
 # --- acceptance #27: CNAME from base_url ---------------------------------------------------
@@ -250,7 +252,7 @@ def test_init_validates_and_aborts(tmp_path: Path) -> None:
 
 
 def test_every_page_has_the_date_bar_and_info_links_in_the_header(site: Path) -> None:
-    for rel in ("de/about", "de/impressum", "de/feedback", "de/changelog", "de/2026-11-14"):
+    for rel in ("de/about", "de/impressum", "de/feedback", "de/2026-11-14"):
         html = read(site, rel)
         header, _, rest = html.partition("</header>")
         assert header.count('class="d') >= 21, rel  # date bar with all days
