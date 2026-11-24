@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T22:58:58Z",
+  "updated_at": "2026-11-24T21:34:29Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -8,7 +8,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -19,7 +19,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -30,7 +30,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -41,7 +41,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -52,7 +52,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -63,7 +63,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -74,7 +74,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -85,7 +85,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -96,7 +96,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -107,7 +107,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -206,7 +206,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -217,7 +217,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -228,7 +228,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -239,7 +239,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -250,7 +250,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -269,43 +269,42 @@
     "https://veranstaltungen.pfaffen-winkel.de/schongau/": {
       "mode": "text",
       "reason": "",
-      "sha256": "5493a37846ef016eb2cc59b1e6f80ab11f90e9770420e9b5655c9f2c65a3771f",
+      "sha256": "7be59e8d0badbd12932326a5bbe17d4e577876eb0dc1d1ba3759e7dfc1acb6ed",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [
         {
           "ref": "e1",
           "parent_ref": null,
           "title": {
-            "de": "Weibsdeifi-Markt in Schongau (Samstag)",
-            "en": "Weibsdeifi Market in Schongau (Saturday)"
+            "de": "Weihnachtsfreude & Familienzauber – Kreativmarkt für Selbstgemachtes",
+            "en": "Weihnachtsfreude & Familienzauber – Creative Market for Handmade Gifts"
           },
           "description": {
-            "de": "Second-Hand- und Flohmarkt für Frauen in der Passage Münzstraße, samstags ab 10:00 Uhr.",
-            "en": "Second-hand and flea market for women in the Münzstraße passage, Saturdays from 10:00."
+            "de": "Kreativmarkt mit Selbstgemachtem in den Räumen der evangelischen Kirchengemeinde Schongau.",
+            "en": "Creative market with handmade items in the rooms of the Protestant parish in Schongau."
           },
           "venue": {
-            "name": "Weibsdeifi-Markt",
+            "name": "Evangelische Kirchengemeinde",
             "place": "Schongau",
-            "address": "Münzstr. 9 - Passage, 86952 Schongau"
+            "address": "Blumenstraße 5, 86956 Schongau"
           },
           "schedule": {
-            "start_date": "2026-11-28",
-            "end_date": "2026-12-05",
-            "start_time": "10:00",
-            "end_time": null,
+            "start_date": "2026-12-20",
+            "end_date": null,
+            "start_time": "14:30",
+            "end_time": "17:30",
             "all_day": false,
-            "dates": [
-              "2026-11-28",
-              "2026-12-05"
-            ],
+            "dates": null,
             "opening_hours": null
           },
           "primary_tag": "market-festival",
           "tags": [
-            "market-festival"
+            "market-festival",
+            "family-kids",
+            "religion"
           ],
           "status": "scheduled",
           "kind": "event",
@@ -316,53 +315,7 @@
               "primary": true
             },
             {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weibsdeifi-markt-in-schongau-e58dfa5d9c745ae67c0b3b072c10fe8bf.html",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e2",
-          "parent_ref": null,
-          "title": {
-            "de": "Schongauer Weihnachtszauber",
-            "en": "Schongau Christmas Magic"
-          },
-          "description": {
-            "de": "Weihnachtlicher Altstadtmarkt rund um Münzstraße, Marienplatz und Lindenplatz.",
-            "en": "Christmas event in the old town around Münzstraße, Marienplatz and Lindenplatz."
-          },
-          "venue": {
-            "name": "Altstadt",
-            "place": "Schongau",
-            "address": "Münzstraße / Marienplatz / Lindenplatz, 86956 Schongau"
-          },
-          "schedule": {
-            "start_date": "2026-12-04",
-            "end_date": "2026-12-05",
-            "start_time": "16:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": [
-              "2026-12-04",
-              "2026-12-05"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "market-festival",
-          "tags": [
-            "market-festival"
-          ],
-          "status": "scheduled",
-          "kind": "event",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
-              "primary": true
-            },
-            {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/schongauer-weihnachtszauber-e6fc4ba1bb04104eaf66362c4aac68fdb.html",
+              "url": "http://veranstaltungen.pfaffen-winkel.de/schongau/weihnachtsfreude-familienzauber-kreativmarkt-fuer-selbstgemachtes-e30e9010e87a97370059da0eae469303b.html",
               "primary": false
             }
           ]
@@ -410,6 +363,14 @@
           "kind": "event"
         },
         {
+          "id": "2026-12-04-schongauer-weihnachtszauber",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/schongau/",
+          "kind": "event"
+        },
+        {
           "id": "2026-12-06-stadtfuehrung-im-advent-schongau",
           "status": "scheduled",
           "start_date": null,
@@ -433,7 +394,7 @@
       "sha256": "f786985079017b86c7741d7b92ee94818a368a8733e5d496625a73ed6f09909e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -512,48 +473,15 @@
       ]
     },
     "https://lagerhauskino.pfaffenwinkel.net": {
-      "mode": "text",
-      "reason": "",
-      "sha256": "ca8b413469c58153b1e2b9070811a6fa6d869ba243c1b15c76cc91398404c505",
+      "mode": "agent",
+      "reason": "download failed: <urlopen error timed out>",
+      "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
-      "seen": [
-        {
-          "id": "2026-11-13-kino-sinn-und-sinnlichkeit-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://lagerhauskino.pfaffenwinkel.net",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-20-kino-chopin-eine-sonate-in-paris-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://lagerhauskino.pfaffenwinkel.net",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-26-kino-kommissar-jennerwein-hochsaison-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://lagerhauskino.pfaffenwinkel.net",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-27-kino-die-blutgraefin-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://lagerhauskino.pfaffenwinkel.net",
-          "kind": "event"
-        }
-      ]
+      "seen": []
     },
     "https://www.schongau-mammuts.de/hockey-round/bayernliga-2021-22/": {
       "mode": "text",
@@ -561,7 +489,7 @@
       "sha256": "25f1d84314cf4b4983de036a332509dd792702925a7b8746dbbabbc9c0ef3468",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -642,113 +570,20 @@
     "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982": {
       "mode": "text",
       "reason": "",
-      "sha256": "07db17da5005869b86c6af880533a90413d60ff3b5cbf4cf8c541d2ffc48ece7",
+      "sha256": "1d03b424ea06c7a13265b7e49aa86824c9dcb99ce8629e05076dd2b9f90cc286",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e1",
-          "parent_ref": null,
-          "title": {
-            "de": "Singkreis",
-            "en": "Singkreis (singing circle)"
-          },
-          "description": {
-            "de": "Wöchentliches Singen im Evangelischen Gemeindehaus Schongau.",
-            "en": "Weekly singing group at the Protestant parish hall in Schongau."
-          },
-          "venue": {
-            "name": "Evang. Gemeindehaus Schongau (Saal)",
-            "place": "Schongau",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-15",
-            "end_date": null,
-            "start_time": "18:30",
-            "end_time": null,
-            "all_day": false,
-            "dates": [
-              "2026-12-15"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "religion",
-          "tags": [
-            "religion",
-            "concert"
-          ],
-          "status": "scheduled",
-          "kind": "routine",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-              "primary": true
-            },
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8000205.html?popup=3",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e3",
-          "parent_ref": null,
-          "title": {
-            "de": "Jugendtreff",
-            "en": "Youth meeting"
-          },
-          "description": {
-            "de": "Jugendtreff der evangelischen Gemeinde im Gruppenraum der Christuskirche.",
-            "en": "Parish youth meeting in the group room of the Christuskirche."
-          },
-          "venue": {
-            "name": "Gruppenraum in der Christuskirche",
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-18",
-            "end_date": null,
-            "start_time": "18:30",
-            "end_time": "20:00",
-            "all_day": false,
-            "dates": [
-              "2026-12-18"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "religion",
-          "tags": [
-            "religion",
-            "family-kids"
-          ],
-          "status": "scheduled",
-          "kind": "routine",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-              "primary": true
-            },
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8117859.html?popup=3",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
+      "events": [],
       "seen": [
         {
-          "id": "2026-11-10-singkreis-schongau",
+          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "kind": "routine"
+          "kind": "event"
         },
         {
           "id": "2026-12-01-singkreis-schongau",
@@ -757,22 +592,6 @@
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "kind": "routine"
-        },
-        {
-          "id": "2026-12-08-singkreis-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "kind": "event"
         },
         {
           "id": "2026-12-01-kirchenkonzert-swing-im-advent-schongau",
@@ -796,7 +615,15 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
-          "kind": "routine"
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-05-cafe-kaffeekanne-kinderworkshop-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "event"
         },
         {
           "id": "2026-12-05-kirche-kunterbunt-cafe-kunterbunt-adventswerkstatt-schongau",
@@ -805,17 +632,41 @@
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
           "kind": "event"
+        },
+        {
+          "id": "2026-12-08-singkreis-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "routine"
+        },
+        {
+          "id": "2026-12-15-singkreis-schongau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "routine"
+        },
+        {
+          "id": "2026-12-18-jugendtreff-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/Veranstalter/index.php?vid=1982",
+          "kind": "routine"
         }
       ]
     },
     "https://www.vhs-pfaffenwinkel.de/kurse/kurssuche?tx_kuportal_search%5B__referrer%5D%5B%40extension%5D=KuPortal&tx_kuportal_search%5B__referrer%5D%5B%40controller%5D=Kurs&tx_kuportal_search%5B__referrer%5D%5B%40action%5D=filter&tx_kuportal_search%5B__referrer%5D%5Barguments%5D=YTowOnt9f476d3ea6f6e28bdae763596ff8896fba845b20f&tx_kuportal_search%5B__referrer%5D%5B%40request%5D=%7B%22%40extension%22%3A%22KuPortal%22%2C%22%40controller%22%3A%22Kurs%22%2C%22%40action%22%3A%22filter%22%7Df4f9f8536f95347e69cda9b48bcbaada588a277e&tx_kuportal_search%5B__trustedProperties%5D=%7B%22pKursFilter%22%3A%7B%22suchbegriff%22%3A1%2C%22kategorie%22%3A1%2C%22inst%22%3A1%7D%7Db7e3477fac52339cc24927ec07548ef377d79a25&tx_kuportal_search%5BpKursFilter%5D%5Bsuchbegriff%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Binst%5D=4#kw-kursuebersicht": {
       "mode": "text",
       "reason": "",
-      "sha256": "fafd5d2f64c0543747630928b1ca9cdb1cf192feefd3b393ec8db668902295cb",
+      "sha256": "6df9a0fed0b924bec62fcdf336bba4432c6b2992ae457d7274cc6edcb3d737cd",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
@@ -825,7 +676,7 @@
       "sha256": "4c1ffaed806d342a994a4cc91091508beef92d68b15ef1a97c4889a75cdfda01",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-19",
       "events": [],
       "seen": [
@@ -861,7 +712,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-14",
       "events": [],
       "seen": []
@@ -869,101 +720,52 @@
     "https://www.pg-schongau.com/": {
       "mode": "text",
       "reason": "",
-      "sha256": "50594d5e9838d907b2ef15518159ef011f879f4618094853c9bf247999a21106",
+      "sha256": "d217611548436a2a9501f403c974477675936af47be47471eb5060bb080bc16e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
-      "seen": [
-        {
-          "id": "2026-11-21-adventsbasar-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.pg-schongau.com/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-22-benefizkonzert-mozart-messe-b-dur-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.pg-schongau.com/",
-          "kind": "event"
-        }
-      ]
+      "seen": []
     },
     "https://www.schwarz-gelb-schongau.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "13203197d7027a27b808b98853a7db6c717fda8bde529b56f409aa55413f22c4",
+      "sha256": "494741e19fd1a4febadace756fff6a5d02d366371fe1a3eaeac53b8e2b31cbcb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
-      "seen": [
-        {
-          "id": "2026-11-24-kegeln-zugspitzpokal-gegen-seeshaupt-frauen-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-28-kegeln-maenner-4-vs-eberfing-g1-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-11-28-kegeln-maenner-3-vs-oberdiessen-2-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-11-28-kegeln-frauen-1-vs-spg-seeshaupt-weilheim-g4-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-12-12-kegeln-maenner-2-gegen-grossweil-g1-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "routine"
-        },
-        {
-          "id": "2026-12-12-kegeln-maenner-1-gegen-penzberg-g1-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.schwarz-gelb-schongau.de",
-          "kind": "event"
-        }
-      ]
+      "seen": []
     },
     "https://www.schongau-mammuts.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "ed8b197c27ed14538d07d345d06402b53e18b39201cceba35d07c8599279ac85",
+      "sha256": "e639b1ed8c3a16e1af9c168b8e67dfb0edd7a6fbc835b6f6a0eb5b8bae5afdee",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
-      "seen": []
+      "seen": [
+        {
+          "id": "2026-11-27-ea-schongau-esc-dorfen",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/",
+          "kind": "event"
+        },
+        {
+          "id": "2026-11-29-ea-schongau-esv-burgau",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.schongau-mammuts.de/",
+          "kind": "event"
+        }
+      ]
     },
     "https://www.schongau-evangelisch.de/": {
       "mode": "text",
@@ -971,7 +773,7 @@
       "sha256": "d15a33805010aafea90a01a811880e31b3c4b00ea3167b1e1b16e735ae3ca640",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -1031,7 +833,7 @@
       "sha256": "d0214d6629e4a8aad3671ff2dec498849dc025070b2bb0b36a5b804f2041bae5",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1071,7 +873,7 @@
       "sha256": "f38c52c734482b1b0fbb819b30798caf99bb7c71e6513febb7348949891cd25d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -1215,7 +1017,7 @@
       "sha256": "d7ac07bfb0122dce7efa5b74b5e164d2ed6b383d39264cb4c67da1ae15205619",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1241,7 +1043,7 @@
       "sha256": "75e46cd33a9c292f2cf7516c8ce61b7d702bde3e5c58e5c6a39b5a6c8a12b6cb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1267,7 +1069,7 @@
       "sha256": "c50cbadb9189003f099d858291f89ee6f8ee72b39abeaa0f51d03db24fc58576",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1304,7 +1106,7 @@
       "sha256": "f33bd92827b0917e93a5c7f4aa845bf17948ca5b06d0bd9cee8bb5b914548982",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1323,7 +1125,7 @@
       "sha256": "8318aa3e052387ac89208299237919b71c2ab513b6aeacfd54c0e1e4d562fcc6",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1360,7 +1162,7 @@
       "sha256": "5e211983b22246b592cfc2d54baf5409555731f97cc935e4b79c28ad9a1792fe",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -1545,18 +1347,18 @@
     "https://www.bayregio-wm.de/veranstaltungen/": {
       "mode": "text",
       "reason": "",
-      "sha256": "c04ac8cc7c5ddfbf1d0ce19d95ce8f96122faa5290acf6c534f1adaf8e9e90f8",
+      "sha256": "36e3d8a970822e5b4b27600ee4d8d5c0e5bb332666d4259d6974dbc66ab3e36a",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": [
         {
           "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
           "status": "scheduled",
           "start_date": null,
-          "start_time": null,
+          "start_time": "11:00",
           "source_url": "https://www.bayregio-wm.de/veranstaltungen/",
           "kind": "event"
         }
@@ -1568,7 +1370,7 @@
       "sha256": "49eb37c3966e68fad8789513905c88209067e6c67f3cd3e69c26605ad0b3e3bf",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1587,7 +1389,7 @@
       "sha256": "71c2b785db65e1d4d0f2329102f15d3e9b3f96f19484b5c0915cf398a1c0e2dc",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1617,7 +1419,7 @@
       "sha256": "613cf91b5f0a87f14dfd4e4c11233d75a496a802da09a25634b8aae6c6713884",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1647,7 +1449,7 @@
       "sha256": "dc766e27263d2deb0154c56d5994902029ccfd8418f919a5ec58917a62358342",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1740,11 +1542,11 @@
     "https://meine-flohmarkt-termine.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "bc346b571d6bb3730e476c57479add8c3372ba732e0fbb96473f4532634d36ac",
+      "sha256": "c756a665654fd839f5fde0606deeaf987d60458cf8856c3bf44c3d5640796616",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
@@ -1754,7 +1556,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -1809,7 +1611,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -1872,56 +1674,12 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/": {
       "mode": "text",
       "reason": "",
-      "sha256": "c64933c1e0d93d7fe51f98a06c766faf979b53649456591bd2353acb18c040ed",
+      "sha256": "9dcbfd83cdb8db08456ce3f40817d45b781fd148fcb37a0baddf0e2a10553450",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e3",
-          "parent_ref": null,
-          "title": {
-            "de": "MS-Selbsthilfegruppentreff",
-            "en": "MS Self-Help Group Meeting"
-          },
-          "description": {
-            "de": "Treffen der MS-Selbsthilfegruppe Peiting/Schongau im Begegnungscafe.",
-            "en": "Meeting of the MS self-help group Peiting/Schongau at the Begegnungscafe."
-          },
-          "venue": {
-            "name": "Begegnungscafe",
-            "place": "Peiting",
-            "address": "Postststrasse 6, 86971 Peiting"
-          },
-          "schedule": {
-            "start_date": "2026-11-25",
-            "end_date": null,
-            "start_time": "18:30",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "talk-workshop",
-          "tags": [
-            "talk-workshop"
-          ],
-          "status": "scheduled",
-          "kind": "routine",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-              "primary": true
-            },
-            {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/ms-selbsthilfegruppentreff-eb250b509792fa13808c21bc518b44cc4.html",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
+      "events": [],
       "seen": [
         {
           "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
@@ -1937,15 +1695,7 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-09-museum-im-kloesterle-ein-ausflug-in-die-peiting",
-          "status": "scheduled",
-          "start_date": "2026-11-25",
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "kind": "event"
+          "kind": "routine"
         },
         {
           "id": "2026-11-26-handarbeiten-im-cafe-anderl-peiting",
@@ -1953,7 +1703,7 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "kind": "event"
+          "kind": "routine"
         },
         {
           "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
@@ -2019,7 +1769,7 @@
       "sha256": "e39b28390d5a2e421c12cd35c2a748866a9a695e5b1ba330dee9dc115a7dfe85",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -2087,7 +1837,7 @@
       "sha256": "75b9c18f8c36b5ff540d3db62486d483334ae92dee32802031a46dbfdd92fe16",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2215,7 +1965,7 @@
       "sha256": "f953208ad82bf0230c64548d3a63c014bd24c42460e95c037b97c78ad28c9718",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -2264,22 +2014,22 @@
     "https://www.vhs-pfaffenwinkel.de/vhs-peiting": {
       "mode": "text",
       "reason": "",
-      "sha256": "107597dc91e75c5b4085d30205d3c42117a49737cf46a3336fbb01f02d1668df",
+      "sha256": "9d538e8efd2a1b8ef3dba00cbd674dac364929923996ff9e98922c47bd53ae1a",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [
         {
-          "ref": "e8",
+          "ref": "e1",
           "parent_ref": null,
           "title": {
-            "de": "Qi Gong der Vier Jahreszeiten - Winter (18:20)",
-            "en": "Qi Gong of the Four Seasons - Winter (18:20)"
+            "de": "Grillen: Weihnachts-Special",
+            "en": "Grilling: Christmas Special"
           },
           "description": {
-            "de": "vhs-Kurs Qi Gong zur Winterzeit in Peiting.",
-            "en": "vhs Qi Gong course for the winter season in Peiting."
+            "de": "vhs-Kochkurs in Peiting rund um weihnachtliche Grillgerichte. Anmeldung erforderlich.",
+            "en": "Adult-education cooking course in Peiting on festive barbecue dishes. Booking required."
           },
           "venue": {
             "name": null,
@@ -2287,56 +2037,14 @@
             "address": null
           },
           "schedule": {
-            "start_date": "2026-11-23",
-            "end_date": null,
-            "start_time": "18:20",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "talk-workshop",
-          "tags": [
-            "talk-workshop",
-            "sports"
-          ],
-          "status": "scheduled",
-          "kind": "course",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
-              "primary": true
-            },
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb301-302/f/1",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e9",
-          "parent_ref": null,
-          "title": {
-            "de": "Sushi",
-            "en": "Sushi"
-          },
-          "description": {
-            "de": "vhs-Kochkurs zum Sushi-Machen in Peiting.",
-            "en": "vhs cooking course on making sushi in Peiting."
-          },
-          "venue": {
-            "name": null,
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-03",
+            "start_date": "2026-12-11",
             "end_date": null,
             "start_time": "18:00",
             "end_time": null,
             "all_day": false,
-            "dates": null,
+            "dates": [
+              "2026-12-11"
+            ],
             "opening_hours": null
           },
           "primary_tag": "food-drink",
@@ -2353,51 +2061,7 @@
               "primary": true
             },
             {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-212/f/1",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e10",
-          "parent_ref": null,
-          "title": {
-            "de": "Goldschmiede - Crashkurs",
-            "en": "Goldsmithing - Crash Course"
-          },
-          "description": {
-            "de": "vhs-Crashkurs Goldschmieden in Peiting.",
-            "en": "vhs goldsmithing crash course in Peiting."
-          },
-          "venue": {
-            "name": null,
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-04",
-            "end_date": null,
-            "start_time": "14:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "talk-workshop",
-          "tags": [
-            "talk-workshop",
-            "art-culture"
-          ],
-          "status": "scheduled",
-          "kind": "course",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
-              "primary": true
-            },
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb210-200/f/1",
+              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-313/f/1",
               "primary": false
             }
           ]
@@ -2405,7 +2069,7 @@
       ],
       "seen": [
         {
-          "id": "2026-11-23-qi-gong-der-vier-jahreszeiten-winter-18-20-peiting",
+          "id": "2026-11-25-alle-lieben-knoedel-kochkurs-25-11-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -2413,7 +2077,15 @@
           "kind": "course"
         },
         {
-          "id": "2026-11-25-alle-lieben-knoedel-kochkurs-25-11-peiting",
+          "id": "2026-12-03-sushi-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "kind": "course"
+        },
+        {
+          "id": "2026-12-04-goldschmiede-crashkurs-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -2428,7 +2100,7 @@
       "sha256": "f4e5f7c19c763e94d87f59e74a34d62113b399a978959065b7fc2da187dddbfb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -2670,7 +2342,7 @@
       "sha256": "bd9a64230a6d3b75c7963b7d5c5a3f1d6f395e78988763553d13a31df3953cda",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2767,7 +2439,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2775,58 +2447,21 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12": {
       "mode": "text",
       "reason": "",
-      "sha256": "7818fe35d167b33b42596e98b4d1ec8a076ac7e3992d574a75a55f7f493c8cdb",
+      "sha256": "6efc4ade65a3f00a9a9e7c8c4aa7b6739e31e2e3d2acdaef0e0a81aa9d91b40d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e4",
-          "parent_ref": null,
-          "title": {
-            "de": "Allgemeiner Lauf in der Peitinger Eishalle",
-            "en": "Public Skating in the Peiting Ice Rink"
-          },
-          "description": {
-            "de": "Öffentlicher Eislauf in der Eissporthalle Peiting.",
-            "en": "Public ice skating session at the Peiting ice rink."
-          },
-          "venue": {
-            "name": "Eissporthalle Peiting",
-            "place": "Peiting",
-            "address": "Alfons-Peter-Str. 4, 86971 Peiting"
-          },
-          "schedule": {
-            "start_date": "2026-11-29",
-            "end_date": null,
-            "start_time": "15:30",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "sports",
-          "tags": [
-            "sports",
-            "family-kids"
-          ],
-          "status": "scheduled",
-          "kind": "routine",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
-              "primary": true
-            },
-            {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/allgemeiner-lauf-in-der-peitinger-eishalle-eb814cb2a268c622d42ba5b28ee5d2e5c.html",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
+      "events": [],
       "seen": [
+        {
+          "id": "2026-11-29-allgemeiner-lauf-in-der-peitinger-eishalle",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
+          "kind": "routine"
+        },
         {
           "id": "2026-12-02-kinder-kino-weihnachten-im-zaubereulenwald-peiting",
           "status": "scheduled",
@@ -2837,6 +2472,14 @@
         },
         {
           "id": "2026-12-04-peitinger-bauernmarkt-nikolausmarkt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-09-museum-im-kloesterle-ein-ausflug-in-die-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -2864,11 +2507,11 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24": {
       "mode": "text",
       "reason": "",
-      "sha256": "b7c246b02c96b13e65908934f5fad89a018e77548ea18794f8cd633f1c6fdd22",
+      "sha256": "17fceb102737d4f28bc2a02ba8995d3920b0ec2dcfdc4ddd95f258464d7a21c7",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": [
         {
@@ -2899,7 +2542,7 @@
           "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
           "status": "scheduled",
           "start_date": null,
-          "start_time": null,
+          "start_time": "17:00",
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
           "kind": "event"
         },
@@ -3004,79 +2647,34 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36": {
       "mode": "text",
       "reason": "",
-      "sha256": "ee52e2ff437bb91c7a72a2798e9d6982796d710b225f436d952f6cb22e6d28f3",
+      "sha256": "ccf4d14b5370e18e95e12103525772c354fa2d49c362fd00df74e60d252029e4",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=48": {
       "mode": "text",
       "reason": "",
-      "sha256": "1764e537a46eb24e787ec145ab5f2bdc27636f321c03763f3dae8a0f0a898c14",
+      "sha256": "eb44db13caab6607f5de01daa4aa24de12d2c40fd174b438da1784d318bf38b5",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
     "https://www.evangelische-termine.de/veranstaltungen?vid=1940": {
       "mode": "text",
       "reason": "",
-      "sha256": "0c7c387d0bd82707e26bded9d763dd35a7c4e3a598ce3cb06147a37608035865",
+      "sha256": "013af4a92699b226f59d9d821fbf131b149942c08d3a6aaea30d40d730f729f0",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e1",
-          "parent_ref": null,
-          "title": {
-            "de": "Adventskonzert mit der Chorinitiative",
-            "en": "Advent concert with the Chorinitiative"
-          },
-          "description": {
-            "de": "Adventskonzert der Chorinitiative in der Christuskirche Peiting.",
-            "en": "Advent concert by the Chorinitiative in the Christuskirche in Peiting."
-          },
-          "venue": {
-            "name": "Christuskirche Peiting",
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-12",
-            "end_date": null,
-            "start_time": "20:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "concert",
-          "tags": [
-            "concert",
-            "religion"
-          ],
-          "status": "scheduled",
-          "kind": "event",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-              "primary": true
-            },
-            {
-              "url": "https://www.evangelische-termine.de/veranstaltung_im_detail8321929.html?popup=3",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
+      "events": [],
       "seen": [
         {
           "id": "2026-11-25-oekumenisches-bibelgespraech-peiting",
@@ -3087,23 +2685,7 @@
           "kind": "routine"
         },
         {
-          "id": "2026-11-26-gemeindenachmittag-woher-kommt-unser-trinkwasser-schongau",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "event"
-        },
-        {
           "id": "2026-12-01-seniorentreff-ein-wuerdevoller-abschied-peiting",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-05-cafe-kaffeekanne-kinderworkshop-peiting",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -3117,6 +2699,14 @@
           "start_time": null,
           "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
           "kind": "routine"
+        },
+        {
+          "id": "2026-12-12-adventskonzert-mit-der-chorinitiative-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.evangelische-termine.de/veranstaltungen?vid=1940",
+          "kind": "event"
         }
       ]
     },
@@ -3181,7 +2771,7 @@
       "sha256": "eac6decb00de7b925df7689aca7b0813c33688c531c5d0be353de0d11da956db",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -3198,11 +2788,11 @@
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "3fe40802ea3d1f40eb7fae4dbebb0d9d96589f23aff6b716cea037c6d1bf25bd",
+      "sha256": "c3134233a1ddf3c6133217166ef92dc7e463e57a70edc90d9e647b357947c585",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
@@ -3220,11 +2810,11 @@
     "https://feuerwehr-peiting.de/termine/": {
       "mode": "text",
       "reason": "",
-      "sha256": "396c59cb7a34a770d7d9f4cdd0a116f2bdbd497d60c33e83e54574294c805f32",
+      "sha256": "85024a857e2c4d5f5f5d499b780c1b4012fc6d3407dcae1d75c1f6a899e1d0e8",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": [
         {
@@ -3254,7 +2844,7 @@
       "sha256": "7a70d56b06e87eefb31cc99fcb66a4615c5171608f1dcb9ec26d64bcdacc5c57",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -3326,7 +2916,7 @@
       "sha256": "3761800d26965afb9591280ef7c5c3a370163c5b63d8ee4625d1dd37523705af",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-23",
+      "last_seen": "2026-11-24",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -3692,99 +3282,12 @@
     "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/": {
       "mode": "text",
       "reason": "",
-      "sha256": "dff854a6bd8f4fd88a50d9e32abebe8f0b44c04c24a705593e0a404274a97d98",
+      "sha256": "c4d46ccac4c7c6188376cbdf29949ce5cd16002fe33498314ec8f24b19cfc4ce",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
-      "events": [
-        {
-          "ref": "e6",
-          "parent_ref": null,
-          "title": {
-            "de": "Heimspiel EC Peiting – Selber Wölfe",
-            "en": "EC Peiting home game – Selber Wölfe"
-          },
-          "description": {
-            "de": "Oberliga-Süd-Heimspiel des EC Peiting gegen die Selber Wölfe.",
-            "en": "Oberliga Süd home game of EC Peiting against Selber Wölfe."
-          },
-          "venue": {
-            "name": "Eissporthalle Peiting",
-            "place": "Peiting",
-            "address": "Alfons-Peter-Str. 4, 86971 Peiting"
-          },
-          "schedule": {
-            "start_date": "2026-12-20",
-            "end_date": null,
-            "start_time": "18:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "sports",
-          "tags": [
-            "sports"
-          ],
-          "status": "scheduled",
-          "kind": "event",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-              "primary": true
-            },
-            {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/heimspiel-ec-peiting-selber-woelfe-eb6767eb60564d76de55bd9120b2b1362.html",
-              "primary": false
-            }
-          ]
-        },
-        {
-          "ref": "e7",
-          "parent_ref": null,
-          "title": {
-            "de": "MS-Selbsthilfegruppentreff",
-            "en": "MS Self-Help Group Meeting"
-          },
-          "description": {
-            "de": "Treffen der MS-Selbsthilfegruppe Peiting/Schongau im Begegnungscafé.",
-            "en": "Meeting of the MS self-help group Peiting/Schongau at the Begegnungscafé."
-          },
-          "venue": {
-            "name": "Begegnungscafe",
-            "place": "Peiting",
-            "address": "Postststrasse 6, 86971 Peiting"
-          },
-          "schedule": {
-            "start_date": "2026-11-25",
-            "end_date": null,
-            "start_time": "18:30",
-            "end_time": null,
-            "all_day": false,
-            "dates": null,
-            "opening_hours": null
-          },
-          "primary_tag": "talk-workshop",
-          "tags": [
-            "talk-workshop"
-          ],
-          "status": "scheduled",
-          "kind": "routine",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-              "primary": true
-            },
-            {
-              "url": "http://veranstaltungen.pfaffen-winkel.de/peiting/ms-selbsthilfegruppentreff-eb250b509792fa13808c21bc518b44cc4.html",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
+      "events": [],
       "seen": [
         {
           "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
@@ -3830,7 +3333,7 @@
           "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
           "status": "scheduled",
           "start_date": null,
-          "start_time": null,
+          "start_time": "17:00",
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
           "kind": "event"
         },
@@ -3857,17 +3360,25 @@
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
           "kind": "event"
+        },
+        {
+          "id": "2026-12-20-heimspiel-ec-peiting-selber-woelfe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
+          "kind": "event"
         }
       ]
     },
     "https://feuerwehr-peiting.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "dc9d2477486792fc5fd707a9bb43f2b44e05c4633a2b3fad0c5771281c54b6fc",
+      "sha256": "29501c6c0f50049de66b2824bae944fae8a22f669a2edfe1e17e4b686a58f116",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-23",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-24",
+      "last_changed": "2026-11-24",
       "events": [],
       "seen": []
     },
