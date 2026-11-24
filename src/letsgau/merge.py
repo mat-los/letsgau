@@ -99,9 +99,26 @@ def title_tokens(title: str, places: Iterable[str] = ()) -> list[str]:
     ]
 
 
+_BRACKETS = re.compile(r"\s*\([^()]*\)")
+"""A bracketed addition to a title: "Weihnachtsmarkt (Auftritt Blaskapelle Hohenfurch)"."""
+
+
 def title_similarity(a: str, b: str, places: Iterable[str] = ()) -> float:
-    """0..1; sequence ratio or word overlap, whichever is higher."""
+    """0..1; sequence ratio or word overlap, whichever is higher.
+
+    Bracketed additions ("(Auftritt Blaskapelle Hohenfurch)") are also scored without, but
+    that score is capped below :data:`CLEAR`: it may send a pair to the AI tie-break, never
+    merge it on its own, since a bracket can be what tells two events apart ("Führung
+    (Kinder)" and "Führung (Erwachsene)")."""
     places = list(places)
+    score = _title_score(a, b, places)
+    bare_a, bare_b = _BRACKETS.sub("", a).strip(), _BRACKETS.sub("", b).strip()
+    if (bare_a, bare_b) != (a.strip(), b.strip()) and bare_a and bare_b:
+        score = max(score, min(_title_score(bare_a, bare_b, places), CLEAR - 0.01))
+    return score
+
+
+def _title_score(a: str, b: str, places: list[str]) -> float:
     ta, tb = title_tokens(a, places), title_tokens(b, places)
     if not ta or not tb:
         ta, tb = title_tokens(a), title_tokens(b)

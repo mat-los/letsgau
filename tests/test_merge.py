@@ -105,6 +105,20 @@ def test_different_titles_score_low() -> None:
     assert title_similarity("Konzert Kinderchor", "Konzert Blaskapelle") < merge.CLEAR
 
 
+def test_bracketed_addition_sends_a_pair_to_the_ai() -> None:
+    a = "Weihnachtsmarkt Schongau (Auftritt Blaskapelle Hohenfurch)"
+    score = title_similarity(a, "Schongauer Weihnachtszauber", ["Schongau"])
+    assert merge.UNCLEAR <= score < merge.CLEAR
+
+
+def test_bracketed_addition_never_merges_without_the_ai() -> None:
+    # the bracket is what tells these apart: the AI decides, not the score
+    score = title_similarity("Stadtführung (Kinder)", "Stadtführung (Erwachsene)", ["Schongau"])
+    assert merge.UNCLEAR <= score < merge.CLEAR
+    # a title that is only a bracket is not stripped to nothing
+    assert title_similarity("(Kinder)", "Wochenmarkt") == title_similarity("Kinder", "Wochenmarkt")
+
+
 def test_candidate_score_needs_overlap_place_and_time() -> None:
     a = ev("Leonhardiritt", "2026-11-15", "Peiting", time="10:00")
     assert candidate_score(ev("Leonhardiritt", "2026-11-15", "Peiting", time="10:30"), a) == 1.0
@@ -191,6 +205,26 @@ def test_unclear_pair_is_decided_by_the_ai() -> None:
     separate, report = run(stored, crawled, DAY2, says(False))
     assert len(separate.events) == 2
     assert report.added == [crawled[0].id]
+
+
+def test_performance_at_a_market_series_goes_to_the_ai() -> None:
+    market = ev("Schongauer Weihnachtszauber", "2026-12-13", end="2026-12-20", time="14:00")
+    act = ev(
+        "Weihnachtsmarkt Schongau (Auftritt Blaskapelle Hohenfurch)",
+        "2026-12-13",
+        url="https://other.example/x",
+    )
+    seen: list[Sequence[Pair]] = []
+
+    def decide(pairs: Sequence[Pair], new: Sequence[Event], _classify: Any = ()) -> Decisions:
+        seen.append(pairs)
+        return Decisions(same={p.number for p in pairs})
+
+    merged, _ = run(None, [market, act], DAY1, decide)
+    assert len(seen[0]) == 1
+    assert merge.UNCLEAR <= seen[0][0].score < merge.CLEAR
+    assert [e.title.de for e in merged.events] == ["Schongauer Weihnachtszauber"]
+    assert len(merged.events[0].sources) == 2
 
 
 def test_same_slot_pair_goes_to_the_ai_even_with_other_words() -> None:

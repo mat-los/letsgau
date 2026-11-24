@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   ("25 Jahre Plantsch – Geburtstagsfeier" 09:00, "– Jubiläumsfeier" 11:00) count as the same
   event (merge prompt), and a main event's only, nearly identically named item is folded
   into it.
+- Merge: a title is also compared without its bracketed addition ("Weihnachtsmarkt Schongau
+  (Auftritt Blaskapelle Hohenfurch)" vs. "Schongauer Weihnachtszauber"). That score is capped
+  below the automatic-merge threshold, so such pairs go to the AI tie-break and are never
+  merged on it alone.
 
 ### Changed
 
