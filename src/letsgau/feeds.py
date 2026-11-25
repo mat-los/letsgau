@@ -48,14 +48,12 @@ def event_ld(
     url: str,
     tz: ZoneInfo,
     country: str = "DE",
-    image: str | None = None,
 ) -> dict[str, Any]:
     """One schema.org ``Event``.
 
-    Only fields backed by data: ``performer``, ``offers`` and ``organizer`` are not
-    collected, so they stay out (Google lists them as optional). Without a known end,
-    ``endDate`` is the start day (date only): the event ends on its day. ``image`` is the
-    site's share image, since events have no image of their own.
+    Only fields backed by data: ``image``, ``performer``, ``offers`` and ``organizer`` are
+    not collected, so they stay out (Google lists them as optional). Without a known end,
+    ``endDate`` is the start day (date only): the event ends on its day.
     """
     s = event.schedule
     address: dict[str, Any] = {
@@ -83,26 +81,22 @@ def event_ld(
     }
     end_day = s.end_date or (s.start_date if s.end_time else None)
     data["endDate"] = _iso(end_day, s.end_time, tz) if end_day else s.start_date.isoformat()
-    if image:
-        data["image"] = [image]
     primary = next(src.url for src in event.sources if src.primary)
     data["sameAs"] = primary
     return data
 
 
-def json_ld(
-    rows: Iterable[Any], lang: str, page_url: str, tz: ZoneInfo, image: str | None = None
-) -> dict[str, Any]:
+def json_ld(rows: Iterable[Any], lang: str, page_url: str, tz: ZoneInfo) -> dict[str, Any]:
     """One ``@graph`` with every event of a day page; program items as ``subEvent``."""
     graph: list[dict[str, Any]] = []
     for row in rows:
         if row.standalone_copy_of is not None:
             continue
-        item = event_ld(row.event, lang, f"{page_url}#{row.event.id}", tz, image=image)
+        item = event_ld(row.event, lang, f"{page_url}#{row.event.id}", tz)
         if row.children:
             item["subEvent"] = [
                 {
-                    **event_ld(c, lang, f"{page_url}#{c.id}", tz, image=image),
+                    **event_ld(c, lang, f"{page_url}#{c.id}", tz),
                     "superEvent": {"@id": item["@id"]},
                 }
                 for c in row.children
