@@ -441,6 +441,9 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
             lang,
             ctx["base_url"] + page_path(lang, day),
             ZoneInfo(site.config.site.timezone),
+            image=site.config.site.base_url.rstrip("/") + "/share.png"
+            if site.config.site.share_image
+            else None,
         ),
     )
     return env.get_template("day.html").render(**ctx)
