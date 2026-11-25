@@ -57,6 +57,8 @@ def test_json_ld_has_one_event_per_main_event(site: Path) -> None:
         assert item["location"]["address"]["addressLocality"]
         assert item["eventStatus"].startswith("https://schema.org/Event")
         assert item["url"].startswith("https://letsgau.de/de/2026-11-14/#")
+        assert item["endDate"][:10] >= item["startDate"][:10]
+        assert "image" not in item  # events have no image of their own
 
 
 def test_json_ld_status_times_and_program(site: Path) -> None:

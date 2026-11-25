@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- JSON-LD events always carry `endDate` (the start day when no end is known), for Google
+  Search Console's Events report. `image`, `performer`, `offers` and `organizer` stay out
+  because the data has no such fields.
 - Bundled instance: self-help and support groups (Selbsthilfegruppe, Anonyme Alkoholiker,
   grief groups) are excluded by title patterns and an `excluded_topics` entry. The worship
   rule no longer removes events that only include a short devotion as one programme item
