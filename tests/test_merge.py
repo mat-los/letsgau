@@ -70,10 +70,7 @@ def run(
         stored,
         crawled,
         today=today,
-        covered_places=COVERED,
         municipality_of=MUNICIPALITY,
-        deep_check_days=7,
-        unconfirmed_after=2,
         decide=decide,
         report=report,
     )
@@ -323,35 +320,22 @@ def test_postponement_links_old_to_new_date() -> None:
     assert report.postponed == [old.id]
 
 
-def test_vanished_event_becomes_unconfirmed_and_recovers() -> None:
+def test_vanished_event_keeps_its_status() -> None:
+    # a missing hit in an AI search is no evidence that the event was dropped
     vanishing = ev("Malabend im Café", "2026-11-14", "Altenstadt", time="19:00")
-    later = ev("Wintermarkt", "2026-12-01", "Altenstadt")  # outside the deep-check window
-    elsewhere = ev("Konzert", "2026-11-13", "Burggen")  # municipality not crawled
-    stored, _ = run(None, [vanishing, later, elsewhere], DAY1)
-
-    after1, r1 = run(stored, [], DAY1 + timedelta(days=1))
-    e = {x.id: x for x in after1.events}
-    assert e[vanishing.id].misses == 1 and e[vanishing.id].status is EventStatus.SCHEDULED
-    assert e[later.id].misses == 0
-    assert e[elsewhere.id].misses == 0
-    assert r1.missed == [vanishing.id]
-
-    after2, r2 = run(after1, [], DAY1 + timedelta(days=2))
-    e = {x.id: x for x in after2.events}
-    assert e[vanishing.id].misses == 2
-    assert e[vanishing.id].status is EventStatus.UNCONFIRMED
-    assert r2.unconfirmed == [vanishing.id]
-
-    found = ev("Malabend im Café", "2026-11-14", "Altenstadt", time="19:00", seen=DAY2)
-    after3, _ = run(after2, [found], DAY2)
-    e = {x.id: x for x in after3.events}
-    assert e[vanishing.id].status is EventStatus.SCHEDULED and e[vanishing.id].misses == 0
+    stored, _ = run(None, [vanishing], DAY1)
+    after, _ = run(stored, [], DAY1 + timedelta(days=1))
+    after, _ = run(after, [], DAY1 + timedelta(days=2))
+    assert [(e.id, e.status) for e in after.events] == [(vanishing.id, EventStatus.SCHEDULED)]
 
 
-def test_cancelled_events_are_not_counted_as_missed() -> None:
-    stored, _ = run(None, [ev("Leonhardiritt", "2026-11-15", "Peiting", status="cancelled")], DAY1)
-    after, report = run(stored, [], DAY2)
-    assert after.events[0].misses == 0 and report.missed == []
+def test_legacy_unconfirmed_and_misses_are_migrated() -> None:
+    data = ev("Malabend im Café", "2026-11-14", "Altenstadt").model_dump(mode="json")
+    event = Event.model_validate({**data, "status": "unconfirmed", "misses": 3})
+    assert event.status is EventStatus.SCHEDULED
+    assert "misses" not in event.model_dump()
+    cancelled = Event.model_validate({**data, "status": "cancelled", "misses": 0})
+    assert cancelled.status is EventStatus.CANCELLED
 
 
 def test_program_items_point_to_the_stored_parent() -> None:
@@ -818,18 +802,12 @@ def test_acts_of_one_occasion_become_programme_items() -> None:
     assert report.grouped == [(main.id, [a.id for a in acts])]
 
     # next run: the crawl finds one act again; it stays an item, and the main event (which
-    # has no source page of its own) is confirmed instead of missed
+    # has no source page of its own) stays
     again = acts[1].model_copy(update={"parent_id": None})
-    later = apply(
-        result,
-        [again],
-        today=DAY1,
-        covered_places=["Schongau"],
-        deep_check_days=60,
-    )
+    later = apply(result, [again], today=DAY1)
     by_id = {e.id: e for e in later.events}
     assert by_id[acts[1].id].parent_id == main.id
-    assert by_id[main.id].misses == 0
+    assert by_id[main.id].status is EventStatus.SCHEDULED
 
 
 def test_occasion_groups_and_answers_are_checked() -> None:

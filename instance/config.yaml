@@ -55,7 +55,6 @@ depth:                                  # thoroughness: more AI calls, more comp
   open_search: "alternate"              # open search in sweep mode: every_run | alternate (every other run) | off
 
 events:
-  unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"
   description_max_chars: 200            # max length of an event description
 
 sources:

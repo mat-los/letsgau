@@ -207,14 +207,12 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .tag { color: color-mix(in oklab, var(--c, var(--muted)) 72%, var(--fg));
   background: color-mix(in srgb, var(--c, var(--muted)) 12%, var(--card)); }
 .badge.cancelled { background: var(--red); color: #fff; }
-.badge.unconfirmed { border: 1px dashed var(--muted); background: transparent; }
 @media (prefers-color-scheme: dark) { .badge.cancelled { color: #111; } }
 .prog { background: transparent; border: 1px solid var(--line); }
 /* how long a multi-day event runs ("bis 6.12."), separate from the time column */
 .span { background: transparent; border: 1px solid var(--line); }
 .span::before { content: "→ "; }
 .st-cancelled { opacity: .85; } .st-cancelled .title { text-decoration: line-through; }
-.st-unconfirmed .title, .st-unconfirmed .time { color: var(--muted); font-weight: 500; }
 .ev[open] { box-shadow: 0 4px 18px rgba(30, 30, 27, .1); }
 .ev[open] > summary .title { color: var(--accent); }
 .ev .body { margin: 0 12px; padding: 10px 0 12px; border-top: 1px dashed var(--line); font-size: .93rem; }

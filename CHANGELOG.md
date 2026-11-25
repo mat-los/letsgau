@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Removed the event status `unconfirmed` ("Nicht mehr bestätigt") and the `misses`
+  counter: a missing hit in the AI search is no evidence that an event was dropped, and
+  the badge mostly showed false alarms (Instagram events, long-running events and series).
+  The config option `events.unconfirmed_after_misses` is gone. Migration: stored events
+  load with `unconfirmed` read as `scheduled` and without `misses`; the next events run
+  writes `data/events.json` without both.
 - JSON-LD events always carry `endDate` (the start day when no end is known), for Google
   Search Console's Events report. `image`, `performer`, `offers` and `organizer` stay out
   because the data has no such fields.

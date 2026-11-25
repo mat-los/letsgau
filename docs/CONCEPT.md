@@ -159,7 +159,6 @@ limits:
   max_runtime_minutes: 45
 
 events:
-  unconfirmed_after_misses: 2           # runs without a hit before "unconfirmed"
   description_max_chars: 200
 
 sources:
@@ -229,7 +228,7 @@ Vier JSON-Dateien in `data/` bilden den gesamten Zustand; jedes Event wird genau
   "status": "scheduled",
   "postponed_to": null,
   "sources": [ { "url": "https://...", "primary": true, "first_seen": "2026-11-09", "last_seen": "2026-11-12" } ],
-  "first_seen": "2026-11-09", "last_verified": "2026-11-12", "misses": 0
+  "first_seen": "2026-11-09", "last_verified": "2026-11-12"
 }
 ```
 
@@ -245,9 +244,8 @@ Das Beispiel ist erfunden und zeigt nur die Form.
 | `schedule.opening_hours` | optional, je Wochentag; die Website zeigt die heutigen Zeiten |
 | `primary_tag` | genau einer, bestimmt die Gruppierung nach Kategorie |
 | `tags` | 1 bis 3 aus der festen Liste, enthält `primary_tag` |
-| `status` | `scheduled`, `postponed`, `cancelled` oder `unconfirmed` |
+| `status` | `scheduled`, `postponed` oder `cancelled` |
 | `sources` | alle Fundstellen; genau eine ist `primary`, bevorzugt die Seite des Veranstalters |
-| `misses` | Läufe in Folge, in denen das Event in der Prüfwoche nicht mehr gefunden wurde |
 
 **Status-Lebenszyklus**
 
@@ -256,12 +254,9 @@ stateDiagram-v2
   [*] --> scheduled: newly found
   scheduled --> cancelled: cancellation notice found
   scheduled --> postponed: new date found
-  scheduled --> unconfirmed: misses reach threshold
-  unconfirmed --> scheduled: found again
   postponed --> [*]: old date passed
   cancelled --> [*]: date passed
   scheduled --> [*]: date passed
-  unconfirmed --> [*]: date passed
 ```
 
 Ein abgesagtes Event wird nicht gelöscht, sondern bleibt bis zum Termin sichtbar. Bei einer Verschiebung entsteht ein neues Event am neuen Datum, und `postponed_to` zeigt darauf.
@@ -324,7 +319,7 @@ Regeln im Prompt:
 
 1. Deterministischer Abgleich: Datum überschneidet sich, gleicher Ort, ähnlicher normalisierter Titel. Eindeutige Treffer werden zusammengeführt und Quellen angehängt.
 2. Unklare Paare entscheidet Haiku mit Ja oder Nein.
-3. Status setzen: Absage oder Verschiebung aus dem Crawl übernehmen; in der Prüfwoche nicht gefundene Events erhöhen `misses`, ab dem Grenzwert `unconfirmed`.
+3. Status setzen: Absage oder Verschiebung aus dem Crawl übernehmen. Ein Event, das nicht wiedergefunden wird, bleibt unverändert: Die KI-Suche findet nicht bei jedem Lauf alles, ein fehlender Treffer ist also kein Hinweis auf einen Ausfall.
 4. Events mit Ende vor gestern löschen.
 
 **6. Build und Deploy**
@@ -401,7 +396,7 @@ Die Einträge im Wireframe sind Platzhalter.
 - Eine Zeile: Uhrzeit, Titel, Ort, kleine Tag-Symbole. Antippen klappt auf: Beschreibung, Adresse, Hauptquelle als Link plus "+2 weitere Quellen".
 - Mehrtägiges, das an jedem Tag stattfindet (Weihnachtsmarkt, Ausstellung, Festwochenende), zeigt "noch bis 23.12." und die heutigen Öffnungszeiten, falls bekannt. Eine Reihe mit Lücken (Wochenmarkt, Kurs, Kinovorstellungen) zeigt kein Enddatum, sondern die nächsten Termine ("Weitere Termine: Fr 20.11., Fr 27.11.").
 - Hauptevents mit Programm: eine Zeile mit "heute 5 Programmpunkte", das Programm erscheint erst beim Aufklappen.
-- Status: Abgesagt durchgestrichen mit rotem Hinweis; Verschoben mit Link zum neuen Tag; nicht mehr bestätigt grau markiert.
+- Status: Abgesagt durchgestrichen mit rotem Hinweis; Verschoben mit Link zum neuen Tag.
 
 **Filter, Suche, Gruppierung**
 
@@ -426,7 +421,7 @@ Eine KI oder Google soll ohne JavaScript alles verstehen, was ein Mensch sieht. 
 | Fertiges HTML | alle Events im Markup, feste Adresse pro Tag und Sprache, Anker pro Event |
 | schema.org `Event` | JSON-LD pro Event auf der Tagesseite mit `name`, `startDate`, `endDate`, `location`, `description`, `eventStatus` (Scheduled, Cancelled, Postponed); Programmpunkte über `superEvent` und `subEvent` |
 | `llms.txt` | im Hauptverzeichnis: was die Seite ist, Region und Mittelpunkt, Aktualisierung, Tag-Liste, Adressmuster der Tagesseiten, Links auf JSON und ICS, Hinweis "KI-gesammelt, ohne Gewähr", Zeitpunkt der letzten Aktualisierung |
-| Rohdaten | `/data/events.json` als öffentliche Kopie (ohne interne Felder wie `misses`) und `/data/events.ics` zum Abonnieren |
+| Rohdaten | `/data/events.json` als öffentliche Kopie und `/data/events.ics` zum Abonnieren |
 | Crawler-Zugang | `robots.txt` erlaubt alle, ausdrücklich auch GPTBot, ClaudeBot, PerplexityBot und Google-Extended; `sitemap.xml` mit allen Tagesseiten |
 | Metadaten | `<title>` und `meta description` pro Tag ("Was ist los in und um Schongau am Samstag, 14. November"), `hreflang` DE/EN, `canonical`, Open-Graph-Tags für eine schöne Vorschau beim Teilen per WhatsApp |
 

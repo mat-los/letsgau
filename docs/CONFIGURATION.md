@@ -124,7 +124,6 @@ optional; the defaults are the thorough settings.
 
 | Key | Meaning |
 | --- | --- |
-| `unconfirmed_after_misses` | consecutive runs without a hit before `unconfirmed` |
 | `description_max_chars` | maximum description length; longer descriptions are cut at a word boundary |
 
 ## `sources`

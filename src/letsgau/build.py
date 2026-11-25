@@ -469,7 +469,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
     ``g`` tags, ``h`` link anchor, ``t`` description, ``v`` venue line, ``l`` primary source
     URL (``t``, ``v``, ``l`` for the expanded hit), ``s`` folded search text (title, place,
     venue, description, main event and the category names in every language), ``x`` status
-    (only when not scheduled: cancelled, postponed, unconfirmed). A hit that lasts beyond its
+    (only when not scheduled: cancelled, postponed). A hit that lasts beyond its
     day says so (#119): ``r`` the end badge of an event that runs every day ("bis 20.11."),
     or for a series with gaps ``c`` the number of later dates ("+3 Termine") and ``m`` the
     next ones ("Weitere Termine: ...").

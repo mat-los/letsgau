@@ -256,7 +256,6 @@ def summary_markdown(report: RunReport, dry_run: bool = False) -> str:
             ("Updated", merge.updated),
             ("Cancelled", merge.cancelled),
             ("Postponed", merge.postponed),
-            ("Now unconfirmed", merge.unconfirmed),
             ("Excluded by topic", list(merge.excluded)),
             ("Past, deleted", merge.deleted),
         ):
