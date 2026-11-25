@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T21:34:29Z",
+  "updated_at": "2026-11-25T16:57:02Z",
   "pages": {
     "https://www.schongau.de/veranstaltungen": {
       "mode": "agent",
@@ -8,7 +8,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -19,7 +19,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -30,7 +30,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -41,7 +41,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -52,7 +52,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -63,7 +63,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -74,7 +74,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -85,7 +85,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -96,7 +96,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -107,7 +107,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -206,7 +206,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -217,7 +217,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -228,7 +228,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -239,7 +239,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -250,7 +250,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -272,7 +272,7 @@
       "sha256": "7be59e8d0badbd12932326a5bbe17d4e577876eb0dc1d1ba3759e7dfc1acb6ed",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [
         {
@@ -394,7 +394,7 @@
       "sha256": "f786985079017b86c7741d7b92ee94818a368a8733e5d496625a73ed6f09909e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -478,7 +478,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": []
@@ -489,7 +489,7 @@
       "sha256": "25f1d84314cf4b4983de036a332509dd792702925a7b8746dbbabbc9c0ef3468",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -573,7 +573,7 @@
       "sha256": "1d03b424ea06c7a13265b7e49aa86824c9dcb99ce8629e05076dd2b9f90cc286",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": [
@@ -662,11 +662,11 @@
     "https://www.vhs-pfaffenwinkel.de/kurse/kurssuche?tx_kuportal_search%5B__referrer%5D%5B%40extension%5D=KuPortal&tx_kuportal_search%5B__referrer%5D%5B%40controller%5D=Kurs&tx_kuportal_search%5B__referrer%5D%5B%40action%5D=filter&tx_kuportal_search%5B__referrer%5D%5Barguments%5D=YTowOnt9f476d3ea6f6e28bdae763596ff8896fba845b20f&tx_kuportal_search%5B__referrer%5D%5B%40request%5D=%7B%22%40extension%22%3A%22KuPortal%22%2C%22%40controller%22%3A%22Kurs%22%2C%22%40action%22%3A%22filter%22%7Df4f9f8536f95347e69cda9b48bcbaada588a277e&tx_kuportal_search%5B__trustedProperties%5D=%7B%22pKursFilter%22%3A%7B%22suchbegriff%22%3A1%2C%22kategorie%22%3A1%2C%22inst%22%3A1%7D%7Db7e3477fac52339cc24927ec07548ef377d79a25&tx_kuportal_search%5BpKursFilter%5D%5Bsuchbegriff%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Bkategorie%5D=&tx_kuportal_search%5BpKursFilter%5D%5Binst%5D=4#kw-kursuebersicht": {
       "mode": "text",
       "reason": "",
-      "sha256": "6df9a0fed0b924bec62fcdf336bba4432c6b2992ae457d7274cc6edcb3d737cd",
+      "sha256": "2e1aa2ede99362e2a2d5f801fff8f9b44c16973e718f76b02627828e42e3dabd",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": []
     },
@@ -676,7 +676,7 @@
       "sha256": "4c1ffaed806d342a994a4cc91091508beef92d68b15ef1a97c4889a75cdfda01",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-19",
       "events": [],
       "seen": [
@@ -712,7 +712,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-14",
       "events": [],
       "seen": []
@@ -723,7 +723,7 @@
       "sha256": "d217611548436a2a9501f403c974477675936af47be47471eb5060bb080bc16e",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": []
@@ -734,7 +734,7 @@
       "sha256": "494741e19fd1a4febadace756fff6a5d02d366371fe1a3eaeac53b8e2b31cbcb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": []
@@ -745,7 +745,7 @@
       "sha256": "e639b1ed8c3a16e1af9c168b8e67dfb0edd7a6fbc835b6f6a0eb5b8bae5afdee",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": [
@@ -773,7 +773,7 @@
       "sha256": "d15a33805010aafea90a01a811880e31b3c4b00ea3167b1e1b16e735ae3ca640",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -833,7 +833,7 @@
       "sha256": "d0214d6629e4a8aad3671ff2dec498849dc025070b2bb0b36a5b804f2041bae5",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -873,7 +873,7 @@
       "sha256": "f38c52c734482b1b0fbb819b30798caf99bb7c71e6513febb7348949891cd25d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -1017,7 +1017,7 @@
       "sha256": "d7ac07bfb0122dce7efa5b74b5e164d2ed6b383d39264cb4c67da1ae15205619",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1043,7 +1043,7 @@
       "sha256": "75e46cd33a9c292f2cf7516c8ce61b7d702bde3e5c58e5c6a39b5a6c8a12b6cb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1069,7 +1069,7 @@
       "sha256": "c50cbadb9189003f099d858291f89ee6f8ee72b39abeaa0f51d03db24fc58576",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1106,7 +1106,7 @@
       "sha256": "f33bd92827b0917e93a5c7f4aa845bf17948ca5b06d0bd9cee8bb5b914548982",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1125,7 +1125,7 @@
       "sha256": "8318aa3e052387ac89208299237919b71c2ab513b6aeacfd54c0e1e4d562fcc6",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1162,7 +1162,7 @@
       "sha256": "5e211983b22246b592cfc2d54baf5409555731f97cc935e4b79c28ad9a1792fe",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -1347,18 +1347,18 @@
     "https://www.bayregio-wm.de/veranstaltungen/": {
       "mode": "text",
       "reason": "",
-      "sha256": "36e3d8a970822e5b4b27600ee4d8d5c0e5bb332666d4259d6974dbc66ab3e36a",
+      "sha256": "6517d1b4dbfb382a2a695410bd2cc40eea6600a842e0791d19b2e143c2a94d4d",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": [
         {
           "id": "2026-12-20-ein-weihnachtsoratorium-festlich-barocke-schongau",
           "status": "scheduled",
           "start_date": null,
-          "start_time": "11:00",
+          "start_time": null,
           "source_url": "https://www.bayregio-wm.de/veranstaltungen/",
           "kind": "event"
         }
@@ -1370,7 +1370,7 @@
       "sha256": "49eb37c3966e68fad8789513905c88209067e6c67f3cd3e69c26605ad0b3e3bf",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1389,7 +1389,7 @@
       "sha256": "71c2b785db65e1d4d0f2329102f15d3e9b3f96f19484b5c0915cf398a1c0e2dc",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1419,7 +1419,7 @@
       "sha256": "613cf91b5f0a87f14dfd4e4c11233d75a496a802da09a25634b8aae6c6713884",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1449,7 +1449,7 @@
       "sha256": "dc766e27263d2deb0154c56d5994902029ccfd8418f919a5ec58917a62358342",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": [
@@ -1542,11 +1542,11 @@
     "https://meine-flohmarkt-termine.de/": {
       "mode": "text",
       "reason": "",
-      "sha256": "c756a665654fd839f5fde0606deeaf987d60458cf8856c3bf44c3d5640796616",
+      "sha256": "cd10202bbf133987da7f77ca26b08c474b762b9067a52469beef011dbb328244",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": []
     },
@@ -1556,7 +1556,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -1611,7 +1611,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -1674,21 +1674,13 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/": {
       "mode": "text",
       "reason": "",
-      "sha256": "9dcbfd83cdb8db08456ce3f40817d45b781fd148fcb37a0baddf0e2a10553450",
+      "sha256": "b2990b2a13497f2fda09671a18449a3f8653c165db033638e88cfd46a155142c",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": [
-        {
-          "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
-          "kind": "event"
-        },
         {
           "id": "2026-11-25-allgemeiner-lauf-in-der-peitinger-eishalle",
           "status": "scheduled",
@@ -1730,6 +1722,14 @@
           "kind": "event"
         },
         {
+          "id": "2026-11-29-allgemeiner-lauf-in-der-peitinger-eishalle",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "kind": "routine"
+        },
+        {
           "id": "2026-11-29-heimspiel-ec-peiting-heilbronner-ec-falken",
           "status": "scheduled",
           "start_date": null,
@@ -1760,6 +1760,14 @@
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
           "kind": "event"
+        },
+        {
+          "id": "2026-12-26-heimspiel-ec-peiting-esv-kaufbeuren",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/",
+          "kind": "event"
         }
       ]
     },
@@ -1769,7 +1777,7 @@
       "sha256": "e39b28390d5a2e421c12cd35c2a748866a9a695e5b1ba330dee9dc115a7dfe85",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -1837,7 +1845,7 @@
       "sha256": "75b9c18f8c36b5ff540d3db62486d483334ae92dee32802031a46dbfdd92fe16",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -1965,7 +1973,7 @@
       "sha256": "f953208ad82bf0230c64548d3a63c014bd24c42460e95c037b97c78ad28c9718",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [],
       "seen": [
@@ -2014,60 +2022,21 @@
     "https://www.vhs-pfaffenwinkel.de/vhs-peiting": {
       "mode": "text",
       "reason": "",
-      "sha256": "9d538e8efd2a1b8ef3dba00cbd674dac364929923996ff9e98922c47bd53ae1a",
+      "sha256": "b329ca41a4be0f19edd9da4b5914137a0e5a7d78d33c047fb6c564c46579828c",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
-      "events": [
-        {
-          "ref": "e1",
-          "parent_ref": null,
-          "title": {
-            "de": "Grillen: Weihnachts-Special",
-            "en": "Grilling: Christmas Special"
-          },
-          "description": {
-            "de": "vhs-Kochkurs in Peiting rund um weihnachtliche Grillgerichte. Anmeldung erforderlich.",
-            "en": "Adult-education cooking course in Peiting on festive barbecue dishes. Booking required."
-          },
-          "venue": {
-            "name": null,
-            "place": "Peiting",
-            "address": null
-          },
-          "schedule": {
-            "start_date": "2026-12-11",
-            "end_date": null,
-            "start_time": "18:00",
-            "end_time": null,
-            "all_day": false,
-            "dates": [
-              "2026-12-11"
-            ],
-            "opening_hours": null
-          },
-          "primary_tag": "food-drink",
-          "tags": [
-            "food-drink",
-            "talk-workshop"
-          ],
-          "status": "scheduled",
-          "kind": "course",
-          "postponed_to_date": null,
-          "sources": [
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
-              "primary": true
-            },
-            {
-              "url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting/vhs/vhs-peiting/v/vb305-313/f/1",
-              "primary": false
-            }
-          ]
-        }
-      ],
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
+      "events": [],
       "seen": [
+        {
+          "id": "2026-11-23-qi-gong-der-vier-jahreszeiten-winter-18-20-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "kind": "course"
+        },
         {
           "id": "2026-11-25-alle-lieben-knoedel-kochkurs-25-11-peiting",
           "status": "scheduled",
@@ -2091,6 +2060,22 @@
           "start_time": null,
           "source_url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
           "kind": "course"
+        },
+        {
+          "id": "2026-12-11-grillen-weihnachts-special-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "kind": "course"
+        },
+        {
+          "id": "2026-12-19-im-reich-der-wildtiere-spuren-lesen-und-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://www.vhs-pfaffenwinkel.de/vhs-peiting",
+          "kind": "course"
         }
       ]
     },
@@ -2100,7 +2085,7 @@
       "sha256": "f4e5f7c19c763e94d87f59e74a34d62113b399a978959065b7fc2da187dddbfb",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -2342,7 +2327,7 @@
       "sha256": "bd9a64230a6d3b75c7963b7d5c5a3f1d6f395e78988763553d13a31df3953cda",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -2439,7 +2424,7 @@
       "sha256": "",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [],
       "seen": []
@@ -2447,21 +2432,13 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12": {
       "mode": "text",
       "reason": "",
-      "sha256": "6efc4ade65a3f00a9a9e7c8c4aa7b6739e31e2e3d2acdaef0e0a81aa9d91b40d",
+      "sha256": "d0c1b1d7ac9eddc1b10ac409af4b68daf95c3149b03621e88f554dd337aec3b9",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": [
-        {
-          "id": "2026-11-29-allgemeiner-lauf-in-der-peitinger-eishalle",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
-          "kind": "routine"
-        },
         {
           "id": "2026-12-02-kinder-kino-weihnachten-im-zaubereulenwald-peiting",
           "status": "scheduled",
@@ -2484,7 +2461,7 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
-          "kind": "event"
+          "kind": "offer"
         },
         {
           "id": "2026-12-10-einladung-zum-gemeinsamen-mittagessen-peiting",
@@ -2500,102 +2477,22 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=12",
-          "kind": "event"
+          "kind": "course"
         }
       ]
     },
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24": {
       "mode": "text",
       "reason": "",
-      "sha256": "17fceb102737d4f28bc2a02ba8995d3920b0ec2dcfdc4ddd95f258464d7a21c7",
+      "sha256": "1c0c063e8954a5761471558ad85d41ebe2aaaed862acc8e677725e8d966aa802",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": [
         {
-          "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-27-herzogsaegmuehle-weihnachtsmarkt",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": "17:00",
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-29-heimspiel-ec-peiting-heilbronner-ec-falken",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-06-heimspiel-ec-peiting-deggendorfer-sc",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-11-heimspiel-ec-peiting-hoechstadt-alligators",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-20-heimspiel-ec-peiting-selber-woelfe",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
           "id": "2026-12-20-weihnachtskonzert-der-knappschafts-und-peiting",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-09-museum-im-kloesterle-ein-ausflug-in-die-peiting",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-26-heimspiel-ec-peiting-esv-kaufbeuren",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
@@ -2616,7 +2513,7 @@
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=24",
-          "kind": "event"
+          "kind": "course"
         },
         {
           "id": "2027-04-13-harry-g-obacht-peiting",
@@ -2647,22 +2544,87 @@
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36": {
       "mode": "text",
       "reason": "",
-      "sha256": "ccf4d14b5370e18e95e12103525772c354fa2d49c362fd00df74e60d252029e4",
+      "sha256": "c030979f710b687f0dab3e5498aceac8aa5e45f6a2ce6903c7ae1677534075b8",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
-      "seen": []
+      "seen": [
+        {
+          "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-11-27-herzogsaegmuehle-weihnachtsmarkt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-11-29-heimspiel-ec-peiting-heilbronner-ec-falken",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-06-heimspiel-ec-peiting-deggendorfer-sc",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-11-heimspiel-ec-peiting-hoechstadt-alligators",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-20-heimspiel-ec-peiting-selber-woelfe",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        },
+        {
+          "id": "2026-12-26-heimspiel-ec-peiting-esv-kaufbeuren",
+          "status": "scheduled",
+          "start_date": null,
+          "start_time": null,
+          "source_url": "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=36",
+          "kind": "event"
+        }
+      ]
     },
     "https://veranstaltungen.pfaffen-winkel.de/peiting/?os=48": {
       "mode": "text",
       "reason": "",
-      "sha256": "eb44db13caab6607f5de01daa4aa24de12d2c40fd174b438da1784d318bf38b5",
+      "sha256": "3f878094b9a1e6da9d69ac6457e92959fa11ef377112a2d58a43975ab982e6cd",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": []
     },
@@ -2672,7 +2634,7 @@
       "sha256": "013af4a92699b226f59d9d821fbf131b149942c08d3a6aaea30d40d730f729f0",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": [
@@ -2768,31 +2730,22 @@
     "https://www.sv-peiting.de/Termine/": {
       "mode": "text",
       "reason": "",
-      "sha256": "eac6decb00de7b925df7689aca7b0813c33688c531c5d0be353de0d11da956db",
+      "sha256": "cdff947ecfcb6d440da7ed3b4f19984fdab27e4d4ff23b3ddf3f4d08d5a4f77b",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-23",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
-      "seen": [
-        {
-          "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://www.sv-peiting.de/Termine/",
-          "kind": "event"
-        }
-      ]
+      "seen": []
     },
     "http://www.judo-peiting.de": {
       "mode": "text",
       "reason": "",
-      "sha256": "c3134233a1ddf3c6133217166ef92dc7e463e57a70edc90d9e647b357947c585",
+      "sha256": "06655a108104fee941d8a161456f4300d79b2ed108b1ecef552de53a9ce96970",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": []
     },
@@ -2813,7 +2766,7 @@
       "sha256": "85024a857e2c4d5f5f5d499b780c1b4012fc6d3407dcae1d75c1f6a899e1d0e8",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": [
@@ -2844,7 +2797,7 @@
       "sha256": "7a70d56b06e87eefb31cc99fcb66a4615c5171608f1dcb9ec26d64bcdacc5c57",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-23",
       "events": [
         {
@@ -2916,7 +2869,7 @@
       "sha256": "3761800d26965afb9591280ef7c5c3a370163c5b63d8ee4625d1dd37523705af",
       "version": 1,
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-13",
       "events": [
         {
@@ -3282,21 +3235,13 @@
     "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/": {
       "mode": "text",
       "reason": "",
-      "sha256": "c4d46ccac4c7c6188376cbdf29949ce5cd16002fe33498314ec8f24b19cfc4ce",
+      "sha256": "a30500685a767ae81d13091e4a8590296d607d1ea24b14f86221229d3f18b5d7",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-24",
-      "last_changed": "2026-11-24",
+      "last_seen": "2026-11-25",
+      "last_changed": "2026-11-25",
       "events": [],
       "seen": [
-        {
-          "id": "2026-11-24-heimspiel-ec-peiting-hockey-club-tigers-1985",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
         {
           "id": "2026-11-25-allgemeiner-lauf-in-der-peitinger-eishalle",
           "status": "scheduled",
@@ -3314,60 +3259,20 @@
           "kind": "routine"
         },
         {
-          "id": "2026-11-26-eva-karl-faltermeier-ding-dong-peiting",
+          "id": "2026-11-29-allgemeiner-lauf-in-der-peitinger-eishalle",
           "status": "scheduled",
           "start_date": null,
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
+          "kind": "routine"
         },
         {
-          "id": "2026-11-27-herzogsaegmuehle-weihnachtsmarkt",
+          "id": "2026-12-09-museum-im-kloesterle-ein-ausflug-in-die-peiting",
           "status": "scheduled",
-          "start_date": null,
+          "start_date": "2026-11-25",
           "start_time": null,
           "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-27-herzogsaegmuehler-weihnachtsmarkt",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": "17:00",
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-11-29-heimspiel-ec-peiting-heilbronner-ec-falken",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-06-heimspiel-ec-peiting-deggendorfer-sc",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-11-heimspiel-ec-peiting-hoechstadt-alligators",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
-        },
-        {
-          "id": "2026-12-20-heimspiel-ec-peiting-selber-woelfe",
-          "status": "scheduled",
-          "start_date": null,
-          "start_time": null,
-          "source_url": "https://veranstaltungen.pfaffen-winkel.de/herzogsaegmuehle/",
-          "kind": "event"
+          "kind": "offer"
         }
       ]
     },
@@ -3377,7 +3282,7 @@
       "sha256": "29501c6c0f50049de66b2824bae944fae8a22f669a2edfe1e17e4b686a58f116",
       "version": 1,
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "last_changed": "2026-11-24",
       "events": [],
       "seen": []
