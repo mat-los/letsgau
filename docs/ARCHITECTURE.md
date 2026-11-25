@@ -107,7 +107,7 @@ sequenceDiagram
     E->>E: flyer calls (new files only), re-checks, open search (every other run)
     E->>E: Instagram step (new posts only)
     E->>M: candidates and known events seen again
-    M->>M: match against events.json, title patterns, Haiku tie-break and topic check, misses, cleanup
+    M->>M: match against events.json, title patterns, Haiku tie-break and topic check, cleanup
   end
   S->>B: build HTML DE/EN, JSON, ICS, llms.txt
   B->>A: commit data/ to the data branch, deploy Pages
@@ -120,12 +120,9 @@ stateDiagram-v2
   [*] --> scheduled: newly found
   scheduled --> cancelled: cancellation notice found
   scheduled --> postponed: new date found
-  scheduled --> unconfirmed: misses reach threshold
-  unconfirmed --> scheduled: found again
   postponed --> [*]: old date passed
   cancelled --> [*]: date passed
   scheduled --> [*]: date passed
-  unconfirmed --> [*]: date passed
 ```
 
 A cancelled event stays visible until its date. A postponement creates a new

@@ -131,7 +131,7 @@ Phase 1 version; Phase 6 adds the run history it needs for the scheduler.
   "status": "scheduled",
   "postponed_to": null,
   "sources": [ { "url": "https://...", "primary": true, "first_seen": "2026-11-09", "last_seen": "2026-11-12" } ],
-  "first_seen": "2026-11-09", "last_verified": "2026-11-12", "misses": 0
+  "first_seen": "2026-11-09", "last_verified": "2026-11-12"
 }
 ```
 
@@ -149,10 +149,9 @@ start date, start time and id.
 | `schedule.opening_hours` | optional, per weekday (`mon-fri`) or per date (`2026-11-21`, a date wins over its weekday); the site shows today's hours, or the start time if `from` equals `to` (screenings) |
 | `primary_tag` | exactly one; drives grouping by category |
 | `tags` | 1–3 from the fixed list, includes `primary_tag` |
-| `status` | `scheduled`, `postponed`, `cancelled` or `unconfirmed` |
+| `status` | `scheduled`, `postponed` or `cancelled`. Files from before the removal of `unconfirmed` load with it read as `scheduled` and without the old `misses` field; the next events run writes them without both (that is the migration) |
 | `kind` | `event` (one-off or special occasion), `routine` (regular worship and prayer groups, weekly club or senior groups, training, lower-league and youth matches) or `course` (needs a booking); the site lists all kinds alike. `null` = not classified yet: files from before the field load unchanged; the crawl reports the kind of every known event it finds again (`known_seen`), and the merge model classifies the rest on the next events run (that is the migration). An entry the crawl calls `offer` (menu specials, discounts, opening hours, appointments) is dropped, or removed by the merge if it was stored; the merge model never removes anything |
 | `sources` | all occurrences; exactly one is `primary`, preferably the organizer's page |
-| `misses` | consecutive runs in which the event was not found in the deep-check window |
 
 Status lifecycle: see [ARCHITECTURE.md](ARCHITECTURE.md#event-status-lifecycle).
 
@@ -171,12 +170,10 @@ Merge rules (Phase 3, `src/letsgau/merge.py`):
   matches a main event.
 - **On a match** the stored `id` and `first_seen` stay, texts, schedule, tags
   and status come from the crawl (a single day of a known multi-day event keeps
-  the full range), sources are appended, `misses` is reset, `unconfirmed`
-  becomes `scheduled`.
-- **Not found again:** an event in the deep-check window (`deep_check_days`)
-  whose municipality was crawled successfully gets `misses + 1`; at
-  `unconfirmed_after_misses` it becomes `unconfirmed`. Cancelled and postponed
-  events are not counted.
+  the full range), sources are appended.
+- **Not found again:** the event stays as it is. The crawl is an AI search that
+  does not find every event on every run, so a missing hit is no evidence that an
+  event was dropped; only an explicit cancellation or new date changes the status.
 - **Topic check:** new events matching `excluded_topics` (judged by the merge
   model) are dropped and logged.
 - **Cleanup:** events whose last day is before yesterday are deleted.

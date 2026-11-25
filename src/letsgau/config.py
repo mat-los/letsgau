@@ -195,7 +195,6 @@ class DepthConfig(_Strict):
 
 
 class EventsConfig(_Strict):
-    unconfirmed_after_misses: int = Field(ge=1)
     description_max_chars: int = Field(ge=20, le=2000)
 
 

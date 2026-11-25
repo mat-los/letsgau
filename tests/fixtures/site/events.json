@@ -59,8 +59,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev1",
@@ -109,8 +108,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev2",
@@ -159,8 +157,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev3",
@@ -210,8 +207,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev4",
@@ -261,8 +257,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev5",
@@ -312,8 +307,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev6",
@@ -361,8 +355,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev7",
@@ -411,8 +404,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev8",
@@ -462,8 +454,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev9",
@@ -496,7 +487,7 @@
     "theatre-cinema",
     "food-drink"
    ],
-   "status": "unconfirmed",
+   "status": "scheduled",
    "postponed_to": null,
    "sources": [
     {
@@ -513,8 +504,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev10",
@@ -563,8 +553,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev11",
@@ -613,8 +602,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev12",
@@ -674,8 +662,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev13",
@@ -724,8 +711,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev14",
@@ -775,8 +761,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev15",
@@ -824,8 +809,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev16",
@@ -875,8 +859,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev17",
@@ -926,8 +909,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev18",
@@ -976,8 +958,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev19",
@@ -1026,8 +1007,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev20",
@@ -1077,8 +1057,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev21",
@@ -1128,8 +1107,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev22",
@@ -1177,8 +1155,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev23",
@@ -1228,8 +1205,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev24",
@@ -1289,8 +1265,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev25",
@@ -1339,8 +1314,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev26",
@@ -1389,8 +1363,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev27",
@@ -1438,8 +1411,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev28",
@@ -1488,8 +1460,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev29",
@@ -1537,8 +1508,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev30",
@@ -1586,8 +1556,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev31",
@@ -1637,8 +1606,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev32",
@@ -1688,8 +1656,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev33",
@@ -1737,8 +1704,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev34",
@@ -1788,8 +1754,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev35",
@@ -1837,8 +1802,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev36",
@@ -1899,8 +1863,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev37",
@@ -1950,8 +1913,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev38",
@@ -2001,8 +1963,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev39",
@@ -2050,8 +2011,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev40",
@@ -2099,8 +2059,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev41",
@@ -2150,8 +2109,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev42",
@@ -2199,8 +2157,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev43",
@@ -2248,8 +2205,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev44",
@@ -2298,8 +2254,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev45",
@@ -2348,8 +2303,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev46",
@@ -2399,8 +2353,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev47",
@@ -2449,8 +2402,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev48",
@@ -2511,8 +2463,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev49",
@@ -2561,8 +2512,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev50",
@@ -2610,8 +2560,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev51",
@@ -2661,8 +2610,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev52",
@@ -2710,8 +2658,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev53",
@@ -2760,8 +2707,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev54",
@@ -2810,8 +2756,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev55",
@@ -2860,8 +2805,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev56",
@@ -2909,8 +2853,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev57",
@@ -2959,8 +2902,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev58",
@@ -3010,8 +2952,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev59",
@@ -3060,8 +3001,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev60",
@@ -3120,8 +3060,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev61",
@@ -3170,8 +3109,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev62",
@@ -3219,8 +3157,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev63",
@@ -3269,8 +3206,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev64",
@@ -3318,8 +3254,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev65",
@@ -3368,8 +3303,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev66",
@@ -3419,8 +3353,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev67",
@@ -3468,8 +3401,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev68",
@@ -3519,8 +3451,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev69",
@@ -3568,8 +3499,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev70",
@@ -3617,8 +3547,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev71",
@@ -3668,8 +3597,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev72",
@@ -3728,8 +3656,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev73",
@@ -3777,8 +3704,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev74",
@@ -3827,8 +3753,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev75",
@@ -3876,8 +3801,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev76",
@@ -3927,8 +3851,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev77",
@@ -3976,8 +3899,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev78",
@@ -4027,8 +3949,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev79",
@@ -4076,8 +3997,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev80",
@@ -4125,8 +4045,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev81",
@@ -4176,8 +4095,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev82",
@@ -4225,8 +4143,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev83",
@@ -4276,8 +4193,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev84",
@@ -4337,8 +4253,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev85",
@@ -4388,8 +4303,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev86",
@@ -4437,8 +4351,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev87",
@@ -4488,8 +4401,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev88",
@@ -4539,8 +4451,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev89",
@@ -4590,8 +4501,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev90",
@@ -4640,8 +4550,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev91",
@@ -4691,8 +4600,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev92",
@@ -4742,8 +4650,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev93",
@@ -4793,8 +4700,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev94",
@@ -4842,8 +4748,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev95",
@@ -4891,8 +4796,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-12-ev96",
@@ -4951,8 +4855,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev97",
@@ -5000,8 +4903,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev98",
@@ -5050,8 +4952,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-ev99",
@@ -5100,8 +5001,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-prog0",
@@ -5149,8 +5049,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-prog1",
@@ -5198,8 +5097,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   },
   {
    "id": "2026-11-14-prog2",
@@ -5247,8 +5145,7 @@
     }
    ],
    "first_seen": "2026-11-09",
-   "last_verified": "2026-11-12",
-   "misses": 0
+   "last_verified": "2026-11-12"
   }
  ]
 }

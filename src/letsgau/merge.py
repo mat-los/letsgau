@@ -17,10 +17,9 @@ Steps (docs/CONCEPT.md, "Pipeline", step 5):
    The same call groups acts of one occasion: entries at the same venue on the same day
    that a club announced one post per band (:func:`occasion_groups`). The merge model names
    the occasion; the code adds a main event and makes the acts its programme items.
-3. **Status.** Cancellations and postponements come from the crawl. Events in
-   the deep-check window that were not found again although their municipality
-   was crawled get ``misses + 1``; at ``events.unconfirmed_after_misses`` they
-   become ``unconfirmed``. Found again, they are ``scheduled`` with ``misses = 0``.
+3. **Status.** Cancellations and postponements come from the crawl. An event that is
+   not found again keeps its status: a missing hit in an AI search is no evidence that
+   it was dropped.
 4. **Cleanup.** Events that ended before yesterday are deleted.
 """
 
@@ -335,9 +334,6 @@ def merge_tags(new: Event, old: Event) -> list[str]:
 
 def combine(old: Event, new: Event) -> Event:
     """Update a stored event with a fresh crawl result; the stored id stays."""
-    status = new.status
-    if status is EventStatus.UNCONFIRMED:  # never set by the crawl, keep it consistent
-        status = EventStatus.SCHEDULED
     texts: dict[str, Any] = {}
     schedule = new.schedule
     if covers(old.schedule, new.schedule):
@@ -352,14 +348,12 @@ def combine(old: Event, new: Event) -> Event:
             **texts,
             "id": old.id,
             "parent_id": new.parent_id or old.parent_id,
-            "status": status,
             "kind": new.kind or old.kind,
             "schedule": schedule,
             "tags": merge_tags(new, old),
             "sources": merge_sources(old.sources, new.sources),
             "first_seen": min(old.first_seen, new.first_seen),
             "last_verified": max(old.last_verified, new.last_verified),
-            "misses": 0,
         }
     )
 
@@ -596,8 +590,6 @@ class MergeReport:
     excluded: dict[str, str] = field(default_factory=dict)
     cancelled: list[str] = field(default_factory=list)
     postponed: list[str] = field(default_factory=list)
-    missed: list[str] = field(default_factory=list)
-    unconfirmed: list[str] = field(default_factory=list)
     deleted: list[str] = field(default_factory=list)
     retagged: list[tuple[str, str, str]] = field(default_factory=list)
     """(id, old primary tag, new primary tag) changed by the classification task."""
@@ -710,10 +702,7 @@ def apply(
     crawled: Iterable[Event],
     *,
     today: date,
-    covered_places: Iterable[str] | None = None,
     municipality_of: Mapping[str, str] | None = None,
-    deep_check_days: int = 7,
-    unconfirmed_after: int = 2,
     decide: Decide = no_ai,
     report: MergeReport | None = None,
     excluded_title: Callable[[str], str | None] | None = None,
@@ -721,8 +710,6 @@ def apply(
     """Return the new ``events.json`` content.
 
     ``excluded_title`` returns the matching title pattern of an event title, if any.
-    ``covered_places`` are the places (and municipalities) crawled successfully in
-    this run; only stored events there can be "missed". ``None`` disables misses.
     """
     report = report if report is not None else MergeReport()
     stored = {e.id: e for e in (existing.events if existing else [])}
@@ -897,37 +884,8 @@ def apply(
         if main_id in events and main_id not in found:
             found.add(main_id)
             main = events[main_id]
-            events[main_id] = main.model_copy(
-                update={
-                    "misses": 0,
-                    "last_verified": max(main.last_verified, events[key].last_verified),
-                    "status": EventStatus.SCHEDULED
-                    if main.status is EventStatus.UNCONFIRMED
-                    else main.status,
-                }
-            )
-
-    # Status of stored events that were not found again.
-    if covered_places is not None:
-        covered = {p.casefold() for p in covered_places}
-        deep_end = today + timedelta(days=deep_check_days)
-        for key, event in list(events.items()):
-            in_window = event.schedule.start_date <= deep_end and event.schedule.last_date >= today
-            if (
-                key in found
-                or key not in stored
-                or not in_window
-                or event.venue.place.casefold() not in covered
-                or event.status in (EventStatus.CANCELLED, EventStatus.POSTPONED)
-            ):
-                continue
-            misses = event.misses + 1
-            status = event.status
-            if misses >= unconfirmed_after and status is EventStatus.SCHEDULED:
-                status = EventStatus.UNCONFIRMED
-                report.unconfirmed.append(key)
-            events[key] = event.model_copy(update={"misses": misses, "status": status})
-            report.missed.append(key)
+            verified = max(main.last_verified, events[key].last_verified)
+            events[main_id] = main.model_copy(update={"last_verified": verified})
 
     # 4. Cleanup.
     yesterday = today - timedelta(days=1)

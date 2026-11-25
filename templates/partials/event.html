@@ -4,7 +4,6 @@
 
 {% macro status_badge(event) -%}
 {% if event.status == Status.CANCELLED %}<span class="badge cancelled">{{ t('status_cancelled') }}</span>
-{% elif event.status == Status.UNCONFIRMED %}<span class="badge unconfirmed">{{ t('status_unconfirmed') }}</span>
 {% endif %}
 {%- endmacro %}
 

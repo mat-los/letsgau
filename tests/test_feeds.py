@@ -93,11 +93,10 @@ def test_llms_txt(site: Path) -> None:
     assert "Last updated: 2026-11-13T20:00:00+00:00" in text
 
 
-def test_public_events_json_drops_internal_fields(site: Path) -> None:
+def test_public_events_json(site: Path) -> None:
     data = json.loads((site / "data" / "events.json").read_text(encoding="utf-8"))
     assert len(data["events"]) == 102  # without the postponed one
-    assert all("misses" not in e for e in data["events"])
-    EventsFile.model_validate({**data, "events": [{**e, "misses": 0} for e in data["events"]]})
+    EventsFile.model_validate(data)
 
 
 def test_ics_feed(site: Path) -> None:
@@ -106,7 +105,7 @@ def test_ics_feed(site: Path) -> None:
     assert text.startswith("BEGIN:VCALENDAR\r\n") and text.endswith("END:VCALENDAR\r\n")
     assert all(len(line.encode()) <= 75 for line in text.split("\r\n"))
     assert text.count("BEGIN:VEVENT") == 102
-    assert "STATUS:CANCELLED" in text and "STATUS:TENTATIVE" in text
+    assert "STATUS:CANCELLED" in text and "STATUS:TENTATIVE" not in text
     assert "DTSTART:20261114T083000Z" in text  # 09:30 in Berlin
     assert "DTSTART;VALUE=DATE:20261112\r\nDTEND;VALUE=DATE:20261120" in text  # multi-day
     assert (site / "data" / "events.en.ics").exists()

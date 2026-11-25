@@ -209,7 +209,7 @@ def test_events_on_a_page_read_as_text_need_no_recheck(setup: tuple[Any, Path]) 
     stored = EventsFile.model_validate_json((data_dir / "events.json").read_text())
     assert [e.title.de for e in stored.events] == ["Lesung im Ballenhaus"]
 
-    # the list page no longer shows the talk: no re-check call, the merge counts a miss
+    # the list page no longer shows the talk: no re-check call, the stored event stays
     runner = FakeRunner(answers=[_answer()] * 5)
     result = crawl.run(
         config, runner=runner, data_dir=data_dir, today=TODAY, fetch=serve({WHITELIST: LIST_HTML})
@@ -218,8 +218,9 @@ def test_events_on_a_page_read_as_text_need_no_recheck(setup: tuple[Any, Path]) 
         "events batch 1/1 (pages 1)",
         "events batch 1/1 (search)",
     ]
-    assert result.merge is not None and result.merge.missed == [stored.events[0].id]
-    assert json.loads((data_dir / "events.json").read_text())["events"][0]["misses"] == 1
+    assert result.merge is not None and result.merge.deleted == []
+    kept = json.loads((data_dir / "events.json").read_text())["events"]
+    assert [(e["id"], e["status"]) for e in kept] == [(stored.events[0].id, "scheduled")]
 
 
 # --- known events reported by id (known_seen) ----------------------------------------------------

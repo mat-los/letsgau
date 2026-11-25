@@ -608,8 +608,6 @@ def seen_events(
         status = event.status
         if item.get("status") == "cancelled":
             status = EventStatus.CANCELLED
-        elif status is EventStatus.UNCONFIRMED:
-            status = EventStatus.SCHEDULED
         url = str(item.get("source_url") or "").strip()
         if not url.startswith(("http://", "https://")) or is_blocked(url, blocked):
             url = next(src.url for src in event.sources if src.primary)
@@ -624,7 +622,6 @@ def seen_events(
                         EventSource(url=url, primary=True, first_seen=today, last_seen=today)
                     ],
                     "last_verified": today,
-                    "misses": 0,
                 }
             )
         )
@@ -1008,8 +1005,6 @@ class CrawlResult:
     warnings: list[str]
     skipped_places: list[str] = field(default_factory=list)
     """Municipalities left out by ``--limit-places``."""
-    covered_places: set[str] = field(default_factory=set)
-    """Places and municipalities of the batches that ran without error."""
     municipality_of: dict[str, str] = field(default_factory=dict)
     """Place name -> municipality, for matching in the merge."""
     merge: merge.MergeReport | None = None
@@ -1409,11 +1404,6 @@ def crawl(
             warnings.append(f"batch {report.number}: {report.error}")
     if batches and all(r.error and not r.calls and "skipped:" not in r.error for r in reports):
         raise CrawlError("every batch failed: " + "; ".join(r.error or "" for r in reports))
-    covered: set[str] = set()
-    for batch, report in zip(batches, reports, strict=True):
-        if report.error is None:
-            covered.update(p.name for p in batch.places)
-            covered.update(g.name for g in batch.groups)
     event_urls = [src.url for e in events.values() for src in e.sources]
     swept = {
         url: "events"
@@ -1436,7 +1426,6 @@ def crawl(
         usage=usage,
         warnings=warnings,
         skipped_places=skipped,
-        covered_places=covered,
         municipality_of=municipality_of,
         flyer_cache=flyer_cache,
         instagram_cache=instagram.prune_instagram(insta_cache, today, config) if insta_on else None,
@@ -1650,10 +1639,7 @@ def run(
         existing,
         result.events,
         today=today,
-        covered_places=result.covered_places,
         municipality_of=result.municipality_of,
-        deep_check_days=config.window.deep_check_days,
-        unconfirmed_after=config.events.unconfirmed_after_misses,
         decide=merge.ai_decider(
             runner, config.models.merge, config.excluded_topics, config.tag_ids
         ),
@@ -1664,7 +1650,7 @@ def run(
     print(
         f"merge: {len(report.added)} new, {len(report.updated)} updated "
         f"({len(report.merged_fuzzy)} by similarity), {len(report.cancelled)} cancelled, "
-        f"{len(report.postponed)} postponed, {len(report.unconfirmed)} now unconfirmed, "
+        f"{len(report.postponed)} postponed, "
         f"{len(report.excluded)} excluded by topic, {len(report.deleted)} past deleted"
         + (f", {len(report.retagged)} retagged" if report.retagged else "")
         + (f", {len(report.grouped)} occasions grouped" if report.grouped else "")

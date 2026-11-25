@@ -2,7 +2,7 @@
 
 * :func:`json_ld`: schema.org ``Event`` objects for the day pages
 * ``llms.txt``: what the site is, coverage, URL patterns, data links
-* ``data/events.json``: public copy of the events without internal fields
+* ``data/events.json``: public copy of the events
 * ``data/events.ics``: iCalendar feed to subscribe to
 * ``sitemap.xml`` (with hreflang alternates) and ``robots.txt``
 """
@@ -23,10 +23,8 @@ if TYPE_CHECKING:
     from letsgau.build import Site
 
 AI_CRAWLERS = ("GPTBot", "ClaudeBot", "Claude-Web", "PerplexityBot", "Google-Extended")
-INTERNAL_FIELDS = {"misses"}
 STATUS_LD = {
     EventStatus.SCHEDULED: "https://schema.org/EventScheduled",
-    EventStatus.UNCONFIRMED: "https://schema.org/EventScheduled",
     EventStatus.CANCELLED: "https://schema.org/EventCancelled",
     EventStatus.POSTPONED: "https://schema.org/EventPostponed",
 }
@@ -111,13 +109,9 @@ def json_ld(rows: Iterable[Any], lang: str, page_url: str, tz: ZoneInfo) -> dict
 
 
 def public_events(events: Sequence[Event], generated_at: datetime) -> dict[str, Any]:
-    payload = EventsFile(updated_at=generated_at, events=list(events)).model_dump(
+    return EventsFile(updated_at=generated_at, events=list(events)).model_dump(
         mode="json", by_alias=True
     )
-    for event in payload["events"]:
-        for name in INTERNAL_FIELDS:
-            event.pop(name, None)
-    return payload
 
 
 def _ics_escape(text: str) -> str:
@@ -174,8 +168,6 @@ def ics(site: Site, lang: str) -> str:
             title = getattr(event.title, lang)
             if event.status is EventStatus.CANCELLED:
                 lines.append("STATUS:CANCELLED")
-            elif event.status is EventStatus.UNCONFIRMED:
-                lines.append("STATUS:TENTATIVE")
             else:
                 lines.append("STATUS:CONFIRMED")
             location = ", ".join(

@@ -23,7 +23,6 @@ class EventStatus(StrEnum):
     SCHEDULED = "scheduled"
     POSTPONED = "postponed"
     CANCELLED = "cancelled"
-    UNCONFIRMED = "unconfirmed"
 
 
 class EventKind(StrEnum):
@@ -233,7 +232,18 @@ class Event(_DataModel):
     sources: list[EventSource] = Field(min_length=1)
     first_seen: date
     last_verified: date
-    misses: int = Field(default=0, ge=0)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _legacy(cls, data: Any) -> Any:
+        """Migration: files from before the removal of the "unconfirmed" status still carry
+        ``misses`` and maybe ``status: unconfirmed``; drop the field, read the status as
+        scheduled. The next events run writes the file without them."""
+        if isinstance(data, dict) and ("misses" in data or data.get("status") == "unconfirmed"):
+            data = {k: v for k, v in data.items() if k != "misses"}
+            if data.get("status") == "unconfirmed":
+                data["status"] = "scheduled"
+        return data
 
     @model_validator(mode="after")
     def _rules(self) -> Event:

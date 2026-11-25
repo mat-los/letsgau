@@ -249,7 +249,7 @@ def test_status_and_program_display(site: Path) -> None:
     # postponed events are hidden completely; the event at its new date is shown
     assert "badge postponed" not in html and "Neuer Termin" not in html
     assert 'id="2026-11-14-ev7"' not in html
-    assert '<span class="badge unconfirmed">Nicht mehr bestätigt</span>' in html
+    assert "unconfirmed" not in html
     assert '<span class="prog">heute 3 Programmpunkte</span>' in html
     assert "im Rahmen von Basteln für Kinder #1" in html
     assert "noch bis 19.11. · Heute geöffnet 11:00–21:00" in html

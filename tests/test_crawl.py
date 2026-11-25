@@ -629,7 +629,6 @@ def test_sweeps_split_known_sources_and_add_an_open_search(tmp_path: Path, data_
     assert "Run the queries of this checklist" not in recheck
     assert runner.requests[8].max_searches == crawl.SWEEP_MAX_SEARCHES
     assert result.batches[0].calls == 10 and result.batches[0].error is None
-    assert "Schongau" in result.covered_places
     assert result.swept["https://club13.example/termine"] == "empty"
     assert set(urls) <= set(result.swept)  # every source of a call that answered
 
@@ -684,7 +683,6 @@ def test_failed_sweep_keeps_other_events_but_not_coverage(tmp_path: Path, data_d
     report = result.batches[0]
     assert report.calls == 1 and report.error.startswith("[sources 1] claude failed")
     assert report.notes == "[search] search done"
-    assert result.covered_places == set()  # nothing is "missed" after a partial failure
     assert any("batch 1: [sources 1] claude failed" in w for w in result.warnings)
 
 
