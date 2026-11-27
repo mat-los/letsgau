@@ -196,11 +196,14 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
 .ev .time.untimed { font-size: .75rem; font-weight: 600; color: var(--muted); }
 .ev .time small { display: block; font-size: .7rem; font-weight: 600; color: var(--muted); }
 .ev .title { grid-area: title; font-weight: 650; font-size: 1.02rem; line-height: 1.3; min-width: 0; overflow-wrap: anywhere; }
-.ev .place { grid-area: place; display: inline-flex; align-items: center; gap: 3px; color: var(--muted);
+.ev .place { grid-area: place; display: inline-flex; align-items: center; gap: 0; color: var(--muted);
   font-size: .82rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ev .place::before { content: ""; flex: 0 0 auto; width: 12px; height: 12px; background: currentColor;
+.ev .place::before { content: ""; flex: 0 0 auto; margin-right: 3px; width: 12px; height: 12px; background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.ev .place .spot { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.ev .place .town { flex: 0 0 auto; }  /* a long venue name is cut, the place stays */
+.ev .place .spot + .town::before { content: ", "; white-space: pre; }
 .ev .meta { grid-area: meta; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .tag, .badge, .prog, .part, .span { font-size: .7rem; font-weight: 600; line-height: 1.5; padding: 1px 8px; border-radius: 999px;
   background: var(--chip); color: var(--muted); }
@@ -276,7 +279,7 @@ h1.day small { font: 600 .75rem/1 system-ui, sans-serif; color: var(--muted); pa
   main { padding: 0 20px 32px; }
   .ev > summary { grid-template-columns: 4rem 1fr auto; grid-template-areas: "time title place" ". meta meta";
     padding: 12px 16px; }
-  .ev .place { max-width: 14rem; justify-self: end; }
+  .ev .place { max-width: 20rem; justify-self: end; }
   .ev .body { margin: 0 16px 0 calc(4rem + 26px); }
 }
 @media (prefers-reduced-motion: reduce) { .top, .ev { transition: none; } }

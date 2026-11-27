@@ -55,7 +55,10 @@
         }
         var c = el("details", "ev t-" + e.g[0] + (e.x ? " st-" + e.x : "")), s = el("summary"), b = el("div", "body");
         s.appendChild(el("span", "time" + (/:/.test(e.u) ? "" : " untimed"), e.u));
-        s.appendChild(el("span", "title", e.n)); s.appendChild(el("span", "place", e.p));
+        s.appendChild(el("span", "title", e.n));
+        var pl = el("span", "place"); s.appendChild(pl);  /* spot, place (build.place_parts) */
+        if (e.o) pl.appendChild(el("span", "spot", e.o));
+        if (e.p) pl.appendChild(el("span", "town", e.p));
         var m = el("span", "meta"); s.appendChild(m);  /* status; lasts beyond this day (#119) */
         if (e.x) m.appendChild(el("span", "badge " + e.x, L[e.x]));
         if (e.r || e.c) m.appendChild(el("span", e.r ? "span" : "prog", e.r || e.c));
