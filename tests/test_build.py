@@ -22,7 +22,7 @@ from letsgau.build import (
 )
 from letsgau.cli import main
 from letsgau.config import load_config
-from letsgau.models import Event, EventKind, EventsFile, EventStatus
+from letsgau.models import Event, EventKind, EventsFile, EventStatus, Venue
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = REPO_ROOT / "instance" / "config.yaml"
@@ -359,11 +359,31 @@ def test_search_index_covers_all_displayed_days_sorted(site: Path, events: list[
         event = by_id[event_id]
         assert entry["t"] == event.description.de
         assert entry["l"] == next(s.url for s in event.sources if s.primary)
-        assert entry["v"].endswith(event.venue.address or event.venue.place)
+        assert entry["v"] == build.venue_line(event)
+        assert (entry["o"], entry["p"]) == build.place_parts(event)
     html = page(site, "de/2026-11-14")
     assert "&#34;day&#34;:&#34;Zum Tag&#34;" in html
     assert 'id="results"' in html and "assets/search.js" in html
     assert (site / "assets" / "search.js").stat().st_size < 5_500
+
+
+def test_row_shows_where_in_the_place(site: Path, events: list[Event]) -> None:
+    html = page(site, "de/2026-11-14")
+    assert (
+        '<span class="place"><span class="spot">Marienplatz</span>'
+        '<span class="town">Schongau</span></span>' in html
+    )
+    venue = Venue(name="Eissporthalle Peiting", place="Peiting")
+    event = events[0]
+    assert build.place_parts(event.model_copy(update={"venue": venue})) == (
+        "Eissporthalle Peiting",
+        "",
+    )
+    venue = Venue(name=None, place="Peiting", address="Hauptplatz 4")
+    assert build.place_parts(event.model_copy(update={"venue": venue})) == ("", "Peiting")
+    assert build.venue_line(event.model_copy(update={"venue": venue})) == "Hauptplatz 4"
+    venue = Venue(name="Löwenhof", place="Schongau")
+    assert build.venue_line(event.model_copy(update={"venue": venue})) == ""
 
 
 def test_search_hit_says_that_it_lasts_beyond_its_day() -> None:

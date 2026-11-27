@@ -396,6 +396,8 @@ def base_context(site: Site, lang: str, depth: int) -> dict[str, Any]:
         "time_on": time_on,
         "is_multi_day": is_multi_day,
         "runs_daily": runs_daily,
+        "place_parts": place_parts,
+        "venue_line": venue_line,
         "more_dates": lambda e, d: more_dates(t, e, d),
         "Status": EventStatus,
     }
@@ -456,16 +458,31 @@ def fold(text: str) -> str:
     return "".join(c for c in text if not unicodedata.combining(c))
 
 
-def venue_line(event: Event) -> str:
-    """``name, address`` or ``name, place``, as in the details of a day page."""
+def place_parts(event: Event) -> tuple[str, str]:
+    """(spot, place) for the event row: where in the place (the venue name, e.g.
+    ``Marienplatz``) and the place itself. The spot is empty without a venue name; the place is
+    empty when the venue name already contains it (``Eissporthalle Peiting``)."""
     v = event.venue
-    return ", ".join(x for x in (v.name, v.address or v.place) if x)
+    spot = (v.name or "").strip()
+    if not spot or spot.casefold() == v.place.casefold():
+        return "", v.place
+    if v.place.casefold() in spot.casefold():
+        return spot, ""
+    return spot, v.place
+
+
+def venue_line(event: Event) -> str:
+    """``name, address`` for the details of an event; empty without an address, since the
+    row already shows the venue name and place (:func:`place_parts`)."""
+    v = event.venue
+    return ", ".join(x for x in (v.name, v.address) if x) if v.address else ""
 
 
 def search_index(site: Site, lang: str) -> dict[str, Any]:
     """All events of the displayed days, each once on its first displayed day, sorted.
 
-    Entry keys: ``d`` day, ``u`` time column (start time or empty), ``n`` title, ``p`` place,
+    Entry keys: ``d`` day, ``u`` time column (start time or empty), ``n`` title, ``o`` spot
+    and ``p`` place (:func:`place_parts`),
     ``g`` tags, ``h`` link anchor, ``t`` description, ``v`` venue line, ``l`` primary source
     URL (``t``, ``v``, ``l`` for the expanded hit), ``s`` folded search text (title, place,
     venue, description, main event and the category names in every language), ``x`` status
@@ -514,6 +531,7 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
             )
             if x
         )
+        spot, shown_place = place_parts(event)
         entries.append(
             (
                 day,
@@ -522,7 +540,8 @@ def search_index(site: Site, lang: str) -> dict[str, Any]:
                     "d": day.isoformat(),
                     "u": time or "",
                     "n": getattr(event.title, lang),
-                    "p": event.venue.place,
+                    "o": spot,
+                    "p": shown_place,
                     "g": event.tags,
                     "h": anchor,
                     "t": getattr(event.description, lang),
