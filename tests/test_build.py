@@ -264,7 +264,7 @@ def test_metadata_and_links(site: Path) -> None:
     assert re.search(r"<title>Let&#39;s Gau - [^<]+ - Events around Schongau</title>", about)
     assert "&#34;title&#34;:&#34;Let&#39;s Gau - Suche: {q} - Events rund um Schongau" in html
     assert (
-        '<meta property="og:title" content="Was ist los in und um Schongau am Samstag, '
+        '<meta property="og:title" content="Eventkalender für Schongau: Samstag, '
         '14. November 2026">' in html
     )
     assert '<link rel="canonical" href="https://letsgau.de/de/2026-11-14/">' in html
