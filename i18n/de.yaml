@@ -17,8 +17,9 @@ title_suffix: "Events rund um {region}"
 search_title: "Suche: {q}"
 index_title: "Eventkalender für {label}"
 index_description: "Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
-day_title: "Eventkalender für {label}: {date}"
-day_description: "{count} Events am {date}. Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
+day_title: "{date} · Eventkalender für {label}"
+day_description: "{count} Events. Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
+day_description_one: "1 Event. Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
 weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 weekdays_short: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]

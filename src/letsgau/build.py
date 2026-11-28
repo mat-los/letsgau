@@ -427,7 +427,12 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
             "canonical": page_path(lang, day),
             "title": t("day_title", label=label, date=date_text),
             "page_label": date_text,
-            "description": t("day_description", count=view.count, label=label, date=date_text),
+            "description": t(
+                "day_description_one" if view.count == 1 else "day_description",
+                count=view.count,
+                label=label,
+                date=date_text,
+            ),
         }
     ctx.update(
         view=view,

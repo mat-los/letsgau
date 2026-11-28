@@ -264,8 +264,8 @@ def test_metadata_and_links(site: Path) -> None:
     assert re.search(r"<title>Let&#39;s Gau - [^<]+ - Events around Schongau</title>", about)
     assert "&#34;title&#34;:&#34;Let&#39;s Gau - Suche: {q} - Events rund um Schongau" in html
     assert (
-        '<meta property="og:title" content="Eventkalender für Schongau: Samstag, '
-        '14. November 2026">' in html
+        '<meta property="og:title" content="Samstag, 14. November 2026 · Eventkalender für '
+        'Schongau">' in html
     )
     assert '<link rel="canonical" href="https://letsgau.de/de/2026-11-14/">' in html
     assert '<link rel="alternate" hreflang="en" href="https://letsgau.de/en/2026-11-14/">' in html
@@ -529,3 +529,14 @@ def test_footer_shows_the_last_run_of_each_job(tmp_path: Path) -> None:
         '<span class="run" title="OK">Quellensuche 9.11. 06:00 <span role="img" '
         'aria-label="OK">✓</span></span>'
     )
+
+
+def test_day_description_says_one_event_in_the_singular(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    data.mkdir()
+    events = EventsFile(updated_at=NOW, events=[ev()])
+    (data / "events.json").write_text(events.model_dump_json(), encoding="utf-8")
+    build.build(load_config(CONFIG_PATH), data_dir=data, site_dir=tmp_path / "site", now=NOW)
+    html = page(tmp_path / "site", "de/2026-11-14")
+    assert '<meta name="description" content="1 Event. Konzerte' in html
+    assert "1 event. Concerts" in page(tmp_path / "site", "en/2026-11-14")
