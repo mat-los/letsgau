@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Bundled instance: Instagram account `bijoucaferose` (Bijou Café, Schongau) added.
 - Link preview of the start page matches the printed card: title "Eventkalender für
   Schongau", description "Konzerte, Märkte, Sport und Kultur in Schongau und Umgebung. Ohne
   App, ohne Anmeldung, ohne Werbung." (`index_title`, `index_description` now take
