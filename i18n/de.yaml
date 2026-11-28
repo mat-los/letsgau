@@ -15,10 +15,11 @@ run_last_ok: "zuletzt erfolgreich"
 ai_notice: "Events werden automatisch per KI gesammelt und können falsch oder veraltet sein. Bitte vor dem Besuch kurz beim Veranstalter prüfen."
 title_suffix: "Events rund um {region}"
 search_title: "Suche: {q}"
-index_title: "Was ist los in und um {label}?"
-index_description: "Konzerte, Märkte, Sport, Kultur und mehr in {places}: was heute und in den nächsten Wochen los ist."
-day_title: "Was ist los in und um {label} am {date}"
-day_description: "{count} Events in und um {label} am {date}: Konzerte, Märkte, Sport, Kultur und mehr."
+index_title: "Eventkalender für {label}"
+index_description: "Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
+day_title: "{date} · Eventkalender für {label}"
+day_description: "{count} Events. Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
+day_description_one: "1 Event. Konzerte, Märkte, Sport und Kultur in {label} und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung."
 weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 weekdays_short: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]

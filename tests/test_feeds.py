@@ -165,7 +165,10 @@ def test_plain_html_contains_every_event(site: Path) -> None:
 
 def test_page_metadata_for_sharing(site: Path) -> None:
     page = (site / "de" / "2026-11-14" / "index.html").read_text(encoding="utf-8")
-    assert '<meta name="description" content="102 Events in und um Schongau' in page
+    assert (
+        '<meta name="description" content="102 Events. '
+        "Konzerte, Märkte, Sport und Kultur in Schongau" in page
+    )
     assert '<meta property="og:title"' in page and '<meta property="og:url"' in page
     assert 'hreflang="x-default"' in page
 
