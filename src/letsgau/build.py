@@ -420,7 +420,7 @@ def render_day(env: Environment, site: Site, lang: str, day: date, *, is_index: 
             "share_url": page_path(lang),
             "title": t("index_title", label=label),
             "page_label": "",
-            "description": t("index_description", places=places),
+            "description": t("index_description", label=label, places=places),
         }
     else:
         meta = {
@@ -705,6 +705,7 @@ def build(
             share_title=t0("index_title", label=config.region.label),
             share_description=t0(
                 "index_description",
+                label=config.region.label,
                 places=join_names(t0, [m.label for m in config.region.municipalities]),
             ),
         ),

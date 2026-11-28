@@ -278,10 +278,15 @@ def test_metadata_and_links(site: Path) -> None:
     assert 'href="../assets/style.css"' in index
     # no date in the title and the share preview of the start page
     assert "<title>Let&#39;s Gau - Events rund um Schongau</title>" in index
-    assert '<meta property="og:title" content="Was ist los in und um Schongau?">' in index
+    # the share preview of the start page matches the printed card
+    assert '<meta property="og:title" content="Eventkalender für Schongau">' in index
+    assert (
+        '<meta property="og:description" content="Konzerte, Märkte, Sport und Kultur in Schongau '
+        'und Umgebung. Ohne App, ohne Anmeldung, ohne Werbung.">' in index
+    )
     assert '<meta property="og:url" content="https://letsgau.de/de/">' in index
     root = (site / "index.html").read_text(encoding="utf-8")
-    assert '<meta property="og:title" content="Was ist los in und um Schongau?">' in root
+    assert '<meta property="og:title" content="Eventkalender für Schongau">' in root
     assert "2026" not in index.split("</title>")[0] and "November" not in index.split("<body")[0]
     assert "Zuletzt aktualisiert: <time" in html and "13.11. 21:00" in html
 

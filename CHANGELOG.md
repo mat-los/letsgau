@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Link preview of the start page matches the printed card: title "Eventkalender für
+  Schongau", description "Konzerte, Märkte, Sport und Kultur in Schongau und Umgebung. Ohne
+  App, ohne Anmeldung, ohne Werbung." (`index_title`, `index_description` now take
+  `{label}`), and a new `instance/share.png` in the card's design.
+
+### Changed
+
 - The event row shows where in the place an event is: the venue name before the place
   ("Marienplatz, Schongau"), or the venue name alone if it already contains the place
   ("Löwenhof Schongau"). A long venue name is cut, the place stays. The details show the
